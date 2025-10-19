@@ -1,0 +1,8 @@
+Allow all web crawlers to access all content
+
+User-agent: *
+Allow: /
+
+Specify the location of the sitemap
+
+Sitemap: https://www.google.com/search?q=https://solite.com/sitemap.xml
