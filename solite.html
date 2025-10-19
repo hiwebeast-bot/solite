@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solite | The Ultimate Suite of Free, Private Apps for Creatives</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Welcome to Solite. The ultimate collection of free, private, browser-based SaaS tools for creators and developers. Includes a text engine, image editor, certificate maker, and a front-end IDE. No sign-ups required, 100% client-side for complete privacy.">
+    <meta name="keywords" content="solite, micro-saas, free tools, text editor, image editor, certificate maker, web ide, privacy first, online tools, developer utilities, creative suite, browser-based apps">
+    <link rel="canonical" href="https://solite.com/" />
+    <meta property="og:title" content="Solite | The Ultimate Suite of Free, Private Apps for Creatives">
+    <meta property="og:description" content="A powerful collection of client-side tools for text, images, certificates, and code. 100% free and private.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0d1117/7dd3fc?text=Solite">
+    <meta property="og:url" content="https://solite.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (New Solite Logo) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Premium background and text styles */
+        body {
+            background-color: #0d1117;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Animated aurora background */
+        #aurora-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 75% 75%, rgba(124, 58, 237, 0.08) 0%, transparent 40%);
+            z-index: -1;
+            animation: rotate-aurora 120s linear infinite;
+        }
+
+        @keyframes rotate-aurora {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(to right, #ffffff, #c0d3eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* Accessible focus state */
+        :is(button, a, select, input):focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px #3b82f680;
+            border-radius: 0.5rem;
+        }
+        /* Premium card styles */
+        .app-card {
+            background: linear-gradient(145deg, #1f2937e6, #111827e6);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid #374151; /* gray-700 */
+        }
+        .app-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);
+        }
+        .app-card:hover:before {
+            opacity: 1;
+        }
+        /* Scroll-triggered animation styles */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: var(--delay, 0s);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+     <!-- Schema.org Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Solite",
+      "url": "https://solite.com/",
+      "description": "The ultimate collection of free, private, browser-based SaaS tools for creators and developers.",
+       "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://solite.com/#search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body class="antialiased text-gray-300 flex flex-col min-h-screen font-sans">
+    
+    <div id="aurora-background"></div>
+
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-xl z-30 border-b border-gray-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                <!-- New Solite Logo -->
+                 <svg class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Solite</h1>
+            </a>
+             <div class="relative">
+                <button id="more-tools-btn" class="bg-gray-700/50 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-all hover:scale-105">
+                    <span>All Tools</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                 <div id="tools-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 py-1">
+                    <!-- Dropdown items will be injected here by JavaScript -->
+                 </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full pt-16 sm:pt-24 z-10">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-24">
+            <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight animate-on-scroll is-visible">
+                <span class="hero-title-gradient">Your Free, Private App Suite</span>
+            </h2>
+            <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto animate-on-scroll is-visible" style="--delay: 0.2s;">
+                A collection of powerful, browser-based tools for creators and developers. No sign-ups. No data collection. Just powerful apps.
+            </p>
+            <div class="mt-8 animate-on-scroll is-visible" style="--delay: 0.4s;">
+                <a href="#apps" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg shadow-blue-500/20">Explore The Suite</a>
+            </div>
+        </section>
+
+        <!-- App Cards Grid -->
+        <section id="apps" class="w-full max-w-7xl pt-12 mb-24">
+            <h3 class="text-4xl font-bold text-white mb-12 text-center animate-on-scroll">The Solite App Suite</h3>
+            <div id="app-card-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- App cards will be injected here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Main script to dynamically load apps and handle animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const appGridContainer = document.getElementById('app-card-grid');
+            const dropdownContainer = document.getElementById('tools-dropdown');
+
+            // App data is now embedded directly to avoid fetch errors in certain environments.
+            const appsData = [
+              {
+                "name": "Text Engine",
+                "description": "Clean, analyze, and transform text with an all-in-one toolkit.",
+                "url": "./Ultimate text engine.html",
+                "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' />",
+                "iconBgClass": "bg-blue-600/20",
+                "iconColorClass": "text-blue-300"
+              },
+              {
+                "name": "Visual Pad",
+                "description": "A client-side IDE for HTML, CSS, and JS with a live preview.",
+                "url": "./visual pad.html",
+                "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' />",
+                "iconBgClass": "bg-green-600/20",
+                "iconColorClass": "text-green-300"
+              },
+              {
+                "name": "CertifyCraft",
+                "description": "Design and download professional certificates from modern templates.",
+                "url": "./CertifyCraft.html",
+                "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />",
+                "iconBgClass": "bg-purple-600/20",
+                "iconColorClass": "text-purple-300"
+              },
+              {
+                "name": "Pixel Toolkit",
+                "description": "Crop, resize, filter, and convert images instantly in your browser.",
+                "url": "./Pixel Perfect Toolkit.html",
+                "iconSvgPath": "<path fill-rule='evenodd' stroke='none' fill='currentColor' d='M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z' clip-rule='evenodd' />",
+                "iconBgClass": "bg-red-600/20",
+                "iconColorClass": "text-red-300"
+              }
+            ];
+
+            // Function to initialize scroll animations
+            const initializeScrollAnimations = () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                const animatedElements = document.querySelectorAll('.animate-on-scroll');
+                animatedElements.forEach(el => observer.observe(el));
+            };
+
+            // Function to render apps from the local appsData object
+            const renderApps = () => {
+                try {
+                    const apps = appsData;
+
+                    let cardsHTML = '';
+                    let dropdownHTML = '';
+
+                    apps.forEach((app, index) => {
+                        // Create HTML for each app card
+                        cardsHTML += `
+                            <div class="app-card rounded-2xl p-6 flex flex-col shadow-lg h-full animate-on-scroll" style="--delay: ${0.2 + index * 0.1}s;">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <div class="${app.iconBgClass} p-2 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ${app.iconColorClass}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                            ${app.iconSvgPath}
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-white">${app.name}</h4>
+                                </div>
+                                <p class="text-gray-400 mb-6 flex-grow text-sm">${app.description}</p>
+                                <a href="${app.url}" class="mt-auto bg-gray-700/50 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">
+                                    Launch <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+                                </a>
+                            </div>
+                        `;
+
+                        // Create HTML for each dropdown item, now with icons
+                        dropdownHTML += `
+                            <a href="${app.url}" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 ${app.iconColorClass}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    ${app.iconSvgPath}
+                                </svg>
+                                <span>${app.name}</span>
+                            </a>
+                        `;
+                    });
+
+                    appGridContainer.innerHTML = cardsHTML;
+                    dropdownContainer.innerHTML = dropdownHTML;
+
+                    // Re-initialize scroll animations after content is dynamically added
+                    initializeScrollAnimations();
+
+                } catch (error) {
+                    console.error("Failed to render apps:", error);
+                    appGridContainer.innerHTML = `<p class="text-red-400 col-span-full text-center">Could not load app suite. Please try again later.</p>`;
+                }
+            };
+
+            // Initial call to render apps and set up animations
+            renderApps();
+            initializeScrollAnimations(); // For elements already on the page
+        });
+
+        // Dropdown menu script
+        (() => {
+            const moreToolsBtn = document.getElementById('more-tools-btn');
+            const toolsDropdown = document.getElementById('tools-dropdown');
+            if (moreToolsBtn && toolsDropdown) {
+                moreToolsBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toolsDropdown.classList.toggle('hidden');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!moreToolsBtn.contains(e.target) && !toolsDropdown.contains(e.target)) {
+                        toolsDropdown.classList.add('hidden');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+

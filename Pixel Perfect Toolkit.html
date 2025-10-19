@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE Image Editor | Pixel Perfect Toolkit</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free, client-side image editor to crop, resize, watermark, apply filters, compress, and convert images instantly. No uploads, 100% private.">
+    <meta name="keywords" content="image editor, photo editor, crop image, resize image, add watermark, webp converter, image compressor, online photo editor, privacy first">
+    <meta property="og:title" content="Pixel Perfect Toolkit | Free Instant Image Editor">
+    <meta property="og:description" content="The professional-grade toolkit for all your image editing needs. FREE, private, and powerful.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0d1117/7dd3fc?text=Pixel+Perfect\nToolkit">
+    <meta property="og:url" content="https://yourdomain.com/image-editor">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path fill-rule=%22evenodd%22 d=%22M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z%22 clip-rule=%22evenodd%22 /></svg>">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #0d1117, #111827);
+        }
+        :is(button, a, select, input, .tab):focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 16px; height: 16px; background: #3b82f6;
+            cursor: pointer; border-radius: 50%;
+        }
+        .custom-range::-moz-range-thumb {
+            width: 16px; height: 16px; background: #3b82f6;
+            cursor: pointer; border-radius: 50%;
+        }
+        #canvas-container.cropping { cursor: crosshair; }
+        #canvas-container.dragging { cursor: move; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .watermark-type-btn.active { background-color: #3b82f6; color: #fff; }
+        .filter-btn.active { background-color: #3b82f6 !important; color: #fff; }
+        
+        /* Standard Tab Styles */
+        .tab {
+            color: #9CA3AF; /* text-gray-400 */
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px; /* Overlap container border */
+            transition: all 0.15s ease-in-out;
+        }
+        .tab:hover {
+            color: #D1D5DB; /* text-gray-300 */
+        }
+        .tab.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-300 bg-gray-900 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-30 border-b border-gray-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
+                  <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                </svg>
+                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Pixel Perfect Toolkit</h1>
+            </div>
+             <div class="relative">
+                <button id="more-tools-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
+                    <span>More FREE Tools</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                 <div id="tools-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">FREE Text Engine</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">FREE Gradient Generator</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full my-12">
+        <div class="w-full max-w-7xl flex-grow flex flex-col lg:flex-row gap-6">
+            
+            <!-- Main Workspace -->
+            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-800 rounded-xl border border-gray-700 min-h-[70vh] p-4 relative overflow-hidden">
+                <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <h3 class="mt-2 text-lg font-medium text-white">Drop image(s) here or click to upload</h3>
+                    <p class="mt-1 text-sm text-gray-400">Supports PNG, JPG, WebP. Your images stay on your device.</p>
+                </div>
+                <canvas id="canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
+                <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp" multiple>
+                <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-full p-2 leading-none z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                </button>
+            </div>
+
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-800 rounded-xl border border-gray-700 p-1 hidden">
+                <div class="flex justify-between items-center p-4">
+                    <h3 class="text-lg font-bold text-white">Image Controls</h3>
+                    <div class="flex items-center space-x-2">
+                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+                        </button>
+                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="border-b border-gray-700 px-2">
+                    <div class="flex">
+                        <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="adjust">Adjust</button>
+                        <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="crop">Crop</button>
+                        <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="watermark">Watermark</button>
+                        <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="export">Export</button>
+                    </div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-4 space-y-5">
+                    <div id="adjust-tab" class="tab-content space-y-4">
+                        <h4 class="font-semibold text-gray-200">Filters & Adjustments</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="grayscale">Grayscale</button>
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="sepia">Sepia</button>
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="invert">Invert</button>
+                            <button id="reset-btn" class="bg-gray-600 hover:bg-gray-500 py-2 rounded-lg">Reset All</button>
+                        </div>
+                         <div class="space-y-3 pt-2">
+                            <label class="block"><span class="text-sm">Brightness</span><input type="range" id="brightness-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Contrast</span><input type="range" id="contrast-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Blur</span><input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                        </div>
+                    </div>
+
+                    <div id="crop-tab" class="tab-content hidden space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-200 mb-2">Resize</h4>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                                <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                                <button id="apply-resize-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-3 rounded-lg">Apply</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-200 mb-2">Preset Crop</h4>
+                             <div class="grid grid-cols-4 gap-2">
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="1:1">Square</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="16:9">Landscape</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:3">Classic</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:5">Portrait</button>
+                            </div>
+                            <div class="grid grid-cols-6 gap-2 mt-2">
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="circle" title="Circle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="star" title="Star Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="hexagon" title="Hexagon Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="blob" title="Blob Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.9,13.7C20.4,17.2,17,20,13,20C9,20,5.6,17.2,5.1,13.7C4.6,10.2,7.5,6,12.5,6S21.4,10.2,20.9,13.7Z" transform="rotate(45 12 12)"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="heart" title="Heart Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="triangle" title="Triangle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 22 2 22 12 2"></polygon></svg></button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-200 mb-2">Manual Crop</h4>
+                            <p class="text-sm text-gray-400 mb-2">Enable, then drag on the image to select an area.</p>
+                             <button id="toggle-crop-btn" class="w-full flex justify-between items-center text-left py-2 px-4 rounded-lg border-2 border-gray-600 hover:border-gray-500 mb-2">
+                                <span>Enable Manual Crop</span>
+                                <div id="crop-tick-container" class="w-5 h-5 border-2 border-gray-500 rounded-sm flex items-center justify-center flex-shrink-0"></div>
+                            </button>
+                            <button id="apply-crop-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg" disabled>Apply Crop</button>
+                        </div>
+                    </div>
+
+                    <div id="watermark-tab" class="tab-content hidden space-y-4">
+                        <div class="flex bg-gray-700 rounded-lg p-1">
+                            <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-md">Text</button>
+                            <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-400">Image</button>
+                        </div>
+
+                        <div id="text-watermark-controls" class="space-y-4">
+                            <input type="text" id="watermark-text" placeholder="Your watermark text..." class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <div>
+                                <span class="text-sm">Color</span>
+                                <div id="color-presets" class="grid grid-cols-8 gap-2 mt-1 mb-2"></div>
+                                <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-700 rounded-lg cursor-pointer">
+                            </div>
+                        </div>
+
+                        <div id="image-watermark-controls" class="hidden space-y-4">
+                            <input type="file" id="watermark-upload-input" class="hidden" accept="image/png, image/jpeg, image/webp">
+                            <button id="upload-watermark-btn" class="w-full bg-gray-700 hover:bg-gray-600 py-2 px-4 rounded-lg">Upload Watermark</button>
+                            <div id="image-watermark-sliders" class="hidden space-y-4">
+                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="export-tab" class="tab-content hidden space-y-4">
+                         <h4 class="font-semibold text-gray-200">Export Image</h4>
+                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                            <option value="image/png">PNG</option>
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/webp">WebP</option>
+                            <option value="image/bmp">BMP</option>
+                            <option value="image/gif">GIF</option>
+                            <option value="image/tiff">TIFF</option>
+                            <option value="image/svg+xml">SVG</option>
+                        </select>
+                        <div id="quality-control" class="hidden">
+                            <div class="flex justify-between items-center">
+                                <label for="quality-slider" class="text-sm">Quality / Compression</label>
+                                <span id="file-size-preview" class="text-sm font-medium text-gray-400"></span>
+                            </div>
+                            <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg custom-range">
+                        </div>
+                        <button id="download-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-transform hover:-translate-y-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <span>Download Image</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 sm:p-6 w-full flex-shrink-0">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Privacy First. No Server. No Sign-up.</span>
+            </div>
+            <div class="flex items-center space-x-4 mt-4 sm:mt-0"><a href="#" class="hover:text-white">Privacy Policy</a><a href="#" class="hover:text-white">Terms of Service</a></div>
+        </div>
+    </footer>
+    
+    <script>
+        (() => {
+            // DOM Elements
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const imageUpload = document.getElementById('image-upload');
+            const canvasContainer = document.getElementById('canvas-container');
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const controlsPanel = document.getElementById('controls-panel');
+            const downloadBtn = document.getElementById('download-btn');
+            const formatSelect = document.getElementById('format-select');
+            const qualityControl = document.getElementById('quality-control');
+            const qualitySlider = document.getElementById('quality-slider');
+            const fileSizePreview = document.getElementById('file-size-preview');
+            const resetBtn = document.getElementById('reset-btn');
+            const moreToolsBtn = document.getElementById('more-tools-btn');
+            const toolsDropdown = document.getElementById('tools-dropdown');
+            const removeImageBtn = document.getElementById('remove-image-btn');
+            const toggleCropBtn = document.getElementById('toggle-crop-btn');
+            const applyCropBtn = document.getElementById('apply-crop-btn');
+            const resizeWidthInput = document.getElementById('resize-width');
+            const resizeHeightInput = document.getElementById('resize-height');
+            const applyResizeBtn = document.getElementById('apply-resize-btn');
+            const undoBtn = document.getElementById('undo-btn');
+            const redoBtn = document.getElementById('redo-btn');
+            const cropTickContainer = document.getElementById('crop-tick-container');
+            
+            // Watermark DOM
+            const textWatermarkBtn = document.getElementById('text-watermark-btn');
+            const imageWatermarkBtn = document.getElementById('image-watermark-btn');
+            const textWatermarkControls = document.getElementById('text-watermark-controls');
+            const imageWatermarkControls = document.getElementById('image-watermark-controls');
+            const watermarkUploadInput = document.getElementById('watermark-upload-input');
+            const uploadWatermarkBtn = document.getElementById('upload-watermark-btn');
+            const imageWatermarkSliders = document.getElementById('image-watermark-sliders');
+            const colorPresetsContainer = document.getElementById('color-presets');
+            const watermarkColorInput = document.getElementById('watermark-color');
+
+            // State variables
+            let initialImage = null; 
+            let originalImage = null; 
+            let isCropping = false;
+            let cropRect = {};
+            let isDragging = false;
+            let history = [];
+            let historyIndex = -1;
+            const tickSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+
+            // Watermark State
+            let activeWatermarkType = 'text';
+            let watermarkImage = null;
+            let watermark = { x: 0, y: 0, width: 0, height: 0 };
+            let isDraggingWatermark = false;
+            let dragOffsetX = 0, dragOffsetY = 0;
+            const colorPresets = ['#FFFFFF', '#000000', '#EF4444', '#3B82F6', '#22C55E', '#EAB308', '#A855F7', '#EC4899'];
+
+            // --- History Management (Undo/Redo) ---
+            function saveState() {
+                if (!originalImage) return;
+                const state = originalImage.src;
+                if (historyIndex < history.length - 1) history = history.slice(0, historyIndex + 1);
+                history.push(state);
+                historyIndex++;
+                updateUndoRedoButtons();
+            }
+
+            function undo() {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    loadState(history[historyIndex]);
+                }
+            }
+
+            function redo() {
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    loadState(history[historyIndex]);
+                }
+            }
+            
+            function loadState(dataUrl) {
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    updateCanvas(originalImage);
+                    updateUndoRedoButtons();
+                };
+                img.src = dataUrl;
+            }
+            
+            function updateUndoRedoButtons() {
+                undoBtn.disabled = historyIndex <= 0;
+                redoBtn.disabled = historyIndex >= history.length - 1;
+            }
+
+            // --- Image Loading & Reset ---
+            function handleImage(file) {
+                if (!file || !file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        initialImage = img;
+                        originalImage = img;
+                        history = [];
+                        historyIndex = -1;
+                        saveState();
+                        updateCanvas(img);
+                        uploadPrompt.classList.add('hidden');
+                        canvas.classList.remove('hidden');
+                        controlsPanel.classList.remove('hidden');
+                        removeImageBtn.classList.remove('hidden');
+                        imageUpload.value = '';
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function updateCanvas(img) {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                redrawCanvas();
+            }
+
+            function removeImage() {
+                initialImage = null; originalImage = null; isCropping = false;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.classList.add('hidden');
+                controlsPanel.classList.add('hidden');
+                removeImageBtn.classList.add('hidden');
+                uploadPrompt.classList.remove('hidden');
+                resetAllControls();
+                history = []; historyIndex = -1;
+                updateUndoRedoButtons();
+                imageUpload.value = '';
+            }
+            
+            function resetAllControls() {
+                document.querySelectorAll('input[type="range"]').forEach(s => s.value = s.defaultValue);
+                document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
+                if(isCropping) toggleCropMode();
+                document.getElementById('watermark-text').value = '';
+                watermarkColorInput.value = '#ffffff';
+                watermarkImage = null;
+                imageWatermarkSliders.classList.add('hidden');
+                showTab('adjust');
+                redrawCanvas();
+            }
+
+            // --- Main Rendering Pipeline ---
+            function redrawCanvas() {
+                if (!originalImage) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const brightness = document.getElementById('brightness-slider').value;
+                const contrast = document.getElementById('contrast-slider').value;
+                const blur = document.getElementById('blur-slider').value;
+                let filterString = `brightness(${100 + Number(brightness)}%) contrast(${100 + Number(contrast)}%) blur(${blur}px) `;
+                const activeFilter = document.querySelector('.filter-btn.active');
+                if (activeFilter) {
+                    const filter = activeFilter.dataset.filter;
+                    if (filter === 'grayscale') filterString += 'grayscale(100%)';
+                    if (filter === 'sepia') filterString += 'sepia(100%)';
+                    if (filter === 'invert') filterString += 'invert(100%)';
+                }
+                
+                ctx.save();
+                ctx.filter = filterString;
+                ctx.drawImage(originalImage, 0, 0);
+                ctx.restore();
+
+                if (activeWatermarkType === 'text') {
+                    const watermarkText = document.getElementById('watermark-text').value;
+                    if(watermarkText) {
+                        ctx.font = `${document.getElementById('watermark-size').value}px Inter`;
+                        ctx.fillStyle = watermarkColorInput.value;
+                        ctx.globalAlpha = document.getElementById('watermark-opacity').value;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(watermarkText, canvas.width / 2, canvas.height / 2);
+                    }
+                } else if (activeWatermarkType === 'image' && watermarkImage) {
+                    ctx.globalAlpha = document.getElementById('image-watermark-opacity').value;
+                    ctx.drawImage(watermarkImage, watermark.x, watermark.y, watermark.width, watermark.height);
+                }
+                ctx.globalAlpha = 1.0;
+
+                if (isCropping) {
+                    drawCropOverlay();
+                }
+            }
+
+            // --- Destructive Actions that save state ---
+            function resizeImage() {
+                const width = parseInt(resizeWidthInput.value);
+                const height = parseInt(resizeHeightInput.value);
+                if (!width || !height || width <= 0 || height <= 0) return;
+                
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = width;
+                tempCanvas.height = height;
+                tempCanvas.getContext('2d').drawImage(originalImage, 0, 0, width, height);
+                
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    saveState();
+                    updateCanvas(originalImage);
+                }
+                img.src = tempCanvas.toDataURL();
+            }
+
+            function clipShape(shape) {
+                if (!originalImage) return;
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                const w = originalImage.width; const h = originalImage.height;
+                tempCanvas.width = w; tempCanvas.height = h;
+                
+                tempCtx.save();
+                tempCtx.beginPath();
+
+                switch(shape) {
+                    case 'circle': tempCtx.arc(w/2, h/2, Math.min(w, h)/2, 0, Math.PI*2); break;
+                    case 'star': {
+                        let rot = Math.PI/2*3, x = w/2, y = h/2;
+                        let outerR = Math.min(w,h)/2, innerR = outerR/2;
+                        tempCtx.moveTo(x, y-outerR);
+                        for(let i=0; i<5; i++){
+                            tempCtx.lineTo(x+Math.cos(rot)*outerR, y+Math.sin(rot)*outerR);
+                            rot += Math.PI/5;
+                            tempCtx.lineTo(x+Math.cos(rot)*innerR, y+Math.sin(rot)*innerR);
+                            rot += Math.PI/5;
+                        }
+                        break;
+                    }
+                    case 'hexagon': {
+                        let side = Math.min(w, h)/2;
+                        tempCtx.moveTo(w/2+side, h/2);
+                        for(let i=1; i<=6; i++) tempCtx.lineTo(w/2+side*Math.cos(i*2*Math.PI/6), h/2+side*Math.sin(i*2*Math.PI/6));
+                        break;
+                    }
+                    case 'blob': tempCtx.moveTo(w*0.5,h*0.1); tempCtx.bezierCurveTo(w*0.9,h*-0.1, w*1.1,h*0.9, w*0.5,h*0.9); tempCtx.bezierCurveTo(w*-0.1,h*0.9, w*0.1,h*-0.1, w*0.5,h*0.1); break;
+                    case 'heart': tempCtx.moveTo(w/2,h/4); tempCtx.bezierCurveTo(w/2,h/5,w/4,0,0,h/4); tempCtx.bezierCurveTo(-w/3,h,w/2,h,w/2,h); tempCtx.bezierCurveTo(w/2,h,w+w/3,h,w,h/4); tempCtx.bezierCurveTo(w*3/4,0,w/2,h/5,w/2,h/4); break;
+                    case 'triangle': tempCtx.moveTo(w/2,0); tempCtx.lineTo(w,h); tempCtx.lineTo(0,h); break;
+                }
+
+                tempCtx.closePath();
+                tempCtx.clip();
+                tempCtx.drawImage(originalImage, 0, 0);
+                tempCtx.restore();
+
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    saveState();
+                    updateCanvas(img);
+                };
+                img.src = tempCanvas.toDataURL('image/png');
+            }
+            
+            function cropToAspectRatio(ratioStr) {
+                if (!originalImage) return;
+                const [ratioW, ratioH] = ratioStr.split(':').map(Number);
+                const imgW = originalImage.width, imgH = originalImage.height;
+                let cropW, cropH, cropX = (imgW-cropW)/2, cropY = (imgH-cropH)/2;
+                if ((imgW/imgH) > (ratioW/ratioH)) { cropH = imgH; cropW = imgH * (ratioW/ratioH); } 
+                else { cropW = imgW; cropH = imgW * (ratioH/ratioW); }
+                cropX = (imgW-cropW)/2; cropY = (imgH-cropH)/2;
+                
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = cropW; tempCanvas.height = cropH;
+                tempCanvas.getContext('2d').drawImage(originalImage, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+                
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    saveState();
+                    updateCanvas(originalImage);
+                }
+                img.src = tempCanvas.toDataURL();
+            }
+
+            function applyCrop() {
+                if (!cropRect.w || !cropRect.h) return;
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = cropRect.w; tempCanvas.height = cropRect.h;
+                tempCanvas.getContext('2d').drawImage(originalImage, cropRect.x, cropRect.y, cropRect.w, cropRect.h, 0, 0, cropRect.w, cropRect.h);
+                
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    toggleCropMode();
+                    saveState();
+                    updateCanvas(originalImage);
+                }
+                img.src = tempCanvas.toDataURL();
+            }
+
+            // --- Cropping UI Logic ---
+            function toggleCropMode() {
+                isCropping = !isCropping;
+                canvasContainer.classList.toggle('cropping', isCropping);
+                if (isCropping) {
+                    toggleCropBtn.classList.add('border-blue-500'); cropTickContainer.innerHTML = tickSVG;
+                    cropTickContainer.classList.add('border-blue-500');
+                } else {
+                    toggleCropBtn.classList.remove('border-blue-500'); cropTickContainer.innerHTML = '';
+                    cropTickContainer.classList.remove('border-blue-500');
+                }
+                applyCropBtn.disabled = true;
+                if (!isCropping) { cropRect = {}; redrawCanvas(); }
+            }
+            
+            function drawCropOverlay() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                if (cropRect.w) {
+                    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2;
+                    ctx.strokeRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
+                    ctx.clearRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
+                }
+            }
+            
+            // --- UI Navigation ---
+            function showTab(tabId) {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+                document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+            }
+            
+             // --- File Size Preview ---
+            function updateFileSizePreview() {
+                if (!originalImage) return;
+                const format = formatSelect.value;
+                if (format === 'image/jpeg' || format === 'image/webp') {
+                    const quality = parseFloat(qualitySlider.value);
+                    const dataUrl = canvas.toDataURL(format, quality);
+                    const sizeInBytes = atob(dataUrl.split(',')[1]).length;
+                    const sizeInKB = sizeInBytes / 1024;
+                    const sizeInMB = sizeInKB / 1024;
+                    let sizeText;
+                    if (sizeInMB >= 1) {
+                        sizeText = `${sizeInMB.toFixed(2)} MB`;
+                    } else {
+                        sizeText = `${sizeInKB.toFixed(1)} KB`;
+                    }
+                    fileSizePreview.textContent = sizeText;
+                } else {
+                    fileSizePreview.textContent = '';
+                }
+            }
+
+            // --- Event Listeners ---
+            uploadPrompt.addEventListener('click', () => imageUpload.click());
+            imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
+            document.body.addEventListener('dragover', (e) => e.preventDefault());
+            document.body.addEventListener('drop', (e) => { e.preventDefault(); handleImage(e.dataTransfer.files[0]); });
+
+            removeImageBtn.addEventListener('click', removeImage);
+            resetBtn.addEventListener('click', () => {
+                if (history.length > 0) {
+                    loadState(history[0]); history = [history[0]]; historyIndex = 0;
+                    updateUndoRedoButtons();
+                }
+                resetAllControls();
+            });
+            undoBtn.addEventListener('click', undo);
+            redoBtn.addEventListener('click', redo);
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const wasActive = btn.classList.contains('active');
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    if (!wasActive) {
+                        btn.classList.add('active');
+                    }
+                    redrawCanvas();
+                });
+            });
+
+            document.querySelectorAll('#adjust-tab input, #watermark-tab input').forEach(el => {
+                el.addEventListener('input', redrawCanvas);
+            });
+
+            applyResizeBtn.addEventListener('click', resizeImage);
+            document.querySelectorAll('.aspect-crop-btn').forEach(btn => btn.addEventListener('click', () => cropToAspectRatio(btn.dataset.ratio)));
+            document.querySelectorAll('.shape-crop-btn').forEach(btn => btn.addEventListener('click', () => clipShape(btn.dataset.shape)));
+            
+            toggleCropBtn.addEventListener('click', toggleCropMode);
+            applyCropBtn.addEventListener('click', applyCrop);
+            
+            canvas.addEventListener('mousedown', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const mouseX = (e.clientX - rect.left) * scaleX;
+                const mouseY = (e.clientY - rect.top) * scaleY;
+
+                if (isCropping) {
+                    isDragging = true;
+                    cropRect = { x: mouseX, y: mouseY, w: 0, h: 0 };
+                } else if (activeWatermarkType === 'image' && watermarkImage &&
+                    mouseX >= watermark.x && mouseX <= watermark.x + watermark.width &&
+                    mouseY >= watermark.y && mouseY <= watermark.y + watermark.height) {
+                    isDraggingWatermark = true;
+                    dragOffsetX = mouseX - watermark.x;
+                    dragOffsetY = mouseY - watermark.y;
+                    canvasContainer.classList.add('dragging');
+                }
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const mouseX = (e.clientX - rect.left) * scaleX;
+                const mouseY = (e.clientY - rect.top) * scaleY;
+                
+                if (isDragging) {
+                    cropRect.w = mouseX - cropRect.x;
+                    cropRect.h = mouseY - cropRect.y;
+                    redrawCanvas();
+                } else if (isDraggingWatermark) {
+                    watermark.x = mouseX - dragOffsetX;
+                    watermark.y = mouseY - dragOffsetY;
+                    redrawCanvas();
+                }
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                if(isCropping) applyCropBtn.disabled = false;
+                isDragging = false;
+                isDraggingWatermark = false;
+                canvasContainer.classList.remove('dragging');
+            });
+            canvas.addEventListener('mouseleave', () => { isDragging = false; isDraggingWatermark = false; canvasContainer.classList.remove('dragging'); });
+
+            formatSelect.addEventListener('change', () => {
+                const showQuality = formatSelect.value === 'image/jpeg' || formatSelect.value === 'image/webp';
+                qualityControl.classList.toggle('hidden', !showQuality);
+                if (showQuality) updateFileSizePreview();
+            });
+            qualitySlider.addEventListener('input', updateFileSizePreview);
+
+            downloadBtn.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.download = `edited-image.${formatSelect.value.split('/')[1].split('+')[0]}`;
+                link.href = canvas.toDataURL(formatSelect.value, parseFloat(qualitySlider.value));
+                link.click();
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+            moreToolsBtn.addEventListener('click', (e) => { e.stopPropagation(); toolsDropdown.classList.toggle('hidden'); });
+            document.addEventListener('click', () => { toolsDropdown.classList.add('hidden'); });
+
+            // Watermark Logic
+            function setupWatermarkControls() {
+                textWatermarkBtn.addEventListener('click', () => {
+                    activeWatermarkType = 'text';
+                    textWatermarkControls.style.display = 'block';
+                    imageWatermarkControls.style.display = 'none';
+                    textWatermarkBtn.classList.add('active');
+                    imageWatermarkBtn.classList.remove('active');
+                    redrawCanvas();
+                });
+                imageWatermarkBtn.addEventListener('click', () => {
+                    activeWatermarkType = 'image';
+                    textWatermarkControls.style.display = 'none';
+                    imageWatermarkControls.style.display = 'block';
+                    imageWatermarkBtn.classList.add('active');
+                    textWatermarkBtn.classList.remove('active');
+                    redrawCanvas();
+                });
+                uploadWatermarkBtn.addEventListener('click', () => watermarkUploadInput.click());
+                watermarkUploadInput.addEventListener('change', (e) => {
+                    if (e.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            watermarkImage = new Image();
+                            watermarkImage.onload = () => {
+                                const sizeSlider = document.getElementById('image-watermark-size');
+                                const newWidth = parseInt(sizeSlider.value);
+                                const aspectRatio = watermarkImage.height / watermarkImage.width;
+                                watermark = {
+                                    width: newWidth,
+                                    height: newWidth * aspectRatio,
+                                    x: (canvas.width - newWidth) / 2,
+                                    y: (canvas.height - (newWidth * aspectRatio)) / 2
+                                };
+                                imageWatermarkSliders.classList.remove('hidden');
+                                redrawCanvas();
+                            };
+                            watermarkImage.src = event.target.result;
+                        };
+                        reader.readAsDataURL(e.target.files[0]);
+                    }
+                });
+                document.getElementById('image-watermark-size').addEventListener('input', (e) => {
+                    if (!watermarkImage) return;
+                    const newWidth = parseInt(e.target.value);
+                    const aspectRatio = watermarkImage.height / watermarkImage.width;
+                    watermark.width = newWidth;
+                    watermark.height = newWidth * aspectRatio;
+                    watermark.x = (canvas.width - newWidth) / 2;
+                    watermark.y = (canvas.height - (newWidth * aspectRatio)) / 2;
+                    redrawCanvas();
+                });
+                colorPresets.forEach(color => {
+                    const swatch = document.createElement('button');
+                    swatch.className = 'w-full h-8 rounded-md border-2 border-transparent focus:border-blue-500';
+                    swatch.style.backgroundColor = color;
+                    swatch.addEventListener('click', () => {
+                        watermarkColorInput.value = color;
+                        redrawCanvas();
+                    });
+                    colorPresetsContainer.appendChild(swatch);
+                });
+            }
+
+            setupWatermarkControls();
+            showTab('adjust');
+        })();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Pad | A Superior Front-End IDE</title>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material-darker.min.css">
+    
+    <!-- CodeMirror Base Modes & Add-ons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script>
+    
+    <!-- Utility Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 stroke=%22%233b82f6%22 stroke-width=%221.5%22 viewBox=%220 0 24 24%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 d=%22M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4%22/></svg>">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        body { background-image: linear-gradient(to bottom, #0d1117, #111827); }
+        .CodeMirror { height: 100%; font-size: 14px; background-color: #0d1117; }
+        .CodeMirror-gutters { background-color: #0d1117 !important; border-right: 1px solid #30363d; }
+        .CodeMirror-vscrollbar::-webkit-scrollbar { width: 8px; }
+        .CodeMirror-vscrollbar::-webkit-scrollbar-track { background: #1f2937; }
+        .CodeMirror-vscrollbar::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        .CodeMirror-line.CodeMirror-activeline-background { background: #1f2937; }
+        :is(button, a, input):focus-visible { outline: none; box-shadow: 0 0 0 2px #3b82f6; border-radius: 0.5rem; }
+        .tabs button { border-bottom: 2px solid transparent; }
+        .tabs button.active { color: white; border-bottom-color: #3b82f6; }
+        .view-btn.active { background-color: #3b82f6; color: white; }
+        #resizer { transition: background-color 0.2s; }
+        #resizer:hover { background-color: #3b82f6; }
+        .console-log { border-bottom: 1px solid #374151; }
+        .console-error { background-color: rgba(239, 68, 68, 0.1); border-bottom: 1px solid #ef4444; color: #f87171; }
+    </style>
+</head>
+<body class="antialiased text-gray-300 bg-gray-900 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-30 border-b border-gray-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Visual Pad</h1>
+            </div>
+             <div class="relative">
+                <button id="more-tools-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
+                    <span>More FREE Tools</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                 <div id="tools-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">Ultimate Text Engine</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">FREE AI Background Remover</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col w-full py-6 px-4 sm:px-6">
+        <div id="main-content" class="flex-grow flex flex-col md:flex-row gap-4">
+            <!-- Editor Pane -->
+            <div id="editor-pane" class="w-full md:w-2/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
+                    <div class="tabs flex">
+                        <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">HTML</button>
+                        <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">CSS</button>
+                        <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">JS</button>
+                    </div>
+                    <div class="flex items-center space-x-1 pr-2">
+                         <button id="undo-btn" title="Undo (Ctrl+Z)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
+                         </button>
+                         <button id="redo-btn" title="Redo (Ctrl+Y)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg>
+                         </button>
+                         <div class="w-px h-6 bg-gray-700 mx-2"></div>
+                         <button id="settings-btn" title="Settings" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow relative">
+                    <div id="html-editor" class="editor w-full h-full absolute"></div>
+                    <div id="css-editor" class="editor w-full h-full absolute hidden"></div>
+                    <div id="js-editor" class="editor w-full h-full absolute hidden"></div>
+                </div>
+            </div>
+
+            <!-- Resizer -->
+            <div id="resizer" class="w-1.5 cursor-col-resize bg-gray-700 rounded-full hidden md:block"></div>
+            
+            <!-- Preview Pane -->
+            <div id="preview-pane-container" class="w-full md:w-3/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                <div class="flex-shrink-0 flex items-center justify-between flex-wrap gap-2 p-2 bg-gray-800 border-b border-gray-700">
+                     <div class="flex items-center space-x-1 bg-gray-700/50 p-1 rounded-lg">
+                        <button data-view="desktop" class="view-btn active px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Desktop</span></button>
+                        <button data-view="tablet" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Tablet</span></button>
+                        <button data-view="mobile" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Mobile</span></button>
+                    </div>
+                     <div class="flex items-center justify-end gap-2">
+                        <button id="download-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span>Download ZIP</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow w-full flex items-center justify-center p-4 bg-[#0d1117] min-h-0">
+                    <iframe id="preview-iframe" class="h-full w-full bg-white rounded-lg shadow-2xl transition-all duration-300"></iframe>
+                </div>
+                <div id="console-container" class="flex-shrink-0 border-t border-gray-700 h-20 hidden">
+                    <div class="bg-gray-800 p-2 text-xs font-semibold flex justify-between items-center">
+                        <span>Console</span>
+                        <button id="clear-console-btn" class="text-gray-400 hover:text-white">&times; Clear</button>
+                    </div>
+                    <div id="console-output" class="h-full overflow-y-auto bg-[#0d1117] p-2 font-mono text-xs"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 sm:p-6 w-full flex-shrink-0">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Client-Side. Secure. No Sign-up.</span>
+            </div>
+            <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="settings-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div class="bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-lg border border-gray-700">
+             <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold text-white">Settings</h2>
+                <button id="close-settings-btn" class="text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
+            </div>
+            <div class="space-y-6">
+                 <div>
+                    <h3 class="font-semibold text-white mb-2">Quick-Add Libraries</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="add-tailwind" data-library="tailwind" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-600 focus:ring-blue-500"><span>Tailwind CSS</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="add-bootstrap" data-library="bootstrap" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-600 focus:ring-blue-500"><span>Bootstrap 5</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="add-jquery" data-library="jquery" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-600 focus:ring-blue-500"><span>jQuery</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="download-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div class="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-md border border-gray-700 text-center">
+            <div class="flex justify-center mb-4">
+                <svg class="w-16 h-16 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-4">Download Successful</h2>
+            <div id="ad-placeholder" class="bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-500 my-6">
+                Ad Placeholder
+            </div>
+            <button id="close-download-modal-btn" class="hidden text-gray-400 hover:text-white text-sm font-semibold py-2 px-4 rounded-lg bg-gray-600 hover:bg-gray-500">Close</button>
+        </div>
+    </div>
+
+
+    <script type="module">
+        const App = {
+            elements: {},
+            editors: {},
+            activeEditor: 'html',
+            settings: { libraries: [] },
+            
+            init() {
+                this.cacheDOMElements();
+                this.loadSettings();
+                this.initEditors();
+                this.attachEventListeners();
+                this.loadFromLocalStorage();
+                this.switchTab('html');
+                this.switchView('desktop');
+                this.updatePreview();
+                this.updateHistoryButtons();
+            },
+
+            cacheDOMElements() {
+                const ids = ['more-tools-btn','tools-dropdown','download-btn','preview-iframe','editor-pane','preview-pane-container','resizer','console-container','console-output','clear-console-btn','undo-btn','redo-btn','settings-btn','settings-modal','close-settings-btn','add-tailwind','add-bootstrap','add-jquery', 'download-modal', 'close-download-modal-btn'];
+                ids.forEach(id=>{const c=id.replace(/-./g,m=>m[1].toUpperCase());this.elements[c]=document.getElementById(id)});
+                this.elements.tabButtons=document.querySelectorAll('.tab-btn');
+                this.elements.viewButtons=document.querySelectorAll('.view-btn');
+                this.elements.libraryCheckboxes=document.querySelectorAll('[data-library]');
+                this.elements.editorContainers={html:document.getElementById('html-editor'),css:document.getElementById('css-editor'),js:document.getElementById('js-editor')};
+            },
+
+            initEditors() {
+                const config={lineNumbers:true,theme:'material-darker',lineWrapping:true,styleActiveLine:true,autofocus:true,autoCloseTags:true,autoCloseBrackets:true};
+                this.editors.html=CodeMirror(this.elements.editorContainers.html,{...config,mode:'xml',value:`<!-- HTML: Welcome to Visual Pad! -->`});
+                this.editors.css=CodeMirror(this.elements.editorContainers.css,{...config,mode:'css',value:`/* CSS */`});
+                this.editors.js=CodeMirror(this.elements.editorContainers.js,{...config,mode:'javascript',value:`// JavaScript`});
+            },
+
+            attachEventListeners() {
+                const debouncedUpdate=this.debounce(this.updatePreview.bind(this),300);
+                const debouncedSave=this.debounce(this.saveToLocalStorage.bind(this),500);
+                Object.values(this.editors).forEach(e=>{e.on('change',()=>{debouncedUpdate();debouncedSave();this.updateHistoryButtons()});e.on('focus',()=>this.updateHistoryButtons())});
+                this.elements.tabButtons.forEach(b=>b.addEventListener('click',()=>this.switchTab(b.dataset.lang)));
+                this.elements.viewButtons.forEach(b=>b.addEventListener('click',()=>this.switchView(b.dataset.view)));
+                this.elements.downloadBtn.addEventListener('click',this.downloadAsZip.bind(this));
+                this.elements.moreToolsBtn.addEventListener('click',e=>{e.stopPropagation();this.elements.toolsDropdown.classList.toggle('hidden')});
+                this.elements.clearConsoleBtn.addEventListener('click',()=>this.elements.consoleOutput.innerHTML='');
+                this.elements.undoBtn.addEventListener('click',()=>this.editors[this.activeEditor].undo());
+                this.elements.redoBtn.addEventListener('click',()=>this.editors[this.activeEditor].redo());
+                this.elements.settingsBtn.addEventListener('click',()=>this.elements.settingsModal.classList.remove('hidden'));
+                this.elements.closeSettingsBtn.addEventListener('click',()=>this.elements.settingsModal.classList.add('hidden'));
+                this.elements.closeDownloadModalBtn.addEventListener('click', () => this.elements.downloadModal.classList.add('hidden'));
+                this.elements.libraryCheckboxes.forEach(c=>c.addEventListener('change',()=>this.updateLibraries()));
+                document.addEventListener('click',()=>this.elements.toolsDropdown.classList.add('hidden'));
+                let isResizing=false;
+                this.elements.resizer.addEventListener('mousedown',()=>{isResizing=true;document.body.style.cursor='col-resize';document.body.style.userSelect='none'});
+                document.addEventListener('mousemove',e=>{if(!isResizing)return;const t=this.elements.editorPane.parentElement.offsetWidth;const w=e.clientX-this.elements.editorPane.parentElement.offsetLeft;const p=t-w-this.elements.resizer.offsetWidth;if(w>100&&p>100){this.elements.editorPane.style.width=`${(w/t)*100}%`;this.elements.previewPaneContainer.style.width=`${(p/t)*100}%`}});
+                document.addEventListener('mouseup',()=>{isResizing=false;document.body.style.cursor='default';document.body.style.userSelect='auto'});
+            },
+            
+            updateHistoryButtons(){const h=this.editors[this.activeEditor].historySize();this.elements.undoBtn.disabled=h.undo===0;this.elements.redoBtn.disabled=h.redo===0},
+            
+            updatePreview() {
+                const [html,css,js]=[this.editors.html.getValue(),this.editors.css.getValue(),this.editors.js.getValue()];
+                let libs = '';
+                if (this.settings.libraries.includes('tailwind')) libs += `<script src="https://cdn.tailwindcss.com"><\/script>`;
+                if (this.settings.libraries.includes('bootstrap')) libs += `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">`;
+                const consoleOverride=`<script>const o=window.console;function p(t,a){window.parent.postMessage({type:t,message:Array.from(a)},'*')}window.console={...o,log:(...a)=>{p('log',a);o.log(...a)},error:(...a)=>{p('error',a);o.error(...a)},warn:(...a)=>{p('log',a);o.warn(...a)}};window.addEventListener('error',e=>p('error',[e.message]))<\/script>`;
+                this.elements.previewIframe.srcdoc=`<html><head>${libs}<style>${css}</style></head><body>${html}${consoleOverride}<script>${js}<\/script></body></html>`
+            },
+
+            switchTab(lang){this.activeEditor=lang;this.elements.tabButtons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));Object.keys(this.elements.editorContainers).forEach(k=>this.elements.editorContainers[k].classList.toggle('hidden',k!==lang));this.editors[lang].refresh();this.editors[lang].focus();this.updateHistoryButtons()},
+            switchView(view){const w={desktop:'100%',tablet:'768px',mobile:'375px'};this.elements.previewIframe.style.width=w[view];this.elements.viewButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===view))},
+            debounce:(func,delay)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>func.apply(this,a),delay)}},
+            
+            saveToLocalStorage(){try{const d={html:this.editors.html.getValue(),css:this.editors.css.getValue(),js:this.editors.js.getValue()};localStorage.setItem('visualPadSession',JSON.stringify(d))}catch(e){console.error(e)}},
+            loadFromLocalStorage(){try{const d=JSON.parse(localStorage.getItem('visualPadSession'));if(d){this.editors.html.setValue(d.html||'<!-- HTML -->');this.editors.css.setValue(d.css||'/* CSS */');this.editors.js.setValue(d.js||'// JS')}}catch(e){console.error(e)}},
+
+            saveSettings() { localStorage.setItem('visualPadSettings', JSON.stringify(this.settings)); },
+            loadSettings() {
+                const s = JSON.parse(localStorage.getItem('visualPadSettings'));
+                if (s) {
+                    this.settings = s;
+                    this.elements.libraryCheckboxes.forEach(c => {
+                        if (this.settings.libraries.includes(c.dataset.library)) c.checked = true;
+                    });
+                }
+            },
+            updateLibraries() {
+                this.settings.libraries = [];
+                this.elements.libraryCheckboxes.forEach(c => { if(c.checked) this.settings.libraries.push(c.dataset.library); });
+                this.saveSettings();
+                this.updatePreview();
+            },
+
+            downloadAsZip(){
+                const zip=new JSZip();
+                zip.file("index.html",this.editors.html.getValue());
+                zip.file("style.css",this.editors.css.getValue());
+                zip.file("script.js",this.editors.js.getValue());
+                zip.generateAsync({type:"blob"}).then(content => {
+                    this.elements.downloadModal.classList.remove('hidden');
+                    this.elements.closeDownloadModalBtn.classList.add('hidden');
+                    
+                    const link=document.createElement('a');
+                    link.href=URL.createObjectURL(content);
+                    link.download="visual-pad.zip";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    setTimeout(() => {
+                        this.elements.closeDownloadModalBtn.classList.remove('hidden');
+                    }, 2000);
+                });
+            },
+            logToMirroredConsole(log){this.elements.consoleContainer.classList.remove('hidden');const n=document.createElement('div');n.textContent=`> ${log.message.map(m=>{try{return typeof m==='object'?JSON.stringify(m):m}catch(e){return 'Circular Object'}}).join(' ')}`;n.className=log.type==='error'?'console-error p-1':'console-log p-1';this.elements.consoleOutput.appendChild(n);n.scrollIntoView({behavior:'smooth'})}
+        };
+
+        function startApp(){try{App.init();window.addEventListener('message',e=>{if(e.data&&(e.data.type==='log'||e.data.type==='error')){App.logToMirroredConsole(e.data)}})}catch(e){console.error("Fatal error:",e);document.body.innerHTML=`<div class="w-full h-screen flex items-center justify-center text-red-500">A critical error occurred. Please refresh.</div>`}}
+        if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',startApp)}else{startApp()}
+    </script>
+</body>
+</html>
+

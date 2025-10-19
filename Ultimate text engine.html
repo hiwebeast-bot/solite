@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE Ultimate Text Engine | Clean, Analyze & Transform Text</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="The ultimate, all-in-one FREE text toolkit. Clean formatting, find & replace with Regex, analyze readability, change case, extract data, and more. 100% private.">
+    <meta name="keywords" content="text tools, find and replace, regex checker, text cleaner, readability score, text analysis, privacy first">
+    <meta property="og:title" content="The All-in-One FREE Text Engine | Clean, Analyze & Transform">
+    <meta property="og:description" content="The professional-grade toolkit for all your text manipulation needs. FREE, private, and powerful.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0d1117/7dd3fc?text=Ultimate\nText+Engine">
+    <meta property="og:url" content="https://yourdomain.com/text-engine">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path d=%22M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z%22 /></svg>">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Minimal custom styles for scrollbars and focus states */
+        body {
+            background-image: linear-gradient(to bottom, #0d1117, #111827);
+        }
+        textarea::-webkit-scrollbar { width: 8px; }
+        textarea::-webkit-scrollbar-track { background: #1f2937; }
+        textarea::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        /* Accessible focus state for keyboard users */
+        :is(button, a, select, input):focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px #3b82f6;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-300 bg-gray-900 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-30 border-b border-gray-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Ultimate Text Engine</h1>
+            </div>
+             <div class="relative">
+                <button id="more-tools-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
+                    <span>More FREE Tools</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                 <div id="tools-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">FREE AI Background Remover</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700">FREE Gradient Generator</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full my-12">
+        <!-- Command Bar -->
+        <div class="w-full max-w-7xl mb-4 p-3 bg-gray-800 rounded-xl border border-gray-700 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex-grow flex items-center space-x-3">
+                <label class="text-white font-semibold flex-shrink-0">Action:</label>
+                <div class="relative w-full sm:w-auto">
+                    <button id="transform-profile-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5 w-full justify-between">
+                        <span id="transform-profile-text">Strip All Formatting</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="transform-profile-dropdown" class="hidden absolute left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                        <h3 class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Cleaner</h3>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="stripAll">Strip All Formatting</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="removeExtraSpaces">Remove Extra Spaces</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="removeLineBreaks">Remove All Line Breaks</a>
+                        <div class="border-t border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Case Converter</h3>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="toUpperCase">UPPERCASE</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="toLowerCase">lowercase</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="toSentenceCase">Sentence case</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="toTitleCase">Title Case</a>
+                        <div class="border-t border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tools</h3>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="extractEmails">Extract Emails</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="extractUrls">Extract URLs</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="sortLinesAZ">Sort Lines (A-Z)</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="removeDuplicateLines">Remove Duplicate Lines</a>
+                        <div class="border-t border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Developer</h3>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-profile="formatJson">Format JSON</a>
+                    </div>
+                </div>
+            </div>
+             <div class="flex items-center space-x-2">
+                 <button id="undo-btn" title="Undo (Ctrl+Z)" class="bg-gray-600 hover:bg-gray-500 text-white p-2 rounded-lg transition-transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                 <button id="redo-btn" title="Redo (Ctrl+Y)" class="bg-gray-600 hover:bg-gray-500 text-white p-2 rounded-lg transition-transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+                 <button id="clear-btn" title="Clear Text" class="bg-gray-600 hover:bg-gray-500 text-white p-2 rounded-lg transition-transform hover:-translate-y-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+                 <button id="copy-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
+                    <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    <span id="copy-text">Copy</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Find & Replace -->
+        <div class="w-full max-w-7xl mb-4 p-3 bg-gray-800 rounded-xl border border-gray-700 flex flex-col sm:flex-row items-center gap-4">
+            <input type="text" id="find-input" placeholder="Find..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50">
+            <input type="text" id="replace-input" placeholder="Replace with..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50">
+            <div class="flex items-center space-x-4">
+                <label id="case-sensitive-label" class="flex items-center space-x-2 cursor-pointer p-1 rounded-md hover:bg-gray-700">
+                    <input type="checkbox" id="case-sensitive" class="hidden">
+                    <div id="case-sensitive-icon-unchecked" class="w-5 h-5 rounded border-2 border-gray-500"></div>
+                    <div id="case-sensitive-icon-checked" class="hidden w-5 h-5 rounded border-2 border-blue-500 bg-blue-500 flex items-center justify-center">
+                         <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span>Case Sensitive</span>
+                </label>
+                <label id="use-regex-label" class="flex items-center space-x-2 cursor-pointer p-1 rounded-md hover:bg-gray-700">
+                    <input type="checkbox" id="use-regex" class="hidden">
+                     <div id="use-regex-icon-unchecked" class="w-5 h-5 rounded border-2 border-gray-500"></div>
+                     <div id="use-regex-icon-checked" class="hidden w-5 h-5 rounded border-2 border-blue-500 bg-blue-500 flex items-center justify-center">
+                         <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                     </div>
+                    <span>Regex</span>
+                </label>
+                <button id="replace-all-btn" class="bg-gray-600 hover:bg-gray-500 text-white font-medium py-2 px-4 rounded-lg transition-transform hover:-translate-y-0.5">Replace All</button>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="w-full max-w-7xl flex-grow flex flex-col gap-4">
+            <div class="flex-grow flex flex-col lg:flex-row gap-4">
+                <!-- Main Workspace -->
+                <div class="flex-1 flex-grow flex flex-col">
+                    <div class="flex-grow flex relative h-[60vh] bg-gray-700 rounded-lg">
+                        <textarea id="input-text" class="w-1/2 h-full p-4 rounded-l-lg bg-gray-800 border-gray-700 text-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50" placeholder="Paste your text here..."></textarea>
+                        <button id="swap-btn" title="Swap Input/Output" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-600 hover:bg-blue-600 rounded-full p-2 z-10 transition-transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 12l-4-4m4 4l4-4m6 8v12M17 8l-4 4m4-4l4 4" /></svg></button>
+                        <textarea id="output-text" readonly class="w-1/2 h-full p-4 rounded-r-lg bg-gray-900 border-l border-gray-700 text-gray-300" placeholder="Result appears here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Analysis Panel -->
+                <div id="analysis-panel" class="w-full lg:w-72 flex-shrink-0 bg-gray-800 rounded-xl border border-gray-700 p-4">
+                    <h3 class="text-lg font-bold text-white mb-4">Text Analysis</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Readability Score:</span><strong id="stat-readability">N/A</strong></div>
+                        <div class="flex justify-between"><span>Reading Time:</span><strong id="stat-reading-time">~ 0 min</strong></div>
+                        <div class="flex justify-between"><span>Speaking Time:</span><strong id="stat-speaking-time">~ 0 min</strong></div>
+                        <hr class="border-gray-600 my-2">
+                        <div class="flex justify-between"><span>Words:</span><strong id="stat-words">0</strong></div>
+                        <div class="flex justify-between"><span>Characters:</span><strong id="stat-chars">0</strong></div>
+                        <div class="flex justify-between"><span>Sentences:</span><strong id="stat-sentences">0</strong></div>
+                        <div class="flex justify-between"><span>Paragraphs:</span><strong id="stat-paragraphs">0</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 sm:p-6 w-full flex-shrink-0">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Privacy First. No Server. No Sign-up.</span>
+            </div>
+            <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+                <a href="#" class="hover:text-white">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Copy Modal -->
+    <div id="copy-modal-overlay" class="hidden fixed inset-0 bg-gray-900/80 z-40"></div>
+    <div id="copy-modal" class="hidden fixed top-1/4 left-1/2 -translate-x-1/2 w-full max-w-md bg-gray-800 rounded-lg shadow-2xl z-50 p-6 text-center">
+        <div class="flex items-center justify-center space-x-3 mb-4 relative">
+            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h3 class="text-lg font-bold text-white">Copied Successfully</h3>
+            <button id="close-copy-modal-btn" class="hidden absolute -top-2 -right-2 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div id="ad-placeholder" class="bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-500 transition-all duration-300">
+            Ad Placeholder
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            function init() {
+                const inputText = document.getElementById('input-text');
+                const outputText = document.getElementById('output-text');
+                const transformProfileBtn = document.getElementById('transform-profile-btn');
+                const transformProfileText = document.getElementById('transform-profile-text');
+                const transformProfileDropdown = document.getElementById('transform-profile-dropdown');
+                const transformProfileOptions = transformProfileDropdown.querySelectorAll('a');
+                const copyBtn = document.getElementById('copy-btn');
+                const clearBtn = document.getElementById('clear-btn');
+                const undoBtn = document.getElementById('undo-btn');
+                const redoBtn = document.getElementById('redo-btn');
+                const findInput = document.getElementById('find-input');
+                const replaceInput = document.getElementById('replace-input');
+                const caseSensitive = document.getElementById('case-sensitive');
+                const useRegex = document.getElementById('use-regex');
+                const replaceAllBtn = document.getElementById('replace-all-btn');
+                const swapBtn = document.getElementById('swap-btn');
+                const moreToolsBtn = document.getElementById('more-tools-btn');
+                const toolsDropdown = document.getElementById('tools-dropdown');
+                const statReadability = document.getElementById('stat-readability');
+                const statReadingTime = document.getElementById('stat-reading-time');
+                const statSpeakingTime = document.getElementById('stat-speaking-time');
+                const statWords = document.getElementById('stat-words');
+                const statChars = document.getElementById('stat-chars');
+                const statSentences = document.getElementById('stat-sentences');
+                const statParagraphs = document.getElementById('stat-paragraphs');
+                const copyModalOverlay = document.getElementById('copy-modal-overlay');
+                const copyModal = document.getElementById('copy-modal');
+                const closeCopyModalBtn = document.getElementById('close-copy-modal-btn');
+                const adPlaceholder = document.getElementById('ad-placeholder');
+                const caseSensitiveLabel = document.getElementById('case-sensitive-label');
+                const useRegexLabel = document.getElementById('use-regex-label');
+
+
+                let textHistory = [];
+                let redoHistory = [];
+                let adRefreshCounter = 1;
+                let activeProfile = 'stripAll';
+
+                const transformations = {
+                    stripAll: (t) => { const el = document.createElement('div'); el.innerHTML = t; return (el.textContent || "").replace(/(\r\n|\n|\r){2,}/g, '$1\n').trim(); },
+                    removeExtraSpaces: (t) => t.replace(/ +/g, ' ').trim(),
+                    removeLineBreaks: (t) => t.replace(/(\r\n|\n|\r)+/g, ' ').replace(/ +/g, ' ').trim(),
+                    toUpperCase: (t) => t.toUpperCase(),
+                    toLowerCase: (t) => t.toLowerCase(),
+                    toSentenceCase: (t) => t.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()),
+                    toTitleCase: (t) => {
+                        const small = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+                        return t.toLowerCase().split(' ').map((w, i) => (i === 0 || !small.test(w)) ? w.charAt(0).toUpperCase() + w.slice(1) : w).join(' ');
+                    },
+                    formatJson: (t) => { if (!t.trim()) return ''; try { return JSON.stringify(JSON.parse(t), null, 2); } catch (e) { return "Invalid JSON: " + e.message; } },
+                    extractEmails: (t) => ([...new Set(t.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi) || [])].join('\n') || 'No emails found.'),
+                    extractUrls: (t) => ([...new Set(t.match(/(https?:\/\/[^\s"'<>`]+)/gi) || [])].join('\n') || 'No URLs found.'),
+                    sortLinesAZ: (t) => t.split('\n').filter(l => l.trim() !== '').sort((a, b) => a.localeCompare(b)).join('\n'),
+                    removeDuplicateLines: (t) => [...new Set(t.split('\n'))].join('\n')
+                };
+
+                const debounce = (func, delay = 200) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => func.apply(this, a), delay); }; };
+
+                function pushToHistory(text, clearRedo = true) {
+                    if (textHistory.length === 0 || textHistory[textHistory.length - 1] !== text) {
+                        textHistory.push(text);
+                        if (textHistory.length > 50) textHistory.shift();
+                        if (clearRedo) redoHistory = [];
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
+                }
+
+                function updateOutput() {
+                    const transform = transformations[activeProfile] || (text => text);
+                    outputText.value = transform(inputText.value);
+                    updateAnalysis(inputText.value);
+                    saveSession();
+                }
+
+                function updateAnalysis(text) {
+                    const words = (text.match(/\S+/g) || []).length;
+                    const chars = text.length;
+                    const sentences = (text.match(/[\w|\)][.?!](\s|$)/g) || []).length;
+                    const paragraphs = (text.split(/\n\s*\n/).filter(p => p.trim().length > 0)).length;
+                    statWords.textContent = words; statChars.textContent = chars;
+                    statSentences.textContent = sentences > 0 ? sentences : (words > 0 ? 1 : 0);
+                    statParagraphs.textContent = paragraphs > 0 ? paragraphs : (words > 0 ? 1 : 0);
+                    statReadingTime.textContent = `~ ${Math.ceil(words / 238)} min`;
+                    statSpeakingTime.textContent = `~ ${Math.ceil(words / 180)} min`;
+                    if (words > 10 && sentences > 0) {
+                        const score = 206.835 - 1.015 * (words / sentences) - 84.6 * (text.replace(/\s/g, '').length / words);
+                        statReadability.textContent = score.toFixed(1);
+                    } else { statReadability.textContent = 'N/A'; }
+                }
+
+                function setupCustomCheckbox(labelId, inputId) {
+                    const label = document.getElementById(labelId);
+                    const input = document.getElementById(inputId);
+                    const uncheckedIcon = document.getElementById(`${inputId}-icon-unchecked`);
+                    const checkedIcon = document.getElementById(`${inputId}-icon-checked`);
+                    
+                    const updateIcons = () => {
+                        if (input.checked) {
+                            uncheckedIcon.classList.add('hidden');
+                            checkedIcon.classList.remove('hidden');
+                        } else {
+                            uncheckedIcon.classList.remove('hidden');
+                            checkedIcon.classList.add('hidden');
+                        }
+                    };
+
+                    label.addEventListener('click', (e) => {
+                        e.preventDefault(); // Prevent label's default behavior
+                        input.checked = !input.checked;
+                        updateIcons();
+                    });
+                    
+                    updateIcons(); // Set initial state
+                }
+
+                function saveSession() {
+                    try { localStorage.setItem('textEngineSession', JSON.stringify({ inputText: inputText.value })); }
+                    catch (e) { console.error("Could not save session:", e); }
+                }
+
+                function loadSession() {
+                    try {
+                        const session = JSON.parse(localStorage.getItem('textEngineSession'));
+                        if (session && session.inputText) { 
+                            inputText.value = session.inputText;
+                            pushToHistory(session.inputText, true);
+                        } else {
+                            pushToHistory('', true);
+                        }
+                    } catch (e) { 
+                        console.error("Could not load session:", e); 
+                        pushToHistory('', true);
+                    }
+                }
+
+                const debouncedUpdate = debounce((event) => {
+                    if (event) pushToHistory(event.target.value);
+                    updateOutput();
+                });
+                
+                inputText.addEventListener('input', debouncedUpdate);
+
+                transformProfileOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        pushToHistory(inputText.value);
+                        activeProfile = e.target.dataset.profile;
+                        transformProfileText.textContent = e.target.textContent;
+                        updateOutput();
+                    });
+                });
+                
+                clearBtn.addEventListener('click', () => { pushToHistory(inputText.value); inputText.value = ''; updateOutput(); });
+                
+                swapBtn.addEventListener('click', () => { pushToHistory(inputText.value); inputText.value = outputText.value; updateOutput(); });
+
+                copyBtn.addEventListener('click', () => {
+                    if (!outputText.value) return;
+                    outputText.select();
+                    outputText.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(outputText.value).then(() => {
+                        copyModalOverlay.classList.remove('hidden');
+                        copyModal.classList.remove('hidden');
+                        closeCopyModalBtn.classList.add('hidden');
+                        adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
+                        setTimeout(() => {
+                            closeCopyModalBtn.classList.remove('hidden');
+                            adRefreshCounter++;
+                            adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
+                        }, 3000);
+                    }).catch(err => alert("Could not copy text."));
+                });
+                
+                function closeCopyModal() {
+                    copyModalOverlay.classList.add('hidden');
+                    copyModal.classList.add('hidden');
+                }
+                closeCopyModalBtn.addEventListener('click', closeCopyModal);
+                copyModalOverlay.addEventListener('click', closeCopyModal);
+
+                replaceAllBtn.addEventListener('click', () => {
+                    pushToHistory(inputText.value);
+                    const find = findInput.value;
+                    if (!find) return;
+                    try {
+                        const flags = caseSensitive.checked ? 'g' : 'gi';
+                        const search = useRegex.checked ? new RegExp(find, flags) : new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+                        inputText.value = inputText.value.replace(search, replaceInput.value);
+                        updateOutput();
+                    } catch (e) { alert('Invalid Regular Expression!'); }
+                });
+
+                inputText.addEventListener('paste', (e) => {
+                    setTimeout(() => {
+                        pushToHistory(inputText.value);
+                        const pastedText = (e.clipboardData || window.clipboardData).getData('text').trim();
+                        if ((pastedText.startsWith('{') && pastedText.endsWith('}')) || (pastedText.startsWith('[') && pastedText.endsWith(']'))) {
+                            try {
+                                JSON.parse(pastedText);
+                                activeProfile = 'formatJson';
+                                transformProfileText.textContent = 'Format JSON';
+                                updateOutput();
+                            } catch (error) { /* Not JSON */ }
+                        }
+                    }, 1);
+                });
+
+                undoBtn.addEventListener('click', () => {
+                    if (textHistory.length > 1) {
+                        const currentState = textHistory.pop();
+                        redoHistory.push(currentState);
+                        inputText.value = textHistory[textHistory.length - 1] || '';
+                        updateOutput();
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+
+                redoBtn.addEventListener('click', () => {
+                    if (redoHistory.length > 0) {
+                        const nextState = redoHistory.pop();
+                        pushToHistory(nextState, false);
+                        inputText.value = nextState;
+                        updateOutput();
+                    }
+                });
+
+                undoBtn.addEventListener('click', () => {
+                    if (textHistory.length > 1) {
+                        const currentState = textHistory.pop();
+                        redoHistory.push(currentState);
+                        inputText.value = textHistory[textHistory.length - 1] || '';
+                        updateOutput();
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+
+                redoBtn.addEventListener('click', () => {
+                    if (redoHistory.length > 0) {
+                        const nextState = redoHistory.pop();
+                        pushToHistory(nextState, false);
+                        inputText.value = nextState;
+                        updateOutput();
+                    }
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+                
+                moreToolsBtn.addEventListener('click', (e) => { e.stopPropagation(); toolsDropdown.classList.toggle('hidden'); transformProfileDropdown.classList.add('hidden'); });
+                transformProfileBtn.addEventListener('click', (e) => { e.stopPropagation(); transformProfileDropdown.classList.toggle('hidden'); toolsDropdown.classList.add('hidden'); });
+                document.addEventListener('click', () => {
+                    toolsDropdown.classList.add('hidden');
+                    transformProfileDropdown.classList.add('hidden');
+                });
+
+                setupCustomCheckbox('case-sensitive-label', 'case-sensitive');
+                setupCustomCheckbox('use-regex-label', 'use-regex');
+
+                loadSession();
+                updateOutput();
+            }
+
+            if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+            else { init(); }
+        })();
+    </script>
+</body>
+</html>
+
