@@ -6,8 +6,8 @@
     <title>Visual Pad | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="A free real-time HTML, CSS, and JavaScript editor with an instant live preview. A private, browser-based IDE for front-end development. No sign-up required.">
-    <meta name="keywords" content="html editor, css editor, javascript editor, front-end ide, live preview, code editor, web development tool, solite, visual pad, codepen alternative, jsfiddle alternative">
+    <meta name="description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly. No sign-up required.">
+    <meta name="keywords" content="solite, visual pad, front-end ide, html editor, css editor, javascript editor, live preview, codepen alternative, jsfiddle alternative, client-side ide">
     <link rel="canonical" href="https://solite.com/visual-pad.html" />
     <meta property="og:title" content="Visual Pad | Solite">
     <meta property="og:description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite.">
@@ -15,30 +15,37 @@
     <meta property="og:url" content="https://solite.com/visual-pad.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Visual Pad | Solite",
-      "url": "https://solite.com/visual-pad.html",
-      "description": "A free, private, real-time HTML, CSS, and JavaScript IDE with an instant live preview. A browser-based tool for front-end development.",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
-    }
-    </script>
 
-    <!-- Core Libraries -->
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
     <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Certificate Maker | Solite",
+      "url": "https://solite.com/certificate-maker.html",
+      "description": "A free online tool from Solite to design, edit, and download professional certificates from a variety of templates.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+    
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -47,10 +54,60 @@
                 extend: {
                     height: { 'screen-minus-header': 'calc(100vh - 80px)' },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'] 
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        vintage: ['Lobster', 'cursive'],
+                        slab: ['Roboto Slab', 'serif'],
+                        bold: ['Poppins', 'sans-serif'],
+                        cartoon: ['Bangers', 'cursive'],
+                        elegant: ['Lora', 'serif'],
                     },
                 },
             },
+        }
+    </script>
+    <style>
+        /* Light mode default styles */
+        body {
+            background-color: #ffffff;
+            color: #111827; /* gray-900 */
+        }
+        /* Dark mode overrides */
+        .dark body {
+            background-color: #000000;
+            color: #e5e7eb; /* gray-200 */
+        }
+        .certificate-container {
+            aspect-ratio: 1.414 / 1; /* A4 Landscape */
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .dark .certificate-container {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .resizable-logo {
+            touch-action: none;
+            box-sizing: border-box;
+            min-width: 50px;
+            min-height: 50px;
+            z-index: 20;
+        }
+        .resizable-logo img {
+            pointer-events: none;
+        }
+        .resizable-logo:not(.interact-resizable) { border: 2px dashed transparent; }
+        .resizable-logo.interact-resizable { border: 2px dashed #3b82f6; }
+        body.downloading .interact-resizable { border: 2px dashed transparent !important; }
+        [contenteditable=true]:empty:before {
+            content: attr(placeholder);
+            pointer-events: none;
+            display: block;
+            color: #9ca3af;
+        }        
+        :is(button, a, select, input):focus-visible {
+            outline: none; box-shadow: 0 0 0 3px #3b82f680; border-radius: 0.5rem;
         }
     </style>
 </head>
