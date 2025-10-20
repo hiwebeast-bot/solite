@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-900">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FREE Image Editor | Pixel Perfect Toolkit</title>
+    <title>Pixel Toolkit | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="A free, client-side image editor to crop, resize, watermark, apply filters, compress, and convert images instantly. No uploads, 100% private.">
-    <meta name="keywords" content="image editor, photo editor, crop image, resize image, add watermark, webp converter, image compressor, online photo editor, privacy first">
-    <meta property="og:title" content="Pixel Perfect Toolkit | Free Instant Image Editor">
-    <meta property="og:description" content="The professional-grade toolkit for all your image editing needs. FREE, private, and powerful.">
-    <meta property="og:image" content="https://placehold.co/1200x630/0d1117/7dd3fc?text=Pixel+Perfect\nToolkit">
-    <meta property="og:url" content="https://yourdomain.com/image-editor">
+    <meta name="description" content="A free, client-side image editor from Solite to crop, resize, watermark, apply filters, and convert images instantly. No uploads, 100% private.">
+    <meta name="keywords" content="solite, image editor, photo editor, crop image, resize image, add watermark, webp converter, image compressor, online photo editor, privacy first">
+    <link rel="canonical" href="https://solite.com/Pixel Perfect Toolkit.html" />
+    <meta property="og:title" content="Pixel Toolkit | Solite">
+    <meta property="og:description" content="A professional-grade toolkit for all your image editing needs. Free, private, and powerful.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Pixel+Toolkit">
+    <meta property="og:url" content="https://solite.com/Pixel Perfect Toolkit.html">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Tailwind CSS -->. 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path fill-rule=%22evenodd%22 d=%22M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z%22 clip-rule=%22evenodd%22 /></svg>">
+    <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
     
     <script>
         tailwind.config = {
@@ -37,12 +39,19 @@
         }
     </script>
     <style>
+        /* Light mode default styles */
         body {
-            background-image: linear-gradient(to bottom, #0d1117, #111827);
+            background-color: #ffffff;
+            color: #111827; /* gray-900 */
+        }
+        /* Dark mode overrides */
+        .dark body {
+            background-color: #000000;
+            color: #e5e7eb; /* gray-200 */
         }
         :is(button, a, select, input, .tab):focus-visible {
             outline: none;
-            box-shadow: 0 0 0 2px #3b82f6;
+            box-shadow: 0 0 0 3px #3b82f680;
         }
         .custom-range::-webkit-slider-thumb {
             -webkit-appearance: none; appearance: none;
@@ -75,66 +84,45 @@
         }
     </style>
 </head>
-<body class="antialiased text-gray-300 bg-gray-900 flex flex-col min-h-screen font-sans">
+<body class="flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
-    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-30 border-b border-gray-700/50">
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
-                  <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Pixel Perfect Toolkit</h1>
-            </div>
-             <div class="relative">
-                <button id="more-tools-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
-                    <span>More FREE Tools</span>
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+            </a>
+             <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="relative inline-flex items-center h-8 w-14 p-1 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors focus:outline-none">
+                    <span class="sr-only">Toggle theme</span>
+                    <span id="theme-toggle-slider" class="absolute left-1 top-1 inline-block h-6 w-6 transform rounded-full bg-white dark:bg-gray-700 transition-transform duration-300 ease-in-out"></span>
+                    <svg class="h-5 w-5 absolute left-1.5 top-1.5 text-yellow-500 transition-opacity duration-300" id="theme-toggle-light-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <svg class="h-5 w-5 absolute right-1.5 top-1.5 text-blue-300 transition-opacity duration-300" id="theme-toggle-dark-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
-                 <div id="tools-dropdown" class="absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 py-1">
-                            <a href="./Ultimate text engine.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <span>Text Engine</span>
-                            </a>
-                        
-                            <a href="./visual pad.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                                </svg>
-                                <span>Visual Pad</span>
-                            </a>
-                        
-                            <a href="./CertifyCraft.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span>CertifyCraft</span>
-                            </a>
-                        
-                            <a href="./Pixel Perfect Toolkit.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path fill-rule="evenodd" stroke="none" fill="currentColor" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span>Pixel Toolkit</span>
-                            </a>
-                        </div>
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full my-12">
-        <div class="w-full max-w-7xl flex-grow flex flex-col lg:flex-row gap-6">
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-[85%] p-4 sm:p-8 overflow-y-auto flex flex-col lg:flex-row gap-6">
             
             <!-- Main Workspace -->
-            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-800 rounded-xl border border-gray-700 min-h-[70vh] p-4 relative overflow-hidden">
+            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 min-h-[70vh] p-4 relative overflow-hidden">
                 <div id="upload-prompt" class="text-center cursor-pointer p-8">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <h3 class="mt-2 text-lg font-medium text-white">Drop image(s) here or click to upload</h3>
+                    <h3 class="mt-2 text-lg font-medium text-gray-900 dark:text-white">Drop image(s) here or click to upload</h3>
                     <p class="mt-1 text-sm text-gray-400">Supports PNG, JPG, WebP. Your images stay on your device.</p>
                 </div>
                 <canvas id="canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
@@ -145,11 +133,11 @@
             </div>
 
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-800 rounded-xl border border-gray-700 p-1 hidden">
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-1 hidden">
                 <div class="flex justify-between items-center p-4">
-                    <h3 class="text-lg font-bold text-white">Image Controls</h3>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Image Controls</h3>
                     <div class="flex items-center space-x-2">
-                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none" disabled>
+                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-gray-800 dark:hover:text-white bg-gray-200 dark:bg-gray-700 rounded-md p-2 leading-none" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
                             </svg>
@@ -163,7 +151,7 @@
                 </div>
 
                 <!-- Tabs -->
-                <div class="border-b border-gray-700 px-2">
+                <div class="border-b border-gray-200 dark:border-gray-700 px-2">
                     <div class="flex">
                         <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="adjust">Adjust</button>
                         <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="crop">Crop</button>
@@ -177,15 +165,15 @@
                     <div id="adjust-tab" class="tab-content space-y-4">
                         <h4 class="font-semibold text-gray-200">Filters & Adjustments</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="grayscale">Grayscale</button>
-                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="sepia">Sepia</button>
-                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg" data-filter="invert">Invert</button>
-                            <button id="reset-btn" class="bg-gray-600 hover:bg-gray-500 py-2 rounded-lg">Reset All</button>
+                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="grayscale">Grayscale</button>
+                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="sepia">Sepia</button>
+                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="invert">Invert</button>
+                            <button id="reset-btn" class="bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 py-2 rounded-lg">Reset All</button>
                         </div>
                          <div class="space-y-3 pt-2">
-                            <label class="block"><span class="text-sm">Brightness</span><input type="range" id="brightness-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Contrast</span><input type="range" id="contrast-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Blur</span><input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Brightness</span><input type="range" id="brightness-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Contrast</span><input type="range" id="contrast-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Blur</span><input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
                         </div>
                     </div>
 
@@ -193,26 +181,26 @@
                         <div>
                             <h4 class="font-semibold text-gray-200 mb-2">Resize</h4>
                             <div class="flex items-center gap-2">
-                                <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
-                                <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                                <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+                                <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
                                 <button id="apply-resize-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-3 rounded-lg">Apply</button>
                             </div>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-200 mb-2">Preset Crop</h4>
                              <div class="grid grid-cols-4 gap-2">
-                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="1:1">Square</button>
-                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="16:9">Landscape</button>
-                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:3">Classic</button>
-                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:5">Portrait</button>
+                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="1:1">Square</button>
+                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="16:9">Landscape</button>
+                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:3">Classic</button>
+                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:5">Portrait</button>
                             </div>
                             <div class="grid grid-cols-6 gap-2 mt-2">
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="circle" title="Circle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></button>
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="star" title="Star Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="hexagon" title="Hexagon Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7 12 2"></polygon></svg></button>
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="blob" title="Blob Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.9,13.7C20.4,17.2,17,20,13,20C9,20,5.6,17.2,5.1,13.7C4.6,10.2,7.5,6,12.5,6S21.4,10.2,20.9,13.7Z" transform="rotate(45 12 12)"></path></svg></button>
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="heart" title="Heart Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="triangle" title="Triangle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 22 2 22 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="circle" title="Circle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="star" title="Star Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="hexagon" title="Hexagon Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="blob" title="Blob Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.9,13.7C20.4,17.2,17,20,13,20C9,20,5.6,17.2,5.1,13.7C4.6,10.2,7.5,6,12.5,6S21.4,10.2,20.9,13.7Z" transform="rotate(45 12 12)"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="heart" title="Heart Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="triangle" title="Triangle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 22 2 22 12 2"></polygon></svg></button>
                             </div>
                         </div>
                         <div>
@@ -227,35 +215,35 @@
                     </div>
 
                     <div id="watermark-tab" class="tab-content hidden space-y-4">
-                        <div class="flex bg-gray-700 rounded-lg p-1">
+                        <div class="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1">
                             <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-md">Text</button>
                             <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-400">Image</button>
                         </div>
 
                         <div id="text-watermark-controls" class="space-y-4">
-                            <input type="text" id="watermark-text" placeholder="Your watermark text..." class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
-                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <input type="text" id="watermark-text" placeholder="Your watermark text..." class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
                             <div>
                                 <span class="text-sm">Color</span>
                                 <div id="color-presets" class="grid grid-cols-8 gap-2 mt-1 mb-2"></div>
-                                <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-700 rounded-lg cursor-pointer">
+                                <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg cursor-pointer">
                             </div>
                         </div>
 
                         <div id="image-watermark-controls" class="hidden space-y-4">
                             <input type="file" id="watermark-upload-input" class="hidden" accept="image/png, image/jpeg, image/webp">
-                            <button id="upload-watermark-btn" class="w-full bg-gray-700 hover:bg-gray-600 py-2 px-4 rounded-lg">Upload Watermark</button>
+                            <button id="upload-watermark-btn" class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 px-4 rounded-lg">Upload Watermark</button>
                             <div id="image-watermark-sliders" class="hidden space-y-4">
-                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
-                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
                             </div>
                         </div>
                     </div>
 
                     <div id="export-tab" class="tab-content hidden space-y-4">
                          <h4 class="font-semibold text-gray-200">Export Image</h4>
-                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
                             <option value="image/png">PNG</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/webp">WebP</option>
@@ -269,9 +257,9 @@
                                 <label for="quality-slider" class="text-sm">Quality / Compression</label>
                                 <span id="file-size-preview" class="text-sm font-medium text-gray-400"></span>
                             </div>
-                            <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg custom-range">
+                            <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range">
                         </div>
-                        <button id="download-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-transform hover:-translate-y-0.5">
+                        <button id="download-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             <span>Download Image</span>
                         </button>
@@ -279,15 +267,25 @@
                 </div>
             </div>
         </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[15%] flex-shrink-0 p-4 border-l border-gray-200 dark:border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-100 dark:bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
     </main>
 
-    <footer class="p-4 sm:p-6 w-full flex-shrink-0">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-            <div class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Privacy First. No Server. No Sign-up.</span>
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
             </div>
-            <div class="flex items-center space-x-4 mt-4 sm:mt-0"><a href="#" class="hover:text-white">Privacy Policy</a><a href="#" class="hover:text-white">Terms of Service</a></div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./Terms of Service.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
         </div>
     </footer>
     
@@ -306,8 +304,6 @@
             const qualitySlider = document.getElementById('quality-slider');
             const fileSizePreview = document.getElementById('file-size-preview');
             const resetBtn = document.getElementById('reset-btn');
-            const moreToolsBtn = document.getElementById('more-tools-btn');
-            const toolsDropdown = document.getElementById('tools-dropdown');
             const removeImageBtn = document.getElementById('remove-image-btn');
             const toggleCropBtn = document.getElementById('toggle-crop-btn');
             const applyCropBtn = document.getElementById('apply-crop-btn');
@@ -746,8 +742,6 @@
             });
             
             document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
-            moreToolsBtn.addEventListener('click', (e) => { e.stopPropagation(); toolsDropdown.classList.toggle('hidden'); });
-            document.addEventListener('click', () => { toolsDropdown.classList.add('hidden'); });
 
             // Watermark Logic
             function setupWatermarkControls() {
@@ -815,8 +809,45 @@
 
             setupWatermarkControls();
             showTab('adjust');
+
+            // Theme switcher script
+            (() => {
+                const themeToggleBtn = document.getElementById('theme-toggle');
+                const slider = document.getElementById('theme-toggle-slider');
+                const lightIcon = document.getElementById('theme-toggle-light-icon');
+                const darkIcon = document.getElementById('theme-toggle-dark-icon');
+                const favicon = document.getElementById('favicon');
+                const htmlEl = document.documentElement;
+                
+                const darkFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+                const lightFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+
+                const applyTheme = (theme) => {
+                    if (theme === 'dark') {
+                        htmlEl.classList.add('dark');
+                        slider.style.transform = 'translateX(1.5rem)';
+                        lightIcon.style.opacity = '0';
+                        darkIcon.style.opacity = '1';
+                        favicon.href = darkFavicon;
+                    } else {
+                        htmlEl.classList.remove('dark');
+                        slider.style.transform = 'translateX(0)';
+                        lightIcon.style.opacity = '1';
+                        darkIcon.style.opacity = '0';
+                        favicon.href = lightFavicon;
+                    }
+                };
+
+                const savedTheme = localStorage.getItem('theme');
+                applyTheme(savedTheme || 'light');
+
+                themeToggleBtn.addEventListener('click', () => {
+                    const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            })();
         })();
     </script>
 </body>
 </html>
-
