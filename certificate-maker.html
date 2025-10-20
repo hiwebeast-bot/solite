@@ -156,11 +156,6 @@
                                 <span>Upload Logo</span>
                             </label>
                             <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                            <label for="signature-upload-input" title="Upload an image of a signature" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" /></svg>
-                                <span>Upload Signature</span>
-                            </label>
-                            <input type="file" id="signature-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
                             
                             <div class="flex items-center">
                                 <div class="relative">
@@ -231,8 +226,8 @@
                                        For demonstrating outstanding skill and dedication in completing the Advanced Web Development Bootcamp.
                                    </p>
                                </div>
-                               <div class="h-24 bg-gray-100 mt-auto flex justify-between items-center p-12 z-10 relative">
-                                   <div class="w-48 h-16 resizable-signature"></div>
+                               <div class="h-24 bg-gray-100 mt-auto flex justify-between items-center p-12 z-10">
+                                   <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Signature</p></div>
                                    <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Date</p></div>
                                </div>
                            </div>`
@@ -252,9 +247,9 @@
                                    <p contenteditable="true" placeholder="Recipient Name" class="text-6xl font-serif my-4 font-bold text-[#4a3c2b]" style="font-family: 'Playfair Display', serif;">Recipient Name</p>
                                    <p contenteditable="true" placeholder="Reason for award..." class="text-center max-w-xl">In recognition of outstanding academic performance and exemplary dedication to the principles of higher learning.</p>
                                </div>
-                               <div class="w-full flex justify-around items-center z-10 mt-auto px-16">
-                                   <div class="text-center w-1/3 relative"><div class="w-48 h-16 resizable-signature mx-auto"></div><p contenteditable="true" placeholder="Signature" class="border-t-2 border-[#C0A062] pt-2">University Dean</p></div>
-                                   <div class="w-24 h-24 resizable-logo mx-auto"></div>
+                               <div class="w-full flex justify-between items-center z-10 mt-auto px-16">
+                                   <div class="text-center w-1/3"><p contenteditable="true" placeholder="Signature" class="border-t-2 border-[#C0A062] pt-2">University Dean</p></div>
+                                   <div class="w-24 h-24 resizable-logo"></div>
                                    <div class="text-center w-1/3"><p contenteditable="true" placeholder="Date" class="border-t-2 border-[#C0A062] pt-2">Date</p></div>
                                </div>
                            </div>`
@@ -276,7 +271,7 @@
                                     <p contenteditable="true" class="mt-6 max-w-lg mx-auto text-gray-600">For successfully completing the course on Advanced Project Management.</p>
                                 </div>
                                 <div class="w-full flex justify-between items-center pt-4 border-t text-sm">
-                                    <div class="w-40 h-12 resizable-signature"></div>
+                                    <p contenteditable="true">Signature</p>
                                     <p contenteditable="true">Date</p>
                                 </div>
                             </div>`
@@ -293,7 +288,7 @@
                                     <p contenteditable="true" class="mt-4 max-w-xl">For their exceptional leadership and dedication during the fiscal year 2024.</p>
                                     <div class="flex-grow"></div>
                                     <div class="flex justify-around w-full mt-12">
-                                        <div class="w-48 h-16 resizable-signature"></div>
+                                        <p contenteditable="true" class="border-t-2 border-gray-400 pt-2 px-12">CEO Signature</p>
                                         <p contenteditable="true" class="border-t-2 border-gray-400 pt-2 px-12">Date</p>
                                     </div>
                                 </div>
@@ -314,7 +309,7 @@
                                     <p contenteditable="true" class="max-w-md">for placing first in the regional science olympiad and demonstrating exceptional scientific acumen.</p>
                                 </div>
                                 <div class="w-full flex justify-around items-end mt-8">
-                                    <div class="w-48 h-16 resizable-signature"></div>
+                                    <p contenteditable="true" class="border-t-2 border-gray-400 pt-1">Head of Committee</p>
                                     <p contenteditable="true" class="border-t-2 border-gray-400 pt-1">Date</p>
                                 </div>
                             </div>`
@@ -378,7 +373,7 @@
                                         </div>
                                         <div class="flex-grow"></div>
                                         <div class="w-full flex justify-between items-end mt-12 text-sm">
-                                            <div class="w-48 h-16 resizable-signature"></div>
+                                            <p contenteditable="true" class="border-t-2 border-[#d3c5b3] pt-2 px-12">Signature</p>
                                             <div class="resizable-logo w-20 h-20"></div>
                                             <p contenteditable="true" class="border-t-2 border-[#d3c5b3] pt-2 px-12">Date</p>
                                         </div>
@@ -400,7 +395,7 @@
                                     <p contenteditable="true" class="text-center max-w-md">With sincere gratitude for your exceptional contributions and unwavering support.</p>
                                 </div>
                                 <div class="w-full flex justify-between items-end mt-12 text-sm z-10">
-                                    <div class="w-48 h-16 resizable-signature"></div>
+                                    <p contenteditable="true" class="border-t pt-2 px-8">Coordinator</p>
                                     <p contenteditable="true" class="border-t pt-2 px-8">Date</p>
                                 </div>
                             </div>`
@@ -422,29 +417,12 @@
                                     <p contenteditable="true" class="text-gray-500">Presented to</p>
                                     <p contenteditable="true" class="text-5xl font-bold my-2">Recipient Name</p>
                                     <p contenteditable="true" class="max-w-md text-gray-600">In recognition of your outstanding performance, dedication, and positive impact on the team.</p>
-                                    <div class="w-48 h-12 resizable-signature mt-12"></div>
+                                    <p contenteditable="true" class="border-t-2 border-gray-300 pt-2 mt-12 inline-block">Manager's Signature</p>
                                 </div>
-                            </div>`
-                },
-                {
-                    id: 'sports_achievement', name: 'Sports Achievement',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9 9 0 119 0zM16.5 18.75a9 9 0 00-9 0m9 0h.008v.008h-.008v-.008zm-9 0h-.008v.008h.008v-.008z" /></svg>`,
-                    html: `<div class="w-full h-full p-10 flex flex-col bg-gray-800 text-white font-sans relative overflow-hidden">
-                                <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: linear-gradient(45deg, #3b82f6 25%, transparent 25%), linear-gradient(-45deg, #3b82f6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #3b82f6 75%), linear-gradient(-45deg, transparent 75%, #3b82f6 75%); background-size: 20px 20px;"></div>
-                                <div class="text-center z-10">
-                                    <p contenteditable="true" class="text-6xl font-extrabold tracking-tighter">CHAMPION</p>
-                                    <p contenteditable="true" class="text-2xl text-blue-400">2025 TOURNAMENT</p>
-                                </div>
-                                <div class="flex-grow flex flex-col items-center justify-center text-center z-10">
-                                    <p contenteditable="true" class="text-lg">AWARDED FOR OUTSTANDING PERFORMANCE TO</p>
-                                    <p contenteditable="true" class="text-5xl font-bold my-4">Recipient Name</p>
-                                    <p contenteditable="true" class="max-w-md">For demonstrating exceptional skill, sportsmanship, and dedication throughout the season.</p>
-                                </div>
-                                <div class="flex justify-between items-end z-10"><div class="w-48 h-16 resizable-signature"></div><div class="resizable-logo w-24 h-24"></div></div>
                             </div>`
                 },
             ];
-            templates.push(...moreTemplates, ...evenMoreTemplates);
+            templates.push(...moreTemplates);
 
             const galleryView = document.getElementById('gallery-view');
             const editorView = document.getElementById('editor-view');
@@ -452,7 +430,6 @@
             const certificateContainer = document.getElementById('certificate-container');
             const editorBackToGalleryBtn = document.getElementById('editor-back-to-gallery-btn');
             const logoUploadInput = document.getElementById('logo-upload-input');
-            const signatureUploadInput = document.getElementById('signature-upload-input');
             const downloadBtn = document.getElementById('download-btn');
 
             function showView(viewName) {
@@ -465,14 +442,14 @@
                 templates.forEach(template => {
                     const card = document.createElement('a');
                     card.href = "#";
-                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-blue-500 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
+                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-white hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
                     card.innerHTML = `
-                        <div class="text-blue-400 mb-3">${template.icon}</div>
+                        <div class="text-gray-300 mb-3">${template.icon}</div>
                         <h3 class="font-semibold text-white mb-1">${template.name}</h3>
                     `;
-                    card.addEventListener('click', () => {
+                    card.addEventListener('click', (e) => {
                         e.preventDefault();
-                        loadTemplate(template.id, true);
+                        loadTemplate(template.id);
                         showView('editor');
                     });
                     templateGrid.appendChild(card);
@@ -489,37 +466,44 @@
                 }
             }
 
-            function handleImageUpload(event, targetSelector) {
+            logoUploadInput.addEventListener('change', (event) => {
                 const file = event.target.files[0];
                 if (file) {
                     const reader = new FileReader();
                     reader.onload = (e) => {
-                        const container = certificateContainer.querySelector(targetSelector);
-                        if (container) {
-                           const img = container.querySelector('img');
+                        const activeLogoContainer = certificateContainer.querySelector('.resizable-logo');
+                        if (activeLogoContainer) {
+                           const img = activeLogoContainer.querySelector('img');
                            if(img) {
                                img.src = e.target.result;
                            } else {
                                const newImg = document.createElement('img');
                                newImg.src = e.target.result;
-                               container.innerHTML = '';
-                               container.appendChild(newImg);
+                               activeLogoContainer.innerHTML = '';
+                               activeLogoContainer.appendChild(newImg);
                            }
                         }
                     };
                     reader.readAsDataURL(file);
                 }
-            }
-
-            logoUploadInput.addEventListener('change', (e) => handleImageUpload(e, '.resizable-logo'));
-            signatureUploadInput.addEventListener('change', (e) => handleImageUpload(e, '.resizable-signature'));
+            });
 
             function setupInteract() {
-                interact('.resizable-logo, .resizable-signature')
+                interact('.resizable-logo')
                     .resizable({
                         edges: { left: true, right: true, bottom: true, top: true },
                         listeners: {
-                            move: resizeMoveListener
+                            move(event) {
+                                let { x, y } = event.target.dataset;
+                                x = (parseFloat(x) || 0) + event.deltaRect.left;
+                                y = (parseFloat(y) || 0) + event.deltaRect.top;
+                                Object.assign(event.target.style, {
+                                    width: `${event.rect.width}px`,
+                                    height: `${event.rect.height}px`,
+                                    transform: `translate(${x}px, ${y}px)`
+                                });
+                                Object.assign(event.target.dataset, { x, y });
+                            }
                         },
                         modifiers: [ interact.modifiers.aspectRatio({ ratio: 'preserve' }) ],
                         inertia: true
@@ -527,26 +511,15 @@
                     .draggable({
                         listeners: {
                             move(event) {
-                                const target = event.target;
-                                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-                                target.style.transform = `translate(${x}px, ${y}px)`;
-
-                                target.setAttribute('data-x', x);
-                                target.setAttribute('data-y', y);
+                                let { x, y } = event.target.dataset;
+                                x = (parseFloat(x) || 0) + event.dx;
+                                y = (parseFloat(y) || 0) + event.dy;
+                                event.target.style.transform = `translate(${x}px, ${y}px)`;
+                                Object.assign(event.target.dataset, { x, y });
                             }
                         },
                         inertia: true,
                     });
-            }
-
-            function resizeMoveListener (event) {
-                const target = event.target
-                const x = (parseFloat(target.getAttribute('data-x')) || 0)
-                const y = (parseFloat(target.getAttribute('data-y')) || 0)
-                target.style.width = event.rect.width + 'px'
-                target.style.height = event.rect.height + 'px'
             }
 
             downloadBtn.addEventListener('click', async () => {
