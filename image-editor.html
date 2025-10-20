@@ -55,8 +55,7 @@
     </script>
     <style>
         :is(button, a, select, input, .tab):focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px #3b82f680;
+            outline: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
         }
         .custom-range::-webkit-slider-thumb {
             -webkit-appearance: none; appearance: none;
@@ -70,8 +69,8 @@
         #canvas-container.cropping { cursor: crosshair; }
         #canvas-container.dragging { cursor: move; }
         button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .watermark-type-btn.active { background-color: #3b82f6; color: #fff; }
-        .filter-btn.active { background-color: #3b82f6 !important; color: #fff; }
+        .watermark-type-btn.active { background-color: #fff; color: #000; }
+        .filter-btn.active { background-color: #fff !important; color: #000; }
         
         .tab {
             color: #6b7280; /* gray-500 */
@@ -121,7 +120,7 @@
         <div class="flex-grow w-[85%] p-4 sm:p-8 overflow-y-auto flex flex-col lg:flex-row gap-6">
             
             <!-- Main Workspace -->
-            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 min-h-[70vh] p-4 relative overflow-hidden">
+            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 min-h-[70vh] p-4 relative overflow-hidden">
                 <div id="upload-prompt" class="text-center cursor-pointer p-8">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -137,11 +136,11 @@
             </div>
 
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-1 hidden">
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-1 hidden">
                 <div class="flex justify-between items-center p-4">
                     <h3 class="text-lg font-bold text-gray-900 dark:text-white">Image Controls</h3>
                     <div class="flex items-center space-x-2">
-                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-gray-800 dark:hover:text-white bg-gray-200 dark:bg-gray-700 rounded-md p-2 leading-none" disabled>
+                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-lg p-2 leading-none" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
                             </svg>
@@ -155,7 +154,7 @@
                 </div>
 
                 <!-- Tabs -->
-                <div class="border-b border-gray-200 dark:border-gray-700 px-2">
+                <div class="border-b border-gray-800 px-2">
                     <div class="flex">
                         <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="adjust">Adjust</button>
                         <button class="tab flex-1 py-2 px-4 text-center text-sm font-medium" data-tab="crop">Crop</button>
@@ -169,15 +168,15 @@
                     <div id="adjust-tab" class="tab-content space-y-4">
                         <h4 class="font-semibold text-gray-800 dark:text-gray-200">Filters & Adjustments</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="grayscale">Grayscale</button>
-                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="sepia">Sepia</button>
-                            <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="invert">Invert</button>
-                            <button id="reset-btn" class="bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 py-2 rounded-lg">Reset All</button>
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg font-medium" data-filter="grayscale">Grayscale</button>
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg font-medium" data-filter="sepia">Sepia</button>
+                            <button class="filter-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg font-medium" data-filter="invert">Invert</button>
+                            <button id="reset-btn" class="bg-gray-600 hover:bg-gray-500 py-2 rounded-lg font-medium">Reset All</button>
                         </div>
                          <div class="space-y-3 pt-2">
-                            <label class="block"><span class="text-sm">Brightness</span><input type="range" id="brightness-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Contrast</span><input type="range" id="contrast-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Blur</span><input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Brightness</span><input type="range" id="brightness-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Contrast</span><input type="range" id="contrast-slider" min="-100" max="100" value="0" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Blur</span><input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
                         </div>
                     </div>
 
@@ -185,69 +184,69 @@
                         <div>
                             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Resize</h4>
                             <div class="flex items-center gap-2">
-                                <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
-                                <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
-                                <button id="apply-resize-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-3 rounded-lg">Apply</button>
+                                <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                                <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                                <button id="apply-resize-btn" class="bg-white hover:bg-gray-200 text-black font-medium py-2 px-3 rounded-lg">Apply</button>
                             </div>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Preset Crop</h4>
                              <div class="grid grid-cols-4 gap-2">
-                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="1:1">Square</button>
-                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="16:9">Landscape</button>
-                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:3">Classic</button>
-                                <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="4:5">Portrait</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs font-medium" data-ratio="1:1">Square</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs font-medium" data-ratio="16:9">Landscape</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs font-medium" data-ratio="4:3">Classic</button>
+                                <button class="aspect-crop-btn bg-gray-700 hover:bg-gray-600 py-2 rounded-lg text-xs font-medium" data-ratio="4:5">Portrait</button>
                             </div>
                             <div class="grid grid-cols-6 gap-2 mt-2">
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="circle" title="Circle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></button>
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="star" title="Star Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="hexagon" title="Hexagon Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7 12 2"></polygon></svg></button>
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="blob" title="Blob Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.9,13.7C20.4,17.2,17,20,13,20C9,20,5.6,17.2,5.1,13.7C4.6,10.2,7.5,6,12.5,6S21.4,10.2,20.9,13.7Z" transform="rotate(45 12 12)"></path></svg></button>
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="heart" title="Heart Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-                                <button class="shape-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="triangle" title="Triangle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 22 2 22 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="circle" title="Circle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="star" title="Star Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="hexagon" title="Hexagon Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7 12 2"></polygon></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="blob" title="Blob Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.9,13.7C20.4,17.2,17,20,13,20C9,20,5.6,17.2,5.1,13.7C4.6,10.2,7.5,6,12.5,6S21.4,10.2,20.9,13.7Z" transform="rotate(45 12 12)"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="heart" title="Heart Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+                                <button class="shape-crop-btn bg-gray-700 hover:bg-gray-600 p-2 rounded-lg flex justify-center items-center h-12" data-shape="triangle" title="Triangle Crop"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 22 2 22 12 2"></polygon></svg></button>
                             </div>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Manual Crop</h4>
                             <p class="text-sm text-gray-400 mb-2">Enable, then drag on the image to select an area.</p>
-                             <button id="toggle-crop-btn" class="w-full flex justify-between items-center text-left py-2 px-4 rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 mb-2">
+                             <button id="toggle-crop-btn" class="w-full flex justify-between items-center text-left py-2 px-4 rounded-lg border-2 border-gray-600 hover:border-gray-500 mb-2">
                                 <span>Enable Manual Crop</span>
                                 <div id="crop-tick-container" class="w-5 h-5 border-2 border-gray-400 dark:border-gray-500 rounded-sm flex items-center justify-center flex-shrink-0"></div>
                             </button>
-                            <button id="apply-crop-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg" disabled>Apply Crop</button>
+                            <button id="apply-crop-btn" class="w-full bg-white hover:bg-gray-200 text-black font-medium py-2 px-4 rounded-lg" disabled>Apply Crop</button>
                         </div>
                     </div>
 
                     <div id="watermark-tab" class="tab-content hidden space-y-4">
-                        <div class="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1 text-gray-800 dark:text-gray-300">
-                            <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-md">Text</button>
-                            <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-500 dark:text-gray-400">Image</button>
+                        <div class="flex bg-gray-700 rounded-lg p-1 text-gray-300">
+                            <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-lg font-medium">Text</button>
+                            <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-lg font-medium text-gray-400">Image</button>
                         </div>
 
                         <div id="text-watermark-controls" class="space-y-4">
-                            <input type="text" id="watermark-text" placeholder="Your watermark text..." class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
-                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
-                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                            <input type="text" id="watermark-text" placeholder="Your watermark text..." class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
+                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
                             <div>
                                 <span class="text-sm">Color</span>
                                 <div id="color-presets" class="grid grid-cols-8 gap-2 mt-1 mb-2"></div>
-                                <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg cursor-pointer">
+                                <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-700 rounded-lg cursor-pointer">
                             </div>
                         </div>
 
                         <div id="image-watermark-controls" class="hidden space-y-4">
                             <input type="file" id="watermark-upload-input" class="hidden" accept="image/png, image/jpeg, image/webp">
-                            <button id="upload-watermark-btn" class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 px-4 rounded-lg">Upload Watermark</button>
+                            <button id="upload-watermark-btn" class="w-full bg-gray-700 hover:bg-gray-600 py-2 px-4 rounded-lg font-medium">Upload Watermark</button>
                             <div id="image-watermark-sliders" class="hidden space-y-4">
-                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
-                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range"></label>
+                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
+                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range"></label>
                             </div>
                         </div>
                     </div>
 
                     <div id="export-tab" class="tab-content hidden space-y-4">
                          <h4 class="font-semibold text-gray-800 dark:text-gray-200">Export Image</h4>
-                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
                             <option value="image/png">PNG</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/webp">WebP</option>
@@ -261,9 +260,9 @@
                                 <label for="quality-slider" class="text-sm">Quality / Compression</label>
                                 <span id="file-size-preview" class="text-sm font-medium text-gray-400"></span>
                             </div>
-                            <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg custom-range">
+                            <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg custom-range">
                         </div>
-                        <button id="download-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
+                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-medium py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             <span>Download Image</span>
                         </button>
@@ -272,7 +271,7 @@
             </div>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[15%] flex-shrink-0 p-4 border-l border-gray-200 dark:border-gray-800 hidden lg:block">
+        <aside class="w-[15%] flex-shrink-0 p-4 border-l border-gray-800 hidden lg:block">
             <div class="h-full bg-gray-100 dark:bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
                 Ad Area
             </div>
@@ -337,7 +336,7 @@
             let isDragging = false;
             let history = [];
             let historyIndex = -1;
-            const tickSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+            const tickSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
 
             // Watermark State
             let activeWatermarkType = 'text';
@@ -596,11 +595,11 @@
                 isCropping = !isCropping;
                 canvasContainer.classList.toggle('cropping', isCropping);
                 if (isCropping) {
-                    toggleCropBtn.classList.add('border-blue-500', 'dark:border-blue-500'); cropTickContainer.innerHTML = tickSVG;
-                    cropTickContainer.classList.add('border-blue-500', 'dark:border-blue-500');
+                    toggleCropBtn.classList.add('border-white/50'); cropTickContainer.innerHTML = tickSVG;
+                    cropTickContainer.classList.add('border-white/50');
                 } else {
-                    toggleCropBtn.classList.remove('border-blue-500', 'dark:border-blue-500'); cropTickContainer.innerHTML = '';
-                    cropTickContainer.classList.remove('border-blue-500', 'dark:border-blue-500');
+                    toggleCropBtn.classList.remove('border-white/50'); cropTickContainer.innerHTML = '';
+                    cropTickContainer.classList.remove('border-white/50');
                 }
                 applyCropBtn.disabled = true;
                 if (!isCropping) { cropRect = {}; redrawCanvas(); }
@@ -610,7 +609,7 @@
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 if (cropRect.w) {
-                    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2;
                     ctx.strokeRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
                     ctx.clearRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
                 }
@@ -801,7 +800,7 @@
                 });
                 colorPresets.forEach(color => {
                     const swatch = document.createElement('button');
-                    swatch.className = 'w-full h-8 rounded-md border-2 border-transparent focus:border-blue-500';
+                    swatch.className = 'w-full h-8 rounded-lg border-2 border-transparent focus:border-white/50';
                     swatch.style.backgroundColor = color;
                     swatch.addEventListener('click', () => {
                         watermarkColorInput.value = color;
