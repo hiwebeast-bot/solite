@@ -59,6 +59,10 @@
             background-color: #1f2937; /* gray-800 */
             color: #ffffff;
         }
+        .view-btn.active {
+            background-color: #4b5563; /* gray-600 */
+            color: #ffffff;
+        }
         #resizer {
             cursor: col-resize;
         }
@@ -91,14 +95,14 @@
     <main class="flex-grow flex" style="height: calc(100vh - 80px);">
         <div class="flex-grow w-full lg:w-[85%] p-4 flex flex-col md:flex-row gap-4">
             <!-- Editor Pane -->
-            <div id="editor-pane" class="w-full md:w-1/2 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
+            <div id="editor-pane" class="w-full flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden" style="width: 30%;">
+                <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-1">
                         <div class="tabs flex">
                         <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
                         <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">CSS</button>
                         <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">JS</button>
                         </div>
-                        <div class="pr-2">
+                        <div>
                             <button id="download-btn" class="bg-white hover:bg-gray-200 text-gray-900 font-medium py-1.5 px-3 rounded-lg flex items-center space-x-2 text-sm transition-transform hover:-translate-y-0.5">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                                 <span>Download ZIP</span>
@@ -122,11 +126,16 @@
                 </div>
                 
                 <!-- Preview Pane -->
-            <div id="preview-pane" class="w-full md:w-1/2 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex-shrink-0 flex items-center p-2 bg-gray-800 border-b border-gray-700">
+            <div id="preview-pane" class="w-full flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden" style="width: 70%;">
+                <div class="flex-shrink-0 flex items-center justify-between p-2 bg-gray-800 border-b border-gray-700">
                     <p class="px-2 text-sm font-semibold text-gray-300">Preview</p>
+                    <div class="flex items-center space-x-1 bg-gray-900 p-1 rounded-lg">
+                        <button data-view="desktop" title="Desktop" class="view-btn active p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></button>
+                        <button data-view="tablet" title="Tablet" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
+                        <button data-view="mobile" title="Mobile" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
+                    </div>
                 </div>
-                <div class="flex-grow w-full flex items-center justify-center p-1 bg-gray-900">
+                <div class="flex-grow w-full flex items-center justify-center p-1 bg-gray-900 overflow-auto">
                     <iframe id="preview-iframe" class="h-full w-full bg-white rounded-md shadow-inner"></iframe>
                 </div>
             </div>
@@ -165,6 +174,7 @@
             const previewIframe = document.getElementById('preview-iframe');
             const downloadBtn = document.getElementById('download-btn');
             const tabs = document.querySelectorAll('.tab-btn');
+            const viewBtns = document.querySelectorAll('.view-btn');
             const editors = {
                 html: htmlEditor,
                 css: cssEditor,
@@ -247,6 +257,50 @@
                     Object.values(editors).forEach(editor => editor.classList.add('hidden'));
                     editors[lang].classList.remove('hidden');
                 });
+            });
+
+            // --- Viewport Logic ---
+            const viewportSizes = {
+                desktop: '100%',
+                tablet: '768px',
+                mobile: '375px'
+            };
+
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.dataset.view;
+                    previewIframe.style.width = viewportSizes[view];
+                    previewIframe.style.transition = 'width 0.3s ease-in-out';
+
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // --- Resizer Logic ---
+            let isResizing = false;
+
+            resizer.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                document.body.style.cursor = 'col-resize';
+                document.body.style.userSelect = 'none';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+                const container = editorPane.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                const newEditorWidth = e.clientX - containerRect.left;
+                const newPreviewWidth = containerRect.right - e.clientX;
+                
+                editorPane.style.width = `${(newEditorWidth / containerRect.width) * 100}%`;
+                previewPane.style.width = `${(newPreviewWidth / containerRect.width) * 100}%`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isResizing = false;
+                document.body.style.cursor = 'default';
+                document.body.style.userSelect = 'auto';
             });
 
             // --- Download Logic ---
