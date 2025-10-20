@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-900 dark">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Pad | A Superior Front-End IDE</title>
+    <title>Visual Pad | Solite</title>
 
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly. No sign-up required.">
+    <meta name="keywords" content="solite, visual pad, front-end ide, html editor, css editor, javascript editor, live preview, codepen alternative, jsfiddle alternative, client-side ide">
+    <link rel="canonical" href="https://solite.com/visual pad.html" />
+    <meta property="og:title" content="Visual Pad | Solite">
+    <meta property="og:description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Visual+Pad">
+    <meta property="og:url" content="https://solite.com/visual pad.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <!-- Core Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
@@ -25,16 +36,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 stroke=%22%233b82f6%22 stroke-width=%221.5%22 viewBox=%220 0 24 24%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 d=%22M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4%22/></svg>">
+    <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
     
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+            theme: { 
+                extend: { 
+                    height: { 'screen-minus-header': 'calc(100vh - 80px)' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] } 
+                } 
+            }
         }
     </script>
     <style>
-        body { background-image: linear-gradient(to bottom, #0d1117, #111827); }
+        /* Light mode default styles */
+        body { background-color: #ffffff; color: #111827; }
+        /* Dark mode overrides */
+        .dark body { background-color: #000000; color: #e5e7eb; }
+        .dark .CodeMirror { background-color: #0d1117; }
+        .dark .CodeMirror-gutters { background-color: #0d1117 !important; border-right: 1px solid #30363d; }
+        .dark .CodeMirror-line.CodeMirror-activeline-background { background: #1f2937; }
         .CodeMirror { height: 100%; font-size: 14px; background-color: #0d1117; }
         .CodeMirror-gutters { background-color: #0d1117 !important; border-right: 1px solid #30363d; }
         .CodeMirror-vscrollbar::-webkit-scrollbar { width: 8px; }
@@ -42,135 +65,125 @@
         .CodeMirror-vscrollbar::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
         .CodeMirror-line.CodeMirror-activeline-background { background: #1f2937; }
         :is(button, a, input):focus-visible { outline: none; box-shadow: 0 0 0 2px #3b82f6; border-radius: 0.5rem; }
-        .tabs button { border-bottom: 2px solid transparent; }
-        .tabs button.active { color: white; border-bottom-color: #3b82f6; }
-        .view-btn.active { background-color: #3b82f6; color: white; }
+        .tab-btn.active { color: #3b82f6; border-bottom-color: #3b82f6; }
+        .dark .tab-btn.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+        .view-btn.active { background-color: #3b82f6; color: white; } /* remains same for both themes */
         #resizer { transition: background-color 0.2s; }
         #resizer:hover { background-color: #3b82f6; }
         .console-log { border-bottom: 1px solid #374151; }
         .console-error { background-color: rgba(239, 68, 68, 0.1); border-bottom: 1px solid #ef4444; color: #f87171; }
     </style>
 </head>
-<body class="antialiased text-gray-300 bg-gray-900 flex flex-col min-h-screen font-sans">
+<body class="flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
-    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-30 border-b border-gray-700/50">
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                <h1 class="text-xl font-bold text-white uppercase tracking-wider">Visual Pad</h1>
-            </div>
-             <div class="relative">
-                <button id="more-tools-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
-                    <span>More FREE Tools</span>
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+            </a>
+             <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="relative inline-flex items-center h-8 w-14 p-1 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors focus:outline-none">
+                    <span class="sr-only">Toggle theme</span>
+                    <span id="theme-toggle-slider" class="absolute left-1 top-1 inline-block h-6 w-6 transform rounded-full bg-white dark:bg-gray-700 transition-transform duration-300 ease-in-out"></span>
+                    <svg class="h-5 w-5 absolute left-1.5 top-1.5 text-yellow-500 transition-opacity duration-300" id="theme-toggle-light-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <svg class="h-5 w-5 absolute right-1.5 top-1.5 text-blue-300 transition-opacity duration-300" id="theme-toggle-dark-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
-                 <div id="tools-dropdown" class="absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 py-1">
-                            <a href="./Ultimate text engine.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <span>Text Engine</span>
-                            </a>
-                        
-                            <a href="./visual pad.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                                </svg>
-                                <span>Visual Pad</span>
-                            </a>
-                        
-                            <a href="./CertifyCraft.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span>CertifyCraft</span>
-                            </a>
-                        
-                            <a href="./Pixel Perfect Toolkit.html" class="flex items-center px-4 py-2 text-white hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path fill-rule="evenodd" stroke="none" fill="currentColor" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span>Pixel Toolkit</span>
-                            </a>
-                        </div>
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col w-full py-6 px-4 sm:px-6">
-        <div id="main-content" class="flex-grow flex flex-col md:flex-row gap-4">
-            <!-- Editor Pane -->
-            <div id="editor-pane" class="w-full md:w-2/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
-                    <div class="tabs flex">
-                        <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">HTML</button>
-                        <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">CSS</button>
-                        <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">JS</button>
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-[85%] p-4 sm:p-6 flex flex-col">
+            <div id="main-content" class="flex-grow flex flex-col md:flex-row gap-4">
+                <!-- Editor Pane -->
+                <div id="editor-pane" class="w-full md:w-2/5 flex flex-col bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-2">
+                        <div class="tabs flex">
+                            <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors border-b-2">HTML</button>
+                            <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors border-b-2">CSS</button>
+                            <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors border-b-2">JS</button>
+                        </div>
+                        <div class="flex items-center space-x-1 pr-2">
+                             <button id="undo-btn" title="Undo (Ctrl+Z)" class="text-gray-400 hover:text-gray-800 dark:hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
+                             </button>
+                             <button id="redo-btn" title="Redo (Ctrl+Y)" class="text-gray-400 hover:text-gray-800 dark:hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg>
+                             </button>
+                             <div class="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-2"></div>
+                             <button id="settings-btn" title="Settings" class="text-gray-400 hover:text-gray-800 dark:hover:text-white p-2 rounded-lg transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 pr-2">
-                         <button id="undo-btn" title="Undo (Ctrl+Z)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
-                         </button>
-                         <button id="redo-btn" title="Redo (Ctrl+Y)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg>
-                         </button>
-                         <div class="w-px h-6 bg-gray-700 mx-2"></div>
-                         <button id="settings-btn" title="Settings" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex-grow relative">
-                    <div id="html-editor" class="editor w-full h-full absolute"></div>
-                    <div id="css-editor" class="editor w-full h-full absolute hidden"></div>
-                    <div id="js-editor" class="editor w-full h-full absolute hidden"></div>
-                </div>
-            </div>
-
-            <!-- Resizer -->
-            <div id="resizer" class="w-1.5 cursor-col-resize bg-gray-700 rounded-full hidden md:block"></div>
-            
-            <!-- Preview Pane -->
-            <div id="preview-pane-container" class="w-full md:w-3/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex-shrink-0 flex items-center justify-between flex-wrap gap-2 p-2 bg-gray-800 border-b border-gray-700">
-                     <div class="flex items-center space-x-1 bg-gray-700/50 p-1 rounded-lg">
-                        <button data-view="desktop" class="view-btn active px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Desktop</span></button>
-                        <button data-view="tablet" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Tablet</span></button>
-                        <button data-view="mobile" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Mobile</span></button>
-                    </div>
-                     <div class="flex items-center justify-end gap-2">
-                        <button id="download-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            <span>Download ZIP</span>
-                        </button>
+                    <div class="flex-grow relative">
+                        <div id="html-editor" class="editor w-full h-full absolute"></div>
+                        <div id="css-editor" class="editor w-full h-full absolute hidden"></div>
+                        <div id="js-editor" class="editor w-full h-full absolute hidden"></div>
                     </div>
                 </div>
-                <div class="flex-grow w-full flex items-center justify-center p-4 bg-[#0d1117] min-h-0">
-                    <iframe id="preview-iframe" class="h-full w-full bg-white rounded-lg shadow-2xl transition-all duration-300"></iframe>
-                </div>
-                <div id="console-container" class="flex-shrink-0 border-t border-gray-700 h-20 hidden">
-                    <div class="bg-gray-800 p-2 text-xs font-semibold flex justify-between items-center">
-                        <span>Console</span>
-                        <button id="clear-console-btn" class="text-gray-400 hover:text-white">&times; Clear</button>
+    
+                <!-- Resizer -->
+                <div id="resizer" class="w-1.5 cursor-col-resize bg-gray-300 dark:bg-gray-700 rounded-full hidden md:block"></div>
+                
+                <!-- Preview Pane -->
+                <div id="preview-pane-container" class="w-full md:w-3/5 flex flex-col bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="flex-shrink-0 flex items-center justify-between flex-wrap gap-2 p-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                         <div class="flex items-center space-x-1 bg-gray-200 dark:bg-gray-700/50 p-1 rounded-lg">
+                            <button data-view="desktop" class="view-btn active px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Desktop</span></button>
+                            <button data-view="tablet" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Tablet</span></button>
+                            <button data-view="mobile" class="view-btn px-3 py-1 text-sm font-medium rounded-md flex items-center gap-2"><span>Mobile</span></button>
+                        </div>
+                         <div class="flex items-center justify-end gap-2">
+                            <button id="download-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center space-x-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                <span>Download ZIP</span>
+                            </button>
+                        </div>
                     </div>
-                    <div id="console-output" class="h-full overflow-y-auto bg-[#0d1117] p-2 font-mono text-xs"></div>
+                    <div class="flex-grow w-full flex items-center justify-center p-4 bg-gray-100 dark:bg-[#0d1117] min-h-0">
+                        <iframe id="preview-iframe" class="h-full w-full bg-white rounded-lg shadow-2xl transition-all duration-300"></iframe>
+                    </div>
+                    <div id="console-container" class="flex-shrink-0 border-t border-gray-200 dark:border-gray-700 h-20 hidden">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-2 text-xs font-semibold flex justify-between items-center">
+                            <span>Console</span>
+                            <button id="clear-console-btn" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white">&times; Clear</button>
+                        </div>
+                        <div id="console-output" class="h-full overflow-y-auto bg-white dark:bg-[#0d1117] p-2 font-mono text-xs"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[15%] flex-shrink-0 p-4 border-l border-gray-200 dark:border-gray-800">
+            <div class="h-full bg-gray-100 dark:bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
     </main>
 
     <!-- Footer -->
-    <footer class="p-4 sm:p-6 w-full flex-shrink-0">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-            <div class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Client-Side. Secure. No Sign-up.</span>
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
             </div>
-            <div class="flex items-center space-x-4 mt-4 sm:mt-0">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Service</a>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>
@@ -208,7 +221,6 @@
         </div>
     </div>
 
-
     <script type="module">
         const App = {
             elements: {},
@@ -229,7 +241,7 @@
             },
 
             cacheDOMElements() {
-                const ids = ['more-tools-btn','tools-dropdown','download-btn','preview-iframe','editor-pane','preview-pane-container','resizer','console-container','console-output','clear-console-btn','undo-btn','redo-btn','settings-btn','settings-modal','close-settings-btn','add-tailwind','add-bootstrap','add-jquery', 'download-modal', 'close-download-modal-btn'];
+                const ids = ['theme-toggle', 'theme-toggle-slider', 'theme-toggle-light-icon', 'theme-toggle-dark-icon', 'download-btn','preview-iframe','editor-pane','preview-pane-container','resizer','console-container','console-output','clear-console-btn','undo-btn','redo-btn','settings-btn','settings-modal','close-settings-btn','add-tailwind','add-bootstrap','add-jquery', 'download-modal', 'close-download-modal-btn'];
                 ids.forEach(id=>{const c=id.replace(/-./g,m=>m[1].toUpperCase());this.elements[c]=document.getElementById(id)});
                 this.elements.tabButtons=document.querySelectorAll('.tab-btn');
                 this.elements.viewButtons=document.querySelectorAll('.view-btn');
@@ -251,7 +263,6 @@
                 this.elements.tabButtons.forEach(b=>b.addEventListener('click',()=>this.switchTab(b.dataset.lang)));
                 this.elements.viewButtons.forEach(b=>b.addEventListener('click',()=>this.switchView(b.dataset.view)));
                 this.elements.downloadBtn.addEventListener('click',this.downloadAsZip.bind(this));
-                this.elements.moreToolsBtn.addEventListener('click',e=>{e.stopPropagation();this.elements.toolsDropdown.classList.toggle('hidden')});
                 this.elements.clearConsoleBtn.addEventListener('click',()=>this.elements.consoleOutput.innerHTML='');
                 this.elements.undoBtn.addEventListener('click',()=>this.editors[this.activeEditor].undo());
                 this.elements.redoBtn.addEventListener('click',()=>this.editors[this.activeEditor].redo());
@@ -259,7 +270,6 @@
                 this.elements.closeSettingsBtn.addEventListener('click',()=>this.elements.settingsModal.classList.add('hidden'));
                 this.elements.closeDownloadModalBtn.addEventListener('click', () => this.elements.downloadModal.classList.add('hidden'));
                 this.elements.libraryCheckboxes.forEach(c=>c.addEventListener('change',()=>this.updateLibraries()));
-                document.addEventListener('click',()=>this.elements.toolsDropdown.classList.add('hidden'));
                 let isResizing=false;
                 this.elements.resizer.addEventListener('mousedown',()=>{isResizing=true;document.body.style.cursor='col-resize';document.body.style.userSelect='none'});
                 document.addEventListener('mousemove',e=>{if(!isResizing)return;const t=this.elements.editorPane.parentElement.offsetWidth;const w=e.clientX-this.elements.editorPane.parentElement.offsetLeft;const p=t-w-this.elements.resizer.offsetWidth;if(w>100&&p>100){this.elements.editorPane.style.width=`${(w/t)*100}%`;this.elements.previewPaneContainer.style.width=`${(p/t)*100}%`}});
@@ -328,6 +338,44 @@
         function startApp(){try{App.init();window.addEventListener('message',e=>{if(e.data&&(e.data.type==='log'||e.data.type==='error')){App.logToMirroredConsole(e.data)}})}catch(e){console.error("Fatal error:",e);document.body.innerHTML=`<div class="w-full h-screen flex items-center justify-center text-red-500">A critical error occurred. Please refresh.</div>`}}
         if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',startApp)}else{startApp()}
     </script>
+    <script>
+        // Theme switcher script
+        (() => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const slider = document.getElementById('theme-toggle-slider');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const favicon = document.getElementById('favicon');
+            const htmlEl = document.documentElement;
+            
+            const darkFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+            const lightFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlEl.classList.add('dark');
+                    slider.style.transform = 'translateX(1.5rem)';
+                    lightIcon.style.opacity = '0';
+                    darkIcon.style.opacity = '1';
+                    favicon.href = darkFavicon;
+                } else {
+                    htmlEl.classList.remove('dark');
+                    slider.style.transform = 'translateX(0)';
+                    lightIcon.style.opacity = '1';
+                    darkIcon.style.opacity = '0';
+                    favicon.href = lightFavicon;
+                }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme || 'light');
+
+            themeToggleBtn.addEventListener('click', () => {
+                const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+        })();
+    </script>
 </body>
 </html>
-

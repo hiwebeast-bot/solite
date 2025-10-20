@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Certificate Maker | Solite</title>
+    <title>Certificate Maker | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="Design and download professional certificates for free with Solite's Certificate Maker. Choose from modern templates, 100% private and no sign-up required.">
     <meta name="keywords" content="solite, certificate maker, free certificate templates, online certificate generator, certificate of completion, award certificate, create certificate">
     <link rel="canonical" href="https://solite.com/FreeOnlineCertificateMaker.html" />
-    <meta property="og:title" content="Free Certificate Maker | Solite">
+    <meta property="og:title" content="Certificate Maker | Solite">
     <meta property="og:description" content="Instantly create and download print-ready certificates from professional templates with Solite.">
     <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Certificate+Maker">
     <meta property="og:url" content="https://solite.com/FreeOnlineCertificateMaker.html">
@@ -33,7 +33,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Free Certificate Maker | Solite",
+      "name": "Certificate Maker | Solite",
       "url": "https://solite.com/FreeOnlineCertificateMaker.html",
       "description": "A free online tool from Solite to design, edit, and download professional certificates from a variety of templates.",
       "applicationCategory": "DesignApplication",
@@ -143,7 +143,7 @@
         <div class="flex-grow w-[85%] p-4 sm:p-8 overflow-y-auto">
         <section id="gallery-view" class="w-full">
             <div class="text-center mb-10">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">Professional Certificate Maker</h1>
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">Certificate Maker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Create and download a print-ready certificate in 60 seconds. Choose a free template to begin.</p>
             </div>
             
@@ -216,7 +216,7 @@
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-                <a href="./Terms of Service.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
                 <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
             </div>
         </div>
@@ -556,7 +556,7 @@
                 try {
                     const canvas = await html2canvas(certificateContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: null });
                     const format = document.getElementById('download-format').value;
-                    const filename = `CertifyCraft_${new Date().getTime()}.${format}`;
+                    const filename = `Solite-Certificate_${new Date().getTime()}.${format}`;
                     if (format === 'pdf') {
                         const { jsPDF } = window.jspdf;
                         const imgData = canvas.toDataURL('image/jpeg', 0.95);
