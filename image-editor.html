@@ -237,7 +237,7 @@
                     <div id="watermark-tab" class="tab-content hidden space-y-4">
                         <div class="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1 text-gray-800 dark:text-gray-300">
                             <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-md">Text</button>
-                            <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-400">Image</button>
+                            <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-500 dark:text-gray-400">Image</button>
                         </div>
 
                         <div id="text-watermark-controls" class="space-y-4">
@@ -777,7 +777,7 @@
                     activeWatermarkType = 'image';
                     textWatermarkControls.style.display = 'none';
                     imageWatermarkControls.style.display = 'block';
-                    imageWatermarkBtn.classList.add('active', 'text-white');
+                    imageWatermarkBtn.classList.add('active');
                     textWatermarkBtn.classList.remove('active');
                     redrawCanvas();
                 });

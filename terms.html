@@ -137,5 +137,44 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Theme switcher script
+        (() => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const slider = document.getElementById('theme-toggle-slider');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const favicon = document.getElementById('favicon');
+            const htmlEl = document.documentElement;
+            
+            const darkFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+            const lightFavicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>";
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlEl.classList.add('dark');
+                    slider.style.transform = 'translateX(1.5rem)';
+                    lightIcon.style.opacity = '0';
+                    darkIcon.style.opacity = '1';
+                    favicon.href = darkFavicon;
+                } else {
+                    htmlEl.classList.remove('dark');
+                    slider.style.transform = 'translateX(0)';
+                    lightIcon.style.opacity = '1';
+                    darkIcon.style.opacity = '0';
+                    favicon.href = lightFavicon;
+                }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme || 'light'); // Default to light
+
+            themeToggleBtn.addEventListener('click', () => {
+                const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+        })();
+    </script>
 </body>
 </html>
