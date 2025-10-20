@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Maker | Solite</title>
+    <title>Text Engine | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Design and download professional certificates for free with Solite's Certificate Maker. Choose from modern templates, 100% private and no sign-up required.">
-    <meta name="keywords" content="solite, certificate maker, free certificate templates, online certificate generator, certificate of completion, award certificate, create certificate">
-    <link rel="canonical" href="https://solite.com/FreeOnlineCertificateMaker.html" />
-    <meta property="og:title" content="Certificate Maker | Solite">
-    <meta property="og:description" content="Instantly create and download print-ready certificates from professional templates with Solite.">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Certificate+Maker">
-    <meta property="og:url" content="https://solite.com/FreeOnlineCertificateMaker.html">
+    <meta name="description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more. 100% private.">
+    <meta name="keywords" content="solite, text tools, find and replace, regex checker, text cleaner, readability score, text analysis, privacy first">
+    <link rel="canonical" href="https://solite.com/text-engine.html" />
+    <meta property="og:title" content="Text Engine | Solite">
+    <meta property="og:description" content="A professional-grade toolkit for all your text manipulation needs. Free, private, and powerful.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Text+Engine">
+    <meta property="og:url" content="https://solite.com/text-engine.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -22,46 +22,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap" rel="stylesheet">
     
-    <!-- Favicon Set -->
+    <!-- Favicon -->
     <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
     
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Certificate Maker | Solite",
-      "url": "https://solite.com/FreeOnlineCertificateMaker.html",
-      "description": "A free online tool from Solite to design, edit, and download professional certificates from a variety of templates.",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
-    }
-    </script>
-    
-    <!-- JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    height: { 'screen-minus-header': 'calc(100vh - 80px)' },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        display: ['Montserrat', 'sans-serif'],
-                        vintage: ['Lobster', 'cursive'],
-                        slab: ['Roboto Slab', 'serif'],
-                        bold: ['Poppins', 'sans-serif'],
-                        cartoon: ['Bangers', 'cursive'],
-                        elegant: ['Lora', 'serif'],
                     },
                 },
             },
@@ -78,36 +50,17 @@
             background-color: #000000;
             color: #e5e7eb; /* gray-200 */
         }
-        .certificate-container {
-            aspect-ratio: 1.414 / 1; /* A4 Landscape */
-            width: 100%;
-            max-width: 1000px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .dark .certificate-container {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        .resizable-logo {
-            touch-action: none;
-            box-sizing: border-box;
-            min-width: 50px;
-            min-height: 50px;
-            z-index: 20;
-        }
-        .resizable-logo img {
-            pointer-events: none;
-        }
-        .resizable-logo:not(.interact-resizable) { border: 2px dashed transparent; }
-        .resizable-logo.interact-resizable { border: 2px dashed #3b82f6; }
-        body.downloading .interact-resizable { border: 2px dashed transparent !important; }
-        [contenteditable=true]:empty:before {
-            content: attr(placeholder);
-            pointer-events: none;
-            display: block;
-            color: #9ca3af;
-        }        
+        /* Minimal custom styles for scrollbars and focus states */
+        textarea { color-scheme: dark; } /* For dark scrollbars in dark mode */
+        textarea::-webkit-scrollbar { width: 8px; }
+        textarea::-webkit-scrollbar-track { background: #1f2937; }
+        textarea::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        /* Accessible focus state for keyboard users */
         :is(button, a, select, input):focus-visible {
-            outline: none; box-shadow: 0 0 0 3px #3b82f680; border-radius: 0.5rem;
+            outline: none;
+            box-shadow: 0 0 0 3px #3b82f680;
+            border-radius: 0.5rem;
         }
     </style>
 </head>
@@ -124,7 +77,7 @@
                 </svg>
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
             </a>
-            <div class="flex items-center space-x-4">
+             <div class="flex items-center space-x-4">
                 <button id="theme-toggle" class="relative inline-flex items-center h-8 w-14 p-1 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors focus:outline-none">
                     <span class="sr-only">Toggle theme</span>
                     <span id="theme-toggle-slider" class="absolute left-1 top-1 inline-block h-6 w-6 transform rounded-full bg-white dark:bg-gray-700 transition-transform duration-300 ease-in-out"></span>
@@ -140,61 +93,103 @@
     </header>
 
     <main class="flex-grow flex h-screen-minus-header">
-        <div class="flex-grow w-[85%] p-4 sm:p-8 overflow-y-auto">
-        <section id="gallery-view" class="w-full">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">Certificate Maker</h1>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Create and download a print-ready certificate in 60 seconds. Choose a free template to begin.</p>
-            </div>
-            
-            <div id="template-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                <!-- Templates will be injected here by JavaScript -->
-            </div>
-        </section>
-
-        <section id="editor-view" class="hidden w-full">
-            <div class="flex flex-col gap-8">
-                <!-- Left Column: Editor -->
-                <div class="w-full">
-                    <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-20">
-                         <div class="flex-grow flex items-center">
-                            <button id="editor-back-to-gallery-btn" class="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-all hover:shadow-md dark:hover:shadow-black/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" /></svg>
-                                <span>Templates</span>
-                            </button>
-                         </div>
-                         <div class="flex items-center space-x-4">
-                            <label for="logo-upload-input" class="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-all hover:shadow-md dark:hover:shadow-black/20 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
-                                <span>Upload Logo</span>
-                            </label>
-                            <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                            
-                            <div class="flex items-center">
-                                <div class="relative">
-                                    <select id="download-format" class="appearance-none bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-medium py-2 pl-4 pr-8 rounded-l-lg transition">
-                                        <option value="pdf">PDF</option>
-                                        <option value="png">PNG</option>
-                                        <option value="jpeg">JPG</option>
-                                    </select>
-                                    <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                </div>
-                                 <button id="download-btn" class="bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 font-semibold py-2 px-4 rounded-r-lg flex items-center space-x-2 transition-all hover:shadow-lg dark:hover:shadow-black/20">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                                    <span>Download</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="certificate-canvas" class="w-full flex justify-center">
-                        <div id="certificate-container" class="certificate-container bg-white text-black relative overflow-hidden">
-                            <!-- Certificate content will be injected here -->
-                        </div>
+        <div class="flex-grow w-[85%] p-4 sm:p-8 overflow-y-auto flex flex-col">
+        <!-- Command Bar -->
+        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex-grow flex items-center space-x-3">
+                <label class="text-gray-900 dark:text-white font-semibold flex-shrink-0">Action:</label>
+                <div class="relative w-full sm:w-auto">
+                    <button id="transform-profile-btn" class="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 w-full justify-between">
+                        <span id="transform-profile-text">Strip All Formatting</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="transform-profile-dropdown" class="hidden absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                        <h3 class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Cleaner</h3>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="stripAll">Strip All Formatting</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="removeExtraSpaces">Remove Extra Spaces</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="removeLineBreaks">Remove All Line Breaks</a>
+                        <div class="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Case Converter</h3>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="toUpperCase">UPPERCASE</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="toLowerCase">lowercase</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="toSentenceCase">Sentence case</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="toTitleCase">Title Case</a>
+                        <div class="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tools</h3>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="extractEmails">Extract Emails</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="extractUrls">Extract URLs</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="sortLinesAZ">Sort Lines (A-Z)</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="removeDuplicateLines">Remove Duplicate Lines</a>
+                        <div class="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+                        <h3 class="px-4 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Developer</h3>
+                        <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="formatJson">Format JSON</a>
                     </div>
                 </div>
             </div>
-        </section>
+             <div class="flex items-center space-x-2">
+                 <button id="undo-btn" title="Undo (Ctrl+Z)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                 <button id="redo-btn" title="Redo (Ctrl+Y)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+                 <button id="clear-btn" title="Clear Text" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+                 <button id="copy-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center space-x-2">
+                    <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    <span id="copy-text">Copy</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Find & Replace -->
+        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center gap-4">
+            <input type="text" id="find-input" placeholder="Find..." class="flex-grow p-2 rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50">
+            <input type="text" id="replace-input" placeholder="Replace with..." class="flex-grow p-2 rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50">
+            <div class="flex items-center space-x-4">
+                <label id="case-sensitive-label" class="flex items-center space-x-2 cursor-pointer p-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <input type="checkbox" id="case-sensitive" class="hidden">
+                    <div id="case-sensitive-icon-unchecked" class="w-5 h-5 rounded border-2 border-gray-400 dark:border-gray-500"></div>
+                    <div id="case-sensitive-icon-checked" class="hidden w-5 h-5 rounded border-2 border-blue-500 bg-blue-500 flex items-center justify-center">
+                         <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span>Case Sensitive</span>
+                </label>
+                <label id="use-regex-label" class="flex items-center space-x-2 cursor-pointer p-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <input type="checkbox" id="use-regex" class="hidden">
+                     <div id="use-regex-icon-unchecked" class="w-5 h-5 rounded border-2 border-gray-400 dark:border-gray-500"></div>
+                     <div id="use-regex-icon-checked" class="hidden w-5 h-5 rounded border-2 border-blue-500 bg-blue-500 flex items-center justify-center">
+                         <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                     </div>
+                    <span>Regex</span>
+                </label>
+                <button id="replace-all-btn" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg">Replace All</button>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="w-full flex-grow flex flex-col gap-4">
+            <div class="flex-grow flex flex-col lg:flex-row gap-4">
+                <!-- Main Workspace -->
+                <div class="flex-1 flex-grow flex flex-col">
+                    <div class="flex-grow flex relative h-[60vh] bg-gray-200 dark:bg-gray-700 rounded-lg">
+                        <textarea id="input-text" class="w-1/2 h-full p-4 rounded-l-lg bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50" placeholder="Paste your text here..."></textarea>
+                        <button id="swap-btn" title="Swap Input/Output" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-300 dark:bg-gray-600 hover:bg-blue-600 rounded-full p-2 z-10 transition-transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 12l-4-4m4 4l4-4m6 8v12M17 8l-4 4m4-4l4 4" /></svg></button>
+                        <textarea id="output-text" readonly class="w-1/2 h-full p-4 rounded-r-lg bg-gray-50 dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-300" placeholder="Result appears here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Analysis Panel -->
+                <div id="analysis-panel" class="w-full lg:w-72 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Text Analysis</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Readability Score:</span><strong id="stat-readability">N/A</strong></div>
+                        <div class="flex justify-between"><span>Reading Time:</span><strong id="stat-reading-time">~ 0 min</strong></div>
+                        <div class="flex justify-between"><span>Speaking Time:</span><strong id="stat-speaking-time">~ 0 min</strong></div>
+                        <hr class="border-gray-300 dark:border-gray-600 my-2">
+                        <div class="flex justify-between"><span>Words:</span><strong id="stat-words">0</strong></div>
+                        <div class="flex justify-between"><span>Characters:</span><strong id="stat-chars">0</strong></div>
+                        <div class="flex justify-between"><span>Sentences:</span><strong id="stat-sentences">0</strong></div>
+                        <div class="flex justify-between"><span>Paragraphs:</span><strong id="stat-paragraphs">0</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         <!-- Ad Sidebar -->
         <aside class="w-[15%] flex-shrink-0 p-4 border-l border-gray-200 dark:border-gray-800">
@@ -222,431 +217,289 @@
         </div>
     </footer>
     
-    <div id="ad-modal-overlay" class="hidden fixed inset-0 bg-gray-900/80 z-40 transition-opacity duration-300"></div>
-    <div id="ad-modal" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-2xl z-50 p-6 text-center transition-all duration-300 scale-95 opacity-0">
+    <!-- Copy Modal -->
+    <div id="copy-modal-overlay" class="hidden fixed inset-0 bg-gray-900/80 z-40"></div>
+    <div id="copy-modal" class="hidden fixed top-1/4 left-1/2 -translate-x-1/2 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-2xl z-50 p-6 text-center">
         <div class="flex items-center justify-center space-x-3 mb-4 relative">
-            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Download Successful!</h3>
-            <button id="close-ad-modal-btn" class="hidden absolute -top-2 -right-2 text-gray-400 hover:text-white">
+            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Copied Successfully</h3>
+            <button id="close-copy-modal-btn" class="hidden absolute -top-2 -right-2 text-gray-400 hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
-        <p class="text-gray-500 dark:text-gray-400 mb-4 text-sm">Your file is being prepared and will begin downloading automatically.</p>
-        <div id="ad-placeholder" class="bg-gray-100 dark:bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-400 dark:text-gray-500 transition-all duration-300">
+        <div id="ad-placeholder" class="bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-500 transition-all duration-300">
             Ad Placeholder
         </div>
     </div>
 
     <script>
         // Main App Logic
-        document.addEventListener('DOMContentLoaded', () => {
+        (() => {
+            function init() {
+                const inputText = document.getElementById('input-text');
+                const outputText = document.getElementById('output-text');
+                const transformProfileBtn = document.getElementById('transform-profile-btn');
+                const transformProfileText = document.getElementById('transform-profile-text');
+                const transformProfileDropdown = document.getElementById('transform-profile-dropdown');
+                const transformProfileOptions = transformProfileDropdown.querySelectorAll('a');
+                const copyBtn = document.getElementById('copy-btn');
+                const clearBtn = document.getElementById('clear-btn');
+                const undoBtn = document.getElementById('undo-btn');
+                const redoBtn = document.getElementById('redo-btn');
+                const findInput = document.getElementById('find-input');
+                const replaceInput = document.getElementById('replace-input');
+                const caseSensitive = document.getElementById('case-sensitive');
+                const useRegex = document.getElementById('use-regex');
+                const replaceAllBtn = document.getElementById('replace-all-btn');
+                const swapBtn = document.getElementById('swap-btn');
+                const statReadability = document.getElementById('stat-readability');
+                const statReadingTime = document.getElementById('stat-reading-time');
+                const statSpeakingTime = document.getElementById('stat-speaking-time');
+                const statWords = document.getElementById('stat-words');
+                const statChars = document.getElementById('stat-chars');
+                const statSentences = document.getElementById('stat-sentences');
+                const statParagraphs = document.getElementById('stat-paragraphs');
+                const copyModalOverlay = document.getElementById('copy-modal-overlay');
+                const copyModal = document.getElementById('copy-modal');
+                const closeCopyModalBtn = document.getElementById('close-copy-modal-btn');
+                const adPlaceholder = document.getElementById('ad-placeholder');
+                const caseSensitiveLabel = document.getElementById('case-sensitive-label');
+                const useRegexLabel = document.getElementById('use-regex-label');
 
-            const templates = [
-                {
-                    id: 'modern_geometric', name: 'Modern Geometric', description: 'Clean lines and bold shapes for corporate recognition.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>`,
-                    html: `<div class="w-full h-full flex flex-col bg-white text-gray-800 font-sans relative">
-                               <div class="absolute top-8 left-8">
-                                   <svg width="100" height="40" viewBox="0 0 100 40">
-                                       <line x1="0" y1="5" x2="100" y2="5" stroke="#3b82f6" stroke-width="2"/>
-                                       <line x1="0" y1="15" x2="80" y2="15" stroke="#3b82f6" stroke-width="2"/>
-                                       <line x1="0" y1="25" x2="60" y2="25" stroke="#3b82f6" stroke-width="2"/>
-                                   </svg>
-                               </div>
-                               <div class="flex-grow flex flex-col justify-center items-start z-10 p-8 pt-24">
-                                   <p contenteditable="true" class="text-lg tracking-widest text-gray-500">CERTIFICATE OF</p>
-                                   <h1 contenteditable="true" class="text-6xl font-bold my-2">ACHIEVEMENT</h1>
-                                   <p contenteditable="true" class="text-md mt-8">PROUDLY PRESENTED TO</p>
-                                   <p contenteditable="true" class="text-4xl my-2 font-display font-bold tracking-wide text-blue-600">Recipient Name</p>
-                                   <p contenteditable="true" class="mt-4 max-w-lg text-gray-600">
-                                       For demonstrating outstanding skill and dedication in completing the Advanced Web Development Bootcamp.
-                                   </p>
-                               </div>
-                               <div class="h-28 bg-gray-100 mt-auto flex justify-between items-center p-8 z-10">
-                                   <div class="flex space-x-12">
-                                       <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1">Signature</p></div>
-                                       <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1">Date</p></div>
-                                   </div>
-                                   <div class="flex items-end h-full">
-                                        <div class="w-16 h-16 bg-gray-300 self-end"></div>
-                                        <div class="w-24 h-24 bg-blue-600 ml-2 self-end"></div>
-                                   </div>
-                               </div>
-                               <div class="resizable-logo absolute top-8 right-8 w-24 h-24"></div>
-                           </div>`
-                },
-                {
-                    id: 'classic_elegant', name: 'Classic & Elegant', description: 'Timeless design for academic diplomas and formal awards.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-.07.002-.018.002-.006.001-.004.001-.002.001-.001.001A49.954 49.954 0 0012 13.434a49.951 49.951 0 008.232-3.287l-.001-.001-.002-.001-.004-.001-.006-.001-.018-.002-.07-.002m-15.482 0l-2.04-1.36a53.92 53.92 0 012.04-1.36m15.482 0l2.04 1.36a53.92 53.92 0 00-2.04 1.36" /></svg>`,
-                    html: `<div class="w-full h-full p-8 flex flex-col items-center bg-[#FDFBF6] text-[#4a3c2b] font-serif relative" style="font-family: 'Lora', serif;">
-                               <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 842 595" preserveAspectRatio="none">
-                                   <rect x="10" y="10" width="822" height="575" fill="none" stroke="#C0A062" stroke-width="2"/>
-                                   <path d="M 20 20 L 20 50 L 50 20 Z M 822 20 L 792 20 L 822 50 Z M 20 575 L 50 575 L 20 545 Z M 822 575 L 822 545 L 792 575 Z" fill="#C0A062"/>
-                               </svg>
-                               <div class="z-10 text-center flex-grow flex flex-col items-center justify-center w-full px-16">
-                                   <h1 contenteditable="true" class="font-bold text-5xl tracking-widest text-[#b38b4c]">CERTIFICATE</h1>
-                                   <p contenteditable="true" class="text-2xl mt-2 tracking-[0.2em]">OF EXCELLENCE</p>
-                                   <p contenteditable="true" class="mt-10">IS PROUDLY PRESENTED TO</p>
-                                   <p contenteditable="true" class="text-6xl font-serif my-4 font-bold text-[#4a3c2b]" style="font-family: 'Playfair Display', serif;">Recipient Name</p>
-                                   <p contenteditable="true" class="text-center max-w-xl">In recognition of outstanding academic performance and exemplary dedication to the principles of higher learning.</p>
-                               </div>
-                               <div class="w-full flex justify-between items-center z-10 mt-auto px-16">
-                                   <div class="text-center w-1/3"><p contenteditable="true" class="border-t-2 border-[#C0A062] pt-2">University Dean</p></div>
-                                   <div class="w-24 h-24 resizable-logo"><img src="https://placehold.co/100x100/C0A062/FFFFFF?text=SEAL" class="rounded-full"></div>
-                                   <div class="text-center w-1/3"><p contenteditable="true" class="border-t-2 border-[#C0A062] pt-2">Date</p></div>
-                               </div>
-                           </div>`
-                },
-                {
-                    id: 'vintage_ornamental', name: 'Vintage & Ornamental', description: 'Ornate scrolls and aged paper effects for special occasions.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>`,
-                    html: `<div class="w-full h-full p-8 flex flex-col items-center bg-[#fdfbf6] text-[#5d5d5d] font-elegant relative" style="font-family: 'Lora', serif;">
-                                <div class="w-full h-full border-2 border-[#d3c5b3] p-2">
-                                    <div class="w-full h-full border border-[#d3c5b3] flex flex-col items-center justify-center p-8">
-                                        <div class="text-center flex flex-col items-center">
-                                            <p contenteditable="true" class="text-2xl tracking-[0.2em]">Certificate of</p>
-                                            <h1 contenteditable="true" class="text-6xl my-2 font-serif" style="font-family: 'Playfair Display', serif;">Distinction</h1>
-                                            <svg class="w-64 my-6 text-[#c0b298]" viewBox="0 0 200 12" fill="none" stroke="currentColor" stroke-width="1"><line x1="0" y1="6" x2="85" y2="6"></line><path d="M 90 6 L 100 1 L 110 6 L 100 11 Z" fill="currentColor"></path><line x1="115" y1="6" x2="200" y2="6"></line></svg>
-                                            <p contenteditable="true" class="text-lg">This certificate is awarded to</p>
-                                            <p contenteditable="true" class="text-5xl my-4" style="font-family: 'Playfair Display', serif; font-weight: 700;">Recipient Name</p>
-                                            <p contenteditable="true" class="text-center max-w-lg text-sm">
-                                                In recognition of their outstanding and meritorious contributions to the arts and sciences, demonstrating a commitment to excellence that has inspired both peers and mentors alike.
-                                            </p>
-                                        </div>
-                                        <div class="flex-grow"></div>
-                                        <div class="w-full flex justify-between items-end mt-12 text-sm">
-                                            <p contenteditable="true" class="border-t-2 border-[#d3c5b3] pt-2 px-12">Signature</p>
-                                            <div class="resizable-logo w-20 h-20"></div>
-                                            <p contenteditable="true" class="border-t-2 border-[#d3c5b3] pt-2 px-12">Date</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`
-                },
-                 {
-                    id: 'simple_minimalist', name: 'Simple & Minimalist', description: 'Clean and professional with an emphasis on white space.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.563A.562.562 0 019 14.437V9.564z" /></svg>`,
-                    html: `<div class="w-full h-full p-12 flex flex-col bg-white text-gray-900 font-sans">
-                                <div class="w-full flex justify-between items-center pb-4 border-b">
-                                    <div>
-                                        <p contenteditable="true" class="font-bold text-lg">CERTIFICATE OF PARTICIPATION</p>
-                                        <p contenteditable="true" class="text-sm">INTERNAL DOCUMENT</p>
-                                    </div>
-                                    <div class="resizable-logo w-20 h-20"></div>
-                                </div>
-                                <div class="flex-grow flex flex-col justify-center">
-                                    <p contenteditable="true" class="mb-4">PRESENTED TO</p>
-                                    <p contenteditable="true" class="text-6xl font-bold">Recipient Name</p>
-                                    <p contenteditable="true" class="mt-6 max-w-lg">For active participation and valuable input during the Q4 2025 Strategic Planning Workshop.</p>
-                                </div>
-                                <div class="w-full flex justify-between items-center pt-4 border-t text-sm">
-                                    <p contenteditable="true">CertifyCraft Inc.</p>
-                                    <p contenteditable="true">Date: October 18, 2025</p>
-                                </div>
-                            </div>`
-                },
-                 {
-                    id: 'bold_dynamic', name: 'Bold & Dynamic', description: 'Energetic design with bright colors for lively achievements.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
-                    html: `<div class="w-full h-full p-10 flex flex-col bg-[#111827] text-white font-bold relative overflow-hidden" 
-                                style="font-family: 'Poppins', sans-serif; background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 842 595'%3e%3crect width='842' height='595' fill='%23111827'/%3e%3cpath d='M842 0 V150 L600 0 H842Z' fill='%233b82f6'/%3e%3cpath d='M0 595 V445 L242 595 H0Z' fill='%233b82f6'/%3e%3c/svg%3e&quot;); background-size: cover; background-position: center;">
-                                
-                                <div class="text-left z-10">
-                                    <p contenteditable="true" class="text-xl tracking-widest text-blue-300">AWARD OF EXCELLENCE</p>
-                                    <p contenteditable="true" class="text-6xl mt-2">FIRST PLACE</p>
-                                </div>
-                                <div class="resizable-logo absolute top-10 right-10 w-24 h-24"></div>
 
-                                <div class="text-center self-center flex-grow flex flex-col justify-center z-10">
-                                    <p contenteditable="true" class="text-lg">This certificate is proudly presented to</p>
-                                    <p contenteditable="true" class="text-7xl my-2">Recipient Name</p>
-                                    <p contenteditable="true" class="text-xl max-w-2xl mx-auto font-normal">for their outstanding performance and innovative solution in the Annual Tech Sprint 2025.</p>
-                                </div>
+                let textHistory = [];
+                let redoHistory = [];
+                let adRefreshCounter = 1;
+                let activeProfile = 'stripAll';
 
-                                <div class="flex justify-between items-center text-sm font-normal z-10">
-                                    <p contenteditable="true" class="border-t-2 border-blue-400 pt-2 px-4">Lead Judge</p>
-                                    <p contenteditable="true" class="border-t-2 border-blue-400 pt-2 px-4">Date of Issue</p>
-                                </div>
-                           </div>`
-                },
-                 {
-                    id: 'playful_cartoonish', name: 'Playful & Cartoonish', description: 'Fun, cheerful illustrations ideal for children’s achievements.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.321h5.365c.414 0 .79.336.79.75a.75.75 0 01-.79.75h-5.365a.562.562 0 00-.475.321l-2.125 5.111a.563.563 0 01-1.04 0l-2.125-5.111a.563.563 0 00-.475-.321H3.75a.75.75 0 01-.79-.75.75.75 0 01.79-.75h5.365a.562.562 0 00.475-.321l2.125-5.111z" /></svg>`,
-                    html: `<div class="w-full h-full bg-[#2B3A67] text-white font-cartoon relative overflow-hidden p-8 flex flex-col" style="font-family: 'Bangers', cursive;">
-                                <svg class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="10" cy="15" r="1.5" fill="white"/><circle cx="80" cy="10" r="1" fill="white"/><circle cx="90" cy="60" r="2" fill="white"/><circle cx="15" cy="80" r="1" fill="white"/><circle cx="50" cy="50" r="1.2" fill="white"/></svg>
-                                <svg class="absolute -bottom-16 -right-16 w-64 h-64 opacity-80 pointer-events-none z-0" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="#FBBF24"/><ellipse cx="100" cy="100" rx="120" ry="40" fill="none" stroke="#FCD34D" stroke-width="15" transform="rotate(-30 100 100)"/></svg>
-                                <svg class="absolute top-8 left-8 w-24 h-24 pointer-events-none z-0" viewBox="0 0 100 100"><path d="M 50 10 L 70 50 L 30 50 Z" fill="#E11D48"/><rect x="30" y="50" width="40" height="30" fill="#F1F5F9"/><circle cx="50" cy="65" r="10" fill="#60A5FA" /><path d="M 30 80 L 20 100 L 40 80 Z" fill="#E11D48"/><path d="M 70 80 L 80 100 L 60 80 Z" fill="#E11D48"/></svg>
-                                <div class="resizable-logo absolute top-8 right-8 w-20 h-20"></div>
-                                <div class="text-center flex flex-col items-center justify-center flex-grow z-10">
-                                    <h1 contenteditable="true" class="text-7xl text-yellow-300" style="text-shadow: 3px 3px #000;">SPACE EXPLORER</h1>
-                                    <p contenteditable="true" class="text-3xl mt-6">AWARDED TO</p>
-                                    <p contenteditable="true" class="text-6xl my-4 text-white">Recipient Name</p>
-                                    <p contenteditable="true" class="text-2xl">For completing the Summer Reading Mission!</p>
-                                </div>
-                                <div class="w-full flex justify-between items-end text-xl z-10 mt-auto"><p contenteditable="true" class="border-t-2 border-white/50 pt-2 px-4">Librarian</p><p contenteditable="true" class="border-t-2 border-white/50 pt-2 px-4">Date</p></div>
-                            </div>`
-                },
-                {
-                    id: 'floral_elegant', name: 'Floral & Elegant', description: 'Sophisticated flower designs for a soft, natural touch.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.068.01.135.022.203.036l2.682-2.682a2.25 2.25 0 00-3.182-3.182L17.5 5.42a2.25 2.25 0 00-.036.203m-2.226 0a2.25 2.25 0 00-.036-.203l-2.682-2.682a2.25 2.25 0 00-3.182 3.182L9.42 7.5a2.25 2.25 0 00.203.036m-2.226 0a2.25 2.25 0 00-.203-.036L4.5 5.42a2.25 2.25 0 00-3.182 3.182l2.682 2.682a2.25 2.25 0 00.036.203m11.25 3.182a2.25 2.25 0 00.036.203l2.682 2.682a2.25 2.25 0 003.182-3.182l-2.682-2.682a2.25 2.25 0 00-.203.036m-2.226 0a2.25 2.25 0 00-.203.036l-2.682 2.682a2.25 2.25 0 003.182 3.182l2.682-2.682a2.25 2.25 0 00.036-.203m-11.25-3.182a2.25 2.25 0 00-.036.203l-2.682 2.682a2.25 2.25 0 003.182 3.182l2.682-2.682a2.25 2.25 0 00-.203-.036m2.226 0a2.25 2.25 0 00.203.036l2.682-2.682a2.25 2.25 0 00-3.182-3.182l-2.682 2.682a2.25 2.25 0 00.036.203" /></svg>`,
-                     html: `<div class="w-full h-full flex flex-col items-center bg-[#fcfaf2] text-gray-700 font-elegant relative p-10" style="font-family: 'Lora', serif; background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3e%3cfilter id='n' x='0' y='0'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100' height='100' fill='%23fcfaf2'/%3e%3crect width='100' height='100' filter='url(%23n)' opacity='0.05'/%3e%3c/svg%3e&quot;);">
-                                <svg class="absolute top-8 left-8 w-40 h-40 text-green-800/20 pointer-events-none" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M 20 80 C 10 70 10 50 20 40 C 30 30 40 40 50 40 C 60 40 70 30 80 40 C 90 50 90 70 80 80 L 20 80 Z" stroke-dasharray="5 5"></path><path d="M 50 40 C 50 20 70 20 80 10 C 90 0 90 20 80 20" /></svg>
-                                <svg class="absolute bottom-8 right-8 w-40 h-40 text-green-800/20 pointer-events-none transform -scale-100" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M 20 80 C 10 70 10 50 20 40 C 30 30 40 40 50 40 C 60 40 70 30 80 40 C 90 50 90 70 80 80 L 20 80 Z" stroke-dasharray="5 5"></path><path d="M 50 40 C 50 20 70 20 80 10 C 90 0 90 20 80 20" /></svg>
-                                <div class="resizable-logo absolute top-8 right-8 w-24 h-24"></div>
-                                <div class="z-10 text-center flex-grow flex flex-col items-center justify-center">
-                                    <p contenteditable="true" class="text-3xl">Certificate of Appreciation</p>
-                                    <p contenteditable="true" class="mt-8 text-xl">Presented To</p>
-                                    <p contenteditable="true" class="text-6xl my-6 font-serif" style="font-family: 'Playfair Display', serif;">Recipient Name</p>
-                                    <p contenteditable="true" class="text-center max-w-md">With sincere gratitude for your exceptional contributions and unwavering support for our community garden project.</p>
-                                </div>
-                                <div class="w-full flex justify-between items-end mt-12 text-sm z-10">
-                                    <p contenteditable="true" class="border-t pt-2 px-8">Coordinator</p>
-                                    <p contenteditable="true" class="border-t pt-2 px-8">Date</p>
-                                </div>
-                            </div>`
-                },
-                 {
-                    id: 'photographic', name: 'Photographic', description: 'Uses a photo as a key visual for a high-end feel.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.776 48.776 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" /></svg>`,
-                    html: `<div class="w-full h-full flex flex-col justify-between p-10 bg-gray-800 text-white relative overflow-hidden" style="font-family: 'Montserrat', sans-serif; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii4xMSIgYWN0dWFsU2l6ZT0iODAweDYwMCIgbnVtT2N0YXZlcz0iOCIgc3RpdGNoVGlsZXM9InN0aXRjaCIgc2VlZD0iMjgiIHR5cGU9ImZyYWN0YWxOb2lzZSIvPjxmZURpZmZuc2VMaWdodGluZyBzdXJmYWNlU2NhbGU9IjEwMCI+PGZlRGlzdGFudExpZ2h0IGF6aW11dGg9IjIzNSIgZWxldmF0aW9uPSI1MCIvPjwvZmVEaWZmdXNlTGlnaHRpbmc+PC9maWx0ZXI+PHJlY3QgaGVpZ2h0PSI2MDAiIHdpZHRoPSI4MDAiIGZpbHRlcj0idXJsKCNmKSIvPjwvc3ZnPg==');">
-                                <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-black/60 to-black/20 z-0"></div>
-                                <div class="flex justify-between">
-                                    <div class="resizable-logo w-24 h-24"></div>
-                                    <div class="text-right z-10">
-                                        <p contenteditable="true" class="text-3xl font-bold">AWARD OF DISTINCTION</p>
-                                        <p contenteditable="true">PHOTOGRAPHY CONTEST 2025</p>
-                                    </div>
-                                </div>
-                                <div class="text-left z-10">
-                                    <p contenteditable="true">Honoring the exceptional talent of</p>
-                                    <p contenteditable="true" class="text-6xl font-bold my-2">Recipient Name</p>
-                                    <p contenteditable="true">for the winning entry in the "Urban Landscapes" category.</p>
-                                </div>
-                           </div>`
-                },
-                 {
-                    id: 'ribbon_seal', name: 'Ribbon & Seal', description: 'Prominently features ribbons or seals for a ceremonial feel.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
-                    html: `<div class="w-full h-full p-8 flex flex-col items-center bg-white text-gray-800 font-slab relative overflow-hidden" style="font-family: 'Roboto Slab', serif;">
-                                <div class="absolute -top-2 -left-16 w-40 text-blue-600">
-                                    <svg viewBox="0 0 100 100" fill="currentColor"><path d="M20,0 L20,100 L50,80 L80,100 L80,0 Z"></path><path d="M35,15 h30" stroke="white" stroke-width="3"></path><path d="M35,25 h30" stroke="white" stroke-width="3"></path><path d="M35,35 h30" stroke="white" stroke-width="3"></path></svg>
-                                </div>
-                                <div class="resizable-logo absolute top-8 right-8 w-24 h-24"></div>
-                                <div class="flex-grow flex flex-col items-center justify-center text-center mt-4">
-                                    <p contenteditable="true" class="text-5xl font-bold">CERTIFICATE OF MERIT</p>
-                                    <p contenteditable="true" class="mt-8 text-xl">This award is presented to</p>
-                                    <p contenteditable="true" class="text-5xl my-4 font-serif" style="font-family: 'Playfair Display', serif;">Recipient's Name</p>
-                                    <p contenteditable="true" class="max-w-md">for placing first in the regional science olympiad and demonstrating exceptional scientific acumen.</p>
-                                </div>
-                                <div class="w-full flex justify-around items-end mt-8">
-                                    <p contenteditable="true" class="border-t-2 border-gray-400 pt-1">Head of Committee</p>
-                                    <p contenteditable="true" class="border-t-2 border-gray-400 pt-1">Date</p>
-                                </div>
-                            </div>`
-                },
-                {
-                    id: 'digital_first', name: 'Digital-First', description: 'Optimized for social media sharing with vibrant colors.',
-                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25h.75" /></svg>`,
-                    html: `<div class="w-full h-full p-8 flex flex-col bg-gradient-to-br from-indigo-900 to-purple-900 text-white font-sans">
-                               <div class="flex justify-between items-start">
-                                   <div>
-                                       <p contenteditable="true" class="text-4xl font-bold">VERIFIED SKILL</p>
-                                       <p contenteditable="true" class="text-lg text-blue-300">Online Course Completion</p>
-                                   </div>
-                                   <div class="w-20 h-20 bg-white p-1 rounded-lg resizable-logo">
-                                       <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://certifycraft.com" alt="QR Code">
-                                   </div>
-                               </div>
-                               <div class="flex-grow flex flex-col justify-center">
-                                   <p contenteditable="true">This certifies that</p>
-                                   <p contenteditable="true" class="text-5xl my-2 font-bold">Recipient Name</p>
-                                   <p contenteditable="true">has successfully passed the examination for</p>
-                                   <p contenteditable="true" class="text-2xl font-bold mt-1">THE COMPLETE SQL BOOTCAMP</p>
-                               </div>
-                               <div class="flex justify-between text-sm opacity-80">
-                                   <p contenteditable="true">Issued by CertifyCraft</p>
-                                   <p contenteditable="true">Credential ID: 123-ABC-456</p>
-                               </div>
-                           </div>`
-                },
-            ];
+                const transformations = {
+                    stripAll: (t) => { const el = document.createElement('div'); el.innerHTML = t; return (el.textContent || "").replace(/(\r\n|\n|\r){2,}/g, '$1\n').trim(); },
+                    removeExtraSpaces: (t) => t.replace(/ +/g, ' ').trim(),
+                    removeLineBreaks: (t) => t.replace(/(\r\n|\n|\r)+/g, ' ').replace(/ +/g, ' ').trim(),
+                    toUpperCase: (t) => t.toUpperCase(),
+                    toLowerCase: (t) => t.toLowerCase(),
+                    toSentenceCase: (t) => t.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()),
+                    toTitleCase: (t) => {
+                        const small = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+                        return t.toLowerCase().split(' ').map((w, i) => (i === 0 || !small.test(w)) ? w.charAt(0).toUpperCase() + w.slice(1) : w).join(' ');
+                    },
+                    formatJson: (t) => { if (!t.trim()) return ''; try { return JSON.stringify(JSON.parse(t), null, 2); } catch (e) { return "Invalid JSON: " + e.message; } },
+                    extractEmails: (t) => ([...new Set(t.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi) || [])].join('\n') || 'No emails found.'),
+                    extractUrls: (t) => ([...new Set(t.match(/(https?:\/\/[^\s"'<>`]+)/gi) || [])].join('\n') || 'No URLs found.'),
+                    sortLinesAZ: (t) => t.split('\n').filter(l => l.trim() !== '').sort((a, b) => a.localeCompare(b)).join('\n'),
+                    removeDuplicateLines: (t) => [...new Set(t.split('\n'))].join('\n')
+                };
 
-            const galleryView = document.getElementById('gallery-view');
-            const editorView = document.getElementById('editor-view');
-            const templateGrid = document.getElementById('template-grid');
-            const certificateContainer = document.getElementById('certificate-container');
-            const editorBackToGalleryBtn = document.getElementById('editor-back-to-gallery-btn');
-            const logoUploadInput = document.getElementById('logo-upload-input');
-            const downloadBtn = document.getElementById('download-btn');
-            const adModalOverlay = document.getElementById('ad-modal-overlay');
-            const adModal = document.getElementById('ad-modal');
-            const closeAdModalBtn = document.getElementById('close-ad-modal-btn');
+                const debounce = (func, delay = 200) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => func.apply(this, a), delay); }; };
 
-            function showView(viewName) {
-                galleryView.classList.add('hidden');
-                editorView.classList.add('hidden');
-                
-                if (viewName === 'editor') {
-                    editorView.classList.remove('hidden');
-                } else {
-                    galleryView.classList.remove('hidden');
+                function pushToHistory(text, clearRedo = true) {
+                    if (textHistory.length === 0 || textHistory[textHistory.length - 1] !== text) {
+                        textHistory.push(text);
+                        if (textHistory.length > 50) textHistory.shift();
+                        if (clearRedo) redoHistory = [];
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
                 }
-            }
-            
-            function populateGallery() {
-                templateGrid.innerHTML = '';
-                templates.forEach(template => {
-                    const card = document.createElement('div');
-                    card.className = 'bg-white dark:bg-gray-800 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1';
-                    card.innerHTML = `
-                        <div class="text-blue-600 dark:text-blue-400 mb-3">${template.icon}</div>
-                        <h3 class="font-semibold text-gray-900 dark:text-white mb-1">${template.name}</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">${template.description}</p>
-                    `;
-                    card.addEventListener('click', () => {
-                        loadTemplate(template.id);
-                        showView('editor');
-                    });
-                    templateGrid.appendChild(card);
-                });
-            }
 
-            function loadTemplate(templateId) {
-                const template = templates.find(t => t.id === templateId);
-                if (template) {
-                    certificateContainer.innerHTML = template.html;
-                    setupInteract();
+                function updateOutput() {
+                    const transform = transformations[activeProfile] || (text => text);
+                    outputText.value = transform(inputText.value);
+                    updateAnalysis(inputText.value);
+                    saveSession();
                 }
-            }
-            
-            logoUploadInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        const activeLogoContainer = certificateContainer.querySelector('.resizable-logo');
-                        if (activeLogoContainer) {
-                           const img = activeLogoContainer.querySelector('img');
-                           if(img) {
-                               img.src = e.target.result;
-                           } else {
-                               const newImg = document.createElement('img');
-                               newImg.src = e.target.result;
-                               activeLogoContainer.innerHTML = '';
-                               activeLogoContainer.appendChild(newImg);
-                           }
+
+                function updateAnalysis(text) {
+                    const words = (text.match(/\S+/g) || []).length;
+                    const chars = text.length;
+                    const sentences = (text.match(/[\w|\)][.?!](\s|$)/g) || []).length;
+                    const paragraphs = (text.split(/\n\s*\n/).filter(p => p.trim().length > 0)).length;
+                    statWords.textContent = words; statChars.textContent = chars;
+                    statSentences.textContent = sentences > 0 ? sentences : (words > 0 ? 1 : 0);
+                    statParagraphs.textContent = paragraphs > 0 ? paragraphs : (words > 0 ? 1 : 0);
+                    statReadingTime.textContent = `~ ${Math.ceil(words / 238)} min`;
+                    statSpeakingTime.textContent = `~ ${Math.ceil(words / 180)} min`;
+                    if (words > 10 && sentences > 0) {
+                        const score = 206.835 - 1.015 * (words / sentences) - 84.6 * (text.replace(/\s/g, '').length / words);
+                        statReadability.textContent = score.toFixed(1);
+                    } else { statReadability.textContent = 'N/A'; }
+                }
+
+                function setupCustomCheckbox(labelId, inputId) {
+                    const label = document.getElementById(labelId);
+                    const input = document.getElementById(inputId);
+                    const uncheckedIcon = document.getElementById(`${inputId}-icon-unchecked`);
+                    const checkedIcon = document.getElementById(`${inputId}-icon-checked`);
+                    
+                    const updateIcons = () => {
+                        if (input.checked) {
+                            uncheckedIcon.classList.add('hidden');
+                            checkedIcon.classList.remove('hidden');
                         } else {
-                            // Fallback if no placeholder exists
-                            const newLogo = document.createElement('div');
-                            newLogo.className = 'w-24 h-24 resizable-logo absolute top-10 left-10';
-                            newLogo.innerHTML = `<img src="${e.target.result}" alt="uploaded logo">`;
-                            certificateContainer.appendChild(newLogo);
-                            setupInteract();
+                            uncheckedIcon.classList.remove('hidden');
+                            checkedIcon.classList.add('hidden');
                         }
                     };
-                    reader.readAsDataURL(file);
-                }
-            });
 
-            downloadBtn.addEventListener('click', async () => {
-                showAdModal();
-                document.body.classList.add('downloading');
-                if (document.activeElement) document.activeElement.blur();
-                await new Promise(resolve => setTimeout(resolve, 100));
-                try {
-                    const canvas = await html2canvas(certificateContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: null });
-                    const format = document.getElementById('download-format').value;
-                    const filename = `Solite-Certificate_${new Date().getTime()}.${format}`;
-                    if (format === 'pdf') {
-                        const { jsPDF } = window.jspdf;
-                        const imgData = canvas.toDataURL('image/jpeg', 0.95);
-                        const pdf = new jsPDF({
-                            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-                            unit: 'px',
-                            format: [canvas.width, canvas.height]
-                        });
-                        pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
-                        pdf.save(filename);
-                    } else {
-                        const link = document.createElement('a');
-                        link.href = canvas.toDataURL(`image/${format}`, 1.0);
-                        link.download = filename;
-                        link.click();
-                    }
-                } catch (error) {
-                    console.error("Download failed:", error);
-                    alert("Sorry, something went wrong during the download process.");
-                } finally {
-                    document.body.classList.remove('downloading');
-                }
-            });
-
-            function showAdModal() {
-                adModalOverlay.classList.remove('hidden');
-                adModal.classList.remove('hidden');
-                setTimeout(() => {
-                    adModalOverlay.classList.add('opacity-100');
-                    adModal.classList.remove('scale-95', 'opacity-0');
-                }, 10);
-                closeAdModalBtn.classList.add('hidden');
-                setTimeout(() => {
-                    closeAdModalBtn.classList.remove('hidden');
-                }, 3000);
-            }
-
-            function closeAdModal() {
-                adModalOverlay.classList.remove('opacity-100');
-                adModal.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    adModalOverlay.classList.add('hidden');
-                    adModal.classList.add('hidden');
-                }, 300);
-            }
-
-            closeAdModalBtn.addEventListener('click', closeAdModal);
-            adModalOverlay.addEventListener('click', closeAdModal);
-            
-            function setupInteract() {
-                interact('.resizable-logo')
-                    .resizable({
-                        edges: { left: true, right: true, bottom: true, top: true },
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.deltaRect.left;
-                                y = (parseFloat(y) || 0) + event.deltaRect.top;
-                                Object.assign(event.target.style, {
-                                    width: `${event.rect.width}px`,
-                                    height: `${event.rect.height}px`,
-                                    transform: `translate(${x}px, ${y}px)`
-                                });
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        modifiers: [ interact.modifiers.aspectRatio({ ratio: 'preserve' }) ],
-                        inertia: true
-                    })
-                    .draggable({
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.dx;
-                                y = (parseFloat(y) || 0) + event.dy;
-                                event.target.style.transform = `translate(${x}px, ${y}px)`;
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        inertia: true,
+                    label.addEventListener('click', (e) => {
+                        e.preventDefault(); // Prevent label's default behavior
+                        input.checked = !input.checked;
+                        updateIcons();
                     });
+                    
+                    updateIcons(); // Set initial state
+                }
+
+                function saveSession() {
+                    try { localStorage.setItem('textEngineSession', JSON.stringify({ inputText: inputText.value })); }
+                    catch (e) { console.error("Could not save session:", e); }
+                }
+
+                function loadSession() {
+                    try {
+                        const session = JSON.parse(localStorage.getItem('textEngineSession'));
+                        if (session && session.inputText) { 
+                            inputText.value = session.inputText;
+                            pushToHistory(session.inputText, true);
+                        } else {
+                            pushToHistory('', true);
+                        }
+                    } catch (e) { 
+                        console.error("Could not load session:", e); 
+                        pushToHistory('', true);
+                    }
+                }
+
+                const debouncedUpdate = debounce((event) => {
+                    if (event) pushToHistory(event.target.value);
+                    updateOutput();
+                });
+                
+                inputText.addEventListener('input', debouncedUpdate);
+
+                transformProfileOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        pushToHistory(inputText.value);
+                        activeProfile = e.target.dataset.profile;
+                        transformProfileText.textContent = e.target.textContent;
+                        updateOutput();
+                    });
+                });
+                
+                clearBtn.addEventListener('click', () => { pushToHistory(inputText.value); inputText.value = ''; updateOutput(); });
+                
+                swapBtn.addEventListener('click', () => { pushToHistory(inputText.value); inputText.value = outputText.value; updateOutput(); });
+
+                copyBtn.addEventListener('click', () => {
+                    if (!outputText.value) return;
+                    outputText.select();
+                    outputText.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(outputText.value).then(() => {
+                        copyModalOverlay.classList.remove('hidden');
+                        copyModal.classList.remove('hidden');
+                        closeCopyModalBtn.classList.add('hidden');
+                        adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
+                        setTimeout(() => {
+                            closeCopyModalBtn.classList.remove('hidden');
+                            adRefreshCounter++;
+                            adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
+                        }, 3000);
+                    }).catch(err => alert("Could not copy text."));
+                });
+                
+                function closeCopyModal() {
+                    copyModalOverlay.classList.add('hidden');
+                    copyModal.classList.add('hidden');
+                }
+                closeCopyModalBtn.addEventListener('click', closeCopyModal);
+                copyModalOverlay.addEventListener('click', closeCopyModal);
+
+                replaceAllBtn.addEventListener('click', () => {
+                    pushToHistory(inputText.value);
+                    const find = findInput.value;
+                    if (!find) return;
+                    try {
+                        const flags = caseSensitive.checked ? 'g' : 'gi';
+                        const search = useRegex.checked ? new RegExp(find, flags) : new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+                        inputText.value = inputText.value.replace(search, replaceInput.value);
+                        updateOutput();
+                    } catch (e) { alert('Invalid Regular Expression!'); }
+                });
+
+                inputText.addEventListener('paste', (e) => {
+                    setTimeout(() => {
+                        pushToHistory(inputText.value);
+                        const pastedText = (e.clipboardData || window.clipboardData).getData('text').trim();
+                        if ((pastedText.startsWith('{') && pastedText.endsWith('}')) || (pastedText.startsWith('[') && pastedText.endsWith(']'))) {
+                            try {
+                                JSON.parse(pastedText);
+                                activeProfile = 'formatJson';
+                                transformProfileText.textContent = 'Format JSON';
+                                updateOutput();
+                            } catch (error) { /* Not JSON */ }
+                        }
+                    }, 1);
+                });
+
+                undoBtn.addEventListener('click', () => {
+                    if (textHistory.length > 1) {
+                        const currentState = textHistory.pop();
+                        redoHistory.push(currentState);
+                        inputText.value = textHistory[textHistory.length - 1] || '';
+                        updateOutput();
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+
+                redoBtn.addEventListener('click', () => {
+                    if (redoHistory.length > 0) {
+                        const nextState = redoHistory.pop();
+                        pushToHistory(nextState, false);
+                        inputText.value = nextState;
+                        updateOutput();
+                    }
+                });
+
+                undoBtn.addEventListener('click', () => {
+                    if (textHistory.length > 1) {
+                        const currentState = textHistory.pop();
+                        redoHistory.push(currentState);
+                        inputText.value = textHistory[textHistory.length - 1] || '';
+                        updateOutput();
+                    }
+                    undoBtn.disabled = textHistory.length <= 1;
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+
+                redoBtn.addEventListener('click', () => {
+                    if (redoHistory.length > 0) {
+                        const nextState = redoHistory.pop();
+                        pushToHistory(nextState, false);
+                        inputText.value = nextState;
+                        updateOutput();
+                    }
+                    redoBtn.disabled = redoHistory.length === 0;
+                });
+                
+                transformProfileBtn.addEventListener('click', (e) => { e.stopPropagation(); transformProfileDropdown.classList.toggle('hidden'); });
+                document.addEventListener('click', () => {
+                    transformProfileDropdown.classList.add('hidden');
+                });
+
+                setupCustomCheckbox('case-sensitive-label', 'case-sensitive');
+                setupCustomCheckbox('use-regex-label', 'use-regex');
+
+                loadSession();
+                updateOutput();
             }
-            
-            editorBackToGalleryBtn.addEventListener('click', () => showView('gallery'));
 
-            populateGallery();
-            showView('gallery');
-        });
+            if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+            else { init(); }
+        })();
 
-        // Theme switcher script (from index.html)
+        // Theme switcher script
         (() => {
             const themeToggleBtn = document.getElementById('theme-toggle');
             const slider = document.getElementById('theme-toggle-slider');

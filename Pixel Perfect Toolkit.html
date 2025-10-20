@@ -8,7 +8,7 @@
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="A free, client-side image editor from Solite to crop, resize, watermark, apply filters, and convert images instantly. No uploads, 100% private.">
     <meta name="keywords" content="solite, image editor, photo editor, crop image, resize image, add watermark, webp converter, image compressor, online photo editor, privacy first">
-    <link rel="canonical" href="https://solite.com/Pixel Perfect Toolkit.html" />
+    <link rel="canonical" href="https://solite.com/image-editor.html" />
     <meta property="og:title" content="Image Editor | Solite">
     <meta property="og:description" content="A professional-grade toolkit for all your image editing needs. Free, private, and powerful.">
     <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Image+Editor">
@@ -68,19 +68,25 @@
         .watermark-type-btn.active { background-color: #3b82f6; color: #fff; }
         .filter-btn.active { background-color: #3b82f6 !important; color: #fff; }
         
-        /* Standard Tab Styles */
         .tab {
-            color: #9CA3AF; /* text-gray-400 */
+            color: #6b7280; /* gray-500 */
             border-bottom: 2px solid transparent;
             margin-bottom: -1px; /* Overlap container border */
             transition: all 0.15s ease-in-out;
         }
+        .dark .tab { color: #9ca3af; /* gray-400 */ }
         .tab:hover {
+            color: #1f2937; /* gray-800 */
+        }
+        .dark .tab:hover {
             color: #D1D5DB; /* text-gray-300 */
         }
         .tab.active {
             color: #3b82f6;
             border-bottom-color: #3b82f6;
+        }
+        .dark .tab.active {
+            color: #60a5fa; border-bottom-color: #60a5fa;
         }
     </style>
 </head>
@@ -142,7 +148,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
                             </svg>
                         </button>
-                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none" disabled>
+                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-gray-800 dark:hover:text-white bg-gray-200 dark:bg-gray-700 rounded-md p-2 leading-none" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
                             </svg>
@@ -163,7 +169,7 @@
                 <!-- Tab Content -->
                 <div class="p-4 space-y-5">
                     <div id="adjust-tab" class="tab-content space-y-4">
-                        <h4 class="font-semibold text-gray-200">Filters & Adjustments</h4>
+                        <h4 class="font-semibold text-gray-800 dark:text-gray-200">Filters & Adjustments</h4>
                         <div class="grid grid-cols-2 gap-2">
                             <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="grayscale">Grayscale</button>
                             <button class="filter-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg" data-filter="sepia">Sepia</button>
@@ -179,7 +185,7 @@
 
                     <div id="crop-tab" class="tab-content hidden space-y-4">
                         <div>
-                            <h4 class="font-semibold text-gray-200 mb-2">Resize</h4>
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Resize</h4>
                             <div class="flex items-center gap-2">
                                 <input type="number" id="resize-width" placeholder="Width" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
                                 <input type="number" id="resize-height" placeholder="Height" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
@@ -187,7 +193,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-200 mb-2">Preset Crop</h4>
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Preset Crop</h4>
                              <div class="grid grid-cols-4 gap-2">
                                 <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="1:1">Square</button>
                                 <button class="aspect-crop-btn bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 py-2 rounded-lg text-xs" data-ratio="16:9">Landscape</button>
@@ -204,18 +210,18 @@
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-200 mb-2">Manual Crop</h4>
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Manual Crop</h4>
                             <p class="text-sm text-gray-400 mb-2">Enable, then drag on the image to select an area.</p>
-                             <button id="toggle-crop-btn" class="w-full flex justify-between items-center text-left py-2 px-4 rounded-lg border-2 border-gray-600 hover:border-gray-500 mb-2">
+                             <button id="toggle-crop-btn" class="w-full flex justify-between items-center text-left py-2 px-4 rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 mb-2">
                                 <span>Enable Manual Crop</span>
-                                <div id="crop-tick-container" class="w-5 h-5 border-2 border-gray-500 rounded-sm flex items-center justify-center flex-shrink-0"></div>
+                                <div id="crop-tick-container" class="w-5 h-5 border-2 border-gray-400 dark:border-gray-500 rounded-sm flex items-center justify-center flex-shrink-0"></div>
                             </button>
                             <button id="apply-crop-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg" disabled>Apply Crop</button>
                         </div>
                     </div>
 
                     <div id="watermark-tab" class="tab-content hidden space-y-4">
-                        <div class="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1">
+                        <div class="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1 text-gray-800 dark:text-gray-300">
                             <button id="text-watermark-btn" class="watermark-type-btn active flex-1 py-1 text-sm rounded-md">Text</button>
                             <button id="image-watermark-btn" class="watermark-type-btn flex-1 py-1 text-sm rounded-md text-gray-400">Image</button>
                         </div>
@@ -242,7 +248,7 @@
                     </div>
 
                     <div id="export-tab" class="tab-content hidden space-y-4">
-                         <h4 class="font-semibold text-gray-200">Export Image</h4>
+                         <h4 class="font-semibold text-gray-800 dark:text-gray-200">Export Image</h4>
                         <select id="format-select" class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600">
                             <option value="image/png">PNG</option>
                             <option value="image/jpeg">JPEG</option>
@@ -592,11 +598,11 @@
                 isCropping = !isCropping;
                 canvasContainer.classList.toggle('cropping', isCropping);
                 if (isCropping) {
-                    toggleCropBtn.classList.add('border-blue-500'); cropTickContainer.innerHTML = tickSVG;
-                    cropTickContainer.classList.add('border-blue-500');
+                    toggleCropBtn.classList.add('border-blue-500', 'dark:border-blue-500'); cropTickContainer.innerHTML = tickSVG;
+                    cropTickContainer.classList.add('border-blue-500', 'dark:border-blue-500');
                 } else {
-                    toggleCropBtn.classList.remove('border-blue-500'); cropTickContainer.innerHTML = '';
-                    cropTickContainer.classList.remove('border-blue-500');
+                    toggleCropBtn.classList.remove('border-blue-500', 'dark:border-blue-500'); cropTickContainer.innerHTML = '';
+                    cropTickContainer.classList.remove('border-blue-500', 'dark:border-blue-500');
                 }
                 applyCropBtn.disabled = true;
                 if (!isCropping) { cropRect = {}; redrawCanvas(); }
@@ -757,7 +763,7 @@
                     activeWatermarkType = 'image';
                     textWatermarkControls.style.display = 'none';
                     imageWatermarkControls.style.display = 'block';
-                    imageWatermarkBtn.classList.add('active');
+                    imageWatermarkBtn.classList.add('active', 'text-white');
                     textWatermarkBtn.classList.remove('active');
                     redrawCanvas();
                 });
