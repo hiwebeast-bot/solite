@@ -401,6 +401,44 @@
                 },
             ];
 
+            const moreTemplates = [
+                {
+                    id: 'official_seal', name: 'Official Seal',
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>`,
+                    html: `<div class="w-full h-full p-12 flex flex-col items-center text-center bg-white text-gray-800 font-serif relative" style="font-family: 'Playfair Display', serif;">
+                                <div class="w-full h-full absolute top-0 left-0 border-8 border-gray-200"></div>
+                                <div class="w-full h-full absolute top-0 left-0 border border-gray-400 m-4"></div>
+                                <h1 contenteditable="true" class="text-5xl font-bold tracking-wider">CERTIFICATE</h1>
+                                <p contenteditable="true" class="text-2xl mt-2 tracking-widest">OF APPRECIATION</p>
+                                <p contenteditable="true" class="mt-12 text-lg">This Certificate is Awarded to</p>
+                                <p contenteditable="true" class="text-4xl my-4">Recipient Name</p>
+                                <p contenteditable="true" class="max-w-lg">In recognition of their valuable contribution and dedicated service.</p>
+                                <div class="flex-grow"></div>
+                                <div class="resizable-logo w-32 h-32 mb-4"></div>
+                                <div class="flex justify-around w-full mt-4">
+                                    <p contenteditable="true" class="border-t-2 border-gray-400 pt-2 px-12">Signature</p>
+                                    <p contenteditable="true" class="border-t-2 border-gray-400 pt-2 px-12">Date</p>
+                                </div>
+                            </div>`
+                },
+                {
+                    id: 'simple_bold', name: 'Simple & Bold',
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" /></svg>`,
+                    html: `<div class="w-full h-full p-12 flex flex-col bg-white text-gray-900 font-sans">
+                                <div class="resizable-logo w-24 h-24 mb-8"></div>
+                                <p contenteditable="true" class="text-lg text-gray-500">Certificate of Training</p>
+                                <p contenteditable="true" class="text-6xl font-extrabold my-4">Recipient Name</p>
+                                <p contenteditable="true" class="text-lg max-w-xl">Has successfully completed the requirements for the course titled "Leadership and Management" and is hereby recognized for their achievement.</p>
+                                <div class="flex-grow"></div>
+                                <div class="flex justify-between items-center mt-12 text-sm">
+                                    <p contenteditable="true" class="font-semibold">Solite Training Division</p>
+                                    <p contenteditable="true" class="font-semibold">Issued: 11/20/2025</p>
+                                </div>
+                            </div>`
+                },
+            ];
+            templates.push(...moreTemplates);
+
             const galleryView = document.getElementById('gallery-view');
             const editorView = document.getElementById('editor-view');
             const templateGrid = document.getElementById('template-grid');
@@ -418,9 +456,9 @@
                 templateGrid.innerHTML = '';
                 templates.forEach(template => {
                     const card = document.createElement('div');
-                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-blue-500 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
+                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-white hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
                     card.innerHTML = `
-                        <div class="text-blue-400 mb-3">${template.icon}</div>
+                        <div class="text-gray-300 mb-3">${template.icon}</div>
                         <h3 class="font-semibold text-white mb-1">${template.name}</h3>
                     `;
                     card.addEventListener('click', () => {
