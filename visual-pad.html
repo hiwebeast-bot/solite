@@ -50,8 +50,9 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col w-full py-6 px-4 sm:px-6">
-        <div id="main-content" class="flex-grow flex flex-col md:flex-row">
+    <div class="flex-grow" style="height: calc(100vh - 80px);">
+        <main class="flex flex-col w-full h-full p-4 sm:p-6">
+            <div id="main-content" class="flex-grow flex flex-col md:flex-row min-h-0">
             <!-- Editor Pane -->
             <div id="editor-pane" class="w-full md:w-2/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
                 <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
@@ -113,10 +114,11 @@
                     <iframe id="preview-iframe" class="h-full w-full bg-white rounded-lg shadow-2xl transition-all duration-300"></iframe>
                 </div>
             </div>
-        </div>
-    </main>
+            </div>
+        </main>
+    </div>
 
-    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
