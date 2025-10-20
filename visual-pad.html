@@ -26,11 +26,41 @@
     <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
 
-    <!-- Vercel Analytics -->
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                },
+            },
+        }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+        .editor {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            font-family: 'Menlo', 'Monaco', 'Consolas', 'monospace';
+            font-size: 14px;
+            line-height: 1.5;
+            border: none;
+            outline: none;
+            resize: none;
+        }
+        .editor:focus {
+            outline: none;
+        }
+        .tab-btn.active {
+            background-color: #1f2937; /* gray-800 */
+            color: #ffffff;
+        }
+        #resizer {
+            cursor: col-resize;
+        }
+    </style>
 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -56,39 +86,25 @@
     </header>
 
     <!-- Main Content -->
-    <div class="flex-grow" style="height: calc(100vh - 80px);">
-        <main class="flex flex-col w-full h-full p-4 sm:p-6">
-            <div id="main-content" class="flex-grow flex flex-col md:flex-row min-h-0">
+    <main class="flex-grow flex flex-col md:flex-row w-full p-4 gap-4" style="height: calc(100vh - 80px);">
             <!-- Editor Pane -->
-            <div id="editor-pane" class="w-full md:w-2/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
+        <div id="editor-pane" class="w-full md:w-1/2 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+            <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-2">
                     <div class="tabs flex">
-                        <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">HTML</button>
-                        <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">CSS</button>
-                        <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-400 hover:text-white transition-colors">JS</button>
+                    <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
+                    <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">CSS</button>
+                    <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">JS</button>
                     </div>
-                    <div class="flex items-center space-x-1 pr-2">
-                         <button id="undo-btn" title="Undo (Ctrl+Z)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
-                         </button>
-                         <button id="redo-btn" title="Redo (Ctrl+Y)" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg>
-                         </button>
-                         <div class="w-px h-6 bg-gray-700 mx-2"></div>
-                         <button id="settings-btn" title="Settings" class="text-gray-400 hover:text-white p-2 rounded-lg transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex-grow relative">
-                    <div id="html-editor" class="editor w-full h-full absolute"></div>
-                    <div id="css-editor" class="editor w-full h-full absolute hidden"></div>
-                    <div id="js-editor" class="editor w-full h-full absolute hidden"></div>
-                </div>
             </div>
+            <div class="flex-grow relative">
+                <textarea id="html-editor" class="editor w-full h-full p-4" placeholder="HTML"></textarea>
+                <textarea id="css-editor" class="editor w-full h-full p-4 hidden" placeholder="CSS"></textarea>
+                <textarea id="js-editor" class="editor w-full h-full p-4 hidden" placeholder="JavaScript"></textarea>
+            </div>
+        </div>
 
             <!-- Resizer -->
-            <div id="resizer" class="w-1.5 cursor-col-resize bg-gray-700 rounded-full hidden md:flex items-center justify-center">
+        <div id="resizer" class="w-2 flex-shrink-0 bg-gray-800 hover:bg-gray-700 transition-colors rounded-full hidden md:flex items-center justify-center">
                 <div class="flex flex-col space-y-1">
                     <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
                     <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
@@ -97,32 +113,15 @@
             </div>
             
             <!-- Preview Pane -->
-            <div id="preview-pane-container" class="w-full md:w-3/5 flex flex-col bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                <div class="flex-shrink-0 flex items-center justify-between flex-wrap gap-2 p-2 bg-gray-800 border-b border-gray-700">
-                     <div class="flex items-center space-x-1 bg-gray-700/50 p-1 rounded-lg">
-                        <button data-view="desktop" class="view-btn active px-3 py-1 text-sm font-medium rounded-lg flex items-center gap-2"><span>Desktop</span></button>
-                        <button data-view="tablet" class="view-btn px-3 py-1 text-sm font-medium rounded-lg flex items-center gap-2"><span>Tablet</span></button>
-                        <button data-view="mobile" class="view-btn px-3 py-1 text-sm font-medium rounded-lg flex items-center gap-2"><span>Mobile</span></button>
-                    </div>
-                     <div class="flex items-center justify-end gap-2">
-                        <button id="refresh-btn" title="Refresh Preview" class="bg-gray-600 hover:bg-gray-500 text-white font-medium p-2 rounded-lg flex items-center transition-transform hover:-translate-y-0.5">
-                           <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                                <path d="M17.91 14c-.478 2.833-2.943 5-5.91 5-3.308 0-6-2.692-6-6s2.692-6 6-6h2.172l-2.086 2.086L13.5 10.5 18 6l-4.5-4.5-1.414 1.414L14.172 5H12c-4.418 0-8 3.582-8 8s3.582 8 8 8c4.08 0 7.438-3.055 7.93-7h-2.02z"/>
-                           </svg>
-                        </button>
-                        <button id="download-btn" class="bg-white hover:bg-gray-200 text-gray-900 font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-transform hover:-translate-y-0.5">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            <span>Download ZIP</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex-grow w-full flex items-center justify-center p-4 bg-[#0d1117] min-h-0">
-                    <iframe id="preview-iframe" class="h-full w-full bg-white rounded-lg shadow-2xl transition-all duration-300"></iframe>
-                </div>
+        <div id="preview-pane" class="w-full md:w-1/2 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+            <div class="flex-shrink-0 flex items-center p-2 bg-gray-800 border-b border-gray-700">
+                <p class="px-2 text-sm font-semibold text-gray-300">Preview</p>
             </div>
+            <div class="flex-grow w-full flex items-center justify-center p-1 bg-gray-900">
+                <iframe id="preview-iframe" class="h-full w-full bg-white rounded-md shadow-inner"></iframe>
             </div>
+        </div>
         </main>
-    </div>
 
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
@@ -141,6 +140,101 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlEditor = document.getElementById('html-editor');
+            const cssEditor = document.getElementById('css-editor');
+            const jsEditor = document.getElementById('js-editor');
+            const previewIframe = document.getElementById('preview-iframe');
+            const tabs = document.querySelectorAll('.tab-btn');
+            const editors = {
+                html: htmlEditor,
+                css: cssEditor,
+                js: jsEditor
+            };
+
+            const resizer = document.getElementById('resizer');
+            const editorPane = document.getElementById('editor-pane');
+            const previewPane = document.getElementById('preview-pane');
+
+            // --- Core Logic ---
+            const updatePreview = () => {
+                const html = htmlEditor.value;
+                const css = cssEditor.value;
+                const js = jsEditor.value;
+
+                const source = `
+                    <html>
+                        <head>
+                            <style>${css}</style>
+                        </head>
+                        <body>
+                            ${html}
+                            <script>${js}<\/script>
+                        </body>
+                    </html>
+                `;
+
+                previewIframe.srcdoc = source;
+            };
+
+            const saveToLocalStorage = () => {
+                const content = {
+                    html: htmlEditor.value,
+                    css: cssEditor.value,
+                    js: jsEditor.value,
+                };
+                localStorage.setItem('solite-visual-pad', JSON.stringify(content));
+            };
+
+            const loadFromLocalStorage = () => {
+                const savedContent = localStorage.getItem('solite-visual-pad');
+                if (savedContent) {
+                    const content = JSON.parse(savedContent);
+                    htmlEditor.value = content.html || '';
+                    cssEditor.value = content.css || '';
+                    jsEditor.value = content.js || '';
+                } else {
+                    // Default content for new users
+                    htmlEditor.value = '<h1>Hello, Solite!</h1>\n<p>Start coding to see the magic.</p>';
+                    cssEditor.value = 'body {\n  font-family: sans-serif;\n  background-color: #f0f0f0;\n  color: #333;\n  display: grid;\n  place-content: center;\n  height: 100vh;\n  margin: 0;\n}\nh1 { color: #007bff; }';
+                }
+                updatePreview();
+            };
+
+            const debounce = (func, delay) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const debouncedUpdate = debounce(() => {
+                updatePreview();
+                saveToLocalStorage();
+            }, 500);
+
+            [htmlEditor, cssEditor, jsEditor].forEach(editor => {
+                editor.addEventListener('input', debouncedUpdate);
+            });
+
+            // --- UI Logic ---
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const lang = tab.dataset.lang;
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    Object.values(editors).forEach(editor => editor.classList.add('hidden'));
+                    editors[lang].classList.remove('hidden');
+                });
+            });
+
+            // --- Initial Load ---
+            loadFromLocalStorage();
+        });
     </script>
 </body>
 </html>
