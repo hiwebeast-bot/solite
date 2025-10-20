@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,101 +15,17 @@
     <meta property="og:url" content="https://solite.com/visual-pad.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-
+    
+    <!-- Core Libraries -->
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
     <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Certificate Maker | Solite",
-      "url": "https://solite.com/certificate-maker.html",
-      "description": "A free online tool from Solite to design, edit, and download professional certificates from a variety of templates.",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
-    }
-    </script>
-    
-    <!-- JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    height: { 'screen-minus-header': 'calc(100vh - 80px)' },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        display: ['Montserrat', 'sans-serif'],
-                        vintage: ['Lobster', 'cursive'],
-                        slab: ['Roboto Slab', 'serif'],
-                        bold: ['Poppins', 'sans-serif'],
-                        cartoon: ['Bangers', 'cursive'],
-                        elegant: ['Lora', 'serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Light mode default styles */
-        body {
-            background-color: #ffffff;
-            color: #111827; /* gray-900 */
-        }
-        /* Dark mode overrides */
-        .dark body {
-            background-color: #000000;
-            color: #e5e7eb; /* gray-200 */
-        }
-        .certificate-container {
-            aspect-ratio: 1.414 / 1; /* A4 Landscape */
-            width: 100%;
-            max-width: 1000px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .dark .certificate-container {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        .resizable-logo {
-            touch-action: none;
-            box-sizing: border-box;
-            min-width: 50px;
-            min-height: 50px;
-            z-index: 20;
-        }
-        .resizable-logo img {
-            pointer-events: none;
-        }
-        .resizable-logo:not(.interact-resizable) { border: 2px dashed transparent; }
-        .resizable-logo.interact-resizable { border: 2px dashed #3b82f6; }
-        body.downloading .interact-resizable { border: 2px dashed transparent !important; }
-        [contenteditable=true]:empty:before {
-            content: attr(placeholder);
-            pointer-events: none;
-            display: block;
-            color: #9ca3af;
-        }        
-        :is(button, a, select, input):focus-visible {
-            outline: none; box-shadow: 0 0 0 3px #3b82f680; border-radius: 0.5rem;
-        }
-    </style>
 </head>
 <body class="flex flex-col min-h-screen font-sans">
     
@@ -125,12 +41,6 @@
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
             </a>
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="relative inline-flex items-center h-8 w-14 p-1 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors focus:outline-none">
-                    <span class="sr-only">Toggle theme</span>
-                    <span id="theme-toggle-slider" class="absolute left-1 top-1 inline-block h-6 w-6 transform rounded-full bg-white dark:bg-gray-700 transition-transform duration-300 ease-in-out"></span>
-                    <svg class="h-5 w-5 absolute left-1.5 top-1.5 text-yellow-500 transition-opacity duration-300" id="theme-toggle-light-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                    <svg class="h-5 w-5 absolute right-1.5 top-1.5 text-blue-300 transition-opacity duration-300" id="theme-toggle-dark-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                </button>
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
                     <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
@@ -138,6 +48,9 @@
             </div>
         </div>
     </header>
+    <main class="flex-grow flex flex-col h-screen-minus-header">
+        <!-- This main content will be replaced by the IDE -->
+    </main>
 
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
