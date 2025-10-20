@@ -45,7 +45,6 @@
     <!-- JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -150,13 +149,7 @@
                                 <span>Templates</span>
                             </button>
                          </div>
-                         <div class="flex items-center space-x-4">
-                            <label for="logo-upload-input" title="Upload a logo or seal" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
-                                <span>Upload Logo</span>
-                            </label>
-                            <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                            
+                         <div class="flex items-center space-x-4">                            
                             <div class="flex items-center">
                                 <div class="relative">
                                     <select id="download-format" class="appearance-none bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 pl-4 pr-8 rounded-l-lg transition">
@@ -215,20 +208,19 @@
                 {
                     id: 'modern_geometric', name: 'Modern Geometric',
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>`,
-                    html: `<div class="w-full h-full flex flex-col bg-white text-gray-800 font-sans relative">
-                               <div class="absolute top-8 right-8 w-24 h-24 resizable-logo"></div>
-                               <div class="flex-grow flex flex-col justify-center items-start z-10 p-12">
-                                   <p contenteditable="true" class="text-lg tracking-widest text-gray-500">CERTIFICATE OF</p>
-                                   <h1 contenteditable="true" class="text-6xl font-bold my-2">ACHIEVEMENT</h1>
-                                   <p contenteditable="true" class="text-md mt-8">PROUDLY PRESENTED TO</p>
-                                   <p contenteditable="true" class="text-4xl my-2 font-display font-bold tracking-wide text-blue-600">Recipient Name</p>
-                                   <p contenteditable="true" class="mt-4 max-w-lg text-gray-600">
+                    html: `<div class="w-full h-full flex flex-col bg-white text-gray-800 font-sans relative p-8">
+                               <div class="flex-grow flex flex-col justify-center items-center z-10 text-center">
+                                   <p contenteditable="true" placeholder="e.g., CERTIFICATE OF" class="text-lg tracking-widest text-gray-500">CERTIFICATE OF</p>
+                                   <h1 contenteditable="true" placeholder="e.g., ACHIEVEMENT" class="text-6xl font-bold my-2">ACHIEVEMENT</h1>
+                                   <p contenteditable="true" placeholder="e.g., PROUDLY PRESENTED TO" class="text-md mt-8">PROUDLY PRESENTED TO</p>
+                                   <p contenteditable="true" placeholder="Recipient Name" class="text-4xl my-2 font-display font-bold tracking-wide text-blue-600">Recipient Name</p>
+                                   <p contenteditable="true" placeholder="Reason for award..." class="mt-4 max-w-lg text-gray-600">
                                        For demonstrating outstanding skill and dedication in completing the Advanced Web Development Bootcamp.
                                    </p>
                                </div>
-                               <div class="h-24 bg-gray-100 mt-auto flex justify-between items-center p-12 z-10">
-                                   <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Signature</p></div>
-                                   <div><p contenteditable="true" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Date</p></div>
+                               <div class="mt-auto flex justify-between items-center pt-8 z-10">
+                                   <div class="text-center"><p contenteditable="true" placeholder="Signature" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Signature</p></div>
+                                   <div class="text-center"><p contenteditable="true" placeholder="Date" class="text-sm border-t-2 border-gray-400 pt-1 px-8">Date</p></div>
                                </div>
                            </div>`
                 },
@@ -440,15 +432,13 @@
             function populateGallery() {
                 templateGrid.innerHTML = '';
                 templates.forEach(template => {
-                    const card = document.createElement('a');
-                    card.href = "#";
-                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-white hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
+                    const card = document.createElement('div');
+                    card.className = 'bg-gray-900 rounded-lg p-4 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border border-gray-800 hover:border-blue-500 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-1';
                     card.innerHTML = `
-                        <div class="text-gray-300 mb-3">${template.icon}</div>
+                        <div class="text-blue-400 mb-3">${template.icon}</div>
                         <h3 class="font-semibold text-white mb-1">${template.name}</h3>
                     `;
-                    card.addEventListener('click', (e) => {
-                        e.preventDefault();
+                    card.addEventListener('click', () => {
                         loadTemplate(template.id);
                         showView('editor');
                     });
@@ -460,7 +450,6 @@
                 const template = templates.find(t => t.id === templateId);
                 if (template) {
                     certificateContainer.innerHTML = template.html;
-                    setupInteract();
                     // Store the current template ID for reset functionality
                     certificateContainer.dataset.templateId = templateId;
                 }
@@ -487,40 +476,6 @@
                     reader.readAsDataURL(file);
                 }
             });
-
-            function setupInteract() {
-                interact('.resizable-logo')
-                    .resizable({
-                        edges: { left: true, right: true, bottom: true, top: true },
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.deltaRect.left;
-                                y = (parseFloat(y) || 0) + event.deltaRect.top;
-                                Object.assign(event.target.style, {
-                                    width: `${event.rect.width}px`,
-                                    height: `${event.rect.height}px`,
-                                    transform: `translate(${x}px, ${y}px)`
-                                });
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        modifiers: [ interact.modifiers.aspectRatio({ ratio: 'preserve' }) ],
-                        inertia: true
-                    })
-                    .draggable({
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.dx;
-                                y = (parseFloat(y) || 0) + event.dy;
-                                event.target.style.transform = `translate(${x}px, ${y}px)`;
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        inertia: true,
-                    });
-            }
 
             downloadBtn.addEventListener('click', async () => {
                 document.body.classList.add('downloading');
