@@ -55,9 +55,14 @@
         .editor:focus {
             outline: none;
         }
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px; /* Aligns border with the parent's bottom border */
+        }
         .tab-btn.active {
             background-color: #1f2937; /* gray-800 */
             color: #ffffff;
+            border-bottom-color: #ffffff;
         }
         .view-btn.active {
             background-color: #4b5563; /* gray-600 */
