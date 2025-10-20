@@ -22,28 +22,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
+    <!-- Favicon Set -->
     <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
     
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Certificate Maker | Solite",
-      "url": "https://solite.com/certificate-maker.html",
-      "description": "A free online tool from Solite to design, edit, and download professional certificates from a variety of templates.",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
-    }
-    </script>
-    
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -53,14 +39,6 @@
             },
         }
     </script>
-    <style>
-        /* Accessible focus state for keyboard users */
-        :is(button, a, select, input):focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px #3b82f680;
-            border-radius: 0.5rem;
-        }
-    </style>
 </head>
 <body class="flex flex-col min-h-screen font-sans">
     
@@ -107,20 +85,6 @@
             </div>
         </div>
     </footer>
-    
-    <!-- Copy Modal -->
-    <div id="copy-modal-overlay" class="hidden fixed inset-0 bg-gray-900/80 z-40"></div>
-    <div id="copy-modal" class="hidden fixed top-1/4 left-1/2 -translate-x-1/2 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-2xl z-50 p-6 text-center">
-        <div class="flex items-center justify-center space-x-3 mb-4 relative">
-            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Copied Successfully</h3>
-            <button id="close-copy-modal-btn" class="hidden absolute -top-2 -right-2 text-gray-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
-        <div id="ad-placeholder" class="bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-500 transition-all duration-300">
-            Ad Placeholder
-        </div>
     </script>
 </body>
 </html>
