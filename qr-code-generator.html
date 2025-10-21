@@ -71,10 +71,6 @@
             width: 16px; height: 16px; background: #3b82f6;
             cursor: pointer; border-radius: 50%;
         }
-        /* Adblocker bait */
-        .adsbox {
-            visibility: visible !important;
-        }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -245,6 +241,10 @@
         </div>
     </footer>
 
+    <!-- Adblocker Detection Scripts -->
+    <script>window.canRunAds = false;</script>
+    <script src="ads.js" defer></script>
+
     <!-- Adblocker Detection Modal -->
     <div id="adblock-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-8 text-center shadow-2xl shadow-black/50">
@@ -259,8 +259,6 @@
         </div>
     </div>
 
-    <div id="ads-bait" class="adsbox" style="position: absolute; bottom: 0; left: 0; width: 1px; height: 1px; z-index: -1;"></div>
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const qrText = document.getElementById('qr-text');
@@ -517,8 +515,7 @@
 
             // Adblocker detection
             setTimeout(() => {
-                const adBait = document.getElementById('ads-bait');
-                if (adBait && (adBait.offsetHeight === 0 || adBait.style.display === 'none' || adBait.style.visibility === 'hidden')) {
+                if (window.canRunAds === false) {
                     document.getElementById('adblock-modal').classList.remove('hidden');
                 }
             }, 2000);

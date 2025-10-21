@@ -91,10 +91,6 @@
         #resizer {
             cursor: col-resize;
         }
-        /* Adblocker bait */
-        .adsbox {
-            visibility: visible !important;
-        }
     </style>
 
 </head>
@@ -177,6 +173,10 @@
         </aside>
     </main>
 
+    <!-- Adblocker Detection Scripts -->
+    <script>window.canRunAds = false;</script>
+    <script src="ads.js" defer></script>
+
     <!-- Adblocker Detection Modal -->
     <div id="adblock-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-8 text-center shadow-2xl shadow-black/50">
@@ -191,8 +191,6 @@
         </div>
     </div>
 
-    <div id="ads-bait" class="adsbox" style="position: absolute; bottom: 0; left: 0; width: 1px; height: 1px; z-index: -1;"></div>
-            
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -388,8 +386,7 @@ ${userHtml}
 
             // Adblocker detection
             setTimeout(() => {
-                const adBait = document.getElementById('ads-bait');
-                if (adBait && (adBait.offsetHeight === 0 || adBait.style.display === 'none' || adBait.style.visibility === 'hidden')) {
+                if (window.canRunAds === false) {
                     document.getElementById('adblock-modal').classList.remove('hidden');
                 }
             }, 2000);
