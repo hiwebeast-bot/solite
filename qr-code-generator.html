@@ -160,6 +160,15 @@
                         <option value="H">High (~30%)</option>
                     </select>
                 </div>
+                <div class="space-y-2">
+                    <label for="dot-style" class="font-medium">Dot Style</label>
+                    <select id="dot-style" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <option value="square" selected>Square</option>
+                        <option value="dots">Dots</option>
+                        <option value="rounded">Rounded</option>
+                    </select>
+                </div>
+
                 <div class="space-y-2 border-t border-gray-800 pt-4">
                     <label for="logo-upload-input" class="font-medium">Logo (Optional)</label>
                     <button id="logo-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center space-x-2">
@@ -231,6 +240,7 @@
             const logoUploadBtn = document.getElementById('logo-upload-btn');
             const logoUploadInput = document.getElementById('logo-upload-input');
             const removeLogoBtn = document.getElementById('remove-logo-btn');
+            const dotStyleSelect = document.getElementById('dot-style');
 
             // Data type elements
             const dataTypeTabs = document.querySelectorAll('.data-type-tab');
@@ -288,20 +298,60 @@
                     },
                 };
 
-                // Generate to canvas
-                await QRCode.toCanvas(canvas, text, options);
+                // Manually draw to canvas for custom dot styles
+                const qrCodeData = QRCode.create(text, { errorCorrectionLevel: options.errorCorrectionLevel });
+                const moduleCount = qrCodeData.modules.size;
+                const moduleSize = size / moduleCount;
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+
+                ctx.fillStyle = options.color.light;
+                ctx.fillRect(0, 0, size, size);
+
+                ctx.fillStyle = options.color.dark;
+                const dotStyle = dotStyleSelect.value;
+
+                for (let row = 0; row < moduleCount; row++) {
+                    for (let col = 0; col < moduleCount; col++) {
+                        if (qrCodeData.modules.get(row, col)) {
+                            const x = col * moduleSize;
+                            const y = row * moduleSize;
+                            
+                            // Don't draw over the logo area
+                            if (logoImage) {
+                                const logoArea = size * 0.3; // 30% of total size
+                                const logoStart = (size - logoArea) / 2;
+                                const logoEnd = logoStart + logoArea;
+                                if (x + moduleSize > logoStart && x < logoEnd && y + moduleSize > logoStart && y < logoEnd) {
+                                    continue;
+                                }
+                            }
+
+                            ctx.beginPath();
+                            if (dotStyle === 'dots') {
+                                ctx.arc(x + moduleSize / 2, y + moduleSize / 2, moduleSize / 2, 0, 2 * Math.PI);
+                            } else if (dotStyle === 'rounded') {
+                                const radius = moduleSize * 0.3;
+                                ctx.moveTo(x + radius, y);
+                                ctx.arcTo(x + moduleSize, y, x + moduleSize, y + moduleSize, radius);
+                                ctx.arcTo(x + moduleSize, y + moduleSize, x, y + moduleSize, radius);
+                                ctx.arcTo(x, y + moduleSize, x, y, radius);
+                                ctx.arcTo(x, y, x + moduleSize, y, radius);
+                            } else { // square
+                                ctx.rect(x, y, moduleSize, moduleSize);
+                            }
+                            ctx.fill();
+                        }
+                    }
+                }
 
                 // Draw logo if it exists
                 if (logoImage) {
-                    const ctx = canvas.getContext('2d');
                     const logoSize = size * 0.2; // Logo is 20% of the QR code size
                     const logoX = (size - logoSize) / 2;
                     const logoY = (size - logoSize) / 2;
                     
-                    // Add a white background behind the logo for better scannability
-                    ctx.fillStyle = colorLight.value;
-                    ctx.fillRect(logoX - 5, logoY - 5, logoSize + 10, logoSize + 10);
-
                     ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
                 }
             };
@@ -327,6 +377,7 @@
                 }
                 generateQRCode();
             });
+            dotStyleSelect.addEventListener('change', generateQRCode);
             qrSize.addEventListener('input', (e) => {
                 const size = e.target.value;
                 qrSizeLabel.textContent = size;
@@ -364,7 +415,10 @@
                 tab.addEventListener('click', () => {
                     activeDataType = tab.dataset.type;
                     
-                    dataTypeTabs.forEach(t => t.classList.remove('border-white', 'text-white') && t.classList.add('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-300'));
+                    dataTypeTabs.forEach(t => {
+                        t.classList.remove('border-white', 'text-white');
+                        t.classList.add('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-300');
+                    });
                     tab.classList.add('border-white', 'text-white');
                     tab.classList.remove('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-300');
 
@@ -387,7 +441,7 @@
                     };
                     QRCode.toString(getQrData(), options, (err, svgString) => {
                         if (err) throw err;
-                        // Note: SVG export with this library does not support embedded logos.
+                        // Note: SVG export does not support custom dot styles or logos with this implementation.
                         const blob = new Blob([svgString], { type: 'image/svg+xml' });
                         link.href = URL.createObjectURL(blob);
                         link.click();
