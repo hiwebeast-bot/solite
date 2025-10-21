@@ -246,15 +246,22 @@
 
                     <div id="export-tab" class="tab-content hidden space-y-4">
                          <h4 class="font-semibold text-gray-200">Export Image</h4>
-                        <select id="format-select" class="w-full p-2 rounded-lg bg-gray-700 border-gray-600">
-                            <option value="image/png">PNG</option>
-                            <option value="image/jpeg">JPEG</option>
-                            <option value="image/webp">WebP</option>
-                            <option value="image/bmp">BMP</option>
-                            <option value="image/gif">GIF</option>
-                            <option value="image/tiff">TIFF</option>
-                            <option value="image/svg+xml">SVG</option>
-                        </select>
+                        <div class="relative">
+                            <button id="format-select-btn" class="bg-gray-700 border border-gray-600 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-between w-full">
+                                <span id="format-select-text">PNG</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="format-select-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/png">PNG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/jpeg">JPEG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/webp">WebP</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/bmp">BMP</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/gif">GIF</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/tiff">TIFF</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/svg+xml">SVG</a>
+                            </div>
+                        </div>
+
                         <div id="quality-control" class="hidden">
                             <div class="flex justify-between items-center">
                                 <label for="quality-slider" class="text-sm">Quality / Compression</label>
@@ -301,8 +308,6 @@
             const canvas = document.getElementById('canvas');
             const ctx = canvas.getContext('2d');
             const controlsPanel = document.getElementById('controls-panel');
-            const downloadBtn = document.getElementById('download-btn');
-            const formatSelect = document.getElementById('format-select');
             const qualityControl = document.getElementById('quality-control');
             const qualitySlider = document.getElementById('quality-slider');
             const fileSizePreview = document.getElementById('file-size-preview');
@@ -316,6 +321,7 @@
             const undoBtn = document.getElementById('undo-btn');
             const redoBtn = document.getElementById('redo-btn');
             const cropTickContainer = document.getElementById('crop-tick-container');
+            const downloadBtn = document.getElementById('download-btn');
             
             // Watermark DOM
             const textWatermarkBtn = document.getElementById('text-watermark-btn');
@@ -334,6 +340,7 @@
             let isCropping = false;
             let cropRect = {};
             let isDragging = false;
+            let exportFormat = 'image/png';
             let history = [];
             let historyIndex = -1;
             const tickSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
@@ -626,10 +633,9 @@
              // --- File Size Preview ---
             function updateFileSizePreview() {
                 if (!originalImage) return;
-                const format = formatSelect.value;
-                if (format === 'image/jpeg' || format === 'image/webp') {
+                if (exportFormat === 'image/jpeg' || exportFormat === 'image/webp') {
                     const quality = parseFloat(qualitySlider.value);
-                    const dataUrl = canvas.toDataURL(format, quality);
+                    const dataUrl = canvas.toDataURL(exportFormat, quality);
                     const sizeInBytes = atob(dataUrl.split(',')[1]).length;
                     const sizeInKB = sizeInBytes / 1024;
                     const sizeInMB = sizeInKB / 1024;
@@ -730,17 +736,33 @@
             });
             canvas.addEventListener('mouseleave', () => { isDragging = false; isDraggingWatermark = false; canvasContainer.classList.remove('dragging'); });
 
-            formatSelect.addEventListener('change', () => {
-                const showQuality = formatSelect.value === 'image/jpeg' || formatSelect.value === 'image/webp';
+            function setupFormatDropdown() {
+                const btn = document.getElementById('format-select-btn');
+                const dropdown = document.getElementById('format-select-dropdown');
+                const textEl = document.getElementById('format-select-text');
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        exportFormat = e.target.dataset.value;
+                        textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                        handleFormatChange();
+                    }
+                });
+            }
+
+            function handleFormatChange() {
+                const showQuality = exportFormat === 'image/jpeg' || exportFormat === 'image/webp';
                 qualityControl.classList.toggle('hidden', !showQuality);
                 if (showQuality) updateFileSizePreview();
-            });
+            }
             qualitySlider.addEventListener('input', updateFileSizePreview);
 
             downloadBtn.addEventListener('click', () => {
                 const link = document.createElement('a');
-                link.download = `edited-image.${formatSelect.value.split('/')[1].split('+')[0]}`;
-                link.href = canvas.toDataURL(formatSelect.value, parseFloat(qualitySlider.value));
+                link.download = `edited-image.${exportFormat.split('/')[1].split('+')[0]}`;
+                link.href = canvas.toDataURL(exportFormat, parseFloat(qualitySlider.value));
                 link.click();
             });
             
@@ -811,7 +833,12 @@
             }
 
             setupWatermarkControls();
+            setupFormatDropdown();
             showTab('adjust');
+
+            document.addEventListener('click', () => {
+                document.getElementById('format-select-dropdown').classList.add('hidden');
+            });
 
         })();
     </script>

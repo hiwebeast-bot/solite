@@ -153,20 +153,32 @@
                 </div>
                 <div class="space-y-2">
                     <label for="error-correction" class="font-medium">Error Correction</label>
-                    <select id="error-correction" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
-                        <option value="L">Low (~7%)</option>
-                        <option value="M" selected>Medium (~15%)</option>
-                        <option value="Q">Quartile (~25%)</option>
-                        <option value="H">High (~30%)</option>
-                    </select>
+                    <div class="relative">
+                        <button id="error-correction-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-between w-full">
+                            <span id="error-correction-text">Medium (~15%)</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="error-correction-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="L">Low (~7%)</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="M">Medium (~15%)</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="Q">Quartile (~25%)</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="H">High (~30%)</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="space-y-2">
                     <label for="dot-style" class="font-medium">Dot Style</label>
-                    <select id="dot-style" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
-                        <option value="square" selected>Square</option>
-                        <option value="dots">Dots</option>
-                        <option value="rounded">Rounded</option>
-                    </select>
+                    <div class="relative">
+                        <button id="dot-style-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-between w-full">
+                            <span id="dot-style-text">Square</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="dot-style-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="square">Square</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="dots">Dots</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="rounded">Rounded</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="space-y-2 border-t border-gray-800 pt-4">
@@ -180,11 +192,17 @@
                 </div>
                 <div class="space-y-2">
                     <label for="download-format" class="font-medium">Download Format</label>
-                    <select id="download-format" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
-                        <option value="png">PNG</option>
-                        <option value="jpeg">JPG</option>
-                        <option value="svg">SVG</option>
-                    </select>
+                    <div class="relative">
+                        <button id="download-format-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-between w-full">
+                            <span id="download-format-text">PNG</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="download-format-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="svg">SVG</a>
+                        </div>
+                    </div>
                 </div>
                 <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
@@ -231,16 +249,13 @@
             const qrSize = document.getElementById('qr-size');
             const qrSizeLabel = document.getElementById('qr-size-label');
             const qrSizeLabelH = document.getElementById('qr-size-label-h');
-            const errorCorrection = document.getElementById('error-correction');
             const downloadBtn = document.getElementById('download-btn');
-            const downloadFormat = document.getElementById('download-format');
             const qrcodeContainer = document.getElementById('qrcode-container');
             const canvas = document.getElementById('qrcode-canvas');
             const promptText = document.getElementById('prompt-text');
             const logoUploadBtn = document.getElementById('logo-upload-btn');
             const logoUploadInput = document.getElementById('logo-upload-input');
             const removeLogoBtn = document.getElementById('remove-logo-btn');
-            const dotStyleSelect = document.getElementById('dot-style');
 
             // Data type elements
             const dataTypeTabs = document.querySelectorAll('.data-type-tab');
@@ -249,6 +264,25 @@
             let logoImage = null;
             let originalErrorCorrectionLevel = 'M';
             let activeDataType = 'text';
+            let errorCorrection = 'M';
+            let dotStyle = 'square';
+            let downloadFormat = 'png';
+
+            function setupDropdown(btnId, dropdownId, textId, stateUpdater) {
+                const btn = document.getElementById(btnId);
+                const dropdown = document.getElementById(dropdownId);
+                const textEl = document.getElementById(textId);
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        stateUpdater(e.target.dataset.value);
+                        textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                        generateQRCode();
+                    }
+                });
+            }
 
             const getQrData = () => {
                 switch (activeDataType) {
@@ -290,7 +324,7 @@
                 const size = parseInt(qrSize.value);
                 const options = {
                     width: size,
-                    errorCorrectionLevel: errorCorrection.value,
+                    errorCorrectionLevel: errorCorrection,
                     margin: 2,
                     color: {
                         dark: colorDark.value,
@@ -310,7 +344,7 @@
                 ctx.fillRect(0, 0, size, size);
 
                 ctx.fillStyle = options.color.dark;
-                const dotStyle = dotStyleSelect.value;
+                const currentDotStyle = dotStyle;
 
                 for (let row = 0; row < moduleCount; row++) {
                     for (let col = 0; col < moduleCount; col++) {
@@ -329,9 +363,9 @@
                             }
 
                             ctx.beginPath();
-                            if (dotStyle === 'dots') {
+                            if (currentDotStyle === 'dots') {
                                 ctx.arc(x + moduleSize / 2, y + moduleSize / 2, moduleSize / 2, 0, 2 * Math.PI);
-                            } else if (dotStyle === 'rounded') {
+                            } else if (currentDotStyle === 'rounded') {
                                 const radius = moduleSize * 0.3;
                                 ctx.moveTo(x + radius, y);
                                 ctx.arcTo(x + moduleSize, y, x + moduleSize, y + moduleSize, radius);
@@ -371,13 +405,7 @@
 
             colorDark.addEventListener('input', debouncedGenerate);
             colorLight.addEventListener('input', debouncedGenerate);
-            errorCorrection.addEventListener('change', (e) => {
-                if (!logoImage) {
-                    originalErrorCorrectionLevel = e.target.value;
-                }
-                generateQRCode();
-            });
-            dotStyleSelect.addEventListener('change', generateQRCode);
+
             qrSize.addEventListener('input', (e) => {
                 const size = e.target.value;
                 qrSizeLabel.textContent = size;
@@ -392,8 +420,8 @@
                     reader.onload = (event) => {
                         logoImage = new Image();
                         logoImage.onload = () => {
-                            originalErrorCorrectionLevel = errorCorrection.value;
-                            errorCorrection.value = 'H'; // Force high error correction for logo
+                            originalErrorCorrectionLevel = errorCorrection;
+                            errorCorrection = 'H'; // Force high error correction for logo
                             removeLogoBtn.classList.remove('hidden');
                             generateQRCode();
                         };
@@ -406,7 +434,7 @@
             removeLogoBtn.addEventListener('click', () => {
                 logoImage = null;
                 logoUploadInput.value = '';
-                errorCorrection.value = originalErrorCorrectionLevel; // Restore original level
+                errorCorrection = originalErrorCorrectionLevel; // Restore original level
                 removeLogoBtn.classList.add('hidden');
                 generateQRCode();
             });
@@ -429,13 +457,13 @@
             });
 
             downloadBtn.addEventListener('click', () => {
-                const format = downloadFormat.value;
+                const format = downloadFormat;
                 const link = document.createElement('a');
                 link.download = `solite-qrcode.${format}`;
 
                 if (format === 'svg') {
                     const options = {
-                        errorCorrectionLevel: errorCorrection.value,
+                        errorCorrectionLevel: errorCorrection,
                         margin: 2,
                         color: { dark: colorDark.value, light: colorLight.value },
                     };
@@ -455,6 +483,17 @@
             // Initial state
             qrcodeContainer.classList.add('hidden');
             promptText.classList.remove('hidden');
+
+            setupDropdown('error-correction-btn', 'error-correction-dropdown', 'error-correction-text', (value) => {
+                errorCorrection = value;
+                if (!logoImage) originalErrorCorrectionLevel = value;
+            });
+            setupDropdown('dot-style-btn', 'dot-style-dropdown', 'dot-style-text', (value) => dotStyle = value);
+            setupDropdown('download-format-btn', 'download-format-dropdown', 'download-format-text', (value) => downloadFormat = value);
+
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.relative > div.absolute').forEach(el => el.classList.add('hidden'));
+            });
         });
     </script>
 </body>
