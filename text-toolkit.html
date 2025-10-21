@@ -82,9 +82,9 @@
         </div>
     </header>
     <main class="flex-grow flex" style="height: calc(100vh - 80px);">
-        <div class="flex-grow w-[80%] p-3 overflow-y-auto flex flex-col">
+        <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col">
         <!-- Command Bar -->
-        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-4">
+        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex-grow flex items-center space-x-3">
                 <label class="text-gray-900 dark:text-white font-semibold flex-shrink-0">Action:</label>
                 <div class="relative w-full sm:w-auto">
@@ -181,7 +181,7 @@
         </div>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800">
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
             <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
                 Ad Area
             </div>
@@ -197,7 +197,7 @@
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
                 <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>
@@ -336,13 +336,13 @@
                 }
 
                 function saveSession() {
-                    try { localStorage.setItem('textEngineSession', JSON.stringify({ inputText: inputText.value })); }
+                    try { localStorage.setItem('solite-text-toolkit', JSON.stringify({ inputText: inputText.value })); }
                     catch (e) { console.error("Could not save session:", e); }
                 }
 
                 function loadSession() {
                     try {
-                        const session = JSON.parse(localStorage.getItem('textEngineSession'));
+                        const session = JSON.parse(localStorage.getItem('solite-text-toolkit'));
                         if (session && session.inputText) { 
                             inputText.value = session.inputText;
                             pushToHistory(session.inputText, true);
