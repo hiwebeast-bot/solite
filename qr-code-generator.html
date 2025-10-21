@@ -47,8 +47,8 @@
     }
     </script>
 
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Modern QR Code Library (for SVG support) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -70,10 +70,6 @@
             -webkit-appearance: none; appearance: none;
             width: 16px; height: 16px; background: #3b82f6;
             cursor: pointer; border-radius: 50%;
-        }
-        #qrcode canvas {
-            width: 100% !important;
-            height: auto !important;
         }
     </style>
 </head>
@@ -106,10 +102,40 @@
             <!-- Controls Panel -->
             <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
                 <h3 class="text-xl font-bold text-white">QR Code Generator</h3>
-                <div class="space-y-2">
-                    <label for="qr-text" class="font-medium">Text or URL</label>
-                    <textarea id="qr-text" rows="4" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter any text or URL..."></textarea>
+                
+                <!-- Data Type Tabs -->
+                <div class="border-b border-gray-700">
+                    <nav class="-mb-px flex space-x-4" aria-label="Tabs">
+                        <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-white text-white" data-type="text">Text/URL</button>
+                        <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300" data-type="wifi">WiFi</button>
+                        <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300" data-type="vcard">Contact</button>
+                        <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300" data-type="email">Email</button>
+                    </nav>
                 </div>
+
+                <!-- Data Input Sections -->
+                <div id="data-inputs">
+                    <div id="text-input-section" class="data-input-section space-y-2">
+                        <label for="qr-text" class="font-medium">Text or URL</label>
+                        <textarea id="qr-text" rows="4" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter any text or URL..."></textarea>
+                    </div>
+                    <div id="wifi-input-section" class="data-input-section hidden space-y-4">
+                        <input type="text" id="wifi-ssid" placeholder="Network Name (SSID)" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <input type="password" id="wifi-password" placeholder="Password" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <select id="wifi-encryption" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select>
+                    </div>
+                    <div id="vcard-input-section" class="data-input-section hidden space-y-4">
+                        <input type="text" id="vcard-name" placeholder="Full Name" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <input type="tel" id="vcard-phone" placeholder="Phone" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <input type="email" id="vcard-email" placeholder="Email" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                    <div id="email-input-section" class="data-input-section hidden space-y-4">
+                        <input type="email" id="email-to" placeholder="To: recipient@example.com" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <input type="text" id="email-subject" placeholder="Subject" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                        <textarea id="email-body" rows="3" placeholder="Message..." class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"></textarea>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="color-dark" class="font-medium">Dot Color</label>
@@ -134,14 +160,24 @@
                         <option value="H">High (~30%)</option>
                     </select>
                 </div>
+                <div class="space-y-2 border-t border-gray-800 pt-4">
+                    <label for="logo-upload-input" class="font-medium">Logo (Optional)</label>
+                    <button id="logo-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        <span>Upload Logo</span>
+                    </button>
+                    <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+                    <button id="remove-logo-btn" class="hidden w-full text-sm text-red-400 hover:text-red-300 text-center py-1">Remove Logo</button>
+                </div>
                 <div class="space-y-2">
                     <label for="download-format" class="font-medium">Download Format</label>
                     <select id="download-format" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
                         <option value="png">PNG</option>
                         <option value="jpeg">JPG</option>
+                        <option value="svg">SVG</option>
                     </select>
                 </div>
-                <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
+                <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                     <span>Download QR Code</span>
                 </button>
@@ -150,7 +186,7 @@
             <!-- Main Workspace -->
             <div class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-8 relative">
                 <div id="qrcode-container" class="bg-white p-4 rounded-lg shadow-lg">
-                    <div id="qrcode"></div>
+                    <canvas id="qrcode-canvas"></canvas>
                 </div>
                 <p id="prompt-text" class="mt-4 text-gray-500">Enter text to generate a QR code.</p>
             </div>
@@ -190,68 +226,176 @@
             const downloadBtn = document.getElementById('download-btn');
             const downloadFormat = document.getElementById('download-format');
             const qrcodeContainer = document.getElementById('qrcode-container');
-            const qrcodeEl = document.getElementById('qrcode');
+            const canvas = document.getElementById('qrcode-canvas');
             const promptText = document.getElementById('prompt-text');
+            const logoUploadBtn = document.getElementById('logo-upload-btn');
+            const logoUploadInput = document.getElementById('logo-upload-input');
+            const removeLogoBtn = document.getElementById('remove-logo-btn');
 
-            let qrcode = null;
+            // Data type elements
+            const dataTypeTabs = document.querySelectorAll('.data-type-tab');
+            const dataInputSections = document.querySelectorAll('.data-input-section');
 
-            const generateQRCode = () => {
-                const text = qrText.value.trim();
+            let logoImage = null;
+            let originalErrorCorrectionLevel = 'M';
+            let activeDataType = 'text';
+
+            const getQrData = () => {
+                switch (activeDataType) {
+                    case 'wifi':
+                        const ssid = document.getElementById('wifi-ssid').value;
+                        const password = document.getElementById('wifi-password').value;
+                        const encryption = document.getElementById('wifi-encryption').value;
+                        return `WIFI:T:${encryption};S:${ssid};P:${password};;`;
+                    case 'vcard':
+                        const name = document.getElementById('vcard-name').value;
+                        const phone = document.getElementById('vcard-phone').value;
+                        const email = document.getElementById('vcard-email').value;
+                        return `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
+                    case 'email':
+                        const to = document.getElementById('email-to').value;
+                        const subject = document.getElementById('email-subject').value;
+                        const body = document.getElementById('email-body').value;
+                        return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    case 'text':
+                    default:
+                        return document.getElementById('qr-text').value.trim();
+                }
+            };
+
+            const generateQRCode = async () => {
+                const text = getQrData();
                 if (!text) {
-                    qrcodeEl.innerHTML = '';
+                    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
                     qrcodeContainer.classList.add('hidden');
                     promptText.classList.remove('hidden');
+                    downloadBtn.disabled = true;
                     return;
                 }
 
                 qrcodeContainer.classList.remove('hidden');
                 promptText.classList.add('hidden');
-                qrcodeEl.innerHTML = '';
+                downloadBtn.disabled = false;
 
                 const size = parseInt(qrSize.value);
-
-                qrcode = new QRCode(qrcodeEl, {
-                    text: text,
+                const options = {
                     width: size,
-                    height: size,
-                    colorDark: colorDark.value,
-                    colorLight: colorLight.value,
-                    correctLevel: QRCode.CorrectLevel[errorCorrection.value]
-                });
+                    errorCorrectionLevel: errorCorrection.value,
+                    margin: 2,
+                    color: {
+                        dark: colorDark.value,
+                        light: colorLight.value,
+                    },
+                };
+
+                // Generate to canvas
+                await QRCode.toCanvas(canvas, text, options);
+
+                // Draw logo if it exists
+                if (logoImage) {
+                    const ctx = canvas.getContext('2d');
+                    const logoSize = size * 0.2; // Logo is 20% of the QR code size
+                    const logoX = (size - logoSize) / 2;
+                    const logoY = (size - logoSize) / 2;
+                    
+                    // Add a white background behind the logo for better scannability
+                    ctx.fillStyle = colorLight.value;
+                    ctx.fillRect(logoX - 5, logoY - 5, logoSize + 10, logoSize + 10);
+
+                    ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
+                }
             };
 
-            const debounce = (func, delay = 300) => {
+            const debounce = (func, delay = 250) => {
                 let timeout;
                 return (...args) => {
                     clearTimeout(timeout);
                     timeout = setTimeout(() => func.apply(this, args), delay);
                 };
             };
-
             const debouncedGenerate = debounce(generateQRCode);
 
-            qrText.addEventListener('input', debouncedGenerate);
+            document.querySelectorAll('#data-inputs input, #data-inputs textarea, #data-inputs select').forEach(el => {
+                el.addEventListener('input', debouncedGenerate);
+            });
+
             colorDark.addEventListener('input', debouncedGenerate);
             colorLight.addEventListener('input', debouncedGenerate);
-            errorCorrection.addEventListener('change', generateQRCode);
+            errorCorrection.addEventListener('change', (e) => {
+                if (!logoImage) {
+                    originalErrorCorrectionLevel = e.target.value;
+                }
+                generateQRCode();
+            });
             qrSize.addEventListener('input', (e) => {
                 const size = e.target.value;
                 qrSizeLabel.textContent = size;
                 qrSizeLabelH.textContent = size;
                 debouncedGenerate();
             });
+            
+            logoUploadBtn.addEventListener('click', () => logoUploadInput.click());
+            logoUploadInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        logoImage = new Image();
+                        logoImage.onload = () => {
+                            originalErrorCorrectionLevel = errorCorrection.value;
+                            errorCorrection.value = 'H'; // Force high error correction for logo
+                            removeLogoBtn.classList.remove('hidden');
+                            generateQRCode();
+                        };
+                        logoImage.src = event.target.result;
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+
+            removeLogoBtn.addEventListener('click', () => {
+                logoImage = null;
+                logoUploadInput.value = '';
+                errorCorrection.value = originalErrorCorrectionLevel; // Restore original level
+                removeLogoBtn.classList.add('hidden');
+                generateQRCode();
+            });
+
+            dataTypeTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    activeDataType = tab.dataset.type;
+                    
+                    dataTypeTabs.forEach(t => t.classList.remove('border-white', 'text-white') && t.classList.add('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-300'));
+                    tab.classList.add('border-white', 'text-white');
+                    tab.classList.remove('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-300');
+
+                    dataInputSections.forEach(section => section.classList.add('hidden'));
+                    document.getElementById(`${activeDataType}-input-section`).classList.remove('hidden');
+                    generateQRCode();
+                });
+            });
 
             downloadBtn.addEventListener('click', () => {
-                const canvas = qrcodeEl.querySelector('canvas');
-                if (!canvas) {
-                    alert('Please generate a QR code first.');
-                    return;
-                }
                 const format = downloadFormat.value;
                 const link = document.createElement('a');
                 link.download = `solite-qrcode.${format}`;
-                link.href = canvas.toDataURL(`image/${format}`, 1.0);
-                link.click();
+
+                if (format === 'svg') {
+                    const options = {
+                        errorCorrectionLevel: errorCorrection.value,
+                        margin: 2,
+                        color: { dark: colorDark.value, light: colorLight.value },
+                    };
+                    QRCode.toString(getQrData(), options, (err, svgString) => {
+                        if (err) throw err;
+                        // Note: SVG export with this library does not support embedded logos.
+                        const blob = new Blob([svgString], { type: 'image/svg+xml' });
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    });
+                } else {
+                    link.href = canvas.toDataURL(`image/${format}`, 1.0);
+                    link.click();
+                }
             });
 
             // Initial state
