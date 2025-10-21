@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly. No sign-up required.">
+    <meta name="keywords" content="solite, code editor, front-end ide, html editor, css editor, javascript editor, live preview, codepen alternative, jsfiddle alternative, client-side ide">
+    <link rel="canonical" href="https://solite.com/code-editor.html" />
+    <meta property="og:title" content="Code Editor | Solite">
+    <meta property="og:description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Code+Editor">
+    <meta property="og:url" content="https://solite.com/code-editor.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Code Editor | Solite",
+      "url": "https://solite.com/code-editor.html",
+      "description": "A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 2L2 7l10 5 10-5L12 2z%22/><path d=%22M2 17l10 5 10-5%22/><path d=%22M2 7l10 5 10-5%22/></svg>">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <!-- JSZip for downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .editor {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            font-family: 'Menlo', 'Monaco', 'Consolas', 'monospace';
+            font-size: 14px;
+            line-height: 1.5;
+            border: none;
+            outline: none;
+            resize: none;
+        }
+        .editor:focus {
+            outline: none;
+        }
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px; /* Aligns border with the parent's bottom border */
+        }
+        .tab-btn.active {
+            background-color: #1f2937; /* gray-800 */
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .view-btn.active {
+            background-color: #4b5563; /* gray-600 */
+            color: #ffffff;
+        }
+        #resizer {
+            cursor: col-resize;
+        }
+    </style>
+
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="./index.html#apps" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex" style="height: calc(100vh - 80px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col md:flex-row gap-3">
+            <!-- Editor Pane -->
+            <div id="editor-pane" class="w-full flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden" style="width: 30%;">
+                <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-1">
+                        <div class="tabs flex">
+                        <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
+                        <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">CSS</button>
+                        <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">JS</button>
+                        </div>
+                        <div>
+                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-gray-900 font-medium py-1.5 px-3 rounded-lg flex items-center space-x-2 text-sm transition-transform hover:-translate-y-0.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                <span>Download ZIP</span>
+                            </button>
+                        </div>
+                </div>
+                <div class="flex-grow relative">
+                    <textarea id="html-editor" class="editor w-full h-full p-4" placeholder="HTML"></textarea>
+                    <textarea id="css-editor" class="editor w-full h-full p-4 hidden" placeholder="CSS"></textarea>
+                    <textarea id="js-editor" class="editor w-full h-full p-4 hidden" placeholder="JavaScript"></textarea>
+                </div>
+            </div>
+
+            <!-- Resizer -->
+            <div id="resizer" class="w-2 flex-shrink-0 bg-gray-800 hover:bg-gray-700 transition-colors rounded-full hidden md:flex items-center justify-center">
+                    <div class="flex flex-col space-y-1">
+                        <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                        <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                        <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <!-- Preview Pane -->
+            <div id="preview-pane" class="w-full flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden" style="width: 70%;">
+                <div class="flex-shrink-0 flex items-center justify-between p-2 bg-gray-800 border-b border-gray-700">
+                    <p class="px-2 text-sm font-semibold text-gray-300">Preview</p>
+                    <div class="flex items-center space-x-1 bg-gray-900 p-1 rounded-lg">
+                        <button data-view="desktop" title="Desktop" class="view-btn active p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></button>
+                        <button data-view="tablet" title="Tablet" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
+                        <button data-view="mobile" title="Mobile" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
+                    </div>
+                </div>
+                <div class="flex-grow w-full flex items-center justify-center p-1 bg-gray-900 overflow-auto">
+                    <iframe id="preview-iframe" class="h-full w-full bg-white rounded-md shadow-inner"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlEditor = document.getElementById('html-editor');
+            const cssEditor = document.getElementById('css-editor');
+            const jsEditor = document.getElementById('js-editor');
+            const previewIframe = document.getElementById('preview-iframe');
+            const downloadBtn = document.getElementById('download-btn');
+            const tabs = document.querySelectorAll('.tab-btn');
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const editors = {
+                html: htmlEditor,
+                css: cssEditor,
+                js: jsEditor
+            };
+
+            const resizer = document.getElementById('resizer');
+            const editorPane = document.getElementById('editor-pane');
+            const previewPane = document.getElementById('preview-pane');
+
+            // --- Core Logic ---
+            const updatePreview = () => {
+                const html = htmlEditor.value;
+                const css = cssEditor.value;
+                const js = jsEditor.value;
+
+                const source = `
+                    <html>
+                        <head>
+                            <style>${css}</style>
+                        </head>
+                        <body>
+                            ${html}
+                            <script>${js}<\/script>
+                        </body>
+                    </html>
+                `;
+
+                previewIframe.srcdoc = source;
+            };
+
+            const saveToLocalStorage = () => {
+                const content = {
+                    html: htmlEditor.value,
+                    css: cssEditor.value,
+                    js: jsEditor.value,
+                };
+                localStorage.setItem('solite-code-editor', JSON.stringify(content));
+            };
+
+            const loadFromLocalStorage = () => {
+                const savedContent = localStorage.getItem('solite-code-editor');
+                if (savedContent) {
+                    const content = JSON.parse(savedContent);
+                    htmlEditor.value = content.html || '';
+                    cssEditor.value = content.css || '';
+                    jsEditor.value = content.js || '';
+                } else {
+                    // Default content for new users
+                    htmlEditor.value = '<h1>Hello, Solite!</h1>\n<p>Start coding to see the magic.</p>';
+                    cssEditor.value = 'body {\n  font-family: sans-serif;\n  background-color: #f0f0f0;\n  color: #333;\n  display: grid;\n  place-content: center;\n  height: 100vh;\n  margin: 0;\n}\nh1 { color: #007bff; }';
+                }
+                updatePreview();
+            };
+
+            const debounce = (func, delay) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const debouncedUpdate = debounce(() => {
+                updatePreview();
+                saveToLocalStorage();
+            }, 500);
+
+            [htmlEditor, cssEditor, jsEditor].forEach(editor => {
+                editor.addEventListener('input', debouncedUpdate);
+            });
+
+            // --- UI Logic ---
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const lang = tab.dataset.lang;
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    Object.values(editors).forEach(editor => editor.classList.add('hidden'));
+                    editors[lang].classList.remove('hidden');
+                });
+            });
+
+            // --- Viewport Logic ---
+            const viewportSizes = {
+                desktop: '100%',
+                tablet: '768px',
+                mobile: '375px'
+            };
+
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.dataset.view;
+                    previewIframe.style.width = viewportSizes[view];
+                    previewIframe.style.transition = 'width 0.3s ease-in-out';
+
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // --- Resizer Logic ---
+            let isResizing = false;
+
+            resizer.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                document.body.style.cursor = 'col-resize';
+                document.body.style.userSelect = 'none';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+                const container = editorPane.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                const newEditorWidth = e.clientX - containerRect.left;
+                const newPreviewWidth = containerRect.right - e.clientX;
+                
+                editorPane.style.width = `${(newEditorWidth / containerRect.width) * 100}%`;
+                previewPane.style.width = `${(newPreviewWidth / containerRect.width) * 100}%`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isResizing = false;
+                document.body.style.cursor = 'default';
+                document.body.style.userSelect = 'auto';
+            });
+
+            // --- Download Logic ---
+            downloadBtn.addEventListener('click', () => {
+                const zip = new JSZip();
+                const userHtml = htmlEditor.value;
+                const userCss = cssEditor.value;
+                const userJs = jsEditor.value;
+
+                // Create a structured index.html that links to the other files
+                const projectHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solite Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+${userHtml}
+    <script src="script.js"><\/script>
+</body>
+</html>`;
+
+                zip.file("index.html", projectHtml);
+                zip.file("style.css", userCss);
+                zip.file("script.js", userJs);
+
+                zip.generateAsync({ type: "blob" }).then(content => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(content);
+                    link.download = "solite-project.zip";
+                    link.click();
+                    URL.revokeObjectURL(link.href);
+                });
+            });
+
+            // --- Initial Load ---
+            loadFromLocalStorage();
+
+        });
+    </script>
+</body>
+</html>
