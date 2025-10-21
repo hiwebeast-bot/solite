@@ -17,6 +17,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Typography Plugin -->
+    <script src="https://cdn.tailwindcss.com/nesting.js"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,21 +40,6 @@
             },
         }
     </script>
-    <style>
-        .prose-custom {
-            color: #d1d5db; /* gray-300 */   
-        }
-        .prose-custom h1, .prose-custom h2, .prose-custom h3 {
-            color: #ffffff;
-        }
-        .prose-custom a {
-            color: #60a5fa; /* blue-400 */
-            text-decoration: none;
-        }
-        .prose-custom a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
 
@@ -77,7 +64,7 @@
     </header>
 
     <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full pt-16 sm:pt-24 z-10">
-        <article class="prose-custom prose-lg max-w-4xl mx-auto">
+        <article class="prose prose-invert prose-lg max-w-4xl mx-auto prose-a:text-blue-400 hover:prose-a:underline">
             <h1>Privacy Policy</h1>
             <p class="lead">Last Updated: October 19, 2025</p>
 

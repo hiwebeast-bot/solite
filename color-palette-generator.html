@@ -60,31 +60,6 @@
             },
         }
     </script>
-    <style>
-        :is(button, a, select, input):focus-visible {
-            outline: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-        }
-        .color-column .actions {
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
-        }
-        .color-column:hover .actions {
-            opacity: 1;
-        }
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem); /* Corresponds to top-8 */
-        }
-        .shade-box {
-            transition: transform 0.2s ease-in-out;
-        }
-        .shade-box:hover {
-            transform: scale(1.1);
-        }
-    </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -115,7 +90,7 @@
                 <!-- Color columns will be injected here -->
             </div>
             <!-- Floating Control Bar -->
-            <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20">
+            <div id="control-bar" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20">
                 <div class="flex items-center justify-center gap-2 bg-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-2 shadow-2xl">
                     <div class="relative group">
                         <button id="palette-type-btn" title="Change Palette Type" class="text-gray-300 hover:text-white hover:bg-gray-700/50 font-medium py-3 px-4 rounded-xl text-sm flex items-center gap-2">
@@ -163,7 +138,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 transition-transform -translate-y-full">Copied!</div>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -273,10 +248,10 @@
                     column.dataset.index = i;
                     column.dataset.color = color;
                     column.dataset.locked = lockedColors[i] !== null;
-
+                    
                     column.innerHTML = `
                         <h2 class="text-2xl font-bold ${textColorClass} cursor-pointer" title="Click to copy">${color.toUpperCase()}</h2>
-                        <div class="actions absolute bottom-8 flex gap-2">
+                        <div class="actions absolute bottom-8 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button class="picker-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Adjust Color">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M11 7l6 6" /><path d="M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4z" />
@@ -305,8 +280,8 @@
 
                 function showToast() {
                     const toast = document.getElementById('toast');
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 1500);
+                    toast.classList.remove('-translate-y-full');
+                    setTimeout(() => toast.classList.add('-translate-y-full'), 1500);
                 }
 
                 document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -353,7 +328,7 @@
                         shades.forEach(shade => {
                             const shadeBox = document.createElement('div');
                             const textColorClass = getTextColor(shade);
-                            shadeBox.className = `shade-box flex items-center justify-center cursor-pointer ${textColorClass}`;
+                            shadeBox.className = `flex items-center justify-center cursor-pointer ${textColorClass} transition-transform hover:scale-110`;
                             shadeBox.style.backgroundColor = shade;
                             shadeBox.innerHTML = `<span class="font-mono text-sm opacity-0 hover:opacity-100 transition-opacity">${shade}</span>`;
                             shadeBox.addEventListener('click', () => navigator.clipboard.writeText(shade).then(showToast));
@@ -361,8 +336,8 @@
                         });
 
                         generateBtn.textContent = 'Back to Palette';
-                        generateBtn.onclick = () => {
-                            paletteContainer.className = 'flex-grow flex';
+                        generateBtn.onclick = (e) => {
+                            e.stopPropagation(); // Prevent document click listener from hiding dropdown
                             generateBtn.textContent = 'Generate Palette';
                             generateBtn.onclick = generatePalette;
                             generatePalette();
@@ -428,8 +403,9 @@
                 const colors = Array.from(document.querySelectorAll('.color-column')).map(c => c.dataset.color);
                 const css = `:root {\n${colors.map((c, i) => `  --color-${i+1}: ${c};`).join('\n')}\n}`;
                 navigator.clipboard.writeText(css).then(() => {
-                    document.getElementById('toast').classList.add('show');
-                    setTimeout(() => document.getElementById('toast').classList.remove('show'), 1500);
+                    const toast = document.getElementById('toast');
+                    toast.classList.remove('-translate-y-full');
+                    setTimeout(() => toast.classList.add('-translate-y-full'), 1500);
                 });
             });
 

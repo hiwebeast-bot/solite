@@ -109,9 +109,9 @@
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
             </a>
             <div class="flex items-center space-x-4">
-                <a href="./index.html#apps" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                <a href="./index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                 </a>
             </div>
         </div>
@@ -123,14 +123,14 @@
             <!-- Editor Pane -->
             <div id="editor-pane" class="w-full md:w-[30%] flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
                 <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-1">
-                        <div class="tabs flex">
-                        <button data-lang="html" class="tab-btn active text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
-                        <button data-lang="css" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">CSS</button>
-                        <button data-lang="js" class="tab-btn text-sm font-semibold py-2 px-4 text-gray-300 hover:text-white transition-colors">JS</button>
+                        <div class="tabs flex font-sans">
+                        <button data-lang="html" class="tab-btn active text-sm font-medium py-2 px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
+                        <button data-lang="css" class="tab-btn text-sm font-medium py-2 px-4 text-gray-300 hover:text-white transition-colors">CSS</button>
+                        <button data-lang="js" class="tab-btn text-sm font-medium py-2 px-4 text-gray-300 hover:text-white transition-colors">JS</button>
                         </div>
                         <div>
-                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-gray-900 font-medium py-1.5 px-3 rounded-lg flex items-center space-x-2 text-sm transition-transform hover:-translate-y-0.5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-medium py-1.5 px-3 rounded-lg flex items-center gap-2 text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
                                 <span>Download ZIP</span>
                             </button>
                         </div>
@@ -156,13 +156,13 @@
                 <div class="flex-shrink-0 flex items-center justify-between p-2 bg-gray-800 border-b border-gray-700">
                     <p class="px-2 text-sm font-semibold text-gray-300">Preview</p>
                     <div class="flex items-center space-x-1 bg-gray-900 p-1 rounded-lg">
-                        <button data-view="desktop" title="Desktop" class="view-btn active p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></button>
-                        <button data-view="tablet" title="Tablet" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
-                        <button data-view="mobile" title="Mobile" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></button>
+                        <button data-view="desktop" title="Desktop" class="view-btn active p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.87a3 3 0 01-.879-2.122v-1.007M5.25 6.00A3.75 3.75 0 019 2.25h6A3.75 3.75 0 0118.75 6v8.25A3.75 3.75 0 0115 18.25H9a3.75 3.75 0 01-3.75-3.75V6.00z"></path></svg></button>
+                        <button data-view="tablet" title="Tablet" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path></svg></button>
+                        <button data-view="mobile" title="Mobile" class="view-btn p-1.5 text-gray-300 hover:text-white rounded-md"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path></svg></button>
                     </div>
                 </div>
                 <div class="flex-grow w-full flex items-center justify-center p-1 bg-gray-900 overflow-auto">
-                    <iframe id="preview-iframe" class="h-full w-full bg-white rounded-md shadow-inner"></iframe>
+                    <iframe id="preview-iframe" title="Code Preview" class="h-full w-full bg-white rounded-md shadow-inner"></iframe>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
         </aside>
     </main>
 
-    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-700/50">
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -187,7 +187,7 @@
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
                 <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>

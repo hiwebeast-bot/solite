@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Toolkit | Solite</title>
+    <title>Text Tools | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more. 100% private.">
     <meta name="keywords" content="solite, text tools, find and replace, regex checker, text cleaner, readability score, text analysis, privacy first">
     <link rel="canonical" href="https://solite.com/text-toolkit.html" />
-    <meta property="og:title" content="Text Toolkit | Solite">
+    <meta property="og:title" content="Text Tools | Solite">
     <meta property="og:description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Text+Toolkit">
@@ -22,7 +22,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Text Toolkit",
+      "name": "Text Tools",
       "url": "https://solite.com/text-toolkit.html",
       "description": "An all-in-one text toolkit to clean formatting, find & replace with Regex, analyze readability, change case, and more.",
       "applicationCategory": "UtilitiesApplication",
@@ -60,20 +60,6 @@
             },
         }
     </script>
-    <style>
-        /* Minimal custom styles for scrollbars and focus states */
-        textarea { color-scheme: dark; } /* For dark scrollbars in dark mode */
-        textarea::-webkit-scrollbar { width: 8px; }
-        textarea::-webkit-scrollbar-track { background: #1f2937; }
-        textarea::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-        textarea::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-        /* Accessible focus state for keyboard users */
-        :is(button, a, select, input):focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-            border-radius: 0.5rem;
-        }
-    </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -99,15 +85,15 @@
     <main class="flex-grow flex" style="height: calc(100vh - 80px);">
         <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col">
         <!-- Command Bar -->
-        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4" role="toolbar">
             <div class="flex-grow flex items-center space-x-3">
-                <label class="text-gray-900 dark:text-white font-semibold flex-shrink-0">Action:</label>
-                <div class="relative w-full sm:w-auto">
+                <label for="transform-profile-btn" class="text-gray-900 dark:text-white font-semibold flex-shrink-0 font-sans">Action:</label>
+                <div class="relative w-full sm:w-auto h-full">
                     <button id="transform-profile-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2 w-full justify-between">
                         <span id="transform-profile-text">Strip All Formatting</span>
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div id="transform-profile-dropdown" class="hidden absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                    <div id="transform-profile-dropdown" role="menu" class="hidden absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
                         <h3 class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Cleaner</h3>
                         <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="stripAll">Strip All Formatting</a>
                         <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-profile="removeExtraSpaces">Remove Extra Spaces</a>
@@ -131,9 +117,9 @@
                 </div>
             </div>
              <div class="flex items-center space-x-2">
-                 <button id="undo-btn" title="Undo (Ctrl+Z)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
-                 <button id="redo-btn" title="Redo (Ctrl+Y)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
-                 <button id="clear-btn" title="Clear Text" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+                 <button id="undo-btn" aria-label="Undo" title="Undo (Ctrl+Z)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                 <button id="redo-btn" aria-label="Redo" title="Redo (Ctrl+Y)" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+                 <button id="clear-btn" aria-label="Clear Text" title="Clear Text" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
                  <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-medium py-2 px-4 rounded-lg flex items-center space-x-2">
                     <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                     <span id="copy-text">Copy</span>
@@ -142,9 +128,9 @@
         </div>
         
         <!-- Find & Replace -->
-        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center gap-4">
-            <input type="text" id="find-input" placeholder="Find..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/50">
-            <input type="text" id="replace-input" placeholder="Replace with..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/50">
+        <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center gap-4" role="search">
+            <input type="text" id="find-input" aria-label="Find text" placeholder="Find..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/50">
+            <input type="text" id="replace-input" aria-label="Replace with text" placeholder="Replace with..." class="flex-grow p-2 rounded-lg bg-gray-700 border-gray-600 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/50">
             <div class="flex items-center space-x-4">
                 <label id="case-sensitive-label" class="flex items-center space-x-2 cursor-pointer p-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
                     <input type="checkbox" id="case-sensitive" class="hidden">
@@ -162,7 +148,7 @@
                      </div>
                     <span>Regex</span>
                 </label>
-                <button id="replace-all-btn" class="bg-gray-600 hover:bg-gray-500 text-white font-medium py-2 px-4 rounded-lg">Replace All</button>
+                <button id="replace-all-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg">Replace All</button>
             </div>
         </div>
         
@@ -170,11 +156,11 @@
         <div class="w-full flex-grow flex flex-col gap-4">
             <div class="flex-grow flex flex-col lg:flex-row gap-4">
                 <!-- Main Workspace -->
-                <div class="flex-1 flex-grow flex flex-col">
+                <div class="flex-1 flex-grow flex flex-col h-[60vh] lg:h-auto" role="main">
                     <div class="flex-grow flex relative h-[60vh] bg-gray-200 dark:bg-gray-700 rounded-lg">
-                        <textarea id="input-text" class="w-1/2 h-full p-4 rounded-l-lg bg-gray-800 border-gray-700 text-gray-300 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/50" placeholder="Paste your text here..."></textarea>
-                        <button id="swap-btn" title="Swap Input/Output" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-600 hover:bg-gray-500 rounded-full p-2 z-10 transition-transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 12l-4-4m4 4l4-4m6 8v12M17 8l-4 4m4-4l4 4" /></svg></button>
-                        <textarea id="output-text" readonly class="w-1/2 h-full p-4 rounded-r-lg bg-gray-900 border-l border-gray-700 text-gray-300" placeholder="Result appears here..."></textarea>
+                        <textarea id="input-text" aria-label="Input Text" class="w-1/2 h-full p-4 rounded-l-lg bg-gray-800 border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="Paste your text here..."></textarea>
+                        <button id="swap-btn" aria-label="Swap Input and Output" title="Swap Input/Output" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-600 hover:bg-gray-500 rounded-full p-2 z-10 transition-transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 12l-4-4m4 4l4-4m6 8v12M17 8l-4 4m4-4l4 4" /></svg></button>
+                        <textarea id="output-text" aria-label="Output Text" readonly class="w-1/2 h-full p-4 rounded-r-lg bg-gray-900 border-l border-gray-700 text-gray-300 focus:outline-none" placeholder="Result appears here..."></textarea>
                     </div>
                 </div>
 

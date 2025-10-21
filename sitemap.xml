@@ -46,6 +46,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://solite.com/exif-stripper.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://solite.com/privacy.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.50</priority>
