@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free online tool to compress JPG, PNG, and WebP images without losing quality. Reduce image file sizes instantly in your browser. 100% private and secure.">
+    <meta name="keywords" content="image compressor, compress image, image optimizer, reduce image size, jpg compressor, png compressor, webp compressor, solite">
+    <link rel="canonical" href="https://solite.com/image-compressor.html" />
+    <meta property="og:title" content="Image Compressor | Solite">
+    <meta property="og:description" content="A free online tool to compress JPG, PNG, and WebP images without losing quality. Reduce image file sizes instantly in your browser.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Image+Compressor">
+    <meta property="og:url" content="https://solite.com/image-compressor.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <!-- JSZip for downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Compressor",
+      "url": "https://solite.com/image-compressor.html",
+      "description": "A free, client-side tool to compress JPG, PNG, and WebP images with adjustable quality settings.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        :is(button, a, select, input):focus-visible {
+            outline: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+        }
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 16px; height: 16px; background: #3b82f6;
+            cursor: pointer; border-radius: 50%;
+        }
+        .break-all {
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            <!-- Image Display Area -->
+            <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-y-auto">
+                <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <h3 class="mt-2 text-lg font-medium text-white">Drop images here or click to upload</h3>
+                    <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+                </div>
+                <canvas id="image-canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
+                <div id="image-list" class="w-full p-4 space-y-3 hidden"></div>
+                <input type="file" id="image-upload" class="hidden" accept="image/*" multiple>
+            </div>
+
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 self-start sticky top-3">
+                <h3 class="text-xl font-bold text-white">Image Compressor</h3>
+                <div id="compression-controls" class="space-y-6 hidden">
+                    <div class="space-y-2">
+                        <label for="quality-slider" class="font-medium">Quality</label>
+                        <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.8" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg custom-range">
+                        <div class="text-center text-sm text-gray-400"><span id="quality-label">80</span>%</div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="format-select" class="font-medium">Output Format</label>
+                        <div class="relative">
+                            <button id="format-select-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-between w-full">
+                                <span id="format-select-text">JPEG</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="format-select-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/jpeg">JPEG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/webp">WebP</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/png">PNG</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center bg-gray-800 p-4 rounded-lg space-y-2">
+                        <div class="text-sm text-gray-400">Original Size: <span id="original-size" class="font-medium text-white">N/A</span></div>
+                        <div class="text-lg text-gray-200">Compressed Size: <span id="compressed-size" class="font-bold text-green-400">N/A</span></div>
+                        <div class="text-sm text-green-400">Reduction: <span id="reduction-percent">0</span>%</div>
+                    </div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                        <span id="download-btn-text">Download</span>
+                    </button>
+                    <button id="remove-all-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg">Clear All</button>
+                </div>
+                <p id="controls-prompt" class="text-gray-500 text-center">Upload an image to see compression options.</p>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageContainer = document.getElementById('image-container');
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const imageUpload = document.getElementById('image-upload');
+            const canvas = document.getElementById('image-canvas');
+            const imageList = document.getElementById('image-list');
+            const compressionControls = document.getElementById('compression-controls');
+            const controlsPrompt = document.getElementById('controls-prompt');
+            const qualitySlider = document.getElementById('quality-slider');
+            const qualityLabel = document.getElementById('quality-label');
+            const originalSizeEl = document.getElementById('original-size');
+            const compressedSizeEl = document.getElementById('compressed-size');
+            const reductionPercentEl = document.getElementById('reduction-percent');
+            const downloadBtn = document.getElementById('download-btn');
+            const downloadBtnText = document.getElementById('download-btn-text');
+            const removeAllBtn = document.getElementById('remove-all-btn');
+
+            let imageQueue = [];
+            let exportFormat = 'image/jpeg';
+            const MAX_IMAGES = 20;
+
+            function formatBytes(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+
+            function handleFiles(files) {
+                let newFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
+                if (newFiles.length === 0) return;
+
+                const availableSlots = MAX_IMAGES - imageQueue.length;
+                if (newFiles.length > availableSlots) {
+                    alert(`You can only process up to 20 images at a time. The first ${availableSlots} images will be added.`);
+                    newFiles = newFiles.slice(0, availableSlots);
+                }
+
+                uploadPrompt.classList.add('hidden');
+                compressionControls.classList.remove('hidden');
+                controlsPrompt.classList.add('hidden');
+                downloadBtn.disabled = false;
+
+                // If starting fresh with multiple files, or adding to existing queue, use batch mode
+                if (imageQueue.length > 0 || newFiles.length > 1) {
+                    switchToBatchMode();
+                }
+
+                for (const file of newFiles) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            const imageItem = {
+                                id: Date.now() + Math.random(),
+                                file: file,
+                                image: img,
+                                originalSize: file.size,
+                                compressedDataUrl: '',
+                                compressedSize: 0,
+                            };
+                            imageQueue.push(imageItem);
+                            if (imageQueue.length > 1) {
+                                switchToBatchMode();
+                                renderImageItem(imageItem);
+                            }
+                            compressAndRender(imageItem);
+                            updateUI();
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function switchToBatchMode() {
+                if (imageList.classList.contains('hidden')) {
+                    canvas.classList.add('hidden');
+                    imageContainer.classList.remove('justify-center'); // Allow list to start from top
+                    imageList.classList.remove('hidden');
+                    // Move single image to list if it exists
+                    if (imageQueue.length === 1) {
+                        renderImageItem(imageQueue[0]);
+                    }
+                }
+            }
+
+            function renderImageItem(item) {
+                const itemEl = document.createElement('div');
+                itemEl.id = `item-${item.id}`;
+                itemEl.className = 'flex items-center gap-4 p-2 bg-gray-800 rounded-lg';
+                itemEl.innerHTML = `
+                    <canvas class="w-16 h-16 bg-gray-700 rounded-md flex-shrink-0"></canvas>
+                    <div class="flex-1 text-sm">
+                        <p class="font-medium text-white break-all">${item.file.name}</p>
+                        <p class="text-gray-400">Original: <span class="original-size">${formatBytes(item.originalSize)}</span></p>
+                        <p class="text-green-400">Compressed: <span class="compressed-size">...</span> (<span class="reduction">...</span>%)</p>
+                    </div>
+                    <button class="remove-item-btn text-gray-500 hover:text-white p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                `;
+                imageList.appendChild(itemEl);
+
+                const thumbCanvas = itemEl.querySelector('canvas');
+                const ctx = thumbCanvas.getContext('2d');
+                thumbCanvas.width = 64; thumbCanvas.height = 64;
+                ctx.drawImage(item.image, 0, 0, 64, 64);
+
+                itemEl.querySelector('.remove-item-btn').addEventListener('click', () => {
+                    imageQueue = imageQueue.filter(i => i.id !== item.id);
+                    itemEl.remove();
+                    updateUI();
+                    if (imageQueue.length === 0) removeAllImages();
+                });
+            }
+
+            function compressAndRender(item) {
+                const quality = parseFloat(qualitySlider.value);
+
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = item.image.width;
+                tempCanvas.height = item.image.height;
+                tempCanvas.getContext('2d').drawImage(item.image, 0, 0);
+
+                item.compressedDataUrl = tempCanvas.toDataURL(exportFormat, quality);
+                item.compressedSize = atob(item.compressedDataUrl.split(',')[1]).length;
+                
+                const itemEl = document.getElementById(`item-${item.id}`);
+                if (itemEl) {
+                    const sizeEl = itemEl.querySelector('.compressed-size');
+                    const reductionEl = itemEl.querySelector('.reduction');
+                    if(sizeEl) sizeEl.textContent = formatBytes(item.compressedSize);
+                    const reduction = 100 - (item.compressedSize / item.originalSize * 100);
+                    if(reductionEl) reductionEl.textContent = reduction.toFixed(1);
+                }
+                updateUI();
+            }
+
+            function updateUI() {
+                if (imageQueue.length === 1) {
+                    // Single image mode
+                    canvas.classList.remove('hidden');
+                    imageList.classList.add('hidden');
+                    const ctx = canvas.getContext('2d');
+                    const img = imageQueue[0].image;
+                    const ratio = Math.min((imageContainer.clientWidth - 20) / img.width, (imageContainer.clientHeight - 20) / img.height);
+                    canvas.width = img.width * ratio;
+                    canvas.height = img.height * ratio;
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                }
+                updateTotals();
+            }
+
+            function compressAll() {
+                imageQueue.forEach(compressAndRender);
+            }
+
+            function updateTotals() {
+                const totalOriginal = imageQueue.reduce((sum, item) => sum + item.originalSize, 0);
+                const totalCompressed = imageQueue.reduce((sum, item) => sum + item.compressedSize, 0);
+                originalSizeEl.textContent = formatBytes(totalOriginal);
+                compressedSizeEl.textContent = formatBytes(totalCompressed);
+                const avgReduction = totalOriginal > 0 ? 100 - (totalCompressed / totalOriginal * 100) : 0;
+                reductionPercentEl.textContent = avgReduction.toFixed(1);
+
+                if (imageQueue.length > 1) {
+                    downloadBtnText.textContent = 'Download All (.zip)';
+                } else {
+                    downloadBtnText.textContent = 'Download Image';
+                }
+            }
+
+            function removeAllImages() {
+                imageQueue = [];
+                imageList.innerHTML = '';
+                uploadPrompt.classList.remove('hidden');
+                compressionControls.classList.add('hidden');
+                controlsPrompt.classList.remove('hidden');
+                imageContainer.classList.add('justify-center');
+                imageUpload.value = '';
+                canvas.classList.add('hidden');
+                downloadBtn.disabled = true;
+            }
+
+            function setupDropdown(btnId, dropdownId, textId, stateUpdater) {
+                const btn = document.getElementById(btnId);
+                const dropdown = document.getElementById(dropdownId);
+                const textEl = document.getElementById(textId);
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        stateUpdater(e.target.dataset.value);
+                        textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                        compressAll();
+                    }
+                });
+            }
+
+            imageContainer.addEventListener('click', () => { if(imageQueue.length === 0) imageUpload.click(); });
+            imageUpload.addEventListener('change', (e) => handleFiles(e.target.files));
+            imageContainer.addEventListener('dragover', (e) => { e.preventDefault(); imageContainer.classList.add('border-blue-500'); });
+            imageContainer.addEventListener('dragleave', () => imageContainer.classList.remove('border-blue-500'));
+            imageContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                imageContainer.classList.remove('border-blue-500');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            qualitySlider.addEventListener('input', (e) => {
+                qualityLabel.textContent = Math.round(e.target.value * 100);
+                compressAll();
+            });
+            removeAllBtn.addEventListener('click', removeAllImages);
+
+            downloadBtn.addEventListener('click', () => {
+                if (imageQueue.length === 1) {
+                    // Single file download
+                    const link = document.createElement('a');
+                    const format = exportFormat.split('/')[1];
+                    const originalName = imageQueue[0].file.name.substring(0, imageQueue[0].file.name.lastIndexOf('.'));
+                    link.download = `${originalName}-compressed.${format}`;
+                    link.href = imageQueue[0].compressedDataUrl;
+                    link.click();
+                } else {
+                    // Batch zip download
+                    const zip = new JSZip();
+                    const format = exportFormat.split('/')[1];
+                    imageQueue.forEach(item => {
+                        const base64Data = item.compressedDataUrl.split(',')[1];
+                        const originalName = item.file.name.substring(0, item.file.name.lastIndexOf('.'));
+                        zip.file(`${originalName}-compressed.${format}`, base64Data, { base64: true });
+                    });
+                    zip.generateAsync({ type: "blob" }).then(content => {
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(content);
+                        link.download = "solite-compressed-images.zip";
+                        link.click();
+                        URL.revokeObjectURL(link.href);
+                    });
+                }
+            });
+
+            setupDropdown('format-select-btn', 'format-select-dropdown', 'format-select-text', (value) => {
+                exportFormat = value;
+            });
+
+            document.addEventListener('click', () => document.getElementById('format-select-dropdown').classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
