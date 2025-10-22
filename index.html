@@ -55,7 +55,21 @@
       "@type": "WebSite",
       "name": "Solite",
       "url": "https://solite.com/",
-      "description": "A powerful suite of free, private, browser-based tools for modern creators and developers, including a text engine, image editor, and more."
+      "description": "A powerful suite of free, private, browser-based tools for modern creators and developers, including a text engine, image editor, and more.",
+      "hasPart": [
+        { "@type": "WebApplication", "name": "Text Tools", "url": "https://solite.com/text-toolkit.html" },
+        { "@type": "WebApplication", "name": "Code Editor", "url": "https://solite.com/code-editor.html" },
+        { "@type": "WebApplication", "name": "Certificate Maker", "url": "https://solite.com/certificate-maker.html" },
+        { "@type": "WebApplication", "name": "Image Editor", "url": "https://solite.com/image-editor.html" },
+        { "@type": "WebApplication", "name": "QR Code Generator", "url": "https://solite.com/qr-code-generator.html" },
+        { "@type": "WebApplication", "name": "Color Palette Generator", "url": "https://solite.com/color-palette-generator.html" },
+        { "@type": "WebApplication", "name": "Image Color Picker", "url": "https://solite.com/image-color-picker.html" },
+        { "@type": "WebApplication", "name": "Image Compressor", "url": "https://solite.com/image-compressor.html" },
+        { "@type": "WebApplication", "name": "EXIF Remover & Editor", "url": "https://solite.com/exif-stripper.html" },
+        { "@type": "WebApplication", "name": "Email Signature Generator", "url": "https://solite.com/email-signature-generator.html" },
+        { "@type": "WebApplication", "name": "Email Extractor", "url": "https://solite.com/email-extractor.html" },
+        { "@type": "WebApplication", "name": "File Viewer", "url": "https://solite.com/file-viewer.html" }
+      ]
     }
     </script>
 </head>
@@ -63,14 +77,14 @@
     
     <!-- Header -->
     <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
                  <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2L2 7l10 5 10-5L12 2z"/>
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -81,7 +95,7 @@
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col items-center container mx-auto px-4 w-full pt-16 sm:pt-24 z-10">
+    <main class="flex-grow flex flex-col items-center px-4 w-full pt-16 sm:pt-24 z-10">
         
         <section class="text-center mb-32 relative">
             <div id="hero-canvas" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-[0.05]"></div>
@@ -156,7 +170,7 @@
     </main>
 
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2L2 7l10 5 10-5L12 2z"/>
@@ -187,7 +201,11 @@
               {"name": "Color Palette Generator", "description": "Generate beautiful color schemes for your design projects instantly.", "url": "./color-palette-generator.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M7 21a4 4 0 01-4-4V5a4 4 0 014-4h10a4 4 0 014 4v12a4 4 0 01-4 4H7zM12 9a3 3 0 100-6 3 3 0 000 6z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
               {"name": "Image Color Picker", "description": "Use an eyedropper to pick colors and automatically generate a palette from any image.", "url": "./image-color-picker.html", "iconSvgPath": "<path d='M11 7l6 6' /><path d='M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
               {"name": "Image Compressor", "description": "Reduce image file sizes with powerful, browser-based compression.", "url": "./image-compressor.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
-              {"name": "EXIF Remover & Editor", "description": "Remove or edit metadata from your images to protect your privacy.", "url": "./exif-stripper.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"}
+              {"name": "EXIF Remover & Editor", "description": "Remove or edit metadata from your images to protect your privacy.", "url": "./exif-stripper.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
+              {"name": "Email Signature Generator", "description": "Create professional HTML email signatures with live previews and easy copying.", "url": "./email-signature-generator.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm-2.25-6h.008v.008H2.25v-.008zM4.5 12h.008v.008H4.5v-.008z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
+              {"name": "Email Extractor", "description": "Extract all email addresses from a block of text instantly.", "url": "./email-extractor.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
+              {"name": "File Viewer", "description": "View PDF, DOCX, XLSX, PPTX, ODT, ODS, ODP, and more files securely in your browser.", "url": "./file-viewer.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"},
+              {"name": "Privacy Scanner", "description": "Scan website source code for trackers and third-party scripts.", "url": "./privacy-scanner.html", "iconSvgPath": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' />", "iconBgClass": "bg-white", "iconColorClass": "text-black"}
             ];
 
             const initializeScrollAnimations = () => {
@@ -216,7 +234,7 @@
                                     <h4 class="text-xl font-bold text-gray-900 dark:text-white">${app.name}</h4>
                                 </div>
                                 <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">${app.description}</p>
-                                <a href="${app.url}" class="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">
+                                <a href="${app.url}" aria-label="Launch ${app.name}" class="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">
                                     Launch <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
                                 </a>
                             </div>`;

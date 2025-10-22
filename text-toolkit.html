@@ -10,7 +10,7 @@
     <meta name="keywords" content="solite, text tools, find and replace, regex checker, text cleaner, readability score, text analysis, privacy first">
     <link rel="canonical" href="https://solite.com/text-toolkit.html" />
     <meta property="og:title" content="Text Tools | Solite">
-    <meta property="og:description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more.">
+    <meta property="og:description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more. 100% private.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Text+Toolkit">
     <meta property="og:url" content="https://solite.com/text-toolkit.html">
@@ -60,12 +60,21 @@
             },
         }
     </script>
+    <style>
+        #toast {
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #toast.show {
+            transform: translateY(2rem);
+        }
+    </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
     <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
                  <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2L2 7l10 5 10-5L12 2z"/>
@@ -73,6 +82,8 @@
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Text Tools</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -190,7 +201,7 @@
     </main>
 
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-800">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>&copy; 2024 Solite. All Rights Reserved.</span>
@@ -203,20 +214,8 @@
         </div>
     </footer>
     
-    <!-- Copy Modal -->
-    <div id="copy-modal-overlay" class="hidden fixed inset-0 bg-gray-900/80 z-40"></div>
-    <div id="copy-modal" class="hidden fixed top-1/4 left-1/2 -translate-x-1/2 w-full max-w-md bg-gray-800 rounded-lg shadow-2xl z-50 p-6 text-center">
-        <div class="flex items-center justify-center space-x-3 mb-4 relative">
-            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <h3 class="text-lg font-bold text-white">Copied Successfully</h3>
-            <button id="close-copy-modal-btn" class="hidden absolute -top-2 -right-2 text-gray-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
-        <div id="ad-placeholder" class="bg-gray-700 rounded-lg h-48 flex items-center justify-center text-gray-400 transition-all duration-300">
-            Ad Placeholder
-        </div>
-    </div>
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
 
     <script>
         // Main App Logic
@@ -245,17 +244,13 @@
                 const statChars = document.getElementById('stat-chars');
                 const statSentences = document.getElementById('stat-sentences');
                 const statParagraphs = document.getElementById('stat-paragraphs');
-                const copyModalOverlay = document.getElementById('copy-modal-overlay');
-                const copyModal = document.getElementById('copy-modal');
-                const closeCopyModalBtn = document.getElementById('close-copy-modal-btn');
-                const adPlaceholder = document.getElementById('ad-placeholder');
                 const caseSensitiveLabel = document.getElementById('case-sensitive-label');
                 const useRegexLabel = document.getElementById('use-regex-label');
+                const toast = document.getElementById('toast');
 
 
                 let textHistory = [];
                 let redoHistory = [];
-                let adRefreshCounter = 1;
                 let activeProfile = 'stripAll';
 
                 const transformations = {
@@ -341,6 +336,16 @@
                     catch (e) { console.error("Could not save session:", e); }
                 }
 
+                function showToast(message = 'Copied!') {
+                    toast.textContent = message;
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                        // Reset to default message after it hides
+                        if (message !== 'Copied!') setTimeout(() => { toast.textContent = 'Copied!'; }, 300);
+                    }, 1500);
+                }
+
                 function loadSession() {
                     try {
                         const session = JSON.parse(localStorage.getItem('solite-text-toolkit'));
@@ -378,28 +383,12 @@
                 swapBtn.addEventListener('click', () => { pushToHistory(inputText.value); inputText.value = outputText.value; updateOutput(); });
 
                 copyBtn.addEventListener('click', () => {
-                    if (!outputText.value) return;
-                    outputText.select();
-                    outputText.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(outputText.value).then(() => {
-                        copyModalOverlay.classList.remove('hidden');
-                        copyModal.classList.remove('hidden');
-                        closeCopyModalBtn.classList.add('hidden');
-                        adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
-                        setTimeout(() => {
-                            closeCopyModalBtn.classList.remove('hidden');
-                            adRefreshCounter++;
-                            adPlaceholder.textContent = `Ad Placeholder #${adRefreshCounter}`;
-                        }, 3000);
-                    }).catch(err => alert("Could not copy text."));
+                    if (outputText.value) {
+                        navigator.clipboard.writeText(outputText.value)
+                            .then(() => showToast('Copied!'))
+                            .catch(err => console.error('Failed to copy: ', err));
+                    }
                 });
-                
-                function closeCopyModal() {
-                    copyModalOverlay.classList.add('hidden');
-                    copyModal.classList.add('hidden');
-                }
-                closeCopyModalBtn.addEventListener('click', closeCopyModal);
-                copyModalOverlay.addEventListener('click', closeCopyModal);
 
                 replaceAllBtn.addEventListener('click', () => {
                     pushToHistory(inputText.value);
@@ -426,26 +415,6 @@
                             } catch (error) { /* Not JSON */ }
                         }
                     }, 1);
-                });
-
-                undoBtn.addEventListener('click', () => {
-                    if (textHistory.length > 1) {
-                        const currentState = textHistory.pop();
-                        redoHistory.push(currentState);
-                        inputText.value = textHistory[textHistory.length - 1] || '';
-                        updateOutput();
-                    }
-                    undoBtn.disabled = textHistory.length <= 1;
-                    redoBtn.disabled = redoHistory.length === 0;
-                });
-
-                redoBtn.addEventListener('click', () => {
-                    if (redoHistory.length > 0) {
-                        const nextState = redoHistory.pop();
-                        pushToHistory(nextState, false);
-                        inputText.value = nextState;
-                        updateOutput();
-                    }
                 });
 
                 undoBtn.addEventListener('click', () => {

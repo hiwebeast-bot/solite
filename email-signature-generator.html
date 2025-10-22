@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Email Signature Generator with Live Preview | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Create a professional HTML email signature with our free generator. Live preview, multiple templates, and easy copy-paste. No sign-up required, 100% private.">
+    <meta name="keywords" content="email signature generator, free email signature, html signature, professional signature, signature template, email branding, solite">
+    <link rel="canonical" href="https://solite.com/email-signature-generator.html" />
+    <meta property="og:title" content="Free Email Signature Generator with Live Preview | Solite">
+    <meta property="og:description" content="Create a professional HTML email signature with our free generator. Live preview, multiple templates, and easy copy-paste. No sign-up required, 100% private.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Email+Signature+Generator">
+    <meta property="og:url" content="https://solite.com/email-signature-generator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Email Signature Generator | Solite",
+      "url": "https://www.solite.com/email-signature-generator.html",
+      "description": "A free, client-side tool to create professional HTML email signatures with live preview and multiple templates.",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://www.solite.com"
+      },
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast {
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #toast.show {
+            transform: translateY(2rem);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Email Signature Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col lg:flex-row gap-4">
+            
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white">Signature Details</h2>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="sig-name" placeholder="Your Name" aria-label="Your Name" class="col-span-2 w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="text" id="sig-title" placeholder="Title / Position" aria-label="Title or Position" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="text" id="sig-company" placeholder="Company" aria-label="Company Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <input type="tel" id="sig-phone" placeholder="Phone Number" aria-label="Phone Number" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="email" id="sig-email" placeholder="Email Address" aria-label="Email Address" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="url" id="sig-website" placeholder="Website URL" aria-label="Website URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="text" id="sig-address" placeholder="Address" aria-label="Address" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h4 class="font-medium">Social Links</h4>
+                    <input type="url" id="sig-linkedin" placeholder="LinkedIn URL" aria-label="LinkedIn URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="url" id="sig-twitter" placeholder="Twitter/X URL" aria-label="Twitter or X URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="url" id="sig-github" placeholder="GitHub URL" aria-label="GitHub URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="url" id="sig-instagram" placeholder="Instagram URL" aria-label="Instagram URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                    <input type="url" id="sig-facebook" placeholder="Facebook URL" aria-label="Facebook URL" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 sig-input">
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h4 class="font-medium">Styling</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label for="sig-color" class="text-sm">Accent Color</label>
+                            <input type="color" id="sig-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 sig-input">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="sig-font-size" class="text-sm">Font Size</label>
+                            <div class="relative">
+                                <button id="font-size-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-between w-full">
+                                    <span id="font-size-text">Medium</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div id="font-size-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="12px">Small</a>
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="14px">Medium</a>
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="16px">Large</a>
+                                </div>
+                            </div>
+                            <input type="hidden" id="sig-font-size" class="sig-input" value="14px">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 border-t border-gray-800 pt-4">
+                    <label for="logo-upload-input" class="font-medium">Logo / Photo</label>
+                    <button id="logo-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                        <span>Upload Logo/Photo</span>
+                    </button>
+                    <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/gif">
+                    <button id="remove-logo-btn" class="hidden w-full text-sm text-red-400 hover:text-red-300 text-center py-1">Remove Image</button>
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-8 relative">
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold text-white mb-2">Free Email Signature Generator</h1>
+                    <p class="text-lg text-gray-400">Create a beautiful, professional email signature in seconds.</p>
+                </div>
+                <div class="flex-grow flex flex-col items-center justify-center">
+                    <div id="signature-size-feedback" class="text-sm text-gray-400 w-full max-w-2xl text-right mb-2">
+                        <span id="char-count" class="font-bold">0</span> / 8,000 characters
+                        <p id="size-warning" class="text-red-500 text-xs mt-1 hidden">Warning: Signature may be too large for some email clients.</p>
+                    </div>
+                    <div class="w-full max-w-2xl bg-white dark:bg-gray-800 p-6 rounded-lg">
+                        <div id="signature-preview" class="text-black dark:text-white">
+                            <!-- Signature will be rendered here -->
+                        </div>
+                    </div>
+                    <button id="copy-signature-btn" class="mt-8 w-full max-w-2xl bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Signature</span>
+                    </button>
+                    <p class="mt-2 text-sm text-gray-500 text-center max-w-2xl">After copying, paste into your email client's signature settings (e.g., Gmail, Outlook, Apple Mail).</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.sig-input');
+            const preview = document.getElementById('signature-preview');
+            const logoUploadBtn = document.getElementById('logo-upload-btn');
+            const logoUploadInput = document.getElementById('logo-upload-input');
+            const removeLogoBtn = document.getElementById('remove-logo-btn');
+            const copyBtn = document.getElementById('copy-signature-btn');
+            const toast = document.getElementById('toast');
+            const charCountEl = document.getElementById('char-count');
+            const sizeWarningEl = document.getElementById('size-warning');
+            const SIGNATURE_LIMIT = 8000;
+            let fontSize = '14px';
+
+            let logoSrc = '';
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+
+            function setupDropdown(btnId, dropdownId, textId, stateUpdater) {
+                const btn = document.getElementById(btnId);
+                const dropdown = document.getElementById(dropdownId);
+                const textEl = document.getElementById(textId);
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        stateUpdater(e.target.dataset.value);
+                        if(textEl) textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                        renderSignature();
+                    }
+                });
+            }
+
+            function renderSignature() {
+                const values = {
+                    name: document.getElementById('sig-name').value,
+                    title: document.getElementById('sig-title').value,
+                    company: document.getElementById('sig-company').value,
+                    phone: document.getElementById('sig-phone').value,
+                    email: document.getElementById('sig-email').value,
+                    website: document.getElementById('sig-website').value,
+                    address: document.getElementById('sig-address').value,
+                    linkedin: document.getElementById('sig-linkedin').value,
+                    twitter: document.getElementById('sig-twitter').value,
+                    github: document.getElementById('sig-github').value,
+                    instagram: document.getElementById('sig-instagram').value,
+                    facebook: document.getElementById('sig-facebook').value,
+                    color: document.getElementById('sig-color').value,
+                    fontSize: fontSize,
+                };
+
+                const socialLinks = [
+                    { 
+                        url: values.linkedin, 
+                        name: 'LinkedIn',
+                        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${values.color}" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`
+                    },
+                    { 
+                        url: values.twitter, 
+                        name: 'Twitter',
+                        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${values.color}" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>`
+                    },
+                    { 
+                        url: values.github, 
+                        name: 'GitHub',
+                        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${values.color}" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`
+                    },
+                    {
+                        url: values.instagram,
+                        name: 'Instagram',
+                        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${values.color}" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`
+                    },
+                    {
+                        url: values.facebook,
+                        name: 'Facebook',
+                        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${values.color}" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>`
+                    }
+                ].filter(link => link.url);
+
+                const socialHtml = socialLinks.length > 0 ? `
+                    <tr><td style="padding-top:8px;">${socialLinks.map(link => `<a href="${link.url}" target="_blank" style="text-decoration:none;display:inline-block;margin-right:8px;">${link.icon}</a>`).join('')}</td></tr>
+                ` : '';
+
+                const logoHtml = logoSrc ? `
+                    <img src="${logoSrc}" alt="Logo" width="80" style="border-radius:50%;margin-bottom:8px;">
+                ` : '';
+
+                const logoAndSocialsHtml = `
+                    <td style="padding-right:16px;vertical-align:top;text-align:center;">
+                        ${logoHtml}
+                        <div style="padding-top:${logoSrc ? '8px' : '0'};">${socialLinks.map(link => `<a href="${link.url}" target="_blank" style="text-decoration:none;display:inline-block;margin-right:8px;">${link.icon}</a>`).join('')}</div>
+                    </td>
+                `;
+
+                const detailsHtml = `
+                    <td style="border-left:2px solid ${values.color};padding-left:16px;">
+                        <p style="margin:0;font-weight:bold;font-size:1.2em;color:${values.color};">${values.name || 'Your Name'}</p>
+                        <p style="margin:2px 0;">${values.title || 'Your Title'}${values.company ? ' at ' + values.company : ''}</p>
+                        <table cellpadding="0" cellspacing="0" border="0" style="font-size:1em;margin-top:8px;color:${values.color};">
+                            <tbody>${values.phone ? `<tr><td style="padding-right:8px;"><strong>P:</strong></td><td><a href="tel:${values.phone}" style="color:${values.color};text-decoration:none;">${values.phone}</a></td></tr>` : ''}${values.email ? `<tr><td style="padding-right:8px;"><strong>E:</strong></td><td><a href="mailto:${values.email}" style="color:${values.color};text-decoration:none;">${values.email}</a></td></tr>` : ''}${values.website ? `<tr><td style="padding-right:8px;"><strong>W:</strong></td><td><a href="${values.website}" target="_blank" style="color:${values.color};text-decoration:none;">${values.website}</a></td></tr>` : ''}${values.address ? `<tr><td style="padding-right:8px;"><strong>A:</strong></td><td>${values.address}</td></tr>` : ''}</tbody></table>
+                    </td>
+                `;
+
+                const signatureHtml = `
+                    <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,sans-serif;font-size:${values.fontSize};color:${values.color};"><tbody><tr>${logoAndSocialsHtml}${detailsHtml}</tr></tbody></table>
+                `;
+
+                // Update character count and show warning if needed
+                const signatureSize = signatureHtml.length;
+                charCountEl.textContent = signatureSize;
+                const isTooLarge = signatureSize > SIGNATURE_LIMIT;
+                
+                sizeWarningEl.classList.toggle('hidden', !isTooLarge);
+                charCountEl.classList.toggle('text-red-400', isTooLarge);
+                copyBtn.disabled = isTooLarge;
+                copyBtn.title = isTooLarge ? 'Signature is too large to copy' : 'Copy Signature';
+
+                preview.innerHTML = signatureHtml;
+            }
+
+            inputs.forEach(input => input.addEventListener('input', renderSignature));
+
+            logoUploadBtn.addEventListener('click', () => logoUploadInput.click());
+            removeLogoBtn.addEventListener('click', () => {
+                logoSrc = '';
+                logoUploadInput.value = '';
+                removeLogoBtn.classList.add('hidden');
+                logoUploadBtn.classList.remove('hidden');
+                renderSignature();
+            });
+
+            logoUploadInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        logoSrc = event.target.result;
+                        logoUploadBtn.classList.add('hidden');
+                        removeLogoBtn.classList.remove('hidden');
+                        renderSignature();
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+
+            copyBtn.addEventListener('click', () => {
+                try {
+                    const content = preview.innerHTML;
+                    const blob = new Blob([content], { type: 'text/html' });
+                    const item = new ClipboardItem({ 'text/html': blob });
+                    navigator.clipboard.write([item]).then(() => {
+                        showToast('Signature copied to clipboard!');
+                    }, (err) => {
+                        showToast('Copy failed. Your browser may not support this.');
+                    });
+                } catch (e) { // Fallback for older browsers
+                    console.error('Clipboard API error:', e);
+                    showToast('Copy failed. Your browser may not support this feature.');
+                }
+            });
+
+            setupDropdown('font-size-btn', 'font-size-dropdown', 'font-size-text', (value) => {
+                fontSize = value;
+                // Also update the hidden input for the main input listener
+                document.getElementById('sig-font-size').value = value;
+            });
+
+            // Initial render
+            renderSignature();
+        });
+    </script>
+</body>
+</html>

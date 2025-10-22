@@ -9,7 +9,7 @@
     <meta name="description" content="Instantly generate beautiful, harmonious color palettes for your design projects. Lock colors, adjust shades, and export your palette. Free and private.">
     <meta name="keywords" content="color palette generator, color scheme generator, color picker, design tools, solite, free color tool, color wheel">
     <link rel="canonical" href="https://solite.com/color-palette-generator.html" />
-    <meta property="og:title" content="Color Palette Generator | Solite">
+    <meta property="og:title" content="Free Color Palette Generator | Solite">
     <meta property="og:description" content="Instantly generate beautiful, harmonious color palettes for your design projects. Lock colors, adjust shades, and export your palette.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Color+Palette+Generator">
@@ -60,12 +60,21 @@
             },
         }
     </script>
+    <style>
+        #toast {
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #toast.show {
+            transform: translateY(2rem);
+        }
+    </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
     <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="flex justify-between items-center px-4 sm:px-6">
             <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
                  <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2L2 7l10 5 10-5L12 2z"/>
@@ -73,6 +82,8 @@
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Color Palette Generator</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -85,33 +96,42 @@
 
     <!-- Main Content Area -->
     <main class="flex-grow flex h-screen-minus-header">
-        <div class="flex-grow w-[80%] p-3 flex flex-col">
-            <div id="palette-container" class="flex-grow flex">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            <!-- Palette Display -->
+            <div id="palette-container" class="flex-1 flex bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <!-- Color columns will be injected here -->
             </div>
-            <!-- Floating Control Bar -->
-            <div id="control-bar" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20">
-                <div class="flex items-center justify-center gap-2 bg-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-2 shadow-2xl">
-                    <div class="relative group">
-                        <button id="palette-type-btn" title="Change Palette Type" class="text-gray-300 hover:text-white hover:bg-gray-700/50 font-medium py-3 px-4 rounded-xl text-sm flex items-center gap-2">
-                            <span id="palette-type-text" class="font-semibold">Analogous</span>
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
+                <h3 class="text-xl font-bold text-white">Color Palette Generator</h3>
+                <div class="space-y-2">
+                    <label for="palette-type-btn" class="font-medium">Palette Type</label>
+                    <div class="relative">
+                        <button id="palette-type-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full">
+                            <span id="palette-type-text">Analogous</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div id="palette-type-dropdown" class="hidden absolute bottom-full mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                        <div id="palette-type-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="analogous">Analogous</a>
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="monochromatic">Monochromatic</a>
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="triadic">Triadic</a>
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="complementary">Complementary</a>
                         </div>
                     </div>
-                    <button id="generate-btn" class="bg-white text-black font-bold py-3 px-6 rounded-xl text-lg flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0" /></svg>
-                        <span>Generate</span>
+                </div>
+                <button id="generate-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">Generate Palette</button>
+                <div class="relative">
+                    <button id="export-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <span>Export Palette</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <button id="copy-css-btn" title="Copy CSS Variables" class="text-gray-300 hover:text-white hover:bg-gray-700/50 font-medium py-3 px-4 rounded-xl text-sm flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                        <span>Copy CSS</span>
-                    </button>
+                    <div id="export-dropdown" class="hidden absolute bottom-full mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-export="url">Copy URL</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-export="png">Download PNG</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-export="svg">Download SVG</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-export="css">Copy CSS</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,7 +144,7 @@
     </main>
 
     <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>&copy; 2024 Solite. All Rights Reserved.</span>
@@ -138,13 +158,13 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 transition-transform -translate-y-full">Copied!</div>
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const paletteContainer = document.getElementById('palette-container');
             const generateBtn = document.getElementById('generate-btn');
-            const copyCssBtn = document.getElementById('copy-css-btn');
+            const toast = document.getElementById('toast');
             const PALETTE_SIZE = 5;
             let paletteType = 'analogous';
 
@@ -222,6 +242,29 @@
                 return luminance > 0.5 ? 'text-black' : 'text-white';
             }
 
+            function getLuminance(r, g, b) {
+                const a = [r, g, b].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+                return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+            }
+
+            function getContrast(rgb1, rgb2) {
+                const lum1 = getLuminance(rgb1.r, rgb1.g, rgb1.b);
+                const lum2 = getLuminance(rgb2.r, rgb2.g, rgb2.b);
+                const brightest = Math.max(lum1, lum2);
+                const darkest = Math.min(lum1, lum2);
+                return (brightest + 0.05) / (darkest + 0.05);
+            }
+
+
+            function showToast(message = 'Copied!') {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    if (message !== 'Copied!') setTimeout(() => { toast.textContent = 'Copied!'; }, 300);
+                }, 1500);
+            }
+
             function generatePalette() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const colorsFromUrl = urlParams.get('colors')?.split('-');
@@ -241,16 +284,27 @@
                         color = newPalette[unlockedIndex] || randomColor();
                     }
                     const textColorClass = getTextColor(color);
+                    const colorRgb = hexToRgb(color);
+                    const contrastWhite = getContrast(colorRgb, {r: 255, g: 255, b: 255});
+                    const contrastBlack = getContrast(colorRgb, {r: 0, g: 0, b: 0});
+                    const passWhite = contrastWhite >= 4.5;
+                    const passBlack = contrastBlack >= 4.5;
 
                     const column = document.createElement('div');
-                    column.className = 'color-column flex-1 flex flex-col items-center justify-center p-4 relative';
+                    column.className = 'color-column flex-1 flex flex-col items-center justify-center p-4 relative group';
                     column.style.backgroundColor = color;
                     column.dataset.index = i;
                     column.dataset.color = color;
                     column.dataset.locked = lockedColors[i] !== null;
                     
                     column.innerHTML = `
-                        <h2 class="text-2xl font-bold ${textColorClass} cursor-pointer" title="Click to copy">${color.toUpperCase()}</h2>
+                        <div class="text-center">
+                            <h2 class="text-2xl font-bold ${textColorClass} cursor-pointer" title="Click to copy">${color.toUpperCase()}</h2>
+                            <div class="contrast-info mt-4 text-xs font-mono ${textColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex justify-between items-center gap-4"><span>vs White</span> <span class="font-bold ${passWhite ? 'text-green-300' : 'text-red-300'}">${passWhite ? 'Pass' : 'Fail'}</span> <span>${contrastWhite.toFixed(2)}</span></div>
+                                <div class="flex justify-between items-center gap-4"><span>vs Black</span> <span class="font-bold ${passBlack ? 'text-green-300' : 'text-red-300'}">${passBlack ? 'Pass' : 'Fail'}</span> <span>${contrastBlack.toFixed(2)}</span></div>
+                            </div>
+                        </div>
                         <div class="actions absolute bottom-8 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button class="picker-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Adjust Color">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -276,12 +330,6 @@
                 // Clear URL params after first load
                 if (colorsFromUrl) {
                     window.history.replaceState({}, document.title, window.location.pathname);
-                }
-
-                function showToast() {
-                    const toast = document.getElementById('toast');
-                    toast.classList.remove('-translate-y-full');
-                    setTimeout(() => toast.classList.add('-translate-y-full'), 1500);
                 }
 
                 document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -323,12 +371,13 @@
                         const shades = generateShades(color);
                         
                         paletteContainer.innerHTML = '';
-                        paletteContainer.className = 'flex-grow grid grid-cols-11';
+                        paletteContainer.className = 'flex-1 grid grid-cols-11';
 
                         shades.forEach(shade => {
                             const shadeBox = document.createElement('div');
                             const textColorClass = getTextColor(shade);
-                            shadeBox.className = `flex items-center justify-center cursor-pointer ${textColorClass} transition-transform hover:scale-110`;
+                            shadeBox.className = `flex items-center justify-center cursor-pointer ${textColorClass} transition-transform hover:scale-110 bg-gray-900`;
+                            shadeBox.style.backgroundColor = shade;
                             shadeBox.style.backgroundColor = shade;
                             shadeBox.innerHTML = `<span class="font-mono text-sm opacity-0 hover:opacity-100 transition-opacity">${shade}</span>`;
                             shadeBox.addEventListener('click', () => navigator.clipboard.writeText(shade).then(showToast));
@@ -338,8 +387,9 @@
                         generateBtn.textContent = 'Back to Palette';
                         generateBtn.onclick = (e) => {
                             e.stopPropagation(); // Prevent document click listener from hiding dropdown
+                            paletteContainer.className = 'flex-1 flex bg-gray-900 rounded-xl border border-gray-800 overflow-hidden';
                             generateBtn.textContent = 'Generate Palette';
-                            generateBtn.onclick = generatePalette;
+                            generateBtn.onclick = null; // Remove the temporary handler
                             generatePalette();
                         };
                     });
@@ -376,10 +426,13 @@
                 });
             }
 
-            generateBtn.addEventListener('click', generatePalette);
+            generateBtn.addEventListener('click', () => {
+                generatePalette();
+                showToast('New palette generated!');
+            });
             document.body.addEventListener('keyup', (e) => {
                 if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                    generatePalette();
+                    generateBtn.click();
                 }
             });
 
@@ -399,21 +452,66 @@
                 });
             }
 
-            copyCssBtn.addEventListener('click', () => {
+            function exportPalette(format) {
                 const colors = Array.from(document.querySelectorAll('.color-column')).map(c => c.dataset.color);
-                const css = `:root {\n${colors.map((c, i) => `  --color-${i+1}: ${c};`).join('\n')}\n}`;
-                navigator.clipboard.writeText(css).then(() => {
-                    const toast = document.getElementById('toast');
-                    toast.classList.remove('-translate-y-full');
-                    setTimeout(() => toast.classList.add('-translate-y-full'), 1500);
+                const colorString = colors.map(c => c.substring(1)).join('-');
+
+                if (format === 'url') {
+                    const url = `${window.location.origin}${window.location.pathname}?colors=${colorString}`;
+                    navigator.clipboard.writeText(url).then(() => showToast('URL copied to clipboard!'));
+                } else if (format === 'css') {
+                    const css = `:root {\n${colors.map((c, i) => `  --color-${i+1}: ${c};`).join('\n')}\n}`;
+                    navigator.clipboard.writeText(css).then(() => showToast('CSS variables copied!'));
+                } else if (format === 'png') {
+                    const canvas = document.createElement('canvas');
+                    const size = 200;
+                    canvas.width = size * colors.length;
+                    canvas.height = size * 1.5;
+                    const ctx = canvas.getContext('2d');
+                    colors.forEach((color, i) => {
+                        ctx.fillStyle = color;
+                        ctx.fillRect(i * size, 0, size, size * 1.5);
+                    });
+                    const link = document.createElement('a');
+                    link.download = `solite-palette-${colorString}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                } else if (format === 'svg') {
+                    const size = 200;
+                    const svgContent = colors.map((color, i) => `<rect x="${i * size}" y="0" width="${size}" height="${size * 1.5}" fill="${color}" />`).join('');
+                    const svg = `<svg width="${size * colors.length}" height="${size * 1.5}" xmlns="http://www.w3.org/2000/svg">${svgContent}</svg>`;
+                    const blob = new Blob([svg], {type: 'image/svg+xml'});
+                    const link = document.createElement('a');
+                    link.download = `solite-palette-${colorString}.svg`;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    URL.revokeObjectURL(link.href);
+                }
+            }
+
+            function setupExportDropdown() {
+                const btn = document.getElementById('export-btn');
+                const dropdown = document.getElementById('export-dropdown');
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('hidden');
                 });
-            });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        exportPalette(e.target.dataset.export);
+                        dropdown.classList.add('hidden');
+                    }
+                });
+            }
 
             generatePalette();
             setupPaletteTypeDropdown();
+            setupExportDropdown();
 
             document.addEventListener('click', () => {
                 document.getElementById('palette-type-dropdown').classList.add('hidden');
+                document.getElementById('export-dropdown').classList.add('hidden');
             });
         });
     </script>

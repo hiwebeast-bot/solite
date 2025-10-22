@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Viewer | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.">
+    <meta name="keywords" content="file viewer, online document viewer, view pdf, view docx, view xlsx, view pptx, view odt, view ods, view odp, solite, privacy first">
+    <link rel="canonical" href="https://solite.com/file-viewer.html" />
+    <meta property="og:title" content="Universal File Viewer | Solite">
+    <meta property="og:description" content="A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=File+Viewer">
+    <meta property="og:url" content="https://solite.com/file-viewer.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "File Viewer",
+      "url": "https://solite.com/file-viewer.html",
+      "description": "A free, client-side tool to view various document formats like PDF, DOCX, XLSX, and PPTX directly in the browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <!-- File Viewer Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.15/dist/docx-preview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pptx-js@0.2.2/dist/pptx.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+    <!-- WebODF for OpenDocument Formats -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webodf/0.5.7/webodf.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js`;</script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .pptx-viewer { background: #f0f0f0; padding: 1rem; }
+        .pptx-viewer section { margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .docx-wrapper { padding: 2rem; background: white; color: black; }
+        .sheetjs-table { border-collapse: collapse; width: 100%; color: black; background: white; }
+        .sheetjs-table th, .sheetjs-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        .sheetjs-table th { background-color: #f2f2f2; }
+        #pdf-controls {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .docx-wrapper.fit-width {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">File Viewer</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col">
+            <!-- File Viewer Area -->
+            <div id="viewer-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto">
+                <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <h1 class="mt-4 text-2xl font-bold text-white">Universal File Viewer</h1>
+                    <p class="mt-2 text-lg text-gray-400">Drop a file or click to select</p>
+                    <p class="mt-1 text-sm text-gray-500">Supports: PDF, DOCX, XLSX, PPTX, ODT, ODS, ODP, images, and text files.</p>
+                </div>
+                <div id="preview-area" class="w-full h-full hidden"></div>
+                <input type="file" id="file-upload" class="hidden">
+                <div id="loader" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <svg class="animate-spin h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                </div>
+                <button id="clear-file-btn-corner" title="Clear File" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 z-40 flex items-center gap-2 text-sm font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
+                    <span>Clear</span>
+                </button>
+                <!-- Navigation Controls -->
+                <div id="nav-controls" class="fixed bottom-16 left-1/2 lg:left-[40%] -translate-x-1/2 bg-gray-800/70 backdrop-blur-sm border border-gray-700 rounded-lg shadow-lg p-2 flex items-center gap-2 z-20">
+                    <button id="nav-prev" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Previous Page" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                    <div id="page-indicator" class="text-sm font-medium hidden">Page <span id="nav-page-num"></span> / <span id="nav-page-count"></span></div>
+                    <button id="nav-next" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Next Page" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                    <div class="w-px h-6 bg-gray-600 mx-2"></div>
+                    <button id="nav-zoom-out" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Zoom Out" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 12H3" /></svg></button>
+                    <button id="nav-zoom-in" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Zoom In" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6" /></svg></button>
+                    <button id="nav-fit-width" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Fit to Width" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" /></svg></button>
+                    <div class="w-px h-6 bg-gray-600 mx-2"></div>
+                    <button id="clear-file-btn" title="Clear File" class="p-2 rounded-md hover:bg-gray-700 flex items-center gap-2 text-sm font-medium" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 0 00-7.5 0" /></svg>
+                        <span>Clear</span>
+                    </button>
+                </div>
+                <!-- DOCX Controls -->
+                <div id="docx-controls" class="hidden fixed bottom-16 left-1/2 lg:left-[40%] -translate-x-1/2 bg-gray-800/70 backdrop-blur-sm border border-gray-700 rounded-lg shadow-lg p-2 flex items-center gap-2 z-20">
+                    <button id="docx-fit-width" class="p-2 rounded-md hover:bg-gray-700" title="Fit to Width"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1v4m0 0h-4m4-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 4l-5-5" /></svg></button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewerContainer = document.getElementById('viewer-container');
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const fileUpload = document.getElementById('file-upload');
+            const previewArea = document.getElementById('preview-area');
+            const loader = document.getElementById('loader');
+            const clearFileBtnCorner = document.getElementById('clear-file-btn-corner');
+            const clearFileBtn = document.getElementById('clear-file-btn');
+            const navControls = document.getElementById('nav-controls');
+            const pageIndicator = document.getElementById('page-indicator');
+            const docxControls = document.getElementById('docx-controls');
+
+            // Viewer state
+            let pdfDoc = null;
+            let pageNum = 1;
+            let scale = 1.5;
+            let pptxSlides = [];
+            let currentSlide = 0;
+
+            const showLoader = (show) => loader.classList.toggle('hidden', !show);
+
+            const clearFile = () => {
+                previewArea.innerHTML = '';
+                docxControls.classList.add('hidden');
+                
+                // Reset viewer state
+                pdfDoc = null;
+                pageNum = 1;
+                scale = 1.5;
+                pptxSlides = [];
+                currentSlide = 0;
+
+                uploadPrompt.classList.remove('hidden');
+                clearFileBtnCorner.classList.add('hidden');
+                fileUpload.value = ''; // Reset file input
+                document.getElementById('clear-file-btn').disabled = true;
+                
+                // Disable nav controls
+                pageIndicator.classList.add('hidden');
+                document.getElementById('nav-prev').disabled = true;
+                document.getElementById('nav-next').disabled = true;
+                document.getElementById('nav-zoom-in').disabled = true;
+                document.getElementById('nav-zoom-out').disabled = true;
+                document.getElementById('nav-fit-width').disabled = true;
+            };
+
+            const handleFile = async (file) => {
+                if (!file) return;
+
+                uploadPrompt.classList.add('hidden');
+                clearFileBtnCorner.classList.remove('hidden');
+                document.getElementById('clear-file-btn').disabled = false;
+                docxControls.classList.add('hidden');
+                previewArea.innerHTML = '';
+                previewArea.classList.add('hidden');
+                showLoader(true);
+
+                const extension = file.name.split('.').pop().toLowerCase();
+                const fileBuffer = await file.arrayBuffer();
+
+                try {
+                    switch (extension) {
+                        case 'pdf':
+                            pdfDoc = await pdfjsLib.getDocument({ data: fileBuffer }).promise;
+                            document.getElementById('nav-page-count').textContent = pdfDoc.numPages;
+                            pageNum = 1;
+                            scale = 1.5;
+                            await renderPdfPage(pageNum);
+                            pageIndicator.classList.remove('hidden');
+                            ['nav-prev', 'nav-next', 'nav-zoom-in', 'nav-zoom-out', 'nav-fit-width'].forEach(id => document.getElementById(id).disabled = false);
+                            break;
+                        case 'docx':
+                            await docx.renderAsync(fileBuffer, previewArea);
+                            docxControls.classList.remove('hidden');
+                            break;
+                        case 'odt':
+                        case 'ods':
+                        case 'odp':
+                            // Use WebODF for OpenDocument formats
+                            const odfCanvas = new odf.OdfCanvas(previewArea);
+                            odfCanvas.load(file);
+                            break;
+                        case 'xls':
+                        case 'ods':
+                        case 'xlsx':
+                            const workbook = XLSX.read(fileBuffer, { type: 'buffer' });
+                            const firstSheetName = workbook.SheetNames[0];
+                            const worksheet = workbook.Sheets[firstSheetName];
+                            const html = XLSX.utils.sheet_to_html(worksheet);
+                            previewArea.innerHTML = `<div class="p-4"><table class="sheetjs-table">${html}</table></div>`;
+                            break;
+                        case 'pptx':
+                            window.JSZip = JSZip; // pptx-js expects JSZip to be global
+                            await pptx.render(fileBuffer, previewArea, null);
+                            previewArea.classList.add('pptx-viewer');
+                            pptxSlides = Array.from(previewArea.querySelectorAll('section'));
+                            document.getElementById('nav-page-count').textContent = pptxSlides.length;
+                            currentSlide = 0;
+                            renderPptxSlide(currentSlide);
+                            pageIndicator.classList.remove('hidden');
+                            ['nav-prev', 'nav-next', 'nav-zoom-in', 'nav-zoom-out', 'nav-fit-width'].forEach(id => document.getElementById(id).disabled = false);
+                            break;
+                        case 'xml':
+                        case 'html':
+                        case 'css':
+                        case 'js':
+                        case 'txt':
+                            const textContent = await file.text();
+                            previewArea.innerHTML = `<pre class="text-left p-4 text-sm whitespace-pre-wrap text-white">${textContent.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>`;
+                            break;
+                        case 'jpg':
+                        case 'jpeg':
+                        case 'png':
+                        case 'gif':
+                        case 'webp':
+                        case 'svg':
+                            const url = URL.createObjectURL(file);
+                            previewArea.innerHTML = `<img src="${url}" class="max-w-full max-h-full mx-auto" alt="Image preview">`;
+                            break;
+                        case 'doc':
+                        case 'rtf':
+                            previewArea.innerHTML = `<div class="p-8 text-center text-yellow-400">The legacy <strong>.${extension}</strong> format is not supported for direct viewing in the browser.<br><br>For best results, please open the file in a compatible application and save it in a modern format like .docx or .pdf.</div>`;
+                            break;
+                        case 'ppt': // .ppt is particularly difficult
+                            previewArea.innerHTML = `<div class="p-8 text-center text-yellow-400">The legacy <strong>.ppt</strong> format cannot be rendered in the browser.<br><br>Please save the file as a modern <strong>.pptx</strong> file to view it here.</div>`;
+                            break;
+                        default:
+                            previewArea.innerHTML = `<p class="p-8 text-center text-red-400">Unsupported file format: .${extension}</p>`;
+                    }
+                } catch (error) {
+                    console.error('Error rendering file:', error);
+                    previewArea.innerHTML = `<p class="p-8 text-center text-red-400">Sorry, there was an error processing this file.</p>`;
+                } finally {
+                    showLoader(false);
+                    previewArea.classList.remove('hidden');
+                }
+            };
+
+            async function renderPdfPage(num) {
+                if (!pdfDoc) return;
+                const page = await pdfDoc.getPage(num);
+                const viewport = page.getViewport({ scale: scale });
+                
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                await page.render({ canvasContext: context, viewport: viewport }).promise;
+                
+                previewArea.innerHTML = '';
+                previewArea.appendChild(canvas);
+
+                document.getElementById('nav-page-num').textContent = num;
+                document.getElementById('nav-prev').disabled = num <= 1;
+                document.getElementById('nav-next').disabled = num >= pdfDoc.numPages;
+            }
+
+            function renderPptxSlide(index) {
+                if (pptxSlides.length === 0) return;
+                pptxSlides.forEach((slide, i) => {
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
+                previewArea.style.transform = `scale(${scale})`;
+                document.getElementById('nav-page-num').textContent = index + 1;
+                document.getElementById('nav-prev').disabled = index <= 0;
+                document.getElementById('nav-next').disabled = index >= pptxSlides.length - 1;
+            }
+
+            // Navigation Controls Event Listeners
+            document.getElementById('nav-prev').addEventListener('click', () => {
+                if (pdfDoc && pageNum > 1) renderPdfPage(--pageNum);
+                if (pptxSlides.length > 0 && currentSlide > 0) renderPptxSlide(--currentSlide);
+            });
+            document.getElementById('nav-next').addEventListener('click', () => {
+                if (pdfDoc && pageNum < pdfDoc.numPages) renderPdfPage(++pageNum);
+                if (pptxSlides.length > 0 && currentSlide < pptxSlides.length - 1) renderPptxSlide(++currentSlide);
+            });
+            document.getElementById('nav-zoom-in').addEventListener('click', () => {
+                scale += 0.2;
+                if (pdfDoc) renderPdfPage(pageNum);
+                if (pptxSlides.length > 0) renderPptxSlide(currentSlide);
+            });
+            document.getElementById('nav-zoom-out').addEventListener('click', () => {
+                if (scale > 0.3) {
+                    scale -= 0.2;
+                    if (pdfDoc) renderPdfPage(pageNum);
+                    if (pptxSlides.length > 0) renderPptxSlide(currentSlide);
+                }
+            });
+
+            document.getElementById('nav-fit-width').addEventListener('click', async () => {
+                if (pdfDoc) {
+                    const page = await pdfDoc.getPage(pageNum);
+                    const viewport = page.getViewport({ scale: 1.0 });
+                    scale = (previewArea.clientWidth - 40) / viewport.width; // -40 for padding
+                    renderPdfPage(pageNum);
+                } else if (pptxSlides.length > 0) {
+                    scale = (previewArea.clientWidth - 40) / pptxSlides[0].offsetWidth;
+                    renderPptxSlide(currentSlide);
+                }
+            });
+
+            // DOCX Controls
+            document.getElementById('docx-fit-width').addEventListener('click', (e) => {
+                const docxWrapper = previewArea.querySelector('.docx-wrapper');
+                if (docxWrapper) {
+                    docxWrapper.classList.toggle('fit-width');
+                    e.currentTarget.classList.toggle('bg-blue-500');
+                }
+            });
+
+            viewerContainer.addEventListener('click', (e) => {
+                // Only trigger upload if the click is on the container background or the prompt itself
+                if (e.target === viewerContainer || e.target.closest('#upload-prompt')) {
+                    fileUpload.click();
+                }
+            });
+            fileUpload.addEventListener('change', (e) => handleFile(e.target.files[0]));
+            [clearFileBtn, clearFileBtnCorner].forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    clearFile();
+                });
+            });
+            viewerContainer.addEventListener('dragover', (e) => { e.preventDefault(); viewerContainer.classList.add('border-blue-500'); });
+            viewerContainer.addEventListener('dragleave', () => viewerContainer.classList.remove('border-blue-500'));
+            viewerContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                viewerContainer.classList.remove('border-blue-500');
+                handleFile(e.dataTransfer.files[0]);
+            });
+        });
+    </script>
+</body>
+</html>
