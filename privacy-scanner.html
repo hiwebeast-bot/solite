@@ -74,7 +74,7 @@
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
-    <header class="p-4 sm:p-6 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
                  <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,41 +98,39 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex h-screen-minus-header">
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col">
-            <div class="text-center pt-8 pb-4">
-                <h1 class="text-3xl font-bold text-white">Privacy & Security Scanner</h1>
-                <p class="mt-2 text-lg text-gray-400">Analyze website source code for trackers and vulnerabilities.</p>
-            </div>
-            <!-- Input Panel -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-4">
-                <div class="space-y-2">
-                    <h2 class="text-xl font-bold text-white">Scan a Website</h2>
-                    <div class="flex gap-2">
-                        <input type="url" id="url-input" aria-label="URL Input" placeholder="Enter a URL to get instructions..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+            <div class="flex-grow flex flex-col lg:flex-row gap-4">
+                <!-- Input Panel -->
+                <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-4">
+                    <div class="space-y-2">
+                        <h2 class="text-xl font-bold text-white">Scan a Website</h2>
+                        <div class="flex gap-2">
+                            <input type="url" id="url-input" aria-label="URL Input" placeholder="Enter a URL to get instructions..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                        <div id="url-instructions" class="hidden text-sm text-yellow-400 bg-yellow-900/20 border border-yellow-500/30 p-3 rounded-lg">
+                            <p><strong>To scan privately:</strong></p>
+                            <ol class="list-decimal list-inside mt-1 space-y-1">
+                                <li>Open the URL in a new tab.</li>
+                                <li>Right-click on the page and select "View Page Source".</li>
+                                <li>Copy the entire source code and paste it into the text area below.</li>
+                            </ol>
+                        </div>
                     </div>
-                    <div id="url-instructions" class="hidden text-sm text-yellow-400 bg-yellow-900/20 border border-yellow-500/30 p-3 rounded-lg">
-                        <p><strong>To scan privately:</strong></p>
-                        <ol class="list-decimal list-inside mt-1 space-y-1">
-                            <li>Open the URL in a new tab.</li>
-                            <li>Right-click on the page and select "View Page Source".</li>
-                            <li>Copy the entire source code and paste it into the text area below.</li>
-                        </ol>
-                    </div>
+                    <textarea id="input-html" aria-label="HTML Source Code Input" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 font-mono text-sm" placeholder="...or paste HTML source code here to begin scanning."></textarea>
                 </div>
-                <textarea id="input-html" aria-label="HTML Source Code Input" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 font-mono text-sm" placeholder="...or paste HTML source code here to begin scanning."></textarea>
-            </div>
 
-            <!-- Output Panel -->
-            <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-white">Scan Results</h2>
-                    <button id="clear-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg">Clear</button>
-                </div>
-                <div id="results-container" class="flex-grow overflow-y-auto space-y-4">
-                    <div id="results-prompt" class="text-center text-gray-500 pt-16">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                        <p class="mt-2">Results will appear here.</p>
+                <!-- Output Panel -->
+                <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold text-white">Scan Results</h2>
+                        <button id="clear-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg">Clear</button>
                     </div>
-                    <!-- Results will be injected here -->
+                    <div id="results-container" class="flex-grow overflow-y-auto space-y-4">
+                        <div id="results-prompt" class="text-center text-gray-500 pt-16">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                            <p class="mt-2">Results will appear here.</p>
+                        </div>
+                        <!-- Results will be injected here -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,7 +142,7 @@
         </aside>
     </main>
 
-    <footer class="p-6 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
