@@ -144,17 +144,13 @@
                         <div class="space-y-2">
                             <label for="sig-font-size" class="text-sm">Font Size</label>
                             <div class="relative">
-                                <button id="font-size-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-between w-full">
-                                    <span id="font-size-text">Medium</span>
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                </button>
-                                <div id="font-size-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
-                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="12px">Small</a>
-                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="14px">Medium</a>
-                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="16px">Large</a>
-                                </div>
+                                <select id="sig-font-size" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2.5 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    <option value="12px">Small</option>
+                                    <option value="14px" selected>Medium</option>
+                                    <option value="16px">Large</option>
+                                </select>
+                                <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </div>
-                            <input type="hidden" id="sig-font-size" class="sig-input" value="14px">
                         </div>
                     </div>
                 </div>
@@ -231,8 +227,7 @@
             const toast = document.getElementById('toast');
             const charCountEl = document.getElementById('char-count');
             const sizeWarningEl = document.getElementById('size-warning');
-            const SIGNATURE_LIMIT = 8000;
-            let fontSize = '14px';
+            const SIGNATURE_LIMIT = 8000;            
 
             let logoSrc = '';
 
@@ -242,22 +237,6 @@
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 2000);
-            }
-
-            function setupDropdown(btnId, dropdownId, textId, stateUpdater) {
-                const btn = document.getElementById(btnId);
-                const dropdown = document.getElementById(dropdownId);
-                const textEl = document.getElementById(textId);
-                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
-                dropdown.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        e.preventDefault();
-                        stateUpdater(e.target.dataset.value);
-                        if(textEl) textEl.textContent = e.target.textContent;
-                        dropdown.classList.add('hidden');
-                        renderSignature();
-                    }
-                });
             }
 
             function renderSignature() {
@@ -275,7 +254,7 @@
                     instagram: document.getElementById('sig-instagram').value,
                     facebook: document.getElementById('sig-facebook').value,
                     color: document.getElementById('sig-color').value,
-                    fontSize: fontSize,
+                    fontSize: document.getElementById('sig-font-size').value,
                 };
 
                 const socialLinks = [
@@ -385,12 +364,6 @@
                     console.error('Clipboard API error:', e);
                     showToast('Copy failed. Your browser may not support this feature.');
                 }
-            });
-
-            setupDropdown('font-size-btn', 'font-size-dropdown', 'font-size-text', (value) => {
-                fontSize = value;
-                // Also update the hidden input for the main input listener
-                document.getElementById('sig-font-size').value = value;
             });
 
             // Initial render

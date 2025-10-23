@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solite.com/sitemap.xml
+Sitemap: https://solite.in/sitemap.xml
