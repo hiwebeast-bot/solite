@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Maker | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Create animated GIFs from images for free. Adjust speed, size, quality, and effects instantly in your browser. 100% private, no uploads required.">
+    <meta name="keywords" content="gif maker, create gif, images to gif, animated gif generator, free gif maker, solite, gif editor">
+    <link rel="canonical" href="https://solite.in/gif-maker.html" />
+    <meta property="og:title" content="Free Online GIF Maker | Solite">
+    <meta property="og:description" content="Create animated GIFs from images for free. Adjust speed, size, quality, and effects instantly in your browser. 100% private, no uploads required.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+GIF+Maker">
+    <meta property="og:url" content="https://solite.in/gif-maker.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GIF Maker",
+      "url": "https://solite.in/gif-maker.html",
+      "description": "A free, client-side tool to create animated GIFs from a sequence of images with advanced options.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <!-- Modern GIF Library: gif.js -->
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast {
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #toast.show {
+            transform: translateY(2rem);
+        }
+        .frame-preview-item {
+            position: relative;
+            cursor: grab;
+            transition: transform 0.2s ease-in-out;
+        }
+        .frame-preview-item:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+        .frame-preview-item .remove-frame-btn {
+            display: none; /* Initially hidden */
+        }
+        .frame-preview-item:hover .remove-frame-btn {
+            display: flex;
+        }
+        .frame-preview-item.selected {
+            border-color: #3b82f6; /* blue-500 */
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+        .drag-over {
+            border-color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        /* Custom Scrollbar for Webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; /* gray-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4b5563; /* gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #6b7280; /* gray-500 */
+        }
+        /* Custom Scrollbar for Firefox */
+        html { scrollbar-color: #4b5563 #111827; }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">GIF Maker</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex h-screen-minus-header">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 flex flex-col">
+                <h2 class="text-xl font-bold text-white">Controls</h2>
+                
+                <div class="space-y-4">
+                    <label for="image-upload" class="font-medium">Upload Frames</label>
+                    <button id="upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                        <span>Select Images</span>
+                    </button>
+                    <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp" multiple>
+                </div>
+
+                <div id="settings-container" class="hidden flex-grow space-y-6">
+                    <div class="space-y-2">
+                        <label for="global-delay-slider" class="font-medium">Global Delay (ms)</label>
+                        <input type="range" id="global-delay-slider" min="20" max="2000" value="200" step="10" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        <div class="text-center text-sm text-gray-400"><span id="global-delay-label">200</span> ms</div>
+                    </div>
+
+                    <div id="frame-specific-settings" class="hidden space-y-2 border-t border-gray-800 pt-4">
+                        <label for="frame-delay-input" class="font-medium">Selected Frame Delay (ms)</label>
+                        <input type="number" id="frame-delay-input" min="20" max="5000" step="10" class="w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-700">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label for="width-input" class="font-medium">Width (px)</label>
+                            <input type="number" id="width-input" min="100" max="2000" value="512" class="w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-700">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="height-input" class="font-medium">Height (px)</label>
+                            <input type="number" id="height-input" min="100" max="2000" value="512" class="w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-700">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                    <label for="loop-select" class="font-medium">Loop</label>
+                    <select id="loop-select" class="w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-700">
+                        <option value="0">Infinite</option>
+                        <option value="1">Once</option>
+                        <option value="2">Twice</option>
+                        <option value="3">Three times</option>
+                    </select>
+                </div>
+                    <div class="flex items-center justify-between">
+                        <label for="dither-checkbox" class="font-medium">Dithering</label>
+                        <input type="checkbox" id="dither-checkbox" checked class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="mt-auto pt-6 border-t border-gray-800 space-y-3">
+                    <button id="generate-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                        <span>Generate GIF</span>
+                    </button>
+                    <button id="download-btn" title="Download GIF" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 hidden">
+                        <span>Download GIF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div id="workspace" class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 transition-colors">
+                <div id="preview-area" class="flex-grow flex items-center justify-center p-4 relative">
+                    <div id="prompt-container" class="text-center text-gray-500 cursor-pointer p-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <h1 class="mt-4 text-2xl font-bold text-white">GIF Maker</h1>
+                        <p class="mt-2 text-lg text-gray-400">Drop images or click to upload</p>
+                    </div>
+                    <img id="live-preview" src="" alt="Live GIF Preview" class="hidden max-w-full max-h-full object-contain rounded-lg">
+                    <div id="loader" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 text-center">
+                        <p id="progress-text" class="mt-2 text-white mb-2">Generating GIF...</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div id="progress-bar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="timeline-container" class="flex-shrink-0 h-36 bg-gray-800/50 border-t border-gray-800 p-3 hidden">
+                    <div id="frame-previews" class="flex gap-3 h-full overflow-x-auto">
+                        <!-- Frame previews will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Success!</div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const uploadBtn = document.getElementById('upload-btn');
+            const imageUpload = document.getElementById('image-upload');
+            const settingsContainer = document.getElementById('settings-container');
+            const framePreviews = document.getElementById('frame-previews');
+            const timelineContainer = document.getElementById('timeline-container');
+            const globalDelaySlider = document.getElementById('global-delay-slider');
+            const globalDelayLabel = document.getElementById('global-delay-label');
+            const frameSpecificSettings = document.getElementById('frame-specific-settings');
+            const frameDelayInput = document.getElementById('frame-delay-input');
+            const widthInput = document.getElementById('width-input');
+            const heightInput = document.getElementById('height-input');
+            const loopSelect = document.getElementById('loop-select');
+            const ditherCheckbox = document.getElementById('dither-checkbox');
+            const generateBtn = document.getElementById('generate-btn');
+            const livePreview = document.getElementById('live-preview');
+            const promptContainer = document.getElementById('prompt-container');
+            const loader = document.getElementById('loader');
+            const downloadBtn = document.getElementById('download-btn');
+            const toast = document.getElementById('toast');
+            const workspace = document.getElementById('workspace');
+            const previewArea = document.getElementById('preview-area');
+            const progressText = document.getElementById('progress-text');
+            const progressBar = document.getElementById('progress-bar');
+
+            let frames = []; // Will store objects: { file, dataUrl, delay }
+            let draggedItem = null;
+            let selectedFrameIndex = -1;
+            let livePreviewInterval = null;
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            async function handleFiles(files) {
+                const newFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+                if (newFiles.length === 0) {
+                    showToast('Please select valid image files.');
+                    return;
+                }
+
+                for (const file of newFiles) {
+                    const dataUrl = await new Promise(resolve => {
+                        const reader = new FileReader();
+                        reader.onload = e => resolve(e.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                    frames.push({ file, dataUrl, delay: parseInt(globalDelaySlider.value) });
+                }
+                renderFrames();
+                if (frames.length > 0) {
+                    selectFrame(frames.length - 1);
+                    startLivePreview();
+                }
+            }
+
+            function renderFrames() {
+                framePreviews.innerHTML = '';
+                frames.forEach((frameData, index) => {
+                    const frameEl = document.createElement('div');
+                    frameEl.className = `frame-preview-item h-full aspect-square bg-gray-700 rounded-lg border-2 border-transparent flex-shrink-0 relative ${index === selectedFrameIndex ? 'selected' : ''}`;
+                    frameEl.draggable = true;
+                    frameEl.dataset.index = index;
+                    frameEl.innerHTML = `
+                        <img src="${frameData.dataUrl}" class="w-full h-full object-cover rounded-md">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs text-center py-0.5">${frameData.delay}ms</div>
+                        <button class="remove-frame-btn absolute -top-2 -right-2 bg-red-600 hover:bg-red-500 text-white rounded-full p-1 leading-none">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    `;
+
+                    frameEl.addEventListener('click', () => selectFrame(index));
+                    frameEl.querySelector('.remove-frame-btn').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        frames.splice(index, 1);
+                        if (selectedFrameIndex >= index) {
+                            selectFrame(Math.max(0, selectedFrameIndex - 1));
+                        }
+                        renderFrames();
+                    });
+
+                    frameEl.addEventListener('dragstart', () => { draggedItem = frameEl; setTimeout(() => frameEl.style.opacity = '0.5', 0); });
+                    frameEl.addEventListener('dragend', () => { draggedItem.style.opacity = '1'; draggedItem = null; });
+                    frameEl.addEventListener('dragover', (e) => e.preventDefault());
+                    frameEl.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        if (draggedItem) {
+                            const fromIndex = Number(draggedItem.dataset.index);
+                            const toIndex = Number(frameEl.dataset.index);
+                            const [movedItem] = frames.splice(fromIndex, 1);
+                            frames.splice(toIndex, 0, movedItem);
+                            renderFrames();
+                        }
+                    });
+
+                    framePreviews.appendChild(frameEl);
+                });
+
+                const hasFrames = frames.length > 0;
+                settingsContainer.classList.toggle('hidden', !hasFrames);
+                timelineContainer.classList.toggle('hidden', !hasFrames);
+                promptContainer.classList.toggle('hidden', hasFrames);
+                livePreview.classList.toggle('hidden', !hasFrames);
+                generateBtn.disabled = frames.length < 2;
+                if (!hasFrames) stopLivePreview();
+            }
+
+            function selectFrame(index) {
+                if (index < 0 || index >= frames.length) {
+                    selectedFrameIndex = -1;
+                    frameSpecificSettings.classList.add('hidden');
+                    return;
+                }
+                selectedFrameIndex = index;
+                const frameData = frames[index];
+                livePreview.src = frameData.dataUrl;
+                frameDelayInput.value = frameData.delay;
+                frameSpecificSettings.classList.remove('hidden');
+                
+                document.querySelectorAll('.frame-preview-item').forEach(el => {
+                    el.classList.toggle('selected', parseInt(el.dataset.index) === index);
+                });
+            }
+
+            function startLivePreview() {
+                stopLivePreview();
+                if (frames.length === 0) return;
+
+                let currentIndex = 0;
+                const animate = () => {
+                    if (frames.length === 0) {
+                        stopLivePreview();
+                        return;
+                    }
+                    currentIndex = (currentIndex + 1) % frames.length;
+                    const frame = frames[currentIndex];
+                    livePreview.src = frame.dataUrl;
+                    livePreviewInterval = setTimeout(animate, frame.delay);
+                };
+                animate();
+            }
+
+            function stopLivePreview() {
+                if (livePreviewInterval) {
+                    clearTimeout(livePreviewInterval);
+                    livePreviewInterval = null;
+                }
+            }
+
+            function updateAllFrameDelays(delay) {
+                frames.forEach(frame => frame.delay = delay);
+                if (selectedFrameIndex !== -1) {
+                    frameDelayInput.value = delay;
+                }
+                renderFrames();
+            }
+
+            function updateSelectedFrameDelay(delay) {
+                if (selectedFrameIndex !== -1) {
+                    frames[selectedFrameIndex].delay = delay;
+                    renderFrames();
+                }
+            }
+
+            async function generateGIF() {
+                if (frames.length < 2) {
+                    showToast('Please upload at least 2 images.');
+                    return;
+                }
+
+                stopLivePreview();
+                setLoadingState(true, 'Initializing...');
+
+                const width = parseInt(widthInput.value);
+                const height = parseInt(heightInput.value);
+                const loop = parseInt(loopSelect.value);
+                const dither = ditherCheckbox.checked ? 'FloydSteinberg' : false;
+
+                const gif = new GIF({
+                    workers: 4,
+                    quality: 10,
+                    width: width,
+                    height: height,
+                    dither: dither,
+                    workerScript: 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js'
+                });
+
+                gif.setRepeat(loop);
+
+                gif.on('finished', (blob) => {
+                    const url = URL.createObjectURL(blob);
+                    livePreview.src = url; // Show the final generated GIF
+                    setLoadingState(false);
+                    downloadBtn.classList.remove('hidden');
+                    downloadBtn.onclick = () => {
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'solite-gif.gif';
+                        a.click();
+                    };
+                    showToast('GIF generated successfully!');
+                });
+
+                gif.on('progress', (p) => {
+                    const percent = Math.round(p * 100);
+                    progressText.textContent = `Encoding... ${percent}%`;
+                    progressBar.style.width = `${percent}%`;
+                });
+
+                for (const frame of frames) {
+                    const img = await new Promise(resolve => {
+                        const image = new Image();
+                        image.onload = () => resolve(image);
+                        image.src = frame.dataUrl;
+                    });
+                    gif.addFrame(img, { delay: frame.delay });
+                }
+
+                progressText.textContent = 'Rendering...';
+                gif.render();
+            }
+
+            function setLoadingState(isLoading, message = 'Generating GIF...') {
+                loader.classList.toggle('hidden', !isLoading);
+                progressText.textContent = message;
+                progressBar.style.width = '0%';
+                generateBtn.disabled = isLoading;
+                if (isLoading) {
+                    livePreview.classList.add('hidden');
+                    downloadBtn.classList.add('hidden');
+                }
+            }
+
+            // --- Event Listeners ---
+            uploadBtn.addEventListener('click', () => imageUpload.click());
+            imageUpload.addEventListener('change', (e) => { handleFiles(e.target.files); e.target.value = ''; });
+            globalDelaySlider.addEventListener('input', (e) => {
+                globalDelayLabel.textContent = e.target.value;
+                updateAllFrameDelays(parseInt(e.target.value));
+            });
+            frameDelayInput.addEventListener('change', (e) => updateSelectedFrameDelay(parseInt(e.target.value)));
+
+            generateBtn.addEventListener('click', generateGIF);
+            promptContainer.addEventListener('click', () => imageUpload.click());
+
+            previewArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                workspace.classList.add('drag-over');
+            });
+            workspace.addEventListener('dragleave', () => {
+                workspace.classList.remove('drag-over');
+            });
+            workspace.addEventListener('drop', (e) => {
+                e.preventDefault();
+                workspace.classList.remove('drag-over');
+                handleFiles(e.dataTransfer.files);
+            });
+        });
+    </script>
+</body>
+</html>

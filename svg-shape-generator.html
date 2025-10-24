@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free SVG Shape Generator - Create Custom Shapes | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="A free online tool to generate and customize SVG shapes like rectangles, circles, polygons, stars, and blobs. Export clean SVG code or download as a .svg file.">
+    <meta name="keywords" content="svg generator, svg shape generator, create svg, svg rectangle, svg circle, svg ellipse, svg triangle, svg polygon, svg star, svg rhombus, svg blob, vector shape generator, export svg, svg code, solite, online svg tool">
+    <link rel="canonical" href="https://solite.in/svg-shape-generator.html" />
+    <meta property="og:title" content="Free SVG Shape Generator | Solite">
+    <meta property="og:description" content="A free online tool to generate and customize various SVG shapes including rectangles, circles, ellipses, triangles, polygons, stars, rhombuses, and blobs. Export clean SVG code or download as a .svg file instantly.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=SVG+Shape+Generator">
+    <meta property="og:url" content="https://solite.in/svg-shape-generator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SVG Shape Generator",
+      "url": "https://solite.in/svg-shape-generator.html",
+      "description": "A free, client-side tool to generate and customize SVG shapes and export them as code or files.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast {
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #toast.show {
+            transform: translateY(2rem);
+        }
+        .custom-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle, #4a4a4a 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            cursor: pointer;
+            border-radius: 9999px;
+            margin-top: -6px; /* Center thumb on track */
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            cursor: pointer;
+            border-radius: 9999px;
+        }
+        /* Custom Scrollbar for Webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; /* gray-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4b5563; /* gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #6b7280; /* gray-500 */
+        }
+        /* Custom Scrollbar for Firefox */
+        html { scrollbar-color: #4b5563 #111827; }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <h1 class="text-lg font-semibold text-gray-600 dark:text-gray-400">SVG Shape Generator</h1>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto h-full" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-2xl font-bold text-white">Controls</h2>
+                
+                <div class="space-y-2">
+                    <label for="shape-select" class="font-medium">Shape</label>
+                    <div class="relative">
+                        <select id="shape-select" aria-label="Select Shape" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <option value="rectangle" selected>Rectangle</option>
+                            <option value="circle">Circle</option>
+                            <option value="ellipse">Ellipse</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="polygon">Polygon</option>
+                            <option value="star">Star</option>
+                            <option value="rhombus">Rhombus</option>
+                            <option value="blob">Blob</option>
+                        </select>
+                        <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+
+                <div id="shape-controls" class="space-y-4 border-t border-gray-800 pt-4">
+                    <!-- Shape-specific controls will be injected here -->
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h3 class="font-medium text-lg">Position</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label for="pos-x" class="text-sm text-gray-400">X Offset</label>
+                            <input type="number" id="pos-x" value="0" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="pos-y" class="text-sm text-gray-400">Y Offset</label>
+                            <input type="number" id="pos-y" value="0" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h3 class="font-medium text-lg">Rotation</h3>
+                    <div class="space-y-2">
+                        <label for="rotation-angle" class="text-sm text-gray-400">Angle (degrees)</label>
+                        <input type="range" id="rotation-angle" min="0" max="360" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h3 class="font-medium text-lg">Scale</h3>
+                    <div class="space-y-2">
+                        <label for="scale-slider" class="text-sm text-gray-400">Size (<span id="scale-label">100</span>%)</label>
+                        <input type="range" id="scale-slider" min="0.1" max="2" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                </div>
+
+                <div class="space-y-4 border-t border-gray-800 pt-4">
+                    <h3 class="font-medium text-lg">Styling</h3>
+                    <div class="space-y-2">
+                        <label for="fill-type" class="text-sm text-gray-400">Fill Type</label>
+                        <select id="fill-type" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <option value="solid" selected>Solid Color</option>
+                            <option value="gradient">Linear Gradient</option>
+                        </select>
+                    </div>
+                    <div id="solid-color-controls" class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-800">
+                        <div class="space-y-2 flex flex-col">
+                            <label for="fill-color" class="text-sm text-gray-400">Fill Color</label>
+                            <input type="color" id="fill-color" value="#ffffff" aria-label="Fill Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                    </div>
+                    <div id="gradient-fill-controls" class="hidden space-y-4 border-t border-gray-800 pt-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2"><label for="gradient-color-1" class="text-sm text-gray-400">Color 1</label><input type="color" id="gradient-color-1" value="#ffffff" aria-label="Gradient Color 1" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                            <div class="space-y-2"><label for="gradient-color-2" class="text-sm text-gray-400">Color 2</label><input type="color" id="gradient-color-2" value="#0000ff" aria-label="Gradient Color 2" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="gradient-angle" class="text-sm text-gray-400">Gradient Angle</label>
+                            <input type="range" id="gradient-angle" min="0" max="360" value="90" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                    </div>
+                    <div id="stroke-color-container" class="space-y-2 flex flex-col border-t border-gray-800 pt-4">
+                        <label for="stroke-color" class="text-sm text-gray-400">Stroke Color</label>
+                        <input type="color" id="stroke-color" value="#000000" aria-label="Stroke Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                    <div class="space-y-2 pt-4 border-t border-gray-800">
+                        <label for="fill-opacity" class="text-sm text-gray-400">Fill Opacity</label>
+                        <input type="range" id="fill-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="stroke-opacity" class="text-sm text-gray-400">Stroke Opacity</label>
+                        <input type="range" id="stroke-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="stroke-width" class="text-sm text-gray-400">Stroke Width</label>
+                        <input type="range" id="stroke-width" min="0" max="20" value="2" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex items-center justify-center p-8 bg-grid-pattern">
+                    <div id="svg-preview" class="max-w-full max-h-full">
+                        <!-- SVG will be rendered here -->
+                    </div>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">SVG Code</h3>
+                        <div class="flex items-center gap-2">
+                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <span>Copy Code</span>
+                            </button>
+                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                <span>Download</span>
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="svg-code-output" readonly class="w-full h-32 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cache all DOM elements for performance
+            const el = {
+                controlsPanel: document.getElementById('controls-panel'),
+                shapeSelect: document.getElementById('shape-select'),
+                shapeControlsContainer: document.getElementById('shape-controls'),
+                svgPreview: document.getElementById('svg-preview'),
+                svgCodeOutput: document.getElementById('svg-code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                scaleLabel: document.getElementById('scale-label'),
+                toast: document.getElementById('toast'),
+                fillTypeSelect: document.getElementById('fill-type'),
+                solidColorControls: document.getElementById('solid-color-controls'),
+                gradientFillControls: document.getElementById('gradient-fill-controls')
+            };
+
+            let blobPath = '';
+
+            const controls = {
+                rectangle: `
+                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="rect-width" class="text-sm text-gray-400">Width</label><input type="number" id="rect-width" value="200" min="10" max="250" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label for="rect-height" class="text-sm text-gray-400">Height</label><input type="number" id="rect-height" value="100" min="10" max="250" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    </div>
+                    <div class="space-y-2"><label for="rect-rx" class="text-sm text-gray-400">Corner Radius</label><input type="range" id="rect-rx" min="0" max="50" value="10" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                `,
+                circle: `
+                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
+                    <div class="space-y-2"><label for="circle-r" class="text-sm text-gray-400">Radius</label><input type="number" id="circle-r" value="60" min="10" max="120" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                `,
+                ellipse: `
+                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="ellipse-rx" class="text-sm text-gray-400">Horizontal Radius</label><input type="number" id="ellipse-rx" value="100" min="10" max="125" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label for="ellipse-ry" class="text-sm text-gray-400">Vertical Radius</label><input type="number" id="ellipse-ry" value="50" min="10" max="125" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    </div>
+                `,
+                triangle: `
+                    <h3 class="font-medium text-white mb-3">Properties</h3>
+                    <div class="space-y-2"><label for="triangle-r" class="text-sm text-gray-400">Radius</label><input type="number" id="triangle-r" value="70" min="10" max="120" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                `,
+                polygon: `
+                    <h3 class="font-medium text-white mb-3">Properties</h3>
+                    <div class="space-y-2"><label for="poly-sides" class="text-sm text-gray-400">Sides</label><input type="range" id="poly-sides" min="3" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    <div class="space-y-2"><label for="poly-r" class="text-sm text-gray-400">Radius</label><input type="number" id="poly-r" value="70" min="10" max="120" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                `,
+                star: `
+                    <h3 class="font-medium text-white mb-3">Properties</h3>
+                    <div class="space-y-2"><label for="star-points" class="text-sm text-gray-400">Points</label><input type="range" id="star-points" min="3" max="12" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="star-r1" class="text-sm text-gray-400">Outer Radius</label><input type="number" id="star-r1" value="80" min="10" max="120" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label for="star-r2" class="text-sm text-gray-400">Inner Radius</label><input type="number" id="star-r2" value="40" min="5" max="110" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    </div>
+                `,
+                rhombus: `
+                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="rhombus-w" class="text-sm text-gray-400">Width</label><input type="number" id="rhombus-w" value="150" min="10" max="250" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label for="rhombus-h" class="text-sm text-gray-400">Height</label><input type="number" id="rhombus-h" value="150" min="10" max="250" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    </div>
+                `,
+                wave: `
+                    <h3 class="font-medium text-white mb-3">Properties</h3>
+                    <div class="space-y-2"><label for="wave-amplitude" class="text-sm text-gray-400">Amplitude</label><input type="range" id="wave-amplitude" min="5" max="100" value="25" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    <div class="space-y-2"><label for="wave-frequency" class="text-sm text-gray-400">Frequency</label><input type="range" id="wave-frequency" min="1" max="10" value="2" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    </div>
+                `,
+                blob: `
+                    <h3 class="font-medium text-white mb-3">Properties</h3>
+                    <div class="space-y-2"><label for="blob-complexity" class="text-sm text-gray-400">Complexity</label><input type="range" id="blob-complexity" min="4" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    <div class="space-y-2"><label for="blob-smoothness" class="text-sm text-gray-400">Smoothness</label><input type="range" id="blob-smoothness" min="0.2" max="1" value="0.7" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+                    <button id="new-blob-btn" class="w-full mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg">Generate New Blob</button>
+                `
+            };
+
+            function updateShapeControls() {
+                const selectedShape = el.shapeSelect.value;
+                el.shapeControlsContainer.innerHTML = controls[selectedShape] || ''; // Inject new controls
+                attachDynamicListeners(); // Re-attach listeners for dynamic elements like the blob button
+                generateSvg();
+            }
+
+            function generateSvg() {
+                const shape = el.shapeSelect.value;
+                const fillType = el.fillTypeSelect.value;
+                const stroke = document.getElementById('stroke-color').value;
+                const strokeWidth = document.getElementById('stroke-width').value;
+                const fillOpacity = document.getElementById('fill-opacity').value;
+                const strokeOpacity = document.getElementById('stroke-opacity').value;
+                const posX = parseInt(document.getElementById('pos-x').value) || 0; // These are still queried as they are part of the global controls
+                const posY = parseInt(document.getElementById('pos-y').value) || 0;
+                const rotationAngle = parseInt(document.getElementById('rotation-angle').value) || 0;
+                const scale = parseFloat(document.getElementById('scale-slider').value) || 1;
+                let svgElement = '';
+                let defs = '';
+                let fill;
+
+                if (fillType === 'gradient') {
+                    const color1 = document.getElementById('gradient-color-1').value;
+                    const color2 = document.getElementById('gradient-color-2').value;
+                    const angle = parseInt(document.getElementById('gradient-angle').value);
+                    const angleRad = (angle - 90) * (Math.PI / 180);
+                    const x1 = Math.round(50 + Math.cos(angleRad) * 50) + '%';
+                    const y1 = Math.round(50 + Math.sin(angleRad) * 50) + '%';
+                    const x2 = Math.round(50 - Math.cos(angleRad) * 50) + '%';
+                    const y2 = Math.round(50 - Math.sin(angleRad) * 50) + '%';
+
+                    defs = `<defs><linearGradient id="soliteGradient" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"><stop offset="0%" stop-color="${color1}" /><stop offset="100%" stop-color="${color2}" /></linearGradient></defs>`;
+                    fill = 'url(#soliteGradient)';
+                } else {
+                    fill = document.getElementById('fill-color')?.value || '#ffffff';
+                }
+
+                let viewBox = '0 0 250 250';
+
+                switch (shape) {
+                    case 'rectangle':
+                        const w = parseInt(document.getElementById('rect-width').value);
+                        const h = parseInt(document.getElementById('rect-height').value);
+                        const rx = parseInt(document.getElementById('rect-rx').value);
+                        svgElement = `<rect x="${(250 - w * scale)/2 + posX}" y="${(250 - h * scale)/2 + posY}" width="${w * scale}" height="${h * scale}" rx="${rx * scale}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                    case 'circle':
+                        const r = parseInt(document.getElementById('circle-r').value);
+                        svgElement = `<circle cx="${125 + posX}" cy="${125 + posY}" r="${r * scale}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                    case 'ellipse':
+                        const rx_ellipse = parseInt(document.getElementById('ellipse-rx').value);
+                        const ry_ellipse = parseInt(document.getElementById('ellipse-ry').value);
+                        svgElement = `<ellipse cx="${125 + posX}" cy="${125 + posY}" rx="${rx_ellipse * scale}" ry="${ry_ellipse * scale}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                    case 'blob':
+                        if (!blobPath) generateBlobPath();
+                        svgElement = `<path d="${blobPath}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="translate(${posX} ${posY}) scale(${scale}) rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                    case 'rhombus':
+                        const rhomW = parseInt(document.getElementById('rhombus-w').value) * scale;
+                        const rhomH = parseInt(document.getElementById('rhombus-h').value) * scale;
+                        const rhomPoints = [
+                            `${125 + posX}, ${125 - rhomH / 2 + posY}`,
+                            `${125 + rhomW / 2 + posX}, ${125 + posY}`,
+                            `${125 + posX}, ${125 + rhomH / 2 + posY}`,
+                            `${125 - rhomW / 2 + posX}, ${125 + posY}`
+                        ].join(' ');
+                        svgElement = `<polygon points="${rhomPoints}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                    case 'triangle':
+                    case 'polygon':
+                    case 'star':
+                        const points = [];
+                        const sides = shape === 'triangle' ? 3 : parseInt(document.getElementById(shape === 'polygon' ? 'poly-sides' : 'star-points').value);
+                        const r1 = (parseInt(document.getElementById(shape === 'triangle' ? 'triangle-r' : (shape === 'polygon' ? 'poly-r' : 'star-r1')).value)) * scale;
+                        const r2 = shape === 'star' ? (parseInt(document.getElementById('star-r2').value)) * scale : r1;
+                        const angleStep = (Math.PI * 2) / (shape === 'star' ? sides * 2 : sides);
+                        
+                        for (let i = 0; i < (shape === 'star' ? sides * 2 : sides); i++) {
+                            const currentRadius = (shape === 'star' && i % 2 !== 0) ? r2 : r1; // Alternate between inner and outer radius for stars
+                            const x = 125 + posX + currentRadius * Math.cos(i * angleStep - Math.PI / 2);
+                            const y = 125 + posY + currentRadius * Math.sin(i * angleStep - Math.PI / 2);
+                            points.push(`${x},${y}`);
+                        }
+                        svgElement = `<polygon points="${points.join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="rotate(${rotationAngle} 125 125)" />`;
+                        break;
+                }
+
+                const finalSvg = `<svg width="100%" height="100%" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" overflow="visible">${defs}${svgElement}</svg>`;
+                el.svgPreview.innerHTML = finalSvg;
+                el.svgCodeOutput.value = finalSvg;
+            }
+
+            function generateBlobPath() {
+                const complexity = parseInt(document.getElementById('blob-complexity').value);
+                const smoothness = parseFloat(document.getElementById('blob-smoothness').value);
+                const radius = 100;
+                const points = [];
+
+                for (let i = 0; i < complexity; i++) {
+                    const angle = (i / complexity) * Math.PI * 2;
+                    const r = radius * (1 + (Math.random() - 0.5) * (1 - smoothness));
+                    points.push({
+                        x: 125 + Math.cos(angle) * r,
+                        y: 125 + Math.sin(angle) * r,
+                    });
+                }
+
+                let path = `M ${points[0].x} ${points[0].y}`;
+                for (let i = 0; i < complexity; i++) {
+                    const p1 = points[i];
+                    const p2 = points[(i + 1) % complexity];
+                    const midX = (p1.x + p2.x) / 2;
+                    const midY = (p1.y + p2.y) / 2;
+                    path += ` Q ${p1.x} ${p1.y} ${midX} ${midY}`;
+                }
+                blobPath = path + " Z";
+            }
+
+            function attachDynamicListeners() {
+                // This function is now only for listeners on dynamically created elements
+                 const newBlobBtn = document.getElementById('new-blob-btn');
+                if (newBlobBtn) {
+                    newBlobBtn.addEventListener('click', () => {
+                        generateBlobPath(); generateSvg();
+                    });
+                }
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            }
+
+            el.copyCodeBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.svgCodeOutput.value).then(() => showToast('Code copied!'));
+            });
+
+            el.downloadBtn.addEventListener('click', () => {
+                const blob = new Blob([el.svgCodeOutput.value], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${shapeSelect.value}.svg`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+
+            // Use event delegation for better performance
+            el.controlsPanel.addEventListener('input', (e) => {
+                if (e.target.matches('input, select')) {
+                    if (e.target.id === 'scale-slider') {
+                        el.scaleLabel.textContent = Math.round(e.target.value * 100);
+                    }
+                    if (e.target.id === 'fill-type') {
+                        const isSolid = e.target.value === 'solid';
+                        el.solidColorControls.classList.toggle('hidden', !isSolid);
+                        el.gradientFillControls.classList.toggle('hidden', isSolid);
+                    }
+                    generateSvg();
+                }
+            });
+
+            el.shapeSelect.addEventListener('change', updateShapeControls);
+
+            // Initial setup
+            updateShapeControls();
+        });
+    </script>
+</body>
+</html>
