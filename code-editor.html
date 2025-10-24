@@ -12,11 +12,14 @@
     <meta property="og:title" content="Free Online Code Editor (HTML, CSS, JS) | Solite">
     <meta property="og:description" content="A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Code+Editor">
+    <meta property="og:image" content="https://solite.in/assets/solite-code-editor-og.png">
     <meta property="og:url" content="https://solite.in/code-editor.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
@@ -26,8 +29,21 @@
       "url": "https://solite.in/code-editor.html",
       "description": "A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly.",
       "applicationCategory": "DeveloperApplication",
+      "featureList": [
+        "Real-time HTML, CSS, and JavaScript editing",
+        "Live preview of code changes",
+        "Separate tabs for HTML, CSS, and JS",
+        "Clear editor functionality",
+        "Download project as a ZIP file",
+        "Client-side processing for privacy"
+      ],
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      }
     }
     </script>
 
@@ -45,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <!-- JSZip for downloading -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
@@ -131,7 +147,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Code Editor</span>
             </a>
@@ -145,7 +161,8 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow flex" style="height: calc(100vh - 80px);">
+    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
+        <h1 class="sr-only">Code Editor</h1>
         <div class="flex-grow w-full p-3 flex flex-col md:flex-row gap-3 lg:w-[80%]">
             <!-- Editor Pane -->
             <div id="editor-pane" class="w-full md:w-[30%] flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">

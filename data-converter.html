@@ -12,10 +12,13 @@
     <meta property="og:title" content="Universal Data Converter | Solite">
     <meta property="og:description" content="Convert CSV, JSON, XML, YAML & SQL Instantly — 100% Private. No server. No sign-up.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Data+Converter">
+    <meta property="og:image" content="https://solite.in/assets/solite-data-converter-og.png">
     <meta property="og:url" content="https://solite.in/data-converter.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -26,8 +29,23 @@
       "url": "https://solite.in/data-converter.html",
       "description": "A privacy-first, all-in-one converter that transforms between CSV, JSON, XML, and more — all offline, directly in the user’s browser.",
       "applicationCategory": "DeveloperApplication",
+      "featureList": [
+        "Convert between various data formats (JSON, CSV, XML, YAML, Markdown Table, SQL, TOML, HTML Table)",
+        "Auto-detect input format",
+        "Pretty print option for formatted output",
+        "Syntax highlighting for input data",
+        "Copy and download converted data",
+        "Swap input and output data",
+        "Client-side processing for privacy",
+        "File upload support"
+      ],
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      }
     }
     </script>
 
@@ -43,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <!-- Conversion Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
@@ -136,7 +154,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Universal Data Converter</span>
             </a>
@@ -151,6 +169,7 @@
 
     <!-- Main Content -->
     <main class="flex-grow flex h-screen-minus-header">
+        <h1 class="sr-only">Universal Data Converter</h1>
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col gap-3">
             <!-- Control Bar --> 
             <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 flex flex-wrap items-center gap-4">

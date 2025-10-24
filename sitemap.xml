@@ -61,17 +61,22 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://solite.in/file-viewer.html</loc>
-    <lastmod>2025-10-19</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://solite.in/privacy-scanner.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/svg-shape-generator.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/watermark-annotator.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/css-shadows-maker.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
   </url>

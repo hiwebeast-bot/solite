@@ -12,10 +12,13 @@
     <meta property="og:title" content="Text Tools | Solite">
     <meta property="og:description" content="The ultimate, all-in-one text toolkit from Solite. Clean formatting, find & replace with Regex, analyze readability, change case, and more. 100% private.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Text+Toolkit">
+    <meta property="og:image" content="https://solite.in/assets/solite-text-toolkit-og.png">
     <meta property="og:url" content="https://solite.in/text-toolkit.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -26,8 +29,25 @@
       "url": "https://solite.in/text-toolkit.html",
       "description": "An all-in-one text toolkit to clean formatting, find & replace with Regex, analyze readability, change case, and more.",
       "applicationCategory": "UtilitiesApplication",
+      "featureList": [
+        "Strip all formatting from text",
+        "Remove extra spaces and line breaks",
+        "Convert text case (UPPERCASE, lowercase, Sentence case, Title Case)",
+        "Extract emails and URLs",
+        "Sort lines alphabetically",
+        "Remove duplicate lines",
+        "Format JSON",
+        "Find and replace with case sensitivity and Regex support",
+        "Text analysis (word count, character count, reading time, readability score)",
+        "Undo/Redo functionality"
+      ],
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      }
     }
     </script>
 
@@ -46,7 +66,7 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <script>
         tailwind.config = {
@@ -103,7 +123,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Text Tools</span>
             </a>
@@ -115,7 +135,8 @@
             </div>
         </div>
     </header>
-    <main class="flex-grow flex" style="height: calc(100vh - 80px);">
+    <h1 class="sr-only">Text Tools</h1>
+    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
         <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col">
         <!-- Command Bar -->
         <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4" role="toolbar">

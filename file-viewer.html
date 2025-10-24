@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Viewer | Solite</title>
 
-    <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.">
     <meta name="keywords" content="file viewer, online document viewer, view pdf, view docx, view xlsx, view pptx, view odt, view ods, view odp, solite, privacy first">
     <link rel="canonical" href="https://solite.in/file-viewer.html" />
     <meta property="og:title" content="Universal File Viewer | Solite">
     <meta property="og:description" content="A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=File+Viewer">
+    <meta property="og:image" content="https://solite.in/assets/solite-file-viewer-og.png">
     <meta property="og:url" content="https://solite.in/file-viewer.html">
+    <title>Free Online File Viewer - View PDF, DOCX, XLSX | Solite</title>
+<meta name="description" content="Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. A free, private, browser-based file viewer by Solite.">
+<link rel="canonical" href="https://solite.in/file-viewer.html">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph for social + AI -->
+<meta property="og:title" content="Free Online File Viewer - View PDF, DOCX, XLSX | Solite">
+<meta property="og:description" content="Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. A free, private, browser-based file viewer by Solite.">
+<meta property="og:url" content="https://solite.in/file-viewer.html">
+<meta property="og:site_name" content="Solite App Suite">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://solite.in/assets/file-viewer-thumbnail.png">
+
+<!-- AdSense Meta Tag -->
+<meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "File Viewer",
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -32,21 +52,9 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "File Viewer",
-      "url": "https://solite.in/file-viewer.html",
-      "description": "A free, client-side tool to view various document formats like PDF, DOCX, XLSX, and PPTX directly in the browser.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
-    }
-    </script>
 
     <!-- File Viewer Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -130,7 +138,7 @@
     <main class="flex-grow flex h-screen-minus-header">
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col">
             <!-- File Viewer Area -->
-            <div id="viewer-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto">
+            <div id="viewer-container" class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto">
                 <div id="upload-prompt" class="text-center cursor-pointer p-8">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     <h1 class="mt-4 text-2xl font-bold text-white">Universal File Viewer</h1>
@@ -425,4 +433,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Scanner | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
+    <title>Privacy Scanner | Solite Tools</title>
     <meta name="description" content="A free, private tool to scan website source code for trackers, third-party scripts, and potential privacy risks. Paste HTML to analyze instantly in your browser.">
-    <meta name="keywords" content="privacy scanner, tracker scanner, website privacy, security scanner, client-side scanner, check website trackers, html scanner, solite">
-    <link rel="canonical" href="https://solite.in/privacy-scanner.html" />
-    <meta property="og:title" content="Privacy Scanner | Solite">
-    <meta property="og:description" content="A free, private tool to scan website source code for trackers, third-party scripts, and potential privacy risks. Paste HTML to analyze instantly in your browser.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Privacy+Scanner">
+    <link rel="canonical" href="https://solite.in/privacy-scanner.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Privacy Scanner | Solite Tools">
+    <meta property="og:description" content="Free browser-based privacy scanner. No login, no ads.">
     <meta property="og:url" content="https://solite.in/privacy-scanner.html">
+    <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://solite.in/assets/privacy-scanner-thumbnail.png">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
     <!-- Vercel Analytics -->
     <script>
@@ -32,7 +36,7 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -41,20 +45,20 @@
       "@type": "WebApplication",
       "name": "Privacy Scanner",
       "url": "https://solite.in/privacy-scanner.html",
-      "description": "A free, client-side tool to scan website source code for trackers and potential privacy risks.",
+      "description": "A free, privacy-first, browser-based privacy scanner with code export.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "provider": {
+      "browserRequirements": "Requires JavaScript. Works fully client-side.",
+      "creator": {
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in"
       },
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
 
@@ -98,7 +102,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Privacy Scanner</span>
             </a>
@@ -114,6 +118,7 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex h-screen-minus-header">
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col">
+            <h1 class="sr-only">Privacy Scanner</h1>
             <div class="flex-grow flex flex-col lg:flex-row gap-4">
                 <!-- Input Panel -->
                 <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-4">

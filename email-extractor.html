@@ -12,10 +12,13 @@
     <meta property="og:title" content="Free Email Extractor Tool | Solite">
     <meta property="og:description" content="Quickly extract all email addresses from a block of text. Free, private, and works instantly in your browser. No data is uploaded.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Email+Extractor">
+    <meta property="og:image" content="https://solite.in/assets/solite-email-extractor-og.png">
     <meta property="og:url" content="https://solite.in/email-extractor.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
     <!-- Vercel Analytics -->
     <script>
@@ -32,7 +35,7 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -43,6 +46,13 @@
       "url": "https://solite.in/email-extractor.html",
       "description": "A free, client-side tool to extract all email addresses from a block of text.",
       "applicationCategory": "UtilitiesApplication",
+      "featureList": [
+        "Extracts all valid email addresses from text",
+        "Removes duplicate email addresses automatically",
+        "Sorts extracted emails alphabetically",
+        "Exports emails to CSV format",
+        "Client-side processing for privacy"
+      ],
       "operatingSystem": "All",
       "offers": {
         "@type": "Offer",
@@ -108,7 +118,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Email Extractor</span>
             </a>
@@ -124,11 +134,12 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex h-screen-minus-header">
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col">
+            <h1 class="sr-only">Email Extractor</h1>
             <div class="flex-grow flex flex-col lg:flex-row gap-4">
                 <!-- Input Panel -->
                 <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6" role="region" aria-labelledby="input-heading">
                     <div class="flex justify-between items-center mb-4">
-                        <h2 id="input-heading" class="text-xl font-bold text-white">Paste Text Here</h2>
+                        <h2 id="input-heading" class="text-xl font-bold text-white">Input Text</h2>
                         <button id="clear-btn" title="Clear Input" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm font-medium">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
                             <span>Clear</span>

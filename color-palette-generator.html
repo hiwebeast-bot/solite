@@ -12,10 +12,13 @@
     <meta property="og:title" content="Free Color Palette Generator | Solite">
     <meta property="og:description" content="Instantly generate beautiful, harmonious color palettes for your design projects. Lock colors, adjust shades, and export your palette.">
     <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://placehold.co/1200x630/000000/ffffff?text=Solite+Color+Palette+Generator">
+    <meta property="og:image" content="https://solite.in/assets/solite-color-palette-generator-og.png">
     <meta property="og:url" content="https://solite.in/color-palette-generator.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
     <!-- Vercel Analytics -->
     <script>
@@ -32,7 +35,7 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/ffffff/000000?text=S">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -43,8 +46,21 @@
       "url": "https://solite.in/color-palette-generator.html",
       "description": "A free, client-side tool to generate, customize, and export color palettes.",
       "applicationCategory": "DesignApplication",
+      "featureList": [
+        "Generate analogous, monochromatic, triadic, and complementary palettes",
+        "Lock individual colors to preserve them during generation",
+        "View shades and tints for each color",
+        "Copy HEX codes for individual colors",
+        "Export palettes as URL, PNG, SVG, or CSS variables",
+        "Client-side processing for privacy"
+      ],
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      }
     }
     </script>
 
@@ -98,7 +114,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</h1>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
                 <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Color Palette Generator</span>
             </a>
@@ -114,6 +130,7 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex h-screen-minus-header">
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            <h1 class="sr-only">Color Palette Generator</h1>
             <!-- Palette Display -->
             <div id="palette-container" class="flex-1 flex flex-col lg:flex-row bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <!-- Color columns will be injected here -->

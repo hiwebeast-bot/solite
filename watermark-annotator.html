@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Image Watermarker & Annotator - Add Text & Logos | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Use our free online tool to watermark and annotate images. Draw, add text, and place image logos directly in your browser. 100% private and secure.">
+    <meta name="keywords" content="solite, image watermarker, image annotator, watermark image, annotate image, add text to image, draw on image, image marker, online image tool, privacy first, free watermark tool">
+    <link rel="canonical" href="https://solite.in/watermark-annotator.html" />
+    <meta property="og:title" content="Free Image Watermarker & Annotator - Add Text & Logos | Solite">
+    <meta property="og:description" content="Use our free online tool to watermark and annotate images. Draw, add text, and place image logos directly in your browser. 100% private and secure.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://solite.in/assets/solite-watermark-tool-og.png">
+    <meta property="og:url" content="https://solite.in/watermark-annotator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Watermarker & Annotator | Solite",
+      "url": "https://solite.in/watermark-annotator.html",
+      "description": "A free, client-side tool to add watermarks and annotations like text, shapes, and drawings to images.",
+      "applicationCategory": "MultimediaApplication",
+      "featureList": [
+        "Add text watermarks with customizable font, size, color, and opacity",
+        "Add image watermarks with adjustable size and opacity",
+        "Freehand drawing with pencil tool (customizable color and size)",
+        "Draw shapes (rectangle, circle, triangle) with customizable color and size",
+        "Undo/Redo functionality",
+        "Download annotated images (PNG format)",
+        "Client-side processing for privacy"
+      ],
+      "softwareVersion": "1.0",
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      }
+    }
+    </script>
+
+    <!-- Fabric.js for Object-Oriented Canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .tool-btn.active { background-color: #fff; color: #000; }
+        .layer-item.selected { background-color: #374151; } /* gray-700 */
+        .tab-btn.active { border-bottom-width: 2px; border-color: #fff; color: #fff; }
+        .canvas-container { margin: auto; } /* Center fabric.js canvas */
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 7l10 5 10-5"/>
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider" id="controls-heading">Solite</h1>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Image Watermarker & Annotator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+            
+            <!-- Main Workspace -->
+            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative">
+                <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                    <h1 class="absolute w-px h-px p-0 -m-px overflow-hidden" style="clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Image Watermarker & Annotator</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
+                    <p class="mt-1 text-sm text-gray-400">Your images stay on your device.</p>
+                </div>
+                <canvas id="canvas" aria-label="Image editing canvas for watermarking and annotations"></canvas>
+                <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp">
+                <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 leading-none z-10 flex items-center gap-2 text-sm font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                    <span>Remove</span>
+                </button>
+            </div>
+
+            <!-- Controls Panel -->
+            <aside id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto" aria-labelledby="controls-heading">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-white">Image Watermarker & Annotator</h3>
+                    <div class="flex items-center space-x-2">
+                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-lg p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+                        </button>
+                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="main-controls" class="hidden space-y-6">
+                    <!-- Tabs -->
+                    <div class="border-b border-gray-800">
+                        <div class="flex -mb-px" aria-label="Tabs">
+                            <button class="tab-btn active text-sm font-medium py-3 px-4" data-tab="text">Text</button>
+                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="image">Image</button>
+                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="pencil">Pencil</button>
+                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="shapes">Shapes</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div id="tab-contents">
+                        <div id="text-tab" class="tab-content space-y-4">
+                            <h4 class="font-semibold text-gray-200">Text Watermark</h4>
+                            <input type="text" id="watermark-text" placeholder="Your watermark text..." aria-label="Watermark Text" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                            <label class="block"><span class="text-sm">Font Size</span><input type="range" id="watermark-size" min="10" max="200" value="50" aria-label="Watermark Font Size" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                            <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" aria-label="Watermark Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                            <input type="color" id="watermark-color" value="#ffffff" aria-label="Watermark Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+
+                        <div id="image-tab" class="tab-content hidden space-y-4">
+                            <h4 class="font-semibold text-gray-200">Image Watermark</h4>
+                            <input type="file" id="watermark-upload-input" class="hidden" aria-label="Image watermark upload" accept="image/png, image/jpeg, image/webp">
+                            <button id="upload-watermark-btn" class="w-full bg-gray-700 hover:bg-gray-600 py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg> <span>Upload Watermark</span></button>
+                            <div id="image-watermark-sliders" class="hidden space-y-4">
+                                <label class="block"><span class="text-sm">Size</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                                <label class="block"><span class="text-sm">Opacity</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                            </div>
+                        </div>
+
+                        <div id="pencil-tab" class="tab-content hidden space-y-4">
+                            <h4 class="font-semibold text-gray-200">Pencil Tool</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label for="pencil-color" class="text-sm">Pencil Color</label>
+                                    <input type="color" id="pencil-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="pencil-size" class="text-sm">Pencil Width</label>
+                                    <input type="range" id="pencil-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="shapes-tab" class="tab-content hidden space-y-4">
+                            <h4 class="font-semibold text-gray-200">Shapes Tool</h4>
+                             <div class="grid grid-cols-4 gap-2 p-1 bg-gray-800 rounded-lg">
+                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700 active" data-tool="rectangle" title="Rectangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z"></path></svg></button>
+                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="circle" title="Circle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="triangle" title="Triangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L2 21h20L12 2z"></path></svg></button>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label for="shape-color" class="text-sm">Shape Color</label>
+                                    <input type="color" id="shape-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="shape-size" class="text-sm">Shape Border Width</label>
+                                    <input type="range" id="shape-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Export -->
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h4 class="font-semibold text-gray-200">Export</h4>
+                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                            <span>Download Image</span>
+                        </button>
+                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg">Remove Image</button>
+                    </div>
+                </div>
+                <p id="controls-prompt" class="text-gray-500 text-center" aria-live="polite">Upload an image to start.</p>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Success!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const imageUpload = document.getElementById('image-upload');
+            const canvasContainer = document.getElementById('canvas-container');
+            const canvasElement = document.getElementById('canvas');
+            const mainControls = document.getElementById('main-controls');
+            const controlsPrompt = document.getElementById('controls-prompt');
+            const downloadBtn = document.getElementById('download-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const removeImageBtn = document.getElementById('remove-image-btn');
+            const toast = document.getElementById('toast');
+
+            // Tab controls
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const toolBtns = document.querySelectorAll('.tool-btn');
+
+            // Undo/Redo
+            const undoBtn = document.getElementById('undo-btn');
+            const redoBtn = document.getElementById('redo-btn');
+
+            const watermarkText = document.getElementById('watermark-text');
+            const watermarkSize = document.getElementById('watermark-size');
+            const watermarkOpacity = document.getElementById('watermark-opacity');
+            const watermarkColor = document.getElementById('watermark-color');
+            const watermarkUploadInput = document.getElementById('watermark-upload-input');
+            const uploadWatermarkBtn = document.getElementById('upload-watermark-btn');
+            const imageWatermarkSliders = document.getElementById('image-watermark-sliders');
+            const imageWatermarkSize = document.getElementById('image-watermark-size');
+            const imageWatermarkOpacity = document.getElementById('image-watermark-opacity');
+
+            // Annotation controls
+            const pencilColorInput = document.getElementById('pencil-color');
+            const pencilSizeInput = document.getElementById('pencil-size');
+            const shapeColorInput = document.getElementById('shape-color');
+            const shapeSizeInput = document.getElementById('shape-size');
+
+            // --- State Variables ---
+            let fabricCanvas = null;
+            let originalImageObject = null;
+            let textWatermarkObject = null;
+            let imageWatermarkObject = null;
+            let activeWatermarkType = 'text'; // Default to text watermark
+            let activeTool = 'pencil'; // Tool mode for drawing/annotation
+
+            // Shape Drawing State
+            let isDrawingShape = false;
+            let currentShape;
+            let canvasMouseDownX, canvasMouseDownY;
+            
+            // History State
+            let history = [];
+            let historyIndex = -1;
+            let stateSaving = true;
+
+            // --- History Management ---
+            const saveState = () => {
+                if (!stateSaving) return;
+                const canvasState = fabricCanvas.toJSON();
+                if (historyIndex < history.length - 1) {
+                    history = history.slice(0, historyIndex + 1);
+                }
+                history.push(canvasState);
+                historyIndex++;
+                updateUndoRedoButtons();
+            };
+
+            const undo = () => {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    loadState(history[historyIndex]);
+                }
+            };
+
+            const redo = () => {
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    loadState(history[historyIndex]);
+                }
+            };
+
+            const loadState = (state) => {
+                stateSaving = false;
+                fabricCanvas.loadFromJSON(state, () => {
+                    fabricCanvas.renderAll();
+                    // Re-assign watermarkObject after loading state
+                    textWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'text');
+                    imageWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'image');
+                    stateSaving = true;
+                    updateUndoRedoButtons();
+                });
+            };
+
+            const updateUndoRedoButtons = () => {
+                undoBtn.disabled = historyIndex <= 0;
+                redoBtn.disabled = historyIndex >= history.length - 1;
+            };
+
+            undoBtn.addEventListener('click', undo);
+            redoBtn.addEventListener('click', redo);
+
+            // --- Toast Notification ---
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+
+            // --- Fabric Initialization ---
+            function initFabricCanvas() {
+                fabricCanvas = new fabric.Canvas(canvasElement, {
+                    selection: true, // Allow object selection/interaction
+                    preserveObjectStacking: true, // Keep background image at the back
+                    width: 600, // Placeholder dimensions
+                    height: 400
+                });
+
+                fabricCanvas.on('object:modified', saveState);
+                fabricCanvas.on('path:created', (e) => { e.path.set({ selectable: true, evented: true }); saveState(); });
+            }
+
+            // Runs on DOMContentLoaded
+            initFabricCanvas();
+
+
+             // --- Canvas Utility Functions ---
+            function fitCanvasToContainer(img) {
+                const containerWidth = canvasContainer.clientWidth - 32; // Account for padding
+                const containerHeight = canvasContainer.clientHeight - 32;
+                const imgAspectRatio = img.width / img.height;
+                const containerAspectRatio = containerWidth / containerHeight;
+
+                let canvasWidth, canvasHeight;
+
+                if (imgAspectRatio > containerAspectRatio) {
+                    canvasWidth = containerWidth;
+                    canvasHeight = containerWidth / imgAspectRatio;
+                } else {
+                    canvasHeight = containerHeight;
+                    canvasWidth = containerHeight * imgAspectRatio;
+                }
+
+                fabricCanvas.setDimensions({ width: canvasWidth, height: canvasHeight });
+                fabricCanvas.setBackgroundImage(img, fabricCanvas.renderAll.bind(fabricCanvas), { scaleX: canvasWidth / img.width, scaleY: canvasHeight / img.height });
+                fabricCanvas.renderAll();
+            }
+
+            // Resizing event listener to keep the canvas scaled correctly
+            window.addEventListener('resize', () => {
+                if (originalImageObject) fitCanvasToContainer(originalImageObject);
+            });
+
+
+            // --- Image Loading & Reset ---
+            function handleImage(file) {
+                if (!file || !file.type.startsWith('image/')) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    fabric.Image.fromURL(e.target.result, (img) => {
+                        originalImageObject = img; // Store the fabric image object
+                        fitCanvasToContainer(img);
+                        
+                        // UI cleanup
+                        canvasElement.classList.remove('hidden');
+                        uploadPrompt.classList.add('hidden');
+                        mainControls.classList.remove('hidden');
+                        controlsPrompt.classList.add('hidden');
+                        removeImageBtn.classList.remove('hidden');
+                        imageUpload.value = ''; // Clear file input
+                        
+                        // Initialize watermark logic
+                        updateWatermark();
+                        activateTool('text'); // Default to text after load
+
+                        // Save initial state for history
+                        history = [fabricCanvas.toJSON()];
+                        historyIndex = 0;
+                        updateUndoRedoButtons();
+                    }, { crossOrigin: 'anonymous' });
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function removeImage() {
+                fabricCanvas.clear();
+                fabricCanvas.setBackgroundImage(null, fabricCanvas.renderAll.bind(fabricCanvas));
+                originalImageObject = null;
+                textWatermarkObject = null;
+                imageWatermarkObject = null;
+                
+                canvasElement.classList.add('hidden');
+                canvasContainer.classList.add('justify-center', 'items-center');
+                removeImageBtn.classList.add('hidden');
+                uploadPrompt.classList.remove('hidden');
+                mainControls.classList.add('hidden');
+                controlsPrompt.classList.remove('hidden');
+                imageUpload.value = '';
+                watermarkUploadInput.value = '';
+                imageWatermarkSliders.classList.add('hidden');
+                watermarkText.value = '';
+
+                history = [];
+                historyIndex = -1;
+                updateUndoRedoButtons();
+                fabricCanvas.setDimensions({ width: 600, height: 400 });
+                
+                showToast('Image and annotations removed.');
+                activateTool('text'); // Reset tool state
+            }
+            
+            // --- Watermark Management ---
+            
+            // Central function to update or create the watermark
+            function updateWatermark() {
+                if (!fabricCanvas || !originalImageObject) return;
+
+                // Hide both first, then show the active one
+                if (textWatermarkObject) textWatermarkObject.set({ visible: false });
+                if (imageWatermarkObject) imageWatermarkObject.set({ visible: false });
+
+                if (activeWatermarkType === 'text') {
+                    const textContent = watermarkText.value || '';
+                    const fontSize = parseInt(watermarkSize.value, 10);
+                    const opacity = parseFloat(watermarkOpacity.value);
+                    const color = watermarkColor.value;
+
+                    if (!textWatermarkObject) {
+                        if (textContent) {
+                            textWatermarkObject = new fabric.IText(textContent, {
+                                left: fabricCanvas.width / 2,
+                                top: fabricCanvas.height / 2,
+                                fill: color,
+                                fontFamily: 'Inter, sans-serif',
+                                fontWeight: 'bold',
+                                fontSize: fontSize,
+                                opacity: opacity,
+                                hasControls: true,
+                                lockScalingFlip: true,
+                                originX: 'center',
+                                originY: 'center',
+                                _watermarkType: 'text',
+                                textBackgroundColor: 'rgba(0,0,0,0)',
+                            });
+                            fabricCanvas.add(textWatermarkObject);
+                            fabricCanvas.centerObject(textWatermarkObject);
+                            saveState();
+                        }
+                    } else {
+                        textWatermarkObject.set({ text: textContent, fontSize: fontSize, fill: color, opacity: opacity, visible: true });
+                        textWatermarkObject.bringToFront();
+                    }
+                } else if (activeWatermarkType === 'image') {
+                    if (imageObject.img) {
+                        const desiredWidth = parseFloat(imageWatermarkSize.value);
+                        const scale = desiredWidth / imageObject.img.width;
+                        const opacity = parseFloat(imageWatermarkOpacity.value);
+
+                        if (!imageWatermarkObject) {
+                            imageWatermarkObject = new fabric.Image(imageObject.img, {
+                                left: fabricCanvas.width / 2,
+                                top: fabricCanvas.height / 2,
+                                scaleX: scale,
+                                scaleY: scale,
+                                opacity: opacity,
+                                hasControls: true,
+                                lockScalingFlip: true,
+                                originX: 'center',
+                                originY: 'center',
+                                _watermarkType: 'image'
+                            });
+                            fabricCanvas.add(imageWatermarkObject);
+                            fabricCanvas.centerObject(imageWatermarkObject);
+                            saveState();
+                        } else {
+                            imageWatermarkObject.set({ scaleX: scale, scaleY: scale, opacity: opacity, visible: true });
+                            imageWatermarkObject.bringToFront();
+                        }
+                    }
+                }
+                fabricCanvas.renderAll();
+            }
+            
+            // --- Image Watermark Helper ---
+            let imageObject = { img: null };
+            uploadWatermarkBtn.addEventListener('click', () => watermarkUploadInput.click());
+            watermarkUploadInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {                        
+                        const img = new Image();
+                        img.onload = () => {
+                            imageObject.img = img;
+                            imageWatermarkSliders.classList.remove('hidden');
+                            
+                            const maxScaleWidth = originalImageObject ? originalImageObject.width : 500;
+                            imageWatermarkSize.max = Math.min(img.width * 2, maxScaleWidth); 
+                            imageWatermarkSize.value = Math.min(img.width * 0.5, 100);
+                            
+                            updateWatermark();
+                        };
+                        img.src = event.target.result;
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+
+
+            // --- Watermark Control Events ---
+            document.querySelectorAll('#text-tab input').forEach(el => el.addEventListener('input', () => { updateWatermark(); saveState(); }));
+            document.querySelectorAll('#image-tab input').forEach(el => el.addEventListener('input', () => { updateWatermark(); saveState(); }));
+
+            // --- Annotation Tool Management & Drawing ---
+            
+            function updateDrawingBrush() {
+                if (fabricCanvas.isDrawingMode && fabricCanvas.freeDrawingBrush) {
+                    if (activeTool === 'pencil') {
+                        fabricCanvas.freeDrawingBrush.color = pencilColorInput.value;
+                        fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10);
+                    }
+                }
+            }
+
+            function activateTool(tool) {
+                activeTool = tool;
+                isDrawingShape = false; 
+
+                // Deactivate all modes and listeners first
+                fabricCanvas.off('mouse:down', startShapeDrawing);
+                fabricCanvas.off('mouse:move', drawShape);
+                fabricCanvas.off('mouse:up', stopShapeDrawing);
+                fabricCanvas.isDrawingMode = false;
+                fabricCanvas.selection = true;
+                fabricCanvas.defaultCursor = 'default';
+
+                if (tool === 'pencil') {
+                    fabricCanvas.isDrawingMode = true;
+                    fabricCanvas.freeDrawingBrush = new fabric.PencilBrush(fabricCanvas);
+                    updateDrawingBrush();
+                } else if (tool === 'rectangle' || tool === 'circle' || tool === 'triangle') {
+                    fabricCanvas.on('mouse:down', startShapeDrawing);
+                    fabricCanvas.on('mouse:move', drawShape);
+                    fabricCanvas.on('mouse:up', stopShapeDrawing);
+                    fabricCanvas.defaultCursor = 'crosshair';
+                    fabricCanvas.selection = false;
+                } else if (tool === 'select') {
+                    fabricCanvas.isDrawingMode = false;
+                }
+            }
+            
+            // Rectangle Drawing Handlers
+            function startShapeDrawing(o) {
+                if (!['rectangle', 'circle', 'triangle'].includes(activeTool) || !originalImageObject || o.target) return;
+                
+                fabricCanvas.selection = false;
+                isDrawingShape = true;
+                const pointer = fabricCanvas.getPointer(o.e);
+                canvasMouseDownX = pointer.x;
+                canvasMouseDownY = pointer.y;
+                
+                const commonProps = {
+                    left: canvasMouseDownX,
+                    top: canvasMouseDownY,
+                    fill: 'rgba(0,0,0,0)',
+                    stroke: shapeColorInput.value,
+                    strokeWidth: parseInt(shapeSizeInput.value, 10),
+                    selectable: false,
+                    evented: false,
+                    originX: 'left',
+                    originY: 'top'
+                };
+
+                if (activeTool === 'rectangle') {
+                    currentShape = new fabric.Rect({ ...commonProps, width: 0, height: 0 });
+                } else if (activeTool === 'circle') {
+                    currentShape = new fabric.Circle({ ...commonProps, radius: 0 });
+                } else if (activeTool === 'triangle') {
+                    currentShape = new fabric.Triangle({ ...commonProps, width: 0, height: 0 });
+                }
+
+                if (currentShape) {
+                    fabricCanvas.add(currentShape);
+                }
+            }
+
+            function drawShape(o) {
+                if (!isDrawingShape || !currentShape) return;
+
+                const pointer = fabricCanvas.getPointer(o.e);
+                let x = pointer.x;
+                let y = pointer.y;
+
+                if (activeTool === 'rectangle' || activeTool === 'triangle') {
+                    const deltaX = x - canvasMouseDownX;
+                    const deltaY = y - canvasMouseDownY;
+                    currentShape.set({ 
+                        width: Math.abs(deltaX), 
+                        height: Math.abs(deltaY),
+                        left: deltaX < 0 ? x : canvasMouseDownX,
+                        top: deltaY < 0 ? y : canvasMouseDownY
+                    });
+                } else if (activeTool === 'circle') {
+                    const radius = Math.sqrt(Math.pow(x - canvasMouseDownX, 2) + Math.pow(y - canvasMouseDownY, 2)) / 2;
+                    currentShape.set({ 
+                        radius: radius,
+                        left: (x + canvasMouseDownX) / 2,
+                        top: (y + canvasMouseDownY) / 2,
+                        originX: 'center',
+                        originY: 'center'
+                    });
+                }
+
+                fabricCanvas.renderAll();
+            }
+
+            function stopShapeDrawing(o) {
+                if (!isDrawingShape || !currentShape) return;
+                
+                isDrawingShape = false;
+                
+                const isCircle = currentShape.type === 'circle';
+                const isBigEnough = isCircle ? (currentShape.radius * 2 > 5) : (currentShape.width > 5 || currentShape.height > 5);
+
+                if (isBigEnough) { 
+                    currentShape.set({ selectable: true, evented: true });
+                    saveState();
+                    fabricCanvas.setActiveObject(currentShape);
+                } else {
+                    fabricCanvas.remove(currentShape);
+                }
+                
+                fabricCanvas.selection = true;
+                fabricCanvas.renderAll();
+                currentShape = null;
+            }
+            
+            // Update brush on control change
+            pencilColorInput.addEventListener('input', updateDrawingBrush);
+            pencilSizeInput.addEventListener('input', updateDrawingBrush);
+            shapeColorInput.addEventListener('input', () => { if(currentShape) currentShape.set('stroke', shapeColorInput.value) });
+            shapeSizeInput.addEventListener('input', () => { if(currentShape) currentShape.set('strokeWidth', parseInt(shapeSizeInput.value, 10)) });
+            
+            // Tool button listeners
+            toolBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#shapes-tab .tool-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activateTool(btn.dataset.tool);
+                });
+            });
+
+            // --- Export / Download ---
+            downloadBtn.addEventListener('click', () => {
+                if (!originalImageObject) {
+                    showToast('Please upload an image first.');
+                    return;
+                }
+                
+                fabricCanvas.discardActiveObject(); 
+                fabricCanvas.renderAll();
+
+                const dataURL = fabricCanvas.toDataURL({ format: 'png', multiplier: 1 });
+
+                const link = document.createElement('a');
+                link.download = `solite-annotated-image.png`;
+                link.href = dataURL;
+                link.click();
+                
+                showToast('Downloading image...');
+            });
+            
+            // --- General Listeners & Initial Setup ---
+            uploadPrompt.addEventListener('click', () => imageUpload.click());
+            imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
+            canvasContainer.addEventListener('dragover', (e) => { e.preventDefault(); canvasContainer.classList.add('border-blue-500'); });
+            canvasContainer.addEventListener('dragleave', () => canvasContainer.classList.remove('border-blue-500'));
+            canvasContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                canvasContainer.classList.remove('border-blue-500');
+                if (e.dataTransfer.files.length > 0) {
+                    handleImage(e.dataTransfer.files[0]);
+                }
+            });
+
+            removeImageBtn.addEventListener('click', removeImage);
+            resetBtn.addEventListener('click', removeImage); 
+
+            // Tab switching logic
+            tabBtns.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+                    
+                    tabBtns.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    tabContents.forEach(c => c.classList.add('hidden'));
+                    document.getElementById(`${tabName}-tab`).classList.remove('hidden');
+
+                    if (tabName === 'text' || tabName === 'image') {
+                        activeWatermarkType = tabName;
+                        activateTool('select'); // 'select' is a conceptual tool for watermark interaction
+                        updateWatermark();
+                    } else {
+                        // For pencil and shapes, activate the respective drawing tool
+                        const firstToolInTab = document.querySelector(`#${tabName}-tab .tool-btn`);
+                        if (firstToolInTab) {
+                            activateTool(firstToolInTab.dataset.tool);
+                        } else {
+                            activateTool(tabName); // For pencil
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
