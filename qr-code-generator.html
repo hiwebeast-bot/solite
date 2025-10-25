@@ -103,9 +103,13 @@
         }
         /* Custom Scrollbar for Firefox */
         html { scrollbar-color: #4b5563 #111827; }
+        /* Mobile viewport height fix */
+        main {
+            height: calc(var(--vh, 1vh) * 100 - 72px);
+        }
     </style>
 </head>
-<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden">
     
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -130,12 +134,12 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex h-screen-minus-header">
-        <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col lg:flex-row gap-4">
+    <main class="flex-grow flex min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4 min-h-0">
             <h1 class="sr-only">QR Code Generator</h1>
             
             <!-- Controls Panel -->
-            <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
+            <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto">
                 <h3 class="text-xl font-bold text-white">QR Code Generator</h3>
                 
                 <!-- Data Type Tabs -->
@@ -262,6 +266,16 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile viewport height fix
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

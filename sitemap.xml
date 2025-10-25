@@ -61,11 +61,6 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://solite.in/privacy-scanner.html</loc>
-    <lastmod>2025-10-19</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://solite.in/svg-shape-generator.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
@@ -87,6 +82,16 @@
   </url>
   <url>
     <loc>https://solite.in/tailwind-form-builder.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/secure-password-generator.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/tweet-to-image.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
   </url>

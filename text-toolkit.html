@@ -110,9 +110,13 @@
         }
         /* Custom Scrollbar for Firefox */
         html { scrollbar-color: #4b5563 #111827; }
+        /* Mobile viewport height fix */
+        main {
+            height: calc(var(--vh, 1vh) * 100 - 72px);
+        }
     </style>
 </head>
-<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden">
     
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -136,8 +140,8 @@
         </div>
     </header>
     <h1 class="sr-only">Text Tools</h1>
-    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
-        <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col">
+    <main class="flex-grow flex min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col min-h-0">
         <!-- Command Bar -->
         <div class="w-full mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4" role="toolbar">
             <div class="flex-grow flex items-center space-x-3">
@@ -198,7 +202,7 @@
         
         <!-- Main Content Area -->
         <div class="w-full flex-grow flex flex-col gap-4">
-            <div class="flex-grow flex flex-col lg:flex-row gap-4">
+            <div class="flex-grow flex flex-col lg:flex-row gap-4 min-h-0">
                 <!-- Main Workspace -->
                 <div class="flex-1 flex-grow flex flex-col h-[60vh] lg:h-auto" role="main">
                     <div class="flex-grow flex relative h-[60vh] bg-gray-200 dark:bg-gray-700 rounded-lg">
@@ -249,6 +253,16 @@
     
     <!-- Toast Notification -->
     <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        // Mobile viewport height fix
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+    </script>
 
     <script>
         // Main App Logic

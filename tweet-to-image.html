@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Tweet to Image Converter | Solite</title>
+    <meta name="description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG. 100% private and browser-based.">
+    <meta name="keywords" content="tweet to image, convert tweet to image, twitter screenshot generator, tweet image generator, free online tool, solite">
+    <link rel="canonical" href="https://solite.in/tweet-to-image.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Tweet to Image Converter | Solite">
+    <meta property="og:description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG.">
+    <meta property="og:url" content="https://solite.in/tweet-to-image.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/tweet-to-image-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tweet to Image Converter",
+      "url": "https://solite.in/tweet-to-image.html",
+      "description": "A free, client-side tool to convert any public tweet into a beautiful, shareable image.",
+      "applicationCategory": "MultimediaApplication",
+      "featureList": [
+        "Convert Tweet URL to Image",
+        "Dark and Light themes",
+        "High-quality PNG download",
+        "Client-side processing for 100% privacy",
+        "Hide or show engagement stats (replies, retweets, likes)",
+        "Hide or show tweet media (images and videos)",
+        "Hide or show the tweet's timestamp",
+        "Hide or show author information",
+        "Show or hide verified checkmark",
+        "Add a custom text watermark",
+        "Position watermark in any of the four corners"
+      ],
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Convert a Tweet to an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste URL", "text": "Paste the URL of any public tweet into the input field." },
+          { "@type": "HowToStep", "name": "Step 2: Customize", "text": "Use the controls to change the theme, hide elements like stats or media, and add an optional watermark." },
+          { "@type": "HowToStep", "name": "Step 3: Download", "text": "Click the 'Download as PNG' button to save the final image to your device." }
+        ]
+      ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        main { height: calc(var(--vh, 1vh) * 100 - 72px); }
+        .tweet-card a { color: #1d9bf0; }
+        /* Active state for theme and watermark position buttons */
+        /* Custom Scrollbar for Webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; /* gray-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4b5563; /* gray-600 */
+            border-radius: 4px;
+        }
+        .theme-btn.active, .watermark-pos-btn.active { background-color: #4b5563; color: #ffffff; }
+
+        /* Theme overrides for the tweet card */
+        #tweet-theme-container.light .tweet-card { background-color: #ffffff; border-color: #e5e7eb; }
+        #tweet-theme-container.light .tweet-card .dark\:text-white { color: #111827; }
+        #tweet-theme-container.light .tweet-card .dark\:text-gray-200 { color: #1f2937; }
+        #tweet-theme-container.light .tweet-card .dark\:text-gray-400, #tweet-theme-container.light .tweet-card .dark\:text-gray-500 { color: #6b7280; }
+        #tweet-theme-container.light .tweet-card .dark\:border-gray-700, #tweet-theme-container.light .tweet-card .dark\:border-gray-800 { border-color: #e5e7eb; }
+
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 7l10 5 10-5"></path>
+                </svg>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
+                <h1 class="text-lg font-semibold text-gray-600 dark:text-gray-400">Tweet to Image</h1>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- Main Workspace -->
+            <div class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-8 overflow-auto">
+                <!-- The outer container controls the theme via classes -->
+                <div id="tweet-theme-container" class="dark">
+                    <div id="tweet-preview-container" class="w-[550px] p-8 rounded-lg relative">
+                        <div id="watermark-overlay" class="absolute bottom-2 right-2 text-xs text-gray-500/50 pointer-events-none hidden">
+                            <!-- Watermark text will be injected here -->
+                        </div>
+                        <div id="tweet-card" class="tweet-card bg-white dark:bg-black p-4 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg font-sans">
+                            <div class="animate-pulse flex space-x-4">
+                                <div class="rounded-full bg-gray-300 dark:bg-gray-700 h-12 w-12"></div>
+                                <div class="flex-1 space-y-4 py-1">
+                                    <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                                    <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div>
+                                </div>
+                            </div>
+                            <div class="animate-pulse space-y-4 mt-4">
+                                <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                                <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-5/6"></div>
+                                <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls Panel -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto">
+                <h2 class="text-xl font-bold text-white">Tweet Converter</h2>
+                <div class="space-y-2 pt-4 border-t border-gray-800">
+                    <label for="tweet-url-input" class="font-medium">Tweet URL</label>
+                    <input type="url" id="tweet-url-input" placeholder="https://twitter.com/user/status/123..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                </div>
+                <div class="space-y-2">
+                    <label class="font-medium">Theme</label>
+                    <button id="theme-toggle-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <!-- Icon and text will be injected by JS -->
+                    </button>
+                </div>
+                <div class="flex items-center space-x-3 cursor-pointer pt-4 border-t border-gray-800">
+                    <input type="checkbox" id="hide-stats-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                    <label for="hide-stats-checkbox" class="font-medium cursor-pointer">Hide Engagement Stats</label>
+                </div>
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="hide-media-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                    <label for="hide-media-checkbox" class="font-medium cursor-pointer">Hide Media (Images/Video)</label>
+                </div>
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="hide-timestamp-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                    <label for="hide-timestamp-checkbox" class="font-medium cursor-pointer">Hide Timestamp</label>
+                </div>
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="hide-author-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                    <label for="hide-author-checkbox" class="font-medium cursor-pointer">Hide Author Info</label>
+                </div>
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="show-verified-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500" checked>
+                    <label for="show-verified-checkbox" class="font-medium cursor-pointer">Show Verified Checkmark</label>
+                </div>
+                <div class="space-y-2 pt-4 border-t border-gray-800">
+                    <label for="watermark-input" class="font-medium">Watermark</label>
+                    <input type="text" id="watermark-input" placeholder="e.g., @yourhandle or yoursite.com" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" id="watermark-enable" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Show watermark</span></label>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1 bg-gray-800 rounded-lg p-1">
+                        <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="top-left" title="Top Left"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                        <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="top-right" title="Top Right"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                        <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="bottom-left" title="Bottom Left"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                        <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center active" data-position="bottom-right" title="Bottom Right"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                    </div>
+                </div>
+                <div id="loader" class="hidden text-center text-gray-400">Fetching tweet...</div>
+                <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                    <span>Download as PNG</span>
+                </button>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        // Mobile viewport height fix
+        function setViewportHeight() {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        }
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+
+        class TweetToImage {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.themes = ['dark', 'light'];
+                this.currentThemeIndex = 0;
+                this.setTheme(this.themes[this.currentThemeIndex]);
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    urlInput: document.getElementById('tweet-url-input'),
+                    themeContainer: document.getElementById('tweet-theme-container'),
+                    tweetCard: document.getElementById('tweet-card'),
+                    downloadBtn: document.getElementById('download-btn'),
+                    loader: document.getElementById('loader'),
+                    toast: document.getElementById('toast'),
+                    hideStatsCheckbox: document.getElementById('hide-stats-checkbox'),
+                    hideMediaCheckbox: document.getElementById('hide-media-checkbox'),
+                    showVerifiedCheckbox: document.getElementById('show-verified-checkbox'),
+                    hideAuthorCheckbox: document.getElementById('hide-author-checkbox'),
+                    hideTimestampCheckbox: document.getElementById('hide-timestamp-checkbox'),
+                    watermarkInput: document.getElementById('watermark-input'),
+                    watermarkEnable: document.getElementById('watermark-enable'),
+                    watermarkOverlay: document.getElementById('watermark-overlay'),
+                    themeToggleBtn: document.getElementById('theme-toggle-btn'),
+                };
+            }
+
+            attachEventListeners() {
+                this.el.urlInput.addEventListener('paste', (e) => {
+                    const url = e.clipboardData.getData('text');
+                    this.handleURL(url);
+                });
+                this.el.urlInput.addEventListener('change', () => this.handleURL(this.el.urlInput.value));
+                this.el.downloadBtn.addEventListener('click', () => this.downloadImage());
+
+                this.el.themeToggleBtn.addEventListener('click', () => this.cycleTheme());
+
+                this.el.hideStatsCheckbox.addEventListener('change', () => {
+                    if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+                });
+
+                this.el.hideMediaCheckbox.addEventListener('change', () => {
+                    if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+                });
+
+                this.el.hideTimestampCheckbox.addEventListener('change', () => {
+                    if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+                });
+
+                this.el.hideAuthorCheckbox.addEventListener('change', () => {
+                    if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+                });
+
+                this.el.showVerifiedCheckbox.addEventListener('change', () => {
+                    if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+                });
+
+                this.el.watermarkInput.addEventListener('input', () => this.updateWatermark());
+                this.el.watermarkEnable.addEventListener('change', () => this.updateWatermark());
+
+                document.querySelectorAll('.watermark-pos-btn').forEach(btn => {
+                    btn.addEventListener('click', () => this.setWatermarkPosition(btn.dataset.position));
+                });
+            }
+
+            updateWatermark() {
+                const text = this.el.watermarkInput.value;
+                this.el.watermarkOverlay.textContent = text;
+                this.el.watermarkOverlay.classList.toggle('hidden', !this.el.watermarkEnable.checked || !text);
+            }
+
+            setWatermarkPosition(position) {
+                const overlay = this.el.watermarkOverlay;
+                // Remove all potential position classes
+                overlay.classList.remove('top-2', 'bottom-2', 'left-2', 'right-2');
+
+                // Add new classes based on selection
+                if (position.includes('top')) overlay.classList.add('top-2');
+                if (position.includes('bottom')) overlay.classList.add('bottom-2');
+                if (position.includes('left')) overlay.classList.add('left-2');
+                if (position.includes('right')) overlay.classList.add('right-2');
+
+                // Update active button state
+                document.querySelectorAll('.watermark-pos-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.position === position);
+                });
+            }
+
+            cycleTheme() {
+                this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
+                this.setTheme(this.themes[this.currentThemeIndex]);
+            }
+
+            setTheme(theme) {
+                this.currentThemeIndex = this.themes.indexOf(theme);
+                this.el.themeContainer.classList.remove('dark', 'light');
+                if (theme === 'dark') this.el.themeContainer.classList.add('dark');
+                if (theme === 'light') this.el.themeContainer.classList.add('light');
+                
+                const themeIcons = {
+                    dark: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`,
+                    light: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M12 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`
+                };
+                const themeName = theme.charAt(0).toUpperCase() + theme.slice(1);
+                this.el.themeToggleBtn.innerHTML = `${themeIcons[theme]} <span>Theme: ${themeName}</span>`;
+
+                // Re-render tweet to apply new theme styles
+                if (this.lastTweetData) {
+                    this.renderTweet(this.lastTweetData);
+                }
+            }
+
+            async handleURL(url) {
+                if (!url) return;
+                const tweetIdMatch = url.match(/\/status\/(\d+)/);
+                if (!tweetIdMatch) {
+                    this.showToast('Invalid Tweet URL');
+                    return;
+                }
+                const tweetId = tweetIdMatch[1];
+                this.fetchAndRenderTweet(tweetId);
+            }
+
+            async fetchAndRenderTweet(tweetId) {
+                this.el.loader.classList.remove('hidden');
+                this.el.downloadBtn.disabled = true;
+                try {
+                    const response = await fetch(`https://api.fxtwitter.com/status/${tweetId}`);
+                    if (!response.ok) throw new Error('Tweet not found or API error');
+                    const data = await response.json();
+                    this.lastTweetData = data.tweet; // Save the tweet data
+                    this.renderTweet(data.tweet);
+                    this.el.downloadBtn.disabled = false;
+                } catch (error) {
+                    console.error('Error fetching tweet:', error);
+                    this.showToast(error.message);
+                    this.el.tweetCard.innerHTML = `<p class="text-center text-red-500">Could not load tweet. Please check the URL and try again.</p>`;
+                } finally {
+                    this.el.loader.classList.add('hidden');
+                }
+            }
+
+            formatNumber(num) {
+                if (num > 999999) return `${(num / 1000000).toFixed(1)}M`;
+                if (num > 999) return `${(num / 1000).toFixed(1)}K`;
+                return num.toString();
+            }
+
+            renderTweet(tweet) {
+                const author = tweet.author;
+                const date = new Date(tweet.created_timestamp * 1000);
+                const timestampHtml = this.el.hideTimestampCheckbox.checked ? '' : `<p class="text-gray-500 text-sm">${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>`;
+                const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                // Replace t.co links with actual URLs and make them clickable
+                let tweetText = tweet.text;
+                if (tweet.entities?.urls) {
+                    tweet.entities.urls.forEach(urlEntity => {
+                        tweetText = tweetText.replace(urlEntity.url, `<a href="${urlEntity.expanded_url}" target="_blank">${urlEntity.display_url}</a>`);
+                    });
+                }
+                if (tweet.entities?.media) {
+                     tweet.entities.media.forEach(mediaEntity => {
+                        tweetText = tweetText.replace(mediaEntity.url, '');
+                    });
+                }
+
+                let mediaHtml = '';
+                const photos = tweet.media?.photos;
+                const video = tweet.media?.videos?.[0];
+
+                if (!this.el.hideMediaCheckbox.checked) {
+                    if (photos?.length > 0) {
+                        const imageGridClasses = "mt-3 grid gap-1 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700";
+                        const imageClasses = "w-full h-full object-cover";
+                        if (photos.length === 1) {
+                            mediaHtml = `<div class="mt-3 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700"><img src="${photos[0].url}" class="${imageClasses}" alt="Tweet media"></div>`;
+                        } else if (photos.length === 2) {
+                            mediaHtml = `<div class="${imageGridClasses} grid-cols-2 aspect-[2/1]"><img src="${photos[0].url}" class="${imageClasses}" alt="Tweet media 1"><img src="${photos[1].url}" class="${imageClasses}" alt="Tweet media 2"></div>`;
+                        } else if (photos.length === 3) {
+                            mediaHtml = `<div class="${imageGridClasses} grid-cols-2 grid-rows-2 aspect-[2/1]"><div class="row-span-2"><img src="${photos[0].url}" class="${imageClasses}" alt="Tweet media 1"></div><div class="col-start-2"><img src="${photos[1].url}" class="${imageClasses}" alt="Tweet media 2"></div><div class="col-start-2"><img src="${photos[2].url}" class="${imageClasses}" alt="Tweet media 3"></div></div>`;
+                        } else { // 4 photos
+                            mediaHtml = `<div class="${imageGridClasses} grid-cols-2 grid-rows-2 aspect-square"><img src="${photos[0].url}" class="${imageClasses}" alt="Tweet media 1"><img src="${photos[1].url}" class="${imageClasses}" alt="Tweet media 2"><img src="${photos[2].url}" class="${imageClasses}" alt="Tweet media 3"><img src="${photos[3].url}" class="${imageClasses}" alt="Tweet media 4"></div>`;
+                        }
+                    } else if (video) {
+                        mediaHtml = `
+                            <div class="mt-3 relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <img src="${video.thumbnail_url}" class="w-full h-full object-cover" alt="Tweet video thumbnail">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                                    <div class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>`;
+                    }
+                }
+                
+                const statsHtml = this.el.hideStatsCheckbox.checked ? '' : `
+                    <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-800 flex space-x-6 text-gray-500">
+                        <span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.replies)}</span> Replies</span>
+                        <span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.retweets)}</span> Retweets</span>
+                        <span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.likes)}</span> Likes</span>
+                    </div>`;
+
+                const verifiedCheckmark = (tweet.author.verified && this.el.showVerifiedCheckbox.checked) 
+                    ? `<svg viewBox="0 0 22 22" class="h-5 w-5 ml-1 fill-current text-blue-500" aria-label="Verified account"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.056-.75-1.69-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.706-1.084-1.246-1.438-.54-.354-1.17-.552-1.816-.57-.647-.017-1.276.18-1.816.57-.54.354-.973-.85-1.246 1.437-.607-.223-1.264-.27-1.897-.14-.634.13-1.218.436-1.687.882-.445.47-.75 1.055-.882 1.69-.13.633-.083 1.29.14 1.896-.587-.274-1.084.706-1.438 1.246-.354.54-.552 1.17-.57 1.816-.017.647.18 1.276.57 1.817.354.54.852.972 1.438 1.246-.223.606-.27 1.264-.14 1.897.131.634.437 1.218.882 1.687.47.445 1.056.75 1.69.882.633.13 1.29.083 1.897-.14.273.587.706 1.084 1.246 1.438.54.354 1.17.552 1.816.57.647.017 1.276-.18 1.816-.57.54-.354.973-.85 1.246-1.438.607.223 1.264.27 1.897.14.634-.13 1.218-.437 1.687-.882.445-.47.75-1.056.882-1.69.13-.633.083-1.29-.14-1.896.587-.274 1.084-.706 1.438-1.246.354-.54.552-1.17.57-1.816zM9.662 14.85l-3.428-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246-5.684 6.206z"></path></g></svg>` 
+                    : '';
+
+                const authorHtml = this.el.hideAuthorCheckbox.checked ? '' : `
+                    <div class="flex items-start space-x-3">
+                        <img src="${author.avatar_url}" class="w-12 h-12 rounded-full" alt="${author.name}'s avatar">
+                        <div class="flex-1">
+                            <div class="flex items-center">
+                            <div class="flex items-center"> 
+                                <span class="font-bold text-gray-900 dark:text-white">${author.name}</span>
+                                ${verifiedCheckmark}
+                                <span class="ml-1 text-gray-500">@${author.screen_name}</span>
+                            </div>
+                            </div> 
+                            ${timestampHtml}
+                        </div>
+                    </div>`;
+
+                const tweetHtml = `
+                    ${authorHtml}
+                    <div class="mt-3 text-lg text-gray-800 dark:text-gray-200 whitespace-pre-wrap">${tweetText}</div>
+                    ${mediaHtml}
+                    ${statsHtml}
+                `;
+                this.el.tweetCard.innerHTML = tweetHtml;
+            }
+
+            downloadImage() {
+                if (this.el.downloadBtn.disabled) return;
+                this.showToast('Generating image...');
+                html2canvas(document.getElementById('tweet-preview-container'), {
+                    backgroundColor: this.themes[this.currentThemeIndex] === 'light' ? '#ffffff' : '#000000',
+                    scale: 2, // Higher scale for better resolution
+                    useCORS: true,
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `solite-tweet.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }).catch(err => {
+                    console.error('oops, something went wrong!', err);
+                    this.showToast('Failed to generate image.');
+                });
+            }
+
+            showToast(message) {
+                this.el.toast.textContent = message;
+                this.el.toast.classList.add('show');
+                setTimeout(() => this.el.toast.classList.remove('show'), 3000);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new TweetToImage();
+        });
+    </script>
+</body>
+</html>
