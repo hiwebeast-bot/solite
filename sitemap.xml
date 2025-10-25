@@ -66,6 +66,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://solite.in/favicon-generator.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://solite.in/watermark-annotator.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
@@ -92,6 +97,21 @@
   </url>
   <url>
     <loc>https://solite.in/tweet-to-image.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/gif-maker.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/data-converter.html</loc>
+    <lastmod>2025-10-19</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/css-shadows-maker.html</loc>
     <lastmod>2025-10-19</lastmod>
     <priority>0.80</priority>
   </url>
