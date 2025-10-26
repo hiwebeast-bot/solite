@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Maker | Solite</title>
+    <!-- MODIFIED: Title optimized for keywords -->
+    <title>Free Certificate Maker &amp; Template Generator | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="Design, edit, and download professional certificates for free with Solite. Choose from a library of modern templates for any occasion. 100% private &amp; no sign-up required.">
-    <meta name="keywords" content="certificate maker, free certificate templates, online certificate generator, certificate of completion, award certificate, create certificate, solite">
+    <!-- MODIFIED: Expanded keywords -->
+    <meta name="keywords" content="certificate maker, free certificate templates, online certificate generator, certificate of completion, award certificate, create certificate, solite, certificate design, free certificate, download certificate">
     <link rel="canonical" href="https://solite.in/certificate-maker.html">
-    <meta property="og:title" content="Free Certificate Maker | Solite">
+    <!-- MODIFIED: Matched og:title to new page title -->
+    <meta property="og:title" content="Free Certificate Maker &amp; Template Generator | Solite">
     <meta property="og:description" content="Design, edit, and download professional certificates for free with Solite. Choose from a library of modern templates for any occasion.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://solite.in/assets/solite-certificate-maker-og.png">
@@ -58,7 +61,16 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      }
+      },
+      <!-- ADDED: featureList for rich results -->
+      "featureList": [
+        "Free Certificate Templates",
+        "Live Editing",
+        "Download as PDF, PNG, JPG",
+        "Logo & Signature Upload",
+        "Client-side for Privacy",
+        "No Sign-up Required"
+      ]
     }
     </script>
     
@@ -170,6 +182,9 @@
     <!-- Main Content -->
     <!-- MODIFIED: Changed main to be relative for mobile nav -->
     <main class="flex-grow flex relative">
+        <!-- ADDED: sr-only h1 for accessibility and SEO -->
+        <h1 class="sr-only">Free Certificate Maker &amp; Certificate Template Generator</h1>
+        
         <!-- Main content wrapper with padding for mobile nav -->
         <!-- MODIFIED: Added pb-16 for mobile nav clearance, simplified padding -->
         <div id="main-content-wrapper" class="flex-grow w-full px-3 pt-4 pb-16 lg:p-3 lg:pb-0 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
@@ -240,10 +255,19 @@
             </div>
 
             <!-- Main Workspace (Preview Pane) -->
-            <!-- MODIFIED: Removed default overflow-auto, added lg:overflow-auto -->
-            <div id="certificate-canvas" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:overflow-auto lg:w-[70%]">
-                <!-- MODIFIED: Added max-w-full, max-h-full and w-auto/h-auto for mobile scaling. Resets on lg. -->
-                <div id="certificate-container" class="aspect-[1.414/1] w-auto h-auto max-w-full max-h-full lg:w-full lg:h-auto lg:max-h-none shadow-2xl relative overflow-hidden bg-white">
+            <!-- MODIFIED: 
+                - Removed items-center justify-center (base)
+                - Added lg:items-center lg:justify-center (for desktop only)
+                - Changed overflow-hidden lg:overflow-auto TO overflow-auto (always scrollable)
+            -->
+            <div id="certificate-canvas" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex overflow-auto lg:items-center lg:justify-center lg:w-[70%]">
+                <!-- MODIFIED: 
+                    - Removed w-auto, h-auto, max-w-full, max-h-full
+                    - Removed lg:h-auto, lg:max-h-none
+                    - Added w-[800px] to force a large size on mobile
+                    - Kept lg:w-full to reset for desktop
+                -->
+                <div id="certificate-container" class="aspect-[1.414/1] w-[800px] lg:w-full shadow-2xl relative overflow-hidden bg-white">
                     <!-- Certificate template loads here -->
                 </div>
             </div>
@@ -895,5 +919,8 @@
     </script>
 </body>
 </html>
+
+
+
 
 
