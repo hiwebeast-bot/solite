@@ -8,7 +8,7 @@
     <title>Free Tailwind Form Builder - Visual HTML Form Generator | Solite</title>
     <meta name="description" content="Visually build responsive HTML forms with Tailwind CSS using our free online generator. Drag and drop fields, customize styles, and export clean, production-ready code. 100% private, no sign-up required.">
     <meta name="keywords" content="tailwind form builder, tailwind css forms, html form generator, visual form builder, free form builder, tailwind forms, form builder online">
-    <link rel="canonical" href="https://solite.in/tailwind-form-builder.html" />
+    <link rel="canonical" href="https://solite.in/tailwind-form-builder.html">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
@@ -55,19 +55,8 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "featureList": [
-        "Visual form building",
-        "Add, edit, and reorder form fields",
-        "Supports Text, Email, Textarea, Checkbox, Select",
-        "Live form preview with Dark Mode toggle",
-        "Export clean HTML/Tailwind code",
-        "Download as .html file"
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      },
+      "featureList": [ "Visual form building", "Add, edit, and reorder form fields", "Supports Text, Email, Textarea, Checkbox, Select", "Live form preview with Dark Mode toggle", "Export clean HTML/Tailwind code", "Download as .html file" ],
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
       "mainEntity": null
     }
     </script>
@@ -81,133 +70,60 @@
                         sans: ['Inter', 'sans-serif'],
                         mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
                     },
-                    // Add a class for the form preview inputs
-                    forms: (theme) => ({
-                        DEFAULT: {
-                            input: {
-                                borderRadius: theme('borderRadius.md'),
-                                borderColor: theme('colors.gray.600'),
-                                backgroundColor: theme('colors.gray.800'),
-                                '&:focus': {
-                                    borderColor: theme('colors.white'),
-                                    boxShadow: `0 0 0 2px ${theme('colors.white')}`,
-                                },
-                            },
-                            textarea: {
-                                borderRadius: theme('borderRadius.md'),
-                                borderColor: theme('colors.gray.600'),
-                                backgroundColor: theme('colors.gray.800'),
-                                '&:focus': {
-                                    borderColor: theme('colors.white'),
-                                    boxShadow: `0 0 0 2px ${theme('colors.white')}`,
-                                },
-                            },
-                            select: {
-                                borderRadius: theme('borderRadius.md'),
-                                borderColor: theme('colors.gray.600'),
-                                backgroundColor: theme('colors.gray.800'),
-                                '&:focus': {
-                                    borderColor: theme('colors.white'),
-                                    boxShadow: `0 0 0 2px ${theme('colors.white')}`,
-                                },
-                            },
-                            checkbox: {
-                                borderRadius: theme('borderRadius.sm'),
-                                borderColor: theme('colors.gray.600'),
-                                backgroundColor: theme('colors.gray.800'),
-                                '&:focus': {
-                                    borderColor: theme('colors.white'),
-                                    boxShadow: `0 0 0 2px ${theme('colors.white')}`,
-                                },
-                            },
-                        },
-                    }),
                 },
             },
-            plugins: [
-                // The @tailwindcss/forms plugin is loaded via the CDN script tag (see above).
-                // The 'require' syntax is for Node.js environments and will not work in a browser.
-            ],
         }
     </script>
     <style>
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
-        .custom-select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; /* gray-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #6b7280; /* gray-500 */
-        }
-        /* Custom Scrollbar for Firefox */
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
 
-        /* Modal Styles */
-        #edit-modal {
-            display: none; /* Hidden by default */
-        }
-        #edit-modal.flex {
-            display: flex; /* Show when open */
-        }
+        #edit-modal { display: none; }
+        #edit-modal.flex { display: flex; }
+        .field-card.dragging { opacity: 0.5; background: #374151; }
         
-        /* Draggable placeholder style */
-        .field-card.dragging {
-            opacity: 0.5;
-            background: #374151; /* gray-700 */
-        }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
-<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden">
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <h1 class="text-lg font-semibold text-gray-600 dark:text-gray-400">Tailwind Form Builder</h1>
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Tailwind Form Builder</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex min-h-0">
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4 min-h-0">
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Tailwind CSS Visual Form Builder</h1>
+
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col space-y-6 overflow-y-auto h-full" aria-labelledby="controls-heading">
-                
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
                 <!-- Form Settings -->
-                <div class="space-y-4">
+                <div class="space-y-4 flex-shrink-0">
                     <h2 id="controls-heading" class="text-xl font-bold text-white">Form Settings</h2>
                     <div class="space-y-2">
                         <label for="form-title" class="text-sm font-medium">Title</label>
@@ -220,19 +136,12 @@
                 </div>
 
                 <!-- Add Field -->
-                <div class="space-y-3 border-t border-gray-800 pt-4">
+                <div class="space-y-3 border-t border-gray-800 pt-4 mt-4 flex-shrink-0">
                     <h3 class="text-lg font-semibold text-white">Add Field</h3>
                     <div class="flex gap-2">
                         <div class="relative flex-grow">
                             <select id="add-field-type" aria-label="Select Field Type" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="text">Text</option>
-                                <option value="email">Email</option>
-                                <option value="textarea">Text Area</option>
-                                <option value="select">Select</option>
-                                <option value="checkbox">Checkbox</option>
-                                <option value="radio">Radio Group</option>
-                                <option value="date">Date</option>
-                                <option value="file">File Upload</option>
+                                <option value="text">Text</option><option value="email">Email</option><option value="textarea">Text Area</option><option value="select">Select</option><option value="checkbox">Checkbox</option><option value="radio">Radio Group</option><option value="date">Date</option><option value="file">File Upload</option>
                             </select>
                             <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
@@ -241,16 +150,16 @@
                 </div>
 
                 <!-- Field List -->
-                <div class="space-y-3 border-t border-gray-800 pt-4 flex-grow flex flex-col min-h-0">
-                    <h3 class="text-lg font-semibold text-white">Fields</h3>
-                    <div id="field-list-container" class="flex-grow overflow-y-auto space-y-2 pr-2">
-                        <!-- Field cards will be injected here -->
+                <div class="space-y-3 border-t border-gray-800 pt-4 mt-4 flex-grow flex flex-col min-h-0">
+                    <h3 class="text-lg font-semibold text-white flex-shrink-0">Fields</h3>
+                    <div id="field-list-container" class="flex-grow overflow-y-auto space-y-2 pr-2 pb-16 lg:pb-2">
+                        <!-- Field cards will be dynamically inserted here -->
                     </div>
                 </div>
             </div>
 
-            <!-- Main Workspace -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+            <!-- Output Pane (Preview + Code) -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <div class="flex-shrink-0 flex justify-between items-center p-2 border-b border-gray-800 bg-gray-800/50">
                     <span class="text-sm font-medium text-gray-400 px-2">Preview Mode</span>
                     <label for="preview-theme-toggle" class="relative inline-flex items-center cursor-pointer">
@@ -260,9 +169,9 @@
                     </label>
                 </div>
                 <!-- Form Preview -->
-                <div id="preview-container" class="flex-grow flex items-start justify-center p-8 bg-black/20 overflow-y-auto transition-colors duration-300">
-                    <div id="form-preview" class="w-full max-w-xl bg-gray-900 border border-gray-700 p-8 rounded-lg shadow-lg transition-colors duration-300">
-                        <!-- Form preview will be rendered here -->
+                <div id="preview-container" class="flex-grow flex items-start justify-center p-8 overflow-y-auto transition-colors duration-300">
+                    <div id="form-preview" class="w-full max-w-xl border p-8 rounded-lg shadow-lg transition-colors duration-300">
+                        <!-- Form preview will be dynamically inserted here -->
                     </div>
                 </div>
                 <!-- Code Output -->
@@ -271,11 +180,11 @@
                         <h3 class="text-lg font-semibold">HTML Code</h3>
                         <div class="flex items-center gap-2">
                             <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                 <span>Copy Code</span>
                             </button>
                             <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                                 <span>Download .html</span>
                             </button>
                         </div>
@@ -290,13 +199,27 @@
                 Ad Area
             </div>
         </aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
                 <span>&copy; 2024 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
@@ -312,11 +235,9 @@
         <div class="bg-gray-900 border border-gray-700 rounded-lg shadow-xl w-full max-w-lg p-6 space-y-4">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold text-white">Edit Field</h3>
-                <button id="close-modal-btn" class="text-gray-400 hover:text-white" aria-label="Close modal">&times;</button>
+                <button id="close-modal-btn" class="text-gray-400 hover:text-white" aria-label="Close modal">×</button>
             </div>
-            <div id="modal-body" class="space-y-4">
-                <!-- Dynamic modal content -->
-            </div>
+            <div id="modal-body" class="space-y-4"></div>
             <div class="flex justify-end gap-3 pt-4 border-t border-gray-800">
                 <button id="save-field-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg">Save Changes</button>
             </div>
@@ -329,11 +250,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- STATE ---
-            let formState = {
-                title: 'Contact Us',
-                description: 'Fill out this form to get in touch.'
-            };
-            
+            let formState = { title: 'Contact Us', description: 'Fill out this form to get in touch.' };
             let fields = [
                 { id: crypto.randomUUID(), type: 'text', label: 'Name', placeholder: 'John Doe', required: true },
                 { id: crypto.randomUUID(), type: 'email', label: 'Email', placeholder: 'john.doe@example.com', required: true },
@@ -341,467 +258,121 @@
                 { id: crypto.randomUUID(), type: 'select', label: 'Inquiry Type', required: true, options: ['General', 'Support', 'Sales'] },
                 { id: crypto.randomUUID(), type: 'checkbox', label: 'I agree to the terms', required: true },
             ];
-            
             let currentEditId = null;
 
             // --- DOM ELEMENTS ---
             const el = {
-                formTitle: document.getElementById('form-title'),
-                formDescription: document.getElementById('form-description'),
-                addFieldType: document.getElementById('add-field-type'),
-                addFieldBtn: document.getElementById('add-field-btn'),
-                fieldListContainer: document.getElementById('field-list-container'),
-                formPreview: document.getElementById('form-preview'),
-                htmlCodeOutput: document.getElementById('html-code-output'),
-                copyCodeBtn: document.getElementById('copy-code-btn'),
-                downloadBtn: document.getElementById('download-btn'),
-                toast: document.getElementById('toast'),
-                modal: document.getElementById('edit-modal'),
-                modalBody: document.getElementById('modal-body'),
-                closeModalBtn: document.getElementById('close-modal-btn'),
-                saveFieldBtn: document.getElementById('save-field-btn'),
-                previewThemeToggle: document.getElementById('preview-theme-toggle'),
-                previewThemeLabel: document.getElementById('preview-theme-label'),
-                previewContainer: document.getElementById('preview-container'),
+                formTitle: document.getElementById('form-title'), formDescription: document.getElementById('form-description'), addFieldType: document.getElementById('add-field-type'), addFieldBtn: document.getElementById('add-field-btn'), fieldListContainer: document.getElementById('field-list-container'), formPreview: document.getElementById('form-preview'), htmlCodeOutput: document.getElementById('html-code-output'), copyCodeBtn: document.getElementById('copy-code-btn'), downloadBtn: document.getElementById('download-btn'), toast: document.getElementById('toast'), modal: document.getElementById('edit-modal'), modalBody: document.getElementById('modal-body'), closeModalBtn: document.getElementById('close-modal-btn'), saveFieldBtn: document.getElementById('save-field-btn'), previewThemeToggle: document.getElementById('preview-theme-toggle'), previewThemeLabel: document.getElementById('preview-theme-label'), previewContainer: document.getElementById('preview-container'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), controlsPane: document.getElementById('controls-pane'), outputPane: document.getElementById('output-pane'),
             };
 
-            // --- Constants for generated code ---
             const fieldClasses = {
                 input: 'class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"',
                 checkbox: 'class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:ring-offset-gray-800"',
                 label: 'class="block text-sm font-medium text-gray-700 dark:text-gray-300"',
             };
 
-            // --- RENDER FUNCTIONS ---
-            
-            /** Master render function */
-            function render() {
-                renderFormPreview();
-                renderFieldList();
-                renderCodeOutput();
-            }
+            function render() { renderFormPreview(); renderFieldList(); renderCodeOutput(); }
+            function updateFormMeta() { renderFormPreview(); renderCodeOutput(); }
 
-            /** More efficient update for just form metadata */
-            function updateFormMeta() {
-                // This is more efficient than a full re-render
-                renderFormPreview();
-                renderCodeOutput();
-            }
-
-            /** Renders the live form preview */
             function renderFormPreview() {
                 const isLightMode = el.previewThemeToggle.checked;
-
-                // Toggle background colors
-                el.previewContainer.classList.toggle('bg-gray-100', isLightMode);
-                el.previewContainer.classList.toggle('bg-black/20', !isLightMode);
-                el.formPreview.classList.toggle('bg-white', isLightMode);
-                el.formPreview.classList.toggle('bg-gray-900', !isLightMode);
-                el.formPreview.classList.toggle('border-gray-200', isLightMode);
-                el.formPreview.classList.toggle('border-gray-700', !isLightMode);
-
+                el.previewContainer.classList.toggle('bg-gray-100', isLightMode); el.previewContainer.classList.toggle('bg-black/20', !isLightMode);
+                el.formPreview.classList.toggle('bg-white', isLightMode); el.formPreview.classList.toggle('bg-gray-900', !isLightMode);
+                el.formPreview.classList.toggle('border-gray-200', isLightMode); el.formPreview.classList.toggle('border-gray-700', !isLightMode);
                 const titleColor = isLightMode ? 'text-gray-900' : 'text-white';
                 const descriptionColor = isLightMode ? 'text-gray-600' : 'text-gray-400';
-
-                el.formPreview.innerHTML = `
-                    <h2 class="text-2xl font-bold ${titleColor} mb-2">${formState.title}</h2>
-                    <p class="${descriptionColor} mb-6">${formState.description}</p>
-                    <form class="space-y-4">
-                        ${fields.map(field => renderPreviewField(field)).join('')}
-                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Submit
-                        </button>
-                    </form>
-                `;
+                el.formPreview.innerHTML = `<h2 class="text-2xl font-bold ${titleColor} mb-2">${formState.title}</h2><p class="${descriptionColor} mb-6">${formState.description}</p><form class="space-y-4" onsubmit="return false;">${fields.map(field => renderPreviewField(field)).join('')}<button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button></form>`;
             }
 
-            /** Helper for renderFormPreview to generate a single field */
             function renderPreviewField(field) {
-                const req = field.required ? ' <span class="text-red-400">*</span>' : '';
-                const reqAttr = field.required ? 'required' : '';
-                
+                const req = field.required ? ' <span class="text-red-400">*</span>' : ''; const reqAttr = field.required ? 'required' : '';
                 const isLightMode = el.previewThemeToggle.checked;
                 const labelClasses = isLightMode ? 'text-gray-700' : 'text-gray-300';
-                const inputClasses = isLightMode 
-                    ? 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-gray-900 bg-white'
-                    : 'mt-1 block w-full rounded-md border-gray-600 bg-gray-800 shadow-sm focus:border-white focus:ring-white/50 text-white';
-                const checkboxClasses = isLightMode
-                    ? 'h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
-                    : 'h-4 w-4 rounded border-gray-600 bg-gray-800 text-white focus:ring-white/50';
-                const submitButtonClasses = isLightMode
-                    ? 'w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg'
-                    : 'w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg';
-
+                const inputClasses = isLightMode ? 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-gray-900 bg-white' : 'mt-1 block w-full rounded-md border-gray-600 bg-gray-800 shadow-sm focus:border-white focus:ring-white/50 text-white';
+                const checkboxClasses = isLightMode ? 'h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500' : 'h-4 w-4 rounded border-gray-600 bg-gray-800 text-white focus:ring-white/50';
                 switch (field.type) {
-                    case 'text':
-                    case 'email':
-                        return `
-                            <div>
-                                <label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label>
-                                <input type="${field.type}" id="prev-${field.id}" name="${field.id}" placeholder="${field.placeholder}" ${reqAttr} class="${inputClasses}">
-                            </div>
-                        `;
-                    case 'textarea':
-                        return `
-                            <div>
-                                <label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label>
-                                <textarea id="prev-${field.id}" name="${field.id}" placeholder="${field.placeholder}" ${reqAttr} rows="${field.rows || 3}" class="${inputClasses}"></textarea>
-                            </div>
-                        `;
-                    case 'select':
-                        return `
-                            <div>
-                                <label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label>
-                                <select id="prev-${field.id}" name="${field.id}" ${reqAttr} class="${inputClasses}">
-                                    ${(field.options || []).map(opt => `<option>${opt}</option>`).join('')}
-                                </select>
-                            </div>
-                        `;
-                    case 'checkbox':
-                        return `
-                            <div class="flex items-center">
-                                <input id="prev-${field.id}" name="${field.id}" type="checkbox" ${reqAttr} class="${checkboxClasses}">
-                                <label for="prev-${field.id}" class="ml-2 block text-sm ${labelClasses}">${field.label}${req}</label>
-                            </div>
-                        `;
-                    case 'radio':
-                        return `
-                            <div>
-                                <label class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label>
-                                <div class="mt-2 space-y-2">
-                                    ${(field.options || []).map((opt, i) => `
-                                        <div class="flex items-center">
-                                            <input id="prev-${field.id}-${i}" name="prev-${field.id}" type="radio" class="${checkboxClasses.replace('h-4 w-4', 'h-4 w-4 text-indigo-600')}">
-                                            <label for="prev-${field.id}-${i}" class="ml-2 block text-sm ${labelClasses}">${opt}</label>
-                                        </div>`).join('')}
-                                </div>
-                            </div>
-                        `;
-                    case 'date':
-                    case 'file':
-                        return `
-                            <div>
-                                <label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label>
-                                <input type="${field.type}" id="prev-${field.id}" name="${field.id}" ${reqAttr} class="${inputClasses}">
-                            </div>
-                        `;
+                    case 'text': case 'email': return `<div><label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label><input type="${field.type}" id="prev-${field.id}" name="${field.id}" placeholder="${field.placeholder}" ${reqAttr} class="${inputClasses}"></div>`;
+                    case 'textarea': return `<div><label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label><textarea id="prev-${field.id}" name="${field.id}" placeholder="${field.placeholder}" ${reqAttr} rows="${field.rows || 3}" class="${inputClasses}"></textarea></div>`;
+                    case 'select': return `<div><label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label><select id="prev-${field.id}" name="${field.id}" ${reqAttr} class="${inputClasses}">${(field.options || []).map(opt => `<option>${opt}</option>`).join('')}</select></div>`;
+                    case 'checkbox': return `<div class="flex items-center"><input id="prev-${field.id}" name="${field.id}" type="checkbox" ${reqAttr} class="${checkboxClasses}"><label for="prev-${field.id}" class="ml-2 block text-sm ${labelClasses}">${field.label}${req}</label></div>`;
+                    case 'radio': return `<div><label class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label><div class="mt-2 space-y-2">${(field.options || []).map((opt, i) => `<div class="flex items-center"><input id="prev-${field.id}-${i}" name="prev-${field.id}" type="radio" class="${checkboxClasses.replace('h-4 w-4', 'h-4 w-4 text-indigo-600')}"><label for="prev-${field.id}-${i}" class="ml-2 block text-sm ${labelClasses}">${opt}</label></div>`).join('')}</div></div>`;
+                    case 'date': case 'file': return `<div><label for="prev-${field.id}" class="block text-sm font-medium ${labelClasses}">${field.label}${req}</label><input type="${field.type}" id="prev-${field.id}" name="${field.id}" ${reqAttr} class="${inputClasses}"></div>`;
                     default: return '';
                 }
             }
 
-            /** Renders the list of editable field cards in the left panel */
             function renderFieldList() {
-                el.fieldListContainer.innerHTML = fields.map((field, index) => `
-                    <div class="field-card bg-gray-800 p-3 rounded-lg flex items-center gap-2" draggable="true" data-id="${field.id}" data-index="${index}">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 cursor-grab flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
-                        <span class="flex-grow font-medium truncate">${field.label} (${field.type})</span>
-                        <button class="edit-btn p-1 text-gray-400 hover:text-white" data-id="${field.id}" title="Edit">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z" /></svg>
-                        </button>
-                        <button class="delete-btn p-1 text-red-400 hover:text-red-300" data-id="${field.id}" title="Delete">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                        </button>
-                    </div>
-                `).join('');
+                el.fieldListContainer.innerHTML = fields.map((field, index) => `<div class="field-card bg-gray-800 p-3 rounded-lg flex items-center gap-2" draggable="true" data-id="${field.id}" data-index="${index}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 cursor-grab flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg><span class="flex-grow font-medium truncate">${field.label} (${field.type})</span><button class="edit-btn p-1 text-gray-400 hover:text-white" data-id="${field.id}" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z" /></svg></button><button class="delete-btn p-1 text-red-400 hover:text-red-300" data-id="${field.id}" title="Delete"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button></div>`).join('');
             }
 
-            /** Generates and displays the final HTML code output */
             function renderCodeOutput() {
-                const title = formState.title;
-                const description = formState.description;
-
                 const fieldsHtml = fields.map(field => {
-                    const req = field.required ? ' <span class="text-red-500">*</span>' : '';
-                    const reqAttr = field.required ? 'required' : '';
-                    const id = `form-field-${field.id}`;
-                    const name = field.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                    const req = field.required ? ' <span class="text-red-500">*</span>' : ''; const reqAttr = field.required ? 'required' : '';
+                    const id = `form-field-${field.id.substring(0,8)}`; const name = field.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
                     const label = `\n    <label for="${id}" ${fieldClasses.label}>${field.label}${req}</label>`;
-                    
                     switch (field.type) {
-                        case 'text':
-                        case 'email':
-                            return `
-<div class="space-y-1">
-    ${label}
-    <input type="${field.type}" id="${id}" name="${name}" placeholder="${field.placeholder}" ${reqAttr} ${fieldClasses.input}>
-</div>
-                            `;
-                        case 'textarea':
-                            return `
-<div class="space-y-1">
-    ${label}
-    <textarea id="${id}" name="${name}" placeholder="${field.placeholder}" ${reqAttr} rows="${field.rows || 3}" ${fieldClasses.input}></textarea>
-</div>
-                            `;
-                        case 'select':
-                            return `
-<div class="space-y-1">
-    ${label}
-    <select id="${id}" name="${name}" ${reqAttr} ${fieldClasses.input}>
-        ${(field.options || []).map(opt => `<option>${opt}</option>`).join('\n        ')}
-    </select>
-</div>
-                            `;
-                        case 'checkbox':
-                            return `
-<div class="flex items-center space-x-2 pt-1">
-    <input id="${id}" name="${name}" type="checkbox" ${reqAttr} ${fieldClasses.checkbox}>
-    <label for="${id}" ${fieldClasses.label}>${field.label}${req}</label>
-</div>
-                            `;
-                        case 'radio':
-                             return `
-<div>
-    <label ${fieldClasses.label}>${field.label}${req}</label>
-    <div class="mt-2 space-y-2">
-        ${(field.options || []).map((opt, i) => `
-        <div class="flex items-center">
-            <input id="${id}-${i}" name="${name}" type="radio" value="${opt}" ${i === 0 ? reqAttr : ''} ${fieldClasses.checkbox}>
-            <label for="${id}-${i}" class="ml-2 block text-sm text-gray-900 dark:text-gray-300">${opt}</label>
-        </div>`).join('')}
-    </div>
-</div>
-                            `;
-                        case 'date':
-                        case 'file':
-                            const fileClasses = 'class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-100 dark:file:bg-gray-700 file:text-gray-700 dark:file:text-gray-200 hover:file:bg-gray-200 dark:hover:file:bg-gray-600"';
-                            return `
-<div class="space-y-1">
-    ${label}
-    <input type="${field.type}" id="${id}" name="${name}" ${reqAttr} ${field.type === 'file' ? fileClasses : fieldClasses.input}>
-</div>
-                            `;
+                        case 'text': case 'email': return `<div class="space-y-1">${label}<input type="${field.type}" id="${id}" name="${name}" placeholder="${field.placeholder}" ${reqAttr} ${fieldClasses.input}></div>`;
+                        case 'textarea': return `<div class="space-y-1">${label}<textarea id="${id}" name="${name}" placeholder="${field.placeholder}" ${reqAttr} rows="${field.rows || 3}" ${fieldClasses.input}></textarea></div>`;
+                        case 'select': return `<div class="space-y-1">${label}<select id="${id}" name="${name}" ${reqAttr} ${fieldClasses.input}>${(field.options || []).map(opt => `\n        <option>${opt}</option>`).join('')}\n    </select></div>`;
+                        case 'checkbox': return `<div class="flex items-center space-x-2 pt-1"><input id="${id}" name="${name}" type="checkbox" ${reqAttr} ${fieldClasses.checkbox}><label for="${id}" ${fieldClasses.label}>${field.label}${req}</label></div>`;
+                        case 'radio': return `<div><label ${fieldClasses.label}>${field.label}${req}</label><div class="mt-2 space-y-2">${(field.options || []).map((opt, i) => `<div class="flex items-center"><input id="${id}-${i}" name="${name}" type="radio" value="${opt}" ${i === 0 ? reqAttr : ''} ${fieldClasses.checkbox}><label for="${id}-${i}" class="ml-2 block text-sm text-gray-900 dark:text-gray-300">${opt}</label></div>`).join('')}</div></div>`;
+                        case 'date': case 'file': const fileClasses = 'class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-100 dark:file:bg-gray-700 file:text-gray-700 dark:file:text-gray-200 hover:file:bg-gray-200 dark:hover:file:bg-gray-600"'; return `<div class="space-y-1">${label}<input type="${field.type}" id="${id}" name="${name}" ${reqAttr} ${field.type === 'file' ? fileClasses : fieldClasses.input}></div>`;
                         default: return '';
                     }
-                }).join('');
-
-                const finalCode = `<!-- 
-  This form was generated by Solite Tailwind Form Builder.
-  It requires Tailwind CSS and the @tailwindcss/forms plugin.
-  
-  1. npm install -D @tailwindcss/forms
-  2. Add to your tailwind.config.js:
-     plugins: [
-       require('@tailwindcss/forms'),
-     ],
-  Enable dark mode in your tailwind.config.js: darkMode: 'class'
--->
-<form action="YOUR_SERVER_ENDPOINT" method="POST" class="w-full max-w-lg mx-auto p-8 bg-white dark:bg-gray-800 shadow-md rounded-lg space-y-6">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">${title}</h2>
-    <p class="text-gray-600 dark:text-gray-300">${description}</p>
-    
-    ${fieldsHtml}
-    
-    <div>
-        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Submit
-        </button>
-    </div>
-</form>
-`;
-                el.htmlCodeOutput.value = finalCode;
+                }).join('\n    ');
+                el.htmlCodeOutput.value = `<!-- Requires Tailwind CSS with @tailwindcss/forms plugin -->\n<form action="#" method="POST" class="w-full max-w-lg mx-auto p-8 bg-white dark:bg-gray-800 shadow-md rounded-lg space-y-6">\n    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">${formState.title}</h2>\n    <p class="text-gray-600 dark:text-gray-300">${formState.description}</p>\n    ${fieldsHtml}\n    <div>\n        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>\n    </div>\n</form>`;
             }
             
-            // --- MODAL FUNCTIONS ---
-
             function openEditModal(id) {
-                const field = fields.find(f => f.id === id);
-                if (!field) return;
-                
-                currentEditId = id;
-                
-                // Base content
-                let modalHtml = `
-                    <div class="space-y-2">
-                        <label for="modal-label" class="text-sm font-medium">Label</label>
-                        <input type="text" id="modal-label" value="${field.label}" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <input type="checkbox" id="modal-required" ${field.required ? 'checked' : ''} class="h-4 w-4 rounded border-gray-600 bg-gray-800 text-white focus:ring-white/50">
-                        <label for="modal-required" class="text-sm font-medium">Required</label>
-                    </div>
-                `;
-                
-                // Type-specific content
-                if (field.type === 'text' || field.type === 'email' || field.type === 'textarea') {
-                    modalHtml += `
-                        <div class="space-y-2">
-                            <label for="modal-placeholder" class="text-sm font-medium">Placeholder</label>
-                            <input type="text" id="modal-placeholder" value="${field.placeholder || ''}" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
-                        </div>
-                    `;
-                }
-                
-                if (field.type === 'textarea') {
-                    modalHtml += `
-                        <div class="space-y-2">
-                            <label for="modal-rows" class="text-sm font-medium">Rows</label>
-                            <input type="number" id="modal-rows" value="${field.rows || 3}" min="1" max="10" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
-                        </div>
-                    `;
-                }
-                
-                if (field.type === 'select') {
-                    modalHtml += `
-                        <div class="space-y-2">
-                            <label for="modal-options" class="text-sm font-medium">Options (one per line)</label>
-                            <textarea id="modal-options" rows="3" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">${(field.options || []).join('\n')}</textarea>
-                        </div>
-                    `;
-                }
-                
-                el.modalBody.innerHTML = modalHtml;
-                el.modal.classList.add('flex');
+                const field = fields.find(f => f.id === id); if (!field) return; currentEditId = id;
+                let modalHtml = `<div class="space-y-2"><label for="modal-label" class="text-sm font-medium">Label</label><input type="text" id="modal-label" value="${field.label}" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50"></div><div class="flex items-center space-x-2"><input type="checkbox" id="modal-required" ${field.required ? 'checked' : ''} class="h-4 w-4 rounded border-gray-600 bg-gray-800 text-white focus:ring-white/50"><label for="modal-required" class="text-sm font-medium">Required</label></div>`;
+                if (['text', 'email', 'textarea'].includes(field.type)) { modalHtml += `<div class="space-y-2"><label for="modal-placeholder" class="text-sm font-medium">Placeholder</label><input type="text" id="modal-placeholder" value="${field.placeholder || ''}" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"></div>`; }
+                if (field.type === 'textarea') { modalHtml += `<div class="space-y-2"><label for="modal-rows" class="text-sm font-medium">Rows</label><input type="number" id="modal-rows" value="${field.rows || 3}" min="1" max="10" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"></div>`; }
+                if (['select', 'radio'].includes(field.type)) { modalHtml += `<div class="space-y-2"><label for="modal-options" class="text-sm font-medium">Options (one per line)</label><textarea id="modal-options" rows="3" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">${(field.options || []).join('\n')}</textarea></div>`; }
+                el.modalBody.innerHTML = modalHtml; el.modal.classList.add('flex');
             }
 
-            function closeEditModal() {
-                el.modal.classList.remove('flex');
-                currentEditId = null;
-                el.modalBody.innerHTML = '';
-            }
-
+            function closeEditModal() { el.modal.classList.remove('flex'); currentEditId = null; el.modalBody.innerHTML = ''; }
             function saveFieldChanges() {
-                if (!currentEditId) return;
-                
-                const field = fields.find(f => f.id === currentEditId);
-                if (!field) return;
-
-                // Save base fields
-                field.label = document.getElementById('modal-label').value;
-                field.required = document.getElementById('modal-required').checked;
-
-                // Save type-specific fields
-                if (field.type === 'text' || field.type === 'email' || field.type === 'textarea') {
-                    field.placeholder = document.getElementById('modal-placeholder').value;
-                }
-                if (field.type === 'textarea') {
-                    field.rows = parseInt(document.getElementById('modal-rows').value) || 3;
-                }
-                if (field.type === 'select') {
-                    field.options = document.getElementById('modal-options').value.split('\n').filter(opt => opt.trim() !== '');
-                }
-
-                closeEditModal();
-                render();
+                if (!currentEditId) return; const field = fields.find(f => f.id === currentEditId); if (!field) return;
+                field.label = document.getElementById('modal-label').value; field.required = document.getElementById('modal-required').checked;
+                if (['text', 'email', 'textarea'].includes(field.type)) { field.placeholder = document.getElementById('modal-placeholder').value; }
+                if (field.type === 'textarea') { field.rows = parseInt(document.getElementById('modal-rows').value) || 3; }
+                if (['select', 'radio'].includes(field.type)) { field.options = document.getElementById('modal-options').value.split('\n').filter(opt => opt.trim() !== ''); }
+                closeEditModal(); render();
             }
 
-            // --- EVENT HANDLERS ---
+            el.formTitle.addEventListener('input', (e) => { formState.title = e.target.value; updateFormMeta(); });
+            el.formDescription.addEventListener('input', (e) => { formState.description = e.target.value; updateFormMeta(); });
+            el.addFieldBtn.addEventListener('click', () => { const type = el.addFieldType.value; const newField = { id: crypto.randomUUID(), type: type, label: 'New Field', required: false }; if (['text', 'email', 'textarea'].includes(type)) { newField.placeholder = ''; } if (type === 'select' || type === 'radio') { newField.options = ['Option 1', 'Option 2']; } fields.push(newField); render(); });
+            el.previewThemeToggle.addEventListener('change', () => { el.previewThemeLabel.textContent = el.previewThemeToggle.checked ? 'Light' : 'Dark'; renderFormPreview(); });
+            el.fieldListContainer.addEventListener('click', (e) => { const deleteBtn = e.target.closest('.delete-btn'); if (deleteBtn) { fields = fields.filter(f => f.id !== deleteBtn.dataset.id); render(); } const editBtn = e.target.closest('.edit-btn'); if (editBtn) { openEditModal(editBtn.dataset.id); } });
             
-            el.formTitle.addEventListener('input', (e) => {
-                formState.title = e.target.value;
-                updateFormMeta();
-            });
-
-            el.formDescription.addEventListener('input', (e) => {
-                formState.description = e.target.value;
-                updateFormMeta();
-            });
-
-            el.addFieldBtn.addEventListener('click', () => {
-                const type = el.addFieldType.value;
-                const newField = {
-                    id: crypto.randomUUID(),
-                    type: type,
-                    label: 'New Field',
-                    required: false
-                };
-                
-                if (type === 'text' || type === 'email' || type === 'textarea') {
-                    newField.placeholder = '';
-                }
-                if (type === 'select') {
-                    newField.options = ['Option 1', 'Option 2'];
-                }
-                if (type === 'radio') {
-                    newField.label = 'Choose an Option';
-                    newField.options = ['Option A', 'Option B'];
-                }
-                
-                fields.push(newField);
-                render();
-            });
-
-            el.previewThemeToggle.addEventListener('change', () => {
-                el.previewThemeLabel.textContent = el.previewThemeToggle.checked ? 'Light' : 'Dark';
-                renderFormPreview();
-            });
-
-            el.fieldListContainer.addEventListener('click', (e) => {
-                const deleteBtn = e.target.closest('.delete-btn');
-                const editBtn = e.target.closest('.edit-btn');
-                
-                if (deleteBtn) {
-                    const id = deleteBtn.dataset.id;
-                    fields = fields.filter(f => f.id !== id);
-                    render();
-                }
-                
-                if (editBtn) {
-                    const id = editBtn.dataset.id;
-                    openEditModal(id);
-                }
-            });
-            
-            // Drag and Drop
             let draggedItem = null;
-            el.fieldListContainer.addEventListener('dragstart', (e) => {
-                draggedItem = e.target.closest('.field-card');
-                e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('text/plain', draggedItem.dataset.id);
-                setTimeout(() => { // Use timeout to allow browser to take snapshot
-                    draggedItem.classList.add('dragging');
-                }, 0);
-            });
-            el.fieldListContainer.addEventListener('dragend', () => {
-                draggedItem.classList.remove('dragging');
-                draggedItem = null;
-            });
-            el.fieldListContainer.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                e.dataTransfer.dropEffect = 'move';
-            });
-            el.fieldListContainer.addEventListener('drop', (e) => {
-                e.preventDefault();
-                if (!draggedItem) return;
-                
-                const targetCard = e.target.closest('.field-card');
-                if (!targetCard || targetCard === draggedItem) return;
+            el.fieldListContainer.addEventListener('dragstart', (e) => { draggedItem = e.target.closest('.field-card'); if (!draggedItem) return; setTimeout(() => draggedItem.classList.add('dragging'), 0); });
+            el.fieldListContainer.addEventListener('dragend', () => { if (draggedItem) draggedItem.classList.remove('dragging'); });
+            el.fieldListContainer.addEventListener('dragover', (e) => { e.preventDefault(); const targetCard = e.target.closest('.field-card'); if (targetCard && targetCard !== draggedItem) { const fromIndex = parseInt(draggedItem.dataset.index); const toIndex = parseInt(targetCard.dataset.index); if (fromIndex < toIndex) { targetCard.after(draggedItem); } else { targetCard.before(draggedItem); } const [movedField] = fields.splice(fromIndex, 1); fields.splice(toIndex, 0, movedField); fields.forEach((f, i) => document.querySelector(`[data-id="${f.id}"]`).dataset.index = i); renderCodeOutput(); } });
 
-                const fromIndex = parseInt(draggedItem.dataset.index);
-                const toIndex = parseInt(targetCard.dataset.index);
+            el.closeModalBtn.addEventListener('click', closeEditModal); el.saveFieldBtn.addEventListener('click', saveFieldChanges);
+            function showToast(message) { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); }
+            el.copyCodeBtn.addEventListener('click', () => { navigator.clipboard.writeText(el.htmlCodeOutput.value).then(() => showToast('Code copied!')); });
+            el.downloadBtn.addEventListener('click', () => { const blob = new Blob([el.htmlCodeOutput.value], { type: 'text/html' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `solite-form.html`; a.click(); URL.revokeObjectURL(a.href); });
 
-                // Re-order the array
-                const [movedField] = fields.splice(fromIndex, 1);
-                fields.splice(toIndex, 0, movedField);
-                
-                render(); // Re-render everything
-            });
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') { el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex'); el.controlsPane.classList.add('hidden'); el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active'); } 
+                else { el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active'); }
+            }
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) { if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); } else if (el.mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } else { showMobilePane('controls'); } } 
+                else { el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active'); }
+            }
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
 
-            el.closeModalBtn.addEventListener('click', closeEditModal);
-            el.saveFieldBtn.addEventListener('click', saveFieldChanges);
-            
-            el.copyCodeBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(el.htmlCodeOutput.value).then(() => {
-                    el.toast.textContent = 'Code copied!';
-                    el.toast.classList.add('show');
-                    setTimeout(() => el.toast.classList.remove('show'), 2000);
-                });
-            });
-
-            el.downloadBtn.addEventListener('click', () => {
-                const blob = new Blob([el.htmlCodeOutput.value], { type: 'text/html' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `solite-form.html`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            });
-
-            // --- INITIALIZATION ---
             render();
+            handleMobileLayout();
         });
     </script>
 </body>

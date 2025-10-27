@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- MODIFIED: Optimized Title -->
     <title>Free QR Code Generator | Custom Colors & Logo | Solite</title>
-
-    <!-- SEO & Social Sharing Meta Tags -->
-     <!-- MODIFIED: Optimized Description -->
     <meta name="description" content="Create, customize (colors, logo), and download high-resolution QR codes (PNG, SVG, JPG) for free with Solite's online generator. Supports Text/URL, WiFi, vCard, Email. 100% private.">
-     <!-- MODIFIED: Expanded Keywords -->
     <meta name="keywords" content="qr code generator, free qr code, custom qr code, qr code with logo, online qr code maker, create qr code, wifi qr code, vcard qr code, email qr code, solite, privacy first">
     <link rel="canonical" href="https://solite.in/qr-code-generator.html" />
-    <!-- MODIFIED: Optimized OG Title -->
     <meta property="og:title" content="Free QR Code Generator | Custom Colors & Logo | Solite">
     <meta property="og:description" content="Create, customize, and download high-resolution QR codes for free with Solite. Change colors, add a logo, and export to PNG, SVG, or JPG.">
     <meta property="og:site_name" content="Solite">
@@ -20,28 +14,21 @@
     <meta property="og:url" content="https://solite.in/qr-code-generator.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-
-    <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
-    <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
     </script>
     <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     
-    <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,31 +37,14 @@
       "url": "https://solite.in/qr-code-generator.html",
       "description": "A free, client-side tool to create and customize QR codes with colors and logos. No uploads, 100% private.",
       "applicationCategory": "UtilitiesApplication",
-      "featureList": [
-        "Generate QR codes for Text/URL, WiFi, Contact (vCard), and Email",
-        "Customize QR code dot and background colors",
-        "Adjust QR code size",
-        "Select error correction level",
-        "Add custom logo to QR code",
-        "Download QR codes in PNG, JPG, or SVG formats",
-        "Client-side processing for privacy"
-      ],
+      "featureList": [ "Generate QR codes for Text/URL, WiFi, Contact (vCard), and Email", "Customize QR code dot and background colors", "Adjust QR code size", "Select error correction level", "Add custom logo to QR code", "Download QR codes in PNG, JPG, or SVG formats", "Client-side processing for privacy" ],
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      },
-      "offers": { // ADDED: Offers
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
 
-    <!-- Modern QR Code Library (for SVG support) -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
     <script>
@@ -82,41 +52,31 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                 },
             },
         }
     </script>
     <style>
         .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer */
-        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 3px; }
         html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
-
-        /* Data Type Tab Styles */
         .data-type-tab { border-bottom: 2px solid transparent; transition: all 0.2s ease-in-out;}
         .data-type-tab.active { border-color: #fff; color: #fff; }
-
-        /* ADDED: Mobile Nav Styles */
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
              <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
                 <div class="flex items-center space-x-3">
                      <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
-                        <path d="M2 17l10 5 10-5"></path>
-                        <path d="M2 7l10 5 10-5"></path>
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
                     </svg>
                     <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
                 </div>
@@ -132,21 +92,15 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-     <!-- MODIFIED: Added relative, min-h-0 -->
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <!-- MODIFIED: Added screen-reader only H1 -->
             <h1 class="sr-only">Free QR Code Generator with Custom Colors and Logo</h1>
             
             <!-- Controls Panel -->
-             <!-- MODIFIED: Added id="controls-pane", lg:block, flex flex-col, overflow-y-auto -->
-            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto">
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
                  <h3 class="text-xl font-bold text-white flex-shrink-0">QR Code Generator</h3>
                 
-                <!-- Data Type Tabs -->
-                <div class="border-b border-gray-700 flex-shrink-0">
+                <div class="border-b border-gray-700 flex-shrink-0 mt-6">
                     <nav class="-mb-px flex space-x-4 font-sans overflow-x-auto" aria-label="Tabs">
                         <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm active" data-type="text">Text/URL</button>
                         <button class="data-type-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-gray-400 hover:text-gray-200 hover:border-gray-300" data-type="wifi">WiFi</button>
@@ -155,115 +109,40 @@
                     </nav>
                 </div>
 
-                 <!-- Data Input Sections - scrollable area -->
-                 <!-- MODIFIED: Added flex-grow, min-h-0 for scrollable content -->
-                <div id="data-inputs" class="space-y-6 flex-grow min-h-0 overflow-y-auto pr-2">
-                    <div id="text-input-section" class="data-input-section space-y-2">
-                        <label for="qr-text" class="font-medium">Text or URL</label>
-                        <textarea id="qr-text" rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700" placeholder="Enter any text or URL..."></textarea>
-                    </div>
-                    <div id="wifi-input-section" class="data-input-section hidden space-y-4">
-                        <input type="text" id="wifi-ssid" placeholder="Network Name (SSID)" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <input type="password" id="wifi-password" placeholder="Password" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <div class="relative w-full">
-                            <select id="wifi-encryption-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="WPA" selected>WPA/WPA2</option>
-                                <option value="WEP">WEP</option>
-                                <option value="nopass">None</option>
-                            </select>
-                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                    </div>
-                    <div id="vcard-input-section" class="data-input-section hidden space-y-4">
-                        <input type="text" id="vcard-name" placeholder="Full Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <input type="tel" id="vcard-phone" placeholder="Phone" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <input type="email" id="vcard-email" placeholder="Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                    </div>
-                    <div id="email-input-section" class="data-input-section hidden space-y-4">
-                        <input type="email" id="email-to" placeholder="To: recipient@example.com" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <input type="text" id="email-subject" placeholder="Subject" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                        <textarea id="email-body" rows="3" placeholder="Message..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></textarea>
-                    </div>
+                <!-- This inner div is the key to correct scrolling -->
+                <div id="data-inputs" class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-8">
+                    <div id="text-input-section" class="data-input-section space-y-2"><label for="qr-text" class="font-medium">Text or URL</label><textarea id="qr-text" rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700" placeholder="Enter any text or URL..."></textarea></div>
+                    <div id="wifi-input-section" class="data-input-section hidden space-y-4"><input type="text" id="wifi-ssid" placeholder="Network Name (SSID)" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><input type="password" id="wifi-password" placeholder="Password" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><div class="relative w-full"><select id="wifi-encryption-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="WPA" selected>WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select><svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                    <div id="vcard-input-section" class="data-input-section hidden space-y-4"><input type="text" id="vcard-name" placeholder="Full Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><input type="tel" id="vcard-phone" placeholder="Phone" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><input type="email" id="vcard-email" placeholder="Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                    <div id="email-input-section" class="data-input-section hidden space-y-4"><input type="email" id="email-to" placeholder="To: recipient@example.com" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><input type="text" id="email-subject" placeholder="Subject" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"><textarea id="email-body" rows="3" placeholder="Message..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></textarea></div>
 
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700">
-                        <div class="space-y-2">
-                            <label for="color-dark" class="font-medium text-sm">Dot Color</label>
-                            <input type="color" id="color-dark" value="#000000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="color-light" class="font-medium text-sm">Background</label>
-                            <input type="color" id="color-light" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        </div>
+                        <div class="space-y-2"><label for="color-dark" class="font-medium text-sm">Dot Color</label><input type="color" id="color-dark" value="#000000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                        <div class="space-y-2"><label for="color-light" class="font-medium text-sm">Background</label><input type="color" id="color-light" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
                     </div>
-                    <div class="space-y-2">
-                        <label for="qr-size" class="font-medium text-sm">Size (px)</label>
-                        <input type="range" id="qr-size" min="128" max="1024" value="256" step="64" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:ring-2 focus:ring-white/50">
-                        <div class="text-center text-xs text-gray-400"><span id="qr-size-label">256</span> x <span id="qr-size-label-h">256</span> px</div>
-                    </div>
-                    <div class="space-y-2">
-                        <label for="error-correction" class="font-medium text-sm">Error Correction</label>
-                        <div class="relative">
-                            <select id="error-correction-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"> <!-- Reduced padding/text size -->
-                                <option value="L">Low (~7%)</option>
-                                <option value="M" selected>Medium (~15%)</option>
-                                <option value="Q">Quartile (~25%)</option>
-                                <option value="H">High (~30%)</option>
-                            </select>
-                            <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2 border-t border-gray-700 pt-4">
-                        <label for="logo-upload-input" class="font-medium text-sm">Logo (Optional)</label>
-                        <button id="logo-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 text-sm rounded-lg flex items-center justify-center gap-2"> <!-- Reduced padding/text size -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                            <span>Upload Logo</span>
-                        </button>
-                        <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                        <button id="remove-logo-btn" class="hidden w-full text-xs text-red-400 hover:text-red-300 text-center py-1">Remove Logo</button>
-                    </div>
-                    <div class="space-y-2">
-                        <label for="download-format" class="font-medium text-sm">Download Format</label>
-                        <div class="relative">
-                            <select id="download-format-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"> <!-- Reduced padding/text size -->
-                                <option value="png" selected>PNG</option>
-                                <option value="jpeg">JPG</option>
-                                <option value="svg">SVG</option>
-                            </select>
-                             <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                    </div>
-                 </div> <!-- End scrollable inputs area -->
-
-                <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed flex-shrink-0 mt-4" disabled>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
-                    <span>Download QR Code</span>
-                </button>
+                    <div class="space-y-2"><label for="qr-size" class="font-medium text-sm">Size (px)</label><input type="range" id="qr-size" min="128" max="1024" value="256" step="64" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:ring-2 focus:ring-white/50"><div class="text-center text-xs text-gray-400"><span id="qr-size-label">256</span> x <span id="qr-size-label-h">256</span> px</div></div>
+                    <div class="space-y-2"><label for="error-correction-select" class="font-medium text-sm">Error Correction</label><div class="relative"><select id="error-correction-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="L">Low (~7%)</option><option value="M" selected>Medium (~15%)</option><option value="Q">Quartile (~25%)</option><option value="H">High (~30%)</option></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                    <div class="space-y-2 border-t border-gray-700 pt-4"><label for="logo-upload-input" class="font-medium text-sm">Logo (Optional)</label><button id="logo-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 text-sm rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg><span>Upload Logo</span></button><input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml"><button id="remove-logo-btn" class="hidden w-full text-xs text-red-400 hover:text-red-300 text-center py-1">Remove Logo</button></div>
+                    <div class="space-y-2"><label for="download-format-select" class="font-medium text-sm">Download Format</label><div class="relative"><select id="download-format-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="png" selected>PNG</option><option value="jpeg">JPG</option><option value="svg">SVG</option></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg><span>Download QR Code</span></button>
+                 </div>
             </div>
 
             <!-- Preview Pane -->
-             <!-- MODIFIED: Added id="preview-pane", flex flex-col -->
             <div id="preview-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-8 relative min-h-0 overflow-hidden">
-                <div id="qrcode-container" class="bg-white p-4 rounded-lg shadow-lg max-w-full max-h-full">
-                     <!-- Canvas max size constrained by parent -->
-                    <canvas id="qrcode-canvas" class="block max-w-full max-h-full object-contain"></canvas>
-                </div>
+                <div id="qrcode-container" class="bg-white p-4 rounded-lg shadow-lg max-w-full max-h-full"><canvas id="qrcode-canvas" class="block max-w-full max-h-full object-contain"></canvas></div>
                 <p id="prompt-text" class="mt-4 text-gray-500">Enter text to generate a QR code.</p>
             </div>
-
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
-            </div>
-        </aside>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
 
-        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <!-- Mobile/Tablet Navigation Bar -->
         <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
                 <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
-                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h13.5m-13.5 7.5h13.5m-1.5-15l-1.5 18m-10.5-18l-1.5 18M3 10.5h18M3 13.5h18" /></svg>
+                     <!-- MODIFIED: Changed icon to a QR code representation -->
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 14.625v4.5a1.125 1.125 0 001.125 1.125h4.5a1.125 1.125 0 001.125-1.125v-4.5a1.125 1.125 0 00-1.125-1.125h-4.5a1.125 1.125 0 00-1.125 1.125z"></path></svg>
                     <span>Preview</span>
                 </button>
                 <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
@@ -274,24 +153,14 @@
         </div>
     </main>
 
-    <!-- MODIFIED: Footer hidden on mobile -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
-             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
-                <span>© 2024 Solite. All Rights Reserved.</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
-            </div>
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>© 2024 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a><a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a></div>
         </div>
     </footer>
 
     <script>
-        // Removed mobile viewport height fix JS
-
         document.addEventListener('DOMContentLoaded', () => {
             const qrText = document.getElementById('qr-text');
             const colorDark = document.getElementById('color-dark');
@@ -309,306 +178,110 @@
             const errorCorrectionSelect = document.getElementById('error-correction-select');
             const downloadFormatSelect = document.getElementById('download-format-select');
 
-            // Data type elements
             const dataTypeTabs = document.querySelectorAll('.data-type-tab');
             const dataInputSections = document.querySelectorAll('.data-input-section');
 
-            // Mobile Nav Elements
             const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
             const mobileControlsBtn = document.getElementById('mobile-controls-btn');
             const previewPane = document.getElementById('preview-pane');
             const controlsPane = document.getElementById('controls-pane');
 
             let logoImage = null;
-            let activeDataType = 'text'; // Default data type
-            let currentQrText = ''; // Store the generated QR text
+            let activeDataType = 'text';
+            let currentQrText = '';
 
-            // --- Debounce Utility ---
-            const debounce = (func, delay = 250) => {
-                let timeout;
-                return (...args) => {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(this, args), delay);
-                };
-            };
+            const debounce = (func, delay = 250) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
 
-            // --- QR Data Formatting ---
             const getQrData = () => {
                 let data = '';
                 try {
                     switch (activeDataType) {
-                        case 'wifi':
-                            const ssid = document.getElementById('wifi-ssid').value.replace(/([\\;,"'])/g, '\\$1'); // Escape special chars
-                            const password = document.getElementById('wifi-password').value.replace(/([\\;,"'])/g, '\\$1');
-                            const encryption = document.getElementById('wifi-encryption-select').value;
-                            data = `WIFI:T:${encryption};S:${ssid};P:${password};;`;
-                            break;
-                        case 'vcard':
-                            const name = document.getElementById('vcard-name').value;
-                            const phone = document.getElementById('vcard-phone').value;
-                            const email = document.getElementById('vcard-email').value;
-                            data = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
-                            break;
-                        case 'email':
-                            const to = document.getElementById('email-to').value;
-                            const subject = document.getElementById('email-subject').value;
-                            const body = document.getElementById('email-body').value;
-                             // Basic validation for email format
-                             if (!to.includes('@')) {
-                                console.warn("Invalid email address for 'To' field.");
-                                return ''; // Prevent QR generation with invalid email
-                             }
-                            data = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                            break;
-                        case 'text':
-                        default:
-                            data = document.getElementById('qr-text').value; // No trim needed, allow spaces
-                            break;
+                        case 'wifi': const ssid = document.getElementById('wifi-ssid').value.replace(/([\\;,"'])/g, '\\$1'), password = document.getElementById('wifi-password').value.replace(/([\\;,"'])/g, '\\$1'), encryption = document.getElementById('wifi-encryption-select').value; data = `WIFI:T:${encryption};S:${ssid};P:${password};;`; break;
+                        case 'vcard': const name = document.getElementById('vcard-name').value, phone = document.getElementById('vcard-phone').value, email = document.getElementById('vcard-email').value; data = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`; break;
+                        case 'email': const to = document.getElementById('email-to').value, subject = document.getElementById('email-subject').value, body = document.getElementById('email-body').value; if (!to.includes('@')) return ''; data = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; break;
+                        case 'text': default: data = document.getElementById('qr-text').value; break;
                     }
-                } catch (e) {
-                     console.error("Error formatting QR data:", e);
-                     return ''; // Return empty string on error
-                }
+                } catch (e) { console.error("Error formatting QR data:", e); return ''; }
                 return data;
             };
 
-            // --- QR Code Generation ---
             const generateQRCode = async () => {
-                const text = getQrData();
-                currentQrText = text; // Store for SVG export
+                const text = getQrData(); currentQrText = text;
+                if (!text) { qrcodeContainer.style.display = 'none'; promptText.classList.remove('hidden'); downloadBtn.disabled = true; const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.width = 128; canvas.height = 128; return; }
 
-                if (!text) {
-                    // Use CSS to hide/show canvas via container for better layout control
-                    qrcodeContainer.style.display = 'none';
-                    promptText.classList.remove('hidden');
-                    downloadBtn.disabled = true;
-                    // Clear the canvas explicitly
-                    const ctx = canvas.getContext('2d');
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    canvas.width = 128; // Reset to a default small size
-                    canvas.height = 128;
-                    return;
-                }
+                qrcodeContainer.style.display = 'block'; promptText.classList.add('hidden'); downloadBtn.disabled = false;
+                const size = parseInt(qrSize.value); if (isNaN(size) || size <= 0) return;
 
-                qrcodeContainer.style.display = 'block'; // Use block or inline-block as needed
-                promptText.classList.add('hidden');
-                downloadBtn.disabled = false;
-
-                const size = parseInt(qrSize.value);
-                 // Ensure size is a positive number
-                 if (isNaN(size) || size <= 0) return;
-
-                const options = {
-                    width: size,
-                    margin: 2, // Keep a small margin
-                    errorCorrectionLevel: errorCorrectionSelect.value,
-                    color: {
-                        dark: colorDark.value,
-                        light: colorLight.value,
-                    },
-                };
+                const options = { width: size, margin: 2, errorCorrectionLevel: errorCorrectionSelect.value, color: { dark: colorDark.value, light: colorLight.value, }, };
 
                 try {
-                     // Generate to canvas first for display and PNG/JPG export
-                     await QRCode.toCanvas(canvas, text, options);
-
-                    // Draw logo if it exists
+                    await QRCode.toCanvas(canvas, text, options);
                     if (logoImage) {
                         const ctx = canvas.getContext('2d');
-                        // Calculate logo size relative to canvas size, with max limits
-                        const maxLogoSizeRatio = 0.25; // Logo max 25% of QR code width
-                        const logoSize = Math.min(size * maxLogoSizeRatio, logoImage.width); // Don't scale logo up excessively
-                        const logoX = (size - logoSize) / 2;
-                        const logoY = (size - logoSize) / 2;
-                        
-                        // Add a subtle padded background matching the QR light color
-                        const padding = logoSize * 0.1; // 10% padding around logo
-                        ctx.fillStyle = colorLight.value;
-                        ctx.fillRect(logoX - padding, logoY - padding, logoSize + padding * 2, logoSize + padding * 2);
-
+                        const maxLogoSizeRatio = 0.25, logoSize = Math.min(size * maxLogoSizeRatio, logoImage.width), logoX = (size - logoSize) / 2, logoY = (size - logoSize) / 2;
+                        const padding = logoSize * 0.1;
+                        ctx.fillStyle = colorLight.value; ctx.fillRect(logoX - padding, logoY - padding, logoSize + padding * 2, logoSize + padding * 2);
                         ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
                     }
-                } catch (err) {
-                     console.error('QR Code generation failed:', err);
-                     promptText.textContent = "Error generating QR Code. Input might be too long for the selected error level.";
-                     promptText.classList.remove('hidden');
-                     qrcodeContainer.style.display = 'none';
-                     downloadBtn.disabled = true;
-                }
+                } catch (err) { console.error('QR Code generation failed:', err); promptText.textContent = "Error generating QR Code. Input might be too long."; promptText.classList.remove('hidden'); qrcodeContainer.style.display = 'none'; downloadBtn.disabled = true; }
             };
 
-            // Debounced generation for input changes
             const debouncedGenerate = debounce(generateQRCode);
 
-            // --- Event Listeners ---
-            document.querySelectorAll('#data-inputs input, #data-inputs textarea, #data-inputs select').forEach(el => {
-                el.addEventListener('input', debouncedGenerate);
-            });
-            // Also listen for 'change' on selects for immediate update if needed
-            document.querySelectorAll('#wifi-encryption-select, #error-correction-select, #download-format-select').forEach(el => {
-                el.addEventListener('change', generateQRCode);
-            });
-
-            colorDark.addEventListener('input', debouncedGenerate);
-            colorLight.addEventListener('input', debouncedGenerate);
-
-            qrSize.addEventListener('input', (e) => {
-                const size = e.target.value;
-                qrSizeLabel.textContent = size;
-                qrSizeLabelH.textContent = size;
-                debouncedGenerate();
-            });
-            
+            document.querySelectorAll('#data-inputs input, #data-inputs textarea, #data-inputs select').forEach(el => { el.addEventListener('input', debouncedGenerate); });
+            document.querySelectorAll('#wifi-encryption-select, #error-correction-select, #download-format-select').forEach(el => { el.addEventListener('change', generateQRCode); });
+            colorDark.addEventListener('input', debouncedGenerate); colorLight.addEventListener('input', debouncedGenerate);
+            qrSize.addEventListener('input', (e) => { const size = e.target.value; qrSizeLabel.textContent = size; qrSizeLabelH.textContent = size; debouncedGenerate(); });
             logoUploadBtn.addEventListener('click', () => logoUploadInput.click());
-            logoUploadInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                     const file = e.target.files[0];
-                     // Basic file type check
-                     if (!file.type.startsWith('image/')) {
-                         alert('Please upload a valid image file (PNG, JPG, SVG).');
-                         return;
-                     }
+            logoUploadInput.addEventListener('change', (e) => { if (e.target.files && e.target.files[0]) { const file = e.target.files[0]; if (!file.type.startsWith('image/')) { alert('Please upload a valid image file.'); return; } const reader = new FileReader(); reader.onload = (event) => { logoImage = new Image(); logoImage.onload = () => { errorCorrectionSelect.value = 'H'; removeLogoBtn.classList.remove('hidden'); generateQRCode(); }; logoImage.onerror = () => alert("Error loading logo."); logoImage.src = event.target.result; }; reader.onerror = () => alert("Error reading logo file."); reader.readAsDataURL(file); } });
+            removeLogoBtn.addEventListener('click', () => { logoImage = null; logoUploadInput.value = ''; removeLogoBtn.classList.add('hidden'); generateQRCode(); });
 
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        logoImage = new Image();
-                        logoImage.onload = () => {
-                             // Force high error correction when logo is added
-                             errorCorrectionSelect.value = 'H';
-                             removeLogoBtn.classList.remove('hidden');
-                             generateQRCode(); // Regenerate immediately with logo
-                        };
-                         logoImage.onerror = () => alert("Error loading logo image.");
-                        logoImage.src = event.target.result;
-                    };
-                    reader.onerror = () => alert("Error reading logo file.");
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            removeLogoBtn.addEventListener('click', () => {
-                logoImage = null;
-                logoUploadInput.value = ''; // Clear file input
-                removeLogoBtn.classList.add('hidden');
-                 // Optionally revert error correction, or leave it high
-                 // errorCorrectionSelect.value = 'M'; // Revert to medium
-                generateQRCode(); // Regenerate without logo
-            });
-
-            dataTypeTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    activeDataType = tab.dataset.type;
-                    
-                    dataTypeTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    dataInputSections.forEach(section => section.classList.add('hidden'));
-                    const currentSection = document.getElementById(`${activeDataType}-input-section`);
-                    if(currentSection) currentSection.classList.remove('hidden');
-
-                    generateQRCode(); // Regenerate when type changes
-                });
-            });
+            dataTypeTabs.forEach(tab => { tab.addEventListener('click', () => { activeDataType = tab.dataset.type; dataTypeTabs.forEach(t => t.classList.remove('active')); tab.classList.add('active'); dataInputSections.forEach(section => section.classList.add('hidden')); const currentSection = document.getElementById(`${activeDataType}-input-section`); if(currentSection) currentSection.classList.remove('hidden'); generateQRCode(); }); });
 
             downloadBtn.addEventListener('click', async () => {
-                const format = downloadFormatSelect.value;
-                const link = document.createElement('a');
+                const format = downloadFormatSelect.value, link = document.createElement('a');
                 link.download = `solite-qrcode.${format}`;
-                const errorCorrectionLevel = errorCorrectionSelect.value; // Get current level
-
+                const errorCorrectionLevel = errorCorrectionSelect.value;
                 if (format === 'svg') {
-                     // SVG generation needs options without width, uses defaults
-                    const svgOptions = {
-                        errorCorrectionLevel: errorCorrectionLevel,
-                        margin: 2,
-                        color: { dark: colorDark.value, light: colorLight.value },
-                        type: 'svg' // Specify SVG type for qrcode library
-                    };
+                    const svgOptions = { errorCorrectionLevel, margin: 2, color: { dark: colorDark.value, light: colorLight.value }, type: 'svg' };
                     try {
-                        const svgString = await QRCode.toString(currentQrText, svgOptions);
-                        // Manually embed logo if present (Basic centered logo)
-                         let finalSvgString = svgString;
-                         if (logoImage) {
-                             // Estimate SVG size based on modules (this is complex, using viewBox is better)
-                             // A simpler approach: Place logo in the center based on percentage
-                             const logoSizePercent = 15; // Logo width as percentage of SVG width
-                             const logoXPercent = (100 - logoSizePercent) / 2;
-                             const logoYPercent = (100 - logoSizePercent) / 2;
-
-                             // Inject image element before the closing </svg> tag
-                             // Convert logo to data URL to embed it
-                             const tempCanvas = document.createElement('canvas');
-                             tempCanvas.width = logoImage.naturalWidth;
-                             tempCanvas.height = logoImage.naturalHeight;
-                             tempCanvas.getContext('2d').drawImage(logoImage, 0, 0);
-                             const logoDataURL = tempCanvas.toDataURL(); // Defaults to PNG
-
-                             const logoSvg = `<image href="${logoDataURL}" x="${logoXPercent}%" y="${logoYPercent}%" width="${logoSizePercent}%" height="${logoSizePercent}%" preserveAspectRatio="xMidYMid meet" />`;
-                             
-                             // Add a white background rect behind the logo
-                              const bgRectSize = logoSizePercent + 2; // Slightly larger background
-                              const bgRectX = (100 - bgRectSize) / 2;
-                              const bgRectY = (100 - bgRectSize) / 2;
-                              const bgRectSvg = `<rect x="${bgRectX}%" y="${bgRectY}%" width="${bgRectSize}%" height="${bgRectSize}%" fill="${colorLight.value}" />`;
-
-
-                             finalSvgString = svgString.replace('</svg>', `${bgRectSvg}${logoSvg}</svg>`);
-                         }
-
-                        const blob = new Blob([finalSvgString], { type: 'image/svg+xml;charset=utf-8' });
-                        link.href = URL.createObjectURL(blob);
-                        link.click();
-                        URL.revokeObjectURL(link.href); // Clean up
-                    } catch (err) {
-                        console.error('SVG Generation failed:', err);
-                        alert("Error generating SVG.");
-                    }
-                } else {
-                     // For PNG/JPG, use the existing canvas content which includes the logo
-                    link.href = canvas.toDataURL(`image/${format}`, format === 'jpeg' ? 0.95 : 1.0); // Add quality for JPG
-                    link.click();
-                }
+                        let svgString = await QRCode.toString(currentQrText, svgOptions);
+                        if (logoImage) {
+                            const logoSizePercent = 15, logoXPercent = (100 - logoSizePercent) / 2, logoYPercent = (100 - logoSizePercent) / 2;
+                            const tempCanvas = document.createElement('canvas'); tempCanvas.width = logoImage.naturalWidth; tempCanvas.height = logoImage.naturalHeight; tempCanvas.getContext('2d').drawImage(logoImage, 0, 0);
+                            const logoDataURL = tempCanvas.toDataURL();
+                            const logoSvg = `<image href="${logoDataURL}" x="${logoXPercent}%" y="${logoYPercent}%" width="${logoSizePercent}%" height="${logoSizePercent}%" preserveAspectRatio="xMidYMid meet" />`;
+                            const bgRectSize = logoSizePercent + 2, bgRectX = (100 - bgRectSize) / 2, bgRectY = (100 - bgRectSize) / 2;
+                            const bgRectSvg = `<rect x="${bgRectX}%" y="${bgRectY}%" width="${bgRectSize}%" height="${bgRectSize}%" fill="${colorLight.value}" />`;
+                            svgString = svgString.replace('</svg>', `${bgRectSvg}${logoSvg}</svg>`);
+                        }
+                        const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+                        link.href = URL.createObjectURL(blob); link.click(); URL.revokeObjectURL(link.href);
+                    } catch (err) { alert("Error generating SVG."); }
+                } else { link.href = canvas.toDataURL(`image/${format}`, format === 'jpeg' ? 0.95 : 1.0); link.click(); }
             });
 
-             // --- Mobile Navigation Logic ---
              function showMobilePane(paneId) {
                 if (paneId === 'preview') {
-                    previewPane.classList.remove('hidden');
-                    previewPane.classList.add('flex'); // Keep preview pane flex
-                    controlsPane.classList.add('hidden');
-                    controlsPane.classList.remove('flex');
-                    mobilePreviewBtn.classList.add('active');
-                    mobileControlsBtn.classList.remove('active');
-                } else { // 'controls'
-                    previewPane.classList.add('hidden');
-                    previewPane.classList.remove('flex');
-                    controlsPane.classList.remove('hidden');
-                    controlsPane.classList.add('flex'); // Make controls pane flex for scrolling
-                    mobilePreviewBtn.classList.remove('active');
-                    mobileControlsBtn.classList.add('active');
+                    previewPane.classList.remove('hidden'); previewPane.classList.add('flex');
+                    controlsPane.classList.add('hidden'); controlsPane.classList.remove('flex');
+                    mobilePreviewBtn.classList.add('active'); mobileControlsBtn.classList.remove('active');
+                } else {
+                    previewPane.classList.add('hidden'); previewPane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active'); mobileControlsBtn.classList.add('active');
                 }
             }
 
              function handleMobileLayout() {
                  if (window.innerWidth < 1024) {
-                      // Default to preview view if nothing is active
-                     if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
-                         showMobilePane('preview');
-                     }
-                      // Ensure the currently active pane is displayed correctly
-                     else if (mobilePreviewBtn.classList.contains('active')) {
-                         showMobilePane('preview');
-                     } else {
-                         showMobilePane('controls');
-                     }
+                     if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); }
+                     else if (mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } 
+                     else { showMobilePane('controls'); }
                  } else {
-                     // Desktop: show both panes
-                     previewPane.classList.remove('hidden');
-                     previewPane.classList.add('flex');
-                     controlsPane.classList.remove('hidden');
-                     controlsPane.classList.add('flex'); // Ensure controls uses flex col on desktop
-                     mobilePreviewBtn.classList.remove('active'); // Deactivate mobile buttons
-                     mobileControlsBtn.classList.remove('active');
+                     previewPane.classList.remove('hidden'); previewPane.classList.add('flex');
+                     controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
+                     mobilePreviewBtn.classList.remove('active'); mobileControlsBtn.classList.remove('active');
                  }
              }
 
@@ -616,12 +289,8 @@
             mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
             window.addEventListener('resize', handleMobileLayout);
 
-
-            // Initial state
-            qrcodeContainer.style.display = 'none'; // Use style instead of class for direct control
-            promptText.classList.remove('hidden');
-            handleMobileLayout(); // Set initial layout
-
+            qrcodeContainer.style.display = 'none'; promptText.classList.remove('hidden');
+            handleMobileLayout();
         });
     </script>
 </body>

@@ -1,14 +1,19 @@
-<html lang="en" class="scroll-smooth dark"><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/extend-native-history-api.js"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/requests.js"></script><head>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXIF Remover &amp; Editor | Solite</title>
+    <!-- MODIFIED: Optimized Title -->
+    <title>Free EXIF Remover & Metadata Editor | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="A free online tool to remove or edit EXIF metadata from your images. Protect your privacy by stripping GPS location, or edit tags like Copyright and Artist.">
-    <meta name="keywords" content="exif remover, exif editor, remove exif, edit exif, exif data remover, image metadata, privacy tool, photo privacy, solite">
+    <!-- MODIFIED: Optimized Description -->
+    <meta name="description" content="A free, private online tool to view, remove, and edit EXIF metadata from images. Protect your privacy by stripping GPS location data before sharing photos. No uploads required.">
+    <!-- MODIFIED: Expanded Keywords -->
+    <meta name="keywords" content="exif remover, exif editor, remove metadata, image privacy, strip gps data, photo metadata viewer, solite, privacy first">
     <link rel="canonical" href="https://solite.in/exif-stripper.html">
-    <meta property="og:title" content="Free EXIF Remover &amp; Editor | Solite">
-    <meta property="og:description" content="A free online tool to remove or edit EXIF metadata from your images. Protect your privacy by stripping GPS location, or edit tags like Copyright and Artist.">
+    <meta property="og:title" content="Free EXIF Remover & Metadata Editor | Solite">
+    <meta property="og:description" content="View, edit, or completely remove EXIF metadata from your images for free. Protect your privacy by stripping GPS location data before sharing. 100% client-side.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://solite.in/assets/solite-exif-stripper-og.png">
     <meta property="og:url" content="https://solite.in/exif-stripper.html">
@@ -22,21 +27,20 @@
     <script>
         window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
     </script>
-    <script src="/_vercel/insights/script.js" defer=""></script>
+    <script src="/_vercel/insights/script.js" defer></script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    <!-- EXIF.js Library -->
+    <!-- EXIF.js Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
-    <!-- piexif-js for writing EXIF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/piexifjs/1.0.6/piexif.min.js"></script>
     
     <!-- Schema.org Markup -->
@@ -44,25 +48,15 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "EXIF Remover & Editor",
+      "name": "EXIF Remover & Editor | Solite",
       "url": "https://solite.in/exif-stripper.html",
-      "description": "A free, client-side tool to remove or edit EXIF metadata from images for privacy.",
+      "description": "A free, client-side tool to view, remove or edit EXIF metadata from images to protect your privacy.",
       "applicationCategory": "UtilitiesApplication",
-      "featureList": [
-        "Upload JPG and TIFF images",
-        "View existing EXIF metadata",
-        "Strip all EXIF data from images",
-        "Edit common EXIF tags (Artist, Copyright, Description, Make, Model, Date/Time)",
-        "Download processed images",
-        "Client-side processing for privacy"
-      ],
+      "featureList": [ "View EXIF metadata", "Remove all EXIF data", "Edit common EXIF tags", "Client-side processing for privacy" ],
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
 
@@ -73,46 +67,38 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
                     },
                 },
             },
         }
     </script>
-<style>
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; /* gray-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        /* Custom Scrollbar for Firefox */
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
-        /* Mobile viewport height fix */
-        main {
-            height: calc(var(--vh, 1vh) * 100 - 72px);
-        }
+
+        /* Mobile Nav Styles */
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
-<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden" __processed_fd879c74-cf0a-4ba8-be76-6dbb0e94aa15__="true">
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
+    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
-                    <path d="M2 17l10 5 10-5"></path>
-                    <path d="M2 7l10 5 10-5"></path>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">EXIF Remover</span>
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">EXIF Remover</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -124,24 +110,29 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex min-h-0">
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <!-- Image Display Area -->
-            <div id="image-container" class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-hidden">
-                <div id="upload-prompt" class="text-center cursor-pointer p-8 m-auto">
-                    <h1 class="sr-only">EXIF Remover & Editor</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <p class="mt-2 text-lg font-medium text-white">Drop an image or click to upload</p>
-                    <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+    <!-- MODIFIED: Added relative, min-h-0, and correct height calculation -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <!-- MODIFIED: Added pb-16 for mobile nav, min-h-0 -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- MODIFIED: Wrapped in preview-pane, added overflow-auto -->
+            <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
+                <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-auto">
+                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                        <h1 class="sr-only">EXIF Remover & Editor</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class="mt-2 text-lg font-medium text-white">Drop an image or click to upload</p>
+                        <p class="mt-1 text-sm text-gray-400">Your image stays on your device. Supports JPG/JPEG.</p>
+                    </div>
+                    <canvas id="image-canvas" class="hidden"></canvas>
+                    <input type="file" id="image-upload" class="hidden" accept="image/jpeg, image/tiff">
                 </div>
-                <canvas id="image-canvas" class="hidden max-w-full max-h-full object-contain m-auto"></canvas>
-                <input type="file" id="image-upload" class="hidden" accept="image/jpeg, image/tiff">
             </div>
 
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto">
-                <h3 class="text-xl font-bold text-white">EXIF Remover &amp; Editor</h3>
-                <div id="main-controls" class="hidden space-y-6">
+            <!-- MODIFIED: Added flex flex-col for proper scrolling -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
+                <h3 class="text-xl font-bold text-white flex-shrink-0">EXIF Remover &amp; Editor</h3>
+                <div id="main-controls" class="hidden space-y-6 flex-grow min-h-0 overflow-y-auto pr-2 mt-6">
                     <div class="space-y-2">
                         <label class="font-medium">Action</label>
                         <div class="flex items-center justify-center bg-gray-800 rounded-lg p-1">
@@ -161,24 +152,37 @@
                         <input type="text" id="exif-model" aria-label="Camera Model" placeholder="Camera Model (e.g., EOS R5)" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
                         <input type="text" id="exif-datetime" aria-label="Date and Time" placeholder="Date/Time (YYYY:MM:DD HH:MM:SS)" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
                     </div>
-                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled="">
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         <span id="download-btn-text">Download</span>
                     </button>
                     <button id="remove-image-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg hidden">Remove Image</button>
                 </div>
-                <p id="controls-prompt" class="text-gray-500 text-center">Upload a JPG or TIFF image to view and strip its EXIF data.</p>
+                <p id="controls-prompt" class="text-gray-500 text-center flex-grow flex items-center justify-center">Upload a JPG or TIFF image to view and strip its EXIF data.</p>
             </div>
         </div>
         <!-- Ad Sidebar -->
         <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
-            </div>
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
         </aside>
+
+        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <!-- MODIFIED: Footer hidden on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
@@ -192,16 +196,6 @@
         </div>
     </footer>
     
-    <script>
-        // Mobile viewport height fix
-        function setViewportHeight() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        setViewportHeight();
-        window.addEventListener('resize', setViewportHeight);
-    </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const imageContainer = document.getElementById('image-container');
@@ -217,6 +211,12 @@
             const exifEditor = document.getElementById('exif-editor');
             const singleImageExifContainer = document.getElementById('single-image-exif-container');
             const singleImageExifList = document.getElementById('single-image-exif-list');
+
+            // Mobile Nav Elements
+            const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const previewPane = document.getElementById('preview-pane');
+            const controlsPane = document.getElementById('controls-pane');
 
             let originalImage = null;
             let originalDataUrl = null;
@@ -234,7 +234,7 @@
                     originalDataUrl = e.target.result;
                     originalImage = new Image();
                     originalImage.onload = () => {
-                        const exifData = EXIF.getData(originalImage, function() {
+                        EXIF.getData(originalImage, function() {
                             displaySingleImageExif(EXIF.getAllTags(this));
                         });
                         updateUI();
@@ -249,25 +249,22 @@
                     uploadPrompt.classList.add('hidden');
                     mainControls.classList.remove('hidden');
                     controlsPrompt.classList.add('hidden');
+                    controlsPrompt.classList.remove('flex'); // Ensure flex is removed
                     downloadBtn.disabled = false;
                     removeImageBtn.classList.remove('hidden');
-
                     canvas.classList.remove('hidden');
+
                     const ctx = canvas.getContext('2d');
-                    const img = originalImage;
-                    const ratio = Math.min((imageContainer.clientWidth - 20) / img.width, (imageContainer.clientHeight - 20) / img.height);
-                    canvas.width = img.width * ratio;
-                    canvas.height = img.height * ratio; // This ensures the canvas itself has the correct aspect ratio
-                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    canvas.width = originalImage.width;
+                    canvas.height = originalImage.height;
+                    ctx.drawImage(originalImage, 0, 0);
+
                 } else {
-                    // Reset state
-                    originalImage = null;
-                    originalDataUrl = null;
-                    originalFileName = '';
+                    originalImage = null; originalDataUrl = null; originalFileName = '';
                     uploadPrompt.classList.remove('hidden');
                     mainControls.classList.add('hidden');
                     controlsPrompt.classList.remove('hidden');
-                    imageContainer.classList.add('items-center', 'justify-center');
+                    controlsPrompt.classList.add('flex'); // Add flex back
                     imageUpload.value = '';
                     canvas.classList.add('hidden');
                     singleImageExifContainer.classList.add('hidden');
@@ -278,75 +275,54 @@
             }
 
             function updateButtonText() {
-                if (action === 'strip') {
-                    downloadBtnText.textContent = 'Download Stripped Image';
-                } else {
-                    downloadBtnText.textContent = 'Download Edited Image';
-                }
+                downloadBtnText.textContent = action === 'strip' ? 'Download Stripped Image' : 'Download Edited Image';
             }
 
             function displaySingleImageExif(exifData) {
                 singleImageExifContainer.classList.remove('hidden');
                 if (exifData && Object.keys(exifData).length > 0) {
-                    let html = Object.entries(exifData).map(([key, val]) => 
+                    singleImageExifList.innerHTML = Object.entries(exifData).map(([key, val]) => 
                         `<div class="flex justify-between"><span class="text-gray-400 pr-4">${key}</span> <span class="text-right truncate">${val}</span></div>`
                     ).join('');
-                    singleImageExifList.innerHTML = html;
                 } else {
                     singleImageExifList.innerHTML = '<p class="text-gray-400">No EXIF data found in this image.</p>';
                 }
-            }
-
-            function removeImage() {
-                uploadPrompt.classList.remove('hidden');
-                mainControls.classList.add('hidden');
-                controlsPrompt.classList.remove('hidden');
-                imageContainer.classList.add('items-center', 'justify-center');
-                imageUpload.value = '';
-                canvas.classList.add('hidden');
-                singleImageExifContainer.classList.add('hidden');
-                downloadBtn.disabled = true;
-                removeImageBtn.classList.add('hidden');
-                originalImage = null;
-                originalDataUrl = null;
-                originalFileName = '';
             }
 
             imageContainer.addEventListener('click', () => { if(!originalImage) imageUpload.click(); });
             imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
             imageContainer.addEventListener('dragover', (e) => { e.preventDefault(); imageContainer.classList.add('border-blue-500'); });
             imageContainer.addEventListener('dragleave', () => imageContainer.classList.remove('border-blue-500'));
-            imageContainer.addEventListener('drop', (e) => {
-                e.preventDefault();
-                imageContainer.classList.remove('border-blue-500');
-                handleImage(e.dataTransfer.files[0]);
-            });
+            imageContainer.addEventListener('drop', (e) => { e.preventDefault(); imageContainer.classList.remove('border-blue-500'); handleImage(e.dataTransfer.files[0]); });
 
             downloadBtn.addEventListener('click', () => {
                 if (!originalImage) return;
                 
-                const tempCanvas = document.createElement('canvas');
-                tempCanvas.width = originalImage.width;
-                tempCanvas.height = originalImage.height;
-                tempCanvas.getContext('2d').drawImage(originalImage, 0, 0);
-
-                const nameParts = originalFileName.split('.');
-                nameParts.pop();
-                const baseName = nameParts.join('.');
+                const baseName = originalFileName.substring(0, originalFileName.lastIndexOf('.'));
                 let finalDataUrl;
 
                 if (action === 'strip') {
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = originalImage.width;
+                    tempCanvas.height = originalImage.height;
+                    tempCanvas.getContext('2d').drawImage(originalImage, 0, 0);
                     finalDataUrl = tempCanvas.toDataURL('image/jpeg', 0.95);
                 } else { // Edit EXIF
-                    const exifObj = piexif.load(originalDataUrl);
-                    exifObj["0th"][piexif.ImageIFD.Artist] = document.getElementById('exif-artist').value;
-                    exifObj["0th"][piexif.ImageIFD.Copyright] = document.getElementById('exif-copyright').value;
-                    exifObj["0th"][piexif.ImageIFD.ImageDescription] = document.getElementById('exif-description').value;
-                    exifObj["0th"][piexif.ImageIFD.Make] = document.getElementById('exif-make').value;
-                    exifObj["0th"][piexif.ImageIFD.Model] = document.getElementById('exif-model').value;
-                    exifObj["Exif"][piexif.ExifIFD.DateTimeOriginal] = document.getElementById('exif-datetime').value;
-                    const exifStr = piexif.dump(exifObj);
-                    finalDataUrl = piexif.insert(exifStr, originalDataUrl);
+                    try {
+                        const exifObj = piexif.load(originalDataUrl);
+                        exifObj["0th"][piexif.ImageIFD.Artist] = document.getElementById('exif-artist').value;
+                        exifObj["0th"][piexif.ImageIFD.Copyright] = document.getElementById('exif-copyright').value;
+                        exifObj["0th"][piexif.ImageIFD.ImageDescription] = document.getElementById('exif-description').value;
+                        exifObj["0th"][piexif.ImageIFD.Make] = document.getElementById('exif-make').value;
+                        exifObj["0th"][piexif.ImageIFD.Model] = document.getElementById('exif-model').value;
+                        exifObj["Exif"][piexif.ExifIFD.DateTimeOriginal] = document.getElementById('exif-datetime').value;
+                        const exifStr = piexif.dump(exifObj);
+                        finalDataUrl = piexif.insert(exifStr, originalDataUrl);
+                    } catch (e) {
+                        alert('Could not edit EXIF data. The image may not have an existing EXIF block to modify.');
+                        console.error(e);
+                        return;
+                    }
                 }
                 
                 const link = document.createElement('a');
@@ -355,21 +331,66 @@
                 link.click();
             });
 
-            removeImageBtn.addEventListener('click', removeImage);
+            removeImageBtn.addEventListener('click', updateUI); // Pass no args to trigger reset
 
             actionBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     action = btn.dataset.action;
-                    actionBtns.forEach(b => b.classList.remove('bg-white', 'text-black'));
-                    actionBtns.forEach(b => b.classList.add('text-gray-400'));
-                    btn.classList.add('bg-white', 'text-black');
-                    btn.classList.remove('text-gray-400');
+                    actionBtns.forEach(b => {
+                        b.classList.remove('bg-white', 'text-black', 'font-bold');
+                        b.classList.add('text-gray-400', 'font-medium');
+                    });
+                    btn.classList.add('bg-white', 'text-black', 'font-bold');
+                    btn.classList.remove('text-gray-400', 'font-medium');
                     exifEditor.classList.toggle('hidden', action !== 'edit');
                     updateButtonText();
                 });
             });
+            
+            // --- Mobile Navigation Logic ---
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex');
+                    controlsPane.classList.add('hidden');
+                    mobilePreviewBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
+                } else { // 'controls'
+                    previewPane.classList.add('hidden');
+                    previewPane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden');
+                    controlsPane.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
+                }
+            }
 
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else if (mobilePreviewBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else {
+                        showMobilePane('controls');
+                    }
+                } else {
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex');
+                    controlsPane.classList.remove('hidden');
+                    controlsPane.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.remove('active');
+                }
+            }
+
+            mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial setup
+            handleMobileLayout();
         });
     </script>
-
-<script async="" data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_ELz7FVHbNJCe19g1j2fghiSMkSN3" src="https://vercel.live/_next-live/feedback/feedback.js"></script><vercel-live-feedback style="position: absolute; top: 0px; left: 0px; z-index: 2147483647;"><template shadowrootmode="closed"><div class="xjpnuDEdtspheNmW752g"></div><div class="rkEQJK5UMVeU3W3N5bFj"><svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4697 13.5303L13 14.0607L14.0607 13L13.5303 12.4697L9.06065 7.99999L13.5303 3.53032L14.0607 2.99999L13 1.93933L12.4697 2.46966L7.99999 6.93933L3.53032 2.46966L2.99999 1.93933L1.93933 2.99999L2.46966 3.53032L6.93933 7.99999L2.46966 12.4697L1.93933 13L2.99999 14.0607L3.53032 13.5303L7.99999 9.06065L12.4697 13.5303Z" fill="currentColor"></path></svg></div><div style="--toolbar-x: 1; --toolbar-y: 0.5;"><div><iframe src="https://vercel.live/_next-live/feedback/feedback.html?dpl=dpl_8ofbr3TrpaWEWi3FVZD9mfeN7vkH" width="0" height="0" title="empty" style="border: none;"></iframe></div></div><style>:host{--toolbar-x:1;--toolbar-y:0.5;--toolbar-size:36;--toolbar-offset:8;--size:var(--toolbar-size);--size-px:calc(var(--size)*1px);animation:none 0s ease 0s 1 normal none running;backface-visibility:visible;background:transparent none repeat 0 0/auto auto padding-box border-box scroll;border:none;border-collapse:separate;-o-border-image:none;border-image:none;border-radius:0;border-spacing:0;bottom:auto;box-shadow:none;box-sizing:content-box;caption-side:top;clear:none;clip:auto;color:#000;-moz-columns:auto;-moz-column-count:auto;-moz-column-fill:balance;column-fill:balance;grid-column-gap:normal;all:initial;-moz-column-gap:normal;column-gap:normal;-moz-column-rule:medium none currentColor;column-rule:medium none currentColor;-moz-column-span:1;column-span:1;-moz-column-width:auto;columns:auto;content:normal;counter-increment:none;counter-reset:none;cursor:auto;cursor:default!important;direction:ltr;display:inline;empty-cells:show;float:none;font-family:serif;font-family:var(--font-sans);font-feature-settings:normal;font-size:medium;font-size:12px;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:400;height:auto;-webkit-hyphens:none;hyphens:none;left:auto;letter-spacing:normal;line-height:normal;list-style:disc none outside;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;opacity:1;orphans:2;outline:medium none invert;overflow:visible;overflow-x:visible;overflow-y:visible;padding:0;page-break-after:auto;page-break-before:auto;page-break-inside:auto;perspective:none;perspective-origin:50% 50%;position:static;right:auto;-moz-tab-size:8;-o-tab-size:8;tab-size:8;table-layout:auto;text-align:left;-moz-text-align-last:auto;text-align-last:auto;text-decoration:none;text-indent:0;text-rendering:optimizeLegibility;text-shadow:none;text-transform:none;top:auto;transform:none;transform-origin:50% 50% 0;transform-style:flat;transition:none 0s ease 0s;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;widows:2;width:auto;word-spacing:normal;z-index:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:transparent;color:var(--geist-foreground);scroll-padding-top:var(--header-height);--color:initial;--text-color:initial;--themed-bg:initial;--themed-hover-bg:initial;--themed-fg:initial;--themed-border-color:initial;--border-color:initial;--themed-border:initial;--variant-radius:initial;--spiner-color:initial}@media (any-pointer:coarse){:host{--toolbar-size:40;--toolbar-offset:-6}}</style><style>.gz0uaErRoX5lIFdf0CDC{display:none}</style><style>.KgfssQl8RzJGwFogbANP{background:transparent;border-radius:50%;left:clamp(var(--offset-px),calc((var(--window-width, 100vw) - 2*var(--offset-px))*var(--toolbar-x) + var(--offset-px)),calc(var(--window-width, 100vw) - var(--size-px) - var(--offset-px)));position:fixed;top:clamp(0px,calc(var(--window-height, 100vh)*var(--toolbar-y)),calc(var(--window-height, 100vh) - var(--size-px)))}.KgfssQl8RzJGwFogbANP.yfWZbEryIesB70nm7FU6{top:clamp(0px,calc(var(--toolbar-y-offset)),calc(var(--window-height, 100vh) - var(--size-px)))}.KgfssQl8RzJGwFogbANP.yfWZbEryIesB70nm7FU6.BZdOiMLDIRFEZ6hjqRjk{top:calc(var(--window-height, 100vh)/3)}.KgfssQl8RzJGwFogbANP.pxAaGgiAgIEStvV2Rkyg{top:clamp(0px,calc(var(--window-height, 100vh) + var(--toolbar-y-offset) - var(--size-px)),calc(var(--window-height, 100vh) - var(--size-px)))}.KgfssQl8RzJGwFogbANP.pxAaGgiAgIEStvV2Rkyg.BZdOiMLDIRFEZ6hjqRjk{top:calc(var(--window-height, 100vh)*2/3 - var(--size-px))}.KgfssQl8RzJGwFogbANP{--offset-px:calc(var(--toolbar-offset)*1px);--edge:24;box-sizing:border-box;height:var(--size-px);width:var(--size-px);-webkit-tap-highlight-color:transparent;overflow:visible}.KgfssQl8RzJGwFogbANP:not(.NM77lpxvcT086LtiErg4) .g_U3r8dd_7sgVHnNnVpT .sF5uu1wZYWXEZpfeWyAr{transform:scaleX(-1)}@media (pointer:coarse){.KgfssQl8RzJGwFogbANP:before{background:transparent;border-radius:50%;content:"";inset:-32px;position:absolute;z-index:-1}}.KgfssQl8RzJGwFogbANP button{-webkit-appearance:unset;-moz-appearance:unset;appearance:unset;background:unset;border:unset;font:unset;margin:unset;padding:unset;text-align:unset}.oZlNLbvDgy4XTIKt1MgM{-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);background:rgba(0,0,0,.8);border-radius:50%;box-shadow:0 8px 30px rgba(0,0,0,.25);inset:0;position:absolute;transform-origin:50% 50% 0;transition:transform .1s}.KgfssQl8RzJGwFogbANP.OWSMzp3vEvrzsnBqsLnA .oZlNLbvDgy4XTIKt1MgM{transform:scale(.96)}.cOOwjAdSMSRiTHprPccD{height:var(--size-px);left:0;pointer-events:none;position:absolute;top:0;width:var(--size-px)}.cOOwjAdSMSRiTHprPccD:after,.cOOwjAdSMSRiTHprPccD:before{border-radius:50%;box-sizing:content-box;content:"";position:absolute}.cOOwjAdSMSRiTHprPccD:before{border:1px solid #000;inset:0}.cOOwjAdSMSRiTHprPccD:after{border:1px solid hsla(0,0%,100%,.2);inset:1px}.g_U3r8dd_7sgVHnNnVpT{border-radius:50%;color:#fff;cursor:pointer;display:grid;height:100%;place-content:center;width:100%;-webkit-tap-highlight-color:transparent;position:relative}.g_U3r8dd_7sgVHnNnVpT .sF5uu1wZYWXEZpfeWyAr{--size:calc(var(--size-px)*0.75);box-sizing:border-box;height:var(--size);width:var(--size)}.g_U3r8dd_7sgVHnNnVpT .UrncQQ9DDT5yb13q4rQ5{--spinner-size:16px;--spinner-color:currentColor;display:none}.g_U3r8dd_7sgVHnNnVpT.q9PeoANaAozZAwvP0V9y{pointer-events:none}.g_U3r8dd_7sgVHnNnVpT.q9PeoANaAozZAwvP0V9y .sF5uu1wZYWXEZpfeWyAr{display:none}.g_U3r8dd_7sgVHnNnVpT.q9PeoANaAozZAwvP0V9y .UrncQQ9DDT5yb13q4rQ5{display:block}.rkEQJK5UMVeU3W3N5bFj{-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);background:rgba(0,0,0,.6);border-radius:50%;bottom:-64px;display:none;left:50%;position:fixed;transform:translateX(-50%);--size:calc(var(--toolbar-size)*1.2px);--scaled-size:calc(var(--size)/1.5);align-items:center;border:1px solid hsla(0,0%,100%,.5);box-shadow:0 0 #000,0 0 #000,0 0 10px rgba(0,0,0,.1);box-sizing:border-box;height:var(--scaled-size);justify-content:center;opacity:0;outline:1px solid rgba(0,0,0,.1);pointer-events:none;transition:opacity .3s,bottom .3s,width .3s,height .3s;transition-timing-function:cubic-bezier(.4,0,.2,1);width:var(--scaled-size)}.rkEQJK5UMVeU3W3N5bFj svg{fill:none;color:#fff;height:16px;width:16px}.rkEQJK5UMVeU3W3N5bFj.Grbi4gFoxSEpAAm4xTjY{bottom:60px;opacity:1;--scaled-size:var(--size);display:flex}.xjpnuDEdtspheNmW752g{display:none}.xjpnuDEdtspheNmW752g:has(+.rkEQJK5UMVeU3W3N5bFj.Grbi4gFoxSEpAAm4xTjY){display:block}.xjpnuDEdtspheNmW752g{background:linear-gradient(180deg,transparent,rgba(0,0,0,.3));bottom:0;height:calc(80px + 2px*var(--toolbar-size));left:0;-webkit-mask:radial-gradient(ellipse at 50% 82%,#000 27%,transparent 70%);mask:radial-gradient(ellipse at 50% 82%,#000 27%,transparent 70%);opacity:0;pointer-events:none;position:fixed;transition:opacity .3s;width:100vw}.xjpnuDEdtspheNmW752g:has(+.rkEQJK5UMVeU3W3N5bFj.Grbi4gFoxSEpAAm4xTjY){opacity:1}.u1OMQH38rk8Henggmu7G{inset:0;position:fixed}</style><style>.THmkAWNxELbVyYRfSfVY{--menu-width:280px;--menu-height:269px;--edge-padding:8px;--offset-px:calc(1px*var(--toolbar-offset));height:var(--menu-height);left:clamp(calc(var(--size-px) + var(--edge-padding) + var(--offset-px)),calc(100vw*var(--toolbar-x)),calc(100vw - var(--menu-width) - var(--edge-padding) - var(--size-px) - var(--offset-px)));margin:0;overflow:hidden;padding:0;top:clamp(var(--edge-padding),calc(100%*var(--toolbar-y) - var(--menu-height) + var(--size-px)),calc(100vh - var(--menu-height) - var(--edge-padding)));width:var(--menu-width)}.THmkAWNxELbVyYRfSfVY iframe{border-radius:inherit;display:block;height:100%;-webkit-user-select:none;-moz-user-select:none;user-select:none;width:100%}.THmkAWNxELbVyYRfSfVY{background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.12);box-sizing:border-box;color:#eaeaea}@media (prefers-color-scheme:dark){.THmkAWNxELbVyYRfSfVY{background:#000;border-color:hsla(0,0%,100%,.15)}}@media (max-width:768px){.THmkAWNxELbVyYRfSfVY{--menu-height:275px;--timing:0.35s;--ease:linear(0 0%,0.0036 9.62%,0.0185 16.66%,0.0489 23.03%,0.0962 28.86%,0.1705 34.93%,0.269 40.66%,0.3867 45.89%,0.5833 52.95%,0.683 57.05%,0.7829 62.14%,0.8621 67.46%,0.8991 70.68%,0.9299 74.03%,0.9545 77.52%,0.9735 81.21%,0.9865 85%,0.9949 89.15%,1 100%);border:0;border-radius:12px 12px 0 0;bottom:0;box-shadow:0 -1px 1px 0 rgba(0,0,0,.02),0 -16px 24px -4px rgba(0,0,0,.04),0 -32px 48px -8px rgba(0,0,0,.06);display:none;height:-moz-fit-content;height:fit-content;height:0;left:0;overflow:visible;position:fixed;right:0;top:unset;width:100vw}.THmkAWNxELbVyYRfSfVY:before{border-radius:inherit;border-top:1px solid hsla(0,0%,100%,.2);content:"";inset:0;mix-blend-mode:difference;pointer-events:none;position:absolute}@media (prefers-color-scheme:dark){.THmkAWNxELbVyYRfSfVY:before{mix-blend-mode:exclusion}}.THmkAWNxELbVyYRfSfVY.AbUClSnedxlTmTQlxamK{transition:display,overlay,translate,height;transition-behavior:allow-discrete;transition-duration:var(--timing);transition-timing-function:var(--ease)}.THmkAWNxELbVyYRfSfVY.AbUClSnedxlTmTQlxamK::backdrop{opacity:0;overscroll-behavior:none;transition-behavior:allow-discrete;transition-duration:var(--timing);transition-property:display,overlay,opacity;transition-timing-function:var(--ease)}.THmkAWNxELbVyYRfSfVY.AbUClSnedxlTmTQlxamK:popover-open{display:block;height:var(--menu-height);@starting-style{height:0}}.THmkAWNxELbVyYRfSfVY.AbUClSnedxlTmTQlxamK:popover-open::backdrop{opacity:1;@starting-style{opacity:0}}}.T1BzL_6SLE7vtZq07pQv{display:block!important}</style><style>._472I4HBgsrXA25rrRN7g,.TOFYxsTuhd4WvePFJ5mA{height:var(--spinner-size,20px);width:var(--spinner-size,20px)}._472I4HBgsrXA25rrRN7g{left:50%;position:relative;top:50%}.cDmbUw8NpHadAxKa_6Ny{animation:t8HXzzptxYCDS_a2f7Pc 1.2s linear infinite;background:var(--spinner-color,var(--ds-gray-700));border-radius:var(--geist-radius);height:8%;left:-10%;position:absolute;top:-3.9%;width:24%}.cDmbUw8NpHadAxKa_6Ny:first-child{animation-delay:-1.2s;transform:rotate(.0001deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(2){animation-delay:-1.1s;transform:rotate(30deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(3){animation-delay:-1s;transform:rotate(60deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(4){animation-delay:-.9s;transform:rotate(90deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(5){animation-delay:-.8s;transform:rotate(120deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(6){animation-delay:-.7s;transform:rotate(150deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(7){animation-delay:-.6s;transform:rotate(180deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(8){animation-delay:-.5s;transform:rotate(210deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(9){animation-delay:-.4s;transform:rotate(240deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(10){animation-delay:-.3s;transform:rotate(270deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(11){animation-delay:-.2s;transform:rotate(300deg) translate(146%)}.cDmbUw8NpHadAxKa_6Ny:nth-child(12){animation-delay:-.1s;transform:rotate(330deg) translate(146%)}@keyframes t8HXzzptxYCDS_a2f7Pc{0%{opacity:1}to{opacity:.15}}</style><style>.DDuZjhKo70em4662HZAz{align-items:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#000;display:flex;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%}@keyframes OE0O3ooYFU4cSkbE5ZcT{0%{opacity:0;pointer-events:none;transform:translate3d(0,-40px,0)}to{opacity:1;pointer-events:all;transform:translateZ(0)}}.SqHhCGt2Af7j0aVx6Fc6{animation:OE0O3ooYFU4cSkbE5ZcT .35s cubic-bezier(.4,0,.2,1);background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;box-shadow:0 1px 2px 0 rgba(0,0,0,.04);height:492px;max-width:calc(100vw - 32px);min-width:min(calc(100vw - 32px),482px);overflow:hidden}.SqHhCGt2Af7j0aVx6Fc6 iframe{height:100%;-webkit-user-select:none;-moz-user-select:none;user-select:none;width:100%}</style><div class="KgfssQl8RzJGwFogbANP" style="--toolbar-x: 1; --toolbar-y: 0.5; --window-width: 1912px; --window-height: 420px;"><div class="oZlNLbvDgy4XTIKt1MgM"><div class="cOOwjAdSMSRiTHprPccD"></div></div><button class="g_U3r8dd_7sgVHnNnVpT" aria-label="Vercel Toolbar"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="sF5uu1wZYWXEZpfeWyAr">  <g clip-path="url(#clip0_7590_8914)"><circle cx="23" cy="20" r="3.65625" fill="white" stroke="white" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M23 17.5801L25.4844 21.9277H20.5156L23 17.5801Z" fill="#1A1A1A"></path></g>  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.75 10H9V11.5H9.75H22.25H23V10H22.25H9.75ZM9.75 20H9V21.5H9.75H17.189C17.0656 21.0206 17 20.5179 17 20H9.75ZM18.126 16.5H9.75H9V15H9.75H19.6822C19.0774 15.4022 18.5497 15.9111 18.126 16.5Z" fill="#EDEDED"></path>  <defs><clipPath id="clip0_7590_8914"><rect width="9" height="9" fill="white" transform="translate(18.5 15.5)"></rect></clipPath></defs></svg><div class="UrncQQ9DDT5yb13q4rQ5 TOFYxsTuhd4WvePFJ5mA"><div class="_472I4HBgsrXA25rrRN7g"><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div><div class="cDmbUw8NpHadAxKa_6Ny"></div></div></div></button></div></template></vercel-live-feedback></body></html>
+</body>
+</html>

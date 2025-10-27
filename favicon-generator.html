@@ -18,6 +18,7 @@
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://solite.in/assets/favicon-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
@@ -32,8 +33,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -44,62 +44,14 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Favicon Generator",
-      "alternateName": "Free Favicon Generator for All Platforms",
       "url": "https://solite.in/favicon-generator.html",
       "description": "A free, client-side tool to generate a complete favicon package from an image, text, or emoji.",
       "applicationCategory": "DeveloperApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Generate favicons from images, text, or emojis",
-        "Customize background color, shape, and font",
-        "Live previews for browser tabs, iOS, and Android",
-        "Generates all required sizes (16x16, 32x32, 48x48, apple-touch-icon, etc.)",
-        "Creates site.webmanifest and browserconfig.xml",
-        "Download complete package as a ZIP file",
-        "Provides HTML code for easy integration"
-      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": [ "Generate favicons from images, text, or emojis", "Customize background color, shape, and font", "Live previews for browser tabs, iOS, and Android", "Generates all required sizes", "Creates site.webmanifest and browserconfig.xml", "Download complete package as a ZIP file", "Provides HTML code for easy integration" ],
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create a Favicon Package",
-        "description": "Use the Solite Favicon Generator to create a complete set of favicons for your website in 4 easy steps.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "name": "Step 1: Choose Your Source",
-            "text": "Select whether you want to create your favicon from an uploaded image, text, or an emoji using the tabs in the control panel.",
-            "url": "https://solite.in/favicon-generator.html#controls-panel"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Step 2: Customize Your Icon",
-            "text": "Adjust the background color, corner radius, and other settings. If using text or emoji, you can also change the font family, weight, and color.",
-            "url": "https://solite.in/favicon-generator.html#controls-panel"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Step 3: Preview the Results",
-            "text": "Instantly see how your favicon will look in a browser tab and as an app icon on iOS and Android devices.",
-            "url": "https://solite.in/favicon-generator.html#preview-apple"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Step 4: Download Your Package",
-            "text": "Copy the generated HTML code to paste into your website's <head> tag, and click 'Download Favicon Package' to get a ZIP file with all the necessary icon files (favicon.ico, PNGs, etc.).",
-            "url": "https://solite.in/favicon-generator.html#download-package-btn"
-          }
-        ]
-      }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
     }
     </script>
 
@@ -111,12 +63,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
-                        'poppins': ['Poppins', 'sans-serif'],
-                        'roboto-mono': ['Roboto Mono', 'monospace'],
-                        'lobster': ['Lobster', 'cursive'],
-                        'roboto-slab': ['Roboto Slab', 'serif'],
-                        'bangers': ['Bangers', 'cursive'],
-                        'lora': ['Lora', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'], 'roboto-mono': ['Roboto Mono', 'monospace'], 'lobster': ['Lobster', 'cursive'], 'roboto-slab': ['Roboto Slab', 'serif'], 'bangers': ['Bangers', 'cursive'], 'lora': ['Lora', 'serif'],
                     },
                 },
             },
@@ -128,16 +75,11 @@
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #6b7280; /* gray-500 */
-        }
         html { scrollbar-color: #4b5563 #111827; }
         .tab-btn.active { background-color: #4b5563; color: #ffffff; }
-        .custom-select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -145,159 +87,138 @@
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <h1 class="text-lg font-semibold text-gray-600 dark:text-gray-400">Free Favicon Generator</h1>
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Favicon Generator</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Favicon Generator for All Platforms</h1>
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col space-y-4 overflow-y-auto h-full" aria-labelledby="controls-heading">
-                <h2 id="controls-heading" class="text-xl font-bold text-white">Generator Controls</h2>
-                
-                <!-- Input Type Tabs -->
-                <div class="bg-gray-800 rounded-lg p-1 flex space-x-1">
-                    <button class="tab-btn active flex-1 py-2 text-sm font-medium rounded-md" data-input-type="image">Image</button>
-                    <button class="tab-btn flex-1 py-2 text-sm font-medium rounded-md" data-input-type="text">Text</button>
-                    <button class="tab-btn flex-1 py-2 text-sm font-medium rounded-md" data-input-type="emoji">Emoji</button>
-                </div>
-
-                <!-- Input Sections -->
-                <div id="input-sections">
-                    <div id="image-input-section" class="input-section space-y-2">
-                        <label for="image-upload" class="font-medium">Source Image</label>
-                        <button id="upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                            <span>Select Image</span>
-                        </button>
-                        <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                        <p id="image-filename" class="text-xs text-gray-400 text-center truncate"></p>
-                    </div>
-                    <div id="text-input-section" class="input-section hidden space-y-2">
-                        <label for="text-input" class="font-medium">Text</label>
-                        <input type="text" id="text-input" value="S" maxlength="2" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-center text-2xl font-bold">
-                    </div>
-                    <div id="emoji-input-section" class="input-section hidden space-y-2">
-                        <label for="emoji-input" class="font-medium">Emoji</label>
-                        <input type="text" id="emoji-input" value="✨" maxlength="2" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-center text-4xl">
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <div class="flex-shrink-0">
+                    <h2 id="controls-heading" class="text-xl font-bold text-white">Generator Controls</h2>
+                    <!-- Input Type Tabs -->
+                    <div class="bg-gray-800 rounded-lg p-1 flex space-x-1 mt-4">
+                        <button class="tab-btn active flex-1 py-2 text-sm font-medium rounded-md" data-input-type="image">Image</button>
+                        <button class="tab-btn flex-1 py-2 text-sm font-medium rounded-md" data-input-type="text">Text</button>
+                        <button class="tab-btn flex-1 py-2 text-sm font-medium rounded-md" data-input-type="emoji">Emoji</button>
                     </div>
                 </div>
 
-                <!-- Customization -->
-                <div class="space-y-4 border-t border-gray-800 pt-4">
-                    <h3 class="font-semibold text-white">Customization</h3>
-                    <div class="space-y-2">
-                        <label for="bg-color" class="text-sm">Background Color</label>
-                        <input type="color" id="bg-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                    </div>
-                    <div class="space-y-2">
-                        <label for="border-radius-slider" class="text-sm">Corner Radius (<span id="border-radius-label">20</span>%)</label>
-                        <input type="range" id="border-radius-slider" min="0" max="50" value="20" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                    </div>
-                    <div id="font-controls" class="hidden space-y-2">
-                        <label for="font-color" class="text-sm">Font Color</label>
-                        <input type="color" id="font-color" value="#000000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        <label for="font-size-slider" class="text-sm">Font Size (<span id="font-size-label">70</span>%)</label>
-                        <input type="range" id="font-size-slider" min="30" max="100" value="70" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        <label for="font-family-select" class="text-sm">Font Family</label>
-                        <div class="relative">
-                            <select id="font-family-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="Poppins" selected>Poppins</option>
-                                <option value="Roboto Mono">Roboto Mono</option>
-                                <option value="Lobster">Lobster</option>
-                                <option value="Roboto Slab">Roboto Slab</option>
-                                <option value="Bangers">Bangers</option>
-                                <option value="Lora">Lora</option>
-                                <option value="Inter">Inter</option>
-                            </select>
-                            <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-4 space-y-4 pb-16 lg:pb-4">
+                    <!-- Input Sections -->
+                    <div id="input-sections">
+                        <div id="image-input-section" class="input-section space-y-2">
+                            <label for="image-upload" class="font-medium">Source Image</label>
+                            <button id="upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg><span>Select Image</span></button>
+                            <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+                            <p id="image-filename" class="text-xs text-gray-400 text-center truncate"></p>
                         </div>
-                        <label for="font-weight-select" class="text-sm">Font Weight</label>
-                        <div class="relative">
-                            <select id="font-weight-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="bold" selected>Bold</option>
-                                <option value="normal">Normal</option>
-                            </select>
-                            <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <div id="text-input-section" class="input-section hidden space-y-2">
+                            <label for="text-input" class="font-medium">Text</label>
+                            <input type="text" id="text-input" value="S" maxlength="2" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-center text-2xl font-bold">
+                        </div>
+                        <div id="emoji-input-section" class="input-section hidden space-y-2">
+                            <label for="emoji-input" class="font-medium">Emoji</label>
+                            <input type="text" id="emoji-input" value="✨" maxlength="2" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-center text-4xl">
+                        </div>
+                    </div>
+
+                    <!-- Customization -->
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Customization</h3>
+                        <div class="space-y-2">
+                            <label for="bg-color" class="text-sm">Background Color</label>
+                            <input type="color" id="bg-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="border-radius-slider" class="text-sm">Corner Radius (<span id="border-radius-label">20</span>%)</label>
+                            <input type="range" id="border-radius-slider" min="0" max="50" value="20" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div id="font-controls" class="hidden space-y-2">
+                            <label for="font-color" class="text-sm">Font Color</label>
+                            <input type="color" id="font-color" value="#000000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                            <label for="font-size-slider" class="text-sm">Font Size (<span id="font-size-label">70</span>%)</label>
+                            <input type="range" id="font-size-slider" min="30" max="100" value="70" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <label for="font-family-select" class="text-sm">Font Family</label>
+                            <div class="relative">
+                                <select id="font-family-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="Poppins" selected>Poppins</option><option value="Roboto Mono">Roboto Mono</option><option value="Lobster">Lobster</option><option value="Roboto Slab">Roboto Slab</option><option value="Bangers">Bangers</option><option value="Lora">Lora</option><option value="Inter">Inter</option></select>
+                                <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <label for="font-weight-select" class="text-sm">Font Weight</label>
+                            <div class="relative">
+                                <select id="font-weight-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="bold" selected>Bold</option><option value="normal">Normal</option></select>
+                                <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Main Workspace -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <!-- Preview Area -->
-                <div class="flex-grow flex flex-col items-center justify-center p-8 bg-black/20 space-y-8">
-                    <h2 class="text-xl font-bold text-white">Live Previews</h2>
+                <div class="flex-grow flex flex-col items-center justify-center p-8 bg-black/20 space-y-8 overflow-y-auto">
+                    <h2 class="text-xl font-bold text-white flex-shrink-0">Live Previews</h2>
                     <!-- Browser Tab Preview -->
-                    <div class="w-full max-w-sm bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                        <div class="flex items-center p-2 bg-gray-700">
-                            <div class="flex space-x-1.5">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center bg-gray-900 p-1.5">
-                            <img id="preview-browser" src="" class="w-4 h-4 mr-2" alt="Browser Tab Favicon Preview">
-                            <span class="text-sm text-gray-300">Your Website Title</span>
-                        </div>
+                    <div class="w-full max-w-sm bg-gray-800 rounded-lg shadow-lg overflow-hidden flex-shrink-0">
+                        <div class="flex items-center p-2 bg-gray-700"><div class="flex space-x-1.5"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div></div>
+                        <div class="flex items-center bg-gray-900 p-1.5"><img id="preview-browser" src="" class="w-4 h-4 mr-2" alt="Browser Tab Favicon Preview"><span class="text-sm text-gray-300">Your Website Title</span></div>
                     </div>
                     <!-- App Icon Preview -->
-                    <div class="flex items-center space-x-8">
-                        <div class="text-center">
-                            <img id="preview-apple" src="" class="w-16 h-16 rounded-xl shadow-lg" alt="Apple Touch Icon Preview">
-                            <p class="text-xs mt-2 text-gray-400">iOS / iPadOS</p>
-                        </div>
-                        <div class="text-center">
-                            <img id="preview-android" src="" class="w-16 h-16 rounded-full shadow-lg" alt="Android Chrome Icon Preview">
-                            <p class="text-xs mt-2 text-gray-400">Android</p>
-                        </div>
+                    <div class="flex items-center space-x-8 flex-shrink-0">
+                        <div class="text-center"><img id="preview-apple" src="" class="w-16 h-16 rounded-xl shadow-lg" alt="Apple Touch Icon Preview"><p class="text-xs mt-2 text-gray-400">iOS / iPadOS</p></div>
+                        <div class="text-center"><img id="preview-android" src="" class="w-16 h-16 rounded-full shadow-lg" alt="Android Chrome Icon Preview"><p class="text-xs mt-2 text-gray-400">Android</p></div>
                     </div>
                 </div>
                 <!-- Output Area -->
                 <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg font-semibold">HTML Code</h3>
-                        <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                            <span>Copy Code</span>
-                        </button>
+                        <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy Code</span></button>
                     </div>
                     <textarea id="html-code-output" readonly class="w-full h-24 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-xs resize-none"></textarea>
-                    <button id="download-package-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                        <span>Download Favicon Package</span>
-                    </button>
+                    <button id="download-package-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><span>Download Favicon Package</span></button>
                 </div>
             </div>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
             </div>
-        </aside>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
@@ -316,291 +237,80 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- DOM ELEMENTS ---
             const el = {
-                // Input sections
-                imageUpload: document.getElementById('image-upload'),
-                uploadBtn: document.getElementById('upload-btn'),
-                imageFilename: document.getElementById('image-filename'),
-                textInput: document.getElementById('text-input'),
-                emojiInput: document.getElementById('emoji-input'),
-                // Customization
-                bgColor: document.getElementById('bg-color'),
-                borderRadiusSlider: document.getElementById('border-radius-slider'),
-                borderRadiusLabel: document.getElementById('border-radius-label'),
-                fontControls: document.getElementById('font-controls'),
-                fontColor: document.getElementById('font-color'),
-                fontSizeSlider: document.getElementById('font-size-slider'),
-                fontSizeLabel: document.getElementById('font-size-label'),
-                fontFamilySelect: document.getElementById('font-family-select'),
-                fontWeightSelect: document.getElementById('font-weight-select'),
-                // Previews
-                previewBrowser: document.getElementById('preview-browser'),
-                previewApple: document.getElementById('preview-apple'),
-                previewAndroid: document.getElementById('preview-android'),
-                // Output
-                htmlCodeOutput: document.getElementById('html-code-output'),
-                copyCodeBtn: document.getElementById('copy-code-btn'),
-                downloadPackageBtn: document.getElementById('download-package-btn'),
-                toast: document.getElementById('toast'),
+                imageUpload: document.getElementById('image-upload'), uploadBtn: document.getElementById('upload-btn'), imageFilename: document.getElementById('image-filename'), textInput: document.getElementById('text-input'), emojiInput: document.getElementById('emoji-input'),
+                bgColor: document.getElementById('bg-color'), borderRadiusSlider: document.getElementById('border-radius-slider'), borderRadiusLabel: document.getElementById('border-radius-label'), fontControls: document.getElementById('font-controls'), fontColor: document.getElementById('font-color'), fontSizeSlider: document.getElementById('font-size-slider'), fontSizeLabel: document.getElementById('font-size-label'), fontFamilySelect: document.getElementById('font-family-select'), fontWeightSelect: document.getElementById('font-weight-select'),
+                previewBrowser: document.getElementById('preview-browser'), previewApple: document.getElementById('preview-apple'), previewAndroid: document.getElementById('preview-android'),
+                htmlCodeOutput: document.getElementById('html-code-output'), copyCodeBtn: document.getElementById('copy-code-btn'), downloadPackageBtn: document.getElementById('download-package-btn'), toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), controlsPane: document.getElementById('controls-pane'), outputPane: document.getElementById('output-pane'),
             };
-
-            // --- STATE ---
-            let state = {
-                inputType: 'image',
-                sourceImage: null,
-                text: 'S',
-                emoji: '✨',
-                bgColor: '#ffffff',
-                borderRadius: 20,
-                fontColor: '#000000',
-                fontSize: 70,
-                fontWeight: 'bold',
-                fontFamily: 'Poppins',
-            };
-
-            // --- CORE LOGIC ---
-
+            let state = { inputType: 'image', sourceImage: null, text: 'S', emoji: '✨', bgColor: '#ffffff', borderRadius: 20, fontColor: '#000000', fontSize: 70, fontWeight: 'bold', fontFamily: 'Poppins' };
             function generateFavicon(size) {
-                const canvas = document.createElement('canvas');
-                canvas.width = size;
-                canvas.height = size;
-                const ctx = canvas.getContext('2d');
-
-                // Draw background
-                ctx.fillStyle = state.bgColor;
+                const canvas = document.createElement('canvas'); canvas.width = size; canvas.height = size;
+                const ctx = canvas.getContext('2d'); ctx.fillStyle = state.bgColor;
                 const radius = size * (state.borderRadius / 100);
-                ctx.beginPath();
-                ctx.moveTo(radius, 0);
-                ctx.lineTo(size - radius, 0);
-                ctx.quadraticCurveTo(size, 0, size, radius);
-                ctx.lineTo(size, size - radius);
-                ctx.quadraticCurveTo(size, size, size - radius, size);
-                ctx.lineTo(radius, size);
-                ctx.quadraticCurveTo(0, size, 0, size - radius);
-                ctx.lineTo(0, radius);
-                ctx.quadraticCurveTo(0, 0, radius, 0);
-                ctx.closePath();
-                ctx.fill();
-
-                // Draw content
-                if (state.inputType === 'image' && state.sourceImage) {
-                    const margin = size * 0.15; // 15% margin
-                    ctx.drawImage(state.sourceImage, margin, margin, size - margin * 2, size - margin * 2);
-                } else if (state.inputType === 'text' || state.inputType === 'emoji') {
-                    const content = state.inputType === 'text' ? state.text : state.emoji;
-                    ctx.fillStyle = state.fontColor;
-                    ctx.font = `${state.fontWeight} ${size * (state.fontSize / 100)}px ${state.fontFamily}`;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    // A slight vertical adjustment for better visual centering of most fonts/emojis.
-                    const verticalOffset = size * 0.08;
-                    ctx.fillText(content, size / 2, size / 2 + verticalOffset);
-                }
-
+                ctx.beginPath(); ctx.moveTo(radius, 0); ctx.lineTo(size - radius, 0); ctx.quadraticCurveTo(size, 0, size, radius); ctx.lineTo(size, size - radius); ctx.quadraticCurveTo(size, size, size - radius, size); ctx.lineTo(radius, size); ctx.quadraticCurveTo(0, size, 0, size - radius); ctx.lineTo(0, radius); ctx.quadraticCurveTo(0, 0, radius, 0); ctx.closePath(); ctx.fill();
+                if (state.inputType === 'image' && state.sourceImage) { const margin = size * 0.15; ctx.drawImage(state.sourceImage, margin, margin, size - margin * 2, size - margin * 2); }
+                else if (state.inputType === 'text' || state.inputType === 'emoji') { const content = state.inputType === 'text' ? state.text : state.emoji; ctx.fillStyle = state.fontColor; ctx.font = `${state.fontWeight} ${size * (state.fontSize / 100)}px ${state.fontFamily}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const verticalOffset = size * 0.08; ctx.fillText(content, size / 2, size / 2 + verticalOffset); }
                 return canvas;
             }
-
-            /**
-             * Creates a valid .ico file from multiple PNG blobs.
-             * @param {Blob[]} pngBlobs - An array of PNG blobs for each size.
-             * @returns {Promise<Blob>} A blob representing the .ico file.
-             */
             async function createIco(pngBlobs) {
-                const headerSize = 6;
-                const entrySize = 16;
-                let totalSize = headerSize + pngBlobs.length * entrySize;
-                const imageDatas = [];
-
-                for (const blob of pngBlobs) {
-                    const buffer = await blob.arrayBuffer();
-                    imageDatas.push(new Uint8Array(buffer));
-                    totalSize += buffer.byteLength;
-                }
-
-                const icoBuffer = new ArrayBuffer(totalSize);
-                const view = new DataView(icoBuffer);
-
-                // ICONDIR Header
-                view.setUint16(0, 0, true); // Reserved, must be 0
-                view.setUint16(2, 1, true); // Type 1 for .ico
-                view.setUint16(4, pngBlobs.length, true); // Number of images
-
+                const headerSize = 6, entrySize = 16; let totalSize = headerSize + pngBlobs.length * entrySize; const imageDatas = [];
+                for (const blob of pngBlobs) { const buffer = await blob.arrayBuffer(); imageDatas.push(new Uint8Array(buffer)); totalSize += buffer.byteLength; }
+                const icoBuffer = new ArrayBuffer(totalSize); const view = new DataView(icoBuffer);
+                view.setUint16(0, 0, true); view.setUint16(2, 1, true); view.setUint16(4, pngBlobs.length, true);
                 let offset = headerSize + pngBlobs.length * entrySize;
                 for (let i = 0; i < pngBlobs.length; i++) {
-                    const entryOffset = headerSize + i * entrySize;
-                    const imgData = imageDatas[i];
-                    const img = await createImageBitmap(pngBlobs[i]);
-
-                    view.setUint8(entryOffset, img.width === 256 ? 0 : img.width); // Width
-                    view.setUint8(entryOffset + 1, img.height === 256 ? 0 : img.height); // Height
-                    view.setUint8(entryOffset + 2, 0); // Color palette count
-                    view.setUint16(entryOffset + 4, 1, true); // Color planes
-                    view.setUint16(entryOffset + 6, 32, true); // Bits per pixel
-                    view.setUint32(entryOffset + 8, imgData.byteLength, true); // Image data size
-                    view.setUint32(entryOffset + 12, offset, true); // Image data offset
-
-                    new Uint8Array(icoBuffer, offset).set(imgData);
-                    offset += imgData.byteLength;
+                    const entryOffset = headerSize + i * entrySize; const imgData = imageDatas[i]; const img = await createImageBitmap(pngBlobs[i]);
+                    view.setUint8(entryOffset, img.width === 256 ? 0 : img.width); view.setUint8(entryOffset + 1, img.height === 256 ? 0 : img.height); view.setUint8(entryOffset + 2, 0); view.setUint16(entryOffset + 4, 1, true); view.setUint16(entryOffset + 6, 32, true); view.setUint32(entryOffset + 8, imgData.byteLength, true); view.setUint32(entryOffset + 12, offset, true);
+                    new Uint8Array(icoBuffer, offset).set(imgData); offset += imgData.byteLength;
                 }
-
                 return new Blob([icoBuffer], { type: 'image/x-icon' });
             }
-
-            function updateAllPreviews() {
-                const preview16 = generateFavicon(16).toDataURL();
-                const preview32 = generateFavicon(32).toDataURL();
-                const preview180 = generateFavicon(180).toDataURL();
-                const preview192 = generateFavicon(192).toDataURL();
-
-                el.previewBrowser.src = preview16;
-                el.previewApple.src = preview180;
-                el.previewAndroid.src = preview192;
-
-                updateHtmlCode();
-            }
-
-            function updateHtmlCode() {
-                el.htmlCodeOutput.value = `
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="msapplication-TileColor" content="${state.fontColor}">
-<meta name="msapplication-config" content="/browserconfig.xml">
-<meta name="theme-color" content="${state.bgColor}">`;
-            }
-
-            // --- EVENT HANDLERS ---
-
+            function updateAllPreviews() { el.previewBrowser.src = generateFavicon(16).toDataURL(); el.previewApple.src = generateFavicon(180).toDataURL(); el.previewAndroid.src = generateFavicon(192).toDataURL(); updateHtmlCode(); }
+            function updateHtmlCode() { el.htmlCodeOutput.value = `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">\n<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">\n<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">\n<link rel="icon" type="image/x-icon" href="/favicon.ico">\n<link rel="manifest" href="/site.webmanifest">\n<meta name="msapplication-TileColor" content="${state.fontColor}">\n<meta name="msapplication-config" content="/browserconfig.xml">\n<meta name="theme-color" content="${state.bgColor}">`; }
             function handleInputChange() {
-                state.bgColor = el.bgColor.value;
-                state.borderRadius = parseInt(el.borderRadiusSlider.value, 10);
-                state.text = el.textInput.value;
-                state.emoji = el.emojiInput.value;
-                state.fontColor = el.fontColor.value;
-                state.fontSize = parseInt(el.fontSizeSlider.value, 10);
-                state.fontWeight = el.fontWeightSelect.value;
-                state.fontFamily = el.fontFamilySelect.value;
-
-                el.borderRadiusLabel.textContent = state.borderRadius;
-                el.fontSizeLabel.textContent = state.fontSize;
-
+                state.bgColor = el.bgColor.value; state.borderRadius = parseInt(el.borderRadiusSlider.value, 10); state.text = el.textInput.value; state.emoji = el.emojiInput.value; state.fontColor = el.fontColor.value; state.fontSize = parseInt(el.fontSizeSlider.value, 10); state.fontWeight = el.fontWeightSelect.value; state.fontFamily = el.fontFamilySelect.value;
+                el.borderRadiusLabel.textContent = state.borderRadius; el.fontSizeLabel.textContent = state.fontSize;
                 updateAllPreviews();
             }
-
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    state.inputType = btn.dataset.inputType;
-
-                    document.querySelectorAll('.input-section').forEach(s => s.classList.add('hidden'));
-                    document.getElementById(`${state.inputType}-input-section`).classList.remove('hidden');
-                    
-                    el.fontControls.classList.toggle('hidden', state.inputType === 'image');
-                    handleInputChange();
-                });
-            });
-
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.inputType = btn.dataset.inputType;
+                document.querySelectorAll('.input-section').forEach(s => s.classList.add('hidden')); document.getElementById(`${state.inputType}-input-section`).classList.remove('hidden');
+                el.fontControls.classList.toggle('hidden', state.inputType === 'image'); handleInputChange();
+            }));
             el.uploadBtn.addEventListener('click', () => el.imageUpload.click());
             el.imageUpload.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const img = new Image();
-                        img.onload = () => {
-                            state.sourceImage = img;
-                            el.imageFilename.textContent = e.target.files[0].name;
-                            handleInputChange();
-                        };
-                        img.src = event.target.result;
-                    };
-                    reader.readAsDataURL(e.target.files[0]);
-                }
+                if (e.target.files && e.target.files[0]) { const reader = new FileReader(); reader.onload = (event) => { const img = new Image(); img.onload = () => { state.sourceImage = img; el.imageFilename.textContent = e.target.files[0].name; handleInputChange(); }; img.src = event.target.result; }; reader.readAsDataURL(e.target.files[0]); }
             });
-
-            [el.bgColor, el.borderRadiusSlider, el.textInput, el.emojiInput, el.fontColor, el.fontSizeSlider, el.fontFamilySelect, el.fontWeightSelect].forEach(input => {
-                input.addEventListener('input', handleInputChange);
-            });
-
-            el.copyCodeBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(el.htmlCodeOutput.value).then(() => {
-                    el.toast.textContent = 'Code copied!';
-                    el.toast.classList.add('show');
-                    setTimeout(() => el.toast.classList.remove('show'), 2000);
-                });
-            });
-
+            [el.bgColor, el.borderRadiusSlider, el.textInput, el.emojiInput, el.fontColor, el.fontSizeSlider, el.fontFamilySelect, el.fontWeightSelect].forEach(input => input.addEventListener('input', handleInputChange));
+            el.copyCodeBtn.addEventListener('click', () => { navigator.clipboard.writeText(el.htmlCodeOutput.value).then(() => { el.toast.textContent = 'Code copied!'; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); }); });
             el.downloadPackageBtn.addEventListener('click', async () => {
-                const zip = new JSZip();
-                const pngSizes = [16, 32, 180, 192, 512];
-                const icoSizes = [16, 32, 48];
-                const filenames = {
-                    16: 'favicon-16x16.png',
-                    32: 'favicon-32x32.png',
-                    180: 'apple-touch-icon.png',
-                    192: 'android-chrome-192x192.png',
-                    512: 'android-chrome-512x512.png'
-                };
-
-                // Generate standard PNGs
-                for (const size of pngSizes) {
-                    const canvas = generateFavicon(size);
-                    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-                    zip.file(filenames[size], blob);
-                }
-
-                // Generate and combine ICO file
-                const icoBlobs = await Promise.all(icoSizes.map(size => {
-                    const canvas = generateFavicon(size);
-                    return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-                }));
-                const icoBlob = await createIco(icoBlobs);
-                zip.file('favicon.ico', icoBlob);
-
-                // Create site.webmanifest
-                const manifest = {
-                    name: "My Awesome App",
-                    short_name: "App",
-                    icons: [
-                        { src: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-                        { src: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" }
-                    ],
-                    theme_color: state.bgColor,
-                    background_color: state.bgColor,
-                    display: "standalone"
-                };
+                const zip = new JSZip(); const pngSizes = [16, 32, 180, 192, 512]; const icoSizes = [16, 32, 48];
+                const filenames = { 16: 'favicon-16x16.png', 32: 'favicon-32x32.png', 180: 'apple-touch-icon.png', 192: 'android-chrome-192x192.png', 512: 'android-chrome-512x512.png' };
+                for (const size of pngSizes) { const canvas = generateFavicon(size); const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png')); zip.file(filenames[size], blob); }
+                const icoBlobs = await Promise.all(icoSizes.map(size => new Promise(resolve => generateFavicon(size).toBlob(resolve, 'image/png'))));
+                zip.file('favicon.ico', await createIco(icoBlobs));
+                const manifest = { name: "My Awesome App", short_name: "App", icons: [{ src: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" }, { src: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" }], theme_color: state.bgColor, background_color: state.bgColor, display: "standalone" };
                 zip.file("site.webmanifest", JSON.stringify(manifest, null, 2));
-
-                // Create browserconfig.xml
-                const browserConfigXml = `<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-    <msapplication>
-        <tile>
-            <square150x150logo src="/mstile-150x150.png"/>
-            <TileColor>${state.fontColor}</TileColor>
-        </tile>
-    </msapplication>
-</browserconfig>`;
+                const browserConfigXml = `<?xml version="1.0" encoding="utf-8"?><browserconfig><msapplication><tile><square150x150logo src="/mstile-150x150.png"/><TileColor>${state.fontColor}</TileColor></tile></msapplication></browserconfig>`;
                 zip.file("browserconfig.xml", browserConfigXml);
-                const tileCanvas = generateFavicon(150);
-                const tileBlob = await new Promise(resolve => tileCanvas.toBlob(resolve));
-                zip.file("mstile-150x150.png", tileBlob);
-
-                // Generate and download zip
-                zip.generateAsync({ type: "blob" }).then(content => {
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(content);
-                    link.download = "favicon_package.zip";
-                    link.click();
-                    URL.revokeObjectURL(link.href);
-                });
+                zip.file("mstile-150x150.png", await new Promise(resolve => generateFavicon(150).toBlob(resolve)));
+                zip.generateAsync({ type: "blob" }).then(content => { const link = document.createElement('a'); link.href = URL.createObjectURL(content); link.download = "favicon_package.zip"; link.click(); URL.revokeObjectURL(link.href); });
             });
-
-            // --- INITIALIZATION ---
-            handleInputChange(); // Initial render
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') { el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex'); el.controlsPane.classList.add('hidden'); el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active'); } 
+                else { el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active'); }
+            }
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) { if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); } else if (el.mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } else { showMobilePane('controls'); } } 
+                else { el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active'); }
+            }
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+            handleInputChange();
+            handleMobileLayout();
         });
     </script>
 </body>
