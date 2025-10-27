@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Editor | Solite</title>
+    <!-- MODIFIED: Optimized Title -->
+    <title>Free Online Image Editor: Crop, Resize, Filter &amp; Watermark | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="A free online image editor to crop, resize, filter, and watermark images in your browser. No uploads required for 100% privacy. Supports PNG, JPG, WebP.">
-    <meta name="keywords" content="solite, image editor, photo editor, crop image, resize image, add watermark, image filter, webp converter, image compressor, online photo editor, privacy first">
+    <!-- MODIFIED: Expanded Keywords -->
+    <meta name="keywords" content="solite, image editor, photo editor, crop image, resize image, add watermark, image filter, webp converter, image compressor, online photo editor, privacy first, free image editor, browser image editor">
     <link rel="canonical" href="https://solite.in/image-editor.html" />
-    <meta property="og:title" content="Free Online Image Editor | Solite">
+    <!-- MODIFIED: Optimized OG Title -->
+    <meta property="og:title" content="Free Online Image Editor: Crop, Resize, Filter &amp; Watermark | Solite">
     <meta property="og:description" content="A free online image editor to crop, resize, filter, and watermark images in your browser. No uploads required for 100% privacy.">
     <meta property="og:site_name" content="Solite">
     <meta property="og:image" content="https://solite.in/assets/solite-image-editor-og.png">
@@ -124,56 +127,73 @@
         }
         /* Custom Scrollbar for Firefox */
         html { scrollbar-color: #4b5563 #111827; }
+
+        /* ADDED: Mobile Nav Styles */
+        .mobile-nav-btn.active {
+            color: #ffffff; /* white */
+        }
+        .mobile-nav-btn {
+            color: #9ca3af; /* gray-400 */
+        }
     </style>
 </head>
-<body class="bg-black text-gray-200 flex flex-col h-screen font-sans overflow-hidden">
+<!-- MODIFIED: Set to min-h-screen, removed overflow-hidden -->
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
+    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Image Editor</span>
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Image Editor</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex" style="height: calc(100vh - 72px);">
-        <div class="flex-grow w-full lg:w-[80%] p-3 overflow-y-auto flex flex-col lg:flex-row gap-4">
+    <!-- MODIFIED: Added relative, min-h-0 -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
             
-            <!-- Main Workspace -->
-            <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 min-h-[70vh] p-4 relative">
-                <div id="upload-prompt" class="text-center cursor-pointer p-8">
-                    <h1 class="sr-only">Image Editor</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <h3 class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</h3>
-                    <p class="mt-1 text-sm text-gray-400">Supports PNG, JPG, WebP. Your images stay on your device.</p>
+            <!-- MODIFIED: Wrapped canvas in preview-pane, added overflow-auto -->
+            <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
+                <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-auto">
+                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                        <h1 class="sr-only">Free Online Image Editor</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <h3 class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</h3>
+                        <p class="mt-1 text-sm text-gray-400">Supports PNG, JPG, WebP. Your images stay on your device.</p>
+                    </div>
+                    <!-- MODIFIED: Removed max-w-full max-h-full -->
+                    <canvas id="canvas" class="hidden"></canvas>
+                    <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp">
+                    <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 leading-none z-10 flex items-center gap-2 text-sm font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                        <span>Remove</span>
+                    </button>
                 </div>
-                <canvas id="canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
-                <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp">
-                <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 leading-none z-10 flex items-center gap-2 text-sm font-medium">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                    <span>Remove</span>
-                </button>
             </div>
 
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-1">
+            <!-- MODIFIED: Added lg:block, overflow-y-auto, flex flex-col -->
+            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-1 lg:block flex flex-col overflow-y-auto">
                 <div class="flex justify-between items-center p-4">
                     <h3 class="text-lg font-bold text-white">Image Controls</h3>
                     <div class="flex items-center space-x-2">
@@ -201,7 +221,8 @@
                 </div>
 
                 <!-- Tab Content -->
-                <div class="p-4 space-y-5">
+                <!-- MODIFIED: Added flex-grow, min-h-0, overflow-y-auto -->
+                <div class="p-4 space-y-5 flex-grow min-h-0 overflow-y-auto">
                     <div id="adjust-tab" class="tab-content space-y-4">
                         <h4 class="font-semibold text-gray-200">Filters & Adjustments</h4>
                         <div class="grid grid-cols-2 gap-2">
@@ -276,7 +297,9 @@
                             <label class="block"><span class="text-sm">Opacity</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
                             <div>
                                 <span class="text-sm">Color</span>
-                                <div id="color-presets" class="grid grid-cols-8 gap-2 mt-1 mb-2"></div>
+                                <div id="color-presets" class="grid grid-cols-8 gap-2 mt-1 mb-2">
+                                    <!-- Colors will be injected by JS -->
+                                </div>
                                 <input type="color" id="watermark-color" value="#ffffff" class="w-full p-1 h-10 bg-gray-700 rounded-lg cursor-pointer">
                             </div>
                         </div>
@@ -327,13 +350,28 @@
                 Ad Area
             </div>
         </aside>
+        
+        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+    <!-- MODIFIED: Footer hidden on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>© 2024 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
@@ -380,8 +418,14 @@
             const imageWatermarkSliders = document.getElementById('image-watermark-sliders');
             const imageWatermarkSize = document.getElementById('image-watermark-size');
             const imageWatermarkOpacity = document.getElementById('image-watermark-opacity');
-            const toast = document.getElementById('toast');            
+            const toast = document.getElementById('toast');
+            const formatSelect = document.getElementById('format-select');
             
+            // ADDED: Mobile Nav Elements
+            const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const previewPane = document.getElementById('preview-pane');
+            // 'controlsPanel' is already defined
 
             // State variables
             let initialImage = null; 
@@ -485,19 +529,21 @@
                 // Reset watermark state
                 document.getElementById('watermark-text').value = '';
                 document.getElementById('watermark-color').value = '#ffffff';
-                const watermarkImage = null;
+                watermarkImage = null; // Correctly reset watermarkImage
                 document.getElementById('image-watermark-sliders').classList.add('hidden');                
                 document.getElementById('watermark-upload-input').value = '';
-
             }
             
             function resetAllControls() {
                 document.querySelectorAll('input[type="range"]').forEach(s => s.value = s.defaultValue);
-                document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
-                if(isCropping) toggleCropMode();
+                document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active', 'bg-white', 'text-black'));
+                if(isCropping) {
+                    document.getElementById('enable-manual-crop').checked = false;
+                    toggleCropMode(); // This will reset cropRect and redraw
+                }
                 document.getElementById('watermark-text').value = '';
                 document.getElementById('watermark-color').value = '#ffffff';
-                redrawCanvas();
+                redrawCanvas(); // Redraw to remove non-destructive filter effects
             }
 
             // --- Main Rendering Pipeline ---
@@ -523,7 +569,7 @@
                 ctx.restore();
 
                 // --- Watermark Drawing Logic ---
-                const isTextWatermark = textWatermarkBtn.classList.contains('active');
+                const isTextWatermark = textWatermarkBtn.classList.contains('bg-white'); // Check for active class
                 if (isTextWatermark && watermarkText.value) {
                     ctx.save();
                     ctx.globalAlpha = watermarkOpacity.value;
@@ -533,7 +579,7 @@
                     ctx.textBaseline = 'middle';
                     ctx.fillText(watermarkText.value, canvas.width / 2, canvas.height / 2);
                     ctx.restore();
-                } else if (watermarkImage) {
+                } else if (watermarkImage && imageWatermarkBtn.classList.contains('bg-white')) {
                     ctx.save();
                     ctx.globalAlpha = document.getElementById('image-watermark-opacity').value;
                     const w = imageWatermarkSize.value;
@@ -626,9 +672,14 @@
                 if (!originalImage) return;
                 const [ratioW, ratioH] = ratioStr.split(':').map(Number);
                 const imgW = originalImage.width, imgH = originalImage.height;
-                let cropW, cropH, cropX = (imgW-cropW)/2, cropY = (imgH-cropH)/2;
-                if ((imgW/imgH) > (ratioW/ratioH)) { cropH = imgH; cropW = imgH * (ratioW/ratioH); } 
-                else { cropW = imgW; cropH = imgW * (ratioH/ratioW); }
+                let cropW, cropH, cropX, cropY;
+                if ((imgW/imgH) > (ratioW/ratioH)) { 
+                    cropH = imgH; 
+                    cropW = imgH * (ratioW/ratioH); 
+                } else { 
+                    cropW = imgW; 
+                    cropH = imgW * (ratioH/ratioW); 
+                }
                 cropX = (imgW-cropW)/2; cropY = (imgH-cropH)/2;
                 
                 const tempCanvas = document.createElement('canvas');
@@ -647,13 +698,21 @@
 
             function applyCrop() {
                 if (!cropRect.w || !cropRect.h) return;
+                
+                // Ensure w/h are positive
+                const x = cropRect.w < 0 ? cropRect.x + cropRect.w : cropRect.x;
+                const y = cropRect.h < 0 ? cropRect.y + cropRect.h : cropRect.y;
+                const w = Math.abs(cropRect.w);
+                const h = Math.abs(cropRect.h);
+
                 const tempCanvas = document.createElement('canvas');
-                tempCanvas.width = cropRect.w; tempCanvas.height = cropRect.h;
-                tempCanvas.getContext('2d').drawImage(originalImage, cropRect.x, cropRect.y, cropRect.w, cropRect.h, 0, 0, cropRect.w, cropRect.h);
+                tempCanvas.width = w; tempCanvas.height = h;
+                tempCanvas.getContext('2d').drawImage(originalImage, x, y, w, h, 0, 0, w, h);
                 
                 const img = new Image();
                 img.onload = () => {
                     originalImage = img;
+                    document.getElementById('enable-manual-crop').checked = false;
                     toggleCropMode();
                     saveState();
                     updateCanvas(originalImage);
@@ -665,15 +724,18 @@
             // --- Cropping UI Logic ---
             function toggleCropMode() {
                 isCropping = document.getElementById('enable-manual-crop').checked;
-                canvasContainer.classList.toggle('cropping', isCropping);
-                canvasContainer.classList.toggle('cursor-crosshair', isCropping);
-                if (!isCropping) { cropRect = {}; redrawCanvas(); }
+                canvasContainer.style.cursor = isCropping ? 'crosshair' : 'default';
+                if (!isCropping) { 
+                    cropRect = {}; 
+                    applyCropBtn.disabled = true;
+                    redrawCanvas(); 
+                }
             }
             
             function drawCropOverlay() {
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                if (cropRect.w) {
+                if (cropRect.w && cropRect.h) {
                     ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2;
                     ctx.strokeRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
                     ctx.clearRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
@@ -693,23 +755,46 @@
             
              // --- File Size Preview ---
             function updateFileSizePreview() {
-                if (!originalImage) return;
+                if (!originalImage || !canvas) return;
                 if (exportFormat === 'image/jpeg' || exportFormat === 'image/webp') {
-                    const quality = parseFloat(qualitySlider.value);
-                    const dataUrl = canvas.toDataURL(exportFormat, quality);
-                    const sizeInBytes = atob(dataUrl.split(',')[1]).length;
-                    const sizeInKB = sizeInBytes / 1024;
-                    const sizeInMB = sizeInKB / 1024;
-                    let sizeText;
-                    if (sizeInMB >= 1) {
-                        sizeText = `${sizeInMB.toFixed(2)} MB`;
-                    } else {
-                        sizeText = `${sizeInKB.toFixed(1)} KB`;
+                    try {
+                        const quality = parseFloat(qualitySlider.value);
+                        const dataUrl = canvas.toDataURL(exportFormat, quality);
+                        const sizeInBytes = atob(dataUrl.split(',')[1]).length;
+                        const sizeInKB = sizeInBytes / 1024;
+                        const sizeInMB = sizeInKB / 1024;
+                        let sizeText;
+                        if (sizeInMB >= 1) {
+                            sizeText = `${sizeInMB.toFixed(2)} MB`;
+                        } else {
+                            sizeText = `${sizeInKB.toFixed(1)} KB`;
+                        }
+                        fileSizePreview.textContent = sizeText;
+                    } catch (e) {
+                        console.error("Could not calculate file size:", e);
+                        fileSizePreview.textContent = "Error";
                     }
-                    fileSizePreview.textContent = sizeText;
                 } else {
                     fileSizePreview.textContent = '';
                 }
+            }
+
+            // --- Watermark Color Presets ---
+            function setupColorPresets() {
+                const colors = ['#FFFFFF', '#000000', '#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#6366F1', '#EC4899'];
+                const container = document.getElementById('color-presets');
+                container.innerHTML = '';
+                colors.forEach(color => {
+                    const swatch = document.createElement('button');
+                    swatch.type = "button";
+                    swatch.className = "w-full h-6 rounded border border-gray-500";
+                    swatch.style.backgroundColor = color;
+                    swatch.addEventListener('click', () => {
+                        watermarkColor.value = color;
+                        redrawCanvas();
+                    });
+                    container.appendChild(swatch);
+                });
             }
 
             // --- Event Listeners ---
@@ -721,7 +806,13 @@
 
             removeImageBtn.addEventListener('click', removeImage);
             resetBtn.addEventListener('click', () => {
-                if (initialImage) { loadState(initialImage.src); history = [initialImage.src]; historyIndex = 0; }
+                if (initialImage) { 
+                    loadState(initialImage.src); 
+                    // Reset history to just the initial state
+                    history = [initialImage.src]; 
+                    historyIndex = 0; 
+                    updateUndoRedoButtons();
+                }
                 resetAllControls();
             });
             undoBtn.addEventListener('click', undo);
@@ -734,8 +825,7 @@
                         b.classList.remove('active', 'bg-white', 'text-black');
                     });
                     if(!wasActive) {
-                        btn.classList.add('active');
-                        btn.classList.add('bg-white', 'text-black');
+                        btn.classList.add('active', 'bg-white', 'text-black');
                     }
                     redrawCanvas();
                 });
@@ -843,17 +933,23 @@
             canvas.addEventListener('mouseleave', () => { if(isDragging) { applyCropBtn.disabled = false; isDragging = false; } });
 
             function handleFormatChange() {
+                exportFormat = formatSelect.value;
                 const showQuality = exportFormat === 'image/jpeg' || exportFormat === 'image/webp';
                 qualityControl.classList.toggle('hidden', !showQuality);
                 if (showQuality) updateFileSizePreview();
             }
-
+            
+            formatSelect.addEventListener('change', handleFormatChange);
             qualitySlider.addEventListener('input', redrawCanvas);
             qualitySlider.addEventListener('change', updateFileSizePreview);
 
             downloadBtn.addEventListener('click', () => {
+                // Apply all non-destructive filters
+                redrawCanvas();
+                
                 const link = document.createElement('a');
-                link.download = `edited-image.${exportFormat.split('/')[1]}`;
+                const ext = exportFormat.split('/')[1].split('+')[0]; // Handle svg+xml
+                link.download = `solite-edited-image.${ext}`;
                 const dataUrl = canvas.toDataURL(exportFormat, parseFloat(qualitySlider.value));
                 link.href = dataUrl;
                 link.click();
@@ -862,7 +958,55 @@
             
             document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
             
-            showTab('adjust');            
+            // --- ADDED: Mobile Navigation Logic ---
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    // Check if any button is active, if not, default to 'Preview'
+                    const isActive = mobilePreviewBtn.classList.contains('active') || mobileControlsBtn.classList.contains('active');
+                    if (!isActive) {
+                        controlsPanel.classList.add('hidden');
+                        previewPane.classList.remove('hidden');
+                        previewPane.classList.add('flex'); // Ensure it's flex
+                        mobilePreviewBtn.classList.add('active');
+                    }
+                } else {
+                    // Desktop: show both panes
+                    controlsPanel.classList.remove('hidden');
+                    controlsPanel.classList.add('flex'); // Ensure it's flex
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex'); // Ensure it's flex
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.remove('active');
+                }
+            }
+
+            mobilePreviewBtn.addEventListener('click', () => {
+                controlsPanel.classList.add('hidden');
+                controlsPanel.classList.remove('flex');
+                previewPane.classList.remove('hidden');
+                previewPane.classList.add('flex');
+                mobilePreviewBtn.classList.add('active');
+                mobileControlsBtn.classList.remove('active');
+            });
+
+            mobileControlsBtn.addEventListener('click', () => {
+                previewPane.classList.add('hidden');
+                previewPane.classList.remove('flex');
+                controlsPanel.classList.remove('hidden');
+                controlsPanel.classList.add('flex');
+                mobileControlsBtn.classList.add('active');
+                mobilePreviewBtn.classList.remove('active');
+            });
+
+            window.addEventListener('resize', handleMobileLayout);
+            // --- End Mobile Nav Logic ---
+
+            // Initial Setup
+            showTab('adjust');
+            setupColorPresets();
+            handleMobileLayout(); // Initial check on load
+            handleFormatChange();
+            
         })();
     </script>
 </body>

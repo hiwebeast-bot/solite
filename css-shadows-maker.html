@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <title>CSS Shadows Maker | Solite</title>
-    <meta name="description" content="Generate beautiful CSS box and text shadows instantly with live preview. Free, browser-based, privacy-first tool by Solite.">
+    <!-- MODIFIED: Optimized Title -->
+    <title>Free CSS Shadow Generator (Box & Text) | Live Preview | Solite</title>
+    <!-- MODIFIED: Optimized Description -->
+    <meta name="description" content="Generate beautiful CSS box and text shadows instantly with Solite's free online generator. Features live preview, multiple layers, and easy code copying. 100% private & browser-based.">
+    <!-- MODIFIED: Expanded Keywords -->
+    <meta name="keywords" content="css shadow generator, box shadow generator, text shadow generator, css shadow maker, css generator, live preview, web development tool, free tool, solite">
     <link rel="canonical" href="https://solite.in/css-shadows-maker.html">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="CSS Shadows Maker | Solite">
-    <meta property="og:description" content="Free browser-based CSS shadow generator with live preview. No login, no ads.">
+     <!-- MODIFIED: Optimized OG Title -->
+    <meta property="og:title" content="Free CSS Shadow Generator (Box & Text) | Solite">
+    <!-- MODIFIED: Optimized OG Description -->
+    <meta property="og:description" content="Generate beautiful CSS box and text shadows instantly with live preview. Free, browser-based, privacy-first tool by Solite.">
     <meta property="og:url" content="https://solite.in/css-shadows-maker.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
@@ -47,6 +53,16 @@
       "url": "https://solite.in/css-shadows-maker.html",
       "description": "A free, privacy-first, browser-based CSS shadow generator with live preview and code export.",
       "applicationCategory": "DeveloperApplication",
+       "featureList": [ // ADDED: Feature list
+        "Generate CSS box-shadow and text-shadow",
+        "Support for multiple shadow layers",
+        "Live preview of generated shadows",
+        "Adjust horizontal offset, vertical offset, blur radius, spread radius (box only)",
+        "Select shadow color and opacity",
+        "Toggle inset shadows (box only)",
+        "Copy generated CSS and example HTML",
+        "Client-side processing for privacy"
+      ],
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript. Works fully client-side.",
       "creator": {
@@ -71,69 +87,86 @@
                         sans: ['Inter', 'sans-serif'],
                         mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
                     },
+                     scale: { // Added scale for mobile preview adjustment
+                        '75': '.75',
+                    }
                 },
             },
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
         #toast.show { transform: translateY(2rem); }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
         input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
         .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .tab-btn.active { border-bottom-width: 2px; border-color: #fff; color: #fff; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer scrollbar */
+        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
+        html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
+
+        .tab-btn { border-bottom: 2px solid transparent; color: #9ca3af; /* gray-400 */ }
+        .tab-btn.active { border-color: #fff; color: #fff; }
+
+        /* ADDED: Mobile Nav Styles */
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
+    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">CSS Shadow Generator</span>
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Shadow Generator</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex">
-        <div class="flex-grow w-full lg:w-[85%] p-3 flex flex-col lg:flex-row gap-4">
+    <!-- MODIFIED: Added relative, min-h-0 -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
+        <div class="flex-grow w-full lg:w-[85%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- MODIFIED: Added screen-reader only H1 -->
+            <h1 class="sr-only">Free CSS Shadow Generator (Box & Text) with Live Preview</h1>
             
             <!-- Controls Panel -->
-            <aside id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto" aria-labelledby="controls-heading">
-                <h2 id="controls-heading" class="text-xl font-bold text-white">CSS Shadow Generator</h2>
+             <!-- MODIFIED: Added id="controls-pane", lg:block, flex flex-col, overflow-y-auto -->
+            <aside id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">CSS Shadow Generator</h2>
 
                 <!-- Shadow Type Tabs -->
-                <div class="border-b border-gray-800">
+                <div class="border-b border-gray-800 flex-shrink-0">
                     <div class="flex -mb-px" aria-label="Shadow Type Selection">
                         <button class="tab-btn active text-sm font-medium py-3 px-4" data-shadow-type="box">Box Shadow</button>
                         <button class="tab-btn text-sm font-medium py-3 px-4" data-shadow-type="text">Text Shadow</button>
                     </div>
                 </div>
                 
-                <div id="tab-content-container">
+                 <!-- MODIFIED: Added flex-grow, min-h-0 for scrollable content -->
+                <div id="tab-content-container" class="space-y-6 flex-grow min-h-0 overflow-y-auto pr-2">
                     <!-- Shadow Layers -->
                     <div class="space-y-4">
                         <h3 class="font-semibold text-gray-200">Shadow Layers</h3>
-                        <div id="shadow-layers-list" class="space-y-2">
+                        <div id="shadow-layers-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
                             <!-- Shadow cards will be injected here -->
                         </div>
                         <button id="add-shadow-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
@@ -145,22 +178,27 @@
                     <!-- Shadow Controls -->
                     <div id="shadow-controls" class="space-y-4 border-t border-gray-800 pt-4 mt-4">
                         <h3 class="font-semibold text-gray-200">Layer Properties</h3>
-                        <label class="block"><span class="text-sm">Horizontal Offset (px)</span><input type="range" id="offset-x" min="-100" max="100" value="5" aria-label="Horizontal Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label class="block"><span class="text-sm">Vertical Offset (px)</span><input type="range" id="offset-y" min="-100" max="100" value="5" aria-label="Vertical Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label class="block"><span class="text-sm">Blur Radius (px)</span><input type="range" id="blur-radius" min="0" max="100" value="10" aria-label="Blur Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label id="spread-radius-label" class="block"><span class="text-sm">Spread Radius (px)</span><input type="range" id="spread-radius" min="-50" max="50" value="0" aria-label="Spread Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label class="block"><span class="text-sm">Color</span><input type="color" id="shadow-color" value="#000000" aria-label="Shadow Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></label>
-                        <label class="block"><span class="text-sm">Opacity</span><input type="range" id="shadow-opacity" min="0" max="1" value="0.5" step="0.01" aria-label="Shadow Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label id="inset-label" class="flex items-center space-x-2"><input type="checkbox" id="inset-checkbox" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Inset</span></label>
+                        <!-- MODIFIED: Added spans for dynamic value display -->
+                        <label class="block"><span class="text-sm">Horizontal Offset (<span class="offset-x-value">5</span>px)</span><input type="range" id="offset-x" min="-100" max="100" value="5" aria-label="Horizontal Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label class="block"><span class="text-sm">Vertical Offset (<span class="offset-y-value">5</span>px)</span><input type="range" id="offset-y" min="-100" max="100" value="5" aria-label="Vertical Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label class="block"><span class="text-sm">Blur Radius (<span class="blur-radius-value">10</span>px)</span><input type="range" id="blur-radius" min="0" max="100" value="10" aria-label="Blur Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label id="spread-radius-label" class="block"><span class="text-sm">Spread Radius (<span class="spread-radius-value">0</span>px)</span><input type="range" id="spread-radius" min="-50" max="50" value="0" aria-label="Spread Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <div class="flex items-center gap-2">
+                            <label class="flex-1"><span class="text-sm">Color</span><input type="color" id="shadow-color" value="#000000" aria-label="Shadow Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></label>
+                            <label class="w-20"><span class="text-sm">Opacity (<span class="opacity-value">0.5</span>)</span><input type="range" id="shadow-opacity" min="0" max="1" value="0.5" step="0.01" aria-label="Shadow Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        </div>
+                        <label id="inset-label" class="flex items-center space-x-2 pt-2"><input type="checkbox" id="inset-checkbox" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Inset</span></label>
                     </div>
                 </div>
             </aside>
 
-            <!-- Live Preview Area -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                <div id="preview-area" class="relative flex-grow flex flex-col items-center justify-center bg-gray-100 p-4">
-                    <div id="accessibility-checker" class="hidden absolute top-0 left-0 w-full bg-black/10 backdrop-blur-sm p-3 text-xs z-20 text-gray-800">
-                        <h4 class="font-bold text-gray-800 mb-1">Accessibility (WCAG)</h4>
+            <!-- Live Preview & Output Area -->
+             <!-- MODIFIED: Added id="preview-pane", flex flex-col, overflow-y-auto -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-y-auto">
+                 <!-- MODIFIED: Removed justify-center to keep preview at top, added flex-shrink-0 for preview bg -->
+                <div id="preview-area" class="relative flex-grow flex flex-col items-center bg-gray-100 p-4 pt-16 flex-shrink-0">
+                    <div id="accessibility-checker" class="hidden absolute top-0 left-0 w-full bg-black/10 backdrop-blur-sm p-3 text-xs z-20 text-gray-800 border-b border-gray-300">
+                        <h4 class="font-bold text-gray-800 mb-1">Accessibility (WCAG AA - Large Text)</h4>
                         <div class="flex justify-between items-center">
                             <span class="text-gray-600">Contrast Ratio: <strong id="contrast-ratio" class="text-gray-900">N/A</strong></span>
                             <div class="flex gap-2">
@@ -170,20 +208,23 @@
                         </div>
                     </div>
 
-                    <h1 class="sr-only">CSS Shadow Generator Live Preview</h1>
-                    <div id="box-shadow-preview" class="w-64 h-64 bg-white rounded-lg flex items-center justify-center text-black text-xl font-bold transition-all duration-100 ease-linear">
+                     <!-- MODIFIED: Added scale-75 lg:scale-100 for mobile scaling -->
+                    <div id="box-shadow-preview" class="w-48 h-48 sm:w-64 sm:h-64 bg-white rounded-lg flex items-center justify-center text-black text-xl font-bold transition-all duration-100 ease-linear scale-75 lg:scale-100">
                         Box Shadow
                     </div>
-                    <div id="text-shadow-preview" class="hidden text-black text-6xl font-extrabold mt-8 transition-all duration-100 ease-linear">
+                     <!-- MODIFIED: Added scale-75 lg:scale-100 for mobile scaling, reduced text size -->
+                    <div id="text-shadow-preview" class="hidden text-black text-4xl sm:text-6xl font-extrabold mt-8 transition-all duration-100 ease-linear scale-75 lg:scale-100">
                         Text Shadow
                     </div>
                 </div>
                 <!-- Generated CSS Output -->
+                <!-- MODIFIED: Added flex-shrink-0 -->
                 <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="font-semibold text-gray-200">Generated CSS</h3>
                     </div>
-                    <textarea id="css-output" readonly class="w-full h-32 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none" aria-label="Generated CSS code"></textarea>
+                    <!-- MODIFIED: Reduced height on mobile -->
+                    <textarea id="css-output" readonly class="w-full h-24 lg:h-32 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none" aria-label="Generated CSS code"></textarea>
                     <div class="grid grid-cols-2 gap-2">
                         <button id="copy-css-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
@@ -191,7 +232,7 @@
                         </button>
                         <button id="copy-html-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
-                            <span>Copy HTML</span>
+                            <span>Copy HTML+CSS</span> <!-- MODIFIED: Button text -->
                         </button>
                     </div>
                 </div>
@@ -203,17 +244,30 @@
                 Ad Area
             </div>
         </aside>
+
+        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800">
+     <!-- MODIFIED: Footer hidden on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
                 </svg>
-                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+                <span>© 2024 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
@@ -249,6 +303,12 @@
             const addShadowBtn = document.getElementById('add-shadow-btn');
             const shadowLayersList = document.getElementById('shadow-layers-list');
 
+             // ADDED: Mobile Nav Elements
+            const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const previewPane = document.getElementById('preview-pane');
+            const controlsPane = document.getElementById('controls-pane');
+
             let activeShadowType = 'box'; // 'box' or 'text'
             let shadows = []; // Array to hold all shadow objects
             let currentShadowId = null; // ID of the shadow currently being edited
@@ -256,20 +316,12 @@
             // --- Utility Functions ---
             function hexToRgb(hex) {
                 const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-                return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : null;
+                return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : { r:0, g:0, b:0};
             }
 
-            function hexToRgbA(hex, alpha) { // Helper function to convert hex to rgba
-                let c;
-                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-                    c= hex.substring(1).split('');
-                    if(c.length===3){
-                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-                    }
-                    c= '0x'+c.join('');
-                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+alpha+')';
-                }
-                throw new Error('Bad Hex');
+            function hexToRgbA(hex, alpha) {
+                const rgb = hexToRgb(hex);
+                return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
             }
 
             function getLuminance(r, g, b) {
@@ -280,7 +332,9 @@
             function getContrast(rgb1, rgb2) {
                 const lum1 = getLuminance(rgb1.r, rgb1.g, rgb1.b);
                 const lum2 = getLuminance(rgb2.r, rgb2.g, rgb2.b);
-                return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+                const brightest = Math.max(lum1, lum2);
+                const darkest = Math.min(lum1, lum2);
+                return (brightest + 0.05) / (darkest + 0.05);
             }
 
             function updateAccessibilityChecker() {
@@ -292,18 +346,39 @@
                 checker.classList.remove('hidden');
 
                 const previewArea = document.getElementById('preview-area');
-                // The text color is black and the background is gray-100 by default for the text preview
-                const textColor = hexToRgb('#000000');
-                const bgColor = hexToRgb('#F3F4F6');
+                // Use computed styles to get accurate colors if they change
+                const computedPreviewStyle = window.getComputedStyle(previewArea);
+                const computedTextStyle = window.getComputedStyle(textShadowPreview);
 
-                const contrast = getContrast(textColor, bgColor);
+                // Ensure color strings are parsed correctly
+                const parseColor = (colorString) => {
+                    const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/);
+                    if (match) {
+                        return { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+                    }
+                    return hexToRgb(colorString); // Fallback for hex or other formats (though computedStyle usually gives rgb/rgba)
+                };
+
+                const textRgb = parseColor(computedTextStyle.color);
+                const bgRgb = parseColor(computedPreviewStyle.backgroundColor);
+
+                 if (!textRgb || !bgRgb) { // Handle potential parsing errors
+                    document.getElementById('contrast-ratio').textContent = 'Error';
+                    document.getElementById('aa-badge').className = 'px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-500 text-white';
+                    document.getElementById('aaa-badge').className = 'px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-500 text-white';
+                    return;
+                 }
+
+
+                const contrast = getContrast(textRgb, bgRgb);
 
                 document.getElementById('contrast-ratio').textContent = contrast.toFixed(2);
                 const aaBadge = document.getElementById('aa-badge');
                 const aaaBadge = document.getElementById('aaa-badge');
-                // Using large text criteria (>= 3 for AA, >= 4.5 for AAA)
-                aaBadge.className = `px-2 py-0.5 rounded-full font-semibold ${contrast >= 3 ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`;
-                aaaBadge.className = `px-2 py-0.5 rounded-full font-semibold ${contrast >= 4.5 ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`;
+                 // WCAG AA Large Text (>=18pt or >=14pt bold): 3:1 ratio
+                 // WCAG AAA Large Text: 4.5:1 ratio
+                aaBadge.className = `px-2 py-0.5 rounded-full text-xs font-semibold ${contrast >= 3 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+                aaaBadge.className = `px-2 py-0.5 rounded-full text-xs font-semibold ${contrast >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
             }
 
             function generateUniqueId() {
@@ -323,17 +398,31 @@
                     inset: (activeShadowType === 'box' ? false : undefined),
                 };
                 shadows.push(newShadow);
-                selectShadow(newShadow.id);
+                selectShadow(newShadow.id); // Select the newly added shadow
                 saveState();
             }
 
             function deleteShadow(id) {
+                const initialLength = shadows.length;
                 shadows = shadows.filter(s => s.id !== id);
-                if (shadows.length === 0) {
-                    addShadow(); // Ensure there's always at least one shadow
-                } else if (currentShadowId === id) {
-                    selectShadow(shadows[0].id); // Select the first shadow if the current one was deleted
-                } else {
+                
+                // If the array changed and is now empty for the current type, add a default
+                if (initialLength > 0 && shadows.filter(s => s.type === activeShadowType).length === 0) {
+                     addShadow(); // This will also select the new shadow
+                } 
+                // If the deleted shadow was the current one, select the first available of the current type
+                else if (currentShadowId === id) {
+                    const firstOfType = shadows.find(s => s.type === activeShadowType) || shadows[0]; // Fallback to any shadow if needed
+                     // Ensure firstOfType exists before selecting
+                    if (firstOfType) {
+                        selectShadow(firstOfType.id);
+                    } else {
+                        // This case implies ALL shadows were deleted, add a new default one
+                        addShadow();
+                    }
+                } 
+                // Otherwise, just re-render and update
+                else {
                     renderShadowLayersList();
                     updateShadow();
                 }
@@ -350,54 +439,108 @@
                     shadowColor.value = selected.color;
                     shadowOpacity.value = selected.opacity;
 
+                    // Update slider value display spans
+                    document.querySelector('.offset-x-value').textContent = selected.offsetX;
+                    document.querySelector('.offset-y-value').textContent = selected.offsetY;
+                    document.querySelector('.blur-radius-value').textContent = selected.blurRadius;
+                    document.querySelector('.opacity-value').textContent = selected.opacity;
+
+
                     if (activeShadowType === 'box') {
                         spreadRadius.value = selected.spreadRadius;
                         insetCheckbox.checked = selected.inset;
                         spreadRadiusLabel.classList.remove('hidden');
                         insetLabel.classList.remove('hidden');
+                         document.querySelector('.spread-radius-value').textContent = selected.spreadRadius;
                     } else {
                         spreadRadiusLabel.classList.add('hidden');
                         insetLabel.classList.add('hidden');
                     }
+                } else {
+                    // Handle case where the selected ID doesn't exist (e.g., after loading old state)
+                     const firstOfType = shadows.find(s => s.type === activeShadowType);
+                     if (firstOfType) {
+                         console.warn(`Shadow with ID ${id} not found. Selecting first available.`);
+                         selectShadow(firstOfType.id); // Recursively call with a valid ID
+                         return; // Prevent further execution with invalid ID
+                     } else {
+                         // If no shadows of this type exist at all, add one
+                         console.warn(`No shadows found for type ${activeShadowType}. Adding a default.`);
+                         addShadow();
+                         return; // addShadow will handle selection
+                     }
                 }
-                renderShadowLayersList();
-                updateShadow(); // Re-render preview with updated selection
+                renderShadowLayersList(); // Highlight the selected layer
+                updateShadow(); // Re-render preview
             }
 
             function renderShadowLayersList() {
                 shadowLayersList.innerHTML = '';
-                shadows.filter(s => s.type === activeShadowType).forEach(shadow => {
+                 const shadowsOfType = shadows.filter(s => s.type === activeShadowType);
+
+                 if (shadowsOfType.length === 0 && shadows.length > 0) {
+                     shadowLayersList.innerHTML = '<p class="text-sm text-gray-500 text-center">No layers for this type yet.</p>';
+                     return; 
+                 } else if (shadowsOfType.length === 0 && shadows.length === 0) {
+                    return;
+                 }
+
+
+                shadowsOfType.forEach(shadow => {
                     const shadowEl = document.createElement('div');
-                    shadowEl.className = `flex items-center justify-between p-2 rounded-lg border ${shadow.id === currentShadowId ? 'border-white' : 'border-gray-700'} bg-gray-800`;
-                    
-                    const previewStyle = shadow.type === 'box' ? `box-shadow: ${shadow.inset ? 'inset ' : ''}${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px ${shadow.spreadRadius}px ${hexToRgbA(shadow.color, shadow.opacity)};` : `text-shadow: ${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px ${hexToRgbA(shadow.color, shadow.opacity)};`;
+                    // Add transition for smoother selection highlight
+                    shadowEl.className = `flex items-center justify-between p-2 rounded-lg border ${shadow.id === currentShadowId ? 'border-white bg-gray-700' : 'border-gray-700 bg-gray-800 hover:bg-gray-700'} transition-colors duration-150 cursor-pointer`;
+                    shadowEl.dataset.id = shadow.id; // Add ID for click listener
+
+                    const colorWithOpacity = hexToRgbA(shadow.color, shadow.opacity);
+                    const previewStyle = shadow.type === 'box'
+                        ? `box-shadow: ${shadow.inset ? 'inset ' : ''}${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px ${shadow.spreadRadius}px ${colorWithOpacity};`
+                        : `text-shadow: ${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px ${colorWithOpacity};`;
                     
                     shadowEl.innerHTML = `
-                        <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 rounded-md flex items-center justify-center" style="background-color: ${shadow.type === 'box' ? '#fff' : 'transparent'}; ${previewStyle}">
-                                ${shadow.type === 'text' ? `<span style="color: #fff; font-size: 16px; ${previewStyle}">A</span>` : ''}
+                        <div class="flex items-center gap-2 overflow-hidden mr-2">
+                             <!-- Preview Element -->
+                             <div class="w-6 h-6 rounded-sm flex-shrink-0 flex items-center justify-center text-xs" style="background-color: ${shadow.type === 'box' ? '#fff' : 'transparent'}; ${previewStyle}">
+                                ${shadow.type === 'text' ? `<span class="font-bold" style="color: #fff; ${previewStyle}">A</span>` : ''}
                             </div>
-                            <span class="text-sm text-gray-300">${shadow.type === 'box' ? 'Box Shadow' : 'Text Shadow'}</span>
+                            <!-- Shadow Details (truncated potentially) -->
+                            <span class="text-xs text-gray-400 truncate">
+                                ${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px ${shadow.type === 'box' ? shadow.spreadRadius+'px ' : ''}${shadow.color} ${shadow.opacity}${shadow.inset ? ' inset' : ''}
+                            </span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <button class="edit-shadow-btn text-blue-400 hover:text-blue-300 text-sm" data-id="${shadow.id}">Edit</button>
-                            <button class="delete-shadow-btn text-red-400 hover:text-red-300 text-sm" data-id="${shadow.id}">Delete</button>
-                        </div>
+                        <button class="delete-shadow-btn text-red-500 hover:text-red-400 flex-shrink-0 ml-2 p-1 rounded hover:bg-gray-600" data-id="${shadow.id}" title="Delete Layer">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
                     `;
-                    shadowLayersList.appendChild(shadowEl);
-                });
+                    // Use event delegation on the list container
+                    shadowEl.addEventListener('click', (e) => {
+                         if (e.target.closest('.delete-shadow-btn')) {
+                             deleteShadow(shadow.id);
+                         } else {
+                             selectShadow(shadow.id);
+                         }
+                     });
 
-                document.querySelectorAll('.edit-shadow-btn').forEach(btn => {
-                    btn.addEventListener('click', () => selectShadow(btn.dataset.id));
-                });
-                document.querySelectorAll('.delete-shadow-btn').forEach(btn => {
-                    btn.addEventListener('click', () => deleteShadow(btn.dataset.id));
+                    shadowLayersList.appendChild(shadowEl);
                 });
             }
 
+
             function updateShadow() {
                 const current = shadows.find(s => s.id === currentShadowId);
-                if (!current) return;
+                if (!current) {
+                     const firstOfType = shadows.find(s => s.type === activeShadowType);
+                     if (firstOfType) {
+                         selectShadow(firstOfType.id); 
+                     } else {
+                         cssOutput.value = '';
+                         boxShadowPreview.style.boxShadow = 'none';
+                         textShadowPreview.style.textShadow = 'none';
+                         document.getElementById('accessibility-checker').classList.add('hidden');
+                         renderShadowLayersList(); 
+                     }
+                    return; 
+                }
 
                 // Update current shadow object from controls
                 current.offsetX = parseInt(offsetX.value);
@@ -406,35 +549,46 @@
                 current.color = shadowColor.value;
                 current.opacity = parseFloat(shadowOpacity.value);
 
+                // Update slider value display spans
+                 document.querySelector('.offset-x-value').textContent = current.offsetX;
+                 document.querySelector('.offset-y-value').textContent = current.offsetY;
+                 document.querySelector('.blur-radius-value').textContent = current.blurRadius;
+                 document.querySelector('.opacity-value').textContent = current.opacity.toFixed(2); // Format opacity
+
                 if (activeShadowType === 'box') {
                     current.spreadRadius = parseInt(spreadRadius.value);
                     current.inset = insetCheckbox.checked;
+                     document.querySelector('.spread-radius-value').textContent = current.spreadRadius;
                 }
 
-                // Generate combined CSS for all shadows
-                const combinedCssValues = shadows.filter(s => s.type === activeShadowType).map(s => {
-                    const colorWithOpacity = hexToRgbA(s.color, s.opacity);
-                    if (s.type === 'box') {
-                        return `${s.inset ? 'inset ' : ''}${s.offsetX}px ${s.offsetY}px ${s.blurRadius}px ${s.spreadRadius}px ${colorWithOpacity}`;
-                    } else {
-                        return `${s.offsetX}px ${s.offsetY}px ${s.blurRadius}px ${colorWithOpacity}`;
-                    }
-                }).join(', ');
+                // Generate combined CSS for all shadows of the active type
+                const combinedCssValues = shadows
+                    .filter(s => s.type === activeShadowType)
+                    .map(s => {
+                        const colorWithOpacity = hexToRgbA(s.color, s.opacity);
+                        if (s.type === 'box') {
+                            return `${s.inset ? 'inset ' : ''}${s.offsetX}px ${s.offsetY}px ${s.blurRadius}px ${s.spreadRadius}px ${colorWithOpacity}`;
+                        } else { // text shadow
+                            return `${s.offsetX}px ${s.offsetY}px ${s.blurRadius}px ${colorWithOpacity}`;
+                        }
+                    }).join(', ');
 
-                const cssText = `${activeShadowType === 'box' ? 'box-shadow' : 'text-shadow'}: ${combinedCssValues};`;
+                const cssProperty = activeShadowType === 'box' ? 'box-shadow' : 'text-shadow';
+                const cssText = `${cssProperty}: ${combinedCssValues || 'none'};`; // Use 'none' if no shadows
                 cssOutput.value = cssText;
 
+                // Apply styles to the correct preview element
                 if (activeShadowType === 'box') {
-                    boxShadowPreview.style.boxShadow = combinedCssValues;
-                    textShadowPreview.style.textShadow = 'none';
+                    boxShadowPreview.style.boxShadow = combinedCssValues || 'none';
+                    textShadowPreview.style.textShadow = 'none'; // Clear text shadow
                     boxShadowPreview.classList.remove('hidden');
                     textShadowPreview.classList.add('hidden');
                     document.getElementById('accessibility-checker').classList.add('hidden');
                     spreadRadiusLabel.classList.remove('hidden');
                     insetLabel.classList.remove('hidden');
-                } else {
-                    textShadowPreview.style.textShadow = combinedCssValues;
-                    boxShadowPreview.style.boxShadow = 'none';
+                } else { // text shadow
+                    textShadowPreview.style.textShadow = combinedCssValues || 'none';
+                    boxShadowPreview.style.boxShadow = 'none'; // Clear box shadow
                     boxShadowPreview.classList.add('hidden');
                     textShadowPreview.classList.remove('hidden');
                     updateAccessibilityChecker();
@@ -446,6 +600,7 @@
                 saveState();
             }
 
+
             function showToast(message) {
                 toast.textContent = message;
                 toast.classList.add('show');
@@ -455,33 +610,68 @@
             }
 
             function saveState() {
-                localStorage.setItem('cssShadowsMakerState', JSON.stringify({ shadows, currentShadowId, activeShadowType }));
+                try {
+                     localStorage.setItem('cssShadowsMakerState', JSON.stringify({ shadows, currentShadowId, activeShadowType }));
+                 } catch (e) {
+                     console.warn("Could not save state to localStorage:", e);
+                 }
             }
 
             function loadState() {
                 const savedState = localStorage.getItem('cssShadowsMakerState');
                 if (savedState) {
-                    const state = JSON.parse(savedState);
-                    shadows = state.shadows || [];
-                    currentShadowId = state.currentShadowId;
-                    activeShadowType = state.activeShadowType || 'box';
+                    try {
+                        const state = JSON.parse(savedState);
+                        shadows = Array.isArray(state.shadows) ? state.shadows : [];
+                        // Basic validation/migration for older saves
+                        shadows = shadows.map(s => ({
+                            id: s.id || generateUniqueId(),
+                            type: s.type || 'box', // Default type
+                            offsetX: s.offsetX ?? 5,
+                            offsetY: s.offsetY ?? 5,
+                            blurRadius: s.blurRadius ?? 10,
+                            spreadRadius: s.spreadRadius, // Keep undefined if text
+                            color: s.color || '#000000',
+                            opacity: s.opacity ?? 0.5,
+                            inset: s.inset // Keep undefined if text
+                        }));
+
+                        currentShadowId = state.currentShadowId;
+                        activeShadowType = state.activeShadowType || 'box';
+
+                    } catch (e) {
+                        console.error("Error loading saved state:", e);
+                        shadows = []; 
+                        activeShadowType = 'box';
+                        currentShadowId = null;
+                    }
                 }
 
-                if (shadows.length === 0) {
-                    addShadow(); // Start with a default shadow if none are loaded
-                } else {
-                    // Ensure currentShadowId is valid, if not, select the first one
-                    if (!shadows.some(s => s.id === currentShadowId)) {
-                        currentShadowId = shadows[0].id;
+                 // Ensure there is at least one shadow layer overall after loading
+                 if (shadows.length === 0) {
+                     addShadow(); // Add default if completely empty
+                 } else {
+                     // Ensure there's at least one shadow of the active type
+                    const activeTypeShadows = shadows.filter(s => s.type === activeShadowType);
+                    if (activeTypeShadows.length === 0) {
+                        addShadow(); // Add a default for the active type
+                    } else {
+                         // Ensure currentShadowId is valid for the active type
+                        if (!activeTypeShadows.some(s => s.id === currentShadowId)) {
+                             currentShadowId = activeTypeShadows[0].id; // Select first of the active type
+                        }
+                        selectShadow(currentShadowId); // Load controls
                     }
-                    selectShadow(currentShadowId);
-                }
+                 }
 
                 // Set active tab based on loaded state
                 tabBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.shadowType === activeShadowType);
                 });
+
+                 updateShadow(); // Initial render based on loaded state
             }
+
 
             // Event Listeners
             const controls = [offsetX, offsetY, blurRadius, spreadRadius, shadowColor, shadowOpacity, insetCheckbox];
@@ -490,16 +680,19 @@
             // Tab switching logic
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
+                    if (btn.classList.contains('active')) return;
+
                     tabBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     activeShadowType = btn.dataset.shadowType;
+                    
                     const firstShadowOfType = shadows.find(s => s.type === activeShadowType);
                     if (firstShadowOfType) {
                         selectShadow(firstShadowOfType.id);
                     } else {
-                        // If no shadows of this type exist, create one
-                        addShadow();
+                        addShadow(); 
                     }
+                     saveState(); 
                 });
             });
             addShadowBtn.addEventListener('click', addShadow);
@@ -507,24 +700,84 @@
             copyCssBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText(cssOutput.value)
                     .then(() => showToast('CSS Copied!'))
-                    .catch(err => console.error('Failed to copy: ', err));
+                    .catch(err => {
+                         console.error('Failed to copy CSS: ', err);
+                         showToast('Copy failed!');
+                     });
             });
 
             copyHtmlBtn.addEventListener('click', () => {
                 const activePreviewEl = activeShadowType === 'box' ? boxShadowPreview : textShadowPreview;
-                const style = activePreviewEl.getAttribute('style');
-                const elementTag = activePreviewEl.tagName.toLowerCase();
-                const elementClass = activePreviewEl.className.split(' ').filter(c => c !== 'hidden').join(' ');
-                const elementContent = activePreviewEl.textContent.trim();
+                const cssRule = cssOutput.value; 
 
-                const htmlToCopy = `<${elementTag} class="${elementClass}" style="${style}">${elementContent}</${elementTag}>`;
-                navigator.clipboard.writeText(htmlToCopy)
-                    .then(() => showToast('HTML Copied!'))
-                    .catch(err => console.error('Failed to copy: ', err));
+                const className = `shadow-${activeShadowType}-${generateUniqueId().substring(1, 5)}`; 
+
+                // Construct HTML and CSS
+                const htmlToCopy = `<div class="${className}">${activePreviewEl.textContent.trim()}</div>`;
+                const cssToCopy = `.${className} {\n  /* Add other base styles as needed */\n  ${cssRule}\n}`;
+
+                const combinedOutput = `<!-- HTML -->\n${htmlToCopy}\n\n/* CSS */\n${cssToCopy}`;
+
+
+                navigator.clipboard.writeText(combinedOutput)
+                    .then(() => showToast('HTML & CSS Copied!'))
+                    .catch(err => {
+                        console.error('Failed to copy HTML & CSS: ', err);
+                        showToast('Copy failed!');
+                    });
             });
+
+             // --- Mobile Navigation Logic ---
+             function showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex'); // Keep preview pane flex
+                    controlsPane.classList.add('hidden');
+                    controlsPane.classList.remove('flex');
+                    mobilePreviewBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
+                } else { // 'controls'
+                    previewPane.classList.add('hidden');
+                    previewPane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden');
+                    controlsPane.classList.add('flex'); // Make controls pane flex for scrolling
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
+                }
+            }
+
+             function handleMobileLayout() {
+                 if (window.innerWidth < 1024) {
+                      // Default to preview view if nothing is active
+                     if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
+                         showMobilePane('preview');
+                     }
+                      // Ensure the currently active pane is displayed correctly
+                     else if (mobilePreviewBtn.classList.contains('active')) {
+                         showMobilePane('preview');
+                     } else {
+                         showMobilePane('controls');
+                     }
+
+                 } else {
+                     // Desktop: show both panes
+                     previewPane.classList.remove('hidden');
+                     previewPane.classList.add('flex');
+                     controlsPane.classList.remove('hidden');
+                     controlsPane.classList.add('flex');
+                     mobilePreviewBtn.classList.remove('active'); // Deactivate mobile buttons
+                     mobileControlsBtn.classList.remove('active');
+                 }
+             }
+
+            mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
 
             // Initial setup
             loadState();
+             handleMobileLayout(); // Set initial layout
         });
     </script>
 </body>

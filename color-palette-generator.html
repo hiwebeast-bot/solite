@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <title>Color Palette Generator | Solite</title>
-    <meta name="description" content="Instantly generate beautiful, harmonious color palettes for your design projects. Lock colors, adjust shades, and export your palette. Free and private.">
+    <!-- MODIFIED: Optimized Title -->
+    <title>Free Color Palette Generator | Create & Export Schemes | Solite</title>
+    <!-- MODIFIED: Optimized Description -->
+    <meta name="description" content="Generate beautiful, harmonious color palettes (analogous, monochromatic, triadic, complementary) instantly with Solite's free online tool. Lock colors, view shades, export palettes (URL, PNG, SVG, CSS). 100% private.">
+    <!-- MODIFIED: Expanded Keywords -->
+    <meta name="keywords" content="color palette generator, color scheme generator, color palette, design tool, generate colors, analogous, monochromatic, triadic, complementary, export palette, hex codes, free tool, solite">
     <link rel="canonical" href="https://solite.in/color-palette-generator.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Color Palette Generator | Solite">
-    <meta property="og:description" content="Free browser-based color palette generator. No login, no ads.">
+    <!-- MODIFIED: Optimized OG Title -->
+    <meta property="og:title" content="Free Color Palette Generator | Create & Export Schemes | Solite">
+    <!-- MODIFIED: Optimized OG Description -->
+    <meta property="og:description" content="Generate beautiful color palettes instantly. Lock colors, adjust shades, and export as URL, PNG, SVG, or CSS. Free, private, browser-based tool by Solite.">
     <meta property="og:url" content="https://solite.in/color-palette-generator.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
@@ -47,12 +53,15 @@
       "url": "https://solite.in/color-palette-generator.html",
       "description": "A free, client-side tool to generate, customize, and export color palettes.",
       "applicationCategory": "DesignApplication",
-      "featureList": [
-        "Generate analogous, monochromatic, triadic, and complementary palettes",
-        "Lock individual colors to preserve them during generation",
-        "View shades and tints for each color",
-        "Copy HEX codes for individual colors",
+      "featureList": [ // MODIFIED: Refined features
+        "Generate color palettes (analogous, monochromatic, triadic, complementary)",
+        "Lock individual colors",
+        "Adjust colors with picker",
+        "View shades and tints",
+        "Copy HEX codes",
+        "Check WCAG contrast ratios",
         "Export palettes as URL, PNG, SVG, or CSS variables",
+        "Works offline after first load",
         "Client-side processing for privacy"
       ],
       "operatingSystem": "All",
@@ -61,6 +70,11 @@
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in"
+      },
+       "offers": { // ADDED: Offers
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
     }
     </script>
@@ -81,66 +95,97 @@
         #toast {
             transform: translateY(-150%);
             transition: transform 0.3s ease-in-out;
+            z-index: 100; /* Ensure toast is on top */
         }
         #toast.show {
             transform: translateY(2rem);
         }
         /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; /* gray-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #6b7280; /* gray-500 */
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer scrollbar */
+        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
         /* Custom Scrollbar for Firefox */
-        html { scrollbar-color: #4b5563 #111827; }
+        html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
+
+        /* Ensure color columns don't shrink below minimum on mobile */
+        #palette-container > .color-column {
+             transition: background-color 0.2s ease-in-out; /* Smooth color change */
+        }
+
+        /* ADDED: Mobile Nav Styles */
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+
+        /* Hide scrollbar for the palette container itself, rely on inner scroll */
+        #palette-pane::-webkit-scrollbar { display: none; }
+        #palette-pane { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Make actions always visible on touch devices (or smaller screens) */
+         @media (max-width: 1023px) {
+            .color-column .actions {
+                opacity: 1 !important; /* Override hover opacity */
+            }
+             .color-column .contrast-info {
+                opacity: 1 !important; /* Show contrast info always on mobile */
+            }
+        }
+
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
+    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div class="flex justify-between items-center px-4 sm:px-6">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Color Palette Generator</span>
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Color Palette Generator</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex h-screen-minus-header">
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
-            <h1 class="sr-only">Color Palette Generator</h1>
-            <!-- Palette Display -->
-            <div id="palette-container" class="flex-1 flex flex-col lg:flex-row bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                <!-- Color columns will be injected here -->
+    <!-- MODIFIED: Added relative, min-h-0 -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+         <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- MODIFIED: Added screen-reader only H1 -->
+            <h1 class="sr-only">Free Color Palette Generator</h1>
+            
+            <!-- Palette Display / Palette Pane -->
+            <!-- MODIFIED: Added id="palette-pane", overflow-hidden (prevents outer scroll), flex-col lg:flex-row -->
+            <div id="palette-pane" class="flex-1 flex flex-col lg:flex-row bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <!-- MODIFIED: Added overflow-x-auto, flex-nowrap for horizontal scroll on mobile, removed justify-center -->
+                 <div id="palette-container" class="flex-1 flex flex-nowrap lg:flex-row bg-gray-900 rounded-xl lg:rounded-none border-gray-800 overflow-x-auto lg:overflow-x-hidden">
+                    <!-- Color columns will be injected here -->
+                    <!-- Example Column Structure (will be generated by JS):
+                    <div class="color-column flex-1 flex flex-col items-center justify-center p-4 relative group min-w-[80vw] sm:min-w-[40vw] lg:min-w-0" style="background-color: #FF0000;">
+                         ... content ...
+                    </div>
+                     -->
+                </div>
             </div>
 
             <!-- Controls Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
-                <h3 class="text-xl font-bold text-white">Color Palette Generator</h3>
-                <div class="space-y-2">
+            <!-- MODIFIED: Added id="controls-pane", lg:block, flex flex-col, overflow-y-auto -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto">
+                 <h3 class="text-xl font-bold text-white flex-shrink-0">Color Palette Generator</h3>
+                <div class="space-y-2 flex-shrink-0">
                     <label for="palette-type-btn" class="font-medium">Palette Type</label>
                     <div class="relative">
                         <button id="palette-type-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full">
@@ -152,11 +197,12 @@
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="monochromatic">Monochromatic</a>
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="triadic">Triadic</a>
                             <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="complementary">Complementary</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="shades">Shades</a> <!-- Added Shades -->
                         </div>
                     </div>
                 </div>
-                <button id="generate-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">Generate Palette</button>
-                <div class="relative">
+                <button id="generate-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 flex-shrink-0">Generate Palette</button>
+                <div class="relative flex-shrink-0">
                     <button id="export-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
                         <span>Export Palette</span>
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -168,6 +214,11 @@
                         <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-export="css">Copy CSS</a>
                     </div>
                 </div>
+                 <!-- Added instructions -->
+                 <div class="text-sm text-gray-400 space-y-2 pt-4 border-t border-gray-700 flex-shrink-0">
+                     <p><strong class="text-gray-300">Tip:</strong> Press <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-300 border border-gray-400 rounded-md">Spacebar</kbd> to generate a new palette.</p>
+                     <p><strong class="text-gray-300">Tap/Hover</strong> over a color to see actions (adjust, copy, lock, view shades) and contrast info.</p> <!-- MODIFIED: Updated instructions -->
+                 </div>
             </div>
         </div>
         <!-- Ad Sidebar -->
@@ -176,13 +227,28 @@
                 Ad Area
             </div>
         </aside>
+
+         <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-palette-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42m0 0a6.776 6.776 0 01-3.42 3.42m0 0a6.776 6.776 0 003.42 3.42m0 0a6.776 6.776 0 013.42-3.42m0 0l-3.42 3.42"></path></svg>
+                    <span>Palette</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <!-- MODIFIED: Footer hidden on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>© 2024 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
@@ -200,21 +266,42 @@
             const paletteContainer = document.getElementById('palette-container');
             const generateBtn = document.getElementById('generate-btn');
             const toast = document.getElementById('toast');
+            const paletteTypeBtn = document.getElementById('palette-type-btn');
+            const paletteTypeText = document.getElementById('palette-type-text');
+            const paletteTypeDropdown = document.getElementById('palette-type-dropdown');
+            const exportBtn = document.getElementById('export-btn');
+            const exportDropdown = document.getElementById('export-dropdown');
+
+            // ADDED: Mobile Nav Elements
+            const mobilePaletteBtn = document.getElementById('mobile-palette-btn');
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const palettePane = document.getElementById('palette-pane');
+            const controlsPane = document.getElementById('controls-pane');
+
             const PALETTE_SIZE = 5;
             let paletteType = 'analogous';
-
             let lockedColors = new Array(PALETTE_SIZE).fill(null);
 
+            // --- Color Conversion Functions ---
             function randomColor() {
-                return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
             }
+
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : { r: 0, g: 0, b: 0 }; // Default to black on parse error
+            }
+             function rgbToHex(r, g, b) {
+                 const clamp = (val) => Math.max(0, Math.min(255, Math.round(val)));
+                 return "#" + ((1 << 24) + (clamp(r) << 16) + (clamp(g) << 8) + clamp(b)).toString(16).slice(1).toUpperCase();
+             }
 
             function hexToHsl(hex) {
                 const {r, g, b} = hexToRgb(hex);
                 const r_ = r / 255, g_ = g / 255, b_ = b / 255;
                 const max = Math.max(r_, g_, b_), min = Math.min(r_, g_, b_);
                 let h, s, l = (max + min) / 2;
-                if (max === min) { h = s = 0; } 
+                if (max === min) { h = s = 0; }
                 else {
                     const d = max - min;
                     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -225,54 +312,99 @@
                     }
                     h /= 6;
                 }
-                return { h: h * 360, s: s * 100, l: l * 100 };
+                // Ensure values are rounded and within valid ranges
+                return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
             }
 
-            function hslToHex(h, s, l) {
-                s /= 100; l /= 100;
+           function hslToHex(h, s, l) {
+                // Clamp h, s, l to valid ranges
+                h = h % 360;
+                if (h < 0) h += 360;
+                s = Math.max(0, Math.min(100, s)) / 100;
+                l = Math.max(0, Math.min(100, l)) / 100;
+
                 const k = n => (n + h / 30) % 12;
                 const a = s * Math.min(l, 1 - l);
                 const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
-                const toHex = x => Math.round(x * 255).toString(16).padStart(2, '0');
-                return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+                
+                // Convert RGB floats (0-1) to integers (0-255) before creating hex
+                const r = Math.round(f(0) * 255);
+                const g = Math.round(f(8) * 255);
+                const b = Math.round(f(4) * 255);
+                
+                return rgbToHex(r, g, b); // Use rgbToHex for consistency and clamping
             }
 
-            function generateHarmoniousPalette(baseColor, type) {
-                const {h, s, l} = hexToHsl(baseColor);
+             // --- Palette Generation ---
+             function generateHarmoniousPalette(baseColor, type) {
+                const { h, s, l } = hexToHsl(baseColor);
                 const palette = [baseColor];
-                if (type === 'analogous') for (let i = 1; i < 5; i++) palette.push(hslToHex((h + i * 30) % 360, s, l));
-                else if (type === 'monochromatic') for (let i = 1; i < 5; i++) palette.push(hslToHex(h, s, l + i * 10 > 95 ? 95 : l + i * 10));
-                else if (type === 'triadic') for (let i = 1; i < 3; i++) { palette.push(hslToHex((h + i * 120) % 360, s, l)); palette.push(hslToHex((h + i * 120) % 360, s - 20, l + 10)); }
-                else if (type === 'complementary') { palette.push(hslToHex((h + 180) % 360, s, l)); palette.push(hslToHex(h, s - 30, l + 20)); palette.push(hslToHex((h + 180) % 360, s - 30, l + 20)); }
-                return palette.slice(0, 5);
+                const step = 360 / PALETTE_SIZE; // Use step for even distribution
+
+                switch (type) {
+                    case 'analogous':
+                        for (let i = 1; i < PALETTE_SIZE; i++) {
+                            palette.push(hslToHex((h + i * 30) % 360, s, Math.max(10, Math.min(90, l + (i % 2 === 0 ? 5 : -5))))); // Slightly vary lightness
+                        }
+                        break;
+                    case 'monochromatic':
+                         // Generate shades and tints around the base lightness
+                        const lightStep = (95 - l) / Math.ceil(PALETTE_SIZE / 2);
+                        const darkStep = (l - 5) / Math.floor(PALETTE_SIZE / 2);
+                        for (let i = 1; i <= Math.floor(PALETTE_SIZE / 2); i++) {
+                           palette.unshift(hslToHex(h, s, Math.min(95, l + i * lightStep))); // Add tints first (unshift)
+                           palette.push(hslToHex(h, s, Math.max(5, l - i * darkStep)));    // Add shades last (push)
+                        }
+                         // Ensure palette size is correct if PALETTE_SIZE is odd
+                         if (palette.length > PALETTE_SIZE) palette.pop();
+                         else if (palette.length < PALETTE_SIZE) palette.push(hslToHex(h, s, Math.max(5, l - (Math.floor(PALETTE_SIZE / 2)+1) * darkStep))); // Add one more shade if needed
+
+                        break;
+                    case 'triadic':
+                        for (let i = 1; i < PALETTE_SIZE; i++) {
+                            const angle = (i <= 2) ? 120 : -120; // Alternate base hue for variation
+                            const newHue = (h + angle) % 360;
+                            // Vary saturation and lightness slightly for more interesting results
+                            const newSat = Math.max(20, Math.min(100, s + (i % 2 === 0 ? -15 : 15)));
+                            const newLight = Math.max(10, Math.min(90, l + (i % 3 === 0 ? 10 : -10)));
+                            palette.push(hslToHex(newHue, newSat, newLight));
+                        }
+                        break;
+                    case 'complementary':
+                        const compHue = (h + 180) % 360;
+                         palette.push(hslToHex(compHue, s, l)); // Direct complement
+
+                         // Add variations of base and complement
+                         palette.push(hslToHex(h, Math.max(20, s - 25), Math.min(90, l + 15))); // Lighter, less saturated base
+                         palette.push(hslToHex(compHue, Math.max(20, s - 25), Math.min(90, l + 15))); // Lighter, less saturated complement
+                         palette.push(hslToHex(h, s, Math.max(10, l - 20))); // Darker base shade
+                        break;
+                     case 'shades': // Added shades case
+                         return generateShades(baseColor, PALETTE_SIZE); // Use existing shades function
+                }
+                // Always return exactly PALETTE_SIZE colors, filling with random if needed (shouldn't happen with current logic)
+                while (palette.length < PALETTE_SIZE) palette.push(randomColor());
+                return palette.slice(0, PALETTE_SIZE);
             }
 
-            function hexToRgb(hex) {
-                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-                return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
+            function generateShades(hex, count = 11) { // Default to 11 for shades view
+                 const baseLightness = hexToHsl(hex).l;
+                 const step = 100 / (count); // Distribute across 0-100 lightness range
+                 const shades = [];
+                 for (let i = 0; i < count; i++) {
+                     // Calculate lightness, ensuring it stays within bounds and includes the base color's approximate lightness
+                    let lightness = Math.max(5, Math.min(95, i * step + step / 2));
+                     shades.push(hslToHex(hexToHsl(hex).h, hexToHsl(hex).s, lightness));
+                 }
+                // Sort by lightness to ensure smooth gradient
+                 shades.sort((a, b) => hexToHsl(a).l - hexToHsl(b).l);
+                 return shades;
             }
 
-            function rgbToHex(r, g, b) {
-                return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-            }
 
-            function generateShades(hex, count = 5) {
-                const rgb = hexToRgb(hex);
-                const shades = Array.from({ length: count }, (_, i) => {
-                    const factor = 1 - (i + 1) / (count + 1);
-                    return rgbToHex(Math.round(rgb.r * factor), Math.round(rgb.g * factor), Math.round(rgb.b * factor));
-                });
-                const tints = Array.from({ length: count }, (_, i) => {
-                    const factor = i / (count + 1);
-                    return rgbToHex(Math.round(rgb.r + (255 - rgb.r) * factor), Math.round(rgb.g + (255 - rgb.g) * factor), Math.round(rgb.b + (255 - rgb.b) * factor));
-                });
-                return [...tints.reverse(), hex, ...shades];
-            }
-
+            // --- UI & Utility Functions ---
             function getTextColor(hex) {
-                const r = parseInt(hex.slice(1, 3), 16);
-                const g = parseInt(hex.slice(3, 5), 16);
-                const b = parseInt(hex.slice(5, 7), 16);
+                const {r, g, b} = hexToRgb(hex);
                 const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
                 return luminance > 0.5 ? 'text-black' : 'text-white';
             }
@@ -296,225 +428,358 @@
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');
-                    if (message !== 'Copied!') setTimeout(() => { toast.textContent = 'Copied!'; }, 300);
+                    // Reset to default message after hiding
+                     if (message !== 'Copied!') setTimeout(() => { toast.textContent = 'Copied!'; }, 300);
                 }, 1500);
             }
 
-            function generatePalette() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const colorsFromUrl = urlParams.get('colors')?.split('-');
+            // --- Palette Rendering ---
+            function renderPalette(colors) {
+                 paletteContainer.innerHTML = ''; // Clear previous palette
+                 // Reset container class for standard palette view
+                 paletteContainer.className = 'flex-1 flex flex-nowrap lg:flex-row bg-gray-900 rounded-xl lg:rounded-none border-gray-800 overflow-x-auto lg:overflow-x-hidden';
 
-                let baseColor = lockedColors.find(c => c) || randomColor();
-                const newPalette = generateHarmoniousPalette(baseColor, paletteType);
+                 colors.forEach((color, i) => {
+                     const textColorClass = getTextColor(color);
+                     const colorRgb = hexToRgb(color);
+                     const contrastWhite = getContrast(colorRgb, {r: 255, g: 255, b: 255});
+                     const contrastBlack = getContrast(colorRgb, {r: 0, g: 0, b: 0});
+                     const passWhite = contrastWhite >= 4.5; // WCAG AA requirement
+                     const passBlack = contrastBlack >= 4.5;
 
-                paletteContainer.innerHTML = '';
-                for (let i = 0; i < PALETTE_SIZE; i++) {
-                    let color;
-                    if (colorsFromUrl && colorsFromUrl[i] && !lockedColors.some(c => c)) {
-                        color = '#' + colorsFromUrl[i];
-                    } else if (lockedColors[i]) {
-                        color = lockedColors[i];
-                    } else {
-                        const unlockedIndex = lockedColors.slice(0, i).filter(c => !c).length;
-                        color = newPalette[unlockedIndex] || randomColor();
-                    }
-                    const textColorClass = getTextColor(color);
-                    const colorRgb = hexToRgb(color);
-                    const contrastWhite = getContrast(colorRgb, {r: 255, g: 255, b: 255});
-                    const contrastBlack = getContrast(colorRgb, {r: 0, g: 0, b: 0});
-                    const passWhite = contrastWhite >= 4.5;
-                    const passBlack = contrastBlack >= 4.5;
+                     const column = document.createElement('div');
+                     // MODIFIED: Added min widths for mobile horizontal scrolling
+                     column.className = 'color-column flex-1 flex flex-col items-center justify-between p-4 relative group min-w-[80vw] sm:min-w-[40vw] lg:min-w-0'; // justify-between
+                     column.style.backgroundColor = color;
+                     column.dataset.index = i;
+                     column.dataset.color = color;
+                     column.dataset.locked = lockedColors[i] !== null;
 
-                    const column = document.createElement('div');
-                    column.className = 'color-column flex-1 flex flex-col items-center justify-center p-4 relative group min-h-[120px]';
-                    column.style.backgroundColor = color;
-                    column.dataset.index = i;
-                    column.dataset.color = color;
-                    column.dataset.locked = lockedColors[i] !== null;
-                    
-                    column.innerHTML = `
-                        <div class="text-center">
-                            <h2 class="text-2xl font-bold ${textColorClass} cursor-pointer" title="Click to copy">${color.toUpperCase()}</h2>
-                            <div class="contrast-info mt-4 text-xs font-mono ${textColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="flex justify-between items-center gap-4"><span>vs White</span> <span class="font-bold ${passWhite ? 'text-green-300' : 'text-red-300'}">${passWhite ? 'Pass' : 'Fail'}</span> <span>${contrastWhite.toFixed(2)}</span></div>
-                                <div class="flex justify-between items-center gap-4"><span>vs Black</span> <span class="font-bold ${passBlack ? 'text-green-300' : 'text-red-300'}">${passBlack ? 'Pass' : 'Fail'}</span> <span>${contrastBlack.toFixed(2)}</span></div>
+                     // MODIFIED: Simplified inner structure for better mobile layout
+                     column.innerHTML = `
+                        <div class="text-center w-full"> <!-- Top section for text -->
+                            <h2 class="text-lg sm:text-2xl font-bold ${textColorClass} cursor-pointer break-all mb-2" title="Click to copy">${color.toUpperCase()}</h2>
+                             <!-- Contrast Info always visible on mobile -->
+                            <div class="contrast-info text-xs font-mono ${textColorClass} opacity-100 lg:opacity-0 group-hover:lg:opacity-100 transition-opacity duration-300">
+                                <div class="flex justify-between items-center gap-2"><span>vs White</span> <span class="font-bold ${passWhite ? 'text-green-300' : 'text-red-300'}">${passWhite ? 'Pass' : 'Fail'}</span> <span>${contrastWhite.toFixed(2)}</span></div>
+                                <div class="flex justify-between items-center gap-2"><span>vs Black</span> <span class="font-bold ${passBlack ? 'text-green-300' : 'text-red-300'}">${passBlack ? 'Pass' : 'Fail'}</span> <span>${contrastBlack.toFixed(2)}</span></div>
                             </div>
                         </div>
-                        <div class="actions absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity w-32">
-                            <button class="picker-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Adjust Color">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M11 7l6 6" /><path d="M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4z" />
-                                </svg>
+                         <!-- Actions always visible on mobile -->
+                        <div class="actions mt-4 flex flex-wrap justify-center gap-2 w-full">
+                            <button class="picker-btn bg-black/30 backdrop-blur-sm p-2 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Adjust Color">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7l6 6" /><path d="M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4z" /></svg>
                             </button>
-                            <button class="shades-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="View Shades">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a4 4 0 014-4h10a4 4 0 014 4v12a4 4 0 01-4 4H7zM12 9a3 3 0 100-6 3 3 0 000 6z" /></svg>
-                            </button>
-                            <button class="copy-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Copy Hex">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                            </button>
-                            <button class="lock-btn bg-black/20 backdrop-blur-sm p-3 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Lock Color">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                             <button class="shades-btn bg-black/30 backdrop-blur-sm p-2 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="View Shades">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a4 4 0 014-4h10a4 4 0 014 4v12a4 4 0 01-4 4H7zM12 9a3 3 0 100-6 3 3 0 000 6z" /></svg>
+                             </button>
+                             <button class="copy-btn bg-black/30 backdrop-blur-sm p-2 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="Copy Hex">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                             </button>
+                             <button class="lock-btn bg-black/30 backdrop-blur-sm p-2 rounded-full ${textColorClass} hover:scale-110 transition-transform" title="${lockedColors[i] ? 'Unlock Color' : 'Lock Color'}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="${lockedColors[i] ? 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' : 'M8 11V7a4 4 0 118 0m-4 8v3m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z'}" />
                                 </svg>
-                            </button>
-                        </div>
-                        <input type="color" class="color-picker-input hidden" value="${color}">
-                    `;
-                    paletteContainer.appendChild(column);
-                }
-                // Clear URL params after first load
-                if (colorsFromUrl) {
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
+                             </button>
+                         </div>
+                         <input type="color" class="color-picker-input absolute opacity-0 w-0 h-0 pointer-events-none" value="${color}"> <!-- Added pointer-events-none -->
+                     `;
+                     paletteContainer.appendChild(column);
+                 });
+                  attachPaletteListeners(); // Re-attach listeners after rendering
+             }
 
-                document.querySelectorAll('.copy-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const color = btn.closest('.color-column').dataset.color;
-                        navigator.clipboard.writeText(color).then(showToast);
-                    });
-                });
+            function renderShadesView(baseColor) {
+                 const shades = generateShades(baseColor, 11); // Generate 11 shades/tints including base
 
-                document.querySelectorAll('.lock-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const column = btn.closest('.color-column');
-                        const index = parseInt(column.dataset.index);
-                        const isLocked = column.dataset.locked === 'true';
-                        
-                        if (isLocked) {
-                            lockedColors[index] = null;
-                        } else {
-                            lockedColors[index] = column.dataset.color;
-                        }
-                        generatePalette();
-                    });
-                });
+                 paletteContainer.innerHTML = ''; // Clear previous content
+                 // Change container for shades view: Use grid for better wrapping/layout control
+                 // MODIFIED: Added overflow-x-auto, flex-nowrap for horizontal scroll
+                 paletteContainer.className = 'flex-1 flex flex-nowrap bg-gray-900 rounded-xl lg:rounded-none border-gray-800 overflow-x-auto h-full';
 
-                document.querySelectorAll('.color-column h2').forEach(h2 => {
-                    h2.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        navigator.clipboard.writeText(h2.textContent).then(showToast);
-                    });
-                });
+                 shades.forEach(shade => {
+                     const shadeBox = document.createElement('button'); // Use button for better accessibility
+                     const textColorClass = getTextColor(shade);
+                     // Make shade box focusable, adjust padding, ensure height fills container
+                     // MODIFIED: Added min-w-[20vw] sm:min-w-[10vw] lg:min-w-0 for horizontal scrolling
+                     shadeBox.className = `flex flex-col items-center justify-center cursor-pointer ${textColorClass} transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white p-1 h-full min-w-[20vw] sm:min-w-[10vw] lg:min-w-0 flex-1`;
+                     shadeBox.style.backgroundColor = shade;
+                     shadeBox.title = `Click to copy ${shade}`;
+                     // Show hex code directly, smaller font size
+                     shadeBox.innerHTML = `<span class="font-mono text-[10px] sm:text-xs break-all">${shade}</span>`;
+                     shadeBox.addEventListener('click', () => navigator.clipboard.writeText(shade).then(() => showToast(`${shade} copied!`)));
+                     paletteContainer.appendChild(shadeBox);
+                 });
 
-                document.querySelectorAll('.shades-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const column = btn.closest('.color-column');
-                        const color = column.dataset.color;
-                        const shades = generateShades(color);
-                        
-                        paletteContainer.innerHTML = '';
-                        paletteContainer.className = 'flex-1 grid grid-cols-11 bg-gray-900 rounded-xl border border-gray-800 overflow-hidden';
-
-                        shades.forEach(shade => {
-                            const shadeBox = document.createElement('div');
-                            const textColorClass = getTextColor(shade);
-                            shadeBox.className = `flex items-center justify-center cursor-pointer ${textColorClass} transition-transform hover:scale-110 bg-gray-900`;
-                            shadeBox.style.backgroundColor = shade;
-                            shadeBox.style.backgroundColor = shade;
-                            shadeBox.innerHTML = `<span class="font-mono text-sm opacity-0 hover:opacity-100 transition-opacity">${shade}</span>`;
-                            shadeBox.addEventListener('click', () => navigator.clipboard.writeText(shade).then(showToast));
-                            paletteContainer.appendChild(shadeBox);
-                        });
-
-                        generateBtn.textContent = 'Back to Palette';
-                        generateBtn.onclick = (e) => {
-                            e.stopPropagation();
-                            paletteContainer.className = 'flex-1 flex flex-col lg:flex-row bg-gray-900 rounded-xl border border-gray-800 overflow-hidden';
-                            generateBtn.textContent = 'Generate Palette';
-                            generateBtn.onclick = null; // Remove the temporary handler
-                            generatePalette();
-                        };
-                    });
-                });
-
-                document.querySelectorAll('.picker-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const input = btn.closest('.color-column').querySelector('.color-picker-input');
-                        input.click();
-                    });
-                });
-
-                document.querySelectorAll('.color-picker-input').forEach(input => {
-                    input.addEventListener('input', (e) => {
-                        const newColor = e.target.value;
-                        const column = e.target.closest('.color-column');
-                        const index = parseInt(column.dataset.index);
-                        
-                        column.style.backgroundColor = newColor;
-                        column.dataset.color = newColor;
-                        column.querySelector('h2').textContent = newColor.toUpperCase();
-                        
-                        const newTextColor = getTextColor(newColor);
-                        column.querySelectorAll('.actions button, h2').forEach(el => {
-                            el.classList.remove('text-white', 'text-black');
-                            el.classList.add(newTextColor);
-                        });
-
-                        if (lockedColors[index]) {
-                            lockedColors[index] = newColor;
-                        }
-                    });
-                });
+                 // Update Generate button to act as a "Back" button
+                 generateBtn.textContent = 'Back to Palette';
+                 generateBtn.onclick = handleBackToPalette; // Assign the back function
             }
 
-            generateBtn.addEventListener('click', () => {
-                generatePalette();
-                showToast('New palette generated!');
-            });
+            function handleBackToPalette(e) {
+                if (e) e.stopPropagation();
+                 // MODIFIED: Restore standard palette container classes
+                 paletteContainer.className = 'flex-1 flex flex-nowrap lg:flex-row bg-gray-900 rounded-xl lg:rounded-none border-gray-800 overflow-x-auto lg:overflow-x-hidden';
+                 generateBtn.textContent = 'Generate Palette';
+                  generateBtn.onclick = handleGenerateClick; // Restore original generate handler
+                 // Regenerate the palette based on the last state (respecting locks)
+                 generateAndRenderPalette();
+                 // Listeners are re-attached in generateAndRenderPalette -> renderPalette
+            }
+
+             // Define the standard generate button handler
+             function handleGenerateClick() {
+                 generateAndRenderPalette();
+                 showToast('New palette generated!');
+             }
+             // Assign it initially
+             generateBtn.onclick = handleGenerateClick;
+
+
+             function attachPaletteListeners() {
+                 document.querySelectorAll('.copy-btn').forEach(btn => {
+                     btn.addEventListener('click', (e) => {
+                         e.stopPropagation();
+                         const color = btn.closest('.color-column').dataset.color;
+                         navigator.clipboard.writeText(color).then(showToast);
+                     });
+                 });
+
+                 document.querySelectorAll('.lock-btn').forEach(btn => {
+                     btn.addEventListener('click', (e) => {
+                         e.stopPropagation();
+                         const column = btn.closest('.color-column');
+                         const index = parseInt(column.dataset.index);
+                         const isLocked = column.dataset.locked === 'true';
+
+                         if (isLocked) {
+                             lockedColors[index] = null;
+                         } else {
+                             lockedColors[index] = column.dataset.color;
+                         }
+                         // Rerender the palette immediately to show lock state change
+                         const currentColors = Array.from(paletteContainer.querySelectorAll('.color-column')).map(col => col.dataset.color);
+                         renderPalette(currentColors); // Rerender with the same colors but updated lock state
+                     });
+                 });
+
+                 document.querySelectorAll('.color-column h2').forEach(h2 => {
+                     h2.addEventListener('click', (e) => {
+                         e.stopPropagation();
+                         navigator.clipboard.writeText(h2.textContent).then(showToast);
+                     });
+                 });
+
+                 document.querySelectorAll('.shades-btn').forEach(btn => {
+                     btn.addEventListener('click', (e) => {
+                         e.stopPropagation();
+                         const column = btn.closest('.color-column');
+                         const color = column.dataset.color;
+                         renderShadesView(color);
+                     });
+                 });
+
+                 document.querySelectorAll('.picker-btn').forEach(btn => {
+                     btn.addEventListener('click', (e) => {
+                         e.stopPropagation();
+                         const input = btn.closest('.color-column').querySelector('.color-picker-input');
+                         input.click();
+                     });
+                 });
+
+                 document.querySelectorAll('.color-picker-input').forEach(input => {
+                      // Use 'input' for live preview, 'change' to finalize and potentially update locks
+                     input.addEventListener('input', handleColorPickerInput);
+                     input.addEventListener('change', handleColorPickerChange);
+                 });
+             }
+
+             function handleColorPickerInput(e) {
+                 const newColor = e.target.value.toUpperCase();
+                 const column = e.target.closest('.color-column');
+                 if (!column) return;
+
+                 // Update visual feedback immediately
+                 column.style.backgroundColor = newColor;
+                 column.querySelector('h2').textContent = newColor;
+
+                 const newTextColor = getTextColor(newColor);
+                 // MODIFIED: Include contrast info in text color update
+                 column.querySelectorAll('.actions button, h2, .contrast-info').forEach(el => {
+                     el.classList.remove('text-white', 'text-black');
+                     el.classList.add(newTextColor);
+                 });
+
+                 // Update contrast ratios live
+                 const colorRgb = hexToRgb(newColor);
+                 const contrastWhite = getContrast(colorRgb, {r: 255, g: 255, b: 255});
+                 const contrastBlack = getContrast(colorRgb, {r: 0, g: 0, b: 0});
+                 const passWhite = contrastWhite >= 4.5;
+                 const passBlack = contrastBlack >= 4.5;
+
+                 const contrastInfo = column.querySelector('.contrast-info');
+                 if (contrastInfo) {
+                    const whiteSpan = contrastInfo.children[0].children[2];
+                    const whitePassSpan = contrastInfo.children[0].children[1];
+                    const blackSpan = contrastInfo.children[1].children[2];
+                    const blackPassSpan = contrastInfo.children[1].children[1];
+
+                    whiteSpan.textContent = contrastWhite.toFixed(2);
+                    whitePassSpan.textContent = passWhite ? 'Pass' : 'Fail';
+                    whitePassSpan.className = `font-bold ${passWhite ? 'text-green-300' : 'text-red-300'}`;
+                    blackSpan.textContent = contrastBlack.toFixed(2);
+                    blackPassSpan.textContent = passBlack ? 'Pass' : 'Fail';
+                    blackPassSpan.className = `font-bold ${passBlack ? 'text-green-300' : 'text-red-300'}`;
+                 }
+             }
+
+            function handleColorPickerChange(e) {
+                const newColor = e.target.value.toUpperCase();
+                 const column = e.target.closest('.color-column');
+                 if (!column) return;
+                 const index = parseInt(column.dataset.index);
+
+                 // Finalize data attribute
+                 column.dataset.color = newColor;
+
+                 // Update locked color if this column was locked
+                 if (lockedColors[index]) {
+                     lockedColors[index] = newColor;
+                 }
+                 // No need to call generatePalette here, just update the single color
+            }
+
+            function generateAndRenderPalette() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const colorsFromUrl = urlParams.get('colors')?.split('-');
+                let currentPalette = [];
+
+                if (colorsFromUrl && colorsFromUrl.length === PALETTE_SIZE && !lockedColors.some(c => c)) {
+                    // Use URL colors only if no colors are locked and URL is valid
+                    currentPalette = colorsFromUrl.map(c => {
+                         const hex = '#' + c.toUpperCase();
+                         // Basic validation
+                         return /^#[0-9A-F]{6}$/i.test(hex) ? hex : randomColor();
+                    });
+                     // Automatically lock colors loaded from URL
+                     lockedColors = [...currentPalette];
+                     // Clear URL params after loading
+                     window.history.replaceState({}, document.title, window.location.pathname);
+                } else {
+                    let baseColor = lockedColors.find(c => c) || randomColor(); // Find first locked or random
+                    const newPalette = generateHarmoniousPalette(baseColor, paletteType);
+                    currentPalette = lockedColors.map((locked, i) => {
+                        if (locked) return locked;
+                        // Find the next available generated color for unlocked slots
+                        let generatedColorIndex = 0;
+                        for(let j=0; j<i; j++) {
+                            if (!lockedColors[j]) generatedColorIndex++;
+                        }
+                        // Ensure index is within bounds
+                         return newPalette[generatedColorIndex % newPalette.length] || randomColor();
+                    });
+                }
+                 renderPalette(currentPalette);
+            }
+
+
+            // --- Event Listeners Setup ---
+             // Removed initial generateBtn handler assignment here, now done in handleBackToPalette and initial setup
+
             document.body.addEventListener('keyup', (e) => {
-                if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                    generateBtn.click();
+                // Only generate if not focused on input/textarea and not in shades view
+                 if (e.code === 'Space' && !['INPUT', 'TEXTAREA'].includes(e.target.tagName) && generateBtn.textContent !== 'Back to Palette') {
+                     // Use the assigned onclick handler
+                     if (generateBtn.onclick) generateBtn.onclick();
                 }
             });
 
-            function setupPaletteTypeDropdown() {
-                const btn = document.getElementById('palette-type-btn');
-                const dropdown = document.getElementById('palette-type-dropdown');
-                const textEl = document.getElementById('palette-type-text');
-                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
-                dropdown.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        e.preventDefault();
-                        paletteType = e.target.dataset.value;
-                        textEl.textContent = e.target.textContent;
-                        dropdown.classList.add('hidden');
-                        generatePalette();
-                    }
-                });
+            function setupDropdown(btnId, dropdownId, textId, stateUpdater, callback) {
+                 const btn = document.getElementById(btnId);
+                 const dropdown = document.getElementById(dropdownId);
+                 const textEl = document.getElementById(textId);
+                 btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                 dropdown.addEventListener('click', (e) => {
+                     if (e.target.tagName === 'A') {
+                         e.preventDefault();
+                         stateUpdater(e.target.dataset.value);
+                         if(textEl) textEl.textContent = e.target.textContent; // Check if textEl exists
+                         dropdown.classList.add('hidden');
+                         if (callback) callback(); // Execute callback if provided
+                     }
+                 });
+                 // Return elements for potential outside click handling
+                 return { btn, dropdown };
             }
 
+             // Palette Type Dropdown
+            const { btn: paletteBtn, dropdown: paletteDrop } = setupDropdown(
+                'palette-type-btn',
+                'palette-type-dropdown',
+                'palette-type-text',
+                (value) => { paletteType = value; },
+                generateAndRenderPalette // Regenerate palette on type change
+            );
+
+            // Export Dropdown
+            const { btn: exportBtnElem, dropdown: exportDrop } = setupDropdown(
+                'export-btn',
+                'export-dropdown',
+                null, // No text element to update
+                exportPalette // Call export function with the selected format
+            );
+
+            // Close dropdowns on outside click
+             document.addEventListener('click', (e) => {
+                 if (!paletteBtn.contains(e.target) && !paletteDrop.contains(e.target)) {
+                     paletteDrop.classList.add('hidden');
+                 }
+                 if (!exportBtnElem.contains(e.target) && !exportDrop.contains(e.target)) {
+                    exportDrop.classList.add('hidden');
+                 }
+             });
+
+
+             // --- Export Functions ---
             function exportPalette(format) {
-                const colors = Array.from(document.querySelectorAll('.color-column')).map(c => c.dataset.color);
+                // Select only columns from the main palette view, not shades view
+                const colorColumns = paletteContainer.querySelectorAll('.color-column');
+                 if (!colorColumns || colorColumns.length === 0) {
+                      // If in shades view, grab colors differently or show error
+                     if(generateBtn.textContent === 'Back to Palette') {
+                        showToast("Export not available in shades view. Go back first.");
+                     } else {
+                        showToast("Generate a palette first!");
+                     }
+                     return;
+                 }
+                 const colors = Array.from(colorColumns).map(c => c.dataset.color);
                 const colorString = colors.map(c => c.substring(1)).join('-');
 
                 if (format === 'url') {
                     const url = `${window.location.origin}${window.location.pathname}?colors=${colorString}`;
                     navigator.clipboard.writeText(url).then(() => showToast('URL copied to clipboard!'));
                 } else if (format === 'css') {
-                    const css = `:root {\n${colors.map((c, i) => `  --color-${i+1}: ${c};`).join('\n')}\n}`;
+                    const css = `:root {\n${colors.map((c, i) => `  --color-${i+1}: ${c}; /* ${colorToName(c) || ''} */`).join('\n')}\n}`;
                     navigator.clipboard.writeText(css).then(() => showToast('CSS variables copied!'));
                 } else if (format === 'png') {
                     const canvas = document.createElement('canvas');
-                    const size = 200;
+                    const size = 200; // Increased size for better quality
                     canvas.width = size * colors.length;
-                    canvas.height = size * 1.5;
+                    canvas.height = size; // Simple horizontal stripe
                     const ctx = canvas.getContext('2d');
                     colors.forEach((color, i) => {
                         ctx.fillStyle = color;
-                        ctx.fillRect(i * size, 0, size, size * 1.5);
+                        ctx.fillRect(i * size, 0, size, size);
                     });
                     const link = document.createElement('a');
                     link.download = `solite-palette-${colorString}.png`;
-                    link.href = canvas.toDataURL();
+                    link.href = canvas.toDataURL('image/png'); // Specify PNG
                     link.click();
                 } else if (format === 'svg') {
-                    const size = 200;
-                    const svgContent = colors.map((color, i) => `<rect x="${i * size}" y="0" width="${size}" height="${size * 1.5}" fill="${color}" />`).join('');
-                    const svg = `<svg width="${size * colors.length}" height="${size * 1.5}" xmlns="http://www.w3.org/2000/svg">${svgContent}</svg>`;
+                    const size = 100; // SVG size can be smaller
+                    const svgContent = colors.map((color, i) => `<rect x="${i * size}" y="0" width="${size}" height="${size}" fill="${color}" />`).join('');
+                    const svg = `<svg width="${size * colors.length}" height="${size}" xmlns="http://www.w3.org/2000/svg" version="1.1">${svgContent}</svg>`;
                     const blob = new Blob([svg], {type: 'image/svg+xml'});
                     const link = document.createElement('a');
                     link.download = `solite-palette-${colorString}.svg`;
@@ -523,32 +788,68 @@
                     URL.revokeObjectURL(link.href);
                 }
             }
-
-            function setupExportDropdown() {
-                const btn = document.getElementById('export-btn');
-                const dropdown = document.getElementById('export-dropdown');
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    dropdown.classList.toggle('hidden');
-                });
-                dropdown.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        e.preventDefault();
-                        exportPalette(e.target.dataset.export);
-                        dropdown.classList.add('hidden');
-                    }
-                });
+            
+            // Basic color naming (extendable)
+            function colorToName(hex) {
+                 // This is a very basic example, replace with a proper library (like ntc.js) if needed
+                 const names = { '#FF0000': 'Red', '#00FF00': 'Green', '#0000FF': 'Blue', '#FFFF00': 'Yellow', '#FFFFFF': 'White', '#000000': 'Black' };
+                 return names[hex.toUpperCase()];
             }
 
-            generatePalette();
-            setupPaletteTypeDropdown();
-            setupExportDropdown();
+             // --- Mobile Navigation Logic ---
+             function showMobilePane(paneId) {
+                if (paneId === 'palette') {
+                    palettePane.classList.remove('hidden');
+                    palettePane.classList.add('flex'); // Ensure flex is added back
+                    controlsPane.classList.add('hidden');
+                    controlsPane.classList.remove('flex');
+                    mobilePaletteBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
+                } else { // 'controls'
+                    palettePane.classList.add('hidden');
+                    palettePane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden');
+                    controlsPane.classList.add('flex'); // Ensure controls pane is flex for scrolling
+                    mobilePaletteBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
+                }
+            }
 
-            document.addEventListener('click', () => {
-                document.getElementById('palette-type-dropdown').classList.add('hidden');
-                document.getElementById('export-dropdown').classList.add('hidden');
-            });
+             function handleMobileLayout() {
+                 if (window.innerWidth < 1024) {
+                      // Default to palette view if nothing is active
+                     if (!mobilePaletteBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
+                         showMobilePane('palette');
+                     }
+                      // Ensure the currently active pane is displayed correctly
+                     else if (mobilePaletteBtn.classList.contains('active')) {
+                         showMobilePane('palette');
+                     } else {
+                         showMobilePane('controls');
+                     }
+
+                 } else {
+                     // Desktop: show both panes
+                     palettePane.classList.remove('hidden');
+                     palettePane.classList.add('flex'); // Ensure palette uses flex row on desktop
+                     controlsPane.classList.remove('hidden');
+                     controlsPane.classList.add('flex'); // Ensure controls uses flex col on desktop
+                     mobilePaletteBtn.classList.remove('active'); // Deactivate mobile buttons
+                     mobileControlsBtn.classList.remove('active');
+                 }
+             }
+
+            mobilePaletteBtn.addEventListener('click', () => showMobilePane('palette'));
+            mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Setup
+            generateBtn.onclick = handleGenerateClick; // Assign the default handler
+            generateAndRenderPalette(); // Generate based on URL or random
+            handleMobileLayout(); // Set initial layout
+
         });
     </script>
 </body>
 </html>
+

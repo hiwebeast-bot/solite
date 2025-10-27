@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <title>Image Color Picker | Solite</title>
-    <meta name="description" content="Use this free online color picker to extract colors and build a palette from any image. The eyedropper tool lets you get HEX, RGB, and HSL codes instantly. 100% private.">
+    <!-- MODIFIED: Optimized Title -->
+    <title>Free Image Color Picker & Palette Generator | Solite</title>
+    <!-- MODIFIED: Optimized Description -->
+    <meta name="description" content="Extract colors & create palettes from images with this free online color picker tool. Eyedropper finds HEX, RGB, HSL codes instantly. 100% private & browser-based.">
+    <!-- MODIFIED: Expanded Keywords -->
+    <meta name="keywords" content="image color picker, color picker from image, online color picker, eyedropper tool, color palette generator, hex color picker, rgb color picker, hsl color picker, accessibility contrast checker, solite, free tool">
     <link rel="canonical" href="https://solite.in/image-color-picker.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Image Color Picker | Solite">
-    <meta property="og:description" content="Free browser-based image color picker. No login, no ads.">
+    <!-- MODIFIED: Optimized OG Title -->
+    <meta property="og:title" content="Free Image Color Picker & Palette Generator | Solite">
+    <meta property="og:description" content="Free browser-based image color picker. Upload an image, use the eyedropper, get HEX/RGB/HSL codes, check contrast, and build palettes. No login required.">
     <meta property="og:url" content="https://solite.in/image-color-picker.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
@@ -43,7 +48,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Image Color Picker",
+      "name": "Image Color Picker | Solite", // MODIFIED: Added Solite
       "url": "https://solite.in/image-color-picker.html",
       "description": "A free, client-side tool to extract color palettes from images using an eyedropper with zoom. Provides HEX, RGB, HSL codes and accessibility contrast ratios.",
       "applicationCategory": "DesignApplication",
@@ -119,50 +124,69 @@
         }
         /* Custom Scrollbar for Firefox */
         html { scrollbar-color: #4b5563 #111827; }
+
+        /* ADDED: Mobile Nav Styles */
+        .mobile-nav-btn.active {
+            color: #ffffff; /* white */
+        }
+        .mobile-nav-btn {
+            color: #9ca3af; /* gray-400 */
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
+    <!-- MODIFIED: Header updated to mobile-first version -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Image Color Picker</span>
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Image Color Picker</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex h-screen-minus-header">
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col lg:flex-row gap-4">
-            <!-- Image Display Area -->
-            <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative">
-                <div id="upload-prompt" class="text-center cursor-pointer p-8">
-                    <h1 class="sr-only">Image Color Picker</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    <p class="mt-2 text-lg font-medium text-white">Drop an image or click to upload</p>
-                    <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+    <!-- MODIFIED: Added relative, min-h-0 -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            
+            <!-- Image Display Area / Picker Pane -->
+            <!-- MODIFIED: Added id="picker-pane", overflow-auto -->
+            <div id="picker-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto">
+                <div id="image-container" class="flex items-center justify-center w-full h-full p-2">
+                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                        <!-- MODIFIED: Added screen-reader only H1 -->
+                        <h1 class="sr-only">Image Color Picker & Palette Generator</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <p class="mt-2 text-lg font-medium text-white">Drop an image or click to upload</p>
+                        <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+                    </div>
+                    <!-- MODIFIED: Removed max-w-full max-h-full object-contain -->
+                    <canvas id="image-canvas" class="hidden"></canvas>
+                    <input type="file" id="image-upload" class="hidden" accept="image/*">
+                    <div id="zoom-loupe"></div>
                 </div>
-                <canvas id="image-canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
-                <input type="file" id="image-upload" class="hidden" accept="image/*">
-                <div id="zoom-loupe"></div>
             </div>
 
             <!-- Controls & Palette Panel -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
+            <!-- MODIFIED: Added id="palette-pane", overflow-y-auto -->
+            <div id="palette-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 overflow-y-auto">
                 <div id="color-info-section" class="hidden">
                     <h3 class="font-semibold text-white mb-2">Hovered Color</h3>
                     <div class="flex items-center gap-4">
@@ -199,13 +223,28 @@
                 Ad Area
             </div>
         </aside>
+
+        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-picker-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    <span>Picker</span>
+                </button>
+                <button id="mobile-palette-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42m0 0a6.776 6.776 0 01-3.42 3.42m0 0a6.776 6.776 0 003.42 3.42m0 0a6.776 6.776 0 013.42-3.42m0 0l-3.42 3.42"></path></svg>
+                    <span>Palette</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
+    <!-- MODIFIED: Footer hidden on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>© 2024 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
@@ -227,10 +266,11 @@
                 this.pickedColors = [];
                 this._cacheDOMElements();
                 this._attachEventListeners();
+                this._handleInitialLayout(); // Add initial layout check
             }
 
             _cacheDOMElements() {
-                this.imageContainer = document.getElementById('image-container');
+                this.imageContainer = document.getElementById('image-container'); // Container for canvas/prompt
                 this.uploadPrompt = document.getElementById('upload-prompt');
                 this.imageUpload = document.getElementById('image-upload');
                 this.canvas = document.getElementById('image-canvas');
@@ -249,34 +289,118 @@
                 this.contrastBlack = document.getElementById('contrast-black');
                 this.contrastWhitePass = document.getElementById('contrast-white-pass');
                 this.contrastBlackPass = document.getElementById('contrast-black-pass');
+
+                // Panes for mobile view
+                this.pickerPane = document.getElementById('picker-pane');
+                this.palettePane = document.getElementById('palette-pane');
+                this.mobilePickerBtn = document.getElementById('mobile-picker-btn');
+                this.mobilePaletteBtn = document.getElementById('mobile-palette-btn');
             }
 
             _attachEventListeners() {
-                this.imageContainer.addEventListener('click', () => { if (this.canvas.classList.contains('hidden')) this.imageUpload.click(); });
+                // Keep existing upload/drag/drop listeners
+                this.uploadPrompt.addEventListener('click', () => { this.imageUpload.click(); });
                 this.imageUpload.addEventListener('change', (e) => this.handleImage(e.target.files[0]));
-                this.imageContainer.addEventListener('dragover', (e) => { e.preventDefault(); this.imageContainer.classList.add('border-blue-500'); });
-                this.imageContainer.addEventListener('dragleave', () => this.imageContainer.classList.remove('border-blue-500'));
-                this.imageContainer.addEventListener('drop', (e) => {
+                this.pickerPane.addEventListener('dragover', (e) => { e.preventDefault(); this.pickerPane.classList.add('border-blue-500'); });
+                this.pickerPane.addEventListener('dragleave', () => this.pickerPane.classList.remove('border-blue-500'));
+                this.pickerPane.addEventListener('drop', (e) => {
                     e.preventDefault();
-                    this.imageContainer.classList.remove('border-blue-500');
+                    this.pickerPane.classList.remove('border-blue-500');
                     this.handleImage(e.dataTransfer.files[0]);
                 });
 
+                // Canvas interaction (mouse and touch)
                 this.canvas.addEventListener('mouseenter', () => { this.zoomLoupe.style.display = 'block'; });
                 this.canvas.addEventListener('mouseleave', () => { this.zoomLoupe.style.display = 'none'; });
-                this.canvas.addEventListener('mousemove', (e) => this._onCanvasMouseMove(e));
-                this.canvas.addEventListener('click', (e) => this._onCanvasClick(e));
+                this.canvas.addEventListener('mousemove', (e) => this._handlePointerMove(e.clientX, e.clientY));
+                this.canvas.addEventListener('click', (e) => this._handleCanvasClick(e.clientX, e.clientY));
+                this.canvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault(); // Prevent page scrolling
+                    const touch = e.touches[0];
+                    this._handlePointerMove(touch.clientX, touch.clientY);
+                    this.zoomLoupe.style.display = 'block'; // Ensure loupe shows on touch
+                }, { passive: false });
+                 this.canvas.addEventListener('touchend', (e) => {
+                     // Use changedTouches for touchend
+                    if (e.changedTouches.length > 0) {
+                        const touch = e.changedTouches[0];
+                         this._handleCanvasClick(touch.clientX, touch.clientY);
+                    }
+                    this.zoomLoupe.style.display = 'none'; // Hide loupe on touch end
+                 });
 
+
+                // Palette actions
                 document.getElementById('clear-palette-btn').addEventListener('click', () => this.clearPalette());
                 document.getElementById('copy-all-btn').addEventListener('click', () => this.copyAllPickedColors());
                 this.removeImageBtn.addEventListener('click', () => this.removeImage());
 
                 // Event delegation for copy buttons
-                document.getElementById('controls-panel').addEventListener('click', (e) => {
+                this.palettePane.addEventListener('click', (e) => {
                     const copyBtn = e.target.closest('.copy-format-btn');
                     if (copyBtn) this._copyColorFormat(copyBtn.dataset.format);
+
+                    // Handle clicks on palette swatches
+                    const swatch = e.target.closest('.palette-swatch');
+                    if(swatch) {
+                        navigator.clipboard.writeText(swatch.dataset.color).then(() => this._showToast());
+                    }
                 });
+
+                // Mobile Navigation
+                this.mobilePickerBtn.addEventListener('click', () => this._showMobilePane('picker'));
+                this.mobilePaletteBtn.addEventListener('click', () => this._showMobilePane('palette'));
+                window.addEventListener('resize', () => this._handleMobileLayout());
             }
+
+             _handlePointerMove(clientX, clientY) {
+                const rect = this.canvas.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+
+                 // Clamp coordinates to stay within canvas bounds
+                const clampedX = Math.max(0, Math.min(x, this.canvas.width - 1));
+                const clampedY = Math.max(0, Math.min(y, this.canvas.height - 1));
+
+                if (clampedX >= 0 && clampedY >= 0 && clampedX < this.canvas.width && clampedY < this.canvas.height) {
+                    try {
+                        const pixel = this.ctx.getImageData(clampedX, clampedY, 1, 1).data;
+                        this._updateColorInfo(pixel);
+                        this._updateLoupe(clientX, clientY, clampedX, clampedY);
+                    } catch (e) {
+                        // Sometimes getImageData fails near edges if coordinates are slightly off
+                        console.warn("Could not get pixel data at edge:", e);
+                    }
+                } else {
+                    // Hide loupe if pointer is outside canvas bounds, even if technically over the element
+                    this.zoomLoupe.style.display = 'none';
+                }
+            }
+
+
+            _handleCanvasClick(clientX, clientY) {
+                const rect = this.canvas.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+
+                // Clamp coordinates
+                const clampedX = Math.max(0, Math.min(x, this.canvas.width - 1));
+                const clampedY = Math.max(0, Math.min(y, this.canvas.height - 1));
+
+                if (clampedX >= 0 && clampedY >= 0 && clampedX < this.canvas.width && clampedY < this.canvas.height) {
+                     try {
+                        const pixel = this.ctx.getImageData(clampedX, clampedY, 1, 1).data;
+                        const hex = this._rgbToHex(pixel[0], pixel[1], pixel[2]);
+                        if (!this.pickedColors.includes(hex)) {
+                            this.pickedColors.push(hex);
+                            this.updatePalette();
+                        }
+                    } catch (e) {
+                         console.warn("Could not pick color at edge:", e);
+                    }
+                }
+            }
+
 
             handleImage(file) {
                 if (!file || !file.type.startsWith('image/')) return;
@@ -284,18 +408,23 @@
                 reader.onload = (e) => {
                     const img = new Image();
                     img.onload = () => {
-                        const containerRect = this.imageContainer.getBoundingClientRect();
-                        const ratio = Math.min((containerRect.width - 20) / img.width, (containerRect.height - 20) / img.height);
-                        this.canvas.width = img.width * ratio;
-                        this.canvas.height = img.height * ratio;
-                        this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+                        // Draw image directly onto canvas without resizing initially
+                        this.canvas.width = img.width;
+                        this.canvas.height = img.height;
+                        this.ctx.drawImage(img, 0, 0);
 
                         this.uploadPrompt.classList.add('hidden');
                         this.canvas.classList.remove('hidden');
-                        this.canvas.style.cursor = 'none';
+                        this.canvas.style.cursor = 'crosshair'; // Keep crosshair for picker
                         this.colorInfoSection.classList.remove('hidden');
                         this.removeImageBtn.classList.remove('hidden');
-                        this.imageContainer.classList.remove('border-dashed');
+                        this.pickerPane.classList.remove('border-dashed', 'items-center', 'justify-center'); // Adjust picker pane appearance
+                        this.pickerPane.classList.add('border-gray-900'); // Use solid border when image loaded
+
+                        // Switch to picker pane on mobile after upload
+                        if (window.innerWidth < 1024) {
+                            this._showMobilePane('picker');
+                        }
                     };
                     img.src = e.target.result;
                 };
@@ -308,8 +437,11 @@
                 this.colorInfoSection.classList.add('hidden');
                 this.removeImageBtn.classList.add('hidden');
                 this.uploadPrompt.classList.remove('hidden');
-                this.imageContainer.classList.add('border-dashed');
+                this.pickerPane.classList.add('border-dashed', 'items-center', 'justify-center'); // Re-add styles for prompt
+                this.pickerPane.classList.remove('border-gray-900');
                 this.clearPalette();
+                this.imageUpload.value = ''; // Clear file input
+                this.canvas.style.cursor = 'default';
             }
 
             clearPalette() {
@@ -317,29 +449,8 @@
                 this.updatePalette();
             }
 
-            _onCanvasMouseMove(e) {
-                const rect = this.canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const pixel = this.ctx.getImageData(x, y, 1, 1).data;
-                this._updateColorInfo(pixel);
-                this._updateLoupe(e.clientX, e.clientY, x, y);
-            }
-
-            _onCanvasClick(e) {
-                const rect = this.canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const pixel = this.ctx.getImageData(x, y, 1, 1).data;
-                const hex = this._rgbToHex(pixel[0], pixel[1], pixel[2]);
-                if (!this.pickedColors.includes(hex)) {
-                    this.pickedColors.push(hex);
-                    this.updatePalette();
-                }
-            }
-
-            _updateColorInfo(pixel) {
+             _updateColorInfo(pixel) {
+                if (!pixel) return; // Add safety check
                 const [r, g, b] = pixel;
                 const hex = this._rgbToHex(r, g, b);
                 const hsl = this._hexToHsl(hex);
@@ -362,10 +473,14 @@
             }
 
             _updateLoupe(clientX, clientY, canvasX, canvasY) {
+                // Adjust loupe position relative to the viewport
                 this.zoomLoupe.style.left = `${clientX - this.LOUPE_SIZE / 2}px`;
                 this.zoomLoupe.style.top = `${clientY - this.LOUPE_SIZE / 2}px`;
+
                 this.zoomLoupe.style.backgroundImage = `url(${this.canvas.toDataURL()})`;
                 this.zoomLoupe.style.backgroundSize = `${this.canvas.width * this.ZOOM_FACTOR}px ${this.canvas.height * this.ZOOM_FACTOR}px`;
+                
+                // Calculate background position based on canvas coordinates
                 const bgX = -(canvasX * this.ZOOM_FACTOR - this.LOUPE_SIZE / 2);
                 const bgY = -(canvasY * this.ZOOM_FACTOR - this.LOUPE_SIZE / 2);
                 this.zoomLoupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
@@ -377,17 +492,17 @@
 
                 this.pickedColors.forEach(color => {
                     const swatch = document.createElement('button');
-                    swatch.className = 'relative w-8 h-8 rounded-md cursor-pointer border-2 border-gray-700 group';
+                    // Add data-color attribute
+                    swatch.className = 'palette-swatch relative w-8 h-8 rounded-md cursor-pointer border-2 border-gray-700 group';
                     swatch.style.backgroundColor = color;
                     swatch.title = `Click to copy ${color}`;
+                    swatch.dataset.color = color; // Store color data
                     swatch.innerHTML = `<div class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-white text-xs font-mono">${color.substring(1)}</span></div>`;
-                    swatch.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        navigator.clipboard.writeText(color).then(() => this._showToast());
-                    });
+                    // Event listener is now handled by delegation in _attachEventListeners
                     this.pickedColorsPalette.appendChild(swatch);
                 });
             }
+
 
             _copyColorFormat(format) {
                 let textToCopy = '';
@@ -419,21 +534,58 @@
                 }, 1500);
             }
 
+            // --- Mobile Layout Logic ---
+            _showMobilePane(paneId) {
+                if (paneId === 'picker') {
+                    this.pickerPane.classList.remove('hidden');
+                    this.palettePane.classList.add('hidden');
+                    this.mobilePickerBtn.classList.add('active');
+                    this.mobilePaletteBtn.classList.remove('active');
+                } else { // 'palette'
+                    this.pickerPane.classList.add('hidden');
+                    this.palettePane.classList.remove('hidden');
+                    this.mobilePickerBtn.classList.remove('active');
+                    this.mobilePaletteBtn.classList.add('active');
+                }
+            }
+
+            _handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    // Check if a pane is explicitly shown, otherwise default to picker
+                    const isPaletteVisible = !this.palettePane.classList.contains('hidden');
+                    if (!isPaletteVisible) {
+                        this._showMobilePane('picker');
+                    }
+                } else {
+                    // Desktop: show both panes
+                    this.pickerPane.classList.remove('hidden');
+                    this.palettePane.classList.remove('hidden');
+                    this.mobilePickerBtn.classList.remove('active'); // Ensure nav buttons are inactive
+                    this.mobilePaletteBtn.classList.remove('active');
+                }
+            }
+
+             _handleInitialLayout() {
+                 this._handleMobileLayout(); // Run the check once on load
+             }
+
             // --- Color Utility Functions ---
             _rgbToHex(r, g, b) { return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase(); }
             _hexToRgb(hex) { const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : null; }
             _hexToHsl(hex) {
-                const { r, g, b } = this._hexToRgb(hex);
-                const r_ = r / 255, g_ = g / 255, b_ = b / 255;
-                const max = Math.max(r_, g_, b_), min = Math.min(r_, g_, b_);
+                const rgb = this._hexToRgb(hex);
+                if (!rgb) return { h: 0, s: 0, l: 0 }; // Return default if hex is invalid
+                let { r, g, b } = rgb;
+                r /= 255, g /= 255, b /= 255;
+                const max = Math.max(r, g, b), min = Math.min(r, g, b);
                 let h, s, l = (max + min) / 2;
                 if (max === min) { h = s = 0; } else {
                     const d = max - min;
                     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
                     switch (max) {
-                        case r_: h = (g_ - b_) / d + (g_ < b_ ? 6 : 0); break;
-                        case g_: h = (b_ - r_) / d + 2; break;
-                        case b_: h = (r_ - g_) / d + 4; break;
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
                     }
                     h /= 6;
                 }
@@ -446,7 +598,9 @@
             _getContrast(rgb1, rgb2) {
                 const lum1 = this._getLuminance(rgb1[0], rgb1[1], rgb1[2]);
                 const lum2 = this._getLuminance(rgb2[0], rgb2[1], rgb2[2]);
-                return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+                const lighter = Math.max(lum1, lum2);
+                const darker = Math.min(lum1, lum2);
+                return (lighter + 0.05) / (darker + 0.05);
             }
         }
 
