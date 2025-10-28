@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free SVG Icon Generator from Text & Emoji | Solite</title>
+    <meta name="description" content="Create custom SVG icons from text or emojis with our free online generator. Customize font, colors, and background shape, then export clean SVG code or download as a file. 100% private and browser-based.">
+    <meta name="keywords" content="svg icon generator, text to svg, emoji to svg, svg icon maker, free svg generator, custom svg icon, create svg icon, solite">
+    <link rel="canonical" href="https://solite.in/svg-icon-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free SVG Icon Generator (from Text & Emoji) | Solite">
+    <meta property="og:description" content="Create custom SVG icons from text or emojis with our free online generator. Customize font, colors, and background shape, then export clean SVG code.">
+    <meta property="og:url" content="https://solite.in/svg-icon-generator.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/svg-icon-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SVG Icon Generator",
+      "url": "https://solite.in/svg-icon-generator.html",
+      "description": "A free, client-side tool to generate custom SVG icons from text or emojis, with options for fonts, colors, and background shapes.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Generate SVG icons from text", "Generate SVG icons from emojis", "Customize font family, size, and color", "Add background shape (circle, square)", "Live preview of the icon", "Copy generated SVG code", "Download as .svg file", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                        'poppins': ['Poppins', 'sans-serif'], 'lobster': ['Lobster', 'cursive'], 'roboto-slab': ['Roboto Slab', 'serif'], 'bangers': ['Bangers', 'cursive'], 'lora': ['Lora', 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">SVG Icon Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">SVG Icon Generator from Text and Emoji</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Icon Controls</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="icon-text" class="font-medium">Text or Emoji</label>
+                        <input type="text" id="icon-text" value="S" maxlength="2" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-center text-2xl font-bold">
+                    </div>
+
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Font</h3>
+                        <div class="space-y-2">
+                            <label for="font-family-select" class="text-sm">Font Family</label>
+                            <div class="relative">
+                                <select id="font-family-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="Poppins" selected>Poppins</option><option value="Roboto Mono">Roboto Mono</option><option value="Lobster">Lobster</option><option value="Roboto Slab">Roboto Slab</option><option value="Bangers">Bangers</option><option value="Lora">Lora</option><option value="Inter">Inter</option></select>
+                                <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="font-size-slider" class="text-sm">Font Size (<span id="font-size-label">60</span>%)</label>
+                            <input type="range" id="font-size-slider" min="20" max="100" value="60" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="font-color" class="text-sm">Font Color</label>
+                            <input type="color" id="font-color" value="#000000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Background</h3>
+                        <div class="space-y-2">
+                            <label for="bg-shape" class="text-sm">Shape</label>
+                            <div class="relative">
+                                <select id="bg-shape" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="none">None</option><option value="square" selected>Square</option><option value="circle">Circle</option></select>
+                                <svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="bg-color" class="text-sm">Background Color</label>
+                            <input type="color" id="bg-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="icon-size-slider" class="font-medium">Icon Size (<span id="icon-size-label">128</span>px)</label>
+                        <input type="range" id="icon-size-slider" min="32" max="512" value="128" step="16" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex flex-col items-center justify-center p-8 bg-black/20 space-y-8 overflow-y-auto">
+                    <h2 class="text-xl font-bold text-white flex-shrink-0">Live Preview</h2>
+                    <div id="icon-preview" class="bg-gray-700 p-4 rounded-lg"></div>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">SVG Code</h3>
+                        <div class="flex items-center gap-2">
+                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy Code</span></button>
+                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><span>Download</span></button>
+                        </div>
+                    </div>
+                    <textarea id="svg-code-output" readonly class="w-full h-32 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                iconText: document.getElementById('icon-text'),
+                fontFamilySelect: document.getElementById('font-family-select'),
+                fontSizeSlider: document.getElementById('font-size-slider'),
+                fontSizeLabel: document.getElementById('font-size-label'),
+                fontColor: document.getElementById('font-color'),
+                bgShape: document.getElementById('bg-shape'),
+                bgColor: document.getElementById('bg-color'),
+                iconSizeSlider: document.getElementById('icon-size-slider'),
+                iconSizeLabel: document.getElementById('icon-size-label'),
+                iconPreview: document.getElementById('icon-preview'),
+                svgCodeOutput: document.getElementById('svg-code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                previewPane: document.getElementById('output-pane'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            const generateIcon = () => {
+                const text = el.iconText.value || 'S';
+                const fontFamily = el.fontFamilySelect.value;
+                const fontSizePercent = parseInt(el.fontSizeSlider.value);
+                const fontColor = el.fontColor.value;
+                const bgShape = el.bgShape.value;
+                const bgColor = el.bgColor.value;
+                const iconSize = parseInt(el.iconSizeSlider.value);
+
+                const fontSize = iconSize * (fontSizePercent / 100);
+
+                let backgroundShapeSvg = '';
+                if (bgShape === 'square') {
+                    backgroundShapeSvg = `<rect width="${iconSize}" height="${iconSize}" fill="${bgColor}" />`;
+                } else if (bgShape === 'circle') {
+                    backgroundShapeSvg = `<circle cx="${iconSize / 2}" cy="${iconSize / 2}" r="${iconSize / 2}" fill="${bgColor}" />`;
+                }
+
+                // Adjust y position for better vertical centering across fonts
+                const yOffset = fontFamily === 'Bangers' ? '55%' : '50%';
+
+                const textSvg = `<text x="50%" y="${yOffset}" dominant-baseline="middle" text-anchor="middle" fill="${fontColor}" font-size="${fontSize}" font-family="'${fontFamily}', sans-serif">${text}</text>`;
+
+                const svgContent = `<svg width="${iconSize}" height="${iconSize}" viewBox="0 0 ${iconSize} ${iconSize}" xmlns="http://www.w3.org/2000/svg">${backgroundShapeSvg}${textSvg}</svg>`;
+
+                el.iconPreview.innerHTML = svgContent;
+                el.svgCodeOutput.value = svgContent;
+            };
+
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            };
+
+            const showMobilePane = (paneId) => {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden');
+                    el.previewPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else if (el.mobilePreviewBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else {
+                        showMobilePane('controls');
+                    }
+                } else {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                }
+            };
+
+            // Event Listeners
+            Object.values(el).forEach(element => {
+                if (element.id && (element.tagName === 'INPUT' || element.tagName === 'SELECT')) {
+                    element.addEventListener('input', generateIcon);
+                }
+            });
+
+            el.fontSizeSlider.addEventListener('input', () => el.fontSizeLabel.textContent = el.fontSizeSlider.value);
+            el.iconSizeSlider.addEventListener('input', () => el.iconSizeLabel.textContent = el.iconSizeSlider.value);
+
+            el.copyCodeBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.svgCodeOutput.value).then(() => showToast('SVG code copied!'));
+            });
+
+            el.downloadBtn.addEventListener('click', () => {
+                const blob = new Blob([el.svgCodeOutput.value], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'solite-icon.svg';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Render
+            generateIcon();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

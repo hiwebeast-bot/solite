@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>CSS Gradient Generator (Linear, Radial, Conic) | Solite</title>
+    <meta name="description" content="Generate beautiful CSS gradients (linear, radial, and conic) with our free online tool. Customize colors, angles, and positions with a live preview and get instant code output. 100% private.">
+    <meta name="keywords" content="css gradient generator, linear gradient generator, radial gradient generator, conic gradient, gradient maker, css tool, online gradient generator, free gradient, solite">
+    <link rel="canonical" href="https://solite.in/css-gradient-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free CSS Gradient Generator (Linear, Radial, Conic) | Solite">
+    <meta property="og:description" content="Generate beautiful CSS gradients (linear, radial, conic) with live preview and instant code output. Customize colors, angles, and positions.">
+    <meta property="og:url" content="https://solite.in/css-gradient-generator.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/css-gradient-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CSS Gradient Generator",
+      "url": "https://solite.in/css-gradient-generator.html",
+      "description": "A free, client-side tool to generate linear, radial, and conic CSS gradients with live preview and code output.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Generate linear CSS gradients", "Generate radial CSS gradients", "Generate conic CSS gradients", "Customizable color stops", "Adjust angle, position, and shape", "Live preview", "Copy generated CSS code", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        .gradient-type-btn.active { background-color: #4b5563; color: #ffffff; }
+        .color-stop-item.dragging { opacity: 0.5; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Gradient Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">CSS Gradient Generator (Linear, Radial, Conic)</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Gradient Controls</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <!-- Gradient Type -->
+                    <div class="space-y-2">
+                        <label class="font-medium">Type</label>
+                        <div class="bg-gray-800 rounded-lg p-1 flex space-x-1">
+                            <button class="gradient-type-btn active flex-1 py-2 text-sm font-medium rounded-md" data-type="linear">Linear</button>
+                            <button class="gradient-type-btn flex-1 py-2 text-sm font-medium rounded-md" data-type="radial">Radial</button>
+                            <button class="gradient-type-btn flex-1 py-2 text-sm font-medium rounded-md" data-type="conic">Conic</button>
+                        </div>
+                    </div>
+
+                    <!-- Color Stops -->
+                    <div class="space-y-3 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Color Stops</h3>
+                        <div id="color-stops-list" class="space-y-3">
+                            <!-- Color stop items will be injected here -->
+                        </div>
+                        <button id="add-color-stop-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            <span>Add Color Stop</span>
+                        </button>
+                    </div>
+
+                    <!-- Linear Gradient Options -->
+                    <div id="linear-options" class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Linear Options</h3>
+                        <div class="space-y-2">
+                            <label for="linear-angle" class="text-sm">Angle (<span id="linear-angle-value">90</span>°)</label>
+                            <input type="range" id="linear-angle" min="0" max="360" value="90" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Radial Gradient Options -->
+                    <div id="radial-options" class="space-y-4 border-t border-gray-800 pt-4 hidden">
+                        <h3 class="font-semibold text-white">Radial Options</h3>
+                        <div class="space-y-2">
+                            <label for="radial-shape" class="text-sm">Shape</label>
+                            <div class="relative">
+                                <select id="radial-shape" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    <option value="ellipse">Ellipse</option>
+                                    <option value="circle">Circle</option>
+                                </select>
+                                <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="radial-size" class="text-sm">Size</label>
+                            <div class="relative">
+                                <select id="radial-size" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    <option value="farthest-corner">Farthest Corner</option>
+                                    <option value="closest-side">Closest Side</option>
+                                    <option value="closest-corner">Closest Corner</option>
+                                    <option value="farthest-side">Farthest Side</option>
+                                </select>
+                                <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="radial-pos-x" class="text-sm">Position X (<span id="radial-pos-x-value">50</span>%)</label>
+                            <input type="range" id="radial-pos-x" min="0" max="100" value="50" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="radial-pos-y" class="text-sm">Position Y (<span id="radial-pos-y-value">50</span>%)</label>
+                            <input type="range" id="radial-pos-y" min="0" max="100" value="50" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Conic Gradient Options -->
+                    <div id="conic-options" class="space-y-4 border-t border-gray-800 pt-4 hidden">
+                        <h3 class="font-semibold text-white">Conic Options</h3>
+                        <div class="space-y-2">
+                            <label for="conic-angle" class="text-sm">Angle (<span id="conic-angle-value">0</span>°)</label>
+                            <input type="range" id="conic-angle" min="0" max="360" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="conic-pos-x" class="text-sm">Position X (<span id="conic-pos-x-value">50</span>%)</label>
+                            <input type="range" id="conic-pos-x" min="0" max="100" value="50" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="conic-pos-y" class="text-sm">Position Y (<span id="conic-pos-y-value">50</span>%)</label>
+                            <input type="range" id="conic-pos-y" min="0" max="100" value="50" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Preview Pane -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div id="gradient-preview" class="flex-grow w-full h-full min-h-[200px] rounded-t-xl" style="background: linear-gradient(90deg, #FF0000 0%, #0000FF 100%);"></div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <h3 class="text-lg font-semibold">Generated CSS</h3>
+                    <textarea id="css-output" readonly class="w-full h-32 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                    <button id="copy-css-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy CSS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                gradientTypeBtns: document.querySelectorAll('.gradient-type-btn'),
+                gradientPreview: document.getElementById('gradient-preview'),
+                cssOutput: document.getElementById('css-output'),
+                copyCssBtn: document.getElementById('copy-css-btn'),
+                colorStopsList: document.getElementById('color-stops-list'),
+                addColorStopBtn: document.getElementById('add-color-stop-btn'),
+                linearOptions: document.getElementById('linear-options'),
+                radialOptions: document.getElementById('radial-options'),
+                conicOptions: document.getElementById('conic-options'),
+                linearAngle: document.getElementById('linear-angle'),
+                linearAngleValue: document.getElementById('linear-angle-value'),
+                radialShape: document.getElementById('radial-shape'),
+                radialSize: document.getElementById('radial-size'),
+                radialPosX: document.getElementById('radial-pos-x'),
+                radialPosY: document.getElementById('radial-pos-y'),
+                radialPosXValue: document.getElementById('radial-pos-x-value'),
+                radialPosYValue: document.getElementById('radial-pos-y-value'),
+                conicAngle: document.getElementById('conic-angle'),
+                conicAngleValue: document.getElementById('conic-angle-value'),
+                conicPosX: document.getElementById('conic-pos-x'),
+                conicPosY: document.getElementById('conic-pos-y'),
+                conicPosXValue: document.getElementById('conic-pos-x-value'),
+                conicPosYValue: document.getElementById('conic-pos-y-value'),
+                toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                previewPane: document.getElementById('preview-pane'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            let gradientState = {
+                type: 'linear',
+                colorStops: [
+                    { id: crypto.randomUUID(), color: '#FF0000', position: 0 },
+                    { id: crypto.randomUUID(), color: '#0000FF', position: 100 }
+                ],
+                linear: { angle: 90 },
+                radial: { shape: 'ellipse', size: 'farthest-corner', posX: 50, posY: 50 },
+                conic: { angle: 0, posX: 50, posY: 50 }
+            };
+
+            let draggedColorStopId = null;
+
+            // --- Helper Functions ---
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            };
+
+            const updateGradient = () => {
+                let cssGradient = '';
+                const sortedColorStops = [...gradientState.colorStops].sort((a, b) => a.position - b.position);
+                const stopsString = sortedColorStops.map(stop => `${stop.color} ${stop.position}%`).join(', ');
+
+                switch (gradientState.type) {
+                    case 'linear':
+                        cssGradient = `linear-gradient(${gradientState.linear.angle}deg, ${stopsString})`;
+                        break;
+                    case 'radial':
+                        cssGradient = `radial-gradient(${gradientState.radial.shape} ${gradientState.radial.size} at ${gradientState.radial.posX}% ${gradientState.radial.posY}%, ${stopsString})`;
+                        break;
+                    case 'conic':
+                        cssGradient = `conic-gradient(from ${gradientState.conic.angle}deg at ${gradientState.conic.posX}% ${gradientState.conic.posY}%, ${stopsString})`;
+                        break;
+                }
+
+                el.gradientPreview.style.backgroundImage = cssGradient;
+                el.cssOutput.value = `background-image: ${cssGradient};`;
+            };
+
+            const renderColorStops = () => {
+                el.colorStopsList.innerHTML = '';
+                gradientState.colorStops.forEach((stop, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'color-stop-item flex items-center gap-2 p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-grab';
+                    item.draggable = true;
+                    item.dataset.id = stop.id;
+                    item.dataset.index = index;
+
+                    item.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+                        <input type="color" class="color-input w-10 h-10 rounded-md border border-gray-600 flex-shrink-0" value="${stop.color}" data-id="${stop.id}">
+                        <input type="range" class="position-slider flex-grow h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" max="100" value="${stop.position}" data-id="${stop.id}">
+                        <span class="position-value text-sm w-10 text-right flex-shrink-0">${stop.position}%</span>
+                        <button class="remove-color-stop-btn text-red-500 hover:text-red-400 p-1 rounded hover:bg-gray-700 flex-shrink-0" data-id="${stop.id}" title="Remove Color Stop">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    `;
+                    el.colorStopsList.appendChild(item);
+                });
+                attachColorStopListeners();
+                updateGradient();
+            };
+
+            const addColorStop = () => {
+                const newStop = {
+                    id: crypto.randomUUID(),
+                    color: `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase()}`,
+                    position: Math.floor(Math.random() * 100)
+                };
+                gradientState.colorStops.push(newStop);
+                renderColorStops();
+            };
+
+            const removeColorStop = (id) => {
+                if (gradientState.colorStops.length <= 2) {
+                    showToast('Must have at least two color stops.');
+                    return;
+                }
+                gradientState.colorStops = gradientState.colorStops.filter(stop => stop.id !== id);
+                renderColorStops();
+            };
+
+            const attachColorStopListeners = () => {
+                el.colorStopsList.querySelectorAll('.color-input').forEach(input => {
+                    input.oninput = (e) => {
+                        const stop = gradientState.colorStops.find(s => s.id === e.target.dataset.id);
+                        if (stop) stop.color = e.target.value.toUpperCase();
+                        updateGradient();
+                    };
+                });
+                el.colorStopsList.querySelectorAll('.position-slider').forEach(slider => {
+                    const valueSpan = slider.nextElementSibling;
+                    slider.oninput = (e) => {
+                        const stop = gradientState.colorStops.find(s => s.id === e.target.dataset.id);
+                        if (stop) stop.position = parseInt(e.target.value);
+                        valueSpan.textContent = `${e.target.value}%`;
+                        updateGradient();
+                    };
+                });
+                el.colorStopsList.querySelectorAll('.remove-color-stop-btn').forEach(btn => {
+                    btn.onclick = () => removeColorStop(btn.dataset.id);
+                });
+
+                // Drag and Drop for color stops
+                el.colorStopsList.addEventListener('dragstart', (e) => {
+                    draggedColorStopId = e.target.closest('.color-stop-item').dataset.id;
+                    setTimeout(() => e.target.closest('.color-stop-item').classList.add('dragging'), 0);
+                });
+                el.colorStopsList.addEventListener('dragend', (e) => {
+                    e.target.closest('.color-stop-item').classList.remove('dragging');
+                    draggedColorStopId = null;
+                    renderColorStops(); // Re-render to ensure correct order in UI
+                });
+                el.colorStopsList.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    const targetItem = e.target.closest('.color-stop-item');
+                    if (targetItem && draggedColorStopId && targetItem.dataset.id !== draggedColorStopId) {
+                        const draggedIndex = gradientState.colorStops.findIndex(s => s.id === draggedColorStopId);
+                        const targetIndex = gradientState.colorStops.findIndex(s => s.id === targetItem.dataset.id);
+
+                        const [movedStop] = gradientState.colorStops.splice(draggedIndex, 1);
+                        gradientState.colorStops.splice(targetIndex, 0, movedStop);
+                        
+                        // Visually reorder without full re-render to avoid flicker
+                        const draggedEl = el.colorStopsList.querySelector(`[data-id="${draggedColorStopId}"]`);
+                        if (draggedIndex < targetIndex) {
+                            targetItem.after(draggedEl);
+                        } else {
+                            targetItem.before(draggedEl);
+                        }
+                    }
+                });
+            };
+
+            const showGradientOptions = (type) => {
+                el.linearOptions.classList.toggle('hidden', type !== 'linear');
+                el.radialOptions.classList.toggle('hidden', type !== 'radial');
+                el.conicOptions.classList.toggle('hidden', type !== 'conic');
+            };
+
+            // --- Mobile Navigation Logic ---
+            const showMobilePane = (paneId) => {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden');
+                    el.previewPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else if (el.mobilePreviewBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else {
+                        showMobilePane('controls');
+                    }
+                } else {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                }
+            };
+
+            // --- Event Listeners ---
+            el.gradientTypeBtns.forEach(btn => {
+                btn.onclick = () => {
+                    el.gradientTypeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    gradientState.type = btn.dataset.type;
+                    showGradientOptions(gradientState.type);
+                    updateGradient();
+                };
+            });
+
+            el.addColorStopBtn.onclick = addColorStop;
+
+            // Linear
+            el.linearAngle.oninput = (e) => {
+                gradientState.linear.angle = parseInt(e.target.value);
+                el.linearAngleValue.textContent = e.target.value;
+                updateGradient();
+            };
+
+            // Radial
+            el.radialShape.onchange = (e) => { gradientState.radial.shape = e.target.value; updateGradient(); };
+            el.radialSize.onchange = (e) => { gradientState.radial.size = e.target.value; updateGradient(); };
+            el.radialPosX.oninput = (e) => {
+                gradientState.radial.posX = parseInt(e.target.value);
+                el.radialPosXValue.textContent = e.target.value;
+                updateGradient();
+            };
+            el.radialPosY.oninput = (e) => {
+                gradientState.radial.posY = parseInt(e.target.value);
+                el.radialPosYValue.textContent = e.target.value;
+                updateGradient();
+            };
+
+            // Conic
+            el.conicAngle.oninput = (e) => {
+                gradientState.conic.angle = parseInt(e.target.value);
+                el.conicAngleValue.textContent = e.target.value;
+                updateGradient();
+            };
+            el.conicPosX.oninput = (e) => {
+                gradientState.conic.posX = parseInt(e.target.value);
+                el.conicPosXValue.textContent = e.target.value;
+                updateGradient();
+            };
+            el.conicPosY.oninput = (e) => {
+                gradientState.conic.posY = parseInt(e.target.value);
+                el.conicPosYValue.textContent = e.target.value;
+                updateGradient();
+            };
+
+            el.copyCssBtn.onclick = () => {
+                if (el.cssOutput.value) {
+                    navigator.clipboard.writeText(el.cssOutput.value).then(() => showToast('CSS copied!'));
+                }
+            };
+
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial setup
+            renderColorStops();
+            showGradientOptions(gradientState.type);
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

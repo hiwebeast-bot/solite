@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Unit Converter (PX to REM, Length, Weight, Temp) | Solite</title>
+    <meta name="description" content="A free, private, and fast online unit converter for web development (px, rem, em), length, weight, temperature, and data storage. No ads, no sign-up.">
+    <meta name="keywords" content="unit converter, online unit converter, px to rem converter, kg to lbs converter, celsius to fahrenheit, length converter, weight converter, temperature converter, data converter, web dev converter, solite">
+    <link rel="canonical" href="https://solite.in/unit-converter.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Unit Converter | Solite">
+    <meta property="og:description" content="A free, private, and fast online unit converter for length, weight, temperature, data storage, and web development units (px, rem, em).">
+    <meta property="og:url" content="https://solite.in/unit-converter.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/unit-converter-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Unit Converter",
+      "url": "https://solite.in/unit-converter.html",
+      "description": "A free, client-side tool to convert between various units of measurement, including length, weight, temperature, data storage, and web development units.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Convert length units (meters, feet, etc.)", "Convert weight units (kg, lbs, etc.)", "Convert temperature (Celsius, Fahrenheit, Kelvin)", "Convert data storage units (KB, MB, GB)", "Convert web units (px, rem, em)", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Unit Converter</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Online Unit Converter</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Converter Options</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <!-- Category Selector -->
+                    <div class="space-y-2">
+                        <label for="category-select" class="font-medium">Category</label>
+                        <div class="relative">
+                            <select id="category-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"></select>
+                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <!-- Web Dev Base Font Size -->
+                    <div id="base-font-size-container" class="hidden space-y-2 border-t border-gray-800 pt-4">
+                        <label for="base-font-size" class="font-medium">Base Font Size (px)</label>
+                        <input type="number" id="base-font-size" value="16" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6">
+                <!-- Category Selector -->
+                <!-- Currency Last Updated Timestamp -->
+                <div id="currency-last-updated-container" class="hidden text-center text-xs text-gray-500">
+                    Rates last updated: <span id="currency-last-updated"></span>
+                </div>
+                <!-- Conversion Inputs -->
+                <div class="w-full max-w-lg flex flex-col sm:flex-row items-center gap-4">
+                    <div class="w-full space-y-2">
+                        <input type="number" id="input-a" class="w-full p-4 text-2xl rounded-lg bg-gray-800 border border-gray-700">
+                        <div class="relative">
+                            <select id="unit-a" class="custom-select w-full bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded-lg"></select>
+                            <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <button id="swap-btn" title="Swap Units" class="p-3 rounded-full bg-gray-700 hover:bg-gray-600 text-white flex-shrink-0 my-2 sm:my-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    </button>
+                    <div class="w-full space-y-2">
+                        <input type="number" id="input-b" class="w-full p-4 text-2xl rounded-lg bg-gray-800 border border-gray-700">
+                        <div class="relative">
+                            <select id="unit-b" class="custom-select w-full bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded-lg"></select>
+                            <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l-3-1m-3 1l-6 2m3-1V3m6 6v-2m-3-1l-3-1" /></svg>
+                    <span>Converter</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Options</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                categorySelect: document.getElementById('category-select'),
+                baseFontSizeContainer: document.getElementById('base-font-size-container'),
+                baseFontSizeInput: document.getElementById('base-font-size'),
+                inputA: document.getElementById('input-a'),
+                unitA: document.getElementById('unit-a'),
+                inputB: document.getElementById('input-b'),
+                unitB: document.getElementById('unit-b'),
+                swapBtn: document.getElementById('swap-btn'),
+            };
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const mobileOutputBtn = document.getElementById('mobile-output-btn');
+            const controlsPane = document.getElementById('controls-pane');
+            const outputPane = document.getElementById('output-pane');
+
+            let currencyRates = null;
+
+            const units = {
+                Currency: { base: 'USD', isDynamic: true },
+                'Web Dev': {
+                    base: 'pixels',
+                    pixels: { name: 'Pixels (px)', toBase: px => px, fromBase: (px, base) => px },
+                    kilometers: { name: 'Kilometers (km)', toBase: 1000 },
+                    millimeters: { name: 'Millimeters (mm)', toBase: 0.001 },
+                    miles: { name: 'Miles (mi)', toBase: 1609.34 },
+                    yards: { name: 'Yards (yd)', toBase: 0.9144 },
+                    feet: { name: 'Feet (ft)', toBase: 0.3048 },
+                    inches: { name: 'Inches (in)', toBase: 0.0254 },
+                },
+                'Weight/Mass': {
+                    base: 'grams',
+                    grams: { name: 'Grams (g)', toBase: 1 },
+                    kilograms: { name: 'Kilograms (kg)', toBase: 1000 },
+                    milligrams: { name: 'Milligrams (mg)', toBase: 0.001 },
+                    pounds: { name: 'Pounds (lb)', toBase: 453.592 },
+                    ounces: { name: 'Ounces (oz)', toBase: 28.3495 },
+                },
+                Length: {
+                    base: 'meters',
+                    meters: { name: 'Meters (m)', toBase: 1 },
+                    centimeters: { name: 'Centimeters (cm)', toBase: 0.01 },
+                },
+                Temperature: {
+                    base: 'kelvin',
+                    celsius: { name: 'Celsius (°C)', toBase: c => c + 273.15, fromBase: k => k - 273.15 },
+                    fahrenheit: { name: 'Fahrenheit (°F)', toBase: f => (f - 32) * 5/9 + 273.15, fromBase: k => (k - 273.15) * 9/5 + 32 },
+                    kelvin: { name: 'Kelvin (K)', toBase: k => k, fromBase: k => k },
+                },
+                'Data Storage': {
+                    base: 'bytes',
+                    bytes: { name: 'Bytes (B)', toBase: 1 },
+                    kilobytes: { name: 'Kilobytes (KB)', toBase: 1024 },
+                    megabytes: { name: 'Megabytes (MB)', toBase: 1024**2 },
+                    gigabytes: { name: 'Gigabytes (GB)', toBase: 1024**3 },
+                    terabytes: { name: 'Terabytes (TB)', toBase: 1024**4 },
+                },
+            };
+
+            function populateCategories() {
+                el.categorySelect.innerHTML = Object.keys(units).map(cat => `<option value="${cat}">${cat}</option>`).join('');
+            }
+
+            function populateUnits(category) {
+                el.baseFontSizeContainer.classList.add('hidden');
+                document.getElementById('currency-last-updated-container').classList.add('hidden');
+
+                if (category === 'Currency') {
+                    fetchAndPopulateCurrencies();
+                    return;
+                }
+
+                const categoryUnits = units[category];
+                const optionsHtml = Object.keys(categoryUnits).filter(key => key !== 'base').map(unitKey => `<option value="${unitKey}">${categoryUnits[unitKey].name}</option>`).join('');
+                el.unitA.innerHTML = optionsHtml;
+                el.unitB.innerHTML = optionsHtml;
+                el.unitA.selectedIndex = 0;
+                el.unitB.selectedIndex = 1;
+                if (category === 'Web Dev') {
+                    el.baseFontSizeContainer.classList.remove('hidden');
+                }
+            }
+
+            async function fetchAndPopulateCurrencies() {
+                if (currencyRates) {
+                    populateUnitsFromRates();
+                    return;
+                }
+                try {
+                    const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const data = await response.json();
+                    currencyRates = data.rates;
+                    document.getElementById('currency-last-updated').textContent = new Date(data.time_last_update_utc).toLocaleString();
+                    populateUnitsFromRates();
+                } catch (error) {
+                    console.error('Failed to fetch currency rates:', error);
+                    el.unitA.innerHTML = '<option>Error loading currencies</option>';
+                    el.unitB.innerHTML = '<option>Error loading currencies</option>';
+                }
+            }
+
+            function populateUnitsFromRates() {
+                const optionsHtml = Object.keys(currencyRates).map(code => `<option value="${code}">${code}</option>`).join('');
+                el.unitA.innerHTML = optionsHtml;
+                el.unitB.innerHTML = optionsHtml;
+                el.unitA.value = 'USD';
+                el.unitB.value = 'EUR';
+                document.getElementById('currency-last-updated-container').classList.remove('hidden');
+                convert('a');
+            }
+
+            function convert(sourceInput) {
+                const category = el.categorySelect.value;
+                const categoryUnits = units[category];
+                const baseUnit = categoryUnits.base;
+                const baseFontSize = parseFloat(el.baseFontSizeInput.value) || 16;
+
+                const fromInput = sourceInput === 'a' ? el.inputA : el.inputB;
+                const toInput = sourceInput === 'a' ? el.inputB : el.inputA;
+                const fromUnitKey = sourceInput === 'a' ? el.unitA.value : el.unitB.value;
+                const toUnitKey = sourceInput === 'a' ? el.unitB.value : el.unitA.value;
+
+                const fromValue = parseFloat(fromInput.value);
+                if (isNaN(fromValue)) {
+                    toInput.value = '';
+                    return;
+                }
+
+                if (category === 'Currency') {
+                    if (!currencyRates) return;
+                    const rateA = currencyRates[fromUnitKey];
+                    const rateB = currencyRates[toUnitKey];
+                    toInput.value = Number(((fromValue / rateA) * rateB).toFixed(6));
+                    return;
+                }
+
+                const fromUnit = categoryUnits[fromUnitKey];
+                const toUnit = categoryUnits[toUnitKey];
+
+                // Convert to base unit
+                let baseValue;
+                if (typeof fromUnit.toBase === 'function') {
+                    baseValue = fromUnit.toBase(fromValue, baseFontSize);
+                } else {
+                    baseValue = fromValue * fromUnit.toBase;
+                }
+
+                // Convert from base to target unit
+                let toValue;
+                if (typeof toUnit.fromBase === 'function') {
+                    toValue = toUnit.fromBase(baseValue, baseFontSize);
+                } else {
+                    toValue = baseValue / toUnit.toBase;
+                }
+
+                // Format output to avoid long decimals
+                toInput.value = Number(toValue.toFixed(6));
+            }
+
+            function swapUnits() {
+                const tempUnit = el.unitA.value;
+                el.unitA.value = el.unitB.value;
+                el.unitB.value = tempUnit;
+                convert('a');
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    outputPane.classList.remove('hidden');
+                    outputPane.classList.add('flex');
+                    controlsPane.classList.add('hidden');
+                    mobileOutputBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
+                } else {
+                    outputPane.classList.add('hidden');
+                    outputPane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden');
+                    controlsPane.classList.add('flex');
+                    mobileOutputBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    outputPane.classList.remove('hidden'); outputPane.classList.add('flex');
+                    controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
+                }
+            }
+
+            // Event Listeners
+            el.categorySelect.addEventListener('change', () => {
+                populateUnits(el.categorySelect.value);
+                convert('a');
+            });
+
+            el.inputA.addEventListener('input', () => convert('a'));
+            el.inputB.addEventListener('input', () => convert('b'));
+            el.unitA.addEventListener('change', () => convert('a'));
+            el.unitB.addEventListener('change', () => convert('a'));
+            el.baseFontSizeInput.addEventListener('input', () => convert('a'));
+            el.swapBtn.addEventListener('click', swapUnits);
+            mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Setup
+            populateCategories();
+            populateUnits(el.categorySelect.value);
+            el.inputA.value = 1;
+            convert('a');
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

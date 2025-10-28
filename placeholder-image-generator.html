@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Placeholder Image Generator | Custom Dimensions & Text | Solite</title>
+    <meta name="description" content="Create custom placeholder images with specific dimensions, text, and colors. A free online tool to generate dummy images for mockups and development. Download as PNG, JPG, or SVG.">
+    <meta name="keywords" content="placeholder image generator, dummy image generator, image placeholder, custom placeholder image, image with text, developer image tool, solite">
+    <link rel="canonical" href="https://solite.in/placeholder-image-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Placeholder Image Generator | Custom Dimensions & Text | Solite">
+    <meta property="og:description" content="Create custom placeholder images with specific dimensions, text, and colors. Free online tool to generate dummy images for mockups and development.">
+    <meta property="og:url" content="https://solite.in/placeholder-image-generator.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/placeholder-image-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Placeholder Image Generator",
+      "url": "https://solite.in/placeholder-image-generator.html",
+      "description": "A free, client-side tool to generate custom placeholder images with specific dimensions, text, and colors.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Generate placeholder images", "Custom dimensions (width, height)", "Custom text, colors, and fonts", "Download as PNG, JPG, or SVG", "Copy Data URL for direct use", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Placeholder Image Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Placeholder Image Generator</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Image Options</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="img-width" class="font-medium">Width</label><input type="number" id="img-width" value="600" min="10" max="4000" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                        <div class="space-y-2"><label for="img-height" class="font-medium">Height</label><input type="number" id="img-height" value="400" min="10" max="4000" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                    </div>
+                    <div class="space-y-2"><label for="img-text" class="font-medium">Text</label><input type="text" id="img-text" placeholder="600x400" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2"><label for="bg-color" class="font-medium">Background</label><input type="color" id="bg-color" value="#cccccc" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                        <div class="space-y-2"><label for="text-color" class="font-medium">Text Color</label><input type="color" id="text-color" value="#888888" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                    </div>
+                    <div class="space-y-2"><label for="font-family" class="font-medium">Font</label><div class="relative"><select id="font-family" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg"><option value="sans-serif" selected>Sans-Serif</option><option value="serif">Serif</option><option value="monospace">Monospace</option></select><svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                    <div class="space-y-2"><label for="font-size" class="font-medium">Font Size</label><input type="number" id="font-size" placeholder="Auto" min="8" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex items-center justify-center p-8 bg-black/20 overflow-auto">
+                    <img id="preview-img" src="" alt="Generated placeholder image" class="max-w-full max-h-full shadow-lg">
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="space-y-2">
+                        <label for="data-url-output" class="text-sm font-medium">Data URL</label>
+                        <div class="flex gap-2">
+                            <textarea id="data-url-output" readonly rows="2" class="w-full p-2 rounded-lg bg-gray-900 border border-gray-700 font-mono text-xs resize-none"></textarea>
+                            <button id="copy-url-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="relative flex-grow"><select id="download-format" class="custom-select w-full bg-gray-700 border border-gray-600 text-white font-medium py-3 px-4 rounded-lg"><option value="png" selected>PNG</option><option value="jpeg">JPG</option><option value="svg">SVG</option></select><svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 flex-grow">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                            <span>Download</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                width: document.getElementById('img-width'), height: document.getElementById('img-height'), text: document.getElementById('img-text'), bgColor: document.getElementById('bg-color'), textColor: document.getElementById('text-color'), fontFamily: document.getElementById('font-family'), fontSize: document.getElementById('font-size'),
+                previewImg: document.getElementById('preview-img'), dataUrlOutput: document.getElementById('data-url-output'), copyUrlBtn: document.getElementById('copy-url-btn'), downloadFormat: document.getElementById('download-format'), downloadBtn: document.getElementById('download-btn'), toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), previewPane: document.getElementById('output-pane'), controlsPane: document.getElementById('controls-pane'),
+            };
+
+            const debounce = (func, delay) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
+
+            const generateImage = () => {
+                const width = parseInt(el.width.value) || 600;
+                const height = parseInt(el.height.value) || 400;
+                const text = el.text.value || `${width}x${height}`;
+                const bgColor = el.bgColor.value;
+                const textColor = el.textColor.value;
+                const fontFamily = el.fontFamily.value;
+                const customFontSize = parseInt(el.fontSize.value);
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+
+                ctx.fillStyle = bgColor;
+                ctx.fillRect(0, 0, width, height);
+
+                const fontSize = customFontSize || Math.min(width / 8, height / 4);
+                ctx.font = `${fontSize}px ${fontFamily}`;
+                ctx.fillStyle = textColor;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, width / 2, height / 2);
+
+                const dataUrl = canvas.toDataURL('image/png');
+                el.previewImg.src = dataUrl;
+                el.dataUrlOutput.value = dataUrl;
+            };
+
+            const generateSvg = () => {
+                const width = parseInt(el.width.value) || 600;
+                const height = parseInt(el.height.value) || 400;
+                const text = el.text.value || `${width}x${height}`;
+                const bgColor = el.bgColor.value;
+                const textColor = el.textColor.value;
+                const fontFamily = el.fontFamily.value;
+                const customFontSize = parseInt(el.fontSize.value);
+                const fontSize = customFontSize || Math.min(width / 8, height / 4);
+
+                return `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="${bgColor}"/><text x="50%" y="50%" font-family="${fontFamily}" font-size="${fontSize}" fill="${textColor}" text-anchor="middle" dy=".3em">${text}</text></svg>`;
+            };
+
+            const showToast = (message) => { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); };
+
+            const downloadImage = () => {
+                const format = el.downloadFormat.value;
+                const width = parseInt(el.width.value) || 600;
+                const height = parseInt(el.height.value) || 400;
+                const filename = `placeholder-${width}x${height}.${format}`;
+                const link = document.createElement('a');
+
+                if (format === 'svg') {
+                    const svgData = generateSvg();
+                    const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+                    link.href = URL.createObjectURL(blob);
+                } else {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width; canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(el.previewImg, 0, 0, width, height);
+                    link.href = canvas.toDataURL(`image/${format}`);
+                }
+                link.download = filename;
+                link.click();
+            };
+
+            const showMobilePane = (paneId) => {
+                if (paneId === 'preview') { el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex'); el.controlsPane.classList.add('hidden'); el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active'); } 
+                else { el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active'); }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) { if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); } else if (el.mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } else { showMobilePane('controls'); } } 
+                else { el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active'); }
+            };
+
+            const debouncedGenerate = debounce(generateImage, 250);
+            Object.values(el).forEach(element => { if (element.id && (element.tagName === 'INPUT' || element.tagName === 'SELECT')) { element.addEventListener('input', debouncedGenerate); } });
+            el.copyUrlBtn.addEventListener('click', () => { navigator.clipboard.writeText(el.dataUrlOutput.value).then(() => showToast('Data URL copied!')); });
+            el.downloadBtn.addEventListener('click', downloadImage);
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            generateImage();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

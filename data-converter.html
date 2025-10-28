@@ -3,51 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Data Converter | Solite</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Convert CSV, JSON, XML, YAML & SQL Instantly — 100% Private. A free, offline, all-in-one format converter that runs in your browser. No server. No sign-up.">
-    <meta name="keywords" content="online data converter, csv to json, json to xml, privacy-first converter, offline data transformation, browser-based data tool, solite">
+    <title>Online Data Converter (JSON, YAML, XML, CSV) | Solite</title>
+    <meta name="description" content="Free online tool to convert between data formats. Instantly convert JSON to YAML, XML to JSON, CSV to JSON, and more. 100% private, client-side processing.">
+    <meta name="keywords" content="data converter, json converter, yaml converter, xml converter, csv converter, json to yaml, yaml to json, csv to json, online tool, solite">
     <link rel="canonical" href="https://solite.in/data-converter.html" />
-    <meta property="og:title" content="Universal Data Converter | Solite">
-    <meta property="og:description" content="Convert CSV, JSON, XML, YAML & SQL Instantly — 100% Private. No server. No sign-up.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://solite.in/assets/solite-data-converter-og.png">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Data Converter | Solite">
+    <meta property="og:description" content="Instantly convert between JSON, YAML, XML, CSV, and TOML. Free, private, and powerful client-side data conversion.">
     <meta property="og:url" content="https://solite.in/data-converter.html">
+    <meta property="og:site_name" content="Solite">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/data-converter-thumbnail.png">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Universal Data Converter",
-      "url": "https://solite.in/data-converter.html",
-      "description": "A privacy-first, all-in-one converter that transforms between CSV, JSON, XML, and more — all offline, directly in the user’s browser.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [
-        "Convert between various data formats (JSON, CSV, XML, YAML, Markdown Table, SQL, TOML, HTML Table)",
-        "Auto-detect input format",
-        "Pretty print option for formatted output",
-        "Syntax highlighting for input data",
-        "Copy and download converted data",
-        "Swap input and output data",
-        "Client-side processing for privacy",
-        "File upload support"
-      ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      }
-    }
-    </script>
 
     <!-- Vercel Analytics -->
     <script>
@@ -59,95 +33,52 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Conversion Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xml-js/1.6.11/xml-js.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@ltd/j-toml@2.0.1/dist/j-toml.min.js"></script>
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-    <!-- Prism.js for Syntax Highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- Data Conversion Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://unpkg.com/@iarna/toml@2.2.5/parse-string.js"></script>
+    <script src="https://unpkg.com/@iarna/toml@2.2.5/stringify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.2.5/fxparser.min.js"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Data Converter | Solite",
+      "url": "https://solite.in/data-converter.html",
+      "description": "A free, client-side tool for converting between various data formats like JSON, YAML, XML, CSV, and TOML.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Convert JSON", "Convert YAML", "Convert XML", "Convert CSV", "Convert TOML", "Live conversion", "Client-side processing for privacy", "Copy to clipboard", "Download file" ],
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
 
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                },
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
             },
         }
     </script>
     <style>
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-        }
-        /* For syntax highlighting */
-        #input-container {
-            position: relative;
-            flex-grow: 1;
-        }
-        #input-data {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: transparent !important;
-            color: transparent;
-            caret-color: white;
-            z-index: 1;
-        }
-        #input-container:has(> #input-data:placeholder-shown) #highlighting {
-            display: none;
-        }
-        /* Custom dropdown arrow */
-        .custom-select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; /* gray-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #6b7280; /* gray-500 */
-        }
-        main {
-            height: calc(var(--vh, 1vh) * 100 - 72px);
-        }
-        /* Custom Scrollbar for Firefox */
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -155,15 +86,13 @@
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700"></span>
-                <span class="text-lg font-semibold text-gray-600 dark:text-gray-400">Universal Data Converter</span>
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Data Converter</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -174,124 +103,79 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow flex h-screen-minus-header">
-        <h1 class="sr-only">Universal Data Converter</h1>
-        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col gap-3">
-            <!-- Control Bar --> 
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 flex flex-wrap items-center gap-4">
-                <div class="flex items-center gap-2">
-                    <button id="upload-btn" title="Upload File" class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                        <span>Upload</span>
-                    </button>
-                    <button id="clear-btn" title="Clear Input" class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+    <!-- Main Content Area -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Online Data Converter</h1>
+            
+            <!-- Input Panel -->
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6" role="region" aria-labelledby="input-heading">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 id="input-heading" class="text-xl font-bold text-white">Input</h2>
+                    <button id="clear-btn" title="Clear Input" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm font-medium">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
                         <span>Clear</span>
                     </button>
                 </div>
-
-                <button id="swap-btn" title="Swap Input/Output" class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 12l-4-4m4 4l4-4m6 8v12M17 8l-4 4m4-4l4 4" /></svg>
-                    <span>Swap</span>
-                </button>
-
-                <div class="flex-grow"></div> <!-- This spacer pushes the following items to the right -->
-
-                <div class="flex items-center gap-2">
-                    <label for="input-format-select" class="text-sm font-medium text-gray-400">From</label>
-                    <div class="relative">
-                        <select id="input-format-select" class="custom-select bg-gray-700 text-white font-medium py-2 pl-3 pr-8 rounded-md border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                            <option value="auto" selected>Auto-Detect</option>
-                            <option value="json">JSON</option>
-                            <option value="csv">CSV</option>
-                            <option value="xml">XML</option>
-                            <option value="yaml">YAML</option>
-                            <option value="md">Markdown Table</option>
-                            <option value="sql">SQL</option>
-                            <option value="toml">TOML</option>
-                            <option value="html">HTML Table</option>
-                        </select>
-                        <svg class="w-4 h-4 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
+                <div class="relative w-full mb-4 flex-shrink-0">
+                    <select id="input-format-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <option value="json">JSON</option><option value="yaml">YAML</option><option value="xml">XML</option><option value="csv">CSV</option><option value="toml">TOML</option>
+                    </select>
+                    <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-
-                <div class="flex items-center gap-2">
-                    <label for="output-format-select" class="text-sm font-medium text-gray-400">To</label>
-                    <div class="relative">
-                        <select id="output-format-select" class="custom-select bg-gray-700 text-white font-medium py-2 pl-3 pr-8 rounded-md border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                            <option value="json" selected>JSON</option>
-                            <option value="csv">CSV</option>
-                            <option value="xml">XML</option>
-                            <option value="yaml">YAML</option>
-                            <option value="md">Markdown Table</option>
-                            <option value="toml">TOML</option>
-                            <option value="html">HTML Table</option>
-                            <option value="sql">SQL</option>
-                        </select>
-                        <svg class="w-4 h-4 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                </div>
+                <textarea id="input-data" aria-label="Input data" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none font-mono text-sm" placeholder="Paste your data here..."></textarea>
+                <div id="input-status" class="text-xs text-red-400 mt-2 h-4"></div>
             </div>
 
-            <div class="flex-grow flex flex-col lg:flex-row gap-4">
-                <!-- Input Pane -->
-                <div class="w-full lg:w-1/2 flex flex-col bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
-                    <div id="input-container">
-                        <textarea id="input-data" class="flex-grow w-full p-4 bg-transparent text-gray-300 font-mono text-sm focus:outline-none" placeholder="Paste your CSV, JSON, or XML data here..." spellcheck="false"></textarea>
-                        <pre id="highlighting" aria-hidden="true" class="w-full h-full p-4 font-mono text-sm focus:outline-none overflow-auto"><code id="highlighting-content" class="language-json"></code></pre>
-                        <input type="file" id="file-upload" class="hidden">
-                    </div>
-                    <div id="validation-feedback" class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 px-4 py-2 text-sm font-mono text-green-400 hidden">
-                    </div>
+            <!-- Output Panel -->
+            <div id="output-pane" class="flex-1 flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 hidden lg:flex" role="region" aria-labelledby="output-heading">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 id="output-heading" class="text-xl font-bold text-white">Output</h2>
                 </div>
-
-                <!-- Output Pane -->
-                <div class="w-full lg:w-1/2 flex flex-col bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
-                    <div class="flex-shrink-0 flex items-center justify-between bg-gray-800/50 border-b border-gray-800 px-4 py-2">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" id="pretty-print-checkbox" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500" checked>
-                            <label for="pretty-print-checkbox" class="text-sm font-medium text-gray-300">Pretty Print</label>
-                        </div>
-                         <div class="flex items-center gap-2">
-                            <button id="copy-btn" title="Copy Output" class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                                <span>Copy</span>
-                            </button>
-                            <button id="download-btn" title="Download Output" class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                <span>Download</span>
-                            </button>
-                         </div>
-                     </div>
-                    <textarea id="output-data" readonly class="flex-grow w-full p-4 bg-transparent text-gray-300 font-mono text-sm focus:outline-none" placeholder="Result will appear here..."></textarea>
+                <div class="relative w-full mb-4 flex-shrink-0">
+                    <select id="output-format-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <option value="json">JSON</option><option value="yaml" selected>YAML</option><option value="xml">XML</option><option value="csv">CSV</option><option value="toml">TOML</option>
+                    </select>
+                    <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <textarea id="output-data" aria-label="Converted output data" readonly class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none resize-none font-mono text-sm" placeholder="Conversion result will appear here..."></textarea>
+                <div class="grid grid-cols-2 gap-4 mt-4 flex-shrink-0">
+                    <button id="copy-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Output</span>
+                    </button>
+                    <button id="download-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download File</span>
+                    </button>
                 </div>
             </div>
-
         </div>
         <!-- Ad Sidebar -->
         <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
-            </div>
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
         </aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    <span>Input</span>
+                </button>
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0A2.25 2.25 0 016.637 8.25l.857 6a2.25 2.25 0 01-2.227 1.932H5.707a2.25 2.25 0 01-2.227-1.932l-.857-6A2.25 2.25 0 013.75 9.776z" /></svg>
+                    <span>Output</span>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
-             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span>&copy; 2025 Solite. All Rights Reserved.</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
-            </div>
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg><span>&copy; 2024 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a><a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></div>
         </div>
     </footer>
 
@@ -300,383 +184,137 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // DOM Elements
-            const inputData = document.getElementById('input-data');
-            const outputData = document.getElementById('output-data');
-            const inputFormatSelect = document.getElementById('input-format-select');
-            const outputFormatSelect = document.getElementById('output-format-select');
-            const copyBtn = document.getElementById('copy-btn');
-            const downloadBtn = document.getElementById('download-btn');
-            const highlightingContent = document.getElementById('highlighting-content');
-            const validationFeedback = document.getElementById('validation-feedback');
-            const swapBtn = document.getElementById('swap-btn');
-            const toast = document.getElementById('toast');
-            const fileUpload = document.getElementById('file-upload');
-            const uploadBtn = document.getElementById('upload-btn');
-            const clearBtn = document.getElementById('clear-btn');
-            const prettyPrintCheckbox = document.getElementById('pretty-print-checkbox');
-
-            // --- Core Conversion Logic ---
-
-            function detectFormat(text) {
-                const trimmed = text.trim();
-                if (trimmed.startsWith('{') && trimmed.endsWith('}')) return 'json';
-                if (trimmed.startsWith('[') && trimmed.endsWith(']')) return 'json';
-                if (trimmed.startsWith('<') && trimmed.endsWith('>')) return 'xml';
-                if (trimmed.includes('---') && trimmed.includes(':')) return 'yaml';
-                if (/^\s*\[.+\]/.test(trimmed) || /^\s*\w+\s*=\s*.+/.test(trimmed)) return 'toml';
-                if (trimmed.startsWith('<table') && trimmed.endsWith('</table>')) return 'html';
-                if (trimmed.includes('|') && trimmed.includes('-')) return 'md';
-                if (trimmed.toUpperCase().startsWith('INSERT INTO')) return 'sql';
-                // Defaults
-                if (trimmed.includes(': ')) return 'yaml';
-                return 'csv';
-            }
-
-            function validateAndHighlightJson(text) {
-                highlightingContent.textContent = text;
-                Prism.highlightElement(highlightingContent);
-
-                try {
-                    JSON.parse(text);
-                    validationFeedback.textContent = '✓ Valid JSON';
-                    validationFeedback.classList.remove('text-red-400', 'hidden');
-                    validationFeedback.classList.add('text-green-400');
-                    return true;
-                } catch (e) {
-                    // Extract a more user-friendly error message
-                    const errorMessage = e.message.replace('JSON.parse: ', '');
-                    validationFeedback.textContent = `✗ Invalid JSON: ${errorMessage}`;
-                    validationFeedback.classList.remove('text-green-400', 'hidden');
-                    validationFeedback.classList.add('text-red-400');
-                    return false;
-                }
-            }
-
-            function setInvalidStatus(message) {
-                validationFeedback.textContent = `✗ ${message}`;
-                validationFeedback.classList.remove('text-green-400', 'hidden');
-                validationFeedback.classList.add('text-red-400');
-
-                outputData.value = `Conversion Error:\n\n${message}`;
-                [copyBtn, downloadBtn, swapBtn].forEach(btn => btn.disabled = true);
-            }
-
-            // --- Custom Parsers ---
-            function markdownTableToJson(md) {
-                const lines = md.trim().split('\n').map(l => l.trim()).filter(Boolean);
-                if (lines.length < 2) throw new Error("Invalid Markdown Table");
-
-                const headers = lines[0].split('|').map(h => h.trim()).filter(Boolean);
-                const dataRows = lines.slice(2);
-
-                return dataRows.map(row => {
-                    const values = row.split('|').map(v => v.trim()).filter(Boolean);
-                    const obj = {};
-                    headers.forEach((header, index) => {
-                        obj[header] = values[index] || '';
-                    });
-                    return obj;
-                });
-            }
-
-            function jsonToMarkdownTable(json) {
-                if (!Array.isArray(json) || json.length === 0) {
-                    return "Input must be an array of objects to create a Markdown table.";
-                }
-
-                const headers = Object.keys(json[0]);
-                const headerRow = `| ${headers.join(' | ')} |`;
-                const separatorRow = `| ${headers.map(() => '---').join(' | ')} |`;
-
-                const dataRows = json.map(row => {
-                    const values = headers.map(header => row[header] || '');
-                    return `| ${values.join(' | ')} |`;
-                });
-
-                return [headerRow, separatorRow, ...dataRows].join('\n');
-            }
-
-            function jsonToSql(json) {
-                if (!Array.isArray(json) || json.length === 0) {
-                    return "Input must be an array of objects to create SQL INSERT statements.";
-                }
-                
-                const tableName = prompt("Enter table name:", "my_table");
-                if (!tableName) return "Table name is required.";
-
-                const headers = Object.keys(json[0]);
-                const columns = headers.map(h => `\`${h}\``).join(', ');
-
-                const values = json.map(row => {
-                    const rowValues = headers.map(header => {
-                        const value = row[header];
-                        if (typeof value === 'string') {
-                            // Escape single quotes
-                            return `'${value.replace(/'/g, "''")}'`;
-                        }
-                        if (value === null || value === undefined) {
-                            return 'NULL';
-                        }
-                        return value;
-                    });
-                    return `(${rowValues.join(', ')})`;
-                }).join(',\n');
-
-                return `INSERT INTO \`${tableName}\` (${columns})\nVALUES\n${values};`;
-            }
-
-            function sqlToJson(sql) {
-                const insertRegex = /INSERT INTO `?(\w+)`? \(([^)]+)\)\s+VALUES\s*([^;]+)/i;
-                const match = sql.match(insertRegex);
-
-                if (!match) throw new Error("Invalid or unsupported SQL INSERT format.");
-
-                const [, , columnsStr, valuesStr] = match;
-                const columns = columnsStr.split(',').map(c => c.trim().replace(/`/g, ''));
-                
-                // This regex is simplified and might fail on complex values with nested parentheses.
-                const valueTuples = valuesStr.match(/\(([^)]+)\)/g);
-                if (!valueTuples) throw new Error("Could not parse SQL VALUES.");
-
-                return valueTuples.map(tuple => {
-                    const values = tuple.replace(/^\(|\)$/g, '').split(',').map(v => {
-                        const trimmed = v.trim();
-                        // Naive parser: remove quotes, treat others as numbers/null if possible
-                        if (trimmed.startsWith("'") && trimmed.endsWith("'")) return trimmed.slice(1, -1).replace(/''/g, "'");
-                        if (trimmed.toLowerCase() === 'null') return null;
-                        return isNaN(trimmed) ? trimmed : Number(trimmed);
-                    });
-                    return columns.reduce((obj, col, i) => ({ ...obj, [col]: values[i] }), {});
-                });
-            }
-
-    function htmlTableToJson(html) {
-        const div = document.createElement('div');
-        div.innerHTML = html;
-        const table = div.querySelector('table');
-        if (!table) throw new Error("No <table> tag found.");
-
-        const headers = Array.from(table.querySelectorAll('thead th, th')).map(th => th.textContent.trim());
-        const rows = Array.from(table.querySelectorAll('tbody tr, tr'));
-
-        if (headers.length === 0 && rows.length > 0) {
-            [...rows.shift().querySelectorAll('td, th')].forEach(h => headers.push(h.textContent.trim()));
-        }
-
-        return rows.map(row => {
-            const values = Array.from(row.querySelectorAll('td'));
-            const obj = {};
-            headers.forEach((header, index) => {
-                obj[header] = values[index] ? values[index].textContent.trim() : '';
-            });
-            return obj;
-        });
-    }
-
-            function convert() {
-                const text = inputData.value;
-                if (!text.trim()) {
-                    validationFeedback.classList.add('hidden');
-                    outputData.value = '';
-                    clearBtn.disabled = true;
-                    [copyBtn, downloadBtn, swapBtn].forEach(btn => btn.disabled = true);
-                    return;
-                }
-
-                let inputFormat = inputFormatSelect.value;
-                if (inputFormat === 'auto') {
-                    inputFormat = detectFormat(text);
-                }
-                clearBtn.disabled = false;
-
-                // Handle JSON validation and highlighting
-                if (inputFormat === 'json') {
-                    highlightingContent.parentElement.classList.remove('hidden');
-                    if (!validateAndHighlightJson(text)) return;
-                } else {
-                    highlightingContent.parentElement.classList.add('hidden');
-                    // Don't hide validation feedback for other formats
-                    validationFeedback.classList.add('hidden');
-                }
-
-                // Set valid status
-                validationFeedback.textContent = `✓ Detected as ${inputFormat.toUpperCase()}`;
-                validationFeedback.classList.remove('text-red-400', 'hidden');
-                validationFeedback.classList.add('text-green-400');
-
-                let intermediateJson;
-
-                // 1. Convert Input to Intermediate JSON
-                try {
-                    switch (inputFormat) {
-                        case 'json':
-                            intermediateJson = JSON.parse(text);
-                            break;
-                        case 'csv':
-                            const csvResult = Papa.parse(text, { header: true, skipEmptyLines: true });
-                            if (csvResult.errors.length > 0) {
-                                throw new Error(`CSV Error: ${csvResult.errors[0].message}`);
-                            }
-                            intermediateJson = csvResult.data;
-                            break;
-                        case 'xml':
-                            intermediateJson = JSON.parse(xml_js.xml2json(text, { compact: true, spaces: 4 }));
-                            break;
-                        case 'yaml':
-                            intermediateJson = jsyaml.load(text);
-                            break;
-                        case 'md':
-                            intermediateJson = markdownTableToJson(text);
-                            break;
-                        case 'sql':
-                            intermediateJson = sqlToJson(text);
-                            break;
-                        case 'toml':
-                            intermediateJson = TOML.parse(text);
-                            break;
-                        case 'html':
-                            intermediateJson = htmlTableToJson(text);
-                            break;
-                    }
-                } catch (e) {
-                    const errorMessage = e.message || 'Unknown parsing error.';
-                    setInvalidStatus(`Invalid ${inputFormat.toUpperCase()}: ${errorMessage}`);
-                    console.error(e);
-                    return;
-                }
-
-                // 2. Convert Intermediate JSON to Output
-                let result = '';
-                const outputFormat = outputFormatSelect.value;
-                const prettyPrint = prettyPrintCheckbox.checked;
-                try {
-                    switch (outputFormat) {
-                        case 'json':
-                            result = JSON.stringify(intermediateJson, null, prettyPrint ? 2 : 0);
-                            break;
-                        case 'csv':
-                            // PapaParse needs an array of objects to unparse correctly
-                            const dataToUnparse = Array.isArray(intermediateJson) ? intermediateJson : [intermediateJson];
-                            result = Papa.unparse(dataToUnparse);
-                            break;
-                        case 'xml':
-                            result = xml_js.json2xml(JSON.stringify(intermediateJson), { compact: true, spaces: prettyPrint ? 4 : 0 });
-                            break;
-                        case 'yaml':
-                            result = jsyaml.dump(intermediateJson, { indent: prettyPrint ? 2 : 0 });
-                            break;
-                        case 'toml':
-                            result = TOML.stringify(intermediateJson, { newline: '\n', indent: 2 });
-                            break;
-                        case 'md':
-                            result = jsonToMarkdownTable(intermediateJson);
-                            break;
-                        case 'sql':
-                            result = jsonToSql(intermediateJson);
-                            break;
-                        case 'html':
-                            if (!Array.isArray(intermediateJson) || intermediateJson.length === 0) throw new Error("Input must be an array of objects to create an HTML table.");
-                            const headers = Object.keys(intermediateJson[0]);
-                            const headerRow = `<thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>`;
-                            const bodyRows = intermediateJson.map(row => `<tr>${headers.map(h => `<td>${row[h] || ''}</td>`).join('')}</tr>`).join('');
-                            result = `<table>\n  ${headerRow}\n  <tbody>\n    ${bodyRows}\n  </tbody>\n</table>`;
-                            break;
-                    }
-                    outputData.value = result;
-                    [copyBtn, downloadBtn, swapBtn].forEach(btn => btn.disabled = false);
-                } catch (e) {
-                    setInvalidStatus(`Conversion to ${outputFormat.toUpperCase()} failed.`);
-                    console.error(e);
-                }
-            }
-
-            // --- UI & Event Listeners ---
-
-            const debounce = (func, delay = 250) => {
-                let timeout;
-                return (...args) => {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(this, args), delay);
-                };
+            const el = {
+                inputData: document.getElementById('input-data'),
+                outputData: document.getElementById('output-data'),
+                inputFormat: document.getElementById('input-format-select'),
+                outputFormat: document.getElementById('output-format-select'),
+                inputStatus: document.getElementById('input-status'),
+                copyBtn: document.getElementById('copy-btn'),
+                clearBtn: document.getElementById('clear-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                toast: document.getElementById('toast'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                inputPane: document.getElementById('input-pane'),
+                outputPane: document.getElementById('output-pane'),
             };
 
-            inputData.addEventListener('input', debounce(convert, 250));
-            inputData.addEventListener('scroll', () => { // Sync scrolling
-                highlightingContent.parentElement.scrollTop = inputData.scrollTop;
-                highlightingContent.parentElement.scrollLeft = inputData.scrollLeft;
-            });
+            const TOML = window.TOML;
+            const fxparser = window.fxparser;
 
             function showToast(message) {
-                toast.textContent = message;
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 2000);
+                el.toast.textContent = message; el.toast.classList.add('show');
+                setTimeout(() => { el.toast.classList.remove('show'); }, 2000);
             }
 
-            copyBtn.addEventListener('click', () => {
-                if (outputData.value) {
-                    navigator.clipboard.writeText(outputData.value)
-                        .then(() => showToast('Copied to clipboard!'))
-                        .catch(err => console.error('Failed to copy: ', err));
+            function convertData() {
+                const inputText = el.inputData.value.trim();
+                const inputFormat = el.inputFormat.value;
+                const outputFormat = el.outputFormat.value;
+                el.inputStatus.textContent = '';
+                
+                if (!inputText) {
+                    el.outputData.value = '';
+                    el.copyBtn.disabled = true; el.downloadBtn.disabled = true;
+                    return;
                 }
-            });
 
-            downloadBtn.addEventListener('click', () => {
-                if (!outputData.value) return; 
-                showToast('Downloading...');
-                const format = outputFormatSelect.value;
-                const blob = new Blob([outputData.value], { type: `text/${format};charset=utf-8;` });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `solite-data.${format}`;
-                link.click();
-                URL.revokeObjectURL(link.href);
-            });
-            
-            swapBtn.addEventListener('click', () => {
-                if (!outputData.value) return;
-                const currentOutput = outputData.value;
-                inputData.value = currentOutput;
-                convert();
-            });
+                let parsedData;
+                try {
+                    switch (inputFormat) {
+                        case 'json': parsedData = JSON.parse(inputText); break;
+                        case 'yaml': parsedData = jsyaml.load(inputText); break;
+                        case 'xml': parsedData = new fxparser.XMLParser().parse(inputText); break;
+                        case 'csv':
+                            const csvResult = Papa.parse(inputText, { header: true, skipEmptyLines: true });
+                            if (csvResult.errors.length) throw new Error(csvResult.errors[0].message);
+                            parsedData = csvResult.data;
+                            break;
+                        case 'toml': parsedData = TOML.parse(inputText); break;
+                        default: throw new Error('Unsupported input format');
+                    }
+                } catch (e) {
+                    el.inputStatus.textContent = `Invalid ${inputFormat.toUpperCase()}: ${e.message}`;
+                    el.outputData.value = '';
+                    el.copyBtn.disabled = true; el.downloadBtn.disabled = true;
+                    return;
+                }
 
-            clearBtn.addEventListener('click', () => {
-                inputData.value = '';
-                convert();
-            });
-
-            inputFormatSelect.addEventListener('change', convert);
-            outputFormatSelect.addEventListener('change', convert);
-            prettyPrintCheckbox.addEventListener('change', convert);
-
-            // --- File Handling ---
-            function handleFile(file) {
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    inputData.value = e.target.result;
-                    convert();
-                };
-                reader.onerror = () => {
-                    showToast('Error reading file.');
-                };
-                reader.readAsText(file);
+                let outputText;
+                try {
+                    switch (outputFormat) {
+                        case 'json': outputText = JSON.stringify(parsedData, null, 2); break;
+                        case 'yaml': outputText = jsyaml.dump(parsedData); break;
+                        case 'xml': outputText = new fxparser.XMLBuilder({ format: true }).build(parsedData); break;
+                        case 'csv': outputText = Papa.unparse(parsedData); break;
+                        case 'toml': outputText = TOML.stringify(parsedData); break;
+                        default: throw new Error('Unsupported output format');
+                    }
+                } catch (e) {
+                    el.outputData.value = `Error converting to ${outputFormat.toUpperCase()}:\n${e.message}`;
+                    el.copyBtn.disabled = true; el.downloadBtn.disabled = true;
+                    return;
+                }
+                
+                el.outputData.value = outputText;
+                el.copyBtn.disabled = false; el.downloadBtn.disabled = false;
             }
 
-            uploadBtn.addEventListener('click', () => fileUpload.click());
-            fileUpload.addEventListener('change', (e) => handleFile(e.target.files[0]));
-
-            const inputPane = document.querySelector('.w-full.lg\\:w-1\\/2.flex.flex-col');
-            inputPane.addEventListener('dragover', (e) => { e.preventDefault(); inputPane.classList.add('border-blue-500'); });
-            inputPane.addEventListener('dragleave', () => inputPane.classList.remove('border-blue-500'));
-            inputPane.addEventListener('drop', (e) => {
-                e.preventDefault();
-                inputPane.classList.remove('border-blue-500');
-                if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
-            });
+            const debounce = (func, delay = 250) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
             
-            // Initial state
-            convert();
+            el.inputData.addEventListener('input', debounce(convertData));
+            el.inputFormat.addEventListener('change', convertData);
+            el.outputFormat.addEventListener('change', convertData);
+            
+            el.copyBtn.addEventListener('click', () => { if (el.outputData.value) { navigator.clipboard.writeText(el.outputData.value).then(() => showToast('Copied!')).catch(err => console.error('Failed to copy: ', err)); } });
+            el.clearBtn.addEventListener('click', () => { el.inputData.value = ''; convertData(); });
+            el.downloadBtn.addEventListener('click', () => {
+                const outputText = el.outputData.value;
+                if (!outputText) return;
+                
+                const format = el.outputFormat.value;
+                const mimeTypes = { json: 'application/json', yaml: 'text/yaml', xml: 'application/xml', csv: 'text/csv', toml: 'application/toml' };
+                const blob = new Blob([outputText], { type: `${mimeTypes[format]};charset=utf-8;` });
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = `converted-data.${format}`;
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+
+            // --- Mobile Navigation Logic ---
+            function showMobilePane(paneId) {
+                if (paneId === 'input') {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.mobileInputBtn.classList.add('active'); el.mobileOutputBtn.classList.remove('active');
+                } else { // 'output'
+                    el.inputPane.classList.add('hidden'); el.inputPane.classList.remove('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobileInputBtn.classList.contains('active') && !el.mobileOutputBtn.classList.contains('active')) { showMobilePane('input'); }
+                    else if (el.mobileInputBtn.classList.contains('active')) { showMobilePane('input'); }
+                    else { showMobilePane('output'); }
+                } else {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.remove('active');
+                }
+            }
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            handleMobileLayout();
         });
     </script>
 </body>
