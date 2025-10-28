@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Image Watermarker & Annotator Tool | Draw, Text, Logos | Solite</title>
-    <meta name="description" content="Add watermarks (text/image) and annotations (draw, shapes) to your images online with Solite's free tool. Works directly in your browser. 100% private and secure.">
-    <meta name="keywords" content="image watermarker, image annotator, add watermark to photo, add text to image, draw on image, online annotation tool, free watermarker, solite">
-    <link rel="canonical" href="https://solite.in/watermark-annotator.html" />
+    <title>Tweet to Image Converter | Solite</title>
+    <meta name="description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG. 100% private and browser-based.">
+    <meta name="keywords" content="tweet to image, convert tweet to image, twitter screenshot generator, tweet image generator, free online tool, solite">
+    <link rel="canonical" href="https://solite.in/tweet-to-image.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Image Watermarker & Annotator Tool | Solite">
-    <meta property="og:description" content="Use our free online tool to watermark and annotate images. Draw, add text, shapes, and place image logos directly in your browser. 100% private.">
-    <meta property="og:url" content="https://solite.in/watermark-annotator.html">
+    <meta property="og:title" content="Tweet to Image Converter | Solite">
+    <meta property="og:description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG.">
+    <meta property="og:url" content="https://solite.in/tweet-to-image.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/watermark-annotator-thumbnail.png">
+    <meta property="og:image" content="https://solite.in/assets/tweet-to-image-thumbnail.png">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- AdSense Meta Tag -->
@@ -30,67 +30,58 @@
     <script src="/_vercel/insights/script.js" defer></script>
 
     <!-- Core Libraries -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Image Watermarker & Annotator | Solite",
-      "url": "https://solite.in/watermark-annotator.html",
-      "description": "A free, client-side tool to add watermarks and annotations like text, shapes, and drawings to images.",
+      "name": "Tweet to Image Converter",
+      "url": "https://solite.in/tweet-to-image.html",
+      "description": "A free, client-side tool to convert any public tweet into a beautiful, shareable image.",
       "applicationCategory": "MultimediaApplication",
-      "featureList": [ "Add text watermarks", "Add image watermarks", "Freehand drawing", "Draw shapes", "Undo/Redo functionality", "Download annotated images", "Client-side processing for privacy" ],
+      "featureList": [ "Convert Tweet URL to Image", "Dark and Light themes", "High-quality PNG download", "Client-side processing for 100% privacy", "Hide or show engagement stats", "Hide or show tweet media", "Add a custom text watermark" ],
       "offers": { "@type": "Offer", "price": "0" },
       "operatingSystem": "All",
       "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
     }
     </script>
 
-    <!-- Fabric.js for Object-Oriented Canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                    },
-                },
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
             },
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
         #toast.show { transform: translateY(2rem); }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
-        html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
-        .tool-btn.active { background-color: #fff; color: #000; }
-        .layer-item.selected { background-color: #374151; }
-        .tab-btn { border-bottom: 2px solid transparent; color: #9ca3af; }
-        .tab-btn.active { border-color: #fff; color: #fff; }
-        .canvas-container { margin: auto; }
+        .tweet-card a { color: #1d9bf0; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .theme-btn.active, .watermark-pos-btn.active { background-color: #4b5563; color: #ffffff; }
+        #tweet-theme-container.light .tweet-card { background-color: #ffffff; border-color: #e5e7eb; }
+        #tweet-theme-container.light .tweet-card .dark\:text-white { color: #111827; }
+        #tweet-theme-container.light .tweet-card .dark\:text-gray-200 { color: #1f2937; }
+        #tweet-theme-container.light .tweet-card .dark\:text-gray-400, #tweet-theme-container.light .tweet-card .dark\:text-gray-500 { color: #6b7280; }
+        #tweet-theme-container.light .tweet-card .dark\:border-gray-700, #tweet-theme-container.light .tweet-card .dark\:border-gray-800 { border-color: #e5e7eb; }
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
-        #canvas-pane > div { height: 100%; }
-    </style>
+    </style> 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -100,14 +91,12 @@
              <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
                 <div class="flex items-center space-x-3">
                      <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
-                        <path d="M2 17l10 5 10-5"></path>
-                        <path d="M2 7l10 5 10-5"></path>
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
                     </svg>
                     <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
                 </div>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Image Watermarker & Annotator</span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Tweet to Image</span>
             </a>
              <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
@@ -121,171 +110,241 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <h1 class="sr-only">Free Online Image Watermarker & Annotator Tool</h1>
-            
-            <!-- Canvas Pane -->
-            <div id="canvas-pane" class="flex-1 flex flex-col min-h-0 overflow-auto bg-gray-900 rounded-xl border-2 border-dashed border-gray-700">
-                <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center relative min-h-0">
-                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                        <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
-                        <p class="mt-1 text-sm text-gray-400">Your images stay on your device.</p>
+            <h1 class="sr-only">Tweet to Image Converter</h1>
+            <!-- Preview Pane -->
+            <div id="preview-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-8 overflow-auto">
+                <div id="tweet-theme-container" class="dark">
+                    <div id="tweet-preview-container" class="w-[550px] p-8 rounded-lg relative">
+                        <div id="watermark-overlay" class="absolute bottom-2 right-2 text-xs text-gray-500/50 pointer-events-none hidden"></div>
+                        <div id="tweet-card" class="tweet-card bg-white dark:bg-black p-4 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg font-sans">
+                            <div class="animate-pulse flex space-x-4">
+                                <div class="rounded-full bg-gray-300 dark:bg-gray-700 h-12 w-12"></div>
+                                <div class="flex-1 space-y-4 py-1"><div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div><div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div></div>
+                            </div>
+                            <div class="animate-pulse space-y-4 mt-4"><div class="h-4 bg-gray-300 dark:bg-gray-700 rounded"></div><div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-5/6"></div><div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div></div>
+                        </div>
                     </div>
-                    <canvas id="canvas" aria-label="Image editing canvas for watermarking and annotations"></canvas>
-                    <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp">
-                    <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 leading-none z-10 flex items-center gap-2 text-sm font-medium">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                        <span>Remove</span>
+                </div>
+            </div>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Tweet Converter</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="tweet-url-input" class="font-medium">Tweet URL</label>
+                        <input type="url" id="tweet-url-input" placeholder="https://x.com/user/status/123..." class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-medium">Theme</label>
+                        <button id="theme-toggle-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2"></button>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-gray-800">
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="hide-stats-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span class="font-medium">Hide Engagement Stats</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="hide-media-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span class="font-medium">Hide Media (Images/Video)</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="hide-timestamp-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span class="font-medium">Hide Timestamp</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="hide-author-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span class="font-medium">Hide Author Info</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="show-verified-checkbox" class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500" checked><span class="font-medium">Show Verified Checkmark</span></label>
+                    </div>
+                    <div class="space-y-2 pt-4 border-t border-gray-800">
+                        <label for="watermark-input" class="font-medium">Watermark</label>
+                        <input type="text" id="watermark-input" placeholder="e.g., @yourhandle" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" id="watermark-enable" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Show watermark</span></label>
+                        <div class="grid grid-cols-4 gap-1 bg-gray-800 rounded-lg p-1">
+                            <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="top-left" title="Top Left"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                            <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="top-right" title="Top Right"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                            <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center" data-position="bottom-left" title="Bottom Left"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                            <button class="watermark-pos-btn p-2 rounded-md flex justify-center items-center active" data-position="bottom-right" title="Bottom Right"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 19L5 5m0 14L19 5"></path></svg></button>
+                        </div>
+                    </div>
+                    <div id="loader" class="hidden text-center text-gray-400">Fetching tweet...</div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download as PNG</span>
                     </button>
                 </div>
-             </div>
-
-
-            <!-- Controls Panel -->
-            <aside id="tools-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
-                <div class="flex justify-between items-center flex-shrink-0">
-                    <h3 id="controls-heading-label" class="text-xl font-bold text-white">Image Watermarker & Annotator</h3>
-                    <div class="flex items-center space-x-2">
-                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-lg p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg></button>
-                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg></button>
-                    </div>
-                </div>
-                <div id="main-controls" class="hidden flex-grow min-h-0 overflow-y-auto pr-2 space-y-6 pb-16 lg:pb-6">
-                    <!-- Tabs -->
-                    <div class="border-b border-gray-800 sticky top-0 bg-gray-900 z-10">
-                        <div class="flex -mb-px" aria-label="Tabs">
-                            <button class="tab-btn active text-sm font-medium py-3 px-4" data-tab="text">Text</button>
-                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="image">Image</button>
-                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="pencil">Pencil</button>
-                            <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="shapes">Shapes</button>
-                        </div>
-                    </div>
-                    <!-- Tab Content -->
-                    <div id="tab-contents" class="pt-4">
-                        <div id="text-tab" class="tab-content space-y-4">
-                            <h4 class="font-semibold text-gray-200">Text Watermark</h4>
-                            <input type="text" id="watermark-text" placeholder="Your watermark text..." aria-label="Watermark Text" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
-                            <label class="block"><span class="text-sm">Font Size (<span class="value-display" data-target="watermark-size">50</span>)</span><input type="range" id="watermark-size" min="10" max="200" value="50" aria-label="Watermark Font Size" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                            <label class="block"><span class="text-sm">Opacity (<span class="value-display" data-target="watermark-opacity">0.70</span>)</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" aria-label="Watermark Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                            <input type="color" id="watermark-color" value="#ffffff" aria-label="Watermark Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        </div>
-                        <div id="image-tab" class="tab-content hidden space-y-4">
-                            <h4 class="font-semibold text-gray-200">Image Watermark</h4>
-                            <input type="file" id="watermark-upload-input" class="hidden" aria-label="Image watermark upload" accept="image/png, image/jpeg, image/webp">
-                            <button id="upload-watermark-btn" class="w-full bg-gray-700 hover:bg-gray-600 py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg> <span>Upload Watermark</span></button>
-                            <div id="image-watermark-sliders" class="hidden space-y-4">
-                                <label class="block"><span class="text-sm">Size (<span class="value-display" data-target="image-watermark-size">100</span>)</span><input type="range" id="image-watermark-size" min="10" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                                <label class="block"><span class="text-sm">Opacity (<span class="value-display" data-target="image-watermark-opacity">1.00</span>)</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                            </div>
-                        </div>
-                        <div id="pencil-tab" class="tab-content hidden space-y-4">
-                            <h4 class="font-semibold text-gray-200">Pencil Tool</h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="space-y-2"><label for="pencil-color" class="text-sm">Pencil Color</label><input type="color" id="pencil-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
-                                <div class="space-y-2"><label for="pencil-size" class="text-sm">Pencil Width (<span class="value-display" data-target="pencil-size">5</span>)</label><input type="range" id="pencil-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2"></div>
-                            </div>
-                        </div>
-                        <div id="shapes-tab" class="tab-content hidden space-y-4">
-                            <h4 class="font-semibold text-gray-200">Shapes Tool</h4>
-                             <div class="grid grid-cols-4 gap-2 p-1 bg-gray-800 rounded-lg">
-                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700 active" data-tool="rectangle" title="Rectangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z"></path></svg></button>
-                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="circle" title="Circle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
-                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="triangle" title="Triangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L2 21h20L12 2z"></path></svg></button>
-                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="select" title="Select Tool"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2.5M7 11.5h6M7 11.5a1.5 1.5 0 01-3 0V9a1.5 1.5 0 013 0m0 2.5a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5v-6a1.5 1.5 0 013 0m0 6a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5a1.5 1.5 0 013 0m0 6.5h-9" /></svg></button>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="space-y-2"><label for="shape-color" class="text-sm">Shape Stroke Color</label><input type="color" id="shape-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
-                                <div class="space-y-2"><label for="shape-size" class="text-sm">Stroke Width (<span class="value-display" data-target="shape-size">5</span>)</label><input type="range" id="shape-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Export -->
-                    <div class="space-y-4 border-t border-gray-800 pt-4 flex-shrink-0">
-                        <h4 class="font-semibold text-gray-200">Export</h4>
-                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg><span>Download Image</span></button>
-                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg">Remove Image</button>
-                    </div>
-                </div>
-                <p id="controls-prompt" class="text-gray-500 text-center flex-shrink-0" aria-live="polite">Upload an image to start.</p>
-            </aside>
+            </div>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
 
-        <!-- Mobile/Tablet Navigation Bar -->
+        <!-- Mobile Navigation Bar -->
         <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
-                <button id="mobile-canvas-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><span>Canvas</span></button>
-                <button id="mobile-tools-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg><span>Tools</span></button>
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 hidden lg:block">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>© 2024 Solite. All Rights Reserved.</span></div>
-            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a><a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>© 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
         </div>
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Success!</div>
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const uploadPrompt = document.getElementById('upload-prompt'); const imageUpload = document.getElementById('image-upload'); const canvasContainer = document.getElementById('canvas-container'); const canvasPane = document.getElementById('canvas-pane'); const canvasElement = document.getElementById('canvas'); const mainControls = document.getElementById('main-controls'); const controlsPrompt = document.getElementById('controls-prompt'); const downloadBtn = document.getElementById('download-btn'); const resetBtn = document.getElementById('reset-btn'); const removeImageBtn = document.getElementById('remove-image-btn'); const toast = document.getElementById('toast');
-            const tabBtns = document.querySelectorAll('.tab-btn'); const tabContents = document.querySelectorAll('.tab-content'); const toolBtns = document.querySelectorAll('.tool-btn');
-            const undoBtn = document.getElementById('undo-btn'); const redoBtn = document.getElementById('redo-btn');
-            const watermarkText = document.getElementById('watermark-text'); const watermarkSize = document.getElementById('watermark-size'); const watermarkOpacity = document.getElementById('watermark-opacity'); const watermarkColor = document.getElementById('watermark-color'); const watermarkUploadInput = document.getElementById('watermark-upload-input'); const uploadWatermarkBtn = document.getElementById('upload-watermark-btn'); const imageWatermarkSliders = document.getElementById('image-watermark-sliders'); const imageWatermarkSize = document.getElementById('image-watermark-size'); const imageWatermarkOpacity = document.getElementById('image-watermark-opacity');
-            const pencilColorInput = document.getElementById('pencil-color'); const pencilSizeInput = document.getElementById('pencil-size'); const shapeColorInput = document.getElementById('shape-color'); const shapeSizeInput = document.getElementById('shape-size');
-            const mobileCanvasBtn = document.getElementById('mobile-canvas-btn'); const mobileToolsBtn = document.getElementById('mobile-tools-btn'); const toolsPane = document.getElementById('tools-pane');
-            let fabricCanvas = null; let originalImageObject = null; let textWatermarkObject = null; let imageWatermarkObject = null; let currentWatermarkImage = null; let activeWatermarkType = 'text'; let activeTool = 'text';
-            let isDrawingShape = false; let currentShape; let canvasMouseDownX, canvasMouseDownY;
-            let history = []; let historyIndex = -1; let stateSaving = true;
-            const debounce = (func, delay) => { let timeoutId; return function(...args) { clearTimeout(timeoutId); timeoutId = setTimeout(() => { func.apply(this, args); }, delay); }; };
-            function updateRangeValueDisplay() { document.querySelectorAll('input[type="range"]').forEach(slider => { const displaySpan = document.querySelector(`.value-display[data-target="${slider.id}"]`); if (displaySpan) { const value = slider.id.includes('opacity') ? parseFloat(slider.value).toFixed(2) : slider.value; displaySpan.textContent = value; } }); }
-            const saveState = () => { if (!stateSaving || !fabricCanvas) return; try { const canvasState = fabricCanvas.toJSON(['_watermarkType']); setTimeout(() => { const lastState = history[historyIndex]; if (!lastState || JSON.stringify(canvasState) !== JSON.stringify(lastState)) { if (historyIndex < history.length - 1) { history = history.slice(0, historyIndex + 1); } history.push(canvasState); historyIndex++; updateUndoRedoButtons(); } }, 100); } catch (e) { console.error("Error saving state:", e); showToast("Error saving action."); } };
-            const undo = () => { if (historyIndex > 0) { historyIndex--; loadState(history[historyIndex]); } };
-            const redo = () => { if (historyIndex < history.length - 1) { historyIndex++; loadState(history[historyIndex]); } };
-            const loadState = (state) => { if (!fabricCanvas || !state) return; stateSaving = false; const bgImageInfo = state.backgroundImage; fabricCanvas.loadFromJSON(state, () => { fabricCanvas.renderAll(); if (fabricCanvas.backgroundImage instanceof fabric.Image) {} else if (bgImageInfo && originalImageObject) { fitCanvasToContainer(originalImageObject); } textWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'text'); imageWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'image'); if (activeTool === 'pencil') { fabricCanvas.isDrawingMode = true; } stateSaving = true; updateUndoRedoButtons(); }); };
-            const updateUndoRedoButtons = () => { undoBtn.disabled = historyIndex <= 0; redoBtn.disabled = historyIndex >= history.length - 1; };
-            undoBtn.addEventListener('click', undo); redoBtn.addEventListener('click', redo);
-            function showToast(message) { toast.textContent = message; toast.classList.add('show'); setTimeout(() => { toast.classList.remove('show'); }, 2000); }
-            function initFabricCanvas() { try { fabricCanvas = new fabric.Canvas(canvasElement, { selection: true, preserveObjectStacking: true, width: canvasContainer.clientWidth > 50 ? canvasContainer.clientWidth - 40 : 300, height: canvasContainer.clientHeight > 50 ? canvasContainer.clientHeight - 40 : 200, stopContextMenu: true, fireRightClick: true, enableRetinaScaling: false }); fabricCanvas.on('object:modified', saveState); fabricCanvas.on('object:added', saveState); fabricCanvas.on('path:created', (e) => { if(e.path) { e.path.set({ selectable: true, evented: true }); saveState(); } }); fabricCanvas.on('mouse:down', function(options) { if (!options.target && activeTool !== 'pencil' && !isDrawingShape) { fabricCanvas.discardActiveObject(); fabricCanvas.requestRenderAll(); } }); } catch (e) { console.error("Fabric.js initialization failed:", e); controlsPrompt.textContent = "Error initializing canvas. Please refresh."; controlsPrompt.classList.remove('hidden'); } }
-            initFabricCanvas();
-            function fitCanvasToContainer(img, isInitialLoad = false) { if (!fabricCanvas || !img) return; const containerWidth = canvasPane.clientWidth - 16; const containerHeight = canvasPane.clientHeight - 16; if (containerWidth <= 0 || containerHeight <= 0) return; const imgAspectRatio = img.width / img.height; let displayWidth, displayHeight; const containerAspectRatio = containerWidth / containerHeight; if (imgAspectRatio > containerAspectRatio) { displayWidth = containerWidth; displayHeight = containerWidth / imgAspectRatio; } else { displayHeight = containerHeight; displayWidth = containerHeight * imgAspectRatio; } fabricCanvas.setDimensions({ width: displayWidth, height: displayHeight }); fabricCanvas.setBackgroundImage(img.src, fabricCanvas.renderAll.bind(fabricCanvas), { scaleX: displayWidth / img.width, scaleY: displayHeight / img.height, selectable: false, evented: false, }); canvasContainer.style.width = `${displayWidth}px`; canvasContainer.style.height = `${displayHeight}px`; fabricCanvas.renderAll(); }
-            const debouncedResizeHandler = debounce(() => { if (originalImageObject) fitCanvasToContainer(originalImageObject); }, 250);
-            window.addEventListener('resize', debouncedResizeHandler);
-            function handleImage(file) { if (!file || !file.type.startsWith('image/')) { showToast("Invalid file type. Please upload an image."); return; } const reader = new FileReader(); reader.onload = (e) => { const img = new Image(); img.onload = () => { originalImageObject = img; fabricCanvas.clear(); history = []; historyIndex = -1; textWatermarkObject = null; imageWatermarkObject = null; currentWatermarkImage = null; fitCanvasToContainer(img, true); uploadPrompt.classList.add('hidden'); mainControls.classList.remove('hidden'); controlsPrompt.classList.add('hidden'); removeImageBtn.classList.remove('hidden'); imageUpload.value = ''; canvasPane.classList.remove('border-dashed', 'items-center', 'justify-center'); canvasPane.classList.add('border-gray-900'); updateWatermark(true); activateTool('text'); saveState(); if (window.innerWidth < 1024) { showMobilePane('canvas'); } }; img.onerror = () => showToast("Error loading image data."); img.src = e.target.result; }; reader.onerror = () => { showToast("Error reading image file."); }; reader.readAsDataURL(file); }
-            function removeImage() { fabricCanvas.clear(); originalImageObject = null; textWatermarkObject = null; imageWatermarkObject = null; currentWatermarkImage = null; canvasPane.classList.add('border-dashed', 'items-center', 'justify-center'); canvasPane.classList.remove('border-gray-900'); canvasContainer.style.width = 'auto'; canvasContainer.style.height = 'auto'; removeImageBtn.classList.add('hidden'); uploadPrompt.classList.remove('hidden'); mainControls.classList.add('hidden'); controlsPrompt.classList.remove('hidden'); imageUpload.value = ''; watermarkUploadInput.value = ''; imageWatermarkSliders.classList.add('hidden'); watermarkText.value = ''; history = []; historyIndex = -1; updateUndoRedoButtons(); fabricCanvas.setDimensions({ width: 300, height: 200 }); fabricCanvas.renderAll(); showToast('Image and annotations removed.'); activateTool('text'); }
-            function updateWatermark(isInitial = false) { if (!fabricCanvas || !originalImageObject) return; const wasSaving = stateSaving; stateSaving = false; const textContent = watermarkText.value || ''; const fontSize = parseInt(watermarkSize.value, 10); const opacityText = parseFloat(watermarkOpacity.value); const colorText = watermarkColor.value; if (activeWatermarkType === 'text') { if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); if (!textWatermarkObject) { if (textContent) { textWatermarkObject = new fabric.IText(textContent, { _watermarkType: 'text', selectable: activeTool === 'select', evented: activeTool === 'select', left: fabricCanvas.width / 2, top: fabricCanvas.height / 2, fill: colorText, fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: fontSize, opacity: opacityText, hasControls: true, lockScalingFlip: true, originX: 'center', originY: 'center', textBackgroundColor: 'rgba(0,0,0,0)', }); fabricCanvas.add(textWatermarkObject); fabricCanvas.centerObject(textWatermarkObject); } } else { textWatermarkObject.set({ text: textContent, fontSize: fontSize, fill: colorText, opacity: opacityText, visible: !!textContent, selectable: activeTool === 'select', evented: activeTool === 'select', }); if(textContent) textWatermarkObject.bringToFront(); } } else if (activeWatermarkType === 'image') { if (textWatermarkObject) textWatermarkObject.set({ visible: false }); if (currentWatermarkImage) { const desiredWidth = parseFloat(imageWatermarkSize.value); const scale = (currentWatermarkImage.width > 0) ? desiredWidth / currentWatermarkImage.width : 1; const opacityImage = parseFloat(imageWatermarkOpacity.value); if (!imageWatermarkObject) { fabric.Image.fromURL(currentWatermarkImage.src, (imgInstance) => { imageWatermarkObject = imgInstance; imageWatermarkObject.set({ _watermarkType: 'image', left: fabricCanvas.width / 2, top: fabricCanvas.height / 2, scaleX: scale, scaleY: scale, opacity: opacityImage, hasControls: true, lockScalingFlip: true, originX: 'center', originY: 'center', selectable: activeTool === 'select', evented: activeTool === 'select', visible: true }); fabricCanvas.add(imageWatermarkObject); fabricCanvas.centerObject(imageWatermarkObject); fabricCanvas.renderAll(); stateSaving = wasSaving; if (!isInitial) saveState(); }); stateSaving = wasSaving; return; } else { imageWatermarkObject.set({ scaleX: scale, scaleY: scale, opacity: opacityImage, visible: true, selectable: activeTool === 'select', evented: activeTool === 'select', }); imageWatermarkObject.bringToFront(); } } else { if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); } } else { if (textWatermarkObject) textWatermarkObject.set({ visible: false }); if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); } fabricCanvas.renderAll(); stateSaving = wasSaving; if (!isInitial) saveState(); }
-            uploadWatermarkBtn.addEventListener('click', () => watermarkUploadInput.click());
-            watermarkUploadInput.addEventListener('change', (e) => { if (e.target.files && e.target.files[0]) { const reader = new FileReader(); reader.onload = (event) => { const img = new Image(); img.onload = () => { currentWatermarkImage = img; imageWatermarkSliders.classList.remove('hidden'); const maxAllowedSize = Math.min(fabricCanvas.width || 500, fabricCanvas.height || 500, img.width * 2); imageWatermarkSize.max = maxAllowedSize; imageWatermarkSize.value = Math.min(100, (fabricCanvas.width || 300) * 0.2, img.width); updateRangeValueDisplay(); if (imageWatermarkObject) { fabricCanvas.remove(imageWatermarkObject); imageWatermarkObject = null; } updateWatermark(); }; img.onerror = () => showToast("Error loading watermark image."); img.src = event.target.result; }; reader.onerror = () => showToast("Error reading watermark file."); reader.readAsDataURL(e.target.files[0]); } });
-            document.querySelectorAll('#text-tab input, #image-tab input[type="range"]').forEach(el => { el.addEventListener('input', () => { updateRangeValueDisplay(); updateWatermark(); }); el.addEventListener('change', saveState); });
-            watermarkColor.addEventListener('change', () => { updateWatermark(); saveState(); });
-            function updateDrawingBrush() { if (fabricCanvas && fabricCanvas.isDrawingMode && fabricCanvas.freeDrawingBrush) { if (activeTool === 'pencil') { fabricCanvas.freeDrawingBrush.color = pencilColorInput.value; fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10); } } }
-            function activateTool(tool) { if (!fabricCanvas) return; activeTool = tool; isDrawingShape = false; fabricCanvas.off('mouse:down', startShapeDrawing); fabricCanvas.off('mouse:move', drawShape); fabricCanvas.off('mouse:up', stopShapeDrawing); fabricCanvas.isDrawingMode = false; fabricCanvas.selection = true; fabricCanvas.defaultCursor = 'default'; fabricCanvas.getObjects().forEach(o => { const isSelectable = tool === 'select'; o.set({ selectable: isSelectable, evented: isSelectable }); }); if (tool === 'select') { if(textWatermarkObject && activeWatermarkType === 'text') textWatermarkObject.set({ selectable: true, evented: true }); if(imageWatermarkObject && activeWatermarkType === 'image') imageWatermarkObject.set({ selectable: true, evented: true }); } if (tool === 'pencil') { fabricCanvas.isDrawingMode = true; if (!fabricCanvas.freeDrawingBrush) { fabricCanvas.freeDrawingBrush = new fabric.PencilBrush(fabricCanvas); } fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10); fabricCanvas.freeDrawingBrush.color = pencilColorInput.value; updateDrawingBrush(); } else if (tool === 'rectangle' || tool === 'circle' || tool === 'triangle') { fabricCanvas.on('mouse:down', startShapeDrawing); fabricCanvas.on('mouse:move', drawShape); fabricCanvas.on('mouse:up', stopShapeDrawing); fabricCanvas.defaultCursor = 'crosshair'; fabricCanvas.selection = false; fabricCanvas.discardActiveObject(); } else if (tool === 'select') { fabricCanvas.defaultCursor = 'default'; } else if (tool === 'text' || tool === 'image') { if (activeTool !== 'select') { activateTool('select'); } if(textWatermarkObject) textWatermarkObject.set({ selectable: tool === 'text', evented: tool === 'text' }); if(imageWatermarkObject) imageWatermarkObject.set({ selectable: tool === 'image', evented: tool === 'image' }); } fabricCanvas.requestRenderAll(); }
-            function startShapeDrawing(o) { if (o.target || !['rectangle', 'circle', 'triangle'].includes(activeTool) || !originalImageObject) return; fabricCanvas.selection = false; isDrawingShape = true; const pointer = fabricCanvas.getPointer(o.e); canvasMouseDownX = pointer.x; canvasMouseDownY = pointer.y; const commonProps = { left: canvasMouseDownX, top: canvasMouseDownY, fill: 'rgba(0,0,0,0)', stroke: shapeColorInput.value, strokeWidth: parseInt(shapeSizeInput.value, 10), selectable: false, evented: false, originX: 'left', originY: 'top' }; if (activeTool === 'rectangle') { currentShape = new fabric.Rect({ ...commonProps, width: 0, height: 0 }); } else if (activeTool === 'circle') { currentShape = new fabric.Circle({ ...commonProps, radius: 0 }); } else if (activeTool === 'triangle') { currentShape = new fabric.Triangle({ ...commonProps, width: 0, height: 0 }); } if (currentShape) { fabricCanvas.add(currentShape); } }
-            function drawShape(o) { if (!isDrawingShape || !currentShape) return; let pointer = fabricCanvas.getPointer(o.e); let x = Math.max(0, Math.min(fabricCanvas.width, pointer.x)); let y = Math.max(0, Math.min(fabricCanvas.height, pointer.y)); if (activeTool === 'rectangle' || activeTool === 'triangle') { const deltaX = x - canvasMouseDownX; const deltaY = y - canvasMouseDownY; currentShape.set({ width: Math.abs(deltaX), height: Math.abs(deltaY), left: deltaX < 0 ? x : canvasMouseDownX, top: deltaY < 0 ? y : canvasMouseDownY }); } else if (activeTool === 'circle') { const radius = Math.sqrt(Math.pow(x - canvasMouseDownX, 2) + Math.pow(y - canvasMouseDownY, 2)) / 2; currentShape.set({ radius: radius, left: (x + canvasMouseDownX) / 2, top: (y + canvasMouseDownY) / 2, originX: 'center', originY: 'center' }); } fabricCanvas.renderAll(); }
-            function stopShapeDrawing(o) { if (!isDrawingShape || !currentShape) return; isDrawingShape = false; const isCircle = currentShape.type === 'circle'; const minSize = 5; const isBigEnough = isCircle ? (currentShape.radius * 2 >= minSize) : (currentShape.width >= minSize || currentShape.height >= minSize); if (isBigEnough) { currentShape.set({ selectable: true, evented: true }); saveState(); fabricCanvas.setActiveObject(currentShape); } else { fabricCanvas.remove(currentShape); } fabricCanvas.selection = true; fabricCanvas.renderAll(); currentShape = null; }
-            pencilColorInput.addEventListener('input', updateDrawingBrush); pencilSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); updateDrawingBrush(); }); shapeColorInput.addEventListener('input', () => { if(currentShape) currentShape.set('stroke', shapeColorInput.value) }); shapeSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); if(currentShape) currentShape.set('strokeWidth', parseInt(shapeSizeInput.value, 10)) });
-            toolBtns.forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('#shapes-tab .tool-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); activateTool(btn.dataset.tool); }); });
-            downloadBtn.addEventListener('click', () => { if (!originalImageObject) { showToast('Please upload an image first.'); return; } fabricCanvas.discardActiveObject(); fabricCanvas.renderAll(); try { const scaleFactor = originalImageObject.width / fabricCanvas.width; const dataURL = fabricCanvas.toDataURL({ format: 'png', quality: 1, multiplier: scaleFactor }); const link = document.createElement('a'); link.download = `solite-annotated-image.png`; link.href = dataURL; link.click(); showToast('Downloading image...'); } catch (e) { console.error("Error generating download URL:", e); showToast("Error creating download."); } });
-            uploadPrompt.addEventListener('click', () => imageUpload.click()); imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
-            canvasPane.addEventListener('dragover', (e) => { e.preventDefault(); canvasPane.classList.add('border-blue-500'); });
-            canvasPane.addEventListener('dragleave', () => canvasPane.classList.remove('border-blue-500'));
-            canvasPane.addEventListener('drop', (e) => { e.preventDefault(); canvasPane.classList.remove('border-blue-500'); if (e.dataTransfer.files.length > 0) { handleImage(e.dataTransfer.files[0]); } });
-            removeImageBtn.addEventListener('click', removeImage); resetBtn.addEventListener('click', removeImage);
-            tabBtns.forEach(tab => { tab.addEventListener('click', () => { const tabName = tab.dataset.tab; tabBtns.forEach(t => t.classList.remove('active')); tab.classList.add('active'); tabContents.forEach(c => c.classList.add('hidden')); const contentEl = document.getElementById(`${tabName}-tab`); if(contentEl) contentEl.classList.remove('hidden'); if (tabName === 'text' || tabName === 'image') { activeWatermarkType = tabName; activateTool('select'); updateWatermark(); } else if (tabName === 'pencil') { activateTool('pencil'); } else if (tabName === 'shapes') { const activeShapeBtn = document.querySelector('#shapes-tab .tool-btn.active'); activateTool(activeShapeBtn ? activeShapeBtn.dataset.tool : 'rectangle'); } }); });
-            updateRangeValueDisplay(); document.querySelectorAll('input[type="range"]').forEach(slider => { slider.addEventListener('input', updateRangeValueDisplay); });
-            function showMobilePane(paneId) { if (paneId === 'canvas') { canvasPane.classList.remove('hidden'); canvasPane.classList.add('flex'); toolsPane.classList.add('hidden'); toolsPane.classList.remove('flex'); mobileCanvasBtn.classList.add('active'); mobileToolsBtn.classList.remove('active'); } else { canvasPane.classList.add('hidden'); canvasPane.classList.remove('flex'); toolsPane.classList.remove('hidden'); toolsPane.classList.add('flex'); mobileCanvasBtn.classList.remove('active'); mobileToolsBtn.classList.add('active'); } }
-            function handleMobileLayout() { if (window.innerWidth < 1024) { if (!mobileCanvasBtn.classList.contains('active') && !mobileToolsBtn.classList.contains('active')) { showMobilePane('canvas'); } else if (mobileCanvasBtn.classList.contains('active')) { showMobilePane('canvas'); } else { showMobilePane('tools'); } if(originalImageObject) fitCanvasToContainer(originalImageObject); } else { canvasPane.classList.remove('hidden'); canvasPane.classList.add('flex'); toolsPane.classList.remove('hidden'); toolsPane.classList.add('flex'); mobileCanvasBtn.classList.remove('active'); mobileToolsBtn.classList.remove('active'); if(originalImageObject) fitCanvasToContainer(originalImageObject); } }
-            mobileCanvasBtn.addEventListener('click', () => showMobilePane('canvas'));
-            mobileToolsBtn.addEventListener('click', () => showMobilePane('tools'));
-            window.addEventListener('resize', handleMobileLayout);
-            handleMobileLayout(); activateTool('text');
-        });
+        class TweetToImage {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.themes = ['dark', 'light'];
+                this.currentThemeIndex = 0;
+                this.setTheme(this.themes[this.currentThemeIndex]);
+                this.handleMobileLayout();
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    urlInput: document.getElementById('tweet-url-input'), themeContainer: document.getElementById('tweet-theme-container'), tweetCard: document.getElementById('tweet-card'), downloadBtn: document.getElementById('download-btn'), loader: document.getElementById('loader'), toast: document.getElementById('toast'), hideStatsCheckbox: document.getElementById('hide-stats-checkbox'), hideMediaCheckbox: document.getElementById('hide-media-checkbox'), showVerifiedCheckbox: document.getElementById('show-verified-checkbox'), hideAuthorCheckbox: document.getElementById('hide-author-checkbox'), hideTimestampCheckbox: document.getElementById('hide-timestamp-checkbox'), watermarkInput: document.getElementById('watermark-input'), watermarkEnable: document.getElementById('watermark-enable'), watermarkOverlay: document.getElementById('watermark-overlay'), themeToggleBtn: document.getElementById('theme-toggle-btn'),
+                    mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), previewPane: document.getElementById('preview-pane'), controlsPane: document.getElementById('controls-pane'),
+                };
+            }
+
+            attachEventListeners() {
+                this.el.urlInput.addEventListener('paste', (e) => this.handleURL(e.clipboardData.getData('text')));
+                this.el.urlInput.addEventListener('change', () => this.handleURL(this.el.urlInput.value));
+                this.el.downloadBtn.addEventListener('click', () => this.downloadImage());
+                this.el.themeToggleBtn.addEventListener('click', () => this.cycleTheme());
+                const checkboxes = [this.el.hideStatsCheckbox, this.el.hideMediaCheckbox, this.el.hideTimestampCheckbox, this.el.hideAuthorCheckbox, this.el.showVerifiedCheckbox];
+                checkboxes.forEach(cb => cb.addEventListener('change', () => { if (this.lastTweetData) this.renderTweet(this.lastTweetData); }));
+                this.el.watermarkInput.addEventListener('input', () => this.updateWatermark());
+                this.el.watermarkEnable.addEventListener('change', () => this.updateWatermark());
+                document.querySelectorAll('.watermark-pos-btn').forEach(btn => btn.addEventListener('click', () => this.setWatermarkPosition(btn.dataset.position)));
+                this.el.mobilePreviewBtn.addEventListener('click', () => this.showMobilePane('preview'));
+                this.el.mobileControlsBtn.addEventListener('click', () => this.showMobilePane('controls'));
+                window.addEventListener('resize', () => this.handleMobileLayout());
+            }
+            
+            updateWatermark() {
+                const text = this.el.watermarkInput.value;
+                this.el.watermarkOverlay.textContent = text;
+                this.el.watermarkOverlay.classList.toggle('hidden', !this.el.watermarkEnable.checked || !text);
+            }
+            
+            setWatermarkPosition(position) {
+                const overlay = this.el.watermarkOverlay;
+                overlay.className = 'absolute text-xs text-gray-500/50 pointer-events-none';
+                if (!this.el.watermarkEnable.checked || !this.el.watermarkInput.value) overlay.classList.add('hidden');
+                if (position.includes('top')) overlay.classList.add('top-2'); else overlay.classList.add('bottom-2');
+                if (position.includes('left')) overlay.classList.add('left-2'); else overlay.classList.add('right-2');
+                document.querySelectorAll('.watermark-pos-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.position === position));
+            }
+            
+            cycleTheme() { this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length; this.setTheme(this.themes[this.currentThemeIndex]); }
+            
+            setTheme(theme) {
+                this.currentThemeIndex = this.themes.indexOf(theme);
+                this.el.themeContainer.className = theme;
+                const themeIcons = { dark: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`, light: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M12 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>` };
+                this.el.themeToggleBtn.innerHTML = `${themeIcons[theme]} <span>Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}</span>`;
+                if (this.lastTweetData) this.renderTweet(this.lastTweetData);
+            }
+
+            async handleURL(url) { const tweetIdMatch = url.match(/\/status\/(\d+)/); if (!tweetIdMatch) { this.showToast('Invalid Tweet URL'); return; } this.fetchAndRenderTweet(tweetIdMatch[1]); }
+
+            async fetchAndRenderTweet(tweetId) {
+                this.el.loader.classList.remove('hidden'); this.el.downloadBtn.disabled = true;
+                try {
+                    const response = await fetch(`https://api.fxtwitter.com/status/${tweetId}`);
+                    if (!response.ok) throw new Error('Tweet not found or API error');
+                    const data = await response.json(); this.lastTweetData = data.tweet;
+                    this.renderTweet(data.tweet); this.el.downloadBtn.disabled = false;
+                } catch (error) { console.error('Error fetching tweet:', error); this.showToast(error.message); this.el.tweetCard.innerHTML = `<p class="text-center text-red-500">Could not load tweet. Please check the URL.</p>`; } 
+                finally { this.el.loader.classList.add('hidden'); }
+            }
+
+            formatNumber(num) { if (num > 999999) return `${(num / 1000000).toFixed(1)}M`; if (num > 999) return `${(num / 1000).toFixed(1)}K`; return num.toString(); }
+
+            renderTweet(tweet) {
+                const date = new Date(tweet.created_timestamp * 1000);
+                const timestampHtml = this.el.hideTimestampCheckbox.checked ? '' : `<p class="text-gray-500 text-sm mt-1">${date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>`;
+                let tweetText = tweet.text;
+                tweet.entities?.urls?.forEach(u => { tweetText = tweetText.replace(u.url, `<a href="${u.expanded_url}" target="_blank">${u.display_url}</a>`); });
+                tweet.entities?.media?.forEach(m => { tweetText = tweetText.replace(m.url, ''); });
+                let mediaHtml = '';
+                const photos = tweet.media?.photos; const video = tweet.media?.videos?.[0];
+                if (!this.el.hideMediaCheckbox.checked) {
+                    if (photos?.length > 0) {
+                        const grid = "mt-3 grid gap-1 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700"; const img = "w-full h-full object-cover";
+                        if (photos.length === 1) mediaHtml = `<div class="mt-3 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700"><img src="${photos[0].url}" class="${img}" alt="Tweet media"></div>`;
+                        else if (photos.length === 2) mediaHtml = `<div class="${grid} grid-cols-2 aspect-[2/1]"><img src="${photos[0].url}" class="${img}" alt="Tweet media 1"><img src="${photos[1].url}" class="${img}" alt="Tweet media 2"></div>`;
+                        else if (photos.length === 3) mediaHtml = `<div class="${grid} grid-cols-2 grid-rows-2 aspect-[2/1]"><div class="row-span-2"><img src="${photos[0].url}" class="${img}" alt="Tweet media 1"></div><div class="col-start-2"><img src="${photos[1].url}" class="${img}" alt="Tweet media 2"></div><div class="col-start-2"><img src="${photos[2].url}" class="${img}" alt="Tweet media 3"></div></div>`;
+                        else mediaHtml = `<div class="${grid} grid-cols-2 grid-rows-2 aspect-square"><img src="${photos[0].url}" class="${img}" alt="Tweet media 1"><img src="${photos[1].url}" class="${img}" alt="Tweet media 2"><img src="${photos[2].url}" class="${img}" alt="Tweet media 3"><img src="${photos[3].url}" class="${img}" alt="Tweet media 4"></div>`;
+                    } else if (video) { mediaHtml = `<div class="mt-3 relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700"><img src="${video.thumbnail_url}" class="w-full h-full object-cover" alt="Tweet video thumbnail"><div class="absolute inset-0 flex items-center justify-center bg-black/30"><div class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center"><svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path></svg></div></div></div>`; }
+                }
+                const statsHtml = this.el.hideStatsCheckbox.checked ? '' : `<div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-800 flex space-x-6 text-gray-500"><span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.replies)}</span> Replies</span><span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.retweets)}</span> Retweets</span><span><span class="font-bold text-gray-800 dark:text-white">${this.formatNumber(tweet.likes)}</span> Likes</span></div>`;
+                const checkmark = (tweet.author.verified && this.el.showVerifiedCheckbox.checked) ? `<svg viewBox="0 0 22 22" class="h-5 w-5 ml-1 fill-current text-blue-500"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.056-.75-1.69-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.706-1.084-1.246-1.438-.54-.354-1.17-.552-1.816-.57-.647-.017-1.276.18-1.816.57-.54-.354-.973-.85-1.246 1.437-.607-.223-1.264-.27-1.897-.14-.634.13-1.218.436-1.687.882-.445.47-.75 1.055-.882 1.69-.13.633-.083 1.29.14 1.896-.587-.274-1.084.706-1.438 1.246-.354.54-.552 1.17-.57 1.816-.017.647.18 1.276.57 1.817.354.54.852.972 1.438 1.246-.223.606-.27 1.264-.14 1.897.131.634.437 1.218.882 1.687.47.445 1.056.75 1.69.882.633.13 1.29.083 1.897-.14.273.587.706 1.084 1.246 1.438.54.354 1.17.552 1.816.57.647.017 1.276-.18 1.816-.57.54-.354.973-.85 1.246-1.438.607.223 1.264.27 1.897.14.634-.13 1.218-.437 1.687-.882.445-.47.75-1.056.882-1.69.13-.633.083-1.29-.14-1.896.587-.274 1.084-.706-1.438-1.246.354-.54.552-1.17.57-1.816zM9.662 14.85l-3.428-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246-5.684 6.206z"></path></g></svg>` : '';
+                const authorHtml = this.el.hideAuthorCheckbox.checked ? '' : `<div class="flex items-start space-x-3"><img src="${tweet.author.avatar_url}" class="w-12 h-12 rounded-full" alt="${tweet.author.name}'s avatar"><div class="flex-1"><div class="flex items-center"><span class="font-bold text-gray-900 dark:text-white">${tweet.author.name}</span>${checkmark}</div><span class="text-gray-500">@${tweet.author.screen_name}</span></div></div>`;
+                this.el.tweetCard.innerHTML = `${authorHtml}<div class="mt-3 text-lg text-gray-800 dark:text-gray-200 whitespace-pre-wrap">${tweetText}</div>${mediaHtml}${timestampHtml}${statsHtml}`;
+            }
+
+            downloadImage() {
+                if (this.el.downloadBtn.disabled) return;
+                this.showToast('Generating image...');
+                const targetNode = document.getElementById('tweet-preview-container');
+                const previewPane = this.el.previewPane;
+                const paneWasHidden = previewPane.classList.contains('hidden');
+                if (paneWasHidden) {
+                    previewPane.style.position = 'absolute';
+                    previewPane.style.left = '-9999px';
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex');
+                }
+                html2canvas(targetNode, {
+                    backgroundColor: this.themes[this.currentThemeIndex] === 'light' ? '#ffffff' : '#000000',
+                    scale: 2,
+                    useCORS: true,
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `solite-tweet.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }).catch(err => {
+                    console.error('Image generation failed:', err);
+                    this.showToast('Failed to generate image.');
+                }).finally(() => {
+                    if (paneWasHidden) {
+                        previewPane.style.position = '';
+                        previewPane.style.left = '';
+                        previewPane.classList.add('hidden');
+                        previewPane.classList.remove('flex');
+                    }
+                });
+            }
+
+            showToast(message) { this.el.toast.textContent = message; this.el.toast.classList.add('show'); setTimeout(() => this.el.toast.classList.remove('show'), 3000); }
+
+            showMobilePane(paneId) {
+                if (paneId === 'preview') { this.el.previewPane.classList.remove('hidden'); this.el.previewPane.classList.add('flex'); this.el.controlsPane.classList.add('hidden'); this.el.mobilePreviewBtn.classList.add('active'); this.el.mobileControlsBtn.classList.remove('active'); } 
+                else { this.el.previewPane.classList.add('hidden'); this.el.previewPane.classList.remove('flex'); this.el.controlsPane.classList.remove('hidden'); this.el.controlsPane.classList.add('flex'); this.el.mobilePreviewBtn.classList.remove('active'); this.el.mobileControlsBtn.classList.add('active'); }
+            }
+            handleMobileLayout() {
+                if (window.innerWidth < 1024) { if (!this.el.mobilePreviewBtn.classList.contains('active') && !this.el.mobileControlsBtn.classList.contains('active')) { this.showMobilePane('preview'); } else if (this.el.mobilePreviewBtn.classList.contains('active')) { this.showMobilePane('preview'); } else { this.showMobilePane('controls'); } } 
+                else { this.el.previewPane.classList.remove('hidden'); this.el.previewPane.classList.add('flex'); this.el.controlsPane.classList.remove('hidden'); this.el.controlsPane.classList.add('flex'); this.el.mobilePreviewBtn.classList.remove('active'); this.el.mobileControlsBtn.classList.remove('active'); }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => { new TweetToImage(); });
     </script>
 </body>
 </html>

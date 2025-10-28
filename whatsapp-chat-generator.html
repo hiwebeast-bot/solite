@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free WhatsApp Chat Generator (Fake Chat Maker) | Solite</title>
+    <meta name="description" content="Create realistic fake WhatsApp chat messages and conversations with our free online generator. Customize sender, message, time, and status. Download as an image. 100% private.">
+    <meta name="keywords" content="whatsapp chat generator, fake whatsapp chat, whatsapp message maker, fake chat generator, create whatsapp conversation, solite, whatsapp screenshot generator">
+    <link rel="canonical" href="https://solite.in/whatsapp-chat-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free WhatsApp Chat Generator (Fake Chat Maker) | Solite">
+    <meta property="og:description" content="Create realistic fake WhatsApp chat messages and conversations. Customize sender, message, time, and status, then download as an image.">
+    <meta property="og:url" content="https://solite.in/whatsapp-chat-generator.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/whatsapp-chat-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WhatsApp Chat Generator",
+      "url": "https://solite.in/whatsapp-chat-generator.html",
+      "description": "A free, client-side tool to create realistic fake WhatsApp chat messages and conversations, and download them as images.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Create fake WhatsApp messages", "Customize sender, message, time, and delivery status", "Light and Dark themes", "Download as high-quality PNG", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        .whatsapp-bg { background-color: #0d1418; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48cGF0aCBmaWxsPSIjMDgwZTEwIiBkPSJNMCAwIEw0MDAgMCBMNDAwIDQwMCBMMCA0MDAgWiIgLz48cGF0aCBmaWxsPSIjMDgwZTEwIiBmaWxsLW9wYWNpdHk9IjAuNCIgZD0iTTEwMCAyNDBJODAgMjQwQzgwIDIwMCAxMjAgMjAwIDEyMCAyNDBMMTAwIDI0MFpNMjAwIDQwQzE4MCA0MCAxODAgMCAyMDAgMEwyMDAgNDBaTTMwMCAyNDBDMjgwIDI0MCAyODAgMjgwIDMwMCAyODBMMzAwIDI0MFpNMzgwIDQwQzM4MCAyMCA0MDAgMjAgNDAwIDQwTDQwMCA0MEwzODAgNDBaTTIwMCAyODBDMjIwIDI4MCAyMjAgMzIwIDIwMCAzMjBMMjAwIDI4MFpNMCAyODBDMCAyNjAgMjAgMjYwIDIwIDI4MEwyMCAyODBMMCAyODBaaTAtMTIwQzAgMTQwIDIwIDE0MCAyMCAxNjBMMjAgMTYwTDAgMTYwWm0xMDAtNDBDMTAwIDgwIDEyMCA4MCAxMjAgMTIwTDEyMCAxMjBMMTAwIDEyMFptMjAwLTEwMEMzMjAgMCAzMjAgMjAgMzAwIDIwTDMwMCAyMFoiIC8+PC9zdmc+'); }
+        .chat-bubble { max-width: 75%; }
+        .chat-bubble-sent { background-color: #005c4b; }
+        .chat-bubble-received { background-color: #202c33; }
+        .chat-bubble-sent::after { content: ''; position: absolute; top: 0; right: -8px; width: 0; height: 0; border-top: 10px solid #005c4b; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+        .chat-bubble-received::after { content: ''; position: absolute; top: 0; left: -8px; width: 0; height: 0; border-top: 10px solid #202c33; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+    </style> 
+    <style>
+        /* Phone Frame Styles */
+        .phone-frame {
+            width: 340px;
+            height: 700px;
+            background-color: #111;
+            border: 12px solid #000;
+            border-radius: 40px;
+            padding: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">WhatsApp Chat Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">WhatsApp Chat Generator (Fake Chat Maker)</h1>
+            <!-- Preview Pane -->
+            <div id="preview-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-4 sm:p-8 overflow-auto">
+                <div class="phone-frame">
+                    <div class="phone-screen whatsapp-bg">
+                        <div id="chat-container" class="w-full h-full p-4 space-y-2 overflow-y-auto">
+                            <!-- Chat bubbles will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Chat Generator</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <!-- Conversation Manager -->
+                    <div class="space-y-3">
+                        <h3 class="font-semibold text-white">Conversation</h3>
+                        <div id="message-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                            <!-- Message list items will be injected here -->
+                        </div>
+                        <button id="add-message-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            <span>Add Message</span>
+                        </button>
+                    </div>
+
+                    <!-- Message Editor -->
+                    <div id="message-editor" class="space-y-4 border-t border-gray-800 pt-4 mt-4">
+                        <h3 class="font-semibold text-white">Edit Selected Message</h3>
+                        <div class="space-y-2">
+                            <label for="sender-select" class="font-medium text-sm">Sender</label>
+                            <div class="relative">
+                                <select id="sender-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    <option value="sent">You (Sent)</option>
+                                    <option value="received">Other Person (Received)</option>
+                                </select>
+                                <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="message-input" class="font-medium text-sm">Message</label>
+                            <textarea id="message-input" rows="3" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50"></textarea>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="time-input" class="font-medium text-sm">Time</label>
+                            <input type="text" id="time-input" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="status-select" class="font-medium text-sm">Delivery Status</label>
+                            <div class="relative">
+                                <select id="status-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    <option value="sent">Sent (1 grey tick)</option>
+                                    <option value="delivered">Delivered (2 grey ticks)</option>
+                                    <option value="read">Read (2 blue ticks)</option>
+                                </select>
+                                <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download as PNG</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                messageInput: document.getElementById('message-input'),
+                timeInput: document.getElementById('time-input'),
+                senderSelect: document.getElementById('sender-select'),
+                statusSelect: document.getElementById('status-select'),                
+                downloadBtn: document.getElementById('download-btn'),
+                chatContainer: document.getElementById('chat-container'),
+                messageList: document.getElementById('message-list'),
+                addMessageBtn: document.getElementById('add-message-btn'),
+                toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                previewPane: document.getElementById('preview-pane'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            let messages = [];
+            let selectedMessageId = null;
+            let draggedItem = null;
+
+            const ticks = {
+                sent: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`,
+                delivered: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" transform="translate(-5,0)" /></svg>`,
+                read: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" transform="translate(-5,0)" /></svg>`
+            };
+
+            const renderConversation = () => {
+                el.chatContainer.innerHTML = '';
+                messages.forEach(msg => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = msg.sender === 'sent' ? 'flex justify-end' : 'flex justify-start';
+
+                    const bubble = document.createElement('div');
+                    bubble.className = `chat-bubble p-2 rounded-lg text-white relative ${msg.sender === 'sent' ? 'chat-bubble-sent' : 'chat-bubble-received'}`;
+                    
+                    const text = document.createElement('p');
+                    text.className = 'whitespace-pre-wrap break-words';
+                    text.innerText = msg.text || ' ';
+
+                    const meta = document.createElement('div');
+                    meta.className = 'text-right text-xs text-gray-300/70 mt-1 flex items-center justify-end gap-1';
+                    
+                    const time = document.createElement('span');
+                    time.innerText = msg.time;
+
+                    const statusTicks = document.createElement('span');
+                    statusTicks.innerHTML = msg.sender === 'sent' ? ticks[msg.status] : '';
+
+                    meta.appendChild(time);
+                    meta.appendChild(statusTicks);
+                    bubble.appendChild(text);
+                    bubble.appendChild(meta);
+                    wrapper.appendChild(bubble);
+                    el.chatContainer.appendChild(wrapper);
+                });
+            };
+
+            const renderMessageList = () => {
+                el.messageList.innerHTML = '';
+                messages.forEach((msg, index) => {
+                    const item = document.createElement('div');
+                    item.className = `flex items-center justify-between p-2 rounded-lg border cursor-pointer transition-colors duration-150 ${msg.id === selectedMessageId ? 'border-white bg-gray-700' : 'border-gray-700 bg-gray-800 hover:bg-gray-700'}`;
+                    item.draggable = true;
+                    item.dataset.id = msg.id;
+                    item.dataset.index = index;
+
+                    item.innerHTML = `
+                        <div class="flex items-center gap-2 overflow-hidden mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 cursor-grab flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+                            <span class="text-sm text-gray-300 truncate">${msg.text.substring(0, 25) || 'Empty Message'}</span>
+                        </div>
+                        <button class="delete-message-btn text-red-500 hover:text-red-400 flex-shrink-0 p-1 rounded hover:bg-gray-600" data-id="${msg.id}" title="Delete Message">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    `;
+                    el.messageList.appendChild(item);
+                });
+            };
+
+            const updateEditor = () => {
+                const msg = messages.find(m => m.id === selectedMessageId);
+                if (!msg) return;
+
+                el.messageInput.value = msg.text;
+                el.timeInput.value = msg.time;
+                el.senderSelect.value = msg.sender;
+                el.statusSelect.value = msg.status;
+                
+                // FIX: Disable status ticks for received messages
+                el.statusSelect.disabled = msg.sender === 'received';
+            };
+
+            const selectMessage = (id) => {
+                selectedMessageId = id;
+                updateEditor();
+                renderMessageList();
+            };
+
+            const addMessage = () => {
+                const newMsg = {
+                    id: crypto.randomUUID(),
+                    text: 'New message',
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    sender: 'sent',
+                    status: 'read'
+                };
+                messages.push(newMsg);
+                renderConversation();
+                selectMessage(newMsg.id);
+            };
+
+            const deleteMessage = (id) => {
+                messages = messages.filter(m => m.id !== id);
+                if (selectedMessageId === id) {
+                    selectedMessageId = messages.length > 0 ? messages[0].id : null;
+                }
+                if (selectedMessageId) {
+                    selectMessage(selectedMessageId);
+                } else {
+                    renderMessageList();
+                }
+                renderConversation();
+            };
+
+            const updateMessageFromControls = () => {
+                if (!selectedMessageId) return;
+                const msgIndex = messages.findIndex(m => m.id === selectedMessageId);
+                if (msgIndex === -1) return;
+
+                messages[msgIndex] = {
+                    ...messages[msgIndex],
+                    text: el.messageInput.value,
+                    time: el.timeInput.value,
+                    sender: el.senderSelect.value,
+                    status: el.statusSelect.value
+                };
+                renderConversation();
+                renderMessageList();
+            };
+
+            const downloadImage = () => {
+                showToast('Generating image...');
+                const targetNode = document.querySelector('.phone-frame');
+                const previewPane = el.previewPane;
+                const paneWasHidden = previewPane.classList.contains('hidden');
+
+                // If the pane is hidden (on mobile controls view), temporarily move it off-screen to render
+                if (paneWasHidden) {
+                    previewPane.style.position = 'absolute';
+                    previewPane.style.left = '-9999px';
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex');
+                }
+
+                html2canvas(targetNode, {
+                    backgroundColor: null, // Use the element's background
+                    scale: 3,
+                    useCORS: true,
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `solite-whatsapp-chat.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }).catch(err => {
+                    console.error('Image generation failed:', err);
+                    showToast('Failed to generate image.');
+                }).finally(() => {
+                    // Restore the original layout if it was changed
+                    if (paneWasHidden) {
+                        previewPane.style.position = '';
+                        previewPane.style.left = '';
+                        previewPane.classList.add('hidden');
+                        previewPane.classList.remove('flex');
+                    }
+                });
+            };
+
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 3000);
+            };
+
+            const showMobilePane = (paneId) => {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden');
+                    el.previewPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else if (el.mobilePreviewBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else {
+                        showMobilePane('controls');
+                    }
+                } else {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                }
+            };
+
+            // --- Event Listeners ---
+            el.addMessageBtn.addEventListener('click', addMessage);
+            [el.messageInput, el.timeInput].forEach(input => input.addEventListener('input', updateMessageFromControls));
+            [el.senderSelect, el.statusSelect].forEach(select => select.addEventListener('change', () => {
+                updateMessageFromControls();
+                // Re-check status disable state after sender change
+                const msg = messages.find(m => m.id === selectedMessageId);
+                if (msg) el.statusSelect.disabled = msg.sender === 'received';
+            }));
+
+            el.messageList.addEventListener('click', (e) => {
+                const item = e.target.closest('[data-id]');
+                if (!item) return;
+
+                if (e.target.closest('.delete-message-btn')) {
+                    deleteMessage(item.dataset.id);
+                } else {
+                    selectMessage(item.dataset.id);
+                }
+            });
+
+            // Drag and Drop
+            el.messageList.addEventListener('dragstart', (e) => {
+                draggedItem = e.target.closest('.flex');
+                setTimeout(() => draggedItem.style.opacity = '0.5', 0);
+            });
+            el.messageList.addEventListener('dragend', () => {
+                setTimeout(() => {
+                    if (draggedItem) draggedItem.style.opacity = '1';
+                    draggedItem = null;
+                }, 0);
+            });
+            el.messageList.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const target = e.target.closest('.flex[data-id]');
+                if (target && target !== draggedItem) {
+                    const fromIndex = parseInt(draggedItem.dataset.index);
+                    const toIndex = parseInt(target.dataset.index);
+                    
+                    const [movedItem] = messages.splice(fromIndex, 1);
+                    messages.splice(toIndex, 0, movedItem);
+
+                    renderMessageList();
+                    renderConversation();
+                }
+            });
+
+            el.downloadBtn.addEventListener('click', downloadImage);
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Render
+            addMessage(); // Start with one message
+            messages[0].text = 'Hello! This is a sample message.';
+            selectMessage(messages[0].id);
+            renderConversation();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

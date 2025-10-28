@@ -85,7 +85,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
     <!-- JSZip for downloading -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
@@ -152,15 +156,6 @@
         .mobile-nav-btn {
             color: #9ca3af; /* gray-400 */
         }
-        
-        /* New custom height for mobile editor area (up to 1023px) */
-        /* Sets the editor area to approximately 80vh to allow content to scroll independent of the page */
-        @media (max-width: 1023px) { 
-            .h-mobile-editor-content {
-                /* 80vh minus the fixed editor tab bar height (approx 44px) */
-                height: calc(80vh - 44px); 
-            }
-        }
     </style>
 
 </head>
@@ -207,11 +202,10 @@
     <!-- Main Content -->
     <main class="flex-grow flex relative"> <!-- Added relative for mobile nav positioning -->
         <h1 class="sr-only">Code Editor: Free Online HTML, CSS, and JavaScript IDE</h1>
-        <!-- THIS LINE HAS THE PADDING FIX: pt-4 for minimum clearance on mobile. -->
-        <div class="flex-grow w-full px-3 pt-4 pb-16 lg:p-3 lg:pb-0 flex flex-col lg:flex-row gap-3 lg:w-[80%]">
+        <div class="flex-grow w-full p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-3 lg:w-[80%]">
             <!-- Editor Pane -->
             <!-- Changed to lg:w-[30%] -->
-            <div id="editor-pane" class="w-full lg:w-[30%] flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+            <div id="editor-pane" class="w-full lg:w-[30%] flex-grow lg:flex-grow-0 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
                 <div class="flex-shrink-0 flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-1">
                         <div class="tabs flex font-sans">
                         <button data-lang="html" class="tab-btn active text-sm font-medium py-2 px-3 sm:px-4 text-gray-300 hover:text-white transition-colors">HTML</button>
@@ -231,8 +225,7 @@
                             </button>
                         </div>
                 </div>
-                <!-- CHANGE: Added h-mobile-editor-content for fixed height on small screens, added overflow-y-auto, and made flex-grow explicit for lg screens -->
-                <div class="h-mobile-editor-content overflow-y-auto lg:flex-grow relative">
+                <div class="flex-grow relative">
                     <textarea id="html-editor" class="editor w-full h-full p-4" placeholder="HTML"></textarea>
                     <textarea id="css-editor" class="editor w-full h-full p-4 hidden" placeholder="CSS"></textarea>
                     <textarea id="js-editor" class="editor w-full h-full p-4 hidden" placeholder="JavaScript"></textarea>
@@ -249,7 +242,7 @@
                 </div>
                 
                 <!-- Preview Pane -->
-            <div id="preview-pane" class="w-full lg:w-[70%] flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+            <div id="preview-pane" class="w-full lg:w-[70%] flex-grow lg:flex-grow-0 flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden hidden lg:flex">
                 <div class="flex-shrink-0 flex items-center justify-between p-2 bg-gray-800 border-b border-gray-700">
                     <p class="px-2 text-sm font-semibold text-gray-300">Live Preview</p>
                     <!-- Hide view buttons on mobile/tablet (up to lg breakpoint) -->
@@ -294,7 +287,7 @@
                     <path d="M2 17l10 5 10-5"/>
                     <path d="M2 7l10 5 10-5"/>
                 </svg>
-                <span>&copy; 2024 Solite. All Rights Reserved.</span>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>

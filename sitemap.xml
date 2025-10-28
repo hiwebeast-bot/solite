@@ -2,122 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solite.in/</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://solite.in/text-toolkit.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/code-editor.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/certificate-maker.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/image-editor.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/qr-code-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/color-palette-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/image-color-picker.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/image-compressor.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/exif-stripper.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/email-signature-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/email-extractor.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/svg-shape-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/favicon-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/watermark-annotator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/privacy.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2024-10-29</lastmod>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://solite.in/terms.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://solite.in/tailwind-form-builder.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/secure-password-generator.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/tweet-to-image.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/gif-maker.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/data-converter.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/css-shadows-maker.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/whatsapp-chat-generator.html</loc>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://solite.in/file-viewer.html</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/blog.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/blog/why-client-side-tools-are-the-future-of-privacy.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/blog/how-solite-image-compression-helps.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
