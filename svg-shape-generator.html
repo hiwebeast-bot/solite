@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Optimized Title -->
     <title>Free SVG Shape Generator | Custom Shapes & Blobs | Solite</title>
-    <!-- MODIFIED: Optimized Description -->
     <meta name="description" content="Create custom SVG shapes, blobs, and stars with our free online generator. Adjust colors, gradients, and styles, then export clean SVG code or download as a file. 100% private & client-side.">
-    <!-- ADDED: Keywords -->
     <meta name="keywords" content="svg shape generator, svg blob generator, svg star generator, custom svg shapes, free svg tool, online svg editor, solite, privacy first">
     <link rel="canonical" href="https://solite.in/svg-shape-generator.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <!-- MODIFIED: Optimized OG Title -->
     <meta property="og:title" content="Free SVG Shape Generator | Custom Shapes & Blobs | Solite">
     <meta property="og:description" content="Generate and customize unique SVG shapes, blobs, and stars directly in your browser. Free, no ads, and 100% private.">
     <meta property="og:url" content="https://solite.in/svg-shape-generator.html">
@@ -53,27 +49,11 @@
       "url": "https://solite.in/svg-shape-generator.html",
       "description": "A free, client-side tool to generate and customize SVG shapes (rectangles, circles, polygons, stars, blobs) and export them as clean code or files.",
       "applicationCategory": "DesignApplication",
-      "featureList": [
-        "Generate various SVG shapes (Rectangle, Circle, Ellipse, Polygon, Star, Blob)",
-        "Customize dimensions, position, rotation, and scale",
-        "Solid color and linear gradient fill options",
-        "Adjust stroke color, width, and opacity",
-        "Live SVG preview and code output",
-        "Copy SVG code or download as a .svg file",
-        "Client-side processing for 100% privacy"
-      ],
+      "featureList": [ "Generate various SVG shapes (Rectangle, Circle, Ellipse, Polygon, Star, Blob)", "Customize dimensions, position, rotation, and scale", "Solid color and linear gradient fill options", "Adjust stroke color, width, and opacity", "Live SVG preview and code output", "Copy SVG code or download as a .svg file", "Client-side processing for 100% privacy" ],
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
 
@@ -100,21 +80,18 @@
         }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
         input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
         html { scrollbar-color: #4b5563 #111827; }
-
-        /* ADDED: Mobile Nav Styles */
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- MODIFIED: Header updated to mobile-first version -->
+    <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
@@ -139,133 +116,68 @@
     </header>
 
     <!-- Main Content Area -->
-    <!-- MODIFIED: Added relative, min-h-0 -->
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <!-- ADDED: Screen-reader only H1 -->
             <h1 class="sr-only">Free Online SVG Shape Generator</h1>
             
             <!-- Controls Panel -->
-            <!-- MODIFIED: Added id="controls-pane", lg:block, flex flex-col -->
-            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto" aria-labelledby="controls-heading">
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
                 <h2 id="controls-heading" class="text-2xl font-bold text-white flex-shrink-0">Controls</h2>
                 
-                <div class="space-y-6 flex-grow min-h-0 overflow-y-auto pr-2">
+                <div class="space-y-6 flex-grow min-h-0 overflow-y-auto pr-2 pb-16 lg:pb-6">
                     <div class="space-y-2">
                         <label for="shape-select" class="font-medium">Shape</label>
                         <div class="relative">
                             <select id="shape-select" aria-label="Select Shape" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="rectangle" selected>Rectangle</option>
-                                <option value="circle">Circle</option>
-                                <option value="ellipse">Ellipse</option>
-                                <option value="triangle">Triangle</option>
-                                <option value="polygon">Polygon</option>
-                                <option value="star">Star</option>
-                                <option value="rhombus">Rhombus</option>
-                                <option value="blob">Blob</option>
+                                <option value="rectangle" selected>Rectangle</option> <option value="circle">Circle</option> <option value="ellipse">Ellipse</option> <option value="triangle">Triangle</option> <option value="polygon">Polygon</option> <option value="star">Star</option> <option value="rhombus">Rhombus</option> <option value="blob">Blob</option>
                             </select>
                             <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                     </div>
-
-                    <div id="shape-controls" class="space-y-4 border-t border-gray-800 pt-4">
-                        <!-- Shape-specific controls will be injected here -->
-                    </div>
-
+                    <div id="shape-controls" class="space-y-4 border-t border-gray-800 pt-4"></div>
                     <div class="space-y-4 border-t border-gray-800 pt-4">
                         <h3 class="font-medium text-lg">Position</h3>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label for="pos-x" class="text-sm text-gray-400">X Offset (<span id="pos-x-value">0</span>px)</label>
-                                <input type="range" id="pos-x" min="-50" max="50" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                            </div>
-                            <div class="space-y-2">
-                                <label for="pos-y" class="text-sm text-gray-400">Y Offset (<span id="pos-y-value">0</span>px)</label>
-                                <input type="range" id="pos-y" min="-50" max="50" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                            </div>
+                            <div class="space-y-2"><label for="pos-x" class="text-sm text-gray-400">X Offset (<span id="pos-x-value">0</span>px)</label><input type="range" id="pos-x" min="-50" max="50" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
+                            <div class="space-y-2"><label for="pos-y" class="text-sm text-gray-400">Y Offset (<span id="pos-y-value">0</span>px)</label><input type="range" id="pos-y" min="-50" max="50" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
                         </div>
                     </div>
-
                     <div class="space-y-4 border-t border-gray-800 pt-4">
                         <h3 class="font-medium text-lg">Rotation</h3>
-                        <div class="space-y-2">
-                            <label for="rotation-angle" class="text-sm text-gray-400">Angle (<span id="rotation-value">0</span>°)</label>
-                            <input type="range" id="rotation-angle" min="0" max="360" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        </div>
+                        <div class="space-y-2"><label for="rotation-angle" class="text-sm text-gray-400">Angle (<span id="rotation-value">0</span>°)</label><input type="range" id="rotation-angle" min="0" max="360" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
                     </div>
-
                     <div class="space-y-4 border-t border-gray-800 pt-4">
                         <h3 class="font-medium text-lg">Scale</h3>
-                        <div class="space-y-2">
-                            <label for="scale-slider" class="text-sm text-gray-400">Size (<span id="scale-label">100</span>%)</label>
-                            <input type="range" id="scale-slider" min="0.1" max="2" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        </div>
+                        <div class="space-y-2"><label for="scale-slider" class="text-sm text-gray-400">Size (<span id="scale-label">100</span>%)</label><input type="range" id="scale-slider" min="0.1" max="2" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
                     </div>
-
                     <div class="space-y-4 border-t border-gray-800 pt-4">
                         <h3 class="font-medium text-lg">Styling</h3>
-                        <div class="space-y-2">
-                            <label for="fill-type" class="text-sm text-gray-400">Fill Type</label>
-                            <select id="fill-type" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="solid" selected>Solid Color</option>
-                                <option value="gradient">Linear Gradient</option>
-                            </select>
-                        </div>
-                        <div id="solid-color-controls" class="space-y-2">
-                            <label for="fill-color" class="text-sm text-gray-400">Fill Color</label>
-                            <input type="color" id="fill-color" value="#ffffff" aria-label="Fill Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        </div>
+                        <div class="space-y-2"><label for="fill-type" class="text-sm text-gray-400">Fill Type</label><select id="fill-type" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"><option value="solid" selected>Solid Color</option><option value="gradient">Linear Gradient</option></select></div>
+                        <div id="solid-color-controls" class="space-y-2"><label for="fill-color" class="text-sm text-gray-400">Fill Color</label><input type="color" id="fill-color" value="#ffffff" aria-label="Fill Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
                         <div id="gradient-fill-controls" class="hidden space-y-4 pt-2">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="space-y-2"><label for="gradient-color-1" class="text-sm text-gray-400">Color 1</label><input type="color" id="gradient-color-1" value="#ffffff" aria-label="Gradient Color 1" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
                                 <div class="space-y-2"><label for="gradient-color-2" class="text-sm text-gray-400">Color 2</label><input type="color" id="gradient-color-2" value="#0000ff" aria-label="Gradient Color 2" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
                             </div>
-                            <div class="space-y-2">
-                                <label for="gradient-angle" class="text-sm text-gray-400">Gradient Angle (<span id="gradient-angle-value">90</span>°)</label>
-                                <input type="range" id="gradient-angle" min="0" max="360" value="90" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                            </div>
+                            <div class="space-y-2"><label for="gradient-angle" class="text-sm text-gray-400">Gradient Angle (<span id="gradient-angle-value">90</span>°)</label><input type="range" id="gradient-angle" min="0" max="360" value="90" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
                         </div>
-                        <div class="space-y-2 pt-2 border-t border-gray-700">
-                            <label for="stroke-color" class="text-sm text-gray-400">Stroke Color</label>
-                            <input type="color" id="stroke-color" value="#000000" aria-label="Stroke Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                        </div>
-                        <div class="space-y-2 pt-2 border-t border-gray-700">
-                            <label for="fill-opacity" class="text-sm text-gray-400">Fill Opacity (<span id="fill-opacity-value">1.0</span>)</label>
-                            <input type="range" id="fill-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="stroke-opacity" class="text-sm text-gray-400">Stroke Opacity (<span id="stroke-opacity-value">1.0</span>)</label>
-                            <input type="range" id="stroke-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="stroke-width" class="text-sm text-gray-400">Stroke Width (<span id="stroke-width-value">2</span>px)</label>
-                            <input type="range" id="stroke-width" min="0" max="20" value="2" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                        </div>
+                        <div class="space-y-2 pt-2 border-t border-gray-700"><label for="stroke-color" class="text-sm text-gray-400">Stroke Color</label><input type="color" id="stroke-color" value="#000000" aria-label="Stroke Color" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                        <div class="space-y-2 pt-2 border-t border-gray-700"><label for="fill-opacity" class="text-sm text-gray-400">Fill Opacity (<span id="fill-opacity-value">1.0</span>)</label><input type="range" id="fill-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
+                        <div class="space-y-2"><label for="stroke-opacity" class="text-sm text-gray-400">Stroke Opacity (<span id="stroke-opacity-value">1.0</span>)</label><input type="range" id="stroke-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
+                        <div class="space-y-2"><label for="stroke-width" class="text-sm text-gray-400">Stroke Width (<span id="stroke-width-value">2</span>px)</label><input type="range" id="stroke-width" min="0" max="20" value="2" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Preview Pane -->
-            <!-- MODIFIED: Wrapped Preview and Code in a single scrollable pane -->
             <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-y-auto">
-                <div class="flex-grow flex items-center justify-center p-8 bg-grid-pattern min-h-[40vh]">
-                    <div id="svg-preview" class="max-w-full max-h-full">
-                        <!-- SVG will be rendered here -->
-                    </div>
-                </div>
+                <div class="flex-grow flex items-center justify-center p-8 bg-grid-pattern min-h-[40vh]"><div id="svg-preview" class="max-w-full max-h-full"></div></div>
                 <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg font-semibold">SVG Code</h3>
                         <div class="flex items-center gap-2">
-                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                                <span>Copy Code</span>
-                            </button>
-                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                <span>Download</span>
-                            </button>
+                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg><span>Copy Code</span></button>
+                            <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg><span>Download</span></button>
                         </div>
                     </div>
                     <textarea id="svg-code-output" readonly class="w-full h-24 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
@@ -273,13 +185,9 @@
             </div>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
-            </div>
-        </aside>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
 
-        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <!-- Mobile/Tablet Navigation Bar -->
         <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
                 <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
@@ -294,7 +202,7 @@
         </div>
     </main>
 
-    <!-- MODIFIED: Footer hidden on mobile -->
+    <!-- Footer hidden on mobile -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -314,240 +222,58 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Cache all DOM elements for performance
             const el = {
-                controlsPane: document.getElementById('controls-pane'),
-                previewPane: document.getElementById('preview-pane'),
-                shapeSelect: document.getElementById('shape-select'),
-                shapeControlsContainer: document.getElementById('shape-controls'),
-                svgPreview: document.getElementById('svg-preview'),
-                svgCodeOutput: document.getElementById('svg-code-output'),
-                copyCodeBtn: document.getElementById('copy-code-btn'),
-                downloadBtn: document.getElementById('download-btn'),
-                scaleLabel: document.getElementById('scale-label'),
-                toast: document.getElementById('toast'),
-                fillTypeSelect: document.getElementById('fill-type'),
-                solidColorControls: document.getElementById('solid-color-controls'),
-                gradientFillControls: document.getElementById('gradient-fill-controls'),
-                // Mobile Nav Elements
-                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
-                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
-                // Dynamic Value Displays
-                posXValue: document.getElementById('pos-x-value'),
-                posYValue: document.getElementById('pos-y-value'),
-                rotationValue: document.getElementById('rotation-value'),
-                gradientAngleValue: document.getElementById('gradient-angle-value'),
-                fillOpacityValue: document.getElementById('fill-opacity-value'),
-                strokeOpacityValue: document.getElementById('stroke-opacity-value'),
-                strokeWidthValue: document.getElementById('stroke-width-value')
+                controlsPane: document.getElementById('controls-pane'), previewPane: document.getElementById('preview-pane'), shapeSelect: document.getElementById('shape-select'), shapeControlsContainer: document.getElementById('shape-controls'), svgPreview: document.getElementById('svg-preview'), svgCodeOutput: document.getElementById('svg-code-output'), copyCodeBtn: document.getElementById('copy-code-btn'), downloadBtn: document.getElementById('download-btn'), scaleLabel: document.getElementById('scale-label'), toast: document.getElementById('toast'), fillTypeSelect: document.getElementById('fill-type'), solidColorControls: document.getElementById('solid-color-controls'), gradientFillControls: document.getElementById('gradient-fill-controls'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                posXValue: document.getElementById('pos-x-value'), posYValue: document.getElementById('pos-y-value'), rotationValue: document.getElementById('rotation-value'), gradientAngleValue: document.getElementById('gradient-angle-value'), fillOpacityValue: document.getElementById('fill-opacity-value'), strokeOpacityValue: document.getElementById('stroke-opacity-value'), strokeWidthValue: document.getElementById('stroke-width-value')
             };
 
             let blobPath = '';
-
-            // MODIFIED: Added span elements for dynamic value display
             const controls = {
                 rectangle: `
                     <h3 class="font-medium text-white mb-3">Dimensions</h3>
                     <div class="space-y-2"><label for="rect-width" class="text-sm text-gray-400">Width (<span class="value-display">200</span>px)</label><input type="range" id="rect-width" value="200" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div>
                     <div class="space-y-2"><label for="rect-height" class="text-sm text-gray-400">Height (<span class="value-display">100</span>px)</label><input type="range" id="rect-height" value="100" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="rect-rx" class="text-sm text-gray-400">Corner Radius (<span class="value-display">10</span>px)</label><input type="range" id="rect-rx" min="0" max="50" value="10" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                circle: `
-                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
-                    <div class="space-y-2"><label for="circle-r" class="text-sm text-gray-400">Radius (<span class="value-display">60</span>px)</label><input type="range" id="circle-r" value="60" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                ellipse: `
-                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
-                    <div class="space-y-2"><label for="ellipse-rx" class="text-sm text-gray-400">Horizontal Radius (<span class="value-display">100</span>px)</label><input type="range" id="ellipse-rx" value="100" min="10" max="125" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="ellipse-ry" class="text-sm text-gray-400">Vertical Radius (<span class="value-display">50</span>px)</label><input type="range" id="ellipse-ry" value="50" min="10" max="125" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                triangle: `
-                    <h3 class="font-medium text-white mb-3">Properties</h3>
-                    <div class="space-y-2"><label for="triangle-r" class="text-sm text-gray-400">Radius (<span class="value-display">70</span>px)</label><input type="range" id="triangle-r" value="70" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                polygon: `
-                    <h3 class="font-medium text-white mb-3">Properties</h3>
-                    <div class="space-y-2"><label for="poly-sides" class="text-sm text-gray-400">Sides (<span class="value-display">6</span>)</label><input type="range" id="poly-sides" min="3" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="poly-r" class="text-sm text-gray-400">Radius (<span class="value-display">70</span>px)</label><input type="range" id="poly-r" value="70" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                star: `
-                    <h3 class="font-medium text-white mb-3">Properties</h3>
-                    <div class="space-y-2"><label for="star-points" class="text-sm text-gray-400">Points (<span class="value-display">5</span>)</label><input type="range" id="star-points" min="3" max="12" value="5" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="star-r1" class="text-sm text-gray-400">Outer Radius (<span class="value-display">80</span>px)</label><input type="range" id="star-r1" value="80" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="star-r2" class="text-sm text-gray-400">Inner Radius (<span class="value-display">40</span>px)</label><input type="range" id="star-r2" value="40" min="5" max="110" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                rhombus: `
-                    <h3 class="font-medium text-white mb-3">Dimensions</h3>
-                    <div class="space-y-2"><label for="rhombus-w" class="text-sm text-gray-400">Width (<span class="value-display">150</span>px)</label><input type="range" id="rhombus-w" value="150" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="rhombus-h" class="text-sm text-gray-400">Height (<span class="value-display">150</span>px)</label><input type="range" id="rhombus-h" value="150" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                `,
-                blob: `
-                    <h3 class="font-medium text-white mb-3">Properties</h3>
-                    <div class="space-y-2"><label for="blob-complexity" class="text-sm text-gray-400">Complexity (<span class="value-display">6</span>)</label><input type="range" id="blob-complexity" min="4" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <div class="space-y-2"><label for="blob-smoothness" class="text-sm text-gray-400">Randomness (<span class="value-display">0.7</span>)</label><input type="range" id="blob-smoothness" min="0.2" max="1" value="0.7" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg"></div>
-                    <button id="new-blob-btn" class="w-full mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg">Generate New Blob</button>
-                `
+                    <div class="space-y-2"><label for="rect-rx" class="text-sm text-gray-400">Corner Radius (<span class="value-display">10</span>px)</label><input type="range" id="rect-rx" min="0" max="50" value="10" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                circle: `<h3 class="font-medium text-white mb-3">Dimensions</h3><div class="space-y-2"><label for="circle-r" class="text-sm text-gray-400">Radius (<span class="value-display">60</span>px)</label><input type="range" id="circle-r" value="60" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                ellipse: `<h3 class="font-medium text-white mb-3">Dimensions</h3><div class="space-y-2"><label for="ellipse-rx" class="text-sm text-gray-400">Horizontal Radius (<span class="value-display">100</span>px)</label><input type="range" id="ellipse-rx" value="100" min="10" max="125" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="ellipse-ry" class="text-sm text-gray-400">Vertical Radius (<span class="value-display">50</span>px)</label><input type="range" id="ellipse-ry" value="50" min="10" max="125" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                triangle: `<h3 class="font-medium text-white mb-3">Properties</h3><div class="space-y-2"><label for="triangle-r" class="text-sm text-gray-400">Radius (<span class="value-display">70</span>px)</label><input type="range" id="triangle-r" value="70" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                polygon: `<h3 class="font-medium text-white mb-3">Properties</h3><div class="space-y-2"><label for="poly-sides" class="text-sm text-gray-400">Sides (<span class="value-display">6</span>)</label><input type="range" id="poly-sides" min="3" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="poly-r" class="text-sm text-gray-400">Radius (<span class="value-display">70</span>px)</label><input type="range" id="poly-r" value="70" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                star: `<h3 class="font-medium text-white mb-3">Properties</h3><div class="space-y-2"><label for="star-points" class="text-sm text-gray-400">Points (<span class="value-display">5</span>)</label><input type="range" id="star-points" min="3" max="12" value="5" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="star-r1" class="text-sm text-gray-400">Outer Radius (<span class="value-display">80</span>px)</label><input type="range" id="star-r1" value="80" min="10" max="120" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="star-r2" class="text-sm text-gray-400">Inner Radius (<span class="value-display">40</span>px)</label><input type="range" id="star-r2" value="40" min="5" max="110" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                rhombus: `<h3 class="font-medium text-white mb-3">Dimensions</h3><div class="space-y-2"><label for="rhombus-w" class="text-sm text-gray-400">Width (<span class="value-display">150</span>px)</label><input type="range" id="rhombus-w" value="150" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="rhombus-h" class="text-sm text-gray-400">Height (<span class="value-display">150</span>px)</label><input type="range" id="rhombus-h" value="150" min="10" max="250" class="w-full h-2 bg-gray-700 rounded-lg"></div>`,
+                blob: `<h3 class="font-medium text-white mb-3">Properties</h3><div class="space-y-2"><label for="blob-complexity" class="text-sm text-gray-400">Complexity (<span class="value-display">6</span>)</label><input type="range" id="blob-complexity" min="4" max="12" value="6" class="w-full h-2 bg-gray-700 rounded-lg"></div><div class="space-y-2"><label for="blob-smoothness" class="text-sm text-gray-400">Randomness (<span class="value-display">0.7</span>)</label><input type="range" id="blob-smoothness" min="0.2" max="1" value="0.7" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg"></div><button id="new-blob-btn" class="w-full mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg">Generate New Blob</button>`
             };
-
-            function updateShapeControls() {
-                const selectedShape = el.shapeSelect.value;
-                el.shapeControlsContainer.innerHTML = controls[selectedShape] || '';
-                attachDynamicListeners();
-                generateSvg();
-            }
-
+            function updateShapeControls() { const selectedShape = el.shapeSelect.value; el.shapeControlsContainer.innerHTML = controls[selectedShape] || ''; attachDynamicListeners(); generateSvg(); }
             function generateSvg() {
-                const shape = el.shapeSelect.value;
-                const fillType = el.fillTypeSelect.value;
-                const stroke = document.getElementById('stroke-color').value;
-                const strokeWidth = document.getElementById('stroke-width').value;
-                const fillOpacity = document.getElementById('fill-opacity').value;
-                const strokeOpacity = document.getElementById('stroke-opacity').value;
-                const posX = parseInt(document.getElementById('pos-x').value) || 0;
-                const posY = parseInt(document.getElementById('pos-y').value) || 0;
-                const rotationAngle = parseInt(document.getElementById('rotation-angle').value) || 0;
-                const scale = parseFloat(document.getElementById('scale-slider').value) || 1;
+                const shape = el.shapeSelect.value; const fillType = el.fillTypeSelect.value; const stroke = document.getElementById('stroke-color').value; const strokeWidth = document.getElementById('stroke-width').value; const fillOpacity = document.getElementById('fill-opacity').value; const strokeOpacity = document.getElementById('stroke-opacity').value; const posX = parseInt(document.getElementById('pos-x').value) || 0; const posY = parseInt(document.getElementById('pos-y').value) || 0; const rotationAngle = parseInt(document.getElementById('rotation-angle').value) || 0; const scale = parseFloat(document.getElementById('scale-slider').value) || 1;
                 let svgElement = '', defs = '', fill;
-
-                if (fillType === 'gradient') {
-                    const color1 = document.getElementById('gradient-color-1').value;
-                    const color2 = document.getElementById('gradient-color-2').value;
-                    const angle = parseInt(document.getElementById('gradient-angle').value);
-                    const angleRad = (angle - 90) * (Math.PI / 180);
-                    const x1 = Math.round(50 + Math.cos(angleRad) * 50) + '%';
-                    const y1 = Math.round(50 + Math.sin(angleRad) * 50) + '%';
-                    const x2 = Math.round(50 - Math.cos(angleRad) * 50) + '%';
-                    const y2 = Math.round(50 - Math.sin(angleRad) * 50) + '%';
-
-                    defs = `<defs><linearGradient id="soliteGradient" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"><stop offset="0%" stop-color="${color1}" /><stop offset="100%" stop-color="${color2}" /></linearGradient></defs>`;
-                    fill = 'url(#soliteGradient)';
-                } else {
-                    fill = document.getElementById('fill-color')?.value || '#ffffff';
-                }
-
-                const viewBox = '0 0 250 250';
-                let transform = `translate(${posX} ${posY}) rotate(${rotationAngle} 125 125) scale(${scale})`;
-                
-                // For shapes drawn from center, apply translation in cx/cy. For others (rect), apply in transform.
-                const centerTransform = `rotate(${rotationAngle} 125 125) scale(${scale})`;
-                const rectTransform = `rotate(${rotationAngle} ${(250 / 2)} ${(250 / 2)})`;
-
+                if (fillType === 'gradient') { const color1 = document.getElementById('gradient-color-1').value; const color2 = document.getElementById('gradient-color-2').value; const angle = parseInt(document.getElementById('gradient-angle').value); const angleRad = (angle - 90) * (Math.PI / 180); const x1 = Math.round(50 + Math.cos(angleRad) * 50) + '%'; const y1 = Math.round(50 + Math.sin(angleRad) * 50) + '%'; const x2 = Math.round(50 - Math.cos(angleRad) * 50) + '%'; const y2 = Math.round(50 - Math.sin(angleRad) * 50) + '%'; defs = `<defs><linearGradient id="soliteGradient" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"><stop offset="0%" stop-color="${color1}" /><stop offset="100%" stop-color="${color2}" /></linearGradient></defs>`; fill = 'url(#soliteGradient)'; } else { fill = document.getElementById('fill-color')?.value || '#ffffff'; }
+                const viewBox = '0 0 250 250'; let transform = `translate(${posX} ${posY}) rotate(${rotationAngle} 125 125) scale(${scale})`;
+                const centerTransform = `rotate(${rotationAngle} 125 125) scale(${scale})`; const rectTransform = `rotate(${rotationAngle} ${(250 / 2)} ${(250 / 2)})`;
                 switch (shape) {
-                    case 'rectangle':
-                        const w = parseInt(document.getElementById('rect-width').value);
-                        const h = parseInt(document.getElementById('rect-height').value);
-                        const rx = parseInt(document.getElementById('rect-rx').value);
-                        svgElement = `<rect x="${(250 - w)/2 + posX}" y="${(250 - h)/2 + posY}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="scale(${scale}) ${rectTransform}" />`;
-                        break;
-                    case 'circle':
-                        const r = parseInt(document.getElementById('circle-r').value);
-                        svgElement = `<circle cx="${125 + posX}" cy="${125 + posY}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${centerTransform}" />`;
-                        break;
-                    case 'ellipse':
-                        const rx_ellipse = parseInt(document.getElementById('ellipse-rx').value);
-                        const ry_ellipse = parseInt(document.getElementById('ellipse-ry').value);
-                        svgElement = `<ellipse cx="${125 + posX}" cy="${125 + posY}" rx="${rx_ellipse}" ry="${ry_ellipse}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${centerTransform}" />`;
-                        break;
-                    case 'blob':
-                        if (!blobPath) generateBlobPath();
-                        svgElement = `<path d="${blobPath}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`;
-                        break;
-                    case 'rhombus':
-                        const rhomW = parseInt(document.getElementById('rhombus-w').value);
-                        const rhomH = parseInt(document.getElementById('rhombus-h').value);
-                        const rhomPoints = `${125}, ${125-rhomH/2} ${125+rhomW/2},${125} ${125},${125+rhomH/2} ${125-rhomW/2},${125}`;
-                        svgElement = `<polygon points="${rhomPoints}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`;
-                        break;
-                    case 'triangle': case 'polygon': case 'star':
-                        const points = [];
-                        const sides = shape === 'triangle' ? 3 : parseInt(document.getElementById(shape === 'polygon' ? 'poly-sides' : 'star-points').value);
-                        const r1 = parseInt(document.getElementById(shape === 'triangle' ? 'triangle-r' : (shape === 'polygon' ? 'poly-r' : 'star-r1')).value);
-                        const r2 = shape === 'star' ? parseInt(document.getElementById('star-r2').value) : r1;
-                        const angleStep = (Math.PI * 2) / (shape === 'star' ? sides * 2 : sides);
-                        for (let i = 0; i < (shape === 'star' ? sides * 2 : sides); i++) {
-                            const currentRadius = (shape === 'star' && i % 2 !== 0) ? r2 : r1;
-                            const x = 125 + currentRadius * Math.cos(i * angleStep - Math.PI / 2);
-                            const y = 125 + currentRadius * Math.sin(i * angleStep - Math.PI / 2);
-                            points.push(`${x},${y}`);
-                        }
-                        svgElement = `<polygon points="${points.join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`;
-                        break;
+                    case 'rectangle': const w = parseInt(document.getElementById('rect-width').value); const h = parseInt(document.getElementById('rect-height').value); const rx = parseInt(document.getElementById('rect-rx').value); svgElement = `<rect x="${(250 - w)/2 + posX}" y="${(250 - h)/2 + posY}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="scale(${scale}) ${rectTransform}" />`; break;
+                    case 'circle': const r = parseInt(document.getElementById('circle-r').value); svgElement = `<circle cx="${125 + posX}" cy="${125 + posY}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${centerTransform}" />`; break;
+                    case 'ellipse': const rx_ellipse = parseInt(document.getElementById('ellipse-rx').value); const ry_ellipse = parseInt(document.getElementById('ellipse-ry').value); svgElement = `<ellipse cx="${125 + posX}" cy="${125 + posY}" rx="${rx_ellipse}" ry="${ry_ellipse}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${centerTransform}" />`; break;
+                    case 'blob': if (!blobPath) generateBlobPath(); svgElement = `<path d="${blobPath}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`; break;
+                    case 'rhombus': const rhomW = parseInt(document.getElementById('rhombus-w').value); const rhomH = parseInt(document.getElementById('rhombus-h').value); const rhomPoints = `${125}, ${125-rhomH/2} ${125+rhomW/2},${125} ${125},${125+rhomH/2} ${125-rhomW/2},${125}`; svgElement = `<polygon points="${rhomPoints}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`; break;
+                    case 'triangle': case 'polygon': case 'star': const points = []; const sides = shape === 'triangle' ? 3 : parseInt(document.getElementById(shape === 'polygon' ? 'poly-sides' : 'star-points').value); const r1 = parseInt(document.getElementById(shape === 'triangle' ? 'triangle-r' : (shape === 'polygon' ? 'poly-r' : 'star-r1')).value); const r2 = shape === 'star' ? parseInt(document.getElementById('star-r2').value) : r1; const angleStep = (Math.PI * 2) / (shape === 'star' ? sides * 2 : sides); for (let i = 0; i < (shape === 'star' ? sides * 2 : sides); i++) { const currentRadius = (shape === 'star' && i % 2 !== 0) ? r2 : r1; const x = 125 + currentRadius * Math.cos(i * angleStep - Math.PI / 2); const y = 125 + currentRadius * Math.sin(i * angleStep - Math.PI / 2); points.push(`${x},${y}`); } svgElement = `<polygon points="${points.join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" fill-opacity="${fillOpacity}" stroke-opacity="${strokeOpacity}" transform="${transform}" />`; break;
                 }
                 const finalSvg = `<svg width="100%" height="100%" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" overflow="visible">${defs}${svgElement}</svg>`;
-                el.svgPreview.innerHTML = finalSvg;
-                el.svgCodeOutput.value = finalSvg;
+                el.svgPreview.innerHTML = finalSvg; el.svgCodeOutput.value = finalSvg;
             }
-
-            // MODIFIED: Improved blob generation logic for more organic shapes
             function generateBlobPath() {
-                const complexity = parseInt(document.getElementById('blob-complexity').value);
-                const randomness = parseFloat(document.getElementById('blob-smoothness').value);
-                const radius = 100;
-                const points = [];
-
-                for (let i = 0; i < complexity; i++) {
-                    const angle = (i / complexity) * Math.PI * 2;
-                    const r = radius * (1 + (Math.random() - 0.5) * (1 - randomness));
-                    points.push({ x: 125 + Math.cos(angle) * r, y: 125 + Math.sin(angle) * r });
-                }
-
-                // Helper to create a smooth curve through points
-                const spline = (points, tension = 1) => {
-                    let path = `M ${points[0].x} ${points[0].y}`;
-                    for (let i = 0; i < points.length; i++) {
-                        const p0 = points[(i - 1 + points.length) % points.length];
-                        const p1 = points[i];
-                        const p2 = points[(i + 1) % points.length];
-                        const p3 = points[(i + 2) % points.length];
-
-                        const cp1x = p1.x + (p2.x - p0.x) / 6 * tension;
-                        const cp1y = p1.y + (p2.y - p0.y) / 6 * tension;
-                        const cp2x = p2.x - (p3.x - p1.x) / 6 * tension;
-                        const cp2y = p2.y - (p3.y - p1.y) / 6 * tension;
-                        path += ` C ${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`;
-                    }
-                    return path;
-                };
-
+                const complexity = parseInt(document.getElementById('blob-complexity').value); const randomness = parseFloat(document.getElementById('blob-smoothness').value); const radius = 100; const points = [];
+                for (let i = 0; i < complexity; i++) { const angle = (i / complexity) * Math.PI * 2; const r = radius * (1 + (Math.random() - 0.5) * (1 - randomness)); points.push({ x: 125 + Math.cos(angle) * r, y: 125 + Math.sin(angle) * r }); }
+                const spline = (points, tension = 1) => { let path = `M ${points[0].x} ${points[0].y}`; for (let i = 0; i < points.length; i++) { const p0 = points[(i - 1 + points.length) % points.length]; const p1 = points[i]; const p2 = points[(i + 1) % points.length]; const p3 = points[(i + 2) % points.length]; const cp1x = p1.x + (p2.x - p0.x) / 6 * tension; const cp1y = p1.y + (p2.y - p0.y) / 6 * tension; const cp2x = p2.x - (p3.x - p1.x) / 6 * tension; const cp2y = p2.y - (p3.y - p1.y) / 6 * tension; path += ` C ${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`; } return path; };
                 blobPath = spline(points);
             }
-
-            function attachDynamicListeners() {
-                const newBlobBtn = document.getElementById('new-blob-btn');
-                if (newBlobBtn) {
-                    newBlobBtn.addEventListener('click', () => { generateBlobPath(); generateSvg(); });
-                }
-            }
-
-            function showToast(message) {
-                el.toast.textContent = message;
-                el.toast.classList.add('show');
-                setTimeout(() => el.toast.classList.remove('show'), 2000);
-            }
-
-            el.copyCodeBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(el.svgCodeOutput.value).then(() => showToast('Code copied!'));
-            });
-
-            el.downloadBtn.addEventListener('click', () => {
-                const blob = new Blob([el.svgCodeOutput.value], { type: 'image/svg+xml' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `${shapeSelect.value}.svg`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            });
-
+            function attachDynamicListeners() { const newBlobBtn = document.getElementById('new-blob-btn'); if (newBlobBtn) { newBlobBtn.addEventListener('click', () => { generateBlobPath(); generateSvg(); }); } }
+            function showToast(message) { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); }
+            el.copyCodeBtn.addEventListener('click', () => { navigator.clipboard.writeText(el.svgCodeOutput.value).then(() => showToast('Code copied!')); });
+            el.downloadBtn.addEventListener('click', () => { const blob = new Blob([el.svgCodeOutput.value], { type: 'image/svg+xml' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `${shapeSelect.value}.svg`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); });
             el.controlsPane.addEventListener('input', (e) => {
                 if (!e.target.matches('input, select')) return;
-
-                // Update dynamic value displays
-                const display = e.target.previousElementSibling?.querySelector('.value-display');
-                if (display) display.textContent = e.target.value;
-
+                const display = e.target.previousElementSibling?.querySelector('.value-display'); if (display) display.textContent = e.target.value;
                 switch (e.target.id) {
                     case 'scale-slider': el.scaleLabel.textContent = Math.round(e.target.value * 100); break;
                     case 'pos-x': el.posXValue.textContent = e.target.value; break;
@@ -557,59 +283,22 @@
                     case 'fill-opacity': el.fillOpacityValue.textContent = e.target.value; break;
                     case 'stroke-opacity': el.strokeOpacityValue.textContent = e.target.value; break;
                     case 'stroke-width': el.strokeWidthValue.textContent = e.target.value; break;
-                    case 'fill-type':
-                        const isSolid = e.target.value === 'solid';
-                        el.solidColorControls.classList.toggle('hidden', !isSolid);
-                        el.gradientFillControls.classList.toggle('hidden', isSolid);
-                        break;
+                    case 'fill-type': const isSolid = e.target.value === 'solid'; el.solidColorControls.classList.toggle('hidden', !isSolid); el.gradientFillControls.classList.toggle('hidden', isSolid); break;
                 }
                 generateSvg();
             });
-
             el.shapeSelect.addEventListener('change', updateShapeControls);
-
-            // --- Mobile Navigation Logic ---
             function showMobilePane(paneId) {
-                if (paneId === 'preview') {
-                    el.previewPane.classList.remove('hidden');
-                    el.previewPane.classList.add('flex');
-                    el.controlsPane.classList.add('hidden');
-                    el.mobilePreviewBtn.classList.add('active');
-                    el.mobileControlsBtn.classList.remove('active');
-                } else { // 'controls'
-                    el.previewPane.classList.add('hidden');
-                    el.previewPane.classList.remove('flex');
-                    el.controlsPane.classList.remove('hidden');
-                    el.controlsPane.classList.add('flex');
-                    el.mobilePreviewBtn.classList.remove('active');
-                    el.mobileControlsBtn.classList.add('active');
-                }
+                if (paneId === 'preview') { el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex'); el.controlsPane.classList.add('hidden'); el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active'); } 
+                else { el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active'); }
             }
-
             function handleMobileLayout() {
-                if (window.innerWidth < 1024) {
-                    if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
-                        showMobilePane('preview');
-                    } else if (el.mobilePreviewBtn.classList.contains('active')) {
-                        showMobilePane('preview');
-                    } else {
-                        showMobilePane('controls');
-                    }
-                } else {
-                    el.previewPane.classList.remove('hidden');
-                    el.previewPane.classList.add('flex');
-                    el.controlsPane.classList.remove('hidden');
-                    el.controlsPane.classList.add('flex');
-                    el.mobilePreviewBtn.classList.remove('active');
-                    el.mobileControlsBtn.classList.remove('active');
-                }
+                if (window.innerWidth < 1024) { if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); } else if (el.mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } else { showMobilePane('controls'); } } 
+                else { el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex'); el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active'); }
             }
-
             el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
             el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
             window.addEventListener('resize', handleMobileLayout);
-
-            // Initial setup
             updateShapeControls();
             handleMobileLayout();
         });

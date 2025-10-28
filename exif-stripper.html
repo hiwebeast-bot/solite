@@ -33,7 +33,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
@@ -87,7 +87,7 @@
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- MODIFIED: Header updated to mobile-first version -->
+    <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
@@ -110,11 +110,9 @@
     </header>
 
     <!-- Main Content Area -->
-    <!-- MODIFIED: Added relative, min-h-0, and correct height calculation -->
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-        <!-- MODIFIED: Added pb-16 for mobile nav, min-h-0 -->
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <!-- MODIFIED: Wrapped in preview-pane, added overflow-auto -->
+            <!-- Preview Pane -->
             <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
                 <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-auto">
                     <div id="upload-prompt" class="text-center cursor-pointer p-8">
@@ -123,16 +121,15 @@
                         <p class="mt-2 text-lg font-medium text-white">Drop an image or click to upload</p>
                         <p class="mt-1 text-sm text-gray-400">Your image stays on your device. Supports JPG/JPEG.</p>
                     </div>
-                    <canvas id="image-canvas" class="hidden"></canvas>
+                    <canvas id="image-canvas" class="hidden max-w-full h-auto object-contain"></canvas>
                     <input type="file" id="image-upload" class="hidden" accept="image/jpeg, image/tiff">
                 </div>
             </div>
 
             <!-- Controls Panel -->
-            <!-- MODIFIED: Added flex flex-col for proper scrolling -->
-            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
                 <h3 class="text-xl font-bold text-white flex-shrink-0">EXIF Remover &amp; Editor</h3>
-                <div id="main-controls" class="hidden space-y-6 flex-grow min-h-0 overflow-y-auto pr-2 mt-6">
+                <div id="main-controls" class="hidden space-y-6 flex-grow min-h-0 overflow-y-auto pr-2 mt-6 pb-16 lg:pb-6">
                     <div class="space-y-2">
                         <label class="font-medium">Action</label>
                         <div class="flex items-center justify-center bg-gray-800 rounded-lg p-1">
@@ -166,7 +163,7 @@
             <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
         </aside>
 
-        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <!-- Mobile/Tablet Navigation Bar -->
         <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
                 <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
@@ -181,7 +178,7 @@
         </div>
     </main>
 
-    <!-- MODIFIED: Footer hidden on mobile -->
+    <!-- Footer hidden on mobile -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -211,8 +208,6 @@
             const exifEditor = document.getElementById('exif-editor');
             const singleImageExifContainer = document.getElementById('single-image-exif-container');
             const singleImageExifList = document.getElementById('single-image-exif-list');
-
-            // Mobile Nav Elements
             const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
             const mobileControlsBtn = document.getElementById('mobile-controls-btn');
             const previewPane = document.getElementById('preview-pane');
@@ -249,22 +244,20 @@
                     uploadPrompt.classList.add('hidden');
                     mainControls.classList.remove('hidden');
                     controlsPrompt.classList.add('hidden');
-                    controlsPrompt.classList.remove('flex'); // Ensure flex is removed
+                    controlsPrompt.classList.remove('flex');
                     downloadBtn.disabled = false;
                     removeImageBtn.classList.remove('hidden');
                     canvas.classList.remove('hidden');
-
                     const ctx = canvas.getContext('2d');
                     canvas.width = originalImage.width;
                     canvas.height = originalImage.height;
                     ctx.drawImage(originalImage, 0, 0);
-
                 } else {
                     originalImage = null; originalDataUrl = null; originalFileName = '';
                     uploadPrompt.classList.remove('hidden');
                     mainControls.classList.add('hidden');
                     controlsPrompt.classList.remove('hidden');
-                    controlsPrompt.classList.add('flex'); // Add flex back
+                    controlsPrompt.classList.add('flex');
                     imageUpload.value = '';
                     canvas.classList.add('hidden');
                     singleImageExifContainer.classList.add('hidden');
@@ -282,7 +275,7 @@
                 singleImageExifContainer.classList.remove('hidden');
                 if (exifData && Object.keys(exifData).length > 0) {
                     singleImageExifList.innerHTML = Object.entries(exifData).map(([key, val]) => 
-                        `<div class="flex justify-between"><span class="text-gray-400 pr-4">${key}</span> <span class="text-right truncate">${val}</span></div>`
+                        `<div class="flex justify-between"><span class="text-gray-400 pr-4">${key}</span> <span class="text-right truncate">${String(val)}</span></div>`
                     ).join('');
                 } else {
                     singleImageExifList.innerHTML = '<p class="text-gray-400">No EXIF data found in this image.</p>';
@@ -297,17 +290,15 @@
 
             downloadBtn.addEventListener('click', () => {
                 if (!originalImage) return;
-                
                 const baseName = originalFileName.substring(0, originalFileName.lastIndexOf('.'));
                 let finalDataUrl;
-
                 if (action === 'strip') {
                     const tempCanvas = document.createElement('canvas');
                     tempCanvas.width = originalImage.width;
                     tempCanvas.height = originalImage.height;
                     tempCanvas.getContext('2d').drawImage(originalImage, 0, 0);
                     finalDataUrl = tempCanvas.toDataURL('image/jpeg', 0.95);
-                } else { // Edit EXIF
+                } else {
                     try {
                         const exifObj = piexif.load(originalDataUrl);
                         exifObj["0th"][piexif.ImageIFD.Artist] = document.getElementById('exif-artist').value;
@@ -324,22 +315,18 @@
                         return;
                     }
                 }
-                
                 const link = document.createElement('a');
                 link.href = finalDataUrl;
                 link.download = `${baseName}-${action}.jpg`;
                 link.click();
             });
 
-            removeImageBtn.addEventListener('click', updateUI); // Pass no args to trigger reset
+            removeImageBtn.addEventListener('click', () => updateUI());
 
             actionBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     action = btn.dataset.action;
-                    actionBtns.forEach(b => {
-                        b.classList.remove('bg-white', 'text-black', 'font-bold');
-                        b.classList.add('text-gray-400', 'font-medium');
-                    });
+                    actionBtns.forEach(b => { b.classList.remove('bg-white', 'text-black', 'font-bold'); b.classList.add('text-gray-400', 'font-medium'); });
                     btn.classList.add('bg-white', 'text-black', 'font-bold');
                     btn.classList.remove('text-gray-400', 'font-medium');
                     exifEditor.classList.toggle('hidden', action !== 'edit');
@@ -347,40 +334,27 @@
                 });
             });
             
-            // --- Mobile Navigation Logic ---
             function showMobilePane(paneId) {
                 if (paneId === 'preview') {
-                    previewPane.classList.remove('hidden');
-                    previewPane.classList.add('flex');
+                    previewPane.classList.remove('hidden'); previewPane.classList.add('flex');
                     controlsPane.classList.add('hidden');
-                    mobilePreviewBtn.classList.add('active');
-                    mobileControlsBtn.classList.remove('active');
-                } else { // 'controls'
-                    previewPane.classList.add('hidden');
-                    previewPane.classList.remove('flex');
-                    controlsPane.classList.remove('hidden');
-                    controlsPane.classList.add('flex');
-                    mobilePreviewBtn.classList.remove('active');
-                    mobileControlsBtn.classList.add('active');
+                    mobilePreviewBtn.classList.add('active'); mobileControlsBtn.classList.remove('active');
+                } else {
+                    previewPane.classList.add('hidden'); previewPane.classList.remove('flex');
+                    controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active'); mobileControlsBtn.classList.add('active');
                 }
             }
 
             function handleMobileLayout() {
                 if (window.innerWidth < 1024) {
-                    if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
-                        showMobilePane('preview');
-                    } else if (mobilePreviewBtn.classList.contains('active')) {
-                        showMobilePane('preview');
-                    } else {
-                        showMobilePane('controls');
-                    }
+                    if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) { showMobilePane('preview'); } 
+                    else if (mobilePreviewBtn.classList.contains('active')) { showMobilePane('preview'); } 
+                    else { showMobilePane('controls'); }
                 } else {
-                    previewPane.classList.remove('hidden');
-                    previewPane.classList.add('flex');
-                    controlsPane.classList.remove('hidden');
-                    controlsPane.classList.add('flex');
-                    mobilePreviewBtn.classList.remove('active');
-                    mobileControlsBtn.classList.remove('active');
+                    previewPane.classList.remove('hidden'); previewPane.classList.add('flex');
+                    controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active'); mobileControlsBtn.classList.remove('active');
                 }
             }
 
@@ -388,7 +362,6 @@
             mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
             window.addEventListener('resize', handleMobileLayout);
 
-            // Initial setup
             handleMobileLayout();
         });
     </script>

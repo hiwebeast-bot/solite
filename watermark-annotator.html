@@ -5,24 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Optimized Title -->
     <title>Free Image Watermarker & Annotator Tool | Draw, Text, Logos | Solite</title>
-    <!-- MODIFIED: Optimized Description -->
     <meta name="description" content="Add watermarks (text/image) and annotations (draw, shapes) to your images online with Solite's free tool. Works directly in your browser. 100% private and secure.">
-    <!-- MODIFIED: Expanded Keywords -->
     <meta name="keywords" content="image watermarker, image annotator, add watermark to photo, add text to image, draw on image, online annotation tool, free watermarker, solite">
     <link rel="canonical" href="https://solite.in/watermark-annotator.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-     <!-- MODIFIED: Optimized OG Title -->
     <meta property="og:title" content="Free Image Watermarker & Annotator Tool | Solite">
-     <!-- MODIFIED: Optimized OG Description -->
     <meta property="og:description" content="Use our free online tool to watermark and annotate images. Draw, add text, shapes, and place image logos directly in your browser. 100% private.">
     <meta property="og:url" content="https://solite.in/watermark-annotator.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://solite.in/assets/watermark-annotator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
@@ -33,13 +29,11 @@
     </script>
     <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
+    <!-- Core Libraries -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Removed duplicate font load -->
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -54,24 +48,10 @@
       "url": "https://solite.in/watermark-annotator.html",
       "description": "A free, client-side tool to add watermarks and annotations like text, shapes, and drawings to images.",
       "applicationCategory": "MultimediaApplication",
-      "featureList": [
-        "Add text watermarks with customizable font, size, color, and opacity",
-        "Add image watermarks with adjustable size and opacity",
-        "Freehand drawing with pencil tool (customizable color and size)",
-        "Draw shapes (rectangle, circle, triangle) with customizable color and size",
-        "Undo/Redo functionality",
-        "Download annotated images (PNG format)",
-        "Client-side processing for privacy"
-      ],
-      "softwareVersion": "1.0",
+      "featureList": [ "Add text watermarks", "Add image watermarks", "Freehand drawing", "Draw shapes", "Undo/Redo functionality", "Download annotated images", "Client-side processing for privacy" ],
       "offers": { "@type": "Offer", "price": "0" },
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
     }
     </script>
 
@@ -97,31 +77,24 @@
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
         input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
         .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer */
-        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
         html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
-
         .tool-btn.active { background-color: #fff; color: #000; }
-        .layer-item.selected { background-color: #374151; } /* gray-700 */
+        .layer-item.selected { background-color: #374151; }
         .tab-btn { border-bottom: 2px solid transparent; color: #9ca3af; }
         .tab-btn.active { border-color: #fff; color: #fff; }
-        .canvas-container { margin: auto; } /* Center fabric.js canvas */
-
-        /* ADDED: Mobile Nav Styles */
+        .canvas-container { margin: auto; }
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
-
-        /* Ensure canvas container respects parent height */
         #canvas-pane > div { height: 100%; }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Removed mobile viewport height JS fix -->
-
-    <!-- MODIFIED: Header updated to mobile-first version -->
+    <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
              <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
@@ -146,21 +119,15 @@
     </header>
 
     <!-- Main Content Area -->
-     <!-- MODIFIED: Added relative, min-h-0 -->
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-         <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-             <!-- MODIFIED: Added screen-reader only H1 -->
             <h1 class="sr-only">Free Online Image Watermarker & Annotator Tool</h1>
             
             <!-- Canvas Pane -->
-            <!-- MODIFIED: Wrapped canvas in canvas-pane, added overflow-auto -->
             <div id="canvas-pane" class="flex-1 flex flex-col min-h-0 overflow-auto bg-gray-900 rounded-xl border-2 border-dashed border-gray-700">
                 <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center relative min-h-0">
                     <div id="upload-prompt" class="text-center cursor-pointer p-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                         <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
                         <p class="mt-1 text-sm text-gray-400">Your images stay on your device.</p>
                     </div>
@@ -175,27 +142,17 @@
 
 
             <!-- Controls Panel -->
-             <!-- MODIFIED: Added id="tools-pane", lg:block, flex flex-col, overflow-y-auto -->
-            <aside id="tools-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto" aria-labelledby="controls-heading">
+            <aside id="tools-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
                 <div class="flex justify-between items-center flex-shrink-0">
                     <h3 id="controls-heading-label" class="text-xl font-bold text-white">Image Watermarker & Annotator</h3>
                     <div class="flex items-center space-x-2">
-                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-lg p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
-                            </svg>
-                        </button>
-                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
-                            </svg>
-                        </button>
+                        <button id="undo-btn" title="Undo" class="text-gray-400 hover:text-white bg-gray-700 rounded-lg p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg></button>
+                        <button id="redo-btn" title="Redo" class="text-gray-400 hover:text-white bg-gray-700 rounded-md p-2 leading-none disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg></button>
                     </div>
                 </div>
-                 <!-- MODIFIED: Added flex-grow, min-h-0 for scrollable content -->
-                <div id="main-controls" class="hidden space-y-6 flex-grow min-h-0 overflow-y-auto pr-2">
+                <div id="main-controls" class="hidden flex-grow min-h-0 overflow-y-auto pr-2 space-y-6 pb-16 lg:pb-6">
                     <!-- Tabs -->
-                    <div class="border-b border-gray-800 sticky top-0 bg-gray-900 z-10"> <!-- Make tabs sticky within controls -->
+                    <div class="border-b border-gray-800 sticky top-0 bg-gray-900 z-10">
                         <div class="flex -mb-px" aria-label="Tabs">
                             <button class="tab-btn active text-sm font-medium py-3 px-4" data-tab="text">Text</button>
                             <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="image">Image</button>
@@ -203,9 +160,8 @@
                             <button class="tab-btn text-sm font-medium py-3 px-4" data-tab="shapes">Shapes</button>
                         </div>
                     </div>
-
                     <!-- Tab Content -->
-                    <div id="tab-contents" class="pt-4"> <!-- Add padding top to prevent overlap with sticky tabs -->
+                    <div id="tab-contents" class="pt-4">
                         <div id="text-tab" class="tab-content space-y-4">
                             <h4 class="font-semibold text-gray-200">Text Watermark</h4>
                             <input type="text" id="watermark-text" placeholder="Your watermark text..." aria-label="Watermark Text" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
@@ -213,7 +169,6 @@
                             <label class="block"><span class="text-sm">Opacity (<span class="value-display" data-target="watermark-opacity">0.70</span>)</span><input type="range" id="watermark-opacity" min="0" max="1" value="0.7" step="0.05" aria-label="Watermark Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
                             <input type="color" id="watermark-color" value="#ffffff" aria-label="Watermark Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
                         </div>
-
                         <div id="image-tab" class="tab-content hidden space-y-4">
                             <h4 class="font-semibold text-gray-200">Image Watermark</h4>
                             <input type="file" id="watermark-upload-input" class="hidden" aria-label="Image watermark upload" accept="image/png, image/jpeg, image/webp">
@@ -223,90 +178,54 @@
                                 <label class="block"><span class="text-sm">Opacity (<span class="value-display" data-target="image-watermark-opacity">1.00</span>)</span><input type="range" id="image-watermark-opacity" min="0" max="1" value="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
                             </div>
                         </div>
-
                         <div id="pencil-tab" class="tab-content hidden space-y-4">
                             <h4 class="font-semibold text-gray-200">Pencil Tool</h4>
                             <div class="grid grid-cols-2 gap-4">
-                                <div class="space-y-2">
-                                    <label for="pencil-color" class="text-sm">Pencil Color</label>
-                                    <input type="color" id="pencil-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                                </div>
-                                <div class="space-y-2">
-                                    <label for="pencil-size" class="text-sm">Pencil Width (<span class="value-display" data-target="pencil-size">5</span>)</label>
-                                    <input type="range" id="pencil-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2">
-                                </div>
+                                <div class="space-y-2"><label for="pencil-color" class="text-sm">Pencil Color</label><input type="color" id="pencil-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                                <div class="space-y-2"><label for="pencil-size" class="text-sm">Pencil Width (<span class="value-display" data-target="pencil-size">5</span>)</label><input type="range" id="pencil-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2"></div>
                             </div>
                         </div>
-
                         <div id="shapes-tab" class="tab-content hidden space-y-4">
                             <h4 class="font-semibold text-gray-200">Shapes Tool</h4>
                              <div class="grid grid-cols-4 gap-2 p-1 bg-gray-800 rounded-lg">
                                 <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700 active" data-tool="rectangle" title="Rectangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z"></path></svg></button>
                                 <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="circle" title="Circle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
                                 <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="triangle" title="Triangle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L2 21h20L12 2z"></path></svg></button>
-                                <!-- Add Select Tool Button -->
-                                 <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="select" title="Select Tool"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2.5M7 11.5h6M7 11.5a1.5 1.5 0 01-3 0V9a1.5 1.5 0 013 0m0 2.5a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5v-6a1.5 1.5 0 013 0m0 6a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5a1.5 1.5 0 013 0m0 6.5h-9" /></svg></button>
+                                <button class="tool-btn p-2 rounded-md flex justify-center items-center bg-gray-700" data-tool="select" title="Select Tool"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2.5M7 11.5h6M7 11.5a1.5 1.5 0 01-3 0V9a1.5 1.5 0 013 0m0 2.5a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5v-6a1.5 1.5 0 013 0m0 6a1.5 1.5 0 003 0V9a1.5 1.5 0 00-3 0m0 9.5V14m0-2.5a1.5 1.5 0 013 0m0 6.5h-9" /></svg></button>
                             </div>
                             <div class="grid grid-cols-2 gap-4">
-                                <div class="space-y-2">
-                                    <label for="shape-color" class="text-sm">Shape Stroke Color</label>
-                                    <input type="color" id="shape-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
-                                </div>
-                                <div class="space-y-2">
-                                    <label for="shape-size" class="text-sm">Stroke Width (<span class="value-display" data-target="shape-size">5</span>)</label>
-                                    <input type="range" id="shape-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2">
-                                </div>
+                                <div class="space-y-2"><label for="shape-color" class="text-sm">Shape Stroke Color</label><input type="color" id="shape-color" value="#ff0000" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></div>
+                                <div class="space-y-2"><label for="shape-size" class="text-sm">Stroke Width (<span class="value-display" data-target="shape-size">5</span>)</label><input type="range" id="shape-size" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer mt-2"></div>
                             </div>
                         </div>
                     </div>
-
                     <!-- Export -->
-                    <div class="space-y-4 border-t border-gray-800 pt-4 flex-shrink-0"> <!-- Added flex-shrink-0 -->
+                    <div class="space-y-4 border-t border-gray-800 pt-4 flex-shrink-0">
                         <h4 class="font-semibold text-gray-200">Export</h4>
-                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
-                            <span>Download Image</span>
-                        </button>
-                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg">Remove Image</button> <!-- Changed from remove-image-btn -->
+                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg><span>Download Image</span></button>
+                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg">Remove Image</button>
                     </div>
                 </div>
                 <p id="controls-prompt" class="text-gray-500 text-center flex-shrink-0" aria-live="polite">Upload an image to start.</p>
             </aside>
         </div>
         <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
-            </div>
-        </aside>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
 
-        <!-- ADDED: Mobile/Tablet Navigation Bar -->
+        <!-- Mobile/Tablet Navigation Bar -->
         <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
-                <button id="mobile-canvas-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <span>Canvas</span>
-                </button>
-                <button id="mobile-tools-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
-                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
-                    <span>Tools</span>
-                </button>
+                <button id="mobile-canvas-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><span>Canvas</span></button>
+                <button id="mobile-tools-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg><span>Tools</span></button>
             </div>
         </div>
     </main>
 
-    <!-- MODIFIED: Footer hidden on mobile -->
+    <!-- Footer -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
-                <span>© 2024 Solite. All Rights Reserved.</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
-            </div>
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>© 2024 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a><a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
         </div>
     </footer>
 
@@ -315,887 +234,58 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // DOM Elements
-            const uploadPrompt = document.getElementById('upload-prompt');
-            const imageUpload = document.getElementById('image-upload');
-            const canvasContainer = document.getElementById('canvas-container'); // Container div
-            const canvasPane = document.getElementById('canvas-pane'); // Outer scrollable pane
-            const canvasElement = document.getElementById('canvas');
-            const mainControls = document.getElementById('main-controls');
-            const controlsPrompt = document.getElementById('controls-prompt');
-            const downloadBtn = document.getElementById('download-btn');
-            const resetBtn = document.getElementById('reset-btn');
-            const removeImageBtn = document.getElementById('remove-image-btn');
-            const toast = document.getElementById('toast');
-
-            // Tab controls
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            const toolBtns = document.querySelectorAll('.tool-btn'); // Shape tool buttons
-
-            // Undo/Redo
-            const undoBtn = document.getElementById('undo-btn');
-            const redoBtn = document.getElementById('redo-btn');
-
-            // Watermark controls
-            const watermarkText = document.getElementById('watermark-text');
-            const watermarkSize = document.getElementById('watermark-size');
-            const watermarkOpacity = document.getElementById('watermark-opacity');
-            const watermarkColor = document.getElementById('watermark-color');
-            const watermarkUploadInput = document.getElementById('watermark-upload-input');
-            const uploadWatermarkBtn = document.getElementById('upload-watermark-btn');
-            const imageWatermarkSliders = document.getElementById('image-watermark-sliders');
-            const imageWatermarkSize = document.getElementById('image-watermark-size');
-            const imageWatermarkOpacity = document.getElementById('image-watermark-opacity');
-
-            // Annotation controls
-            const pencilColorInput = document.getElementById('pencil-color');
-            const pencilSizeInput = document.getElementById('pencil-size');
-            const shapeColorInput = document.getElementById('shape-color');
-            const shapeSizeInput = document.getElementById('shape-size');
-
-            // Mobile Nav Elements
-            const mobileCanvasBtn = document.getElementById('mobile-canvas-btn');
-            const mobileToolsBtn = document.getElementById('mobile-tools-btn');
-            // 'canvasPane' is already defined
-            const toolsPane = document.getElementById('tools-pane');
-
-
-            // --- State Variables ---
-            let fabricCanvas = null;
-            let originalImageObject = null; // Store the original raw Image() object
-            let textWatermarkObject = null;
-            let imageWatermarkObject = null;
-            let currentWatermarkImage = null; // Store the raw Image() for image watermark
-            let activeWatermarkType = 'text';
-            let activeTool = 'text'; // Default to text tool initially
-
-            // Shape Drawing State
-            let isDrawingShape = false;
-            let currentShape;
-            let canvasMouseDownX, canvasMouseDownY;
-            
-            // History State
-            let history = [];
-            let historyIndex = -1;
-            let stateSaving = true; // Flag to prevent saving during loadState
-
-             // --- Debounce Utility ---
-            const debounce = (func, delay) => {
-                 let timeoutId;
-                 return function(...args) {
-                     clearTimeout(timeoutId);
-                     timeoutId = setTimeout(() => {
-                         func.apply(this, args);
-                     }, delay);
-                 };
-             };
-
-             // --- Range Slider Value Display ---
-            function updateRangeValueDisplay() {
-                document.querySelectorAll('input[type="range"]').forEach(slider => {
-                    const displaySpan = document.querySelector(`.value-display[data-target="${slider.id}"]`);
-                    if (displaySpan) {
-                         // Format opacity to 2 decimal places
-                         const value = slider.id.includes('opacity') ? parseFloat(slider.value).toFixed(2) : slider.value;
-                        displaySpan.textContent = value;
-                    }
-                });
-            }
-
-
-            // --- History Management ---
-            const saveState = () => {
-                if (!stateSaving || !fabricCanvas) return;
-                try {
-                    const canvasState = fabricCanvas.toJSON(['_watermarkType']); // Include custom prop
-                    // Use a slightly longer debounce for state saving to group rapid changes
-                    setTimeout(() => {
-                        // Check if current state is different from last saved state before pushing
-                        const lastState = history[historyIndex];
-                        // Simple string comparison (might be slow for very complex states)
-                        if (!lastState || JSON.stringify(canvasState) !== JSON.stringify(lastState)) {
-                            if (historyIndex < history.length - 1) {
-                                history = history.slice(0, historyIndex + 1);
-                            }
-                            history.push(canvasState);
-                            historyIndex++;
-                            updateUndoRedoButtons();
-                        }
-                    }, 100); // Increased delay
-                } catch (e) {
-                     console.error("Error saving state:", e);
-                     showToast("Error saving action.");
-                }
-            };
-
-            const undo = () => {
-                if (historyIndex > 0) {
-                    historyIndex--;
-                    loadState(history[historyIndex]);
-                }
-            };
-
-            const redo = () => {
-                if (historyIndex < history.length - 1) {
-                    historyIndex++;
-                    loadState(history[historyIndex]);
-                }
-            };
-
-            const loadState = (state) => {
-                 if (!fabricCanvas || !state) return; // Added check for state
-                stateSaving = false; // Disable saving during load
-                 // Ensure background image is handled correctly (Fabric might need help restoring it from JSON)
-                 const bgImageInfo = state.backgroundImage;
-                 fabricCanvas.loadFromJSON(state, () => {
-                     fabricCanvas.renderAll();
-
-                    // Re-find watermark objects after loading state
-                    // originalImageObject should ideally be restored by loadFromJSON if background is handled
-                    if (fabricCanvas.backgroundImage instanceof fabric.Image) {
-                         // Fabric restored it, we might need the raw image if not already stored
-                         // This part is tricky without storing the original raw image data separately
-                         // Let's assume fitCanvasToContainer will be called if needed on resize
-                    } else if (bgImageInfo && originalImageObject) {
-                        // Attempt to re-apply if Fabric didn't restore it fully and we still have the raw image
-                        fitCanvasToContainer(originalImageObject);
-                    }
-
-                    textWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'text');
-                    imageWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'image');
-                    
-                    // Re-enable free drawing if pencil was active (loadFromJSON might disable it)
-                    if (activeTool === 'pencil') {
-                        fabricCanvas.isDrawingMode = true;
-                    }
-
-                    stateSaving = true; // Re-enable saving
-                    updateUndoRedoButtons();
-                 });
-            };
-
-            const updateUndoRedoButtons = () => {
-                undoBtn.disabled = historyIndex <= 0;
-                redoBtn.disabled = historyIndex >= history.length - 1;
-            };
-
-            undoBtn.addEventListener('click', undo);
-            redoBtn.addEventListener('click', redo);
-
-            // --- Toast Notification ---
-            function showToast(message) {
-                toast.textContent = message;
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            }
-
-            // --- Fabric Initialization ---
-            function initFabricCanvas() {
-                 try {
-                    fabricCanvas = new fabric.Canvas(canvasElement, {
-                        selection: true,
-                        preserveObjectStacking: true,
-                        width: canvasContainer.clientWidth > 50 ? canvasContainer.clientWidth - 40 : 300,
-                        height: canvasContainer.clientHeight > 50 ? canvasContainer.clientHeight - 40 : 200,
-                         stopContextMenu: true,
-                         fireRightClick: true,
-                         enableRetinaScaling: false // Might improve performance slightly
-                    });
-
-                    // Add event listeners *after* canvas is initialized
-                    fabricCanvas.on('object:modified', saveState);
-                    fabricCanvas.on('object:added', saveState);
-                     fabricCanvas.on('path:created', (e) => {
-                        if(e.path) {
-                            e.path.set({ selectable: true, evented: true });
-                            saveState();
-                        }
-                    });
-                     fabricCanvas.on('mouse:down', function(options) {
-                       if (!options.target && activeTool !== 'pencil' && !isDrawingShape) {
-                         fabricCanvas.discardActiveObject();
-                         fabricCanvas.requestRenderAll();
-                       }
-                     });
-
-                 } catch (e) {
-                     console.error("Fabric.js initialization failed:", e);
-                     controlsPrompt.textContent = "Error initializing canvas. Please refresh.";
-                     controlsPrompt.classList.remove('hidden');
-                 }
-            }
+            const uploadPrompt = document.getElementById('upload-prompt'); const imageUpload = document.getElementById('image-upload'); const canvasContainer = document.getElementById('canvas-container'); const canvasPane = document.getElementById('canvas-pane'); const canvasElement = document.getElementById('canvas'); const mainControls = document.getElementById('main-controls'); const controlsPrompt = document.getElementById('controls-prompt'); const downloadBtn = document.getElementById('download-btn'); const resetBtn = document.getElementById('reset-btn'); const removeImageBtn = document.getElementById('remove-image-btn'); const toast = document.getElementById('toast');
+            const tabBtns = document.querySelectorAll('.tab-btn'); const tabContents = document.querySelectorAll('.tab-content'); const toolBtns = document.querySelectorAll('.tool-btn');
+            const undoBtn = document.getElementById('undo-btn'); const redoBtn = document.getElementById('redo-btn');
+            const watermarkText = document.getElementById('watermark-text'); const watermarkSize = document.getElementById('watermark-size'); const watermarkOpacity = document.getElementById('watermark-opacity'); const watermarkColor = document.getElementById('watermark-color'); const watermarkUploadInput = document.getElementById('watermark-upload-input'); const uploadWatermarkBtn = document.getElementById('upload-watermark-btn'); const imageWatermarkSliders = document.getElementById('image-watermark-sliders'); const imageWatermarkSize = document.getElementById('image-watermark-size'); const imageWatermarkOpacity = document.getElementById('image-watermark-opacity');
+            const pencilColorInput = document.getElementById('pencil-color'); const pencilSizeInput = document.getElementById('pencil-size'); const shapeColorInput = document.getElementById('shape-color'); const shapeSizeInput = document.getElementById('shape-size');
+            const mobileCanvasBtn = document.getElementById('mobile-canvas-btn'); const mobileToolsBtn = document.getElementById('mobile-tools-btn'); const toolsPane = document.getElementById('tools-pane');
+            let fabricCanvas = null; let originalImageObject = null; let textWatermarkObject = null; let imageWatermarkObject = null; let currentWatermarkImage = null; let activeWatermarkType = 'text'; let activeTool = 'text';
+            let isDrawingShape = false; let currentShape; let canvasMouseDownX, canvasMouseDownY;
+            let history = []; let historyIndex = -1; let stateSaving = true;
+            const debounce = (func, delay) => { let timeoutId; return function(...args) { clearTimeout(timeoutId); timeoutId = setTimeout(() => { func.apply(this, args); }, delay); }; };
+            function updateRangeValueDisplay() { document.querySelectorAll('input[type="range"]').forEach(slider => { const displaySpan = document.querySelector(`.value-display[data-target="${slider.id}"]`); if (displaySpan) { const value = slider.id.includes('opacity') ? parseFloat(slider.value).toFixed(2) : slider.value; displaySpan.textContent = value; } }); }
+            const saveState = () => { if (!stateSaving || !fabricCanvas) return; try { const canvasState = fabricCanvas.toJSON(['_watermarkType']); setTimeout(() => { const lastState = history[historyIndex]; if (!lastState || JSON.stringify(canvasState) !== JSON.stringify(lastState)) { if (historyIndex < history.length - 1) { history = history.slice(0, historyIndex + 1); } history.push(canvasState); historyIndex++; updateUndoRedoButtons(); } }, 100); } catch (e) { console.error("Error saving state:", e); showToast("Error saving action."); } };
+            const undo = () => { if (historyIndex > 0) { historyIndex--; loadState(history[historyIndex]); } };
+            const redo = () => { if (historyIndex < history.length - 1) { historyIndex++; loadState(history[historyIndex]); } };
+            const loadState = (state) => { if (!fabricCanvas || !state) return; stateSaving = false; const bgImageInfo = state.backgroundImage; fabricCanvas.loadFromJSON(state, () => { fabricCanvas.renderAll(); if (fabricCanvas.backgroundImage instanceof fabric.Image) {} else if (bgImageInfo && originalImageObject) { fitCanvasToContainer(originalImageObject); } textWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'text'); imageWatermarkObject = fabricCanvas.getObjects().find(o => o._watermarkType === 'image'); if (activeTool === 'pencil') { fabricCanvas.isDrawingMode = true; } stateSaving = true; updateUndoRedoButtons(); }); };
+            const updateUndoRedoButtons = () => { undoBtn.disabled = historyIndex <= 0; redoBtn.disabled = historyIndex >= history.length - 1; };
+            undoBtn.addEventListener('click', undo); redoBtn.addEventListener('click', redo);
+            function showToast(message) { toast.textContent = message; toast.classList.add('show'); setTimeout(() => { toast.classList.remove('show'); }, 2000); }
+            function initFabricCanvas() { try { fabricCanvas = new fabric.Canvas(canvasElement, { selection: true, preserveObjectStacking: true, width: canvasContainer.clientWidth > 50 ? canvasContainer.clientWidth - 40 : 300, height: canvasContainer.clientHeight > 50 ? canvasContainer.clientHeight - 40 : 200, stopContextMenu: true, fireRightClick: true, enableRetinaScaling: false }); fabricCanvas.on('object:modified', saveState); fabricCanvas.on('object:added', saveState); fabricCanvas.on('path:created', (e) => { if(e.path) { e.path.set({ selectable: true, evented: true }); saveState(); } }); fabricCanvas.on('mouse:down', function(options) { if (!options.target && activeTool !== 'pencil' && !isDrawingShape) { fabricCanvas.discardActiveObject(); fabricCanvas.requestRenderAll(); } }); } catch (e) { console.error("Fabric.js initialization failed:", e); controlsPrompt.textContent = "Error initializing canvas. Please refresh."; controlsPrompt.classList.remove('hidden'); } }
             initFabricCanvas();
-
-
-             // --- Canvas Utility Functions ---
-            function fitCanvasToContainer(img, isInitialLoad = false) {
-                 if (!fabricCanvas || !img) return;
-
-                 const containerWidth = canvasPane.clientWidth - 16; // Padding
-                 const containerHeight = canvasPane.clientHeight - 16;
-                  // Ensure container dimensions are positive
-                 if (containerWidth <= 0 || containerHeight <= 0) return;
-
-                 const imgAspectRatio = img.width / img.height;
-
-                 let displayWidth, displayHeight;
-
-                 // Calculate the display dimensions to fit within the container
-                 const containerAspectRatio = containerWidth / containerHeight;
-                 if (imgAspectRatio > containerAspectRatio) {
-                     displayWidth = containerWidth;
-                     displayHeight = containerWidth / imgAspectRatio;
-                 } else {
-                     displayHeight = containerHeight;
-                     displayWidth = containerHeight * imgAspectRatio;
-                 }
-
-                 // Set Fabric canvas dimensions to the display size
-                 fabricCanvas.setDimensions({ width: displayWidth, height: displayHeight });
-                 
-                // Set the background image, scaling it down to fit the display size
-                 // We store the original raw Image() in originalImageObject
-                fabricCanvas.setBackgroundImage(img.src, fabricCanvas.renderAll.bind(fabricCanvas), {
-                    // Calculate scale factor based on original image size and display size
-                    scaleX: displayWidth / img.width,
-                    scaleY: displayHeight / img.height,
-                    selectable: false,
-                    evented: false,
-                });
-                
-                // Set the container div's size to match the canvas display size for proper centering/scrolling
-                 // This might not be strictly necessary if the parent uses flex correctly
-                canvasContainer.style.width = `${displayWidth}px`;
-                canvasContainer.style.height = `${displayHeight}px`;
-
-
-                fabricCanvas.renderAll();
-            }
-
-             // Debounced resize handler
-            const debouncedResizeHandler = debounce(() => {
-                 // Pass the raw originalImageObject (which should be an Image element)
-                if (originalImageObject) fitCanvasToContainer(originalImageObject);
-            }, 250);
+            function fitCanvasToContainer(img, isInitialLoad = false) { if (!fabricCanvas || !img) return; const containerWidth = canvasPane.clientWidth - 16; const containerHeight = canvasPane.clientHeight - 16; if (containerWidth <= 0 || containerHeight <= 0) return; const imgAspectRatio = img.width / img.height; let displayWidth, displayHeight; const containerAspectRatio = containerWidth / containerHeight; if (imgAspectRatio > containerAspectRatio) { displayWidth = containerWidth; displayHeight = containerWidth / imgAspectRatio; } else { displayHeight = containerHeight; displayWidth = containerHeight * imgAspectRatio; } fabricCanvas.setDimensions({ width: displayWidth, height: displayHeight }); fabricCanvas.setBackgroundImage(img.src, fabricCanvas.renderAll.bind(fabricCanvas), { scaleX: displayWidth / img.width, scaleY: displayHeight / img.height, selectable: false, evented: false, }); canvasContainer.style.width = `${displayWidth}px`; canvasContainer.style.height = `${displayHeight}px`; fabricCanvas.renderAll(); }
+            const debouncedResizeHandler = debounce(() => { if (originalImageObject) fitCanvasToContainer(originalImageObject); }, 250);
             window.addEventListener('resize', debouncedResizeHandler);
-
-
-            // --- Image Loading & Reset ---
-            function handleImage(file) {
-                if (!file || !file.type.startsWith('image/')) {
-                    showToast("Invalid file type. Please upload an image.");
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                     // Create a new raw Image object first
-                     const img = new Image();
-                     img.onload = () => {
-                         originalImageObject = img; // Store the raw Image object
-
-                         // Reset canvas and history before adding new image
-                         fabricCanvas.clear();
-                         history = [];
-                         historyIndex = -1;
-                         textWatermarkObject = null;
-                         imageWatermarkObject = null;
-                         currentWatermarkImage = null; // Clear previous watermark image
-
-                         fitCanvasToContainer(img, true); // Fit and set background using the raw Image
-
-                         // UI cleanup
-                         uploadPrompt.classList.add('hidden');
-                         mainControls.classList.remove('hidden');
-                         controlsPrompt.classList.add('hidden');
-                         removeImageBtn.classList.remove('hidden');
-                         imageUpload.value = '';
-                         canvasPane.classList.remove('border-dashed', 'items-center', 'justify-center');
-                         canvasPane.classList.add('border-gray-900');
-
-                         updateWatermark(true); // Initial watermark setup without saving state yet
-                         activateTool('text');
-
-                         // Save initial state AFTER setting background and initial watermark
-                         saveState();
-
-                         if (window.innerWidth < 1024) {
-                             showMobilePane('canvas');
-                         }
-                     };
-                     img.onerror = () => showToast("Error loading image data.");
-                     img.src = e.target.result; // Set src for the raw Image object
-                };
-                 reader.onerror = () => {
-                     showToast("Error reading image file.");
-                 };
-                reader.readAsDataURL(file);
-            }
-
-
-            function removeImage() {
-                fabricCanvas.clear(); // Clears objects and background
-                originalImageObject = null; // Clear raw image ref
-                textWatermarkObject = null;
-                imageWatermarkObject = null;
-                currentWatermarkImage = null;
-                
-                // Reset canvas container appearance
-                canvasPane.classList.add('border-dashed', 'items-center', 'justify-center');
-                canvasPane.classList.remove('border-gray-900');
-                 // Reset canvas container size explicitly
-                 canvasContainer.style.width = 'auto';
-                 canvasContainer.style.height = 'auto';
-
-
-                // Reset UI elements
-                removeImageBtn.classList.add('hidden');
-                uploadPrompt.classList.remove('hidden');
-                mainControls.classList.add('hidden');
-                controlsPrompt.classList.remove('hidden');
-                imageUpload.value = '';
-                watermarkUploadInput.value = '';
-                imageWatermarkSliders.classList.add('hidden');
-                watermarkText.value = '';
-
-                // Reset history
-                history = [];
-                historyIndex = -1;
-                updateUndoRedoButtons();
-
-                // Reset Fabric canvas dimensions to a small default or hide?
-                fabricCanvas.setDimensions({ width: 300, height: 200 });
-                fabricCanvas.renderAll();
-
-                showToast('Image and annotations removed.');
-                activateTool('text');
-            }
-            
-            // --- Watermark Management ---
-            
-            // Central function to update or create the watermark
-            function updateWatermark(isInitial = false) {
-                 if (!fabricCanvas || !originalImageObject) return;
-
-                const wasSaving = stateSaving;
-                stateSaving = false;
-
-                // Handle Text Watermark
-                const textContent = watermarkText.value || '';
-                const fontSize = parseInt(watermarkSize.value, 10);
-                const opacityText = parseFloat(watermarkOpacity.value);
-                const colorText = watermarkColor.value;
-
-                if (activeWatermarkType === 'text') {
-                    if (imageWatermarkObject) imageWatermarkObject.set({ visible: false });
-
-                    if (!textWatermarkObject) {
-                        if (textContent) {
-                            textWatermarkObject = new fabric.IText(textContent, { /* ... props ... */
-                                 _watermarkType: 'text',
-                                 selectable: activeTool === 'select', evented: activeTool === 'select',
-                                 // Add other text props back
-                                left: fabricCanvas.width / 2, top: fabricCanvas.height / 2, fill: colorText,
-                                fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: fontSize,
-                                opacity: opacityText, hasControls: true, lockScalingFlip: true,
-                                originX: 'center', originY: 'center', textBackgroundColor: 'rgba(0,0,0,0)',
-                            });
-                            fabricCanvas.add(textWatermarkObject);
-                            fabricCanvas.centerObject(textWatermarkObject);
-                        }
-                    } else {
-                        textWatermarkObject.set({
-                            text: textContent, fontSize: fontSize, fill: colorText, opacity: opacityText, visible: !!textContent, // Hide if text is empty
-                            selectable: activeTool === 'select', evented: activeTool === 'select',
-                        });
-                        if(textContent) textWatermarkObject.bringToFront(); // Only bring to front if visible
-                    }
-                }
-                // Handle Image Watermark
-                else if (activeWatermarkType === 'image') {
-                    if (textWatermarkObject) textWatermarkObject.set({ visible: false });
-
-                    if (currentWatermarkImage) {
-                        const desiredWidth = parseFloat(imageWatermarkSize.value);
-                        const scale = (currentWatermarkImage.width > 0) ? desiredWidth / currentWatermarkImage.width : 1;
-                        const opacityImage = parseFloat(imageWatermarkOpacity.value);
-
-                        if (!imageWatermarkObject) {
-                            // Create Fabric Image from the raw image
-                            fabric.Image.fromURL(currentWatermarkImage.src, (imgInstance) => {
-                                 imageWatermarkObject = imgInstance;
-                                 imageWatermarkObject.set({ /* ... props ... */
-                                     _watermarkType: 'image',
-                                     left: fabricCanvas.width / 2, top: fabricCanvas.height / 2,
-                                     scaleX: scale, scaleY: scale, opacity: opacityImage,
-                                     hasControls: true, lockScalingFlip: true, originX: 'center', originY: 'center',
-                                      selectable: activeTool === 'select', evented: activeTool === 'select', visible: true
-                                 });
-                                 fabricCanvas.add(imageWatermarkObject);
-                                 fabricCanvas.centerObject(imageWatermarkObject);
-                                 fabricCanvas.renderAll();
-                                 stateSaving = wasSaving; // Restore flag
-                                 if (!isInitial) saveState(); // Save state after async creation
-                            });
-                             // Return early as image creation is async
-                             stateSaving = wasSaving; // Restore flag before returning
-                             return;
-                        } else {
-                            imageWatermarkObject.set({
-                                scaleX: scale, scaleY: scale, opacity: opacityImage, visible: true,
-                                selectable: activeTool === 'select', evented: activeTool === 'select',
-                            });
-                            imageWatermarkObject.bringToFront();
-                        }
-                    } else {
-                         if (imageWatermarkObject) imageWatermarkObject.set({ visible: false });
-                    }
-                } else {
-                     if (textWatermarkObject) textWatermarkObject.set({ visible: false });
-                     if (imageWatermarkObject) imageWatermarkObject.set({ visible: false });
-                }
-
-                fabricCanvas.renderAll();
-                stateSaving = wasSaving;
-                if (!isInitial) saveState();
-            }
-            
-            // --- Image Watermark Helper ---
+            function handleImage(file) { if (!file || !file.type.startsWith('image/')) { showToast("Invalid file type. Please upload an image."); return; } const reader = new FileReader(); reader.onload = (e) => { const img = new Image(); img.onload = () => { originalImageObject = img; fabricCanvas.clear(); history = []; historyIndex = -1; textWatermarkObject = null; imageWatermarkObject = null; currentWatermarkImage = null; fitCanvasToContainer(img, true); uploadPrompt.classList.add('hidden'); mainControls.classList.remove('hidden'); controlsPrompt.classList.add('hidden'); removeImageBtn.classList.remove('hidden'); imageUpload.value = ''; canvasPane.classList.remove('border-dashed', 'items-center', 'justify-center'); canvasPane.classList.add('border-gray-900'); updateWatermark(true); activateTool('text'); saveState(); if (window.innerWidth < 1024) { showMobilePane('canvas'); } }; img.onerror = () => showToast("Error loading image data."); img.src = e.target.result; }; reader.onerror = () => { showToast("Error reading image file."); }; reader.readAsDataURL(file); }
+            function removeImage() { fabricCanvas.clear(); originalImageObject = null; textWatermarkObject = null; imageWatermarkObject = null; currentWatermarkImage = null; canvasPane.classList.add('border-dashed', 'items-center', 'justify-center'); canvasPane.classList.remove('border-gray-900'); canvasContainer.style.width = 'auto'; canvasContainer.style.height = 'auto'; removeImageBtn.classList.add('hidden'); uploadPrompt.classList.remove('hidden'); mainControls.classList.add('hidden'); controlsPrompt.classList.remove('hidden'); imageUpload.value = ''; watermarkUploadInput.value = ''; imageWatermarkSliders.classList.add('hidden'); watermarkText.value = ''; history = []; historyIndex = -1; updateUndoRedoButtons(); fabricCanvas.setDimensions({ width: 300, height: 200 }); fabricCanvas.renderAll(); showToast('Image and annotations removed.'); activateTool('text'); }
+            function updateWatermark(isInitial = false) { if (!fabricCanvas || !originalImageObject) return; const wasSaving = stateSaving; stateSaving = false; const textContent = watermarkText.value || ''; const fontSize = parseInt(watermarkSize.value, 10); const opacityText = parseFloat(watermarkOpacity.value); const colorText = watermarkColor.value; if (activeWatermarkType === 'text') { if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); if (!textWatermarkObject) { if (textContent) { textWatermarkObject = new fabric.IText(textContent, { _watermarkType: 'text', selectable: activeTool === 'select', evented: activeTool === 'select', left: fabricCanvas.width / 2, top: fabricCanvas.height / 2, fill: colorText, fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: fontSize, opacity: opacityText, hasControls: true, lockScalingFlip: true, originX: 'center', originY: 'center', textBackgroundColor: 'rgba(0,0,0,0)', }); fabricCanvas.add(textWatermarkObject); fabricCanvas.centerObject(textWatermarkObject); } } else { textWatermarkObject.set({ text: textContent, fontSize: fontSize, fill: colorText, opacity: opacityText, visible: !!textContent, selectable: activeTool === 'select', evented: activeTool === 'select', }); if(textContent) textWatermarkObject.bringToFront(); } } else if (activeWatermarkType === 'image') { if (textWatermarkObject) textWatermarkObject.set({ visible: false }); if (currentWatermarkImage) { const desiredWidth = parseFloat(imageWatermarkSize.value); const scale = (currentWatermarkImage.width > 0) ? desiredWidth / currentWatermarkImage.width : 1; const opacityImage = parseFloat(imageWatermarkOpacity.value); if (!imageWatermarkObject) { fabric.Image.fromURL(currentWatermarkImage.src, (imgInstance) => { imageWatermarkObject = imgInstance; imageWatermarkObject.set({ _watermarkType: 'image', left: fabricCanvas.width / 2, top: fabricCanvas.height / 2, scaleX: scale, scaleY: scale, opacity: opacityImage, hasControls: true, lockScalingFlip: true, originX: 'center', originY: 'center', selectable: activeTool === 'select', evented: activeTool === 'select', visible: true }); fabricCanvas.add(imageWatermarkObject); fabricCanvas.centerObject(imageWatermarkObject); fabricCanvas.renderAll(); stateSaving = wasSaving; if (!isInitial) saveState(); }); stateSaving = wasSaving; return; } else { imageWatermarkObject.set({ scaleX: scale, scaleY: scale, opacity: opacityImage, visible: true, selectable: activeTool === 'select', evented: activeTool === 'select', }); imageWatermarkObject.bringToFront(); } } else { if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); } } else { if (textWatermarkObject) textWatermarkObject.set({ visible: false }); if (imageWatermarkObject) imageWatermarkObject.set({ visible: false }); } fabricCanvas.renderAll(); stateSaving = wasSaving; if (!isInitial) saveState(); }
             uploadWatermarkBtn.addEventListener('click', () => watermarkUploadInput.click());
-            watermarkUploadInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {                        
-                        const img = new Image();
-                        img.onload = () => {
-                            currentWatermarkImage = img; // Store the raw image
-                            imageWatermarkSliders.classList.remove('hidden');
-                            
-                            const maxAllowedSize = Math.min(fabricCanvas.width || 500, fabricCanvas.height || 500, img.width * 2);
-                            imageWatermarkSize.max = maxAllowedSize;
-                            imageWatermarkSize.value = Math.min(100, (fabricCanvas.width || 300) * 0.2, img.width);
-                            updateRangeValueDisplay(); // Update display for new value
-                            
-                             // If an old image watermark object exists, remove it before creating new one
-                             if (imageWatermarkObject) {
-                                 fabricCanvas.remove(imageWatermarkObject);
-                                 imageWatermarkObject = null;
-                             }
-
-                            updateWatermark(); // Create/update the Fabric object
-                        };
-                         img.onerror = () => showToast("Error loading watermark image.");
-                        img.src = event.target.result;
-                    };
-                     reader.onerror = () => showToast("Error reading watermark file.");
-                    reader.readAsDataURL(e.target.files[0]);
-                }
-            });
-
-
-            // --- Watermark Control Events ---
-             // Update display and trigger watermark update/save
-            document.querySelectorAll('#text-tab input, #image-tab input[type="range"]').forEach(el => {
-                el.addEventListener('input', () => {
-                    updateRangeValueDisplay(); // Update label immediately
-                    updateWatermark(); // Update canvas preview
-                });
-                 // Save state only when user finishes adjusting (mouseup/change)
-                 el.addEventListener('change', saveState);
-            });
-             // Color input triggers save on change
-             watermarkColor.addEventListener('change', () => {
-                updateWatermark();
-                saveState();
-             });
-
-
-            // --- Annotation Tool Management & Drawing ---
-            
-            function updateDrawingBrush() {
-                if (fabricCanvas && fabricCanvas.isDrawingMode && fabricCanvas.freeDrawingBrush) {
-                    if (activeTool === 'pencil') {
-                        fabricCanvas.freeDrawingBrush.color = pencilColorInput.value;
-                        fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10);
-                    }
-                }
-            }
-
-            function activateTool(tool) {
-                 if (!fabricCanvas) return; // Don't proceed if canvas isn't ready
-
-                activeTool = tool;
-                isDrawingShape = false; 
-
-                // Deactivate all modes and listeners first
-                fabricCanvas.off('mouse:down', startShapeDrawing);
-                fabricCanvas.off('mouse:move', drawShape);
-                fabricCanvas.off('mouse:up', stopShapeDrawing);
-                fabricCanvas.isDrawingMode = false;
-                fabricCanvas.selection = true; // Default to allowing selection
-                fabricCanvas.defaultCursor = 'default';
-                fabricCanvas.getObjects().forEach(o => {
-                     // Make objects selectable only in select mode
-                    const isSelectable = tool === 'select';
-                    o.set({ selectable: isSelectable, evented: isSelectable });
-                 });
-                 // Explicitly make watermarks selectable if their tab is active AND select tool is chosen
-                 if (tool === 'select') {
-                    if(textWatermarkObject && activeWatermarkType === 'text') textWatermarkObject.set({ selectable: true, evented: true });
-                    if(imageWatermarkObject && activeWatermarkType === 'image') imageWatermarkObject.set({ selectable: true, evented: true });
-                 }
-
-
-                if (tool === 'pencil') {
-                    fabricCanvas.isDrawingMode = true;
-                    // Ensure brush exists or create it
-                    if (!fabricCanvas.freeDrawingBrush) {
-                        fabricCanvas.freeDrawingBrush = new fabric.PencilBrush(fabricCanvas);
-                    }
-                     fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10); // Set initial width
-                     fabricCanvas.freeDrawingBrush.color = pencilColorInput.value; // Set initial color
-                    updateDrawingBrush(); // Apply current settings
-                } else if (tool === 'rectangle' || tool === 'circle' || tool === 'triangle') {
-                    fabricCanvas.on('mouse:down', startShapeDrawing);
-                    fabricCanvas.on('mouse:move', drawShape);
-                    fabricCanvas.on('mouse:up', stopShapeDrawing);
-                    fabricCanvas.defaultCursor = 'crosshair';
-                    fabricCanvas.selection = false; // Disable selection while drawing shapes
-                    fabricCanvas.discardActiveObject(); // Deselect any active object
-                } else if (tool === 'select') {
-                    // Default behavior (selection enabled)
-                    fabricCanvas.defaultCursor = 'default';
-                }
-                 // When switching TO a watermark tab, activate 'select' implicitly
-                 else if (tool === 'text' || tool === 'image') {
-                     // Check if already in select mode, if not, activate it
-                     if (activeTool !== 'select') {
-                         activateTool('select');
-                     }
-                    // Update watermark selectability based on the *tab* (watermark type)
-                    if(textWatermarkObject) textWatermarkObject.set({ selectable: tool === 'text', evented: tool === 'text' });
-                    if(imageWatermarkObject) imageWatermarkObject.set({ selectable: tool === 'image', evented: tool === 'image' });
-                 }
-
-                fabricCanvas.requestRenderAll();
-            }
-            
-            // Shape Drawing Handlers (Rectangle, Circle, Triangle)
-            function startShapeDrawing(o) {
-                // Ignore clicks on existing objects or if not in shape mode
-                 if (o.target || !['rectangle', 'circle', 'triangle'].includes(activeTool) || !originalImageObject) return;
-                
-                fabricCanvas.selection = false; // Ensure selection is off
-                isDrawingShape = true;
-                const pointer = fabricCanvas.getPointer(o.e);
-                canvasMouseDownX = pointer.x;
-                canvasMouseDownY = pointer.y;
-                
-                const commonProps = {
-                    left: canvasMouseDownX,
-                    top: canvasMouseDownY,
-                    fill: 'rgba(0,0,0,0)', // Transparent fill
-                    stroke: shapeColorInput.value,
-                    strokeWidth: parseInt(shapeSizeInput.value, 10),
-                    selectable: false, // Not selectable during drawing
-                    evented: false,
-                    originX: 'left',
-                    originY: 'top'
-                };
-
-                if (activeTool === 'rectangle') {
-                    currentShape = new fabric.Rect({ ...commonProps, width: 0, height: 0 });
-                } else if (activeTool === 'circle') {
-                    currentShape = new fabric.Circle({ ...commonProps, radius: 0 });
-                } else if (activeTool === 'triangle') {
-                     // Fabric's triangle origin is center by default, adjust if needed or handle width/height differently
-                    currentShape = new fabric.Triangle({ ...commonProps, width: 0, height: 0 });
-                }
-
-                if (currentShape) {
-                    fabricCanvas.add(currentShape);
-                }
-            }
-
-            function drawShape(o) {
-                if (!isDrawingShape || !currentShape) return;
-
-                const pointer = fabricCanvas.getPointer(o.e);
-                let x = pointer.x;
-                let y = pointer.y;
-                
-                // Keep shape within canvas bounds
-                x = Math.max(0, Math.min(fabricCanvas.width, x));
-                y = Math.max(0, Math.min(fabricCanvas.height, y));
-
-                if (activeTool === 'rectangle' || activeTool === 'triangle') {
-                    const deltaX = x - canvasMouseDownX;
-                    const deltaY = y - canvasMouseDownY;
-                    currentShape.set({ 
-                        width: Math.abs(deltaX), 
-                        height: Math.abs(deltaY),
-                        left: deltaX < 0 ? x : canvasMouseDownX,
-                        top: deltaY < 0 ? y : canvasMouseDownY
-                    });
-                } else if (activeTool === 'circle') {
-                    const radius = Math.sqrt(Math.pow(x - canvasMouseDownX, 2) + Math.pow(y - canvasMouseDownY, 2)) / 2;
-                    currentShape.set({ 
-                        radius: radius,
-                         // Center the circle between start and current point
-                        left: (x + canvasMouseDownX) / 2,
-                        top: (y + canvasMouseDownY) / 2,
-                        originX: 'center',
-                        originY: 'center'
-                    });
-                     // Adjust position if origin is left/top
-                     // currentShape.set({ radius: radius }); // Keep origin left/top if preferred
-                }
-
-                fabricCanvas.renderAll();
-            }
-
-            function stopShapeDrawing(o) {
-                if (!isDrawingShape || !currentShape) return;
-                
-                isDrawingShape = false;
-                
-                // Check if shape has minimal size before making it permanent
-                const isCircle = currentShape.type === 'circle';
-                 const minSize = 5; // Minimum pixels for width/height/diameter
-                const isBigEnough = isCircle ? (currentShape.radius * 2 >= minSize) : (currentShape.width >= minSize || currentShape.height >= minSize);
-
-                if (isBigEnough) { 
-                    currentShape.set({ selectable: true, evented: true }); // Make it selectable *after* drawing
-                    saveState(); // Save the state *after* shape is finalized
-                    fabricCanvas.setActiveObject(currentShape); // Select the newly drawn shape
-                } else {
-                    fabricCanvas.remove(currentShape); // Remove tiny shapes
-                }
-                
-                fabricCanvas.selection = true; // Re-enable selection mode conceptually
-                fabricCanvas.renderAll();
-                currentShape = null; // Reset for next shape
-                 // Optionally reactivate the 'select' tool after drawing one shape
-                 // activateTool('select');
-                 // Or keep the shape tool active to draw multiple shapes
-            }
-            
-            // Update brush/shape styles on control input
-            pencilColorInput.addEventListener('input', updateDrawingBrush);
-            pencilSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); updateDrawingBrush(); });
-            shapeColorInput.addEventListener('input', () => { if(currentShape) currentShape.set('stroke', shapeColorInput.value) });
-            shapeSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); if(currentShape) currentShape.set('strokeWidth', parseInt(shapeSizeInput.value, 10)) });
-            
-            // Tool button listeners (for shapes tab)
-            toolBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('#shapes-tab .tool-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    activateTool(btn.dataset.tool); // Activate corresponding tool
-                });
-            });
-
-            // --- Export / Download ---
-            downloadBtn.addEventListener('click', () => {
-                if (!originalImageObject) {
-                    showToast('Please upload an image first.');
-                    return;
-                }
-                
-                fabricCanvas.discardActiveObject(); // Deselect any active object
-                fabricCanvas.renderAll(); // Ensure latest state is rendered
-
-                try {
-                     // Create a temporary canvas at the original image resolution
-                    const tempCanvas = document.createElement('canvas');
-                    tempCanvas.width = originalImageObject.width;
-                    tempCanvas.height = originalImageObject.height;
-                    const tempCtx = tempCanvas.getContext('2d');
-
-                     // Draw the background image (original resolution)
-                    tempCtx.drawImage(originalImageObject, 0, 0);
-
-                    // Calculate the scaling factor between the display canvas and the original image
-                    const scaleFactor = originalImageObject.width / fabricCanvas.width;
-
-                    // Iterate over Fabric objects and draw them scaled onto the temporary canvas
-                    fabricCanvas.getObjects().forEach(obj => {
-                         // IMPORTANT: Fabric's toCanvasElement can handle scaling internally
-                         // We need a way to render the *current state* of the fabricCanvas onto our tempCanvas
-                         // The easiest reliable way is often to export the fabric canvas itself at the target resolution multiplier
-
-                         // Alternative approach: Redraw manually (more complex, especially for paths/text)
-                         /*
-                         tempCtx.save();
-                         // Apply transformations (translate, scale, rotate) from obj
-                         tempCtx.translate(obj.left * scaleFactor, obj.top * scaleFactor);
-                         tempCtx.rotate(fabric.util.degreesToRadians(obj.angle));
-                         tempCtx.scale(obj.scaleX * scaleFactor, obj.scaleY * scaleFactor);
-                         
-                         // Draw the object itself (this part needs custom logic per object type)
-                          if (obj.type === 'i-text') {
-                              tempCtx.font = `${obj.fontWeight || ''} ${obj.fontSize * scaleFactor}px ${obj.fontFamily}`;
-                              tempCtx.fillStyle = obj.fill;
-                              tempCtx.globalAlpha = obj.opacity;
-                              tempCtx.textAlign = 'center'; // Assuming center origin
-                              tempCtx.textBaseline = 'middle';
-                              tempCtx.fillText(obj.text, 0, 0); // Position based on origin
-                          } else if (obj.type === 'image') {
-                              tempCtx.globalAlpha = obj.opacity;
-                              // Need the raw image element for drawImage
-                               if (obj._element) { // Fabric usually stores it here
-                                   tempCtx.drawImage(obj._element, -obj.width/2, -obj.height/2, obj.width, obj.height); // Adjust based on origin
-                               }
-                          } else if (obj.type === 'path') {
-                              // Drawing paths manually is very complex.
-                          } else if (obj.type === 'rect' || obj.type === 'circle' || obj.type === 'triangle') {
-                              tempCtx.strokeStyle = obj.stroke;
-                              tempCtx.lineWidth = obj.strokeWidth * scaleFactor;
-                              tempCtx.globalAlpha = 1; // Shapes usually opaque stroke
-                              // Need to recreate the path based on Fabric properties
-                              // This is complex - Fabric's rendering is the better way
-                          }
-                         
-                         tempCtx.restore();
-                         */
-                    });
-
-                    // Use Fabric's multiplier to export at original resolution
-                    const dataURL = fabricCanvas.toDataURL({
-                        format: 'png',
-                        quality: 1,
-                        multiplier: scaleFactor // Export at original resolution
-                    });
-
-
-                    const link = document.createElement('a');
-                    link.download = `solite-annotated-image.png`;
-                    link.href = dataURL; // Use the scaled export
-                    link.click();
-                    
-                    showToast('Downloading image...');
-                } catch (e) {
-                     console.error("Error generating download URL:", e);
-                     showToast("Error creating download.");
-                }
-            });
-            
-            // --- General Listeners & Initial Setup ---
-            uploadPrompt.addEventListener('click', () => imageUpload.click());
-            imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
-            // Use canvasPane for drag/drop
+            watermarkUploadInput.addEventListener('change', (e) => { if (e.target.files && e.target.files[0]) { const reader = new FileReader(); reader.onload = (event) => { const img = new Image(); img.onload = () => { currentWatermarkImage = img; imageWatermarkSliders.classList.remove('hidden'); const maxAllowedSize = Math.min(fabricCanvas.width || 500, fabricCanvas.height || 500, img.width * 2); imageWatermarkSize.max = maxAllowedSize; imageWatermarkSize.value = Math.min(100, (fabricCanvas.width || 300) * 0.2, img.width); updateRangeValueDisplay(); if (imageWatermarkObject) { fabricCanvas.remove(imageWatermarkObject); imageWatermarkObject = null; } updateWatermark(); }; img.onerror = () => showToast("Error loading watermark image."); img.src = event.target.result; }; reader.onerror = () => showToast("Error reading watermark file."); reader.readAsDataURL(e.target.files[0]); } });
+            document.querySelectorAll('#text-tab input, #image-tab input[type="range"]').forEach(el => { el.addEventListener('input', () => { updateRangeValueDisplay(); updateWatermark(); }); el.addEventListener('change', saveState); });
+            watermarkColor.addEventListener('change', () => { updateWatermark(); saveState(); });
+            function updateDrawingBrush() { if (fabricCanvas && fabricCanvas.isDrawingMode && fabricCanvas.freeDrawingBrush) { if (activeTool === 'pencil') { fabricCanvas.freeDrawingBrush.color = pencilColorInput.value; fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10); } } }
+            function activateTool(tool) { if (!fabricCanvas) return; activeTool = tool; isDrawingShape = false; fabricCanvas.off('mouse:down', startShapeDrawing); fabricCanvas.off('mouse:move', drawShape); fabricCanvas.off('mouse:up', stopShapeDrawing); fabricCanvas.isDrawingMode = false; fabricCanvas.selection = true; fabricCanvas.defaultCursor = 'default'; fabricCanvas.getObjects().forEach(o => { const isSelectable = tool === 'select'; o.set({ selectable: isSelectable, evented: isSelectable }); }); if (tool === 'select') { if(textWatermarkObject && activeWatermarkType === 'text') textWatermarkObject.set({ selectable: true, evented: true }); if(imageWatermarkObject && activeWatermarkType === 'image') imageWatermarkObject.set({ selectable: true, evented: true }); } if (tool === 'pencil') { fabricCanvas.isDrawingMode = true; if (!fabricCanvas.freeDrawingBrush) { fabricCanvas.freeDrawingBrush = new fabric.PencilBrush(fabricCanvas); } fabricCanvas.freeDrawingBrush.width = parseInt(pencilSizeInput.value, 10); fabricCanvas.freeDrawingBrush.color = pencilColorInput.value; updateDrawingBrush(); } else if (tool === 'rectangle' || tool === 'circle' || tool === 'triangle') { fabricCanvas.on('mouse:down', startShapeDrawing); fabricCanvas.on('mouse:move', drawShape); fabricCanvas.on('mouse:up', stopShapeDrawing); fabricCanvas.defaultCursor = 'crosshair'; fabricCanvas.selection = false; fabricCanvas.discardActiveObject(); } else if (tool === 'select') { fabricCanvas.defaultCursor = 'default'; } else if (tool === 'text' || tool === 'image') { if (activeTool !== 'select') { activateTool('select'); } if(textWatermarkObject) textWatermarkObject.set({ selectable: tool === 'text', evented: tool === 'text' }); if(imageWatermarkObject) imageWatermarkObject.set({ selectable: tool === 'image', evented: tool === 'image' }); } fabricCanvas.requestRenderAll(); }
+            function startShapeDrawing(o) { if (o.target || !['rectangle', 'circle', 'triangle'].includes(activeTool) || !originalImageObject) return; fabricCanvas.selection = false; isDrawingShape = true; const pointer = fabricCanvas.getPointer(o.e); canvasMouseDownX = pointer.x; canvasMouseDownY = pointer.y; const commonProps = { left: canvasMouseDownX, top: canvasMouseDownY, fill: 'rgba(0,0,0,0)', stroke: shapeColorInput.value, strokeWidth: parseInt(shapeSizeInput.value, 10), selectable: false, evented: false, originX: 'left', originY: 'top' }; if (activeTool === 'rectangle') { currentShape = new fabric.Rect({ ...commonProps, width: 0, height: 0 }); } else if (activeTool === 'circle') { currentShape = new fabric.Circle({ ...commonProps, radius: 0 }); } else if (activeTool === 'triangle') { currentShape = new fabric.Triangle({ ...commonProps, width: 0, height: 0 }); } if (currentShape) { fabricCanvas.add(currentShape); } }
+            function drawShape(o) { if (!isDrawingShape || !currentShape) return; let pointer = fabricCanvas.getPointer(o.e); let x = Math.max(0, Math.min(fabricCanvas.width, pointer.x)); let y = Math.max(0, Math.min(fabricCanvas.height, pointer.y)); if (activeTool === 'rectangle' || activeTool === 'triangle') { const deltaX = x - canvasMouseDownX; const deltaY = y - canvasMouseDownY; currentShape.set({ width: Math.abs(deltaX), height: Math.abs(deltaY), left: deltaX < 0 ? x : canvasMouseDownX, top: deltaY < 0 ? y : canvasMouseDownY }); } else if (activeTool === 'circle') { const radius = Math.sqrt(Math.pow(x - canvasMouseDownX, 2) + Math.pow(y - canvasMouseDownY, 2)) / 2; currentShape.set({ radius: radius, left: (x + canvasMouseDownX) / 2, top: (y + canvasMouseDownY) / 2, originX: 'center', originY: 'center' }); } fabricCanvas.renderAll(); }
+            function stopShapeDrawing(o) { if (!isDrawingShape || !currentShape) return; isDrawingShape = false; const isCircle = currentShape.type === 'circle'; const minSize = 5; const isBigEnough = isCircle ? (currentShape.radius * 2 >= minSize) : (currentShape.width >= minSize || currentShape.height >= minSize); if (isBigEnough) { currentShape.set({ selectable: true, evented: true }); saveState(); fabricCanvas.setActiveObject(currentShape); } else { fabricCanvas.remove(currentShape); } fabricCanvas.selection = true; fabricCanvas.renderAll(); currentShape = null; }
+            pencilColorInput.addEventListener('input', updateDrawingBrush); pencilSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); updateDrawingBrush(); }); shapeColorInput.addEventListener('input', () => { if(currentShape) currentShape.set('stroke', shapeColorInput.value) }); shapeSizeInput.addEventListener('input', () => { updateRangeValueDisplay(); if(currentShape) currentShape.set('strokeWidth', parseInt(shapeSizeInput.value, 10)) });
+            toolBtns.forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('#shapes-tab .tool-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); activateTool(btn.dataset.tool); }); });
+            downloadBtn.addEventListener('click', () => { if (!originalImageObject) { showToast('Please upload an image first.'); return; } fabricCanvas.discardActiveObject(); fabricCanvas.renderAll(); try { const scaleFactor = originalImageObject.width / fabricCanvas.width; const dataURL = fabricCanvas.toDataURL({ format: 'png', quality: 1, multiplier: scaleFactor }); const link = document.createElement('a'); link.download = `solite-annotated-image.png`; link.href = dataURL; link.click(); showToast('Downloading image...'); } catch (e) { console.error("Error generating download URL:", e); showToast("Error creating download."); } });
+            uploadPrompt.addEventListener('click', () => imageUpload.click()); imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
             canvasPane.addEventListener('dragover', (e) => { e.preventDefault(); canvasPane.classList.add('border-blue-500'); });
             canvasPane.addEventListener('dragleave', () => canvasPane.classList.remove('border-blue-500'));
-            canvasPane.addEventListener('drop', (e) => {
-                e.preventDefault();
-                canvasPane.classList.remove('border-blue-500');
-                if (e.dataTransfer.files.length > 0) {
-                    handleImage(e.dataTransfer.files[0]);
-                }
-            });
-
-            removeImageBtn.addEventListener('click', removeImage);
-            resetBtn.addEventListener('click', removeImage); // Reset button now calls removeImage
-
-            // Tab switching logic
-            tabBtns.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const tabName = tab.dataset.tab;
-                    
-                    tabBtns.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    tabContents.forEach(c => c.classList.add('hidden'));
-                    const contentEl = document.getElementById(`${tabName}-tab`);
-                    if(contentEl) contentEl.classList.remove('hidden');
-
-                    // Activate corresponding tool or watermark type
-                    if (tabName === 'text' || tabName === 'image') {
-                        activeWatermarkType = tabName;
-                        activateTool('select'); // Implicitly select tool for watermarks
-                        updateWatermark(); // Ensure watermark visibility/state is correct
-                    } else if (tabName === 'pencil') {
-                        activateTool('pencil');
-                    } else if (tabName === 'shapes') {
-                         // Activate the currently selected shape tool (or default to rectangle)
-                         const activeShapeBtn = document.querySelector('#shapes-tab .tool-btn.active');
-                         activateTool(activeShapeBtn ? activeShapeBtn.dataset.tool : 'rectangle');
-                    }
-                });
-            });
-
-             // Initialize range value displays
-             updateRangeValueDisplay();
-             // Add event listeners to update range displays dynamically
-             document.querySelectorAll('input[type="range"]').forEach(slider => {
-                 slider.addEventListener('input', updateRangeValueDisplay);
-             });
-
-
-             // --- Mobile Navigation Logic ---
-             function showMobilePane(paneId) {
-                if (paneId === 'canvas') {
-                    canvasPane.classList.remove('hidden');
-                    canvasPane.classList.add('flex'); // Keep canvas pane flex
-                    toolsPane.classList.add('hidden');
-                    toolsPane.classList.remove('flex');
-                    mobileCanvasBtn.classList.add('active');
-                    mobileToolsBtn.classList.remove('active');
-                } else { // 'tools'
-                    canvasPane.classList.add('hidden');
-                    canvasPane.classList.remove('flex');
-                    toolsPane.classList.remove('hidden');
-                    toolsPane.classList.add('flex'); // Make tools pane flex for scrolling
-                    mobileCanvasBtn.classList.remove('active');
-                    mobileToolsBtn.classList.add('active');
-                }
-            }
-
-             function handleMobileLayout() {
-                 if (window.innerWidth < 1024) {
-                      // Default to canvas view if nothing is active
-                     if (!mobileCanvasBtn.classList.contains('active') && !mobileToolsBtn.classList.contains('active')) {
-                         showMobilePane('canvas');
-                     }
-                      // Ensure the currently active pane is displayed correctly
-                     else if (mobileCanvasBtn.classList.contains('active')) {
-                         showMobilePane('canvas');
-                     } else {
-                         showMobilePane('tools');
-                     }
-                      // Recalculate canvas fit on resize, especially important for mobile orientation change
-                     // Pass the raw originalImageObject
-                     if(originalImageObject) fitCanvasToContainer(originalImageObject);
-
-
-                 } else {
-                     // Desktop: show both panes
-                     canvasPane.classList.remove('hidden');
-                     canvasPane.classList.add('flex');
-                     toolsPane.classList.remove('hidden');
-                     toolsPane.classList.add('flex');
-                     mobileCanvasBtn.classList.remove('active'); // Deactivate mobile buttons
-                     mobileToolsBtn.classList.remove('active');
-                      // Recalculate canvas fit on resize
-                     // Pass the raw originalImageObject
-                     if(originalImageObject) fitCanvasToContainer(originalImageObject);
-                 }
-             }
-
+            canvasPane.addEventListener('drop', (e) => { e.preventDefault(); canvasPane.classList.remove('border-blue-500'); if (e.dataTransfer.files.length > 0) { handleImage(e.dataTransfer.files[0]); } });
+            removeImageBtn.addEventListener('click', removeImage); resetBtn.addEventListener('click', removeImage);
+            tabBtns.forEach(tab => { tab.addEventListener('click', () => { const tabName = tab.dataset.tab; tabBtns.forEach(t => t.classList.remove('active')); tab.classList.add('active'); tabContents.forEach(c => c.classList.add('hidden')); const contentEl = document.getElementById(`${tabName}-tab`); if(contentEl) contentEl.classList.remove('hidden'); if (tabName === 'text' || tabName === 'image') { activeWatermarkType = tabName; activateTool('select'); updateWatermark(); } else if (tabName === 'pencil') { activateTool('pencil'); } else if (tabName === 'shapes') { const activeShapeBtn = document.querySelector('#shapes-tab .tool-btn.active'); activateTool(activeShapeBtn ? activeShapeBtn.dataset.tool : 'rectangle'); } }); });
+            updateRangeValueDisplay(); document.querySelectorAll('input[type="range"]').forEach(slider => { slider.addEventListener('input', updateRangeValueDisplay); });
+            function showMobilePane(paneId) { if (paneId === 'canvas') { canvasPane.classList.remove('hidden'); canvasPane.classList.add('flex'); toolsPane.classList.add('hidden'); toolsPane.classList.remove('flex'); mobileCanvasBtn.classList.add('active'); mobileToolsBtn.classList.remove('active'); } else { canvasPane.classList.add('hidden'); canvasPane.classList.remove('flex'); toolsPane.classList.remove('hidden'); toolsPane.classList.add('flex'); mobileCanvasBtn.classList.remove('active'); mobileToolsBtn.classList.add('active'); } }
+            function handleMobileLayout() { if (window.innerWidth < 1024) { if (!mobileCanvasBtn.classList.contains('active') && !mobileToolsBtn.classList.contains('active')) { showMobilePane('canvas'); } else if (mobileCanvasBtn.classList.contains('active')) { showMobilePane('canvas'); } else { showMobilePane('tools'); } if(originalImageObject) fitCanvasToContainer(originalImageObject); } else { canvasPane.classList.remove('hidden'); canvasPane.classList.add('flex'); toolsPane.classList.remove('hidden'); toolsPane.classList.add('flex'); mobileCanvasBtn.classList.remove('active'); mobileToolsBtn.classList.remove('active'); if(originalImageObject) fitCanvasToContainer(originalImageObject); } }
             mobileCanvasBtn.addEventListener('click', () => showMobilePane('canvas'));
             mobileToolsBtn.addEventListener('click', () => showMobilePane('tools'));
             window.addEventListener('resize', handleMobileLayout);
-
-            // Initial Setup
-             handleMobileLayout(); // Set initial layout
-             activateTool('text'); // Activate text tool by default
-
-
+            handleMobileLayout(); activateTool('text');
         });
     </script>
 </body>
 </html>
-
