@@ -54,6 +54,13 @@
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        .blog-card-icon-container {
+            aspect-ratio: 16 / 9;
+            border-bottom: 1px solid #374151; /* gray-700 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
      <!-- Schema.org Markup for SEO -->
     <script type="application/ld+json">
@@ -107,74 +114,106 @@
             </p>
         </section>
 
-        <section class="w-full max-w-7xl space-y-16">
-            <!-- Featured Post -->
-            <a href="./blog/why-client-side-tools-are-the-future-of-privacy.html" class="block bg-gray-900 border border-gray-800 rounded-3xl p-8 group hover:border-gray-700 transition-colors">
-                <span class="text-sm font-bold uppercase tracking-wider text-blue-400 mb-2">Featured Post</span>
-                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 transition-colors group-hover:text-white group-hover:underline ">
-                    Why Client-Side Tools are the Future of Online Privacy
-                </h2>
-                <p class="text-gray-400 mb-6 flex-grow max-w-4xl">Learn why processing data in your browser isn't just faster—it's the key to protecting your personal information online in an era of data breaches and privacy concerns.</p>
-                <div class="flex items-center justify-between text-sm text-gray-500">
-                    <span>October 29, 2025 &middot; 5 min read</span>
-                    <span class="font-semibold text-blue-400 group-hover:text-white transition-colors ">Read More &rarr;</span>
-                </div>
-            </a>
-
+        <section class="w-full max-w-7xl">
             <!-- Other Posts -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="./blog/how-solite-image-compression-helps.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How Image Compression Boosts Site Performance</h3>
-                    <p class="text-gray-400 text-sm mb-4">Discover real-life examples of how businesses and creators use Solite's free tool to save time and improve user experience.</p>
-                    <div class="text-xs text-gray-500"><span>October 28, 2025 &middot; 4 min read</span></div>
+                <a href="./blog/how-solite-image-compression-helps.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-blue-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How Image Compression Boosts Site Performance</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Discover real-life examples of how businesses and creators use Solite's free tool to save time and improve user experience.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 28, 2025 &middot; 4 min read</span></div>
+                    </div>
                 </a>
 
-                 <a href="./blog/benefits-of-client-side-text-toolkit.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Power of a Client-Side Text Toolkit</h3>
-                    <p class="text-gray-400 text-sm mb-4">Discover the privacy, speed, and efficiency benefits of using a text toolkit that runs entirely in your browser.</p>
-                    <div class="text-xs text-gray-500"><span>October 29, 2025 &middot; 3 min read</span></div>
+                 <a href="./blog/benefits-of-client-side-text-toolkit.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-green-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Power of a Client-Side Text Toolkit</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Discover the privacy, speed, and efficiency benefits of using a text toolkit that runs entirely in your browser.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/stop-recommending-bad-software.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Stop Recommending Bad Software</h3>
-                    <p class="text-gray-400 text-sm mb-4">An open letter to content creators about the importance of recommending ethical, privacy-first tools to your audience.</p>
-                    <div class="text-xs text-gray-500"><span>October 29, 2025 &middot; 3 min read</span></div>
+                <a href="./blog/stop-recommending-bad-software.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-purple-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Stop Recommending Bad Software</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">An open letter to content creators about the importance of recommending ethical, privacy-first tools to your audience.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/css-shadow-generator-benefits.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Mastering Depth: The Benefits of a CSS Shadow Generator</h3>
-                    <p class="text-gray-400 text-sm mb-4">Learn how a visual CSS shadow generator can speed up your workflow and help you create complex, realistic, layered shadows for your UI.</p>
-                    <div class="text-xs text-gray-500"><span>October 30, 2025 &middot; 4 min read</span></div>
+                <a href="./blog/css-shadow-generator-benefits.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-indigo-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.5 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L12.75 21l1.035.259a3.375 3.375 0 002.456 2.456L17.25 24l.259-1.035a3.375 3.375 0 002.456-2.456L21 19.5l-1.035-.259a3.375 3.375 0 00-2.456-2.456z" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Mastering Depth: The Benefits of a CSS Shadow Generator</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Learn how a visual CSS shadow generator can speed up your workflow and help you create complex, realistic, layered shadows for your UI.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 30, 2025 &middot; 4 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/a-guide-to-the-perfect-favicon.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">A Guide to the Perfect Favicon in 2025</h3>
-                    <p class="text-gray-400 text-sm mb-4">Learn how to create a complete favicon package for all platforms and why it's crucial for your brand identity.</p>
-                    <div class="text-xs text-gray-500"><span>October 29, 2025 &middot; 3 min read</span></div>
+                <a href="./blog/a-guide-to-the-perfect-favicon.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-pink-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-pink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">A Guide to the Perfect Favicon in 2025</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Learn how to create a complete favicon package for all platforms and why it's crucial for your brand identity.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/your-next-top-10-list.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Your Next 'Top 10' List is Already Written</h3>
-                    <p class="text-gray-400 text-sm mb-4">A message for bloggers and reviewers: We built a content goldmine of free, private tools so you don't have to look for ideas.</p>
-                    <div class="text-xs text-gray-500"><span>October 29, 2025 &middot; 2 min read</span></div>
+                <a href="./blog/your-next-top-10-list.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-yellow-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Your Next 'Top 10' List is Already Written</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">A message for bloggers and reviewers: We built a content goldmine of free, private tools so you don't have to look for ideas.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 2 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/tweet-to-image-guide.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How to Convert a Tweet to a Sharable Image</h3>
-                    <p class="text-gray-400 text-sm mb-4">Stop taking ugly screenshots. Learn how to turn any tweet into a beautiful, customizable image perfect for sharing.</p>
-                    <div class="text-xs text-gray-500"><span>October 31, 2025 &middot; 3 min read</span></div>
+                <a href="./blog/tweet-to-image-guide.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-cyan-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How to Convert a Tweet to a Sharable Image</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Stop taking ugly screenshots. Learn how to turn any tweet into a beautiful, customizable image perfect for sharing.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>October 31, 2025 &middot; 3 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/best-free-online-tools-for-creators.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Secret Website With 20+ Free Tools</h3>
-                    <p class="text-gray-400 text-sm mb-4">A review of Solite.in, a suite of free, private online tools for creators and developers. No ads, no sign-ups.</p>
-                    <div class="text-xs text-gray-500"><span>November 1, 2025 &middot; 4 min read</span></div>
+                <a href="./blog/best-free-online-tools-for-creators.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-red-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6.75h4.5m-4.5 3h4.5m-4.5 3h4.5m3.75 8.25V3.75A2.25 2.25 0 0013.5 1.5h-6A2.25 2.25 0 005.25 3.75v16.5a2.25 2.25 0 002.25 2.25h6A2.25 2.25 0 0018 20.25V8.25A2.25 2.25 0 0015.75 6H12" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Secret Website With 20+ Free Tools</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">A review of Solite.in, a suite of free, private online tools for creators and developers. No ads, no sign-ups.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>November 1, 2025 &middot; 4 min read</span></div>
+                    </div>
                 </a>
 
-                <a href="./blog/free-browser-tools-productivity-privacy.html" class="block p-6 bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">20+ Free Browser Tools to Replace Google Drive & Canva</h3>
-                    <p class="text-gray-400 text-sm mb-4">A review of a single site with 20+ free browser tools for productivity and privacy. No ads, no sign-ups.</p>
-                    <div class="text-xs text-gray-500"><span>November 2, 2025 &middot; 5 min read</span></div>
+                <a href="./blog/free-browser-tools-productivity-privacy.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                    <div class="blog-card-icon-container bg-teal-900/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A11.953 11.953 0 0112 13.5c-2.998 0-5.74-1.1-7.843-2.918" /></svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">20+ Free Browser Tools to Replace Google Drive & Canva</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">A review of a single site with 20+ free browser tools for productivity and privacy. No ads, no sign-ups.</p>
+                        <div class="text-xs text-gray-500 mt-auto"><span>November 2, 2025 &middot; 5 min read</span></div>
+                    </div>
                 </a>
 
                 <!-- Add more cards as needed -->

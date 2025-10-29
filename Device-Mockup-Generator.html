@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Social Sharing Meta Tags (Optimized) -->
+    <title>Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite</title>
+    <meta name="description" content="Generate stunning, high-resolution mockups for your app or website. Our free online tool features iPhone, iPad, MacBook, and browser frames. Fully customizable, 100% private, no sign-up required.">
+    <meta name="keywords" content="device mockup generator, apple mockup, iphone mockup, ipad mockup, macbook mockup, browser mockup, free mockup generator, app screenshot mockup, website presentation, solite">
+    <link rel="canonical" href="https://solite.in/browser-mock-generator.html">
+    <meta property="og:title" content="Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite">
+    <meta property="og:description" content="Generate stunning, high-resolution mockups for your app or website. Our free online tool features iPhone, iPad, MacBook, and browser frames. Fully customizable and 100% private.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://solite.in/assets/solite-browser-mockup-og.png">
+    <meta property="og:url" content="https://solite.in/browser-mockup-generator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="dark-theme-color" content="#000000">
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Schema.org Markup (Optimized) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Apple Device Mockup Generator | Solite",
+      "url": "https://solite.in/browser-mockup-generator.html",
+      "description": "A free, client-side tool to create professional device mockups for website or app screenshots, featuring iPhone, iPad, MacBook, and Safari-style Browser frames.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "iPhone Mockups", "iPad Mockups", "MacBook Laptop Mockups", "Browser Mockups", "Light & Dark Mode UI", "Transparent Background Option", "Customizable Backgrounds", "Proportional Scaling", "High-Resolution PNG Downloads", "Client-side processing for privacy", "No Sign-up Required" ],
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        html.light ::-webkit-scrollbar-track { background: #e5e7eb; }
+        html.dark ::-webkit-scrollbar-track { background: #111827; }
+        html.light ::-webkit-scrollbar-thumb { background-color: #9ca3af; }
+        html.dark ::-webkit-scrollbar-thumb { background-color: #4b5563; }
+        .mobile-nav-btn { color: #6b7280; }
+        html.dark .mobile-nav-btn { color: #9ca3af; }
+        .mobile-nav-btn.active { color: #000000; }
+        html.dark .mobile-nav-btn.active { color: #ffffff; }
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #4f46e5; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+        html.dark input[type=range]::-webkit-slider-thumb { background: #ffffff; }
+        .style-btn { border-bottom: 2px solid transparent; }
+        .style-btn.active { border-bottom-color: #4f46e5; color: #111827; }
+        html.dark .style-btn.active { border-bottom-color: #ffffff; color: #ffffff; }
+        .checkerboard { background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+    </style>
+</head>
+<body class="bg-white dark:bg-black text-gray-800 dark:text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Device Mockup Generator</span>
+            </a>
+             <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800" aria-label="Toggle theme">
+                    <svg id="theme-icon-light" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="theme-icon-dark" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <aside id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 flex flex-col">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white flex-shrink-0">Controls</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6">
+                    <div class="space-y-2">
+                        <label class="font-medium">Screenshot</label>
+                        <button id="upload-btn" class="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg><span>Upload Image</span></button>
+                        <input type="file" id="upload-input" class="hidden" accept="image/png, image/jpeg, image/webp">
+                        <button id="remove-image-btn" class="hidden w-full bg-red-100 hover:bg-red-200 dark:bg-red-900/50 dark:hover:bg-red-900/80 text-red-600 dark:text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            <span>Remove</span>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                        <label class="font-medium">Device Type</label>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <button data-device="browser" class="device-btn flex flex-col items-center gap-1 p-2 rounded-lg border-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>Browser</button>
+                            <button data-device="iphone" class="device-btn flex flex-col items-center gap-1 p-2 rounded-lg border-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>iPhone</button>
+                            <button data-device="ipad" class="device-btn flex flex-col items-center gap-1 p-2 rounded-lg border-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M6 21h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>iPad</button>
+                            <button data-device="macbook" class="device-btn flex flex-col items-center gap-1 p-2 rounded-lg border-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M4 11h16M4 15h16M2 17.5a.5.5 0 01.5-.5h19a.5.5 0 010 1h-19a.5.5 0 01-.5-.5zM2 9a2 2 0 012-2h16a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V9z"></path></svg>MacBook</button>
+                        </div>
+                    </div>
+
+                    <div id="browser-controls" class="space-y-6">
+                        <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                            <label class="font-medium">Browser Style</label>
+                            <div class="flex border-b border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-500 dark:text-gray-400">
+                                <button data-style="macos-light" class="style-btn flex-1 py-2 px-1">Mac Light</button>
+                                <button data-style="macos-dark" class="style-btn flex-1 py-2 px-1">Mac Dark</button>
+                            </div>
+                        </div>
+                        <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                            <label for="url-input" class="font-medium">Browser URL</label>
+                            <input type="text" id="url-input" value="https://solite.in/your-page" class="w-full p-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                        <div class="flex items-center justify-between">
+                            <label class="font-medium">Background</label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer">
+                                <input type="checkbox" id="bg-transparent-checkbox" class="h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500">
+                                Transparent
+                            </label>
+                        </div>
+                        <input type="color" id="bg-color-picker" value="#f3f4f6" class="w-full p-1 h-10 bg-white dark:bg-gray-800 rounded-lg cursor-pointer border border-gray-300 dark:border-gray-700">
+                    </div>
+
+                    <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                        <label for="padding-slider" class="font-medium flex justify-between">Padding <span id="padding-value">64px</span></label>
+                        <input type="range" id="padding-slider" min="0" max="128" value="64" class="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    
+                    <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
+                        <label for="shadow-select" class="font-medium">Shadow</label>
+                        <select id="shadow-select" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg focus:outline-none">
+                            <option value="none">None</option>
+                            <option value="subtle">Subtle</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 pt-6 border-t border-gray-200 dark:border-gray-800">
+                    <button id="download-btn-bottom" class="w-full bg-white hover:bg-gray-200 text-gray-900 font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 border border-gray-300 dark:border-gray-600 disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:text-gray-400 dark:disabled:text-gray-600 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>Download as PNG</span>
+                    </button>
+                </div>
+            </aside>
+
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-4 relative overflow-auto">
+                <h1 class="sr-only">Apple Device Mockup Generator</h1>
+                <div id="preview-canvas" class="flex-grow w-full h-full flex items-center justify-center transition-colors duration-200">
+                    <div id="mockup-container" class="transition-all duration-200">
+                        <!-- Browser Mockup -->
+                        <div id="browser-mockup" class="mockup-frame w-[900px] overflow-hidden rounded-t-lg">
+                            <div class="browser-header flex items-center h-10 px-2.5 gap-2">
+                                <div class="window-controls flex items-center gap-2"></div>
+                                <div class="address-bar grid place-items-center flex-1 text-xs h-6 rounded px-4 truncate"><span class="url-display select-none"></span></div>
+                            </div>
+                            <div class="screenshot-container bg-gray-200 dark:bg-gray-700 aspect-[16/10] w-full flex items-center justify-center overflow-hidden relative"></div>
+                        </div>
+
+                        <!-- iPhone Mockup -->
+                        <div id="iphone-mockup" class="mockup-frame w-[330px] hidden">
+                            <div class="relative mx-auto border-gray-300 dark:border-gray-800 bg-gray-300 dark:bg-gray-800 border-[10px] rounded-[2.5rem] h-[660px] w-full">
+                                <div class="w-[140px] h-[18px] bg-gray-300 dark:bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+                                <div class="h-[32px] w-[3px] bg-gray-300 dark:bg-gray-800 absolute -left-[13px] top-[72px] rounded-l-lg"></div>
+                                <div class="h-[46px] w-[3px] bg-gray-300 dark:bg-gray-800 absolute -left-[13px] top-[124px] rounded-l-lg"></div>
+                                <div class="h-[46px] w-[3px] bg-gray-300 dark:bg-gray-800 absolute -right-[13px] top-[142px] rounded-r-lg"></div>
+                                <div class="screenshot-container bg-gray-200 dark:bg-gray-700 rounded-[2rem] overflow-hidden w-full h-full flex items-center justify-center relative"></div>
+                            </div>
+                        </div>
+
+                        <!-- iPad Mockup -->
+                        <div id="ipad-mockup" class="mockup-frame w-[495px] hidden">
+                             <div class="relative mx-auto border-gray-300 dark:border-gray-800 bg-gray-300 dark:bg-gray-800 border-[14px] rounded-[2rem] h-[660px] w-full">
+                                <div class="screenshot-container bg-gray-200 dark:bg-gray-700 rounded-[1rem] overflow-hidden h-full w-full flex items-center justify-center relative"></div>
+                            </div>
+                        </div>
+
+                        <!-- MacBook Mockup -->
+                        <div id="macbook-mockup" class="mockup-frame w-[800px] hidden">
+                            <div class="relative mx-auto border-gray-300 dark:border-gray-800 bg-gray-300 dark:bg-gray-800 border-[8px] rounded-t-xl h-auto aspect-[16/10.5] overflow-hidden">
+                                <div class="h-full w-full bg-black flex flex-col">
+                                     <div class="browser-header flex items-center h-8 px-2 gap-2 flex-shrink-0">
+                                        <div class="window-controls flex items-center gap-1.5"></div>
+                                        <div class="address-bar grid place-items-center flex-1 text-xs h-5 rounded px-4 truncate"><span class="url-display select-none"></span></div>
+                                    </div>
+                                    <div class="screenshot-container bg-gray-200 dark:bg-gray-700 w-full flex-grow flex items-center justify-center overflow-hidden relative"></div>
+                                </div>
+                            </div>
+                            <div class="relative mx-auto bg-gray-200 dark:bg-gray-900 rounded-b-xl h-[20px] w-full">
+                                <div class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-lg w-[80px] h-[8px] bg-gray-400 dark:bg-gray-700"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-200 dark:border-gray-800 hidden lg:block"><div class="h-full bg-gray-100 dark:bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Preview</span></button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg><span>Controls</span></button>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg><span>&copy; 2024 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a><a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+    
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-white text-white dark:text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    
+    <div id="placeholder-content" class="hidden">
+        <img class="screenshot-img hidden w-full h-full object-cover object-top" src="" alt="User uploaded screenshot">
+        <div class="upload-prompt-preview text-center text-gray-400 dark:text-gray-500 cursor-pointer p-8 flex flex-col items-center justify-center h-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <p class="mt-2 text-base font-medium">Click or Drop Screenshot</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = {}; const elements = {}; let isDarkMode = false;
+            
+            function initializeApp() {
+                Object.assign(state, { imageSrc: null, originalFileName: 'mockup.png', activeDevice: 'browser', activeStyle: 'macos-light', padding: '64', bgColor: '#f3f4f6', shadow: 'medium', url: 'https://solite.in/your-page', isBgTransparent: false, activeMobileTab: 'preview' });
+                Object.assign(elements, { themeToggle: document.getElementById('theme-toggle'), lightIcon: document.getElementById('theme-icon-light'), darkIcon: document.getElementById('theme-icon-dark'), downloadBtns: document.querySelectorAll('#download-btn-bottom'), uploadBtn: document.getElementById('upload-btn'), uploadInput: document.getElementById('upload-input'), removeImageBtn: document.getElementById('remove-image-btn'), deviceBtns: document.querySelectorAll('.device-btn'), styleBtns: document.querySelectorAll('.style-btn'), browserControls: document.getElementById('browser-controls'), urlInput: document.getElementById('url-input'), paddingSlider: document.getElementById('padding-slider'), bgColorPicker: document.getElementById('bg-color-picker'), bgTransparentCheckbox: document.getElementById('bg-transparent-checkbox'), shadowSelect: document.getElementById('shadow-select'), paddingValue: document.getElementById('padding-value'), previewCanvas: document.getElementById('preview-canvas'), mockupContainer: document.getElementById('mockup-container'), mockupFrames: document.querySelectorAll('.mockup-frame'), urlDisplays: document.querySelectorAll('.url-display'), screenshotContainers: document.querySelectorAll('.screenshot-container'), mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), previewPane: document.getElementById('preview-pane'), controlsPane: document.getElementById('controls-pane'), toast: document.getElementById('toast'), placeholderContent: document.getElementById('placeholder-content'), });
+                initTheme();
+                attachEventListeners();
+            }
+
+            const shadowStyles = { none: 'box-shadow: none;', subtle: 'box-shadow: 0 4px 6px rgba(0,0,0,0.07);', medium: 'box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.07);', large: 'box-shadow: 0 20px 25px rgba(0,0,0,0.15), 0 8px 10px rgba(0,0,0,0.08);' };
+            const browserControlsHTML = { macos: `<span class="dot block w-3 h-3 rounded-full bg-[#ff5f57]"></span><span class="dot block w-3 h-3 rounded-full bg-[#febc2e]"></span><span class="dot block w-3 h-3 rounded-full bg-[#28c840]"></span>` };
+            
+            function setState(newState) { Object.assign(state, newState); render(); }
+
+            function render() {
+                elements.bgTransparentCheckbox.checked = state.isBgTransparent; elements.bgColorPicker.disabled = state.isBgTransparent;
+                elements.bgColorPicker.style.opacity = state.isBgTransparent ? 0.5 : 1;
+                if (state.isBgTransparent) { elements.previewCanvas.style.backgroundColor = 'transparent'; elements.previewCanvas.classList.add('checkerboard'); } 
+                else { elements.previewCanvas.style.backgroundColor = state.bgColor; elements.previewCanvas.classList.remove('checkerboard'); }
+                
+                elements.paddingSlider.value = state.padding; elements.paddingValue.textContent = `${state.padding}px`;
+                elements.bgColorPicker.value = state.bgColor; elements.shadowSelect.value = state.shadow;
+                elements.urlInput.value = state.url; elements.mockupContainer.style.padding = `${state.padding}px`;
+                elements.urlDisplays.forEach(el => el.textContent = state.url);
+
+                elements.screenshotContainers.forEach(container => {
+                    container.innerHTML = elements.placeholderContent.innerHTML;
+                    const img = container.querySelector('.screenshot-img');
+                    const prompt = container.querySelector('.upload-prompt-preview');
+                    if (state.imageSrc) {
+                        img.src = state.imageSrc; img.classList.remove('hidden'); prompt.classList.add('hidden');
+                    } else {
+                        img.classList.add('hidden'); prompt.classList.remove('hidden');
+                    }
+                    prompt.addEventListener('click', () => elements.uploadInput.click());
+                });
+                
+                elements.downloadBtns.forEach(btn => btn.disabled = !state.imageSrc);
+                elements.uploadBtn.classList.toggle('hidden', !!state.imageSrc);
+                elements.removeImageBtn.classList.toggle('hidden', !state.imageSrc);
+                
+                elements.mockupFrames.forEach(frame => {
+                    frame.style.cssText = shadowStyles[state.shadow];
+                    frame.classList.toggle('hidden', frame.id !== `${state.activeDevice}-mockup`)
+                });
+
+                elements.deviceBtns.forEach(btn => {
+                    const isActive = btn.dataset.device === state.activeDevice;
+                    btn.classList.toggle('border-indigo-500', isActive); btn.classList.toggle('bg-indigo-50', isActive); btn.classList.toggle('dark:bg-gray-700', isActive);
+                    btn.classList.toggle('dark:border-white', isActive); btn.classList.toggle('border-gray-300', !isActive); btn.classList.toggle('dark:border-gray-700', !isActive);
+                });
+
+                const showBrowserControls = ['browser', 'macbook'].includes(state.activeDevice);
+                elements.browserControls.style.display = showBrowserControls ? 'block' : 'none';
+
+                document.querySelectorAll('.browser-header').forEach(header => {
+                    header.querySelector('.window-controls').innerHTML = browserControlsHTML.macos;
+                    const addressBar = header.querySelector('.address-bar');
+                    if (state.activeStyle === 'macos-dark') { header.style.backgroundColor = '#3c3c3c'; addressBar.style.backgroundColor = '#5a5a5a'; addressBar.style.color = '#e0e0e0'; } 
+                    else { header.style.backgroundColor = '#f3f3f3'; addressBar.style.backgroundColor = '#e0e0e0'; addressBar.style.color = '#555'; }
+                });
+                elements.styleBtns.forEach(btn => {
+                    const isActive = btn.dataset.style === state.activeStyle;
+                    btn.classList.toggle('active', isActive);
+                    btn.classList.toggle('text-gray-900', isActive && !isDarkMode);
+                    btn.classList.toggle('dark:text-white', isActive && isDarkMode);
+                    btn.classList.toggle('text-gray-500', !isActive);
+                    btn.classList.toggle('dark:text-gray-400', !isActive);
+                });
+
+                handleMobileLayout();
+            }
+
+            function applyTheme(theme) {
+                document.documentElement.classList.remove('light', 'dark'); document.documentElement.classList.add(theme);
+                elements.lightIcon.classList.toggle('hidden', theme === 'light'); elements.darkIcon.classList.toggle('hidden', theme === 'dark');
+                isDarkMode = theme === 'dark'; localStorage.setItem('theme', theme); render(); 
+            }
+            function initTheme() {
+                const savedTheme = localStorage.getItem('theme'); const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+            }
+
+            function handleImageUpload(file) {
+                if (!file) return; const newFileName = file.name.split('.')[0] + `-${state.activeDevice}-mockup.png`;
+                const reader = new FileReader(); reader.onload = e => setState({ imageSrc: e.target.result, originalFileName: newFileName }); reader.readAsDataURL(file);
+            }
+            
+            async function downloadImage() {
+                if (!state.imageSrc) return;
+                try {
+                    const canvas = await html2canvas(elements.mockupContainer, { scale: 2, backgroundColor: state.isBgTransparent ? null : state.bgColor, logging: false, useCORS: true });
+                    const link = document.createElement('a'); link.href = canvas.toDataURL('image/png', 1.0); link.download = state.originalFileName; link.click();
+                } catch (error) { console.error("Download failed:", error); showToast("Sorry, download failed."); }
+            }
+
+            function showToast(message) { elements.toast.textContent = message; elements.toast.classList.add('show'); setTimeout(() => elements.toast.classList.remove('show'), 2000); }
+
+            function handleMobileLayout() {
+                const mockupContainer = elements.mockupContainer;
+                if (window.innerWidth < 1024) {
+                    elements.previewPane.classList.toggle('hidden', state.activeMobileTab !== 'preview'); elements.previewPane.classList.toggle('flex', state.activeMobileTab === 'preview');
+                    elements.controlsPane.classList.toggle('hidden', state.activeMobileTab !== 'controls'); elements.controlsPane.classList.toggle('flex', state.activeMobileTab === 'controls');
+                    mockupContainer.style.transform = `scale(${window.innerWidth / 1000 * 0.8})`; 
+                } else {
+                    elements.previewPane.classList.remove('hidden'); elements.previewPane.classList.add('flex');
+                    elements.controlsPane.classList.remove('hidden'); elements.controlsPane.classList.add('flex');
+                    mockupContainer.style.transform = 'scale(1)';
+                }
+                elements.mobilePreviewBtn.classList.toggle('active', state.activeMobileTab === 'preview');
+                elements.mobileControlsBtn.classList.toggle('active', state.activeMobileTab === 'controls');
+            }
+
+            function attachEventListeners() {
+                elements.themeToggle.addEventListener('click', () => applyTheme(isDarkMode ? 'light' : 'dark'));
+                elements.uploadBtn.addEventListener('click', () => elements.uploadInput.click());
+                elements.uploadInput.addEventListener('change', (e) => handleImageUpload(e.target.files[0]));
+                elements.removeImageBtn.addEventListener('click', () => setState({ imageSrc: null }));
+                elements.downloadBtns.forEach(btn => btn.addEventListener('click', downloadImage));
+                elements.deviceBtns.forEach(btn => btn.addEventListener('click', () => setState({ activeDevice: btn.dataset.device })));
+                elements.styleBtns.forEach(btn => btn.addEventListener('click', () => setState({ activeStyle: btn.dataset.style })));
+                elements.paddingSlider.addEventListener('input', (e) => setState({ padding: e.target.value }));
+                elements.bgColorPicker.addEventListener('input', (e) => setState({ bgColor: e.target.value }));
+                elements.bgTransparentCheckbox.addEventListener('input', (e) => setState({ isBgTransparent: e.target.checked }));
+                elements.shadowSelect.addEventListener('input', (e) => setState({ shadow: e.target.value }));
+                elements.urlInput.addEventListener('input', (e) => setState({ url: e.target.value }));
+                elements.previewCanvas.addEventListener('dragover', (e) => { e.preventDefault(); elements.previewCanvas.classList.add('bg-gray-200', 'dark:bg-gray-700'); });
+                elements.previewCanvas.addEventListener('dragleave', (e) => { e.preventDefault(); elements.previewCanvas.classList.remove('bg-gray-200', 'dark:bg-gray-700'); });
+                elements.previewCanvas.addEventListener('drop', (e) => { e.preventDefault(); elements.previewCanvas.classList.remove('bg-gray-200', 'dark:bg-gray-700'); handleImageUpload(e.dataTransfer.files[0]); });
+                elements.mobilePreviewBtn.addEventListener('click', () => setState({ activeMobileTab: 'preview' }));
+                elements.mobileControlsBtn.addEventListener('click', () => setState({ activeMobileTab: 'controls' }));
+                window.addEventListener('resize', handleMobileLayout);
+            }
+
+            initializeApp();
+        });
+    </script>
+</body>
+</html>

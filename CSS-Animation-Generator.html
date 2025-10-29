@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free CSS Animation Generator | Visual Keyframe Tool | Solite</title>
+    <meta name="description" content="Visually create and customize CSS animations with our free online generator. Use presets or build from scratch with a timeline editor. Export clean @keyframes and animation code.">
+    <meta name="keywords" content="css animation generator, keyframe generator, visual css animation, free animation tool, css transition generator, create css animation, solite">
+    <link rel="canonical" href="https://solite.in/css-animation-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free CSS Animation Generator | Visual Keyframe Tool | Solite">
+    <meta property="og:description" content="Visually create and customize CSS animations with our free online generator. Use presets or build from scratch with a timeline editor, then export clean code.">
+    <meta property="og:url" content="https://solite.in/css-animation-generator.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/css-animation-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CSS Animation Generator",
+      "url": "https://solite.in/css-animation-generator.html",
+      "description": "A free, client-side tool to visually create and customize CSS animations and export the corresponding keyframes and CSS properties using presets and a timeline editor.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Generate CSS Animations with Presets", "Visual Timeline for Keyframe Editing", "Live Preview", "Customize transform, opacity, and color", "Adjust duration, delay, timing, and iteration", "Export @keyframes and animation code", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .keyframe-pill.active { background-color: #fff; color: #111827; border-color: #fff; }
+    </style>
+    <style id="animation-style-tag"></style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Animation Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">CSS Animation and Keyframe Generator</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Animation Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    
+                    <div class="space-y-2">
+                        <label for="preset-select" class="font-medium">Load Preset</label>
+                        <div class="relative">
+                            <select id="preset-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg">
+                                <option value="custom">-- Custom --</option>
+                                <option value="fadeIn">Fade In</option>
+                                <option value="slideInUp" selected>Slide In Up</option>
+                                <option value="slideInLeft">Slide In Left</option>
+                                <option value="bounceIn">Bounce In</option>
+                                <option value="rotate">Rotate</option>
+                                <option value="pulse">Pulse</option>
+                                <option value="shake">Shake</option>
+                                <option value="tada">Tada</option>
+                            </select>
+                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- Keyframes -->
+                    <div class="space-y-3 border-t border-gray-800 pt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium">Keyframes</h3>
+                            <button id="remove-keyframe-btn" class="text-red-400 hover:text-red-300 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1" disabled title="Remove Selected Keyframe">
+                               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                               Remove
+                            </button>
+                        </div>
+                        <div id="keyframe-pills" class="flex flex-wrap gap-2"></div>
+                    </div>
+
+                    <!-- Properties -->
+                    <div id="properties-group" class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium">Properties at <span id="props-label" class="font-mono">0%</span></h3>
+                        <fieldset class="space-y-2 rounded-lg border border-gray-800 p-3">
+                            <legend class="text-sm font-medium text-gray-400 px-1">Transform</legend>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+                                <div><label for="prop-translate-x" class="text-xs">Translate X (px)</label><input type="number" id="prop-translate-x" value="0" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                                <div><label for="prop-translate-y" class="text-xs">Translate Y (px)</label><input type="number" id="prop-translate-y" value="0" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                                <div><label for="prop-scale" class="text-xs">Scale</label><input type="number" id="prop-scale" value="1" step="0.1" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                                <div><label for="prop-rotate" class="text-xs">Rotate (deg)</label><input type="number" id="prop-rotate" value="0" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                                <div><label for="prop-skew-x" class="text-xs">Skew X (deg)</label><input type="number" id="prop-skew-x" value="0" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                                <div><label for="prop-skew-y" class="text-xs">Skew Y (deg)</label><input type="number" id="prop-skew-y" value="0" class="w-full bg-gray-800 p-2 rounded-md mt-1 text-sm border border-gray-700"></div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="space-y-2 rounded-lg border border-gray-800 p-3">
+                            <legend class="text-sm font-medium text-gray-400 px-1">Style</legend>
+                            <div><label for="prop-opacity" class="text-xs">Opacity (<span id="opacity-value">1</span>)</label><input type="range" id="prop-opacity" min="0" max="1" value="1" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg mt-1"></div>
+                            <div><label for="prop-bg-color" class="text-xs">Background Color</label><input type="color" id="prop-bg-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-md cursor-pointer border border-gray-700 mt-1"></div>
+                        </fieldset>
+                    </div>
+                    
+                    <!-- Animation Settings -->
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium">Animation Settings</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label for="setting-duration" class="text-sm">Duration (s)</label><input type="number" id="setting-duration" value="1" step="0.1" min="0.1" class="w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"></div>
+                            <div><label for="setting-iterations" class="text-sm">Iterations</label><input type="number" id="setting-iterations" value="1" min="0" placeholder="0 for infinite" class="w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"></div>
+                            <div class="col-span-2"><label for="setting-direction" class="text-sm">Direction</label><select id="setting-direction" class="custom-select w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"><option>normal</option><option>reverse</option><option>alternate</option><option>alternate-reverse</option></select></div>
+                            <div class="col-span-2"><label for="setting-easing" class="text-sm">Easing</label><select id="setting-easing" class="custom-select w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"><option>ease</option><option>linear</option><option>ease-in</option><option>ease-out</option><option>ease-in-out</option></select></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex items-center justify-center p-8 bg-black/20 overflow-auto relative">
+                    <div id="preview-box" class="w-32 h-32 bg-white rounded-lg shadow-lg flex items-center justify-center text-black font-bold text-lg">
+                        Preview
+                    </div>
+                    <button id="replay-btn" class="absolute top-4 right-4 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Replay</span>
+                    </button>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Generated CSS</h3>
+                        <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span>Copy Code</span>
+                        </button>
+                    </div>
+                    <textarea id="css-code-output" readonly rows="8" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-xs resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                presetSelect: document.getElementById('preset-select'),
+                keyframePills: document.getElementById('keyframe-pills'),
+                removeKeyframeBtn: document.getElementById('remove-keyframe-btn'),
+                propsLabel: document.getElementById('props-label'),
+                opacityValue: document.getElementById('opacity-value'),
+                propertiesGroup: document.getElementById('properties-group'),
+                previewBox: document.getElementById('preview-box'),
+                replayBtn: document.getElementById('replay-btn'),
+                cssCodeOutput: document.getElementById('css-code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                animationStyleTag: document.getElementById('animation-style-tag'),
+                toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                previewPane: document.getElementById('output-pane'),
+                controlsPane: document.getElementById('controls-pane'),
+                props: {},
+                settings: {}
+            };
+
+            const propIds = ['translate-x', 'translate-y', 'scale', 'rotate', 'skew-x', 'skew-y', 'opacity', 'bg-color'];
+            propIds.forEach(id => el.props[id.replace(/-/g, '_')] = document.getElementById(`prop-${id}`));
+            const settingIds = ['duration', 'iterations', 'direction', 'easing'];
+            settingIds.forEach(id => el.settings[id] = document.getElementById(`setting-${id}`));
+
+            const presets = {
+                _base: { translate_x: 0, translate_y: 0, scale: 1, rotate: 0, skew_x: 0, skew_y: 0, opacity: 1, bg_color: '#ffffff' },
+                fadeIn: { 0: { opacity: 0 }, 100: { opacity: 1 } },
+                slideInUp: { 0: { opacity: 0, translate_y: 100 }, 100: { opacity: 1, translate_y: 0 } },
+                slideInLeft: { 0: { opacity: 0, translate_x: -100 }, 100: { opacity: 1, translate_x: 0 } },
+                bounceIn: { 0: { opacity: 0, scale: 0.3 }, 50: { opacity: 1, scale: 1.05 }, 70: { scale: 0.9 }, 100: { scale: 1 } },
+                rotate: { 0: { rotate: 0 }, 100: { rotate: 360 } },
+                pulse: { 0: { scale: 1 }, 50: { scale: 1.1 }, 100: { scale: 1 } },
+                shake: { 0: {}, 10: { translate_x: -10 }, 20: { translate_x: 10 }, 30: { translate_x: -10 }, 40: { translate_x: 10 }, 50: { translate_x: -10 }, 60: { translate_x: 10 }, 70: { translate_x: -10 }, 80: { translate_x: 10 }, 90: { translate_x: -10 }, 100: {} },
+                tada: { 0: { scale: 1, rotate: 0 }, 10: { scale: 0.9, rotate: -3 }, 20: { scale: 0.9, rotate: -3 }, 30: { scale: 1.1, rotate: 3 }, 40: { scale: 1.1, rotate: -3 }, 50: { scale: 1.1, rotate: 3 }, 60: { scale: 1.1, rotate: -3 }, 70: { scale: 1.1, rotate: 3 }, 80: { scale: 1.1, rotate: -3 }, 90: { scale: 1.1, rotate: 3 }, 100: { scale: 1, rotate: 0 } }
+            };
+
+            let state = {
+                keyframes: {},
+                settings: {},
+                currentPercentage: 0,
+            };
+
+            function loadPreset(presetName) {
+                if (presetName === 'custom') return;
+                const preset = presets[presetName];
+                state.keyframes = {};
+                for (const percent in preset) {
+                    state.keyframes[percent] = { ...presets._base, ...preset[percent] };
+                }
+                setCurrentPercentage(0);
+                updateUI();
+            }
+
+            function setCurrentPercentage(percent) {
+                state.currentPercentage = parseInt(percent);
+                updateUIForCurrentPercentage();
+            }
+
+            function updateUIForCurrentPercentage() {
+                const percent = state.currentPercentage;
+                el.propsLabel.textContent = `${percent}%`;
+                el.removeKeyframeBtn.disabled = (percent === 0 || percent === 100);
+                loadKeyframeIntoUI(percent);
+                renderKeyframePills();
+            }
+            
+            function loadKeyframeIntoUI(percent) {
+                const keyframe = state.keyframes[percent];
+                if (!keyframe) return; 
+                el.propertiesGroup.style.display = 'block';
+                for (const [key, value] of Object.entries(keyframe)) {
+                    if (el.props[key]) {
+                        el.props[key].value = value;
+                        if (key === 'opacity') {
+                            el.opacityValue.textContent = parseFloat(value).toFixed(2);
+                        }
+                    }
+                }
+            }
+            
+            function updateStateFromUI() {
+                const percent = state.currentPercentage;
+                if (state.keyframes[percent]) {
+                    for (const key in el.props) {
+                        const input = el.props[key];
+                        const isNumeric = input.type === 'number' || input.type === 'range';
+                        state.keyframes[percent][key] = isNumeric ? parseFloat(input.value) : input.value;
+                         if (key === 'opacity') el.opacityValue.textContent = parseFloat(input.value).toFixed(2);
+                    }
+                }
+                for (const key in el.settings) {
+                    state.settings[key] = el.settings[key].value;
+                }
+                el.presetSelect.value = 'custom';
+                generateAndApplyCSS();
+            }
+
+            function addKeyframe() {
+                const percentStr = prompt("Enter keyframe percentage (0-100):", state.currentPercentage);
+                if (percentStr === null) return;
+                const percent = parseInt(percentStr);
+                if (isNaN(percent) || percent < 0 || percent > 100) {
+                    alert("Please enter a valid number between 0 and 100.");
+                    return;
+                }
+                if (!state.keyframes[percent]) {
+                    const sortedKeys = Object.keys(state.keyframes).sort((a, b) => a - b);
+                    const beforeKey = sortedKeys.filter(k => k < percent).pop() || sortedKeys[0];
+                    state.keyframes[percent] = { ...state.keyframes[beforeKey] };
+                }
+                el.presetSelect.value = 'custom';
+                setCurrentPercentage(percent);
+                updateUI();
+            }
+
+            function removeKeyframe() {
+                const percent = state.currentPercentage;
+                if (percent === 0 || percent === 100 || !state.keyframes[percent]) return;
+                delete state.keyframes[percent];
+                el.presetSelect.value = 'custom';
+                setCurrentPercentage(0);
+                updateUI();
+            }
+
+            function renderKeyframePills() {
+                el.keyframePills.innerHTML = '';
+                const sortedKeys = Object.keys(state.keyframes).sort((a, b) => parseInt(a) - parseInt(b));
+                
+                sortedKeys.forEach(percent => {
+                    const pill = document.createElement('button');
+                    const isActive = parseInt(percent) === state.currentPercentage;
+                    pill.className = `keyframe-pill font-mono text-sm font-semibold py-1 px-3 rounded-full border-2 transition-colors ${isActive ? 'active' : 'border-gray-700 hover:border-gray-500'}`;
+                    pill.textContent = `${percent}%`;
+                    pill.dataset.percent = percent;
+                    pill.addEventListener('click', () => setCurrentPercentage(percent));
+                    el.keyframePills.appendChild(pill);
+                });
+
+                const addBtn = document.createElement('button');
+                addBtn.className = 'font-mono text-lg font-bold w-8 h-8 rounded-full border-2 border-dashed border-gray-700 hover:border-white hover:text-white transition-colors flex items-center justify-center';
+                addBtn.textContent = '+';
+                addBtn.title = 'Add new keyframe';
+                addBtn.addEventListener('click', addKeyframe);
+                el.keyframePills.appendChild(addBtn);
+            }
+
+            function generateAndApplyCSS() {
+                const { settings, keyframes } = state;
+                const animName = 'solite-custom-anim';
+                let keyframesString = `@keyframes ${animName} {\n`;
+                const sortedKeys = Object.keys(keyframes).sort((a, b) => parseInt(a) - parseInt(b));
+
+                for (const percent of sortedKeys) {
+                    const props = keyframes[percent];
+                    keyframesString += `  ${percent}% {\n`;
+                    const transforms = `translateX(${props.translate_x}px) translateY(${props.translate_y}px) scale(${props.scale}) rotate(${props.rotate}deg) skewX(${props.skew_x}deg) skewY(${props.skew_y}deg)`;
+                    keyframesString += `    transform: ${transforms};\n`;
+                    keyframesString += `    opacity: ${props.opacity};\n`;
+                    keyframesString += `    background-color: ${props.bg_color};\n`;
+                    keyframesString += `  }\n`;
+                }
+                keyframesString += '}';
+
+                const iterationCount = settings.iterations === '0' || !settings.iterations ? 'infinite' : settings.iterations;
+                const animationRule = `${animName} ${settings.duration}s ${settings.easing} ${iterationCount} ${settings.direction}`;
+
+                el.animationStyleTag.innerHTML = keyframesString;
+                el.cssCodeOutput.value = `.animated-element {\n  animation: ${animationRule};\n}\n\n${keyframesString}`;
+                
+                // This is the direct application of the animation rule to the preview element
+                el.previewBox.style.animation = 'none';
+                void el.previewBox.offsetWidth;
+                el.previewBox.style.animation = animationRule;
+            }
+
+            function replayAnimation() {
+                // This function now correctly rebuilds the rule from state for replay
+                const { settings } = state;
+                const iterationCount = settings.iterations === '0' || !settings.iterations ? 'infinite' : settings.iterations;
+                const animationRule = `solite-custom-anim ${settings.duration}s ${settings.easing} ${iterationCount} ${settings.direction}`;
+
+                el.previewBox.style.animation = 'none';
+                void el.previewBox.offsetWidth;
+                el.previewBox.style.animation = animationRule;
+            }
+            
+            function updateUI() {
+                updateStateFromUI();
+                updateUIForCurrentPercentage();
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message; el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            }
+
+            function copyCode() {
+                navigator.clipboard.writeText(el.cssCodeOutput.value).then(() => showToast('Copied to clipboard!'));
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'preview');
+                } else {
+                    el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active');
+                }
+            }
+
+            // Event Listeners
+            el.presetSelect.addEventListener('change', (e) => loadPreset(e.target.value));
+            el.removeKeyframeBtn.addEventListener('click', removeKeyframe);
+            el.replayBtn.addEventListener('click', replayAnimation);
+            el.copyCodeBtn.addEventListener('click', copyCode);
+            
+            Object.values(el.props).forEach(input => input.addEventListener('input', updateStateFromUI));
+            Object.values(el.settings).forEach(input => input.addEventListener('input', updateStateFromUI));
+            
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Load
+            loadPreset(el.presetSelect.value);
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>
