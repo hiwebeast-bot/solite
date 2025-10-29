@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Online Chart Maker | Create Charts from CSV/JSON | Solite</title>
+    <meta name="description" content="Instantly create bar, line, and scatter charts from your local CSV or JSON files. Our free online chart maker is 100% private and runs in your browser. No uploads, no sign-ups.">
+    <meta name="keywords" content="online chart maker, chart maker, csv to chart, json to chart, graph from csv, create chart online, data visualization tool, client-side chart generator, privacy-first data tool, create bar chart, online scatter plot, solite">
+    <link rel="canonical" href="https://solite.in/online-chart-maker.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Chart Maker | Create Charts from CSV/JSON | Solite">
+    <meta property="og:description" content="Instantly create bar, line, and scatter charts from your local CSV or JSON files. Our free online chart maker is 100% private and runs in your browser. No uploads, no sign-ups.">
+    <meta property="og:url" content="https://solite.in/online-chart-maker.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/online-chart-maker-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Chart Maker | Solite",
+      "url": "https://solite.in/online-chart-maker.html",
+      "description": "A free, client-side tool to generate charts from local CSV or JSON files without uploading data, ensuring user privacy.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Visualize CSV files", "Visualize JSON files", "Generate Bar, Line, Scatter, Bubble, Pie, Doughnut, Polar Area, and Radar charts", "Customize chart titles and labels", "Export charts as PNG/JPEG", "100% Client-side processing for privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .drag-over { border-color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
+        #data-preview-table th, #data-preview-table td { padding: 4px 8px; border: 1px solid #374151; }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Online Chart Maker</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[85%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Online Chart Maker for CSV and JSON Data</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex-col hidden lg:flex" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Chart Controls</h2>
+                <div id="controls-scroll-area" class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    
+                    <!-- File Upload -->
+                    <div id="file-upload-section" class="space-y-3">
+                        <label class="font-medium">Load Data</label>
+                        <div id="drop-zone" class="cursor-pointer border-2 border-dashed border-gray-600 hover:border-gray-500 rounded-lg p-6 text-center transition-colors">
+                            <p class="font-semibold">Drop CSV/JSON here</p>
+                            <p class="text-sm text-gray-400">or click to select file</p>
+                            <input type="file" id="file-input" class="hidden" accept=".csv, .json, text/csv, application/json">
+                        </div>
+                         <div id="file-info" class="hidden text-sm text-center text-gray-400 flex items-center justify-center gap-2">
+                             <span id="file-name" class="truncate"></span>
+                             <button id="remove-file-btn" class="flex-shrink-0 flex items-center gap-1 text-red-400 hover:text-red-300 font-semibold bg-gray-800 hover:bg-gray-700 px-2 py-1 rounded-md" title="Clear File">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                                <span>Clear</span>
+                             </button>
+                         </div>
+                    </div>
+
+                    <!-- Data Preview -->
+                    <div id="data-preview-section" class="hidden space-y-2 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium">Data Preview</h3>
+                        <div class="max-h-40 overflow-auto bg-gray-800 rounded-md text-xs">
+                            <table id="data-preview-table" class="w-full text-left"></table>
+                        </div>
+                    </div>
+
+                    <!-- Chart Configuration -->
+                    <div id="chart-config-section" class="hidden space-y-6 border-t border-gray-800 pt-4">
+                        <!-- Chart Type -->
+                        <div class="space-y-2">
+                           <h3 class="font-medium">Chart Type</h3>
+                           <div class="grid grid-cols-4 gap-2 text-center text-xs font-medium">
+                               <button data-chart-type="bar" class="chart-type-btn p-2 rounded-lg bg-gray-700">Bar</button>
+                               <button data-chart-type="line" class="chart-type-btn p-2 rounded-lg bg-gray-800">Line</button>
+                               <button data-chart-type="scatter" class="chart-type-btn p-2 rounded-lg bg-gray-800">Scatter</button>
+                               <button data-chart-type="bubble" class="chart-type-btn p-2 rounded-lg bg-gray-800">Bubble</button>
+                               <button data-chart-type="pie" class="chart-type-btn p-2 rounded-lg bg-gray-800">Pie</button>
+                               <button data-chart-type="doughnut" class="chart-type-btn p-2 rounded-lg bg-gray-800">Doughnut</button>
+                               <button data-chart-type="polarArea" class="chart-type-btn p-2 rounded-lg bg-gray-800">Polar</button>
+                               <button data-chart-type="radar" class="chart-type-btn p-2 rounded-lg bg-gray-800">Radar</button>
+                           </div>
+                        </div>
+                        <!-- Axis Configuration -->
+                        <div class="space-y-4 border-t border-gray-800 pt-4">
+                            <h3 class="font-medium">Axes</h3>
+                            <div id="axis-selectors" class="grid grid-cols-2 gap-4">
+                            <div><label for="x-axis-select" class="text-sm">X-Axis</label><div class="relative"><select id="x-axis-select" class="custom-select w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                            <div><label for="y-axis-select" class="text-sm">Y-Axis</label><div class="relative"><select id="y-axis-select" class="custom-select w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                        </div>
+                            <div id="z-axis-selector" class="hidden">
+                            <label for="z-axis-select" class="text-sm">Size (Radius)</label><div class="relative"><select id="z-axis-select" class="custom-select w-full bg-gray-800 p-2 rounded-lg mt-1 text-sm border border-gray-700"></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Customization -->
+                    <div id="customization-section" class="hidden space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium">Customize</h3>
+                        <input type="text" id="chart-title-input" placeholder="Chart Title" class="w-full bg-gray-800 p-2 rounded-lg text-sm border border-gray-700">
+                        <div class="flex items-center justify-between">
+                            <label for="show-legend-toggle" class="text-sm">Show Legend</label>
+                            <input type="checkbox" id="show-legend-toggle" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                        </div>
+                         <div class="flex items-center justify-between">
+                            <label for="show-grid-toggle" class="text-sm">Show Grid Lines</label>
+                            <input type="checkbox" id="show-grid-toggle" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden min-h-0 hidden lg:flex">
+                <div class="flex-grow p-4 lg:p-8 bg-black/20 relative min-h-0">
+                    <div id="chart-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-500 z-10">
+                        <svg class="mx-auto h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+                        <p class="mt-4 text-lg font-semibold">Your chart will appear here</p>
+                        <p class="text-sm">Upload a CSV or JSON file to get started.</p>
+                    </div>
+                    <div class="w-full h-full relative z-0">
+                        <canvas id="chart-canvas"></canvas>
+                    </div>
+                </div>
+                <div id="export-section" class="hidden flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 flex items-center justify-end gap-3">
+                    <span class="text-sm font-medium mr-auto text-gray-300">Export Chart:</span>
+                    <button id="export-png-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg text-sm">PNG</button>
+                    <button id="export-jpeg-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg text-sm">JPEG</button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-full lg:w-[15%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" /></svg>
+                    <span>Chart</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                // Panes
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+                // File Upload
+                dropZone: document.getElementById('drop-zone'),
+                fileInput: document.getElementById('file-input'),
+                fileInfo: document.getElementById('file-info'),
+                fileName: document.getElementById('file-name'),
+                removeFileBtn: document.getElementById('remove-file-btn'),
+                // Data Preview
+                dataPreviewSection: document.getElementById('data-preview-section'),
+                dataPreviewTable: document.getElementById('data-preview-table'),
+                // Chart Config
+                chartConfigSection: document.getElementById('chart-config-section'),
+                customizationSection: document.getElementById('customization-section'),
+                chartTypeBtns: document.querySelectorAll('.chart-type-btn'),
+                xAxisSelect: document.getElementById('x-axis-select'),
+                yAxisSelect: document.getElementById('y-axis-select'),
+                zAxisSelect: document.getElementById('z-axis-select'),
+                chartTitleInput: document.getElementById('chart-title-input'),
+                showLegendToggle: document.getElementById('show-legend-toggle'),
+                showGridToggle: document.getElementById('show-grid-toggle'),
+                // Output
+                chartPlaceholder: document.getElementById('chart-placeholder'),
+                chartCanvas: document.getElementById('chart-canvas'),
+                exportSection: document.getElementById('export-section'),
+                exportPngBtn: document.getElementById('export-png-btn'),
+                exportJpegBtn: document.getElementById('export-jpeg-btn'),
+                // Mobile
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                toast: document.getElementById('toast'),
+            };
+
+            let chartInstance = null;
+            let chartData = [];
+            let chartHeaders = [];
+            let currentChartType = 'bar';
+
+            // --- State Management ---
+            function resetState() {
+                if (chartInstance) chartInstance.destroy();
+                chartInstance = null;
+                chartData = [];
+                chartHeaders = [];
+                currentChartType = 'bar';
+                el.fileInput.value = '';
+                
+                el.fileInfo.classList.add('hidden');
+                el.dataPreviewSection.classList.add('hidden');
+                el.chartConfigSection.classList.add('hidden');
+                el.customizationSection.classList.add('hidden');
+                el.exportSection.classList.add('hidden');
+                el.chartPlaceholder.classList.remove('hidden');
+                el.xAxisSelect.innerHTML = '';
+                el.yAxisSelect.innerHTML = '';
+                el.zAxisSelect.innerHTML = '';
+            }
+
+            // --- File Handling ---
+            function handleFile(file) {
+                if (!file) return;
+                resetState();
+                
+                el.fileName.textContent = file.name;
+                el.fileInfo.classList.remove('hidden');
+
+                if (file.type === 'application/json' || file.name.endsWith('.json')) {
+                    const reader = new FileReader();
+                    reader.onload = e => parseData(JSON.parse(e.target.result));
+                    reader.readAsText(file);
+                } else { // Assume CSV
+                    Papa.parse(file, {
+                        header: true,
+                        skipEmptyLines: true,
+                        dynamicTyping: true,
+                        complete: results => parseData(results.data, results.meta.fields),
+                        error: (err) => showToast(`CSV Parse Error: ${err.message}`, true)
+                    });
+                }
+            }
+
+            function parseData(data, headers) {
+                if (!data || data.length === 0) {
+                    showToast('File is empty or could not be parsed.', true);
+                    return;
+                }
+                chartData = data;
+                chartHeaders = headers || Object.keys(data[0]);
+
+                if (chartHeaders.length < 2) {
+                    showToast('Data must have at least two columns.', true);
+                    return;
+                }
+                
+                el.chartConfigSection.classList.remove('hidden');
+                el.customizationSection.classList.remove('hidden');
+                el.exportSection.classList.remove('hidden');
+                
+                populateDataPreview();
+                populateAxisSelectors();
+                renderChart();
+            }
+
+            // --- UI Updates ---
+            function populateDataPreview() {
+                el.dataPreviewSection.classList.remove('hidden');
+                let tableHTML = '<thead><tr>';
+                chartHeaders.forEach(header => tableHTML += `<th>${header}</th>`);
+                tableHTML += '</tr></thead><tbody>';
+                chartData.slice(0, 5).forEach(row => {
+                    tableHTML += '<tr>';
+                    chartHeaders.forEach(header => tableHTML += `<td>${row[header] === null ? 'null' : row[header]}</td>`);
+                    tableHTML += '</tr>';
+                });
+                tableHTML += '</tbody>';
+                el.dataPreviewTable.innerHTML = tableHTML;
+            }
+
+            function populateAxisSelectors() {
+                el.xAxisSelect.innerHTML = '';
+                el.yAxisSelect.innerHTML = '';
+                 el.zAxisSelect.innerHTML = '';
+                chartHeaders.forEach((header, index) => {
+                    const option = `<option value="${header}">${header}</option>`;
+                    el.xAxisSelect.innerHTML += option;
+                    el.yAxisSelect.innerHTML += option;
+                     el.zAxisSelect.innerHTML += option;
+                });
+                el.xAxisSelect.selectedIndex = 0;
+                el.yAxisSelect.selectedIndex = Math.min(1, chartHeaders.length - 1);
+                 el.zAxisSelect.selectedIndex = Math.min(2, chartHeaders.length - 1);
+            }
+
+            function generateColors(count) {
+                const colors = [];
+                const baseHue = Math.random() * 360;
+                for (let i = 0; i < count; i++) {
+                    const hue = (baseHue + (i * 137.5)) % 360; // Use golden angle for distinct colors
+                    colors.push(`hsla(${hue}, 70%, 60%, 0.7)`);
+                }
+                return colors;
+            }
+
+            // --- Chart Rendering ---
+            function renderChart() {
+                if (chartData.length === 0) return;
+                el.chartPlaceholder.classList.add('hidden');
+
+                const xKey = el.xAxisSelect.value; 
+                const yKey = el.yAxisSelect.value;
+                const zKey = el.zAxisSelect.value;
+
+                let labels, datasets;
+
+                if (currentChartType === 'scatter') {
+                    datasets = [{
+                        label: `${xKey} vs ${yKey}`,
+                        data: chartData.map(row => ({ x: row[xKey], y: row[yKey] })),
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                    }];
+                 } else if (currentChartType === 'bubble') {
+                    datasets = [{
+                        label: `${yKey} by ${xKey} and ${zKey}`,
+                        data: chartData.map(row => ({ x: row[xKey], y: row[yKey], r: row[zKey] })),
+                        backgroundColor: generateColors(chartData.length),
+                    }];
+                 } else if (['pie', 'doughnut', 'polarArea'].includes(currentChartType)) {
+                    labels = chartData.map(row => row[xKey]);
+                    datasets = [{
+                        label: yKey,
+                        data: chartData.map(row => row[yKey]),
+                        backgroundColor: generateColors(chartData.length),
+                    }];
+                } else {
+                    labels = chartData.map(row => row[xKey]);
+                    datasets = [{
+                        label: yKey,
+                        data: chartData.map(row => row[yKey]),
+                        backgroundColor: currentChartType === 'bar' ? 'rgba(59, 130, 246, 0.6)' : undefined,
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: currentChartType === 'line' ? 2 : 1,
+                        fill: false,
+                    }];
+                }
+
+                const scalesConfig = {
+                    x: { ticks: { color: '#9CA3AF' }, grid: { color: el.showGridToggle.checked ? '#374151' : 'transparent' } },
+                    y: { ticks: { color: '#9CA3AF' }, grid: { color: el.showGridToggle.checked ? '#374151' : 'transparent' } },
+                    r: { pointLabels: { color: '#D1D5DB' }, grid: { color: '#374151' }, angleLines: { color: '#374151' } }
+                };
+
+                const showScales = !['pie', 'doughnut', 'polarArea'].includes(currentChartType);
+                
+                const chartConfig = {
+                    type: currentChartType,
+                    data: { labels: currentChartType !== 'scatter' ? labels : undefined, datasets },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: { display: !!el.chartTitleInput.value, text: el.chartTitleInput.value, color: '#E5E7EB', font: { size: 16 } },
+                            legend: { display: el.showLegendToggle.checked, labels: { color: '#D1D5DB' } }
+                        },
+                         scales: showScales ? scalesConfig : {}
+                    }
+                };
+
+                if (chartInstance) chartInstance.destroy();
+                chartInstance = new Chart(el.chartCanvas, chartConfig);
+            }
+            
+            // --- Exporting ---
+            function exportChart(format = 'png') {
+                if (!chartInstance) return;
+                const a = document.createElement('a');
+                a.href = chartInstance.toBase64Image(`image/${format}`, 1);
+                a.download = `${(el.chartTitleInput.value || 'chart').replace(/ /g, '_')}.${format}`;
+                a.click();
+            }
+
+            // --- General Utilities ---
+            function showToast(message, isError = false) {
+                el.toast.textContent = message;
+                el.toast.className = `fixed top-0 left-1/2 -translate-x-1/2 font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 ${isError ? 'bg-red-500 text-white' : 'bg-white text-black'}`;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 3000);
+            }
+
+            // --- Mobile Layout ---
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.remove('active');
+                }
+            }
+
+            // --- Event Listeners ---
+            el.dropZone.addEventListener('click', () => el.fileInput.click());
+            el.fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+            el.removeFileBtn.addEventListener('click', resetState);
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => el.dropZone.addEventListener(eventName, e => e.preventDefault()));
+            ['dragenter', 'dragover'].forEach(eventName => el.dropZone.addEventListener(eventName, () => el.dropZone.classList.add('drag-over')));
+            ['dragleave', 'drop'].forEach(eventName => el.dropZone.addEventListener(eventName, () => el.dropZone.classList.remove('drag-over')));
+            el.dropZone.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
+
+            el.chartTypeBtns.forEach(btn => btn.addEventListener('click', () => {
+                currentChartType = btn.dataset.chartType;
+                el.chartTypeBtns.forEach(b => b.classList.replace('bg-gray-700', 'bg-gray-800'));
+                btn.classList.replace('bg-gray-800', 'bg-gray-700');
+                
+                const showAxes = !['pie', 'doughnut', 'polarArea', 'bubble'].includes(currentChartType);
+                document.getElementById('axis-selectors').style.display = showAxes ? 'grid' : 'none';
+                document.getElementById('z-axis-selector').style.display = currentChartType === 'bubble' ? 'block' : 'none';
+
+                renderChart();
+            }));
+
+            [el.xAxisSelect, el.yAxisSelect, el.zAxisSelect, el.chartTitleInput, el.showLegendToggle, el.showGridToggle].forEach(input => {
+                input.addEventListener('input', renderChart);
+            });
+            
+            el.exportPngBtn.addEventListener('click', () => exportChart('png'));
+            el.exportJpegBtn.addEventListener('click', () => exportChart('jpeg'));
+            
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Load
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>
