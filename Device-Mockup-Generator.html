@@ -89,6 +89,13 @@
         .style-btn.active { border-bottom-color: #4f46e5; color: #111827; }
         html.dark .style-btn.active { border-bottom-color: #ffffff; color: #ffffff; }
         .checkerboard { background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+        
+        /* Special style for html2canvas rendering */
+        .for-canvas-rendering {
+            /* This nudges the text up slightly only during download */
+            line-height: 0.1 !important;
+            padding-bottom: 10px !important;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-black text-gray-800 dark:text-gray-200 flex flex-col min-h-screen font-sans">
@@ -108,10 +115,6 @@
                     <span>Free Tools</span>
                     <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
                 </a>
-                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800" aria-label="Toggle theme">
-                    <svg id="theme-icon-light" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <svg id="theme-icon-dark" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                </button>
             </div>
         </div>
     </header>
@@ -168,11 +171,6 @@
                     </div>
 
                     <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
-                        <label for="padding-slider" class="font-medium flex justify-between">Padding <span id="padding-value">64px</span></label>
-                        <input type="range" id="padding-slider" min="0" max="128" value="64" class="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                    </div>
-                    
-                    <div class="space-y-2 border-t border-gray-200 dark:border-gray-800 pt-4">
                         <label for="shadow-select" class="font-medium">Shadow</label>
                         <select id="shadow-select" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg focus:outline-none">
                             <option value="none">None</option>
@@ -199,7 +197,7 @@
                         <div id="browser-mockup" class="mockup-frame w-[900px] overflow-hidden rounded-t-lg">
                             <div class="browser-header flex items-center h-10 px-2.5 gap-2">
                                 <div class="window-controls flex items-center gap-2"></div>
-                                <div class="address-bar grid place-items-center flex-1 text-xs h-6 rounded px-4 truncate"><span class="url-display select-none"></span></div>
+                                <div class="address-bar flex items-center justify-center flex-1 text-xs h-6 rounded px-4 truncate" style="font-size: 11px;"><span class="url-display select-none"></span></div>
                             </div>
                             <div class="screenshot-container bg-gray-200 dark:bg-gray-700 aspect-[16/10] w-full flex items-center justify-center overflow-hidden relative"></div>
                         </div>
@@ -228,7 +226,7 @@
                                 <div class="h-full w-full bg-black flex flex-col">
                                      <div class="browser-header flex items-center h-8 px-2 gap-2 flex-shrink-0">
                                         <div class="window-controls flex items-center gap-1.5"></div>
-                                        <div class="address-bar grid place-items-center flex-1 text-xs h-5 rounded px-4 truncate"><span class="url-display select-none"></span></div>
+                                        <div class="address-bar flex items-center text-left flex-1 text-xs h-5 rounded px-4 truncate" style="font-size: 10px;"><span class="url-display select-none"></span></div>
                                     </div>
                                     <div class="screenshot-container bg-gray-200 dark:bg-gray-700 w-full flex-grow flex items-center justify-center overflow-hidden relative"></div>
                                 </div>
@@ -274,7 +272,7 @@
             
             function initializeApp() {
                 Object.assign(state, { imageSrc: null, originalFileName: 'mockup.png', activeDevice: 'browser', activeStyle: 'macos-light', padding: '64', bgColor: '#f3f4f6', shadow: 'medium', url: 'https://solite.in/your-page', isBgTransparent: false, activeMobileTab: 'preview' });
-                Object.assign(elements, { themeToggle: document.getElementById('theme-toggle'), lightIcon: document.getElementById('theme-icon-light'), darkIcon: document.getElementById('theme-icon-dark'), downloadBtns: document.querySelectorAll('#download-btn-bottom'), uploadBtn: document.getElementById('upload-btn'), uploadInput: document.getElementById('upload-input'), removeImageBtn: document.getElementById('remove-image-btn'), deviceBtns: document.querySelectorAll('.device-btn'), styleBtns: document.querySelectorAll('.style-btn'), browserControls: document.getElementById('browser-controls'), urlInput: document.getElementById('url-input'), paddingSlider: document.getElementById('padding-slider'), bgColorPicker: document.getElementById('bg-color-picker'), bgTransparentCheckbox: document.getElementById('bg-transparent-checkbox'), shadowSelect: document.getElementById('shadow-select'), paddingValue: document.getElementById('padding-value'), previewCanvas: document.getElementById('preview-canvas'), mockupContainer: document.getElementById('mockup-container'), mockupFrames: document.querySelectorAll('.mockup-frame'), urlDisplays: document.querySelectorAll('.url-display'), screenshotContainers: document.querySelectorAll('.screenshot-container'), mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), previewPane: document.getElementById('preview-pane'), controlsPane: document.getElementById('controls-pane'), toast: document.getElementById('toast'), placeholderContent: document.getElementById('placeholder-content'), });
+                Object.assign(elements, { downloadBtns: document.querySelectorAll('#download-btn-bottom'), uploadBtn: document.getElementById('upload-btn'), uploadInput: document.getElementById('upload-input'), removeImageBtn: document.getElementById('remove-image-btn'), deviceBtns: document.querySelectorAll('.device-btn'), styleBtns: document.querySelectorAll('.style-btn'), browserControls: document.getElementById('browser-controls'), urlInput: document.getElementById('url-input'), bgColorPicker: document.getElementById('bg-color-picker'), bgTransparentCheckbox: document.getElementById('bg-transparent-checkbox'), shadowSelect: document.getElementById('shadow-select'), previewCanvas: document.getElementById('preview-canvas'), mockupContainer: document.getElementById('mockup-container'), mockupFrames: document.querySelectorAll('.mockup-frame'), urlDisplays: document.querySelectorAll('.url-display'), screenshotContainers: document.querySelectorAll('.screenshot-container'), mobilePreviewBtn: document.getElementById('mobile-preview-btn'), mobileControlsBtn: document.getElementById('mobile-controls-btn'), previewPane: document.getElementById('preview-pane'), controlsPane: document.getElementById('controls-pane'), toast: document.getElementById('toast'), placeholderContent: document.getElementById('placeholder-content') });
                 initTheme();
                 attachEventListeners();
             }
@@ -290,8 +288,6 @@
                 if (state.isBgTransparent) { elements.previewCanvas.style.backgroundColor = 'transparent'; elements.previewCanvas.classList.add('checkerboard'); } 
                 else { elements.previewCanvas.style.backgroundColor = state.bgColor; elements.previewCanvas.classList.remove('checkerboard'); }
                 
-                elements.paddingSlider.value = state.padding; elements.paddingValue.textContent = `${state.padding}px`;
-                elements.bgColorPicker.value = state.bgColor; elements.shadowSelect.value = state.shadow;
                 elements.urlInput.value = state.url; elements.mockupContainer.style.padding = `${state.padding}px`;
                 elements.urlDisplays.forEach(el => el.textContent = state.url);
 
@@ -312,8 +308,11 @@
                 elements.removeImageBtn.classList.toggle('hidden', !state.imageSrc);
                 
                 elements.mockupFrames.forEach(frame => {
-                    frame.style.cssText = shadowStyles[state.shadow];
-                    frame.classList.toggle('hidden', frame.id !== `${state.activeDevice}-mockup`)
+                    const isActive = frame.id === `${state.activeDevice}-mockup`;
+                    frame.classList.toggle('hidden', !isActive);
+                    if (isActive) {
+                        elements.mockupContainer.style.cssText = shadowStyles[state.shadow];
+                    }
                 });
 
                 elements.deviceBtns.forEach(btn => {
@@ -345,14 +344,12 @@
 
             function applyTheme(theme) {
                 document.documentElement.classList.remove('light', 'dark'); document.documentElement.classList.add(theme);
-                elements.lightIcon.classList.toggle('hidden', theme === 'light'); elements.darkIcon.classList.toggle('hidden', theme === 'dark');
                 isDarkMode = theme === 'dark'; localStorage.setItem('theme', theme); render(); 
             }
             function initTheme() {
-                const savedTheme = localStorage.getItem('theme'); const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+                applyTheme('dark');
             }
-
+            
             function handleImageUpload(file) {
                 if (!file) return; const newFileName = file.name.split('.')[0] + `-${state.activeDevice}-mockup.png`;
                 const reader = new FileReader(); reader.onload = e => setState({ imageSrc: e.target.result, originalFileName: newFileName }); reader.readAsDataURL(file);
@@ -360,10 +357,19 @@
             
             async function downloadImage() {
                 if (!state.imageSrc) return;
+                const addressBars = document.querySelectorAll('.address-bar');
                 try {
+                    // Add a special class just for canvas rendering
+                    addressBars.forEach(el => el.classList.add('for-canvas-rendering'));
+
                     const canvas = await html2canvas(elements.mockupContainer, { scale: 2, backgroundColor: state.isBgTransparent ? null : state.bgColor, logging: false, useCORS: true });
                     const link = document.createElement('a'); link.href = canvas.toDataURL('image/png', 1.0); link.download = state.originalFileName; link.click();
-                } catch (error) { console.error("Download failed:", error); showToast("Sorry, download failed."); }
+                } catch (error) { 
+                    console.error("Download failed:", error); showToast("Sorry, download failed."); 
+                } finally {
+                    // Always remove the class after rendering is done
+                    addressBars.forEach(el => el.classList.remove('for-canvas-rendering'));
+                }
             }
 
             function showToast(message) { elements.toast.textContent = message; elements.toast.classList.add('show'); setTimeout(() => elements.toast.classList.remove('show'), 2000); }
@@ -384,14 +390,12 @@
             }
 
             function attachEventListeners() {
-                elements.themeToggle.addEventListener('click', () => applyTheme(isDarkMode ? 'light' : 'dark'));
                 elements.uploadBtn.addEventListener('click', () => elements.uploadInput.click());
                 elements.uploadInput.addEventListener('change', (e) => handleImageUpload(e.target.files[0]));
                 elements.removeImageBtn.addEventListener('click', () => setState({ imageSrc: null }));
                 elements.downloadBtns.forEach(btn => btn.addEventListener('click', downloadImage));
                 elements.deviceBtns.forEach(btn => btn.addEventListener('click', () => setState({ activeDevice: btn.dataset.device })));
                 elements.styleBtns.forEach(btn => btn.addEventListener('click', () => setState({ activeStyle: btn.dataset.style })));
-                elements.paddingSlider.addEventListener('input', (e) => setState({ padding: e.target.value }));
                 elements.bgColorPicker.addEventListener('input', (e) => setState({ bgColor: e.target.value }));
                 elements.bgTransparentCheckbox.addEventListener('input', (e) => setState({ isBgTransparent: e.target.checked }));
                 elements.shadowSelect.addEventListener('input', (e) => setState({ shadow: e.target.value }));

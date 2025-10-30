@@ -61,7 +61,40 @@
         "name": "Solite",
         "logo": { "@type": "ImageObject", "url": "https://solite.in/assets/apple-touch-icon.png" }
       },
-      "datePublished": "2025-11-03"
+      "datePublished": "2025-11-03",
+      "dateModified": "2025-11-03"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://solite.in/blog.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Create Beautiful CSS Shadows"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Why are layered shadows better for UI design?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Layered shadows are better because they create a more realistic sense of depth. By combining a sharp, near-shadow with a softer, wider ambient shadow, you can make UI elements feel more tangible and elevated from the page, which improves the overall user experience." }
+      },{
+        "@type": "Question",
+        "name": "How can a CSS shadow generator speed up my workflow?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A visual CSS shadow generator like Solite's provides instant feedback with a live preview. Instead of manually typing and refreshing, you can use sliders to adjust offset, blur, and color, allowing you to create complex, multi-layered shadows in seconds and copy the production-ready code." }
+      }]
     }
     </script>
 
@@ -122,7 +155,10 @@
         <article class="prose prose-invert prose-lg max-w-4xl mx-auto prose-a:text-blue-400 hover:prose-a:underline">
             <h1>How to Create Beautiful, Realistic CSS Shadows (Fast) — with the Free CSS Shadows Maker</h1>
             
-            <p class="lead">If you’ve ever spent 20 minutes trying to get a shadow to <em>feel</em> right — softer on the edges, warmer in color, and not like a flat grey blob — this post is for you.</p>
+            <div class="my-6 border-b border-gray-800">
+                <p class="text-base text-gray-400">By The Solite Team &middot; Published on November 3, 2025 &middot; 4 min read</p>
+            </div>
+            <p class="lead">If you’ve ever spent 20 minutes trying to get a CSS shadow to <em>feel</em> right — softer on the edges, warmer in color, and not like a flat grey blob — this post is for you.</p>
             <p>Shadows are subtle, but they do heavy lifting: they create depth, hierarchy, and affordance. The right shadow can make buttons feel pressable, cards feel elevated, and interfaces feel tactile. For an instant, hands-on approach, try our <a href="../css-shadows-maker.html"><strong>free CSS Shadows Maker</strong></a> (live preview + copy CSS).</p>
 
             <h2>Why shadows matter (quick)</h2>
@@ -176,6 +212,30 @@
 
             <h2>Closing — Make shadows that feel like design</h2>
             <p>A great interface is a sum of many tiny details — and shadows are one of the fastest ways to add polish. Use layered shadows, preview frequently, and always test for accessibility. If you want to try a real-time generator that stays private and works in your browser instantly, start with the <a href="../css-shadows-maker.html"><strong>CSS Shadows Maker</strong></a>.</p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 pt-8 border-t border-gray-800">
+                <h2 class="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <div class="mt-4 space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-lg">Why are layered shadows better for UI design?</h3>
+                        <p>Layered shadows are better because they create a more realistic sense of depth. By combining a sharp, near-shadow with a softer, wider ambient shadow, you can make UI elements feel more tangible and elevated from the page, which improves the overall user experience.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">How can a CSS shadow generator speed up my workflow?</h3>
+                        <p>A visual CSS shadow generator like Solite's provides instant feedback with a live preview. Instead of manually typing and refreshing, you can use sliders to adjust offset, blur, and color, allowing you to create complex, multi-layered shadows in seconds and copy the production-ready code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools Section -->
+            <section class="mt-16 pt-8 border-t border-gray-800">
+                <h3 class="text-2xl font-bold text-white mb-6">Related Solite Tools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="../css-gradient-generator.html" class="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-white/20 transition-colors group"><h4 class="font-bold text-lg text-white mb-2 group-hover:text-white">CSS Gradient Generator</h4><p class="text-sm text-gray-400">Combine beautiful shadows with custom linear, radial, or conic gradients for stunning backgrounds.</p></a>
+                    <a href="../image-color-picker.html" class="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-white/20 transition-colors group"><h4 class="font-bold text-lg text-white mb-2 group-hover:text-white">Image Color Picker</h4><p class="text-sm text-gray-400">Extract a color from an image to use as the base for your shadow, ensuring it matches your brand palette.</p></a>
+                </div>
+            </section>
         </article>
 
         <!-- Related Articles -->
