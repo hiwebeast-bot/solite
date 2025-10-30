@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Visiting Card Designer | Business Card Maker | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Design and download custom visiting cards for free with our online business card maker. Choose from modern templates, add your logo, and export a print-ready business card. 100% private and no sign-up required.">
+    <meta name="keywords" content="visiting card designer, business card maker, free business card, online visiting card, custom business card, business card designer, printable business cards, solite">
+    <link rel="canonical" href="https://solite.in/visiting-card-designer.html">
+    <meta property="og:title" content="Free Visiting Card Designer | Business Card Maker | Solite">
+    <meta property="og:description" content="Design and download custom visiting cards for free. Choose from modern templates and export a print-ready business card. 100% private.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://solite.in/assets/visiting-card-designer-og.png">
+    <meta property="og:url" content="https://solite.in/visiting-card-designer.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- JS Libraries for Image Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Visiting Card Designer | Solite",
+      "url": "https://solite.in/visiting-card-designer.html",
+      "description": "A free, client-side tool to design custom business cards from modern templates and download them as high-quality images.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Front and Back Designs", "Logo Upload", "Custom Background Colors", "Live Preview", "Download as PNG", "Client-side for 100% Privacy", "No Sign-up Required", "Draggable & Resizable Logo" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        body: ['Source Sans Pro', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        #template-grid::-webkit-scrollbar { height: 6px; }
+        #template-grid::-webkit-scrollbar-track { background: #1f2937; }
+        #template-grid::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
+        #card-container [contenteditable="true"] { outline: none; }
+        .resizable-logo { touch-action: none; user-select: none; }
+        @media (max-width: 1023px) {
+            #card-container [contenteditable="true"] { pointer-events: none; }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+
+        /* Smart Text Color */
+        .light-text, .light-text [class*="text-gray"] { color: #ffffff !important; }
+        .dark-text, .dark-text [class*="text-gray"] { color: #1f2937 !important; }
+        .dark-text .text-gray-400 { color: #6b7280 !important; } /* Subtler gray for dark text */
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Visiting Card Designer</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative">
+        <h1 class="sr-only">Free Visiting Card and Business Card Designer</h1>
+        <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
+            
+            <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
+                <h3 class="text-xl font-bold text-white mb-4">Templates</h3>
+                <div id="template-grid" class="flex overflow-x-auto gap-3 pb-2 mb-4"></div>
+                
+                <button id="download-btn" aria-label="Download generated visiting card as PNG" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center gap-2 w-full justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                    <span>Download as PNG</span>
+                </button>
+
+                <div class="space-y-4 mb-6 border-b border-gray-800 pb-6">
+                    <div>
+                        <label for="logo-upload-input" class="font-medium">Logo</label>
+                        <button id="logo-upload-btn" aria-label="Upload a logo for the visiting card" class="mt-1 w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+                            <span>Upload Logo</span>
+                        </button>
+                        <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+                        <button id="remove-logo-btn" class="hidden mt-1 w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-3 rounded-lg">Remove Logo</button>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-medium">Background Colors</label>
+                        <div class="grid grid-cols-2 gap-4 mt-1">
+                            <div>
+                                <label for="bg-color-picker-front" class="text-sm text-gray-400">Front</label>
+                                <input type="color" id="bg-color-picker-front" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1">
+                            </div>
+                            <div>
+                                <label for="bg-color-picker-back" class="text-sm text-gray-400">Back</label>
+                                <input type="color" id="bg-color-picker-back" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="edit-fields-container" class="space-y-4 flex-grow overflow-y-auto pr-2">
+                    <!-- Dynamic fields will be injected here -->
+                </div>
+            </div>
+
+            <div id="preview-panel" class="flex-1 flex flex-col bg-gray-200 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
+                <div class="flex flex-col gap-8 w-full items-center justify-start py-4">
+                    <div id="card-container-front" class="card-container aspect-[3.5/2] w-full max-w-[450px] shadow-2xl relative overflow-hidden bg-white flex-shrink-0"></div>
+                    <div id="card-container-back" class="card-container aspect-[3.5/2] w-full max-w-[450px] shadow-2xl relative overflow-hidden bg-white flex-shrink-0"></div>
+                </div>
+            </div>
+
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-16 py-1">
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                    <span>Edit</span>
+                </button>
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Helper Function for Color Contrast ---
+            function getContrastClass(hex) {
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                const r = parseInt(hex.slice(0, 2), 16);
+                const g = parseInt(hex.slice(2, 4), 16);
+                const b = parseInt(hex.slice(4, 6), 16);
+                // Using the YIQ formula to determine brightness
+                const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+                return (yiq >= 128) ? 'dark-text' : 'light-text';
+            }
+
+            const CARD_TEMPLATES = [
+                {
+                    id: 'modern', name: 'Modern', bg_front: '#1f2937', bg_back: '#1f2937',
+                    front_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-between font-sans">
+                            <div class="resizable-logo w-12 h-12 absolute top-6 right-6"></div>
+                            <div>
+                                <h1 contenteditable="true" data-id="full-name" class="text-2xl font-bold">JANE DOE</h1>
+                                <p contenteditable="true" data-id="job-title" class="text-sm text-gray-400">Senior Web Developer</p>
+                            </div>
+                            <div class="text-right text-xs">
+                                <p contenteditable="true" data-id="company-name" class="font-semibold">Tech Solutions Inc.</p>
+                                <p contenteditable="true" data-id="contact-info">(123) 456-7890 | jane.doe@email.com | solite.in</p>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-center items-center font-sans">
+                            <div class="resizable-logo w-24 h-24"></div>
+                            <p contenteditable="true" data-id="company-name" class="font-semibold text-xl mt-4">Tech Solutions Inc.</p>
+                        </div>`
+                },
+                {
+                    id: 'minimalist', name: 'Minimalist', bg_front: '#ffffff', bg_back: '#ffffff',
+                    front_html: `
+                        <div class="w-full h-full text-gray-800 p-6 flex flex-col justify-center items-center text-center font-serif">
+                            <div class="resizable-logo w-16 h-16 absolute top-4 left-4"></div>
+                            <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold tracking-wider">JOHN SMITH</h1>
+                            <p contenteditable="true" data-id="job-title" class="text-md text-gray-600 mb-4">Project Manager</p>
+                            <div class="w-16 h-px bg-gray-300 my-2"></div>
+                            <div class="text-xs mt-4">
+                                <p contenteditable="true" data-id="contact-info">john.smith@email.com | (123) 456-7890</p>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-gray-800 p-6 flex justify-center items-center">
+                            <div class="resizable-logo w-20 h-20"></div>
+                        </div>`
+                },
+                {
+                    id: 'creative', name: 'Creative', bg_front: '#2563eb', bg_back: '#2563eb',
+                    front_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-end font-sans">
+                            <div class="resizable-logo w-10 h-10 absolute top-6 left-6"></div>
+                            <div class="text-left">
+                                <h1 contenteditable="true" data-id="full-name" class="text-2xl font-extrabold">ALEX RAY</h1>
+                                <p contenteditable="true" data-id="job-title" class="text-sm">Graphic Designer</p>
+                                <div class="text-xs mt-4">
+                                    <p contenteditable="true" data-id="contact-info">alex.ray@email.com | alexray.design</p>
+                                </div>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-center items-end font-sans text-right">
+                            <h2 contenteditable="true" data-id="full-name" class="text-4xl font-extrabold">ALEX RAY</h2>
+                            <p contenteditable="true" data-id="website" class="text-lg">alexray.design</p>
+                        </div>`
+                },
+                {
+                    id: 'corporate', name: 'Corporate', bg_front: '#ffffff', bg_back: '#374151',
+                    front_html: `
+                        <div class="w-full h-full text-gray-900 p-6 flex items-center font-sans">
+                            <div class="w-1/3">
+                                <div class="resizable-logo w-20 h-20"></div>
+                            </div>
+                            <div class="w-2/3 pl-4 border-l-2 border-gray-300">
+                                <h1 contenteditable="true" data-id="full-name" class="text-xl font-bold">CHLOE DAVIS</h1>
+                                <p contenteditable="true" data-id="job-title" class="text-sm text-gray-500">Marketing Director</p>
+                                <div class="text-xs mt-3 space-y-1">
+                                    <p contenteditable="true" data-id="contact-info">c.davis@corp.com | (555) 555-5555</p>
+                                    <p contenteditable="true" data-id="website">corporate.com</p>
+                                </div>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-center items-center">
+                            <div class="resizable-logo w-24 h-24"></div>
+                            <p contenteditable="true" data-id="company-name" class="font-semibold text-xl mt-4">Corporate Inc.</p>
+                        </div>`
+                },
+                {
+                    id: 'elegant', name: 'Elegant', bg_front: '#FDFBF6', bg_back: '#F5F5F5',
+                    front_html: `
+                        <div class="w-full h-full text-gray-700 p-6 flex flex-col justify-center items-center text-center font-serif">
+                            <h1 contenteditable="true" data-id="full-name" class="text-2xl tracking-[0.2em]">SAMUEL LEE</h1>
+                            <p contenteditable="true" data-id="job-title" class="text-sm tracking-widest text-gray-500">Architect</p>
+                            <div class="text-xs mt-6">
+                                <p contenteditable="true" data-id="contact-info">samuel.lee@design.co</p>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-gray-800 p-6 flex justify-end items-end">
+                            <div class="resizable-logo w-16 h-16"></div>
+                        </div>`
+                },
+                {
+                    id: 'bold', name: 'Bold', bg_front: '#FFD700', bg_back: '#000000',
+                    front_html: `
+                        <div class="w-full h-full text-black p-6 flex flex-col justify-center font-sans">
+                            <h1 contenteditable="true" data-id="full-name" class="text-4xl font-extrabold">MAX POWER</h1>
+                            <p contenteditable="true" data-id="job-title" class="text-lg font-medium">Creative Lead</p>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-end items-end text-right">
+                            <p contenteditable="true" data-id="contact-info" class="text-sm">max@power.dev</p>
+                            <p contenteditable="true" data-id="website" class="text-sm">maxpower.dev</p>
+                        </div>`
+                },
+                {
+                    id: 'vertical', name: 'Vertical', bg_front: '#ffffff', bg_back: '#DC2626',
+                    front_html: `<div class="w-full h-full text-gray-800 p-6 flex flex-col justify-between font-sans" style="writing-mode: vertical-rl; transform: rotate(180deg);"><div class="text-left"><h1 contenteditable="true" data-id="full-name" class="text-2xl font-bold">KENJI TANAKA</h1><p contenteditable="true" data-id="job-title" class="text-sm text-gray-500">Photographer</p></div><div class="text-right self-end"><p contenteditable="true" data-id="contact-info" class="text-xs">kenji@photo.jp</p></div></div>`,
+                    back_html: `<div class="w-full h-full text-white p-6 flex justify-center items-center"><div class="resizable-logo w-20 h-20"></div></div>`
+                },
+                {
+                    id: 'gradient', name: 'Gradient', bg_front: '#6D28D9', bg_back: '#111827',
+                    front_html: `
+                        <div class="w-full h-full text-white p-6 flex flex-col justify-center items-start font-sans" style="background: linear-gradient(45deg, #6D28D9, #BE185D);">
+                            <div class="resizable-logo w-12 h-12 mb-4"></div>
+                            <h1 contenteditable="true" data-id="full-name" class="text-2xl font-bold">SARA LANCE</h1>
+                            <p contenteditable="true" data-id="job-title" class="text-md">Lead Innovator</p>
+                            <div class="text-xs mt-6">
+                                <p contenteditable="true" data-id="contact-info">s.lance@innovate.co</p>
+                            </div>
+                        </div>`,
+                    back_html: `
+                        <div class="w-full h-full p-6 flex flex-col justify-end items-end text-right">
+                            <p contenteditable="true" data-id="company-name" class="font-bold text-2xl">Innovate Co.</p>
+                            <p contenteditable="true" data-id="website" class="text-sm">innovate.co</p>
+                        </div>`
+                },
+                {
+                    id: 'professional', name: 'Professional', bg_front: '#FFFFFF', bg_back: '#F3F4F6',
+                    front_html: `
+                        <div class="w-full h-full text-gray-800 p-6 flex flex-col justify-center items-end text-right font-sans">
+                            <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold">OLIVER QUEEN</h1>
+                            <p contenteditable="true" data-id="job-title" class="text-lg text-gray-500">CEO, Queen Consolidated</p>
+                            <div class="w-24 h-0.5 bg-gray-300 my-4"></div>
+                            <p contenteditable="true" data-id="contact-info" class="text-sm">o.queen@queen-inc.com | +1 555-0101</p>
+                        </div>`,
+                    back_html: `<div class="w-full h-full text-gray-800 p-6 flex justify-center items-center"><div class="resizable-logo w-24 h-24"></div></div>`
+                }
+            ];
+
+            const el = {
+                templateGrid: document.getElementById('template-grid'),
+                cardContainerFront: document.getElementById('card-container-front'),
+                cardContainerBack: document.getElementById('card-container-back'),
+                editFieldsContainer: document.getElementById('edit-fields-container'),
+                downloadBtn: document.getElementById('download-btn'),
+                logoUploadBtn: document.getElementById('logo-upload-btn'),
+                logoUploadInput: document.getElementById('logo-upload-input'),
+                removeLogoBtn: document.getElementById('remove-logo-btn'),
+                bgColorPickerFront: document.getElementById('bg-color-picker-front'),
+                bgColorPickerBack: document.getElementById('bg-color-picker-back'),
+                controlsPanel: document.getElementById('controls-panel'),
+                previewPanel: document.getElementById('preview-panel'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+            };
+
+            function populateTemplateGallery() {
+                el.templateGrid.innerHTML = '';
+                CARD_TEMPLATES.forEach(template => {
+                    const card = document.createElement('button');
+                    card.dataset.templateId = template.id;
+                    card.className = 'template-card flex-shrink-0 bg-gray-800 rounded-lg p-2 text-center cursor-pointer transition-all duration-300 border-2 border-gray-700 hover:border-gray-500 w-24';
+                    card.innerHTML = `<h3 class="font-semibold text-white text-sm">${template.name}</h3>`;
+                    card.addEventListener('click', () => loadTemplate(template.id));
+                    el.templateGrid.appendChild(card);
+                });
+            }
+
+            function loadTemplate(templateId) {
+                const template = CARD_TEMPLATES.find(t => t.id === templateId);
+                if (!template) return;
+
+                document.querySelectorAll('.template-card.border-white').forEach(c => c.classList.replace('border-white', 'border-gray-700'));
+                document.querySelector(`.template-card[data-template-id="${templateId}"]`)?.classList.replace('border-gray-700', 'border-white');
+
+                el.cardContainerFront.innerHTML = template.front_html;
+                el.cardContainerBack.innerHTML = template.back_html;
+                el.bgColorPickerFront.value = template.bg_front;
+                el.bgColorPickerBack.value = template.bg_back;
+                el.cardContainerFront.style.backgroundColor = template.bg_front;
+                el.cardContainerBack.style.backgroundColor = template.bg_back;
+
+                el.editFieldsContainer.innerHTML = '';
+                removeLogo();
+
+                const allEditableElements = [...el.cardContainerFront.querySelectorAll('[contenteditable="true"]'), ...el.cardContainerBack.querySelectorAll('[contenteditable="true"]')];
+                const processedIds = new Set();
+                allEditableElements.forEach(elem => {
+                    const id = elem.dataset.id;
+                    if (processedIds.has(id)) return;
+                    processedIds.add(id);
+
+                    const placeholder = elem.textContent.trim();
+
+                    const label = document.createElement('label');
+                    label.className = 'block text-sm font-medium text-gray-300';
+                    label.htmlFor = `field-${id}`;
+                    label.textContent = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+                    const input = document.createElement('input');
+                    input.id = `field-${id}`;
+                    input.type = 'text';
+                    input.value = placeholder;
+                    input.className = 'mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400';
+
+                    input.addEventListener('input', (e) => {
+                        document.querySelectorAll(`.card-container [data-id="${id}"]`).forEach(targetElement => {
+                        if (targetElement) {
+                            targetElement.innerText = e.target.value;
+                        }
+                        });
+                    });
+
+                    el.editFieldsContainer.appendChild(label);
+                    el.editFieldsContainer.appendChild(input);
+                });
+                setupInteract();
+            }
+
+            function updateCardColor(cardContainer, color) {
+                if (!cardContainer.querySelector('[style*="gradient"]')) {
+                    cardContainer.style.backgroundColor = color;
+                }
+                cardContainer.className = cardContainer.className.replace(/light-text|dark-text/g, '').trim() + ' ' + getContrastClass(color);
+            }
+
+            async function downloadCard(container, filename) {
+                const originalBg = el.previewPanel.style.backgroundColor;
+                el.previewPanel.style.backgroundColor = 'transparent'; // Temporarily make background transparent
+                try {
+                    const canvas = await html2canvas(container, { scale: 4, logging: false, useCORS: true, backgroundColor: null });
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.download = filename;
+                    link.click();
+                } catch (error) {
+                    console.error(`Download failed for ${filename}:`, error);
+                } finally {
+                    el.previewPanel.style.backgroundColor = originalBg; // Restore original background
+                }
+            }
+
+            async function downloadBoth() {
+                if (document.activeElement) document.activeElement.blur();
+                await new Promise(resolve => setTimeout(resolve, 100));
+                await downloadCard(el.cardContainerFront, 'visiting-card-front.png');
+                await new Promise(resolve => setTimeout(resolve, 200)); // Small delay
+                await downloadCard(el.cardContainerBack, 'visiting-card-back.png');
+            }
+
+            function handleLogoUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        document.querySelectorAll('.resizable-logo').forEach(container => {
+                            const img = container.querySelector('img') || document.createElement('img');
+                            img.src = e.target.result;
+                            img.alt = "Uploaded logo";
+                            img.style.width = '100%';
+                            img.style.height = '100%';
+                            img.style.objectFit = 'contain';
+                            container.innerHTML = '';
+                            container.appendChild(img);
+                        });
+                        el.logoUploadBtn.classList.add('hidden');
+                        el.removeLogoBtn.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function removeLogo() {
+                document.querySelectorAll('.resizable-logo').forEach(container => container.innerHTML = '');
+                el.logoUploadBtn.classList.remove('hidden');
+                el.removeLogoBtn.classList.add('hidden');
+                el.logoUploadInput.value = '';
+            }
+
+            function setupInteract() {
+                interact('.resizable-logo')
+                    .resizable({
+                        edges: { left: true, right: true, bottom: true, top: true },
+                        listeners: {
+                            move(event) {
+                                let { x, y } = event.target.dataset;
+                                x = (parseFloat(x) || 0) + event.deltaRect.left;
+                                y = (parseFloat(y) || 0) + event.deltaRect.top;
+                                Object.assign(event.target.style, {
+                                    width: `${event.rect.width}px`,
+                                    height: `${event.rect.height}px`,
+                                    transform: `translate(${x}px, ${y}px)`
+                                });
+                                Object.assign(event.target.dataset, { x, y });
+                            }
+                        },
+                        modifiers: [interact.modifiers.aspectRatio({ ratio: 'preserve' }), interact.modifiers.restrictSize({ min: { width: 20, height: 20 } })],
+                        inertia: true
+                    })
+                    .draggable({
+                        listeners: {
+                            move(event) {
+                                let { x, y } = event.target.dataset;
+                                x = (parseFloat(x) || 0) + event.dx;
+                                y = (parseFloat(y) || 0) + event.dy;
+                                event.target.style.transform = `translate(${x}px, ${y}px)`;
+                                Object.assign(event.target.dataset, { x, y });
+                            }
+                        },
+                        inertia: true,
+                    });
+            }
+
+            function setupMobileNav() {
+                el.mobileControlsBtn.addEventListener('click', () => {
+                    el.controlsPanel.classList.remove('hidden');
+                    el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.add('hidden');
+                    el.previewPanel.classList.remove('flex');
+                    el.mobileControlsBtn.classList.add('active');
+                    el.mobilePreviewBtn.classList.remove('active');
+                });
+
+                el.mobilePreviewBtn.addEventListener('click', () => {
+                    el.controlsPanel.classList.add('hidden');
+                    el.controlsPanel.classList.remove('flex');
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('flex');
+                    el.mobileControlsBtn.classList.remove('active');
+                    el.mobilePreviewBtn.classList.add('active');
+                });
+            }
+
+            function handleLayout() {
+                if (window.innerWidth < 1024) {
+                    if (el.mobilePreviewBtn.classList.contains('active')) {
+                        el.mobilePreviewBtn.click();
+                    } else {
+                        el.mobileControlsBtn.click();
+                    }
+                } else {
+                    el.controlsPanel.classList.remove('hidden');
+                    el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('flex');
+                }
+            }
+
+            // --- Init ---
+            el.downloadBtn.addEventListener('click', downloadBoth);
+            el.logoUploadBtn.addEventListener('click', () => el.logoUploadInput.click());
+            el.logoUploadInput.addEventListener('change', handleLogoUpload);
+            el.removeLogoBtn.addEventListener('click', removeLogo);
+            el.bgColorPickerFront.addEventListener('input', (e) => updateCardColor(el.cardContainerFront, e.target.value));
+            el.bgColorPickerBack.addEventListener('input', (e) => updateCardColor(el.cardContainerBack, e.target.value));
+
+            window.addEventListener('resize', handleLayout);
+            
+            populateTemplateGallery();
+            loadTemplate(CARD_TEMPLATES[0].id);
+            setupMobileNav();
+            handleLayout();
+        });
+    </script>
+</body>
+</html>

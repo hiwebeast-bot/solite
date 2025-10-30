@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Timestamp Converter - Unix & Human-Readable Date | Solite</title>
+    <meta name="description" content="Instantly convert Unix timestamps to human-readable dates and vice-versa. A free, private, and fast online tool that auto-detects your timezone. Supports seconds, milliseconds, and nanoseconds.">
+    <meta name="keywords" content="timestamp converter, unix timestamp converter, epoch converter, date to timestamp, timestamp to date, human readable date, free developer tool, solite">
+    <link rel="canonical" href="https://solite.in/timestamp-converter.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Timestamp Converter - Unix & Human-Readable Date | Solite">
+    <meta property="og:description" content="Instantly convert Unix timestamps to human-readable dates and vice-versa. A free, private, and fast online tool that auto-detects your timezone.">
+    <meta property="og:url" content="https://solite.in/timestamp-converter.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/timestamp-converter-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Timestamp Converter",
+      "url": "https://solite.in/timestamp-converter.html",
+      "description": "A free, client-side tool to convert Unix timestamps to human-readable dates and vice-versa, with automatic timezone detection.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Convert Unix timestamp to date", "Convert date to Unix timestamp", "Supports seconds, milliseconds, nanoseconds", "Auto-detects local timezone", "Displays UTC/GMT time", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert(1); }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Timestamp Converter</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Unix Timestamp and Human-Readable Date Converter</h1>
+
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Converter Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <!-- Current Timestamp -->
+                    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-center">
+                        <h3 class="text-md font-semibold text-white">Current Unix Timestamp</h3>
+                        <div class="flex items-center justify-center gap-2 mt-2">
+                            <p id="current-timestamp" class="text-2xl font-mono text-white">0</p>
+                            <button id="copy-current-timestamp-btn" title="Copy Timestamp" class="p-2 rounded-lg text-gray-400 hover:bg-gray-700 hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            </button>
+                        </div>
+                        <button id="now-btn" class="mt-3 bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg text-sm">Use Current Time</button>
+                    </div>
+                    <!-- Date to Timestamp -->
+                    <div class="space-y-4 pt-4 border-t border-gray-800">
+                        <h3 class="text-lg font-semibold text-white">Date to Timestamp</h3>
+                        <div class="space-y-2">
+                            <label for="date-input" class="font-medium">Select Date & Time</label>
+                            <input type="datetime-local" id="date-input" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-sans">
+                        </div>
+                        <div class="space-y-2 pt-2 border-t border-gray-800">
+                            <label class="font-medium">Converted Timestamp</label>
+                            <div class="bg-gray-800 p-3 rounded-lg space-y-1">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-sm text-gray-400">Seconds</p>
+                                    <button class="copy-btn p-1 rounded-md text-gray-400 hover:bg-gray-700 hover:text-white" data-target="seconds-output" title="Copy Seconds"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                                </div>
+                                <p id="seconds-output" class="font-mono text-white"></p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg space-y-1">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-sm text-gray-400">Milliseconds</p>
+                                    <button class="copy-btn p-1 rounded-md text-gray-400 hover:bg-gray-700 hover:text-white" data-target="ms-output" title="Copy Milliseconds"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                                </div>
+                                <p id="ms-output" class="font-mono text-white"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-4">
+                <h2 class="text-xl font-bold text-white flex-shrink-0">Timestamp to Date</h2>
+                <div class="space-y-2 flex-shrink-0">
+                    <label for="timestamp-input" class="font-medium">Enter Timestamp</label>
+                    <div class="flex gap-2">
+                        <input type="number" id="timestamp-input" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono" placeholder="e.g., 1672531199">
+                        <div class="relative">
+                            <select id="timestamp-unit" class="custom-select w-full h-full bg-gray-700 border border-gray-600 text-white font-medium py-3 px-4 rounded-lg">
+                                <option value="s">Seconds</option>
+                                <option value="ms">Milliseconds</option>
+                                <option value="ns">Nanoseconds</option>
+                            </select>
+                            <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-800 flex-grow min-h-0 overflow-y-auto pr-2">
+                    <label class="font-medium">Converted Date</label>
+                    <div class="bg-gray-800 p-3 rounded-lg space-y-1">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-400">Your Timezone (<span id="local-timezone"></span>)</p>
+                            <button class="copy-btn p-1 rounded-md text-gray-400 hover:bg-gray-700 hover:text-white" data-target="local-date-output" title="Copy Local Date"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                        </div>
+                        <p id="local-date-output" class="font-semibold text-white"></p>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-lg space-y-1">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-400">UTC / GMT</p>
+                            <button class="copy-btn p-1 rounded-md text-gray-400 hover:bg-gray-700 hover:text-white" data-target="utc-date-output" title="Copy UTC Date"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                        </div>
+                        <p id="utc-date-output" class="font-semibold text-white"></p>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-lg space-y-1">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-400">Relative</p>
+                            <button class="copy-btn p-1 rounded-md text-gray-400 hover:bg-gray-700 hover:text-white" data-target="relative-time-output" title="Copy Relative Time"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                        </div>
+                        <p id="relative-time-output" class="font-semibold text-white"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    <span>Output</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                currentTimestamp: document.getElementById('current-timestamp'),
+                nowBtn: document.getElementById('now-btn'),
+                timestampInput: document.getElementById('timestamp-input'),
+                timestampUnit: document.getElementById('timestamp-unit'),
+                localTimezone: document.getElementById('local-timezone'),
+                localDateOutput: document.getElementById('local-date-output'),
+                utcDateOutput: document.getElementById('utc-date-output'),
+                relativeTimeOutput: document.getElementById('relative-time-output'),
+                dateInput: document.getElementById('date-input'),
+                secondsOutput: document.getElementById('seconds-output'),
+                msOutput: document.getElementById('ms-output'),
+                copyCurrentTimestampBtn: document.getElementById('copy-current-timestamp-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const debounce = (func, delay) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
+
+            function updateCurrentTimestamp() {
+                el.currentTimestamp.textContent = Math.floor(Date.now() / 1000);
+            }
+
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            }
+
+            function convertFromTimestamp() {
+                const ts = parseInt(el.timestampInput.value);
+                const unit = el.timestampUnit.value;
+                if (isNaN(ts)) {
+                    el.localDateOutput.textContent = '...';
+                    el.utcDateOutput.textContent = '...';
+                    el.relativeTimeOutput.textContent = '...';
+                    return;
+                }
+
+                let date;
+                if (unit === 's') date = new Date(ts * 1000);
+                else if (unit === 'ms') date = new Date(ts);
+                else date = new Date(ts / 1000000);
+
+                el.localTimezone.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                el.localDateOutput.textContent = date.toLocaleString();
+                el.utcDateOutput.textContent = date.toUTCString();
+
+                const now = new Date();
+                const diffSeconds = (now - date) / 1000;
+                const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
+                if (Math.abs(diffSeconds) < 60) el.relativeTimeOutput.textContent = rtf.format(Math.round(-diffSeconds), 'second');
+                else if (Math.abs(diffSeconds) < 3600) el.relativeTimeOutput.textContent = rtf.format(Math.round(-diffSeconds / 60), 'minute');
+                else if (Math.abs(diffSeconds) < 86400) el.relativeTimeOutput.textContent = rtf.format(Math.round(-diffSeconds / 3600), 'hour');
+                else el.relativeTimeOutput.textContent = rtf.format(Math.round(-diffSeconds / 86400), 'day');
+            }
+
+            function convertFromDate() {
+                if (!el.dateInput.value) {
+                    el.secondsOutput.textContent = '...';
+                    el.msOutput.textContent = '...';
+                    return;
+                }
+                const date = new Date(el.dateInput.value);
+                const tsMs = date.getTime();
+                el.secondsOutput.textContent = Math.floor(tsMs / 1000);
+                el.msOutput.textContent = tsMs;
+            }
+
+            function setDateToNow() {
+                const now = new Date();
+                now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+                el.dateInput.value = now.toISOString().slice(0, 16);
+                convertFromDate();
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                }
+            }
+
+            // Event Listeners
+            el.nowBtn.addEventListener('click', () => {
+                const nowSeconds = Math.floor(Date.now() / 1000);
+                el.timestampInput.value = nowSeconds;
+                el.timestampUnit.value = 's';
+                convertFromTimestamp();
+                setDateToNow();
+            });
+
+            el.timestampInput.addEventListener('input', debounce(convertFromTimestamp, 200));
+            el.timestampUnit.addEventListener('change', convertFromTimestamp);
+            el.dateInput.addEventListener('input', convertFromDate);
+
+            el.copyCurrentTimestampBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.currentTimestamp.textContent).then(() => showToast('Timestamp copied!'));
+            });
+
+            document.body.addEventListener('click', (e) => {
+                const copyBtn = e.target.closest('.copy-btn');
+                if (copyBtn) {
+                    const targetId = copyBtn.dataset.target;
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement && targetElement.textContent) {
+                        navigator.clipboard.writeText(targetElement.textContent).then(() => showToast('Copied!'));
+                    }
+                }
+            });
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial State
+            setInterval(updateCurrentTimestamp, 1000);
+            updateCurrentTimestamp();
+            handleMobileLayout();
+            el.nowBtn.click();
+        });
+    </script>
+</body>
+</html>

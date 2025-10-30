@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free CSS Gradient Text Generator | Solite</title>
+    <meta name="description" content="Instantly create beautiful CSS gradient text with our free online generator. Customize colors, angle, font, and style with a live preview, then copy the cross-browser CSS code.">
+    <meta name="keywords" content="css gradient text, gradient text generator, text gradient, css text effect, text generator, css tool, solite">
+    <link rel="canonical" href="https://solite.in/gradient-text-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free CSS Gradient Text Generator | Solite">
+    <meta property="og:description" content="Instantly create beautiful CSS gradient text with our free online generator. Customize colors, angle, font, and style with a live preview.">
+    <meta property="og:url" content="https://solite.in/gradient-text-generator.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/gradient-text-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono&family=Poppins:wght@700;900&family=Lobster&family=Playfair+Display:wght@700;900&family=Oswald:wght@700&family=Lato:wght@700;900&family=Montserrat:wght@700;900&family=Nunito:wght@700;900&family=Raleway:wght@700;900&family=Merriweather:wght@700;900&family=Bebas+Neue&family=Anton&family=Pacifico&family=Caveat:wght@700&family=Zeyada&family=Abril+Fatface&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CSS Gradient Text Generator",
+      "url": "https://solite.in/gradient-text-generator.html",
+      "description": "A free, client-side tool to generate CSS for gradient text effects with live preview.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Generate CSS for gradient text", "Live preview", "Customize gradient colors and angle", "Customize font size, weight, and family", "Copy generated CSS code", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'playfair-display': ['Playfair Display', 'serif'],
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'lato': ['Lato', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'nunito': ['Nunito', 'sans-serif'],
+                        'raleway': ['Raleway', 'sans-serif'],
+                        'merriweather': ['Merriweather', 'serif'],
+                        'bebas-neue': ['Bebas Neue', 'cursive'],
+                        'anton': ['Anton', 'sans-serif'],
+                        'pacifico': ['Pacifico', 'cursive'],
+                        'caveat': ['Caveat', 'cursive'],
+                        'zeyada': ['Zeyada', 'cursive'],
+                        'abril-fatface': ['Abril Fatface', 'cursive'],
+                        'lobster': ['Lobster', 'cursive'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .gradient-type-btn.active { background-color: #4b5563; color: #ffffff; }
+        .color-stop-item.dragging { opacity: 0.5; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Gradient Text Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">CSS Gradient Text Generator</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Generator Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2"><label for="text-input" class="font-medium">Text</label><input type="text" id="text-input" value="Gradient Text" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700"></div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Font</h3>
+                        <div class="space-y-2"><label for="font-size-slider" class="text-sm">Font Size (<span id="font-size-label">72</span>px)</label><input type="range" id="font-size-slider" min="24" max="200" value="72" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></div>
+                        <div class="space-y-2"><label for="font-weight-select" class="text-sm">Font Weight</label><div class="relative"><select id="font-weight-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white py-2 px-3 rounded-lg"><option value="400">Normal</option><option value="700">Bold</option><option value="900" selected>Black</option></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                        <div class="space-y-2"><label for="font-family-select" class="text-sm">Font Family</label><div class="relative"><select id="font-family-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white py-2 px-3 rounded-lg">
+                            <option value="Poppins" selected>Poppins</option>
+                            <option value="Inter">Inter</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Lobster">Lobster</option>
+                            <option value="Playfair Display">Playfair Display</option>
+                            <option value="Oswald">Oswald</option>
+                            <option value="Lato">Lato</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Nunito">Nunito</option>
+                            <option value="Raleway">Raleway</option>
+                            <option value="Merriweather">Merriweather</option>
+                            <option value="Bebas Neue">Bebas Neue</option>
+                            <option value="Anton">Anton</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Caveat">Caveat</option>
+                            <option value="Zeyada">Zeyada</option>
+                            <option value="Abril Fatface">Abril Fatface</option>
+                        </select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div></div>
+                    </div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-white">Gradient</h3>
+                            <div class="bg-gray-800 rounded-lg p-1 flex space-x-1 text-xs">
+                                <button class="gradient-type-btn active flex-1 py-1 px-3 rounded-md" data-type="linear">Linear</button>
+                                <button class="gradient-type-btn flex-1 py-1 px-3 rounded-md" data-type="radial">Radial</button>
+                            </div>
+                        </div>
+                        <div id="color-stops-list" class="space-y-3 pt-2">
+                            <!-- Color stop items will be injected here -->
+                        </div>
+                        <button id="add-color-stop-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            <span>Add Color</span>
+                        </button>
+                        <div id="linear-options" class="space-y-2 pt-2 border-t border-gray-700">
+                            <label for="gradient-angle-slider" class="text-sm">Angle (<span id="gradient-angle-label">90</span>°)</label>
+                            <input type="range" id="gradient-angle-slider" min="0" max="360" value="90" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div id="radial-options" class="hidden space-y-2 pt-2 border-t border-gray-700">
+                            <label for="radial-shape-select" class="text-sm">Shape</label><div class="relative"><select id="radial-shape-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white py-2 px-3 rounded-lg"><option value="ellipse" selected>Ellipse</option><option value="circle">Circle</option></select><svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div id="preview-container" class="flex-grow flex items-center justify-center p-8 bg-black/20 overflow-auto">
+                    <div id="text-preview" class="font-black text-center" style="font-size: 72px; font-family: Poppins;">Gradient Text</div>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-lg font-semibold">Generated CSS</h3>
+                        <div class="flex items-center gap-2">
+                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <span>Copy CSS</span>
+                            </button>
+                            <button id="download-svg-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg><span>SVG</span></button>
+                        </div>
+                    </div>
+                    <textarea id="css-code-output" readonly rows="6" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                textInput: document.getElementById('text-input'),
+                fontSizeSlider: document.getElementById('font-size-slider'),
+                fontSizeLabel: document.getElementById('font-size-label'),
+                fontWeightSelect: document.getElementById('font-weight-select'),
+                fontFamilySelect: document.getElementById('font-family-select'),
+                gradientAngleSlider: document.getElementById('gradient-angle-slider'),
+                gradientAngleLabel: document.getElementById('gradient-angle-label'),
+                colorStopsList: document.getElementById('color-stops-list'),
+                addColorStopBtn: document.getElementById('add-color-stop-btn'),
+                gradientTypeBtns: document.querySelectorAll('.gradient-type-btn'),
+                linearOptions: document.getElementById('linear-options'),
+                radialOptions: document.getElementById('radial-options'),
+                radialShapeSelect: document.getElementById('radial-shape-select'),
+                downloadSvgBtn: document.getElementById('download-svg-btn'),
+                textPreview: document.getElementById('text-preview'),
+                cssCodeOutput: document.getElementById('css-code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                toast: document.getElementById('toast'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                previewPane: document.getElementById('output-pane'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            let gradientType = 'linear';
+            let colorStops = [
+                { id: crypto.randomUUID(), color: '#818CF8', position: 0 },
+                { id: crypto.randomUUID(), color: '#C084FC', position: 100 },
+            ];
+            const debounce = (func, delay = 100) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const updatePreview = () => {
+                const text = el.textInput.value || 'Gradient Text';
+                const fontSize = el.fontSizeSlider.value;
+                const fontWeight = el.fontWeightSelect.value;
+                const fontFamily = el.fontFamilySelect.value;
+
+                el.fontSizeLabel.textContent = fontSize;
+                
+                let gradientCss = '';
+                const sortedStops = [...colorStops].sort((a, b) => a.position - b.position);
+                const stopsString = sortedStops.map(stop => `${stop.color} ${stop.position}%`).join(', ');
+
+                if (gradientType === 'linear') {
+                    const angle = el.gradientAngleSlider.value;
+                    el.gradientAngleLabel.textContent = angle;
+                    gradientCss = `linear-gradient(${angle}deg, ${stopsString})`;
+                } else { // radial
+                    const shape = el.radialShapeSelect.value;
+                    gradientCss = `radial-gradient(${shape}, ${stopsString})`;
+                }
+
+
+                el.textPreview.textContent = text;
+                el.textPreview.style.fontSize = `${fontSize}px`;
+                el.textPreview.style.fontWeight = fontWeight;
+                el.textPreview.style.fontFamily = fontFamily;
+                el.textPreview.style.background = gradientCss;
+                el.textPreview.style.webkitBackgroundClip = 'text';
+                el.textPreview.style.webkitTextFillColor = 'transparent';
+                el.textPreview.style.backgroundClip = 'text';
+                el.textPreview.style.textFillColor = 'transparent';
+
+                el.cssCodeOutput.value = `h1 {\n  background: ${gradientCss};\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  /* Optional: Font styles */\n  font-size: ${fontSize}px;\n  font-weight: ${fontWeight};\n  font-family: '${fontFamily}', sans-serif;\n}`;
+            };
+
+            const downloadSvg = () => {
+                const text = el.textInput.value || 'Gradient Text';
+                const fontSize = el.fontSizeSlider.value;
+                const fontWeight = el.fontWeightSelect.value;
+                const fontFamily = el.fontFamilySelect.value;
+
+                const gradientId = "solite-text-gradient";
+                const angle = el.gradientAngleSlider.value;
+                const gradientTransform = gradientType === 'linear' ? `rotate(${angle-90})` : '';
+                const gradientTag = gradientType === 'linear' ? `<linearGradient id="${gradientId}" gradientTransform="${gradientTransform}">` : `<radialGradient id="${gradientId}" gradientUnits="userSpaceOnUse" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">`;
+                
+                const sortedStops = [...colorStops].sort((a, b) => a.position - b.position);
+                const stopTags = sortedStops.map(stop => `<stop offset="${stop.position}%" stop-color="${stop.color}"/>`).join('');
+
+                const svgContent = `<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg"><defs>${gradientTag}${stopTags}</${gradientType === 'linear' ? 'linear' : 'radial'}Gradient></defs><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'${fontFamily}', sans-serif" font-size="${fontSize}" font-weight="${fontWeight}" fill="url(#${gradientId})">${text}</text></svg>`;
+                const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'gradient-text.svg'; a.click(); URL.revokeObjectURL(url);
+            };
+
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            };
+
+            const showMobilePane = (paneId) => {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden');
+                    el.previewPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else if (el.mobilePreviewBtn.classList.contains('active')) {
+                        showMobilePane('preview');
+                    } else {
+                        showMobilePane('controls');
+                    }
+                } else {
+                    el.previewPane.classList.remove('hidden');
+                    el.previewPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                }
+            };
+
+            function renderColorStops() {
+                el.colorStopsList.innerHTML = '';
+                colorStops.forEach((stop, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'color-stop-item flex items-center gap-2 p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-grab';
+                    item.draggable = true;
+                    item.dataset.id = stop.id;
+
+                    item.innerHTML = `
+                        <input type="color" class="color-input w-10 h-10 rounded-md border border-gray-600 flex-shrink-0" value="${stop.color}" data-id="${stop.id}">
+                        <input type="range" class="position-slider flex-grow h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" max="100" value="${stop.position}" data-id="${stop.id}">
+                        <span class="position-value text-sm w-10 text-right flex-shrink-0">${stop.position}%</span>
+                        <button class="remove-color-stop-btn text-red-500 hover:text-red-400 p-1 rounded hover:bg-gray-700 flex-shrink-0 ${colorStops.length <= 2 ? 'hidden' : ''}" data-id="${stop.id}" title="Remove Color Stop">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    `;
+                    el.colorStopsList.appendChild(item);
+                });
+                attachColorStopListeners();
+                updatePreview();
+            }
+
+            function attachColorStopListeners() {
+                el.colorStopsList.querySelectorAll('.color-input').forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        const stop = colorStops.find(s => s.id === e.target.dataset.id);
+                        if (stop) stop.color = e.target.value.toUpperCase();
+                        updatePreview();
+                    });
+                });
+                el.colorStopsList.querySelectorAll('.position-slider').forEach(slider => {
+                    const valueSpan = slider.nextElementSibling;
+                    slider.addEventListener('input', (e) => {
+                        const stop = colorStops.find(s => s.id === e.target.dataset.id);
+                        if (stop) stop.position = parseInt(e.target.value);
+                        valueSpan.textContent = `${e.target.value}%`;
+                        updatePreview();
+                    });
+                });
+                el.colorStopsList.querySelectorAll('.remove-color-stop-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if (colorStops.length > 2) {
+                            colorStops = colorStops.filter(stop => stop.id !== btn.dataset.id);
+                            renderColorStops();
+                        }
+                    });
+                });
+            }
+
+            function addColorStop() {
+                const lastStop = colorStops[colorStops.length - 1];
+                const newStop = {
+                    id: crypto.randomUUID(),
+                    color: `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase()}`,
+                    position: Math.min(100, lastStop.position + 10)
+                };
+                colorStops.push(newStop);
+                renderColorStops();
+            }
+
+            const debouncedUpdate = debounce(updatePreview);
+
+            Object.values(el).forEach(element => {
+                if (element.id && (element.tagName === 'INPUT' || element.tagName === 'SELECT')) {
+                    element.addEventListener('input', debouncedUpdate);
+                }
+            });
+
+            el.addColorStopBtn.addEventListener('click', addColorStop);
+
+            el.gradientTypeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    gradientType = btn.dataset.type;
+                    el.gradientTypeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    el.linearOptions.classList.toggle('hidden', gradientType !== 'linear');
+                    el.radialOptions.classList.toggle('hidden', gradientType !== 'radial');
+                    updatePreview();
+                });
+            });
+            el.copyCodeBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.cssCodeOutput.value).then(() => showToast('CSS code copied!'));
+            });
+
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+            el.downloadSvgBtn.addEventListener('click', downloadSvg);
+
+            renderColorStops();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

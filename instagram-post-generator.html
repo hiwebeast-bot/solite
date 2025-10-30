@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Instagram Post Generator (Fake Post Maker) | Solite</title>
+    <meta name="description" content="Create realistic fake Instagram posts with our free online generator. Customize profile picture, username, post image, caption, likes, and more. Download as a high-quality image.">
+    <meta name="keywords" content="instagram post generator, fake instagram post, instagram post maker, create instagram post, social media generator, solite">
+    <link rel="canonical" href="https://solite.in/instagram-post-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Instagram Post Generator (Fake Post Maker) | Solite">
+    <meta property="og:description" content="Create realistic fake Instagram posts with our free online generator. Customize profile picture, username, post image, caption, likes, and more.">
+    <meta property="og:url" content="https://solite.in/instagram-post-generator.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/instagram-post-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Instagram Post Generator",
+      "url": "https://solite.in/instagram-post-generator.html",
+      "description": "A free, client-side tool to create realistic fake Instagram posts and download them as images.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Create fake Instagram posts", "Customize profile picture, username, post image, caption, and likes", "Light and Dark themes", "Download as high-quality PNG", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        #post-preview-container.light { background-color: #ffffff; color: #000000; }
+        #post-preview-container.dark { background-color: #000000; color: #ffffff; }
+        #post-preview-container.light .text-gray-400 { color: #6b7280; }
+        #post-preview-container.dark .text-gray-400 { color: #9ca3af; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Instagram Post Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Instagram Post Generator</h1>
+            <!-- Preview Pane -->
+            <div id="preview-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-4 sm:p-8 overflow-auto">
+                <div id="post-preview-container" class="dark w-[375px] flex-shrink-0">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between p-3">
+                        <div class="flex items-center gap-2">
+                            <img id="preview-pfp" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="w-8 h-8 rounded-full object-cover bg-gray-700" alt="Profile Picture">
+                            <span id="preview-username" class="font-semibold text-sm">username</span>
+                            <svg id="preview-verified" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500 hidden" viewBox="0 0 22 22"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.056-.75-1.69-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.706-1.084-1.246-1.438-.54-.354-1.17-.552-1.816-.57-.647-.017-1.276.18-1.816.57-.54-.354-.973-.85-1.246 1.437-.607-.223-1.264-.27-1.897-.14-.634.13-1.218.436-1.687.882-.445.47-.75 1.055-.882 1.69-.13.633-.083 1.29.14 1.896-.587-.274-1.084.706-1.438 1.246-.354-.54-.552 1.17-.57 1.816-.017.647.18 1.276.57 1.817.354.54.852.972 1.438 1.246-.223.606-.27 1.264-.14 1.897.131.634.437 1.218.882 1.687.47.445 1.056.75 1.69.882.633.13 1.29.083 1.897-.14.273.587.706 1.084 1.246 1.438.54.354 1.17.552 1.816.57.647.017 1.276-.18 1.816-.57.54-.354.973-.85 1.246-1.438.607.223 1.264.27 1.897.14.634-.13 1.218-.437 1.687-.882.445-.47.75-1.056.882-1.69.13-.633.083-1.29-.14-1.896.587-.274 1.084-.706-1.438-1.246.354-.54.552-1.17.57-1.816zM9.662 14.85l-3.428-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246-5.684 6.206z"></path></g></svg>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <!-- Post Image -->
+                    <img id="preview-post-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="w-full aspect-square object-cover bg-gray-800" alt="Post Image">
+                    <!-- Actions & Info -->
+                    <div class="p-3 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.5 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg>
+                        </div>
+                        <p id="preview-likes" class="font-semibold text-sm">1,234 likes</p>
+                        <p id="preview-caption" class="text-sm"><span class="font-semibold" id="preview-caption-username">username</span> This is a sample caption...</p>
+                        <p id="preview-timestamp" class="text-xs text-gray-400">1 HOUR AGO</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Post Generator</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label class="font-medium">Theme</label>
+                        <button id="theme-toggle-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2"></button>
+                    </div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">User Details</h3>
+                        <div class="space-y-2">
+                            <label for="username-input" class="text-sm">Username</label>
+                            <input type="text" id="username-input" value="username" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="pfp-upload" class="text-sm">Profile Picture</label>
+                            <input type="file" id="pfp-upload" class="hidden" accept="image/*">
+                            <button onclick="document.getElementById('pfp-upload').click()" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 text-sm rounded-lg">Upload Profile Pic</button>
+                        </div>
+                        <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" id="verified-checkbox" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Verified User</span></label>
+                    </div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-semibold text-white">Post Details</h3>
+                        <div class="space-y-2">
+                            <label for="post-image-upload" class="text-sm">Post Image</label>
+                            <input type="file" id="post-image-upload" class="hidden" accept="image/*">
+                            <button onclick="document.getElementById('post-image-upload').click()" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 text-sm rounded-lg">Upload Post Image</button>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="caption-input" class="text-sm">Caption</label>
+                            <textarea id="caption-input" rows="3" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">This is a sample caption...</textarea>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="likes-input" class="text-sm">Likes</label>
+                            <input type="text" id="likes-input" value="1,234" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="timestamp-input" class="text-sm">Timestamp</label>
+                            <input type="text" id="timestamp-input" value="1 HOUR AGO" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                        </div>
+                    </div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download as PNG</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        class InstagramPostGenerator {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.themes = ['dark', 'light'];
+                this.currentThemeIndex = 0;
+                this.setTheme(this.themes[this.currentThemeIndex]);
+                this.updatePreview();
+                this.handleMobileLayout();
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    // Controls
+                    themeToggleBtn: document.getElementById('theme-toggle-btn'),
+                    usernameInput: document.getElementById('username-input'),
+                    pfpUpload: document.getElementById('pfp-upload'),
+                    verifiedCheckbox: document.getElementById('verified-checkbox'),
+                    postImageUpload: document.getElementById('post-image-upload'),
+                    captionInput: document.getElementById('caption-input'),
+                    likesInput: document.getElementById('likes-input'),
+                    timestampInput: document.getElementById('timestamp-input'),
+                    downloadBtn: document.getElementById('download-btn'),
+                    
+                    // Preview
+                    previewContainer: document.getElementById('post-preview-container'),
+                    previewPfp: document.getElementById('preview-pfp'),
+                    previewUsername: document.getElementById('preview-username'),
+                    previewVerified: document.getElementById('preview-verified'),
+                    previewPostImage: document.getElementById('preview-post-image'),
+                    previewLikes: document.getElementById('preview-likes'),
+                    previewCaption: document.getElementById('preview-caption'),
+                    previewCaptionUsername: document.getElementById('preview-caption-username'),
+                    previewTimestamp: document.getElementById('preview-timestamp'),
+
+                    // Mobile Nav
+                    mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                    mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                    previewPane: document.getElementById('preview-pane'),
+                    controlsPane: document.getElementById('controls-pane'),
+                    toast: document.getElementById('toast'),
+                };
+            }
+
+            attachEventListeners() {
+                this.el.themeToggleBtn.addEventListener('click', () => this.cycleTheme());
+                this.el.downloadBtn.addEventListener('click', () => this.downloadImage());
+
+                // Attach listeners to all inputs
+                const inputs = [
+                    this.el.usernameInput, this.el.verifiedCheckbox, this.el.captionInput,
+                    this.el.likesInput, this.el.timestampInput
+                ];
+                inputs.forEach(input => input.addEventListener('input', () => this.updatePreview()));
+
+                this.el.pfpUpload.addEventListener('change', (e) => this.handleImageUpload(e, this.el.previewPfp));
+                this.el.postImageUpload.addEventListener('change', (e) => this.handleImageUpload(e, this.el.previewPostImage));
+
+                this.el.mobilePreviewBtn.addEventListener('click', () => this.showMobilePane('preview'));
+                this.el.mobileControlsBtn.addEventListener('click', () => this.showMobilePane('controls'));
+                window.addEventListener('resize', () => this.handleMobileLayout());
+            }
+
+            handleImageUpload(event, previewElement) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        previewElement.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            updatePreview() {
+                const username = this.el.usernameInput.value || 'username';
+                this.el.previewUsername.textContent = username;
+                this.el.previewCaptionUsername.textContent = username;
+                this.el.previewVerified.classList.toggle('hidden', !this.el.verifiedCheckbox.checked);
+                
+                const likes = this.el.likesInput.value;
+                this.el.previewLikes.textContent = `${likes} likes`;
+
+                this.el.previewCaption.innerHTML = `<span class="font-semibold">${username}</span> ${this.el.captionInput.value}`;
+                this.el.previewTimestamp.textContent = this.el.timestampInput.value;
+            }
+
+            cycleTheme() {
+                this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
+                this.setTheme(this.themes[this.currentThemeIndex]);
+            }
+
+            setTheme(theme) {
+                this.currentThemeIndex = this.themes.indexOf(theme);
+                this.el.previewContainer.className = `${theme} w-[375px] flex-shrink-0`;
+                const themeIcons = {
+                    dark: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`,
+                    light: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M12 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`
+                };
+                this.el.themeToggleBtn.innerHTML = `${themeIcons[theme]} <span>Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}</span>`;
+            }
+
+            downloadImage() {
+                this.showToast('Generating image...');
+                const targetNode = this.el.previewContainer;
+                
+                const paneWasHidden = this.el.previewPane.classList.contains('hidden');
+                if (paneWasHidden) {
+                    this.el.previewPane.style.position = 'fixed';
+                    this.el.previewPane.style.left = '-9999px';
+                    this.el.previewPane.classList.remove('hidden');
+                    this.el.previewPane.classList.add('flex');
+                }
+
+                html2canvas(targetNode, {
+                    scale: 3,
+                    scrollX: 0,
+                    useCORS: true, // Ensure this is true for images loaded from external domains
+                    backgroundColor: this.themes[this.currentThemeIndex] === 'light' ? '#ffffff' : '#000000',
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `solite-instagram-post.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    targetNode.classList.remove('for-canvas-rendering');
+
+                    link.click();
+                }).catch(err => {
+                    console.error('Image generation failed:', err);
+                    this.showToast('Failed to generate image.');
+                }).finally(() => {
+                    if (paneWasHidden) {
+                        this.el.previewPane.style.position = '';
+                        this.el.previewPane.style.left = '';
+                        this.el.previewPane.classList.add('hidden');
+                        this.el.previewPane.classList.remove('flex');
+                    }
+                });
+            }
+
+            showToast(message) {
+                this.el.toast.textContent = message;
+                this.el.toast.classList.add('show');
+                setTimeout(() => this.el.toast.classList.remove('show'), 3000);
+            }
+
+            showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    this.el.previewPane.classList.remove('hidden');
+                    this.el.previewPane.classList.add('flex');
+                    this.el.controlsPane.classList.add('hidden');
+                    this.el.mobilePreviewBtn.classList.add('active');
+                    this.el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    this.el.previewPane.classList.add('hidden');
+                    this.el.previewPane.classList.remove('flex');
+                    this.el.controlsPane.classList.remove('hidden');
+                    this.el.controlsPane.classList.add('flex');
+                    this.el.mobilePreviewBtn.classList.remove('active');
+                    this.el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    if (!this.el.mobilePreviewBtn.classList.contains('active') && !this.el.mobileControlsBtn.classList.contains('active')) {
+                        this.showMobilePane('preview');
+                    } else if (this.el.mobilePreviewBtn.classList.contains('active')) {
+                        this.showMobilePane('preview');
+                    } else {
+                        this.showMobilePane('controls');
+                    }
+                } else {
+                    this.el.previewPane.classList.remove('hidden');
+                    this.el.previewPane.classList.add('flex');
+                    this.el.controlsPane.classList.remove('hidden');
+                    this.el.controlsPane.classList.add('flex');
+                    this.el.mobilePreviewBtn.classList.remove('active');
+                    this.el.mobileControlsBtn.classList.remove('active');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new InstagramPostGenerator();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Online Regex Playground & Tester | Solite</title>
+    <meta name="description" content="Test and visualize your regular expressions (regex) in real-time with our free online playground. Supports flags, highlighting, and includes a cheatsheet. 100% private and browser-based.">
+    <meta name="keywords" content="regex playground, regex tester, regular expression tester, regex visualizer, test regex, regex online, javascript regex, solite">
+    <link rel="canonical" href="https://solite.in/regex-playground.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Regex Playground & Tester | Solite">
+    <meta property="og:description" content="Test and visualize your regular expressions (regex) in real-time. Supports flags, highlighting, and includes a cheatsheet. 100% private and browser-based.">
+    <meta property="og:url" content="https://solite.in/regex-playground.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/regex-playground-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Regex Playground & Tester",
+      "url": "https://solite.in/regex-playground.html",
+      "description": "A free, client-side tool to test and visualize regular expressions with real-time highlighting and a built-in cheatsheet.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Real-time regex testing", "Match highlighting", "Support for regex flags (g, i, m)", "List of matches", "Regex cheatsheet", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        #highlight-layer { color: transparent; caret-color: white; }
+        #highlight-layer mark { color: transparent; background-color: rgba(96, 165, 250, 0.4); }
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Regex Playground</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Online Regex Playground and Tester</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Regex Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="regex-input" class="font-medium">Regular Expression</label>
+                        <div class="relative">
+                            <input type="text" id="regex-input" value="\b\w{4}\b" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono focus:outline-none focus:ring-2 focus:ring-white/50 pr-12">
+                            <button id="copy-regex-btn" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-white" title="Copy Regex String">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            </button>
+                        </div>
+                        <div id="regex-error" class="text-xs text-red-400 h-4"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-medium">Flags</label>
+                        <div class="flex flex-wrap gap-x-4 gap-y-2">
+                            <label class="flex items-center gap-2"><input type="checkbox" id="flag-g" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> g (global)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" id="flag-i" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> i (ignore case)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" id="flag-m" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> m (multiline)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" id="flag-s" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> s (dotall)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" id="flag-u" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> u (unicode)</label>
+                        </div>
+                    </div>
+                    <details id="cheatsheet" class="space-y-2 pt-4 border-t border-gray-800">
+                        <summary class="font-medium cursor-pointer">Regex Cheatsheet</summary>
+                        <div class="text-xs text-gray-400 space-y-3 pt-2 font-mono bg-gray-800 p-4 rounded-lg grid grid-cols-2 gap-x-4 gap-y-2">
+                            <div><span class="text-white">.</span> Any char</div>
+                            <div><span class="text-white">\d</span> Digit</div>
+                            <div><span class="text-white">\w</span> Word char</div>
+                            <div><span class="text-white">\s</span> Whitespace</div>
+                            <div><span class="text-white">\D</span> Not a digit</div>
+                            <div><span class="text-white">\W</span> Not a word char</div>
+                            <div><span class="text-white">\S</span> Not whitespace</div>
+                            <div class="col-span-2"><span class="text-white">[abc]</span> Chars a, b, or c</div>
+                            <div class="col-span-2"><span class="text-white">[^abc]</span> Not a, b, or c</div>
+                            <div class="col-span-2"><span class="text-white">[a-z]</span> Chars a to z</div>
+                            <div class="col-span-2 border-t border-gray-700/50 pt-2"><span class="text-white">^</span> Start of string</div>
+                            <div><span class="text-white">$</span> End of string</div>
+                            <div><span class="text-white">\b</span> Word boundary</div>
+                            <div class="col-span-2 border-t border-gray-700/50 pt-2"><span class="text-white">(...)</span> Capture group</div>
+                            <div><span class="text-white">a|b</span> a or b</div>
+                            <div class="col-span-2 border-t border-gray-700/50 pt-2"><span class="text-white">?</span> 0 or 1</div>
+                            <div><span class="text-white">*</span> 0 or more</div>
+                            <div><span class="text-white">+</span> 1 or more</div>
+                            <div><span class="text-white">{n}</span> Exactly n times</div>
+                            <div class="col-span-2"><span class="text-white">{n,m}</span> n to m times</div>
+                            <div class="col-span-2 border-t border-gray-700/50 pt-2"><span class="text-white">(?=...)</span> Positive lookahead</div>
+                            <div class="col-span-2"><span class="text-white">(?<=...)</span> Positive lookbehind</div>
+                            <div class="col-span-2"><span class="text-white">(?!...)</span> Negative lookahead</div>
+                            <div class="col-span-2"><span class="text-white">(?<!...)</span> Negative lookbehind</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-shrink-0 p-3 border-b border-gray-800"><label for="test-string" class="font-medium text-white">Test String</label></div>
+                <div class="flex-grow relative">
+                    <div id="highlight-layer" class="absolute inset-0 p-4 font-mono text-sm whitespace-pre-wrap overflow-auto pointer-events-none"></div>
+                    <textarea id="test-string" class="absolute inset-0 p-4 font-mono text-sm bg-transparent border-0 resize-none focus:outline-none"></textarea>
+                </div>
+                <div class="flex-shrink-0 p-3 border-t border-gray-800 bg-gray-800/50">
+                    <h3 class="font-medium text-white">Matches (<span id="match-count">0</span>)</h3>
+                    <div id="match-list" class="text-sm text-gray-400 mt-2 max-h-24 overflow-y-auto font-mono"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    <span>Test Area</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                regexInput: document.getElementById('regex-input'),
+                testString: document.getElementById('test-string'),
+                highlightLayer: document.getElementById('highlight-layer'),
+                regexError: document.getElementById('regex-error'),
+                matchCount: document.getElementById('match-count'),
+                matchList: document.getElementById('match-list'),
+                flagG: document.getElementById('flag-g'),
+                flagI: document.getElementById('flag-i'),
+                flagM: document.getElementById('flag-m'),
+                flagS: document.getElementById('flag-s'),
+                flagU: document.getElementById('flag-u'),
+                copyRegexBtn: document.getElementById('copy-regex-btn'),
+                toast: document.getElementById('toast'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const debounce = (func, delay) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            function testRegex() {
+                const pattern = el.regexInput.value;
+                const text = el.testString.value;
+                let flags = '';
+                if (el.flagG.checked) flags += 'g';
+                if (el.flagI.checked) flags += 'i';
+                if (el.flagM.checked) flags += 'm';
+                if (el.flagS.checked) flags += 's';
+                if (el.flagU.checked) flags += 'u';
+
+                el.regexError.textContent = '';
+                el.highlightLayer.innerHTML = '';
+                el.matchList.innerHTML = '';
+                el.matchCount.textContent = '0';
+
+                if (!pattern) return;
+
+                let regex;
+                try {
+                    regex = new RegExp(pattern, flags);
+                } catch (e) {
+                    el.regexError.textContent = e.message;
+                    return;
+                }
+
+                const matches = [...text.matchAll(regex)];
+                el.matchCount.textContent = matches.length;
+
+                if (matches.length > 0) {
+                    let highlightedText = '';
+                    let lastIndex = 0;
+
+                    matches.forEach((match, i) => {
+                        highlightedText += escapeHtml(text.substring(lastIndex, match.index));
+                        highlightedText += `<mark>${escapeHtml(match[0])}</mark>`;
+                        lastIndex = match.index + match[0].length;
+
+                        const matchItem = document.createElement('div');
+                        matchItem.className = 'p-1 hover:bg-gray-700 rounded';
+                        matchItem.textContent = `Match ${i + 1}: "${match[0]}" at index ${match.index}`;
+                        el.matchList.appendChild(matchItem);
+                    });
+
+                    highlightedText += escapeHtml(text.substring(lastIndex));
+                    el.highlightLayer.innerHTML = highlightedText;
+                } else {
+                    el.highlightLayer.textContent = text;
+                    el.matchList.textContent = 'No matches found.';
+                }
+            }
+
+            function escapeHtml(str) {
+                return str.replace(/[&<>"']/g, (match) => {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[match];
+                });
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            }
+
+            function syncScroll() {
+                el.highlightLayer.scrollTop = el.testString.scrollTop;
+                el.highlightLayer.scrollLeft = el.testString.scrollLeft;
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                }
+            }
+
+            const debouncedTest = debounce(testRegex, 200);
+            el.regexInput.addEventListener('input', debouncedTest);
+            el.testString.addEventListener('input', debouncedTest);
+            el.testString.addEventListener('scroll', syncScroll);
+            [el.flagG, el.flagI, el.flagM, el.flagS, el.flagU].forEach(flag => flag.addEventListener('change', testRegex));
+
+            el.copyRegexBtn.addEventListener('click', () => {
+                const pattern = el.regexInput.value;
+                if (!pattern) return;
+                let flags = '';
+                if (el.flagG.checked) flags += 'g';
+                if (el.flagI.checked) flags += 'i';
+                if (el.flagM.checked) flags += 'm';
+                if (el.flagS.checked) flags += 's';
+                if (el.flagU.checked) flags += 'u';
+                navigator.clipboard.writeText(`/${pattern}/${flags}`).then(() => showToast('Regex copied!'));
+            });
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial setup
+            el.testString.value = "The quick brown fox jumps over the lazy dog. That is a true story.";
+            handleMobileLayout();
+            testRegex();
+        });
+    </script>
+</body>
+</html>
