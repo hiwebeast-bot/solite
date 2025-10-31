@@ -7,7 +7,7 @@
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Free GIF Maker - Create Animated GIFs from Images Online | Solite</title>
     <meta name="description" content="Create high-quality animated GIFs from images with Solite's free online GIF maker. Adjust speed, size, quality, and looping instantly in your browser. 100% private, no uploads required.">
-    <meta name="keywords" content="gif maker, create gif, animated gif generator, images to gif, free gif maker, online gif tool, gif creator, video to gif, solite">
+    <meta name="keywords" content="gif maker, create gif, animated gif generator, images to gif, free gif maker, online gif tool, gif creator, privacy first, gif from images, solite">
     <link rel="canonical" href="https://solite.in/gif-maker.html" />
     <meta name="robots" content="index, follow">
 
@@ -50,14 +50,15 @@
       "name": "GIF Maker",
       "url": "https://solite.in/gif-maker.html",
       "description": "A free, client-side tool to create animated GIFs from a sequence of images with advanced options.",
-      "applicationCategory": "DesignApplication",
+      "applicationCategory": "MultimediaApplication",
       "featureList": [
         "Create GIFs from multiple images",
         "Adjust global and frame-specific delays",
         "Customize GIF width and height",
         "Control GIF looping",
         "Dithering option for quality",
-        "Client-side processing for privacy"
+        "Client-side processing for 100% privacy",
+        "No sign-up or registration required"
       ],
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
@@ -65,7 +66,41 @@
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in"
+      },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Create an Animated GIF",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Images", "text": "Click 'Select Images' or drag and drop your image files to add them as frames." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Settings", "text": "Adjust the global delay, GIF dimensions, and loop count. You can also click on individual frames in the timeline to set a specific delay for that frame." },
+          { "@type": "HowToStep", "name": "Step 3: Generate and Download", "text": "Click the 'Generate' button to create the GIF. Once it's ready, a 'Download GIF' button will appear." }
+        ]
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "GIF Maker"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Can I set a different speed for each frame in the GIF?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can set a 'Global Delay' that applies to all frames, or you can click on an individual frame in the timeline to set a specific delay (speed) just for that frame, allowing for complex animations." }
+      }]
     }
     </script>
 
@@ -85,13 +120,8 @@
         }
     </script>
     <style>
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         .frame-preview-item {
             position: relative;
             cursor: grab;
@@ -292,7 +322,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Success!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Success!</div>
 
 
 

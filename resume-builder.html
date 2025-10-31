@@ -7,7 +7,7 @@
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description" content="Build and download a professional resume for free with Solite's resume builder. Choose from modern templates, fill in your details, and export as a PDF. 100% private and no sign-up required.">
-    <meta name="keywords" content="resume builder, free resume maker, offline resume tool, private resume builder, resume templates, create resume, solite">
+    <meta name="keywords" content="resume builder, free resume maker, cv maker, online resume builder, professional resume, resume templates, create resume, pdf resume, solite, privacy first">
     <link rel="canonical" href="https://solite.in/resume-builder.html">
     <meta property="og:title" content="Free Resume Builder | Private, Offline Resume Maker | Solite">
     <meta property="og:description" content="Build and download a professional resume for free with Solite's resume builder. Choose from modern templates and export as a PDF. 100% private.">
@@ -51,9 +51,21 @@
       "name": "Resume Builder | Solite",
       "url": "https://solite.in/resume-builder.html",
       "description": "A free, client-side resume builder with modern templates that generates a professional resume PDF or image instantly and privately in your browser.",
-      "applicationCategory": "BusinessApplication",
-      "featureList": [ "Free Resume Templates", "Live Preview", "Download as PDF or PNG", "Client-side for 100% Privacy", "No Sign-up Required", "Works Offline" ],
-      "offers": { "@type": "Offer", "price": "0" }
+      "applicationCategory": "ProductivityApplication",
+      "featureList": [ "Multiple professional resume templates", "Real-time live preview", "Download as high-resolution PDF or PNG", "A4-sized output for printing", "Client-side processing for 100% privacy", "No sign-up or registration required", "Works offline after first visit" ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "operatingSystem": "All",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Create a Resume with Solite",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Choose a Template", "text": "Select a professional resume template from the gallery." },
+          { "@type": "HowToStep", "name": "Step 2: Edit Your Details", "text": "Fill in the text fields for your name, contact info, summary, experience, education, and skills." },
+          { "@type": "HowToStep", "name": "Step 3: Download Your Resume", "text": "Choose your desired format (PDF or PNG) and click the download button to save your resume instantly." }
+        ]
+      }
     }
     </script>
 
@@ -110,7 +122,7 @@
         </div>
     </header>
 
-    <main class="flex-grow flex relative">
+    <main class="flex-grow flex relative min-h-0">
         <h1 class="sr-only">Free Resume Builder</h1>
         <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
             
@@ -118,8 +130,8 @@
                <h3 class="text-xl font-bold text-white mb-4">Templates</h3>
                 <div id="template-grid" class="flex overflow-x-auto gap-3 pb-2 mb-4"></div>
                 
-                <div class="flex items-center space-x-2 mb-6">
-                    <select id="download-format" class="w-full bg-gray-700 text-white font-medium py-3 px-4 rounded-l-lg border-r border-gray-600">
+                <div class="flex items-center space-x-2 mb-6 flex-shrink-0">
+                    <select id="download-format" class="w-full bg-gray-700 text-white font-medium py-3 px-4 rounded-l-lg border-r border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option value="pdf">PDF</option>
                         <option value="png">PNG</option>
                     </select>
@@ -129,18 +141,20 @@
                     </button>
                 </div>
                 
-                <div id="special-controls-container" class="space-y-4 mb-4 border-b border-gray-800 pb-4">
+                <div id="special-controls-container" class="space-y-4 mb-4 border-b border-gray-800 pb-4 flex-shrink-0">
                     <!-- Special controls like photo upload will be injected here -->
                 </div>
 
-                <div id="edit-fields-container" class="space-y-4 flex-grow overflow-y-auto pr-2">
+                <div id="edit-fields-container" class="space-y-4 flex-grow overflow-y-auto pr-2 min-h-0">
                     <!-- Dynamic fields will be injected here -->
                 </div>
             </div>
 
-            <div id="preview-panel" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
-                <div id="resume-container" class="aspect-[1/1.414] w-full max-w-[816px] h-full object-contain shadow-2xl relative overflow-hidden bg-white flex-shrink-0">
-                    <!-- Resume template loads here -->
+            <div id="preview-panel" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:flex overflow-hidden lg:w-[70%]">
+                <div class="w-full h-full overflow-auto p-4">
+                    <div id="resume-container" class="aspect-[1/1.414] w-[816px] max-w-[816px] shadow-2xl relative overflow-hidden bg-white flex-shrink-0 mx-auto my-4">
+                        <!-- Resume template loads here -->
+                    </div>
                 </div>
             </div>
 
@@ -198,7 +212,7 @@
                                 </section>
                                 <section class="mt-6">
                                     <h2 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">Experience</h2>
-                                    <div contenteditable="true" data-id="experience-1">
+                                    <div contenteditable="true" data-id="experience">
                                         <h3 class="font-bold">Tech Solutions Inc. <span class="font-normal text-gray-600">| Senior Developer</span></h3>
                                         <p class="text-xs text-gray-500">2018 - Present</p>
                                         <ul class="list-disc pl-5 mt-1 text-sm">
@@ -255,7 +269,7 @@
                                 </section>
                                 <section class="mt-6">
                                     <h2 class="font-bold text-xl border-b-2 border-gray-300 pb-1 mb-3">Experience</h2>
-                                    <div contenteditable="true" data-id="experience-1" class="text-sm">
+                                    <div contenteditable="true" data-id="experience" class="text-sm">
                                         <h3 class="font-bold">Innovate Corp.</h3>
                                         <p class="italic">Senior Project Manager, 2017 - Present</p>
                                         <ul class="list-disc pl-5 mt-1">
@@ -306,7 +320,7 @@
                                 </section>
                                 <section class="mt-6">
                                     <h2 class="font-bold text-lg border-b-2 border-gray-200 pb-1 mb-3">Experience</h2>
-                                    <div contenteditable="true" data-id="experience-1" class="text-sm">
+                                    <div contenteditable="true" data-id="experience" class="text-sm">
                                         <h3 class="font-bold">Pixel Perfect Studios</h3>
                                         <p class="italic text-gray-600">Graphic Designer, 2020 - Present</p>
                                         <ul class="list-disc pl-5 mt-1">
@@ -333,9 +347,90 @@
                                 <p contenteditable="true" data-id="contact-info" class="text-sm text-gray-500 mt-2">sam.carter@web.com | (555) 123-4567 | Portfolio.com</p>
                             </header>
                             <section class="mb-6"><h2 class="font-bold text-lg tracking-wider uppercase border-b pb-2 mb-2">Profile</h2><p contenteditable="true" data-id="summary" class="text-sm">A minimalist developer focused on clean code and user-centric design.</p></section>
-                            <section class="mb-6"><h2 class="font-bold text-lg tracking-wider uppercase border-b pb-2 mb-2">Experience</h2><div contenteditable="true" data-id="experience-1" class="text-sm"><h3 class="font-bold">CodeStream</h3><p class="text-gray-600">Frontend Developer | 2021 - Present</p><p class="mt-1">Built responsive and accessible UI components for a major SaaS platform.</p></div></section>
+                            <section class="mb-6"><h2 class="font-bold text-lg tracking-wider uppercase border-b pb-2 mb-2">Experience</h2><div contenteditable="true" data-id="experience" class="text-sm"><h3 class="font-bold">CodeStream</h3><p class="text-gray-600">Frontend Developer | 2021 - Present</p><p class="mt-1">Built responsive and accessible UI components for a major SaaS platform.</p></div></section>
                             <section class="mb-6"><h2 class="font-bold text-lg tracking-wider uppercase border-b pb-2 mb-2">Education</h2><div contenteditable="true" data-id="education" class="text-sm"><h3 class="font-bold">University of Technology</h3><p class="text-gray-600">B.S. in Software Engineering</p></div></section>
                             <section><h2 class="font-bold text-lg tracking-wider uppercase border-b pb-2 mb-2">Skills</h2><p contenteditable="true" data-id="skills" class="text-sm">React, TypeScript, Node.js, Accessibility, Performance Optimization</p></section>
+                        </div>`
+                },
+                {
+                    id: 'technical', name: 'Technical',
+                    html: `
+                        <div class="p-8 bg-white text-gray-800 font-sans text-sm h-full flex gap-8">
+                            <aside class="w-1/3">
+                                <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold text-blue-700">CHRIS KERN</h1>
+                                <p contenteditable="true" data-id="job-title" class="text-md text-gray-600 font-semibold">Software Engineer</p>
+                                
+                                <section class="mt-6">
+                                    <h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Contact</h2>
+                                    <div contenteditable="true" data-id="contact-info" class="text-sm space-y-1">
+                                        <p>chris.kern@email.dev</p>
+                                        <p>(555) 123-4567</p>
+                                        <p>linkedin.com/in/chriskern</p>
+                                        <p>github.com/chriskern</p>
+                                        <p>chriskern.dev</p>
+                                    </div>
+                                </section>
+
+                                <section class="mt-6">
+                                    <h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Skills</h2>
+                                    <div contenteditable="true" data-id="skills" class="text-sm space-y-1">
+                                        <p><strong>Languages:</strong> JavaScript, Python, Go</p>
+                                        <p><strong>Frameworks:</strong> React, Node.js, Django</p>
+                                        <p><strong>Databases:</strong> PostgreSQL, MongoDB, Redis</p>
+                                        <p><strong>Tools:</strong> Docker, Kubernetes, AWS</p>
+                                    </div>
+                                </section>
+                            </aside>
+                            <main class="w-2/3">
+                                <section>
+                                    <h2 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-3">Summary</h2>
+                                    <p contenteditable="true" data-id="summary" class="text-sm">Innovative Software Engineer with a passion for building scalable and efficient backend systems. Proven ability to lead projects from concept to deployment.</p>
+                                </section>
+                                <section class="mt-6">
+                                    <h2 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-3">Experience</h2>
+                                    <div contenteditable="true" data-id="experience" class="text-sm"><h3 class="font-bold">Innovatech Solutions</h3><p class="italic text-gray-600">Backend Developer | 2020 - Present</p><ul class="list-disc pl-5 mt-1"><li>Designed and implemented microservices architecture, improving system scalability by 200%.</li><li>Developed RESTful APIs for a high-traffic mobile application.</li></ul></div>
+                                </section>
+                                <section class="mt-6">
+                                    <h2 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-3">Education</h2>
+                                    <div contenteditable="true" data-id="education" class="text-sm"><h3 class="font-bold">Institute of Technology</h3><p class="italic text-gray-600">M.S. in Computer Engineering, 2020</p></div>
+                                </section>
+                            </main>
+                        </div>`
+                },
+                {
+                    id: 'executive', name: 'Executive',
+                    html: `
+                        <div class="p-10 bg-white text-gray-800 font-serif text-base h-full flex flex-col">
+                            <header class="text-center mb-10">
+                                <h1 contenteditable="true" data-id="full-name" class="text-4xl font-bold tracking-tight">MARIA GARCIA</h1>
+                                <p contenteditable="true" data-id="contact-info" class="text-sm text-gray-500 mt-2">maria.garcia@executive.com | (555) 987-6543 | linkedin.com/in/mariagarcia</p>
+                            </header>
+                            <section class="mb-6"><h2 class="font-bold text-sm tracking-widest uppercase text-gray-500 border-b pb-2 mb-3">Executive Summary</h2><p contenteditable="true" data-id="summary" class="text-sm">Dynamic and visionary executive with over 15 years of experience driving growth and innovation in the tech industry. Expertise in strategic planning, market expansion, and team leadership.</p></section>                            <section class="mb-6"><h2 class="font-bold text-sm tracking-widest uppercase text-gray-500 border-b pb-2 mb-3">Professional Experience</h2><div contenteditable="true" data-id="experience" class="text-sm mb-4"><h3 class="font-bold text-lg">Global Tech Corp. — Chief Operating Officer</h3><p class="text-gray-600 text-xs">2018 - Present</p><p class="mt-1">Oversaw a 40% increase in operational efficiency by implementing new data-driven strategies. Led international expansion into three new markets.</p><br><h3 class="font-bold text-lg">Future Systems — VP of Operations</h3><p class="text-gray-600 text-xs">2012 - 2018</p><p class="mt-1">Managed a department of 50+ employees and scaled operational capacity to support a 300% growth in user base.</p></div></section>
+                            <section class="mb-6"><h2 class="font-bold text-sm tracking-widest uppercase text-gray-500 border-b pb-2 mb-3">Education</h2><div contenteditable="true" data-id="education" class="text-sm"><h3 class="font-bold text-lg">University of Business</h3><p class="text-gray-600">Master of Business Administration (MBA), 2012</p></div></section>
+                        </div>`
+                },
+                {
+                    id: 'academic', name: 'Academic',
+                    html: `
+                        <div class="p-8 bg-white text-gray-800 font-serif text-sm h-full">
+                            <header class="text-center mb-6">
+                                <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold">DR. ELEANOR VANCE</h1>
+                                <p contenteditable="true" data-id="contact-info" class="text-xs text-gray-600 mt-1">evance@university.edu | (555) 555-1212 | researchgate.net/eleanorvance</p>
+                            </header>
+                            <section class="mb-4"><h2 class="font-bold text-sm uppercase tracking-widest border-b-2 border-gray-200 pb-1 mb-2">Education</h2><div contenteditable="true" data-id="education" class="text-sm"><p><strong>Ph.D. in Astrophysics</strong>, Starfield University, 2020</p><p><strong>B.S. in Physics</strong>, Galileo College, 2015</p></div></section>
+                            <section class="mb-4"><h2 class="font-bold text-sm uppercase tracking-widest border-b-2 border-gray-200 pb-1 mb-2">Research Experience</h2><div contenteditable="true" data-id="experience" class="text-sm"><h3 class="font-bold">Postdoctoral Fellow, Cosmic Institute</h3><p class="text-xs text-gray-600">2020 - Present</p><ul class="list-disc pl-5 mt-1"><li>Investigated the formation of exoplanetary systems using computational models.</li><li>Authored and co-authored 5 peer-reviewed publications.</li></ul></div></section>
+                            <section class="mb-4"><h2 class="font-bold text-sm uppercase tracking-widest border-b-2 border-gray-200 pb-1 mb-2">Publications</h2><div contenteditable="true" data-id="publications" class="text-sm"><p>Vance, E. (2022). "Stellar Nurseries and Their Discontents." <em>Journal of Cosmic Inquiry</em>, 45(2), 123-145.</p></div></section>
+                        </div>`
+                },
+                {
+                    id: 'compact', name: 'Compact',
+                    html: `
+                        <div class="p-6 bg-white text-gray-800 font-sans text-xs h-full">
+                            <header class="flex justify-between items-center mb-4"><h1 contenteditable="true" data-id="full-name" class="text-2xl font-bold">LIAM CHEN</h1><div contenteditable="true" data-id="contact-info" class="text-right text-xs"><p>liam.chen@email.com</p><p>(555) 867-5309</p><p>liamchen.io</p></div></header>
+                            <section class="mb-3"><h2 class="font-bold text-xs uppercase tracking-wider border-b pb-1 mb-1">Summary</h2><p contenteditable="true" data-id="summary" class="text-xs">A versatile full-stack developer with expertise in creating efficient and maintainable web applications.</p></section>
+                            <section class="mb-3"><h2 class="font-bold text-xs uppercase tracking-wider border-b pb-1 mb-1">Experience</h2><div contenteditable="true" data-id="experience" class="text-xs"><p><strong>DevWorks LLC (2019-Present):</strong> Developed and maintained a large-scale React application for data visualization.</p></div></section>
+                            <section class="mb-3"><h2 class="font-bold text-xs uppercase tracking-wider border-b pb-1 mb-1">Education</h2><div contenteditable="true" data-id="education" class="text-xs"><p><strong>Tech University:</strong> B.S. Computer Science, 2019</p></div></section>
+                            <section><h2 class="font-bold text-xs uppercase tracking-wider border-b pb-1 mb-1">Skills</h2><div contenteditable="true" data-id="skills" class="text-xs"><p>JavaScript, React, Node.js, GraphQL, Docker, CI/CD</p></div></section>
                         </div>`
                 }
             ];
@@ -437,31 +532,65 @@
 
             async function download() {
                 if (document.activeElement) document.activeElement.blur();
-                await new Promise(resolve => setTimeout(resolve, 100));
+                el.resumeContainer.querySelectorAll('[contenteditable]').forEach(elem => elem.blur());
+
+                const paneWasHidden = el.previewPanel.classList.contains('hidden');
+                const originalStyles = {
+                    position: el.resumeContainer.style.position,
+                    width: el.resumeContainer.style.width,
+                    left: el.resumeContainer.style.left,
+                };
+
+                if (paneWasHidden) {
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('flex');
+                }
+
+                // Force a fixed, high-resolution size for download
+                el.resumeContainer.style.position = 'absolute';
+                el.resumeContainer.style.left = '-9999px';
+                // Explicitly set width and height for A4 aspect ratio to ensure correct rendering
+                el.resumeContainer.style.width = '816px'; 
+                el.resumeContainer.style.height = '1154px';
+
+                // Wait for the next paint cycle AND a short timeout for maximum reliability on mobile.
+                await new Promise(resolve => {
+                    requestAnimationFrame(() => setTimeout(resolve, 50));
+                });
 
                 try {
-                    const canvas = await html2canvas(el.resumeContainer, { scale: 3, logging: false, useCORS: true });
+                    const canvas = await html2canvas(el.resumeContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: '#ffffff' });
                     const format = el.downloadFormat.value;
                     const filename = `resume.${format}`;
 
                     if (format === 'pdf') {
                         const { jsPDF } = window.jspdf;
                         const imgData = canvas.toDataURL('image/png', 1.0);
-                        const pdf = new jsPDF({
-                            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-                            unit: 'px',
-                            format: [canvas.width, canvas.height]
-                        });
+                        // A4 aspect ratio is approx 1:1.414. Use portrait.
+                        const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
                         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
                         pdf.save(filename);
                     } else {
-                        const link = document.createElement('a');
-                        link.href = canvas.toDataURL(`image/${format}`, 1.0);
-                        link.download = filename;
-                        link.click();
+                        canvas.toBlob((blob) => {
+                            const link = document.createElement('a');
+                            link.download = filename;
+                            link.href = URL.createObjectURL(blob);
+                            link.click();
+                            URL.revokeObjectURL(link.href);
+                        }, `image/${format}`, 1.0);
                     }
                 } catch (error) {
                     console.error("Download failed:", error);
+                } finally {
+                    // Restore original styles
+                    el.resumeContainer.style.position = originalStyles.position;
+                    el.resumeContainer.style.width = originalStyles.width;
+                    el.resumeContainer.style.height = ''; // Reset height
+                    el.resumeContainer.style.left = originalStyles.left;
+                    if (paneWasHidden) {
+                        el.previewPanel.classList.add('hidden');
+                        el.previewPanel.classList.remove('flex');
+                    }
                 }
             }
 

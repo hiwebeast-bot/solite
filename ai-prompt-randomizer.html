@@ -52,9 +52,46 @@
       "description": "A free, client-side tool to generate creative prompts for writing, art, and brainstorming by combining random contexts, tones, and styles.",
       "applicationCategory": "UtilitiesApplication",
       "featureList": [ "Generate random creative prompts", "Combine actions, contexts, and styles", "Break writer's block", "Copy prompts to clipboard", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate a Random AI Prompt",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Generate a Prompt", "text": "Click the 'Generate New Prompt' button to get a unique combination of an action, context, and style." },
+          { "@type": "HowToStep", "name": "Step 2: Customize (Optional)", "text": "To refine the prompt, fill in any of the 'Custom' fields. The generator will use your text for that part and randomize the rest." },
+          { "@type": "HowToStep", "name": "Step 3: Copy", "text": "Click the 'Copy' button to copy the generated prompt to your clipboard." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Prompt Randomizer"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is an AI prompt randomizer used for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An AI prompt randomizer is used to overcome creative blocks by generating unique and unexpected ideas for writing, art, or brainstorming. It combines different elements like actions, contexts, and styles to create a starting point for creative work with AI models like ChatGPT or Midjourney." }
+      },{
+        "@type": "Question",
+        "name": "Is this prompt generator free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite AI Prompt Randomizer is completely free to use. It runs entirely in your browser, requires no sign-up, and is 100% private." }
+      }]
     }
     </script>
 
@@ -67,8 +104,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }

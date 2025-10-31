@@ -56,7 +56,40 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
       "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Create an Email Signature",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Fill in Your Details", "text": "Enter your name, title, company, and contact information in the input fields." },
+          { "@type": "HowToStep", "name": "Step 2: Add Links and Logo", "text": "Add your social media links and optionally upload a company logo or personal photo." },
+          { "@type": "HowToStep", "name": "Step 3: Copy Signature", "text": "Click the 'Copy Signature' button and paste the result directly into your email client's signature settings (e.g., Gmail, Outlook)." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Email Signature Generator"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I use the generated signature in Gmail or Outlook?",
+        "acceptedAnswer": { "@type": "Answer", "text": "After customizing your signature, click the 'Copy Signature' button. Then, go to your email client's settings, find the signature editor, and paste the copied content. The HTML formatting, including links and images, will be preserved." }
+      }]
     }
     </script>
 
@@ -71,8 +104,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -197,7 +230,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

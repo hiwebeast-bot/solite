@@ -52,9 +52,42 @@
       "description": "A free, client-side tool to test and visualize regular expressions with real-time highlighting and a built-in cheatsheet.",
       "applicationCategory": "DeveloperApplication",
       "featureList": [ "Real-time regex testing", "Match highlighting", "Support for regex flags (g, i, m)", "List of matches", "Regex cheatsheet", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Test a Regular Expression",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Enter Regex Pattern", "text": "Type your regular expression pattern into the 'Regular Expression' input field." },
+          { "@type": "HowToStep", "name": "Step 2: Enter Test String", "text": "Type or paste the text you want to test your regex against into the 'Test String' area." },
+          { "@type": "HowToStep", "name": "Step 3: Analyze Results", "text": "The tool will highlight all matches in real-time and list them in the 'Matches' section below." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Regex Playground"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are regex flags?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Regex flags modify the behavior of a search. The most common are 'g' (global), which finds all matches instead of just the first; 'i' (ignore case), which makes the search case-insensitive; and 'm' (multiline), which allows the start (^) and end ($) anchors to match the start and end of lines, not just the whole string." }
+      }]
     }
     </script>
 
@@ -72,11 +105,10 @@
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
         .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        #highlight-layer { color: transparent; caret-color: white; }
+        .mobile-nav-btn { color: #9ca3af; }        #highlight-layer { color: transparent; caret-color: white; }
         #highlight-layer mark { color: transparent; background-color: rgba(96, 165, 250, 0.4); }
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
     </style> 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -205,7 +237,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

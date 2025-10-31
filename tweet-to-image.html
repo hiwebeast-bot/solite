@@ -7,7 +7,7 @@
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Tweet to Image Converter | Solite</title>
     <meta name="description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG. 100% private and browser-based.">
-    <meta name="keywords" content="tweet to image, convert tweet to image, twitter screenshot generator, tweet image generator, free online tool, solite">
+    <meta name="keywords" content="tweet to image, convert tweet to image, twitter screenshot generator, tweet image generator, free online tool, solite, privacy first, tweet screenshot">
     <link rel="canonical" href="https://solite.in/tweet-to-image.html" />
     <meta name="robots" content="index, follow">
 
@@ -49,11 +49,35 @@
       "name": "Tweet to Image Converter",
       "url": "https://solite.in/tweet-to-image.html",
       "description": "A free, client-side tool to convert any public tweet into a beautiful, shareable image.",
-      "applicationCategory": "MultimediaApplication",
-      "featureList": [ "Convert Tweet URL to Image", "Dark and Light themes", "High-quality PNG download", "Client-side processing for 100% privacy", "Hide or show engagement stats", "Hide or show tweet media", "Add a custom text watermark" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Convert any public Tweet URL to an image", "Switch between Dark and Light themes", "Download as a high-quality PNG", "Client-side processing for 100% privacy", "Option to hide or show engagement stats (likes, retweets)", "Option to hide or show tweet media (images/video)", "Add a custom text watermark in any corner" ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Convert a Tweet to an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste Tweet URL", "text": "Copy the URL of any public tweet and paste it into the input field." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Options", "text": "Use the controls to change the theme, hide stats or media, and add an optional watermark." },
+          { "@type": "HowToStep", "name": "Step 3: Download Image", "text": "Click the 'Download as PNG' button to save the generated image." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tweet to Image Converter"
+      }]
     }
     </script>
 
@@ -66,8 +90,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         .tweet-card a { color: #1d9bf0; }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
@@ -201,7 +225,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         class TweetToImage {

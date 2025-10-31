@@ -69,7 +69,31 @@
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in/"
+      },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Pick Colors from an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image onto the page or click to select a file from your device." },
+          { "@type": "HowToStep", "name": "Step 2: Pick Colors", "text": "Move your mouse over the image to see a zoomed-in loupe and live color values. Click on the image to add a color to your palette." },
+          { "@type": "HowToStep", "name": "Step 3: Copy or Clear", "text": "Click on any color in your palette to copy its HEX code. You can also copy all colors at once or clear the palette to start over." }
+        ]
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Image Color Picker"
+      }]
     }
     </script>
 
@@ -90,13 +114,8 @@
             outline: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
         }
         #image-canvas { cursor: crosshair; }
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         #zoom-loupe {
             position: absolute;
             width: 128px;
@@ -258,7 +277,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
     
     <script>
         class ImageColorPicker {

@@ -66,7 +66,31 @@
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in"
+      },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Edit an Image Online",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image file onto the page or click to select one from your device." },
+          { "@type": "HowToStep", "name": "Step 2: Edit", "text": "Use the controls in the 'Adjust', 'Crop', and 'Watermark' tabs to modify your image. You can apply filters, resize, crop to specific aspect ratios, or add text and image watermarks." },
+          { "@type": "HowToStep", "name": "Step 3: Export", "text": "Go to the 'Export' tab, choose your desired format (PNG, JPEG, WebP, etc.), and click 'Download Image' to save the final result." }
+        ]
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Image Editor"
+      }]
     }
     </script>
 
@@ -416,7 +440,23 @@
             }
 
             function updateCanvas(img) {
-                canvas.width = img.width; canvas.height = img.height; redrawCanvas();
+                const container = canvasContainer;
+                const containerWidth = container.clientWidth - 16; // Account for padding
+                const containerHeight = container.clientHeight - 16;
+
+                const imgAspectRatio = img.width / img.height;
+                const containerAspectRatio = containerWidth / containerHeight;
+
+                let displayWidth, displayHeight;
+
+                if (imgAspectRatio > containerAspectRatio) {
+                    displayWidth = containerWidth;
+                    displayHeight = containerWidth / imgAspectRatio;
+                } else {
+                    displayHeight = containerHeight;
+                    displayWidth = containerHeight * imgAspectRatio;
+                }
+                canvas.width = displayWidth; canvas.height = displayHeight; redrawCanvas();
             }
 
             function removeImage() {

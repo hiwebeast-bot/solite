@@ -52,9 +52,46 @@
       "description": "A free, client-side tool to convert text between various programming and standard case formats.",
       "applicationCategory": "DeveloperApplication",
       "featureList": [ "Convert to camelCase", "Convert to PascalCase", "Convert to snake_case", "Convert to kebab-case", "Convert to Sentence case", "Convert to Title Case", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Convert Text Case",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Input Text", "text": "Paste or type the text you want to convert into the 'Input' text area." },
+          { "@type": "HowToStep", "name": "Step 2: Choose a Case", "text": "Click on one of the case buttons (e.g., 'camelCase', 'snake_case') to instantly convert your text." },
+          { "@type": "HowToStep", "name": "Step 3: Copy Output", "text": "The converted text will appear in the 'Output' text area. Click the 'Copy' button to copy it to your clipboard." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Converter"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is a case converter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A case converter is a tool that changes the capitalization of text into a specific format, such as camelCase for variables, snake_case for database columns, or Title Case for headlines. It automates the process of re-typing text to match a required style." }
+      },{
+        "@type": "Question",
+        "name": "Does this tool store my text?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, this tool is 100% private. All text conversion happens directly in your browser, and your data is never sent to or stored on a server." }
+      }]
     }
     </script>
 
@@ -67,8 +104,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
@@ -140,7 +177,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

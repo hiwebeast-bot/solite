@@ -53,9 +53,42 @@
       "description": "A free, client-side tool to generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files.",
       "applicationCategory": "DeveloperApplication",
       "featureList": [ "Generate MD5, SHA-1, SHA-256, SHA-512 hashes", "Process text input or file uploads", "Verify file integrity by comparing hashes", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate a Hash",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Provide Input", "text": "Type text into the input box or drop a file onto the page." },
+          { "@type": "HowToStep", "name": "Step 2: View Hashes", "text": "The tool will automatically generate standard hashes (MD5, SHA-1, etc.) for your input." },
+          { "@type": "HowToStep", "name": "Step 3: Verify (Optional)", "text": "To verify a file's integrity, paste the expected hash into the 'Verify Hash' field. The tool will show a match if one of the generated hashes is identical." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hash Generator"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is a hash used for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A hash is a unique digital fingerprint of data. It's commonly used to verify file integrity (to ensure a downloaded file hasn't been corrupted or tampered with) and to securely store passwords (by hashing them instead of storing them in plain text)." }
+      }]
     }
     </script>
 
@@ -68,8 +101,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }

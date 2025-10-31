@@ -54,7 +54,31 @@
       "featureList": [ "Generate linear CSS gradients", "Generate radial CSS gradients", "Generate conic CSS gradients", "Customizable color stops", "Adjust angle, position, and shape", "Live preview", "Copy generated CSS code", "Client-side processing for 100% privacy" ],
       "offers": { "@type": "Offer", "price": "0" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate a CSS Gradient",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Choose Gradient Type", "text": "Select whether you want to create a Linear, Radial, or Conic gradient." },
+          { "@type": "HowToStep", "name": "Step 2: Adjust Colors and Properties", "text": "Add, remove, or change the color stops. Use the sliders to adjust properties like the angle for linear gradients or the position for radial and conic gradients." },
+          { "@type": "HowToStep", "name": "Step 3: Copy CSS", "text": "Copy the generated CSS code from the output box and paste it into your stylesheet." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CSS Gradient Generator"
+      }]
     }
     </script>
 
@@ -67,8 +91,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
@@ -244,7 +268,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

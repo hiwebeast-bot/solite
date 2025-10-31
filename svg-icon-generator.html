@@ -7,7 +7,7 @@
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Free SVG Icon Generator from Text & Emoji | Solite</title>
     <meta name="description" content="Create custom SVG icons from text or emojis with our free online generator. Customize font, colors, and background shape, then export clean SVG code or download as a file. 100% private and browser-based.">
-    <meta name="keywords" content="svg icon generator, text to svg, emoji to svg, svg icon maker, free svg generator, custom svg icon, create svg icon, solite">
+    <meta name="keywords" content="svg icon generator, text to svg, emoji to svg, svg icon maker, free svg generator, custom svg icon, create svg icon, solite, privacy first, svg from text">
     <link rel="canonical" href="https://solite.in/svg-icon-generator.html" />
     <meta name="robots" content="index, follow">
 
@@ -50,11 +50,35 @@
       "name": "SVG Icon Generator",
       "url": "https://solite.in/svg-icon-generator.html",
       "description": "A free, client-side tool to generate custom SVG icons from text or emojis, with options for fonts, colors, and background shapes.",
-      "applicationCategory": "DesignApplication",
+      "applicationCategory": "DeveloperApplication",
       "featureList": [ "Generate SVG icons from text", "Generate SVG icons from emojis", "Customize font family, size, and color", "Add background shape (circle, square)", "Live preview of the icon", "Copy generated SVG code", "Download as .svg file", "Client-side processing for 100% privacy" ],
       "offers": { "@type": "Offer", "price": "0" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate an SVG Icon",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Enter Content", "text": "Type one or two characters of text or an emoji into the input field." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Style", "text": "Use the controls to adjust the font, colors, background shape, and overall icon size." },
+          { "@type": "HowToStep", "name": "Step 3: Export", "text": "Copy the generated SVG code directly or click 'Download' to save the icon as a .svg file." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "SVG Icon Generator"
+      }]
     }
     </script>
 
@@ -73,8 +97,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
@@ -212,7 +236,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

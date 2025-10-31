@@ -7,7 +7,7 @@
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Free WhatsApp Chat Generator (Fake Chat Maker) | Solite</title>
     <meta name="description" content="Create realistic fake WhatsApp chat messages and conversations with our free online generator. Customize sender, message, time, and status. Download as an image. 100% private.">
-    <meta name="keywords" content="whatsapp chat generator, fake whatsapp chat, whatsapp message maker, fake chat generator, create whatsapp conversation, solite, whatsapp screenshot generator">
+    <meta name="keywords" content="whatsapp chat generator, fake whatsapp chat, whatsapp message maker, fake chat generator, create whatsapp conversation, solite, whatsapp screenshot generator, fake whatsapp message, privacy first">
     <link rel="canonical" href="https://solite.in/whatsapp-chat-generator.html" />
     <meta name="robots" content="index, follow">
 
@@ -51,11 +51,35 @@
       "name": "WhatsApp Chat Generator",
       "url": "https://solite.in/whatsapp-chat-generator.html",
       "description": "A free, client-side tool to create realistic fake WhatsApp chat messages and conversations, and download them as images.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [ "Create fake WhatsApp messages", "Customize sender, message, time, and delivery status", "Light and Dark themes", "Download as high-quality PNG", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "applicationCategory": "MultimediaApplication",
+      "featureList": [ "Create realistic fake WhatsApp messages", "Customize sender (sent/received), message content, time, and delivery status (sent, delivered, read)", "Drag and drop to reorder messages", "Download conversation as a high-quality PNG image", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate a Fake WhatsApp Chat",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Add Messages", "text": "Click 'Add Message' to create new chat bubbles. Select a message to edit its content." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Details", "text": "For each message, set the sender (You or Other Person), edit the text, time, and delivery status." },
+          { "@type": "HowToStep", "name": "Step 3: Download Image", "text": "Click the 'Download as PNG' button to save the generated chat conversation as an image." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "WhatsApp Chat Generator"
+      }]
     }
     </script>
 
@@ -68,8 +92,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
@@ -235,7 +259,7 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

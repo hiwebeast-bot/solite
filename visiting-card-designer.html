@@ -53,10 +53,43 @@
       "description": "A free, client-side tool to design custom business cards from modern templates and download them as high-quality images.",
       "applicationCategory": "DesignApplication",
       "featureList": [ "Front and Back Designs", "Logo Upload", "Custom Background Colors", "Live Preview", "Download as PNG", "Client-side for 100% Privacy", "No Sign-up Required", "Draggable & Resizable Logo" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
       "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "dateModified": "2025-11-06T10:00:00Z",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Design a Visiting Card",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Choose a Template", "text": "Select a professional visiting card template from the gallery." },
+          { "@type": "HowToStep", "name": "Step 2: Edit Details", "text": "Use the input fields to customize the text on the card. You can also change the background colors." },
+          { "@type": "HowToStep", "name": "Step 3: Add Logo and Download", "text": "Upload your logo, which can be dragged and resized on the card. When ready, click 'Download as PNG' to save both the front and back of your card." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Visiting Card Designer"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What size are the visiting cards?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The visiting cards are designed with a standard 3.5 x 2 inch aspect ratio. When you download the card, it is exported as a high-resolution PNG (1050x600 pixels at 300 DPI), which is perfect for professional printing." }
+      }]
     }
     </script>
 
@@ -448,28 +481,56 @@
                 cardContainer.className = cardContainer.className.replace(/light-text|dark-text/g, '').trim() + ' ' + getContrastClass(color);
             }
 
-            async function downloadCard(container, filename) {
-                const originalBg = el.previewPanel.style.backgroundColor;
-                el.previewPanel.style.backgroundColor = 'transparent'; // Temporarily make background transparent
+            async function downloadCard(cardContainer, filename) {
+                const originalStyles = {
+                    position: cardContainer.style.position,
+                    width: cardContainer.style.width,
+                    left: cardContainer.style.left,
+                };
+
+                // Force a fixed, high-resolution size for download
+                cardContainer.style.position = 'absolute';
+                cardContainer.style.left = '-9999px';
+                cardContainer.style.width = '1050px'; // Standard business card width at high DPI
+
+                // Wait for the browser to paint the element before capturing
+                await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
                 try {
-                    const canvas = await html2canvas(container, { scale: 4, logging: false, useCORS: true, backgroundColor: null });
+                    const canvas = await html2canvas(cardContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: null });
                     const link = document.createElement('a');
                     link.href = canvas.toDataURL('image/png', 1.0);
                     link.download = filename;
                     link.click();
                 } catch (error) {
                     console.error(`Download failed for ${filename}:`, error);
+                    // You could add a user-facing error message here
                 } finally {
-                    el.previewPanel.style.backgroundColor = originalBg; // Restore original background
+                    // Restore original styles for the card container
+                    cardContainer.style.position = originalStyles.position;
+                    cardContainer.style.width = originalStyles.width;
+                    cardContainer.style.left = originalStyles.left;
                 }
             }
 
             async function downloadBoth() {
                 if (document.activeElement) document.activeElement.blur();
-                await new Promise(resolve => setTimeout(resolve, 100));
-                await downloadCard(el.cardContainerFront, 'visiting-card-front.png');
-                await new Promise(resolve => setTimeout(resolve, 200)); // Small delay
-                await downloadCard(el.cardContainerBack, 'visiting-card-back.png');
+                const paneWasHidden = el.previewPanel.classList.contains('hidden');
+                if (paneWasHidden) {
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('flex');
+                }
+
+                try {
+                    await downloadCard(el.cardContainerFront, 'visiting-card-front.png');
+                    await new Promise(resolve => setTimeout(resolve, 200)); // Small delay between downloads
+                    await downloadCard(el.cardContainerBack, 'visiting-card-back.png');
+                } finally {
+                    if (paneWasHidden) {
+                        el.previewPanel.classList.add('hidden');
+                        el.previewPanel.classList.remove('flex');
+                    }
+                }
             }
 
             function handleLogoUpload(event) {

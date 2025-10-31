@@ -52,9 +52,33 @@
       "description": "A free, client-side tool to convert between various units of measurement, including length, weight, temperature, data storage, and web development units.",
       "applicationCategory": "UtilitiesApplication",
       "featureList": [ "Convert length units (meters, feet, etc.)", "Convert weight units (kg, lbs, etc.)", "Convert temperature (Celsius, Fahrenheit, Kelvin)", "Convert data storage units (KB, MB, GB)", "Convert web units (px, rem, em)", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Convert Units",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Select Category", "text": "Choose the type of measurement you want to convert, such as Length, Weight, or Temperature." },
+          { "@type": "HowToStep", "name": "Step 2: Enter Value", "text": "Enter the value you want to convert into one of the input boxes." },
+          { "@type": "HowToStep", "name": "Step 3: Select Units", "text": "Select the 'from' and 'to' units using the dropdowns. The conversion will happen automatically." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Unit Converter"
+      }]
     }
     </script>
 
@@ -67,8 +91,7 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }        ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
         .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }

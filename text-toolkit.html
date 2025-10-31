@@ -50,7 +50,32 @@
         "@type": "Organization",
         "name": "Solite",
         "url": "https://solite.in"
+      },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Use the Text Toolkit",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Input Text", "text": "Paste your text into the main editor area." },
+          { "@type": "HowToStep", "name": "Step 2: Apply an Action", "text": "Select an action from the dropdown, such as 'Remove Extra Spaces' or 'Extract Emails'. The output will appear instantly." },
+          { "@type": "HowToStep", "name": "Step 3: Find and Replace (Optional)", "text": "Use the 'Find' and 'Replace' fields to perform replacements, with options for case sensitivity and regular expressions." },
+          { "@type": "HowToStep", "name": "Step 4: Copy Result", "text": "Click the 'Copy' button to copy the cleaned or transformed text from the output area." }
+        ]
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Text Toolkit"
+      }]
     }
     </script>
 
@@ -87,13 +112,8 @@
         }
     </script>
     <style>
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(-2rem); }
         .custom-select {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -303,7 +323,7 @@
     </footer>
     
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <!-- REMOVED: Mobile viewport height fix script -->
 

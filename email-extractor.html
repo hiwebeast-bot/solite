@@ -62,7 +62,31 @@
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled."
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Extract Emails from Text",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste any block of text containing email addresses into the input area." },
+          { "@type": "HowToStep", "name": "Step 2: View Results", "text": "The tool will instantly extract all unique email addresses and display them in the output area, automatically removing duplicates." },
+          { "@type": "HowToStep", "name": "Step 3: Copy or Export", "text": "You can copy the list of emails to your clipboard or export them as a CSV file." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Email Extractor"
+      }]
     }
     </script>
 
@@ -77,8 +101,8 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
@@ -184,7 +208,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
