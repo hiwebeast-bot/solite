@@ -748,35 +748,53 @@
             downloadBtn.addEventListener('click', async () => {
                 certificateContainer.querySelectorAll('[contenteditable]').forEach(el => el.classList.remove('focus:outline-dashed', 'focus:outline-2', 'focus:outline-blue-500', 'focus:rounded'));
                 if (document.activeElement) document.activeElement.blur();
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 150)); // A slightly longer delay can help ensure rendering is complete
+
+                const paneWasHidden = previewPane.classList.contains('hidden');
+                if (paneWasHidden) {
+                    // Temporarily move the pane off-screen to make it renderable by html2canvas
+                    previewPane.style.position = 'absolute';
+                    previewPane.style.left = '-9999px';
+                    previewPane.classList.remove('hidden');
+                    previewPane.classList.add('flex');
+                }
                 
                 try {
                     const canvas = await html2canvas(certificateContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: null });
                     const format = downloadFormat;
                     const filename = `Solite-Certificate.${format}`;
                     
-                    if (format === 'pdf') {
-                        const { jsPDF } = window.jspdf;
-                        const imgData = canvas.toDataURL('image/jpeg', 0.95);
-                        const pdf = new jsPDF({
-                            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-                            unit: 'px',
-                            format: [canvas.width, canvas.height]
-                        });
-                        pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
-                        pdf.save(filename);
-                    } else {
-                        const link = document.createElement('a');
-                        link.href = canvas.toDataURL(`image/${format}`, 1.0);
-                        link.download = filename;
-                        link.click();
-                    }
+                    const link = document.createElement('a');
+                    link.download = filename;
+
+                    // Use a blob for more reliable downloading on mobile
+                    canvas.toBlob((blob) => {
+                        if (format === 'pdf') {
+                            const { jsPDF } = window.jspdf;
+                            const imgData = canvas.toDataURL('image/jpeg', 0.95);
+                            const pdf = new jsPDF({ orientation: canvas.width > canvas.height ? 'landscape' : 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+                            pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
+                            pdf.save(filename);
+                        } else {
+                            link.href = URL.createObjectURL(blob);
+                            link.click();
+                            URL.revokeObjectURL(link.href);
+                        }
+                    }, `image/${format}`, 1.0);
+
                 } catch (error) {
                     console.error("Download failed:", error);
                     // Replaced alert() with console.error
                     console.error("Sorry, something went wrong during the download process.");
                 } finally {
                     certificateContainer.querySelectorAll('[contenteditable]').forEach(el => el.classList.add('focus:outline-dashed', 'focus:outline-2', 'focus:outline-blue-500', 'focus:rounded'));
+                    // Restore original layout if it was changed
+                    if (paneWasHidden) {
+                        previewPane.style.position = '';
+                        previewPane.style.left = '';
+                        previewPane.classList.add('hidden');
+                        previewPane.classList.remove('flex');
+                    }
                 }
             });
             
