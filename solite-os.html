@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solite Operating System | Design & Principles</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; scrollbar-width: thin; }
+        .prose-custom { @apply text-gray-300; }
+        .prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4 { @apply text-white font-bold; }
+        .prose-custom h1 { @apply text-4xl sm:text-5xl mb-4; }
+        .prose-custom h2 { @apply text-2xl mt-10 mb-4 border-b border-gray-800 pb-2; }
+        .prose-custom h3 { @apply text-xl mt-6 mb-3; }
+        .prose-custom h4 { @apply text-lg mt-8 mb-2 text-gray-400; }
+        .prose-custom p, .prose-custom ul, .prose-custom ol { @apply text-gray-400 my-4; }
+        .prose-custom a { @apply text-blue-400 hover:underline; }
+        .prose-custom code { @apply bg-gray-800 text-sm text-yellow-300 rounded px-1.5 py-0.5 font-mono; }
+        .prose-custom strong { @apply text-gray-200; }
+        .prose-custom blockquote { @apply border-l-4 border-gray-700 pl-4 italic text-gray-500; }
+        .prose-custom .lead { @apply text-lg text-gray-400 my-6; }
+        .color-swatch { width: 100%; height: 60px; border-radius: 0.5rem; }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/>
+                </svg>
+                <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="lg:flex lg:gap-12">
+            <!-- Sidebar Navigation -->
+            <aside class="w-full lg:w-64 flex-shrink-0 mb-12 lg:mb-0">
+                <div class="lg:sticky lg:top-24">
+                    <h3 class="text-lg font-semibold text-white mb-4">Solite OS</h3>
+                    <nav>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#principles" class="hover:text-white">Principles</a></li>
+                            <li><a href="#foundations" class="hover:text-white">Foundations</a>
+                                <ul class="pl-4 mt-2 space-y-2 text-sm">
+                                    <li><a href="#colors" class="hover:text-white">Colors</a></li>
+                                    <li><a href="#typography" class="hover:text-white">Typography</a></li>
+                                    <li><a href="#spacing" class="hover:text-white">Spacing</a></li>
+                                    <li><a href="#borders" class="hover:text-white">Borders & Shadows</a></li>
+                                    <li><a href="#iconography" class="hover:text-white">Iconography</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#components" class="hover:text-white">Components</a>
+                                <ul class="pl-4 mt-2 space-y-2 text-sm">
+                                    <li><a href="#layout-structure" class="hover:text-white">Layout & Structure</a></li>
+                                    <li><a href="#navigation-components" class="hover:text-white">Navigation</a></li>
+                                    <li><a href="#inputs-controls" class="hover:text-white">Inputs & Controls</a></li>
+                                    <li><a href="#data-display" class="hover:text-white">Data Display</a></li>
+                                    <li><a href="#content-typography" class="hover:text-white">Content & Typography</a></li>
+                                    <li><a href="#feedback-alerts" class="hover:text-white">Feedback & Alerts</a></li>
+                                    <li><a href="#utility-interactions" class="hover:text-white">Utility & Interactions</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#language" class="hover:text-white">Language & Tone</a></li>
+                            <li><a href="#patterns" class="hover:text-white">Patterns & Practices</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="flex-1 min-w-0">
+                <article class="prose-custom max-w-4xl">
+                    <h1>The Solite Operating System</h1>
+                    <p class="lead">This document is the single source of truth for building Solite. It defines our design language, component behavior, and core principles. Adhering to this system ensures we build cohesive, high-quality, and trustworthy experiences efficiently.</p>
+
+                    <section id="principles">
+                        <h2>Core Principles</h2>
+                        <p>Every decision, from a line of code to a marketing headline, is guided by these four principles.</p>
+                        <h3>1. Privacy First, Always</h3>
+                        <p>Our foundational promise. All tools must function entirely on the client-side. No user data, files, or inputs are ever sent to a server. This is non-negotiable. We build trust by eliminating the need for it.</p>
+                        
+                        <h3>2. Performance by Default</h3>
+                        <p>Our tools must be instant. We achieve this through client-side processing, minimal dependencies, and optimized code. Users should feel the speed. Once a tool is loaded, it should be available offline.</p>
+
+                        <h3>3. Aesthetic Minimalism</h3>
+                        <p>Our design is clean, modern, and focused. We use a dark, professional theme with clear visual hierarchy. Every element must serve a purpose. We avoid clutter to keep the user focused on their task.</p>
+
+                        <h3>4. Zero Friction</h3>
+                        <p>No sign-ups, no pop-ups, no cookie banners, no nonsense. The path from arriving on the site to using a tool should be as short as possible. Value is delivered instantly.</p>
+                    </section>
+
+                    <section id="foundations">
+                        <h2>Foundations</h2>
+                        
+                        <h3 id="colors">Colors</h3>
+                        <p>Our palette is built on a dark foundation with functional, accessible accent colors.</p>
+                        <h4>Primary & Neutrals</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div><div class="color-swatch bg-black border border-gray-800"></div><p class="mt-1 text-sm">Black <code>#000000</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #111827;"></div><p class="mt-1 text-sm">Gray-900 <code>#111827</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #1f2937;"></div><p class="mt-1 text-sm">Gray-800 <code>#1f2937</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #374151;"></div><p class="mt-1 text-sm">Gray-700 <code>#374151</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #4b5563;"></div><p class="mt-1 text-sm">Gray-600 <code>#4b5563</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #6b7280;"></div><p class="mt-1 text-sm">Gray-500 <code>#6b7280</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #9ca3af;"></div><p class="mt-1 text-sm">Gray-400 <code>#9ca3af</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #d1d5db;"></div><p class="mt-1 text-sm">Gray-300 <code>#d1d5db</code></p></div>
+                        </div>
+                        <h4 class="mt-6">Functional Colors</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div><div class="color-swatch" style="background-color: #ffffff;"></div><p class="mt-1 text-sm">White <code>#ffffff</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #3b82f6;"></div><p class="mt-1 text-sm">Blue-500 <code>#3b82f6</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #22c55e;"></div><p class="mt-1 text-sm">Green-500 <code>#22c55e</code></p></div>
+                            <div><div class="color-swatch" style="background-color: #ef4444;"></div><p class="mt-1 text-sm">Red-500 <code>#ef4444</code></p></div>
+                        </div>
+
+                        <h3 id="typography">Typography</h3>
+                        <p>We use the <strong>Inter</strong> font family for its clarity and modern feel. <strong>Roboto Mono</strong> is used for code and technical displays.</p>
+                        <div class="space-y-4">
+                            <p class="text-5xl font-extrabold">H1 Heading - 5xl Extrabold</p>
+                            <p class="text-4xl font-bold">H2 Heading - 4xl Bold</p>
+                            <p class="text-2xl font-bold">H3 Heading - 2xl Bold</p>
+                            <p class="text-lg">Body Large - lg</p>
+                            <p class="text-base">Body Normal - base</p>
+                            <p class="text-sm">Body Small - sm</p>
+                            <p class="font-mono text-base"><code>Mono - base</code></p>
+                        </div>
+
+                        <h3 id="iconography">Iconography</h3>
+                        <p>Icons should be clean, minimalist line icons. The preferred style is <strong>stroke-width 1.5</strong> for a balanced, modern look. Icons should be sourced from a consistent library (like Heroicons or a custom set) to maintain visual harmony.</p>
+                        <div class="flex space-x-6 p-4 bg-gray-900 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+
+                        <h3 id="spacing">Spacing</h3>
+                        <p>We use a consistent 4px-based spacing scale for padding, margins, and gaps to ensure visual harmony.</p>
+                        <div class="flex flex-wrap items-end gap-2">
+                            <div class="text-center"><div class="h-4 w-4 bg-gray-700"></div><p class="text-xs mt-1">4px (1)</p></div>
+                            <div class="text-center"><div class="h-6 w-6 bg-gray-700"></div><p class="text-xs mt-1">8px (2)</p></div>
+                            <div class="text-center"><div class="h-8 w-8 bg-gray-700"></div><p class="text-xs mt-1">12px (3)</p></div>
+                            <div class="text-center"><div class="h-10 w-10 bg-gray-700"></div><p class="text-xs mt-1">16px (4)</p></div>
+                            <div class="text-center"><div class="h-12 w-12 bg-gray-700"></div><p class="text-xs mt-1">24px (6)</p></div>
+                            <div class="text-center"><div class="h-16 w-16 bg-gray-700"></div><p class="text-xs mt-1">32px (8)</p></div>
+                        </div>
+
+                        <h3 id="borders">Borders & Shadows</h3>
+                        <p>Borders are subtle, used to define containers. Shadows are minimal, used to imply elevation on hover.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div><div class="h-16 w-full bg-gray-800 rounded-md border border-gray-700"></div><p class="text-xs mt-1"><code>rounded-md</code></p></div>
+                            <div><div class="h-16 w-full bg-gray-800 rounded-lg border border-gray-700"></div><p class="text-xs mt-1"><code>rounded-lg</code></p></div>
+                            <div><div class="h-16 w-full bg-gray-800 rounded-2xl border border-gray-700"></div><p class="text-xs mt-1"><code>rounded-2xl</code></p></div>
+                            <div><div class="h-16 w-16 mx-auto bg-gray-800 rounded-full border border-gray-700"></div><p class="text-xs mt-1"><code>rounded-full</code></p></div>
+                        </div>
+                        <div class="mt-4 p-4 bg-gray-900 rounded-lg">
+                            <div class="h-16 w-full bg-gray-800 rounded-xl border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-600 flex items-center justify-center">
+                                <p class="text-sm">Hover for Shadow</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="components">
+                        <h2>Components</h2>
+                        <p>Reusable components are the building blocks of Solite. They must be consistent in style and behavior.</p>
+                        
+                        <h3 id="buttons">Buttons</h3>
+                        <p>Buttons are styled based on their importance and function.</p>
+                        <div class="p-6 bg-gray-900 rounded-lg space-y-6">
+                            <div>
+                                <h4>Primary</h4>
+                                <p class="text-sm text-gray-500 mb-2">For the most important action on a page (e.g., "Download", "Generate").</p>
+                                <button class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg">Primary Action</button>
+                            </div>
+                            <div>
+                                <h4>Secondary</h4>
+                                <p class="text-sm text-gray-500 mb-2">For secondary actions (e.g., "Launch", header links).</p>
+                                <button class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg">Secondary Action</button>
+                            </div>
+                            <div>
+                                <h4>Tertiary / Link</h4>
+                                <p class="text-sm text-gray-500 mb-2">For less prominent actions, often used for navigation or minor options.</p>
+                                <button class="text-blue-400 hover:underline font-medium py-2 px-4 rounded-lg">Tertiary Action</button>
+                            </div>
+                            <div>
+                                <h4>Destructive</h4>
+                                <p class="text-sm text-gray-500 mb-2">For actions that cause data loss (e.g., "Delete", "Clear").</p>
+                                <button class="bg-red-900/50 border border-red-800 hover:bg-red-900/70 text-red-300 hover:text-white font-medium py-2 px-4 rounded-lg">Destructive Action</button>
+                            </div>
+                        </div>
+
+                        <h3 id="headers">Headers</h3>
+                        <h4>Main App Header</h4>
+                        <p>The primary header for the homepage and blog index. Clean, simple, with a primary CTA.</p>
+                        <div class="p-4 bg-gray-900 rounded-lg border border-gray-800">
+                            <header class="p-3 sm:p-4 w-full bg-black/80 backdrop-blur-xl border-b border-gray-800">
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="flex items-center space-x-3"><svg class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg><span class="text-xl font-bold text-white uppercase tracking-wider">Solite</span></a>
+                                    <div class="flex items-center space-x-4"><a href="#" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5"><span>Free Tools</span><svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg></a></div>
+                                </div>
+                            </header>
+                        </div>
+                        <h4 class="mt-4">Tool Page Header</h4>
+                        <p>Used on individual tool pages. Includes the app name for context. Adapts to a stacked layout on mobile.</p>
+                        <div class="p-4 bg-gray-900 rounded-lg border border-gray-800">
+                             <header class="p-3 sm:p-4 w-full bg-black/80 backdrop-blur-xl border-b border-gray-800">
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0">
+                                        <div class="flex items-center space-x-3">
+                                            <svg class="h-6 w-6 lg:h-8 lg:w-8 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                                            <span class="text-base lg:text-xl font-bold text-white uppercase tracking-wider leading-none">Solite</span>
+                                        </div>
+                                        <span class="h-6 w-px bg-gray-700 hidden lg:block"></span>
+                                        <span class="text-lg font-semibold text-gray-400 leading-none">Tool Name</span>
+                                    </a>
+                                    <div class="flex items-center space-x-4"><a href="#" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5"><span>Free Tools</span><svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg></a></div>
+                                </div>
+                            </header>
+                        </div>
+
+                        <h3 id="cards">Cards</h3>
+                        <p>The standard card component for displaying tools. It features a subtle background, border, and a lift-on-hover effect.</p>
+                        <div class="p-4 bg-black rounded-lg">
+                            <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white">Card Title</h3>
+                                </div>
+                                <p class="text-gray-400 mb-6 flex-grow text-sm">This is the description of the tool, explaining its core function concisely.</p>
+                                <a href="#" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Blog Post Card</h4>
+                        <p>Used on the blog index to feature articles. Includes a large icon area and clear typography.</p>
+                        <div class="p-4 bg-black rounded-lg">
+                            <a href="#" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
+                                <div class="aspect-video bg-indigo-900/50 flex items-center justify-center border-b border-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.5 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L12.75 21l1.035.259a3.375 3.375 0 002.456 2.456L17.25 24l.259-1.035a3.375 3.375 0 002.456-2.456L21 19.5l-1.035-.259a3.375 3.375 0 00-2.456-2.456z" /></svg>
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Blog Post Title</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">A short, engaging summary of the article's content goes here.</p>
+                                    <div class="text-xs text-gray-500 mt-auto"><span>November 4, 2025 &middot; 4 min read</span></div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <h3 id="forms">Form Elements</h3>
+                        <p>Inputs and selects should be clean, with clear focus states.</p>
+                        <div class="p-4 bg-gray-900 rounded-lg space-y-4">
+                            <input type="text" placeholder="Search for an app..." class="block w-full p-4 text-lg text-white bg-gray-900/50 border border-gray-700 rounded-full focus:outline-none focus:ring-1 focus:ring-white/50 placeholder-gray-500">
+                            <div class="relative">
+                                <select class="w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none">
+                                    <option>Select Option</option>
+                                </select>
+                                <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <textarea placeholder="Textarea..." rows="3" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50"></textarea>
+                            <div>
+                                <label class="block"><span class="text-sm">Range Slider (<span class="value-display">50</span>)</span><input type="range" min="0" max="100" value="50" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Checkbox</span></label>
+                                <label class="flex items-center space-x-2 cursor-pointer"><input type="radio" name="radio-group" checked class="h-4 w-4 rounded-full bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Radio</span></label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="language">
+                        <h2>Language & Tone</h2>
+                        <p>Our voice is confident, clear, and empowering. We speak directly to creators and developers.</p>
+                        <ul>
+                            <li><strong>Clarity over cleverness:</strong> Be direct. "Free, Private, Browser-Based Apps" is better than "Unleash Your Digital Potential."</li>
+                            <li><strong>Use active voice:</strong> "Create animated GIFs" instead of "Animated GIFs can be created."</li>
+                            <li><strong>Focus on benefits:</strong> Explain *why* a feature matters (e.g., "client-side for complete privacy").</li>
+                            <li><strong>Keywords:</strong> Use terms our audience searches for: "generator," "converter," "editor," "maker," "privacy-first."</li>
+                        </ul>
+                    </section>
+
+                    <section id="patterns">
+                        <h2>Patterns & Practices</h2>
+                        <h3>Layouts</h3>
+                        <p>Most tools use a two-pane layout: a `controls-pane` on the left (or top on mobile) and a `preview-pane` on the right. This provides a consistent and intuitive user experience across the suite.</p>
+                        <h3>Interaction</h3>
+                        <p>Drag-and-drop zones should clearly indicate their active state. A dashed border should turn solid blue (<code>border-blue-500</code>) on drag-over to provide clear visual feedback.</p>
+                        <h3>Mobile Navigation</h3>
+                        <p>On mobile screens (<code>&lt;1024px</code>), complex layouts should collapse into a tabbed view controlled by a bottom navigation bar. This bar provides quick access to the "Preview" and "Controls" panes, ensuring a consistent and usable experience on smaller devices.</p>
+                        <h3>SEO & Metadata</h3>
+                        <p>Every tool page is a landing page. It must be optimized to be found.</p>
+                        <ol>
+                            <li><strong>Title Tag:</strong> Lead with the primary keyword. Format: <code>[Tool Name] | [Benefit/Feature] | Solite</code>. Example: <code>Free Image Compressor (JPG, PNG, WebP) | Solite</code>.</li>
+                            <li><strong>Meta Description:</strong> Write a compelling summary (under 160 characters). Include primary keywords and the core value props (free, private, online, no sign-up).</li>
+                            <li><strong>Meta Keywords:</strong> Include a comprehensive list of relevant search terms.</li>
+                            <li><strong>Canonical URL:</strong> Always specify the canonical URL to prevent duplicate content issues.</li>
+                            <li><strong>Schema.org Markup:</strong> Use <code>WebApplication</code> schema for each tool page. Include <code>featureList</code>, <code>applicationCategory</code>, and a <code>HowTo</code> guide. For blog posts, use <code>BlogPosting</code> and <code>FAQPage</code> schema.</li>
+                            <li><strong>Open Graph & Twitter Cards:</strong> Ensure <code>og:title</code>, <code>og:description</code>, and <code>og:image</code> are set for optimal social sharing. The OG image should be a visually appealing representation of the tool.</li>
+                            <li><strong>Semantic HTML:</strong> Use <code>h1</code>, <code>h2</code>, <code>h3</code> hierarchically. Use <code><main></code>, <code><section></code>, and <code><aside></code> correctly. Add <code>aria-label</code> attributes for accessibility.</li>
+                        </ol>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </main>
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50 mt-16 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6"><a href="./blog.html" class="hover:text-white transition-colors">Blog</a><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-white', 'font-semibold');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('text-white', 'font-semibold');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

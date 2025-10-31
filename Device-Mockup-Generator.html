@@ -392,17 +392,39 @@
             async function downloadImage() {
                 if (!state.imageSrc) return;
                 const addressBars = document.querySelectorAll('.address-bar');
+                const paneWasHidden = elements.previewPane.classList.contains('hidden');
+                const originalTransform = elements.mockupContainer.style.transform;
+                showToast("Generating image...");
+
                 try {
+                    // Temporarily show the pane and reset scaling for high-res capture
+                    if (paneWasHidden) {
+                        elements.previewPane.style.position = 'absolute';
+                        elements.previewPane.style.left = '-9999px';
+                        elements.previewPane.classList.remove('hidden');
+                        elements.previewPane.classList.add('flex');
+                    }
+                    elements.mockupContainer.style.transform = 'scale(1)';
+
                     // Add a special class just for canvas rendering
                     addressBars.forEach(el => el.classList.add('for-canvas-rendering'));
 
                     const canvas = await html2canvas(elements.mockupContainer, { scale: 2, backgroundColor: state.isBgTransparent ? null : state.bgColor, logging: false, useCORS: true });
                     const link = document.createElement('a'); link.href = canvas.toDataURL('image/png', 1.0); link.download = state.originalFileName; link.click();
                 } catch (error) { 
-                    console.error("Download failed:", error); showToast("Sorry, download failed."); 
+                    console.error("Download failed:", error); showToast("Sorry, download failed.");
                 } finally {
+                    // Restore original styles after capture
+                    elements.mockupContainer.style.transform = originalTransform;
+
                     // Always remove the class after rendering is done
                     addressBars.forEach(el => el.classList.remove('for-canvas-rendering'));
+                    if (paneWasHidden) {
+                        elements.previewPane.style.position = '';
+                        elements.previewPane.style.left = '';
+                        elements.previewPane.classList.add('hidden');
+                        elements.previewPane.classList.remove('flex');
+                    }
                 }
             }
 

@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Lorem Ipsum Generator (Paragraphs, Sentences, Words) | Solite</title>
-    <meta name="description" content="Generate custom Lorem Ipsum placeholder text with our free online tool. Create dummy paragraphs, sentences, or words for your design mockups and development projects. Private and instant.">
-    <meta name="keywords" content="lorem ipsum generator, placeholder text generator, dummy text generator, generate paragraphs, generate sentences, text generator, lipsum, solite">
+    <title>Free Placeholder Text Generator | Solite</title>
+    <meta name="description" content="Generate custom placeholder text with our free online tool. Create dummy paragraphs, sentences, or words in different styles (Lorem Ipsum, Corporate, etc.) for your mockups. Private and instant.">
+    <meta name="keywords" content="placeholder text generator, lorem ipsum generator, dummy text generator, generate paragraphs, generate sentences, text generator, lipsum, solite, content generator">
     <link rel="canonical" href="https://solite.in/placeholder-text-generator.html" />
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Lorem Ipsum & Placeholder Text Generator | Solite">
-    <meta property="og:description" content="Generate custom Lorem Ipsum, dummy text, paragraphs, sentences, or words for your design mockups and development projects. Free, private, and instant.">
+    <meta property="og:title" content="Free Placeholder Text Generator | Solite">
+    <meta property="og:description" content="Generate custom placeholder text with our free online tool. Create dummy paragraphs, sentences, or words in different styles (Lorem Ipsum, Corporate, etc.) for your mockups. Private and instant.">
     <meta property="og:url" content="https://solite.in/placeholder-text-generator.html">
     <meta property="og:site_name" content="Solite App Suite">
     <meta property="og:type" content="website">
@@ -49,9 +49,9 @@
       "@type": "WebApplication",
       "name": "Placeholder Text Generator",
       "url": "https://solite.in/placeholder-text-generator.html",
-      "description": "A free, client-side tool to generate custom amounts of Lorem Ipsum placeholder text, including paragraphs, sentences, and words.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate Lorem Ipsum paragraphs", "Generate Lorem Ipsum sentences", "Generate Lorem Ipsum words", "Copy generated text to clipboard", "Client-side processing for 100% privacy" ],
+      "description": "A free, client-side tool to generate custom placeholder text in various styles (Lorem Ipsum, Corporate, etc.), including paragraphs, sentences, and words.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Generate placeholder text in different styles (Lorem Ipsum, Corporate, Developer, Pirate)", "Generate paragraphs, sentences, or words", "Customize the amount of text to generate", "Optionally wrap output in HTML <p> tags", "Copy generated text or HTML to clipboard", "Client-side processing for 100% privacy" ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
       "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
@@ -60,8 +60,8 @@
         "@type": "HowTo",
         "name": "How to Generate Placeholder Text",
         "step": [
-          { "@type": "HowToStep", "name": "Step 1: Set Options", "text": "Enter the amount of text you need and select whether you want to generate paragraphs, sentences, or words." },
-          { "@type": "HowToStep", "name": "Step 2: Generate", "text": "Click the 'Generate Text' button." },
+          { "@type": "HowToStep", "name": "Step 1: Set Options", "text": "Choose a text flavor, adjust the amount with the slider, and select the desired unit (paragraphs, sentences, or words)." },
+          { "@type": "HowToStep", "name": "Step 2: Generate", "text": "The text will generate automatically. You can also click the 'Generate Text' button to refresh." },
           { "@type": "HowToStep", "name": "Step 3: Copy", "text": "The generated Lorem Ipsum text will appear in the output area. Click 'Copy Text' to copy it to your clipboard." }
         ]
       }
@@ -91,15 +91,15 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; } /* Duplicate toast style removed */
         #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
         html { scrollbar-color: #4b5563 #111827; }
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
     </style> 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -127,24 +127,39 @@
 
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <h1 class="sr-only">Lorem Ipsum & Placeholder Text Generator</h1>
+            <h1 class="sr-only">Placeholder Text and Content Generator</h1>
             <!-- Controls Panel -->
             <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
                 <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Generator Options</h2>
                 <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
-                    <fieldset class="space-y-2">
-                        <legend class="font-medium">Generate</legend>
-                        <div class="flex items-center gap-4">
-                            <input type="number" id="amount-input" value="5" min="1" max="100" class="w-24 p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
-                            <div class="flex flex-col">
-                                <label class="flex items-center gap-2"><input type="radio" name="type" value="paragraphs" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Paragraphs</label>
-                                <label class="flex items-center gap-2"><input type="radio" name="type" value="sentences" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Sentences</label>
-                                <label class="flex items-center gap-2"><input type="radio" name="type" value="words" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Words</label>
-                            </div>
+                    <div class="space-y-2">
+                        <label for="flavor-select" class="font-medium">Text Flavor</label>
+                        <select id="flavor-select" class="w-full bg-gray-800 border border-gray-700 text-white p-3 rounded-lg">
+                            <option value="lorem">Classic Lorem Ipsum</option>
+                            <option value="corporate">Corporate Speak</option>
+                            <option value="developer">Developer Jargon</option>
+                            <option value="pirate">Pirate Lingo</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="amount-slider" class="font-medium">Amount: <span id="amount-label">5</span></label>
+                        <input type="range" id="amount-slider" min="1" max="50" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-medium">Unit</label>
+                        <div class="flex flex-col space-y-1">
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="unit-type" value="paragraphs" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Paragraphs</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="unit-type" value="sentences" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Sentences</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="unit-type" value="words" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Words</label>
                         </div>
-                    </fieldset>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-gray-800">
+                        <label class="font-medium">Formatting</label>
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="html-tags-checkbox" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Wrap in &lt;p&gt; tags</label>
+                        <label id="lorem-start-option" class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="lorem-start-checkbox" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"> Start with "Lorem ipsum..."</label>
+                    </div>
                     <button id="generate-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M4 19v-5h5m11-4h-5V5M15 19h5v-5" /></svg>
                         <span>Generate Text</span>
                     </button>
                 </div>
@@ -152,12 +167,16 @@
             <!-- Output Pane -->
             <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <div class="flex-shrink-0 flex justify-end p-2 border-b border-gray-800 bg-gray-800/50">
-                    <button id="copy-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <button id="copy-html-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        <span>Copy HTML</span>
+                    </button>
+                    <button id="copy-text-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
                         <span>Copy Text</span>
                     </button>
                 </div>
-                <textarea id="output-text" readonly class="w-full h-full p-4 bg-transparent text-gray-300 focus:outline-none resize-none"></textarea>
+                <div id="output-text" class="w-full h-full p-6 bg-transparent text-gray-300 focus:outline-none resize-none overflow-y-auto prose prose-invert prose-p:text-gray-300"></div>
             </div>
         </div>
         <!-- Ad Sidebar -->
@@ -194,16 +213,15 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Cop">Copied!</div>
-    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lgied!</div>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const el = {
-                amountInput: document.getElementById('amount-input'),
+                amountSlider: document.getElementById('amount-slider'),
+                amountLabel: document.getElementById('amount-label'),
                 generateBtn: document.getElementById('generate-btn'),
                 outputText: document.getElementById('output-text'),
-                copyBtn: document.getElementById('copy-btn'),
                 toast: document.getElementById('toast'),
                 mobileControlsBtn: document.getElementById('mobile-controls-btn'),
                 mobileOutputBtn: document.getElementById('mobile-output-btn'),
@@ -211,37 +229,71 @@
                 outputPane: document.getElementById('output-pane'),
             };
 
-            const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.";
-            const words = loremIpsum.replace(/[.,]/g, '').toLowerCase().split(' ');
-            const sentences = loremIpsum.split('. ').map(s => s.trim() + '.');
+            const data = {
+                lorem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.".split(' '),
+                corporate: "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.".split(' '),
+                developer: "Refactor the legacy codebase to implement a microservices architecture using Docker and Kubernetes for enhanced scalability. The CI/CD pipeline, integrated with Git hooks, will automate testing and deployment. We need to address the technical debt in the authentication module by migrating to OAuth2.".split(' '),
+                pirate: "Ahoy, me hearties! Hoist the colors and weigh anchor! We be settin' sail for treasure island. Shiver me timbers, that scallywag be walkin' the plank. Pass the grog and let's sing a sea shanty. Yo ho ho, and a bottle of rum!".split(' ')
+            };
 
             const generateText = () => {
-                const amount = parseInt(el.amountInput.value, 10);
-                const type = document.querySelector('input[name="type"]:checked').value;
+                const flavor = document.getElementById('flavor-select').value;
+                const sourceWords = data[flavor];
+                const amount = parseInt(el.amountSlider.value, 10);
+                const unit = document.querySelector('input[name="unit-type"]:checked').value;
+                const useHtml = document.getElementById('html-tags-checkbox').checked;
+                const startWithLorem = document.getElementById('lorem-start-checkbox').checked && flavor === 'lorem';
+
                 let result = '';
 
-                switch (type) {
+                const makeSentence = (wordCount) => {
+                    let sentence = [];
+                    for (let i = 0; i < wordCount; i++) {
+                        sentence.push(sourceWords[Math.floor(Math.random() * sourceWords.length)]);
+                    }
+                    let sentenceStr = sentence.join(' ');
+                    return sentenceStr.charAt(0).toUpperCase() + sentenceStr.slice(1) + '.';
+                };
+
+                const makeParagraph = () => {
+                    const sentenceCount = Math.floor(Math.random() * 4) + 4; // 4-7 sentences
+                    let paragraph = [];
+                    for (let i = 0; i < sentenceCount; i++) {
+                        paragraph.push(makeSentence(Math.floor(Math.random() * 8) + 8)); // 8-15 words
+                    }
+                    return paragraph.join(' ');
+                };
+
+                switch (unit) {
                     case 'paragraphs':
+                        let paragraphs = [];
                         for (let i = 0; i < amount; i++) {
-                            result += loremIpsum + (i < amount - 1 ? '\n\n' : '');
+                            let p = makeParagraph();
+                            if (i === 0 && startWithLorem) {
+                                p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " + p.split(' ').slice(6).join(' ');
+                            }
+                            paragraphs.push(useHtml ? `<p>${p}</p>` : p);
                         }
+                        result = paragraphs.join(useHtml ? '\n' : '\n\n');
                         break;
                     case 'sentences':
                         let sentenceResult = [];
                         for (let i = 0; i < amount; i++) {
-                            sentenceResult.push(sentences[i % sentences.length]);
+                            sentenceResult.push(makeSentence(Math.floor(Math.random() * 8) + 8));
                         }
                         result = sentenceResult.join(' ');
                         break;
                     case 'words':
                         let wordResult = [];
                         for (let i = 0; i < amount; i++) {
-                            wordResult.push(words[i % words.length]);
+                            wordResult.push(sourceWords[Math.floor(Math.random() * sourceWords.length)]);
                         }
                         result = wordResult.join(' ');
                         break;
                 }
-                el.outputText.value = result;
+                el.outputText.innerHTML = result;
+                document.getElementById('copy-html-btn').classList.toggle('hidden', !useHtml);
+                document.getElementById('copy-text-btn').classList.toggle('hidden', useHtml);
             };
 
             const showToast = (message) => {
@@ -286,10 +338,17 @@
                 }
             };
 
-            el.generateBtn.addEventListener('click', generateText);
-            el.copyBtn.addEventListener('click', () => {
-                if (el.outputText.value) {
-                    navigator.clipboard.writeText(el.outputText.value).then(() => showToast('Copied to clipboard!'));
+            const allControls = document.querySelectorAll('#controls-pane input, #controls-pane select');
+            allControls.forEach(control => control.addEventListener('input', generateText));
+
+            document.getElementById('copy-text-btn').addEventListener('click', () => {
+                if (el.outputText.innerText) {
+                    navigator.clipboard.writeText(el.outputText.innerText).then(() => showToast('Text copied!'));
+                }
+            });
+            document.getElementById('copy-html-btn').addEventListener('click', () => {
+                if (el.outputText.innerHTML) {
+                    navigator.clipboard.writeText(el.outputText.innerHTML).then(() => showToast('HTML copied!'));
                 }
             });
             el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
@@ -297,6 +356,12 @@
             window.addEventListener('resize', handleMobileLayout);
 
             // Initial setup
+            el.amountSlider.addEventListener('input', (e) => {
+                el.amountLabel.textContent = e.target.value;
+            });
+            document.getElementById('flavor-select').addEventListener('change', (e) => {
+                document.getElementById('lorem-start-option').classList.toggle('hidden', e.target.value !== 'lorem');
+            });
             generateText();
             handleMobileLayout();
         });

@@ -270,6 +270,14 @@
                 updateButtonText();
             }
 
+            function removeImage() {
+                originalImage = null;
+                originalDataUrl = null;
+                originalFileName = '';
+                imageUpload.value = '';
+                updateUI();
+            }
+
             function updateButtonText() {
                 downloadBtnText.textContent = action === 'strip' ? 'Download Stripped Image' : 'Download Edited Image';
             }
@@ -291,6 +299,7 @@
             imageContainer.addEventListener('dragleave', () => imageContainer.classList.remove('border-blue-500'));
             imageContainer.addEventListener('drop', (e) => { e.preventDefault(); imageContainer.classList.remove('border-blue-500'); handleImage(e.dataTransfer.files[0]); });
 
+            removeImageBtn.addEventListener('click', removeImage);
             downloadBtn.addEventListener('click', () => {
                 if (!originalImage) return;
                 const baseName = originalFileName.substring(0, originalFileName.lastIndexOf('.'));

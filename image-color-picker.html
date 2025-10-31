@@ -430,10 +430,28 @@
                 reader.onload = (e) => {
                     const img = new Image();
                     img.onload = () => {
-                        // Draw image directly onto canvas without resizing initially
-                        this.canvas.width = img.width;
-                        this.canvas.height = img.height;
-                        this.ctx.drawImage(img, 0, 0);
+                        // Calculate dimensions to fit image within the container
+                        const container = this.imageContainer;
+                        const containerWidth = container.clientWidth - 16; // Account for padding
+                        const containerHeight = container.clientHeight - 16;
+                        const imgAspectRatio = img.width / img.height;
+                        const containerAspectRatio = containerWidth / containerHeight;
+
+                        let displayWidth, displayHeight;
+
+                        if (imgAspectRatio > containerAspectRatio) {
+                            // Image is wider than container, fit to width
+                            displayWidth = containerWidth;
+                            displayHeight = containerWidth / imgAspectRatio;
+                        } else {
+                            // Image is taller than or same aspect as container, fit to height
+                            displayHeight = containerHeight;
+                            displayWidth = containerHeight * imgAspectRatio;
+                        }
+
+                        this.canvas.width = displayWidth;
+                        this.canvas.height = displayHeight;
+                        this.ctx.drawImage(img, 0, 0, displayWidth, displayHeight);
 
                         this.uploadPrompt.classList.add('hidden');
                         this.canvas.classList.remove('hidden');
