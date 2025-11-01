@@ -188,7 +188,7 @@
                 </div>
 
                 <!-- Tab Content -->
-                <div class="p-4 space-y-5 flex-grow min-h-0 overflow-y-auto pb-16 lg:pb-4">
+                <div class="p-4 space-y-5 flex-grow min-h-0 overflow-y-auto">
                     <div id="adjust-tab" class="tab-content space-y-4">
                         <h4 class="font-semibold text-gray-200">Filters & Adjustments</h4>
                         <div class="grid grid-cols-2 gap-2">
@@ -440,23 +440,7 @@
             }
 
             function updateCanvas(img) {
-                const container = canvasContainer;
-                const containerWidth = container.clientWidth - 16; // Account for padding
-                const containerHeight = container.clientHeight - 16;
-
-                const imgAspectRatio = img.width / img.height;
-                const containerAspectRatio = containerWidth / containerHeight;
-
-                let displayWidth, displayHeight;
-
-                if (imgAspectRatio > containerAspectRatio) {
-                    displayWidth = containerWidth;
-                    displayHeight = containerWidth / imgAspectRatio;
-                } else {
-                    displayHeight = containerHeight;
-                    displayWidth = containerHeight * imgAspectRatio;
-                }
-                canvas.width = displayWidth; canvas.height = displayHeight; redrawCanvas();
+                canvas.width = img.width; canvas.height = img.height; redrawCanvas();
             }
 
             function removeImage() {

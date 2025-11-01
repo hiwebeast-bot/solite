@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Link Cleaner - Remove URL Trackers | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Clean your URLs by removing tracking parameters like UTM, fbclid, and gclid with our free online link cleaner. A simple, private, and instant tool for safer browsing.">
+    <meta name="keywords" content="link cleaner, url cleaner, remove trackers, utm remover, privacy tool, clean url, remove tracking parameters, solite">
+    <link rel="canonical" href="https://solite.in/link-cleaner.html" />
+    <meta property="og:title" content="Free URL Cleaner & Tracker Remover | Solite">
+    <meta property="og:description" content="Clean your URLs by removing tracking parameters like UTM, fbclid, and gclid with our free online link cleaner. A simple, private, and instant tool for safer browsing.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://solite.in/assets/link-cleaner-thumbnail.png">
+    <meta property="og:url" content="https://solite.in/link-cleaner.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Link Cleaner",
+      "url": "https://solite.in/link-cleaner.html",
+      "description": "A free, client-side tool to remove tracking parameters (UTM, fbclid, etc.) from URLs for enhanced privacy.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Remove UTM tracking parameters", "Remove Facebook Click ID (fbclid)", "Remove Google Click ID (gclid)", "Client-side processing for 100% privacy", "Copy cleaned link to clipboard" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Clean a URL",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste URL", "text": "Paste a messy URL containing tracking parameters into the input box." },
+          { "@type": "HowToStep", "name": "Step 2: View Cleaned Link", "text": "The tool will instantly remove all known tracking parameters and display the clean, privacy-safe link in the output area." },
+          { "@type": "HowToStep", "name": "Step 3: Copy", "text": "Click the 'Copy' button to copy the clean link to your clipboard." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Link Cleaner"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        .copy-btn:hover svg { color: #fff; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Link Cleaner</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Link Cleaner - Remove URL Tracking Parameters</h1>
+            
+            <!-- Input Panel -->
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Paste Messy URL</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="paste-btn" title="Paste from Clipboard" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 hover:bg-gray-700 text-sm font-medium">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                            <span>Paste</span>
+                        </button>
+                    </div>
+                </div>
+                <input type="text" id="input-url" aria-label="Input URL" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 font-mono text-sm" placeholder="https://example.com?utm_source=...">
+            </div>
+
+            <!-- Output Panel -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Clean URL</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="clear-btn" title="Clear All" class="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-gray-700"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                        <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </div>
+                <input type="text" id="output-url" aria-label="Cleaned URL" readonly class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none font-mono text-sm" placeholder="Clean link will appear here...">
+                <div class="mt-4">
+                    <h3 class="text-sm font-medium text-gray-400">Removed Trackers (<span id="removed-count">0</span>)</h3>
+                    <div id="removed-list" class="flex flex-wrap gap-2 mt-2"></div>
+                </div>
+                <div class="mt-3">
+                    <h3 class="text-sm font-medium text-gray-400">Kept Parameters (<span id="kept-count">0</span>)</h3>
+                    <div id="kept-list" class="flex flex-wrap gap-1 mt-2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    <span>Input</span>
+                </button>
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>Output</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-4"><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                inputUrl: document.getElementById('input-url'),
+                outputUrl: document.getElementById('output-url'),
+                removedCount: document.getElementById('removed-count'),
+                removedList: document.getElementById('removed-list'),
+                keptCount: document.getElementById('kept-count'),
+                keptList: document.getElementById('kept-list'),
+                pasteBtn: document.getElementById('paste-btn'),
+                copyBtn: document.getElementById('copy-btn'),
+                clearBtn: document.getElementById('clear-btn'),
+                badgeTemplate: document.getElementById('badge-template'),
+                toast: document.getElementById('toast'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                inputPane: document.getElementById('input-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const TRACKING_PARAMS = [
+                'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id',
+                'fbclid', 'gclid', 'msclkid', 'mc_cid', 'mc_eid', '_ga', 'si', 'igshid',
+                '_hsenc', '_hsmi', '__hssc', '__hstc', '__hsfp', 'hsCtaTracking',
+                'mkt_tok', 'vero_conv', 'vero_id', '_ke',
+                'pk_campaign', 'pk_kwd', 'pk_source', 'pk_medium', 'pk_content',
+                'matomo_campaign', 'matomo_kwd', 'matomo_source', 'matomo_medium', 'matomo_content',
+                'piwik_campaign', 'piwik_kwd', 'piwik_source', 'piwik_medium', 'piwik_content',
+                'yclid', 'dclid', 'wbraid', 'gbraid', 's_kwcid'
+            ];
+
+            function showToast(message) {
+                el.toast.textContent = message; el.toast.classList.add('show');
+                setTimeout(() => { el.toast.classList.remove('show'); }, 2000);
+            }
+
+            function cleanUrl() {
+                const rawUrl = el.inputUrl.value.trim();
+                if (!rawUrl) {
+                    clearOutputs();
+                    return;
+                }
+
+                try {
+                    const url = new URL(rawUrl);
+                    const removedParams = [];
+
+                    url.searchParams.forEach((value, key) => {
+                        if (TRACKING_PARAMS.includes(key.toLowerCase())) {
+                            removedParams.push(key);
+                            url.searchParams.delete(key);
+                        }
+                    });
+
+                    el.outputUrl.value = url.toString();
+                    el.removedCount.textContent = removedParams.length;
+                    el.removedList.textContent = removedParams.join(', ') || 'None';
+
+                } catch (e) {
+                    el.outputUrl.value = 'Invalid URL';
+                    el.removedCount.textContent = '0';
+                    el.removedList.textContent = '';
+                }
+            }
+
+            function clearOutputs() {
+                el.outputUrl.value = '';
+                el.removedCount.textContent = '0';
+                el.removedList.textContent = '';
+                el.keptCount.textContent = '0';
+                el.keptList.textContent = '';
+            }
+
+            const debounce = (func, delay = 250) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            function createBadge(text, level) {
+                const badge = el.badgeTemplate.content.cloneNode(true).firstElementChild;
+                badge.textContent = text;
+                badge.className += ` ${BADGE_STYLES[level]}`;
+                return badge;
+            }
+
+            function clearOutputs(isError = false) {
+                if (isError) {
+                    el.outputUrl.value = 'Invalid URL';
+                } else {
+                    el.outputUrl.value = '';
+                }
+                el.removedCount.textContent = '0';
+                el.removedList.innerHTML = '';
+                el.keptCount.textContent = '0';
+                el.keptList.innerHTML = '';
+            }
+
+            el.inputUrl.addEventListener('input', debounce(cleanUrl));
+
+            el.pasteBtn.addEventListener('click', async () => {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    el.inputUrl.value = text;
+                    cleanUrl();
+                } catch (err) {
+                    showToast('Failed to paste from clipboard.');
+                    console.error('Clipboard paste failed: ', err);
+                }
+            });
+
+            el.copyBtn.addEventListener('click', () => {
+                if (el.outputUrl.value && el.outputUrl.value !== 'Invalid URL') {
+                    navigator.clipboard.writeText(el.outputUrl.value)
+                        .then(() => showToast('Clean URL copied!'))
+                        .catch(err => console.error('Copy failed: ', err));
+                }
+            });
+
+            el.clearBtn.addEventListener('click', () => {
+                el.inputUrl.value = '';
+                clearOutputs();
+            });
+
+            // --- Mobile Navigation Logic ---
+            function showMobilePane(paneId) {
+                if (paneId === 'input') {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.mobileInputBtn.classList.add('active'); el.mobileOutputBtn.classList.remove('active');
+                } else { // 'output'
+                    el.inputPane.classList.add('hidden'); el.inputPane.classList.remove('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    if (!el.mobileInputBtn.classList.contains('active') && !el.mobileOutputBtn.classList.contains('active')) { showMobilePane('input'); }
+                    else if (el.mobileInputBtn.classList.contains('active')) { showMobilePane('input'); }
+                    else { showMobilePane('output'); }
+                } else {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.remove('active');
+                }
+            }
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+            handleMobileLayout();
+
+            const placeholderUrl = 'https://example.com/page?utm_source=google&utm_medium=cpc&item=123&fbclid=some_long_id_string&custom_param=value';
+
+            el.inputUrl.addEventListener('focus', () => {
+                if (el.inputUrl.value === placeholderUrl) {
+                    el.inputUrl.value = '';
+                }
+            });
+            // Set initial placeholder and run
+            el.inputUrl.value = placeholderUrl;
+            cleanUrl();
+        });
+    </script>
+</body>
+</html>

@@ -34,8 +34,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Favicon Set -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
     
     <script>
         tailwind.config = {
@@ -78,6 +82,19 @@
           "url": "https://solite.in/assets/apple-touch-icon.png"
         }
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "When QR Codes Got Sexy",
+      "url": "https://solite.in/blog/when-qr-codes-got-sexy.html",
+      "datePublished": "2025-11-05",
+      "author": { "@type": "Organization", "name": "Solite" },
+      "publisher": { "@type": "Organization", "name": "Solite" },
+      "image": "https://solite.in/assets/solite-qr-code-generator-og.png",
+      "description": "The story behind building a zero-signup QR code generator that people actually use, and why custom QR codes matter for your brand."
     }
     </script>
 </head>
@@ -267,7 +284,7 @@
                 <span>&copy; 2025 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
                 <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
                 <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>

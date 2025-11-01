@@ -46,6 +46,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://solite.in/emoji-finder.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://solite.in/exif-stripper.html</loc>
     <lastmod>2025-10-29</lastmod>
     <priority>0.80</priority>
@@ -293,6 +298,16 @@
   <url>
     <loc>https://solite.in/visiting-card-designer.html</loc>
     <lastmod>2025-10-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/barcode-generator.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://solite.in/smart-word-counter.html</loc>
+    <lastmod>2025-11-06</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>

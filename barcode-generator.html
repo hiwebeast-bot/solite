@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Online Barcode Generator | Create UPC, EAN, Code128 | Solite</title>
+    <meta name="description" content="Instantly generate high-quality, scannable barcodes online for free. Supports Code 128, UPC, EAN, and more. Customize colors and download as PNG or SVG. 100% private and browser-based.">
+    <meta name="keywords" content="barcode generator, free barcode generator, online barcode generator, create barcode, UPC generator, EAN generator, Code 128 generator, SVG barcode, PNG barcode, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/barcode-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Barcode Generator | Solite">
+    <meta property="og:description" content="Instantly generate high-quality, scannable barcodes online for free. Supports multiple formats, allows customization, and lets you download as PNG or SVG.">
+    <meta property="og:url" content="https://solite.in/barcode-generator.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/barcode-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Barcode Generator",
+      "url": "https://solite.in/barcode-generator.html",
+      "description": "A free, client-side tool to generate and customize various types of barcodes, including Code 128, UPC, and EAN. Download as PNG or SVG.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Generate multiple barcode formats (Code 128, UPC, EAN, etc.)", "Customize barcode color and background", "Adjust barcode width and height", "Show or hide text value", "Download as high-quality PNG or SVG", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Barcode Generator"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What types of barcodes can I generate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can generate a wide variety of barcodes, including CODE128, EAN-13, EAN-8, UPC, CODE39, ITF, MSI, and CODABAR. These are suitable for product packaging, inventory management, and general-purpose use." }
+      },{
+        "@type": "Question",
+        "name": "Is it free to use this barcode generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Barcode Generator is completely free to use with no limitations, sign-ups, or watermarks. All features are available to everyone." }
+      },{
+        "@type": "Question",
+        "name": "Can I use the generated barcodes for commercial purposes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The barcodes you create are yours to use for any personal or commercial purpose without any restrictions." }
+      },{
+        "@type": "Question",
+        "name": "Why is my barcode not showing up?",
+        "acceptedAnswer": { "@type": "Answer", "text": "If your barcode isn't appearing, it's likely because the data you entered is invalid for the selected format. For example, UPC and EAN barcodes require a specific number of digits. Check the error message below the preview for details on what needs to be corrected." }
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        #barcode-preview-wrapper { background-image: linear-gradient(45deg, #1f2937 25%, transparent 25%), linear-gradient(-45deg, #1f2937 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #1f2937 75%), linear-gradient(-45deg, transparent 75%, #1f2937 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Barcode Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Online Barcode Generator</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Barcode Generator</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="barcode-value" class="font-medium">Data / Value</label>
+                        <input type="text" id="barcode-value" value="Solite Rocks" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="barcode-format" class="font-medium">Barcode Format</label>
+                        <div class="relative">
+                            <select id="barcode-format" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                <option value="CODE128" selected>Code 128</option>
+                                <option value="CODE39">Code 39</option>
+                                <option value="CODABAR">Codabar</option>
+                                <option value="EAN13">EAN-13</option>
+                                <option value="EAN8">EAN-8</option>
+                                <option value="UPC">UPC</option>
+                                <option value="ITF">ITF</option>
+                                <option value="MSI">MSI</option>
+                            </select>
+                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium text-base">Styling</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label for="bar-color" class="text-sm">Bar Color</label>
+                                <input type="color" id="bar-color" value="#FFFFFF" class="w-full h-10 p-1 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="bg-color" class="text-sm">Background</label>
+                                <input type="color" id="bg-color" value="#000000" class="w-full h-10 p-1 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium text-base">Text Options</h3>
+                        <div class="flex items-center justify-between">
+                            <label for="display-value" class="text-sm">Show Text</label>
+                            <input type="checkbox" id="display-value" checked class="h-5 w-5 rounded bg-gray-700 border-gray-600 text-white focus:ring-white/50">
+                        </div>
+                        <div id="text-options-group" class="space-y-4">
+                            <div class="space-y-2">
+                                <label for="text-align" class="text-sm">Text Align</label>
+                                <select id="text-align" class="custom-select w-full bg-gray-800 border border-gray-700 text-white text-sm py-2 px-3 rounded-lg"><option value="center" selected>Center</option><option value="left">Left</option><option value="right">Right</option></select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="text-position" class="text-sm">Text Position</label>
+                                <select id="text-position" class="custom-select w-full bg-gray-800 border border-gray-700 text-white text-sm py-2 px-3 rounded-lg"><option value="bottom" selected>Bottom</option><option value="top">Top</option></select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="font-size" class="text-sm">Font Size: <span id="font-size-label">16</span>px</label>
+                                <input type="range" id="font-size" min="8" max="32" value="16" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <h3 class="font-medium text-base">Dimensions</h3>
+                        <div class="space-y-2">
+                            <label for="bar-width" class="text-sm">Bar Width: <span id="bar-width-label">2</span>px</label>
+                            <input type="range" id="bar-width" min="1" max="4" value="2" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="bar-height" class="text-sm">Bar Height: <span id="bar-height-label">100</span>px</label>
+                            <input type="range" id="bar-height" min="20" max="150" value="100" step="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="margin" class="text-sm">Margin: <span id="margin-label">10</span>px</label>
+                            <input type="range" id="margin" min="0" max="50" value="10" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-gray-800">
+                        <button id="download-png" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">Download PNG</button>
+                        <button id="download-svg" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">Download SVG</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div id="barcode-preview-wrapper" class="w-full h-full p-6 flex items-center justify-center">
+                    <svg id="barcode-preview"></svg>
+                </div>
+                <p id="error-message" class="hidden text-red-400 m-auto p-4 text-center"></p>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    <span>Barcode</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center space-x-6"><a href="./about.html" class="hover:text-white transition-colors">About</a><a href="./blog.html" class="hover:text-white transition-colors">Blog</a><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a><a href="./solite-ui.html" class="hover:text-white transition-colors">UI</a></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                value: document.getElementById('barcode-value'),
+                format: document.getElementById('barcode-format'),
+                barColor: document.getElementById('bar-color'),
+                bgColor: document.getElementById('bg-color'),
+                displayValue: document.getElementById('display-value'),
+                barWidth: document.getElementById('bar-width'),
+                barHeight: document.getElementById('bar-height'),
+                barWidthLabel: document.getElementById('bar-width-label'),
+                barHeightLabel: document.getElementById('bar-height-label'),
+                margin: document.getElementById('margin'),
+                marginLabel: document.getElementById('margin-label'),
+                textAlign: document.getElementById('text-align'),
+                textPosition: document.getElementById('text-position'),
+                fontSize: document.getElementById('font-size'),
+                fontSizeLabel: document.getElementById('font-size-label'),
+                textOptionsGroup: document.getElementById('text-options-group'),
+                preview: document.getElementById('barcode-preview'),
+                previewWrapper: document.getElementById('barcode-preview-wrapper'),
+                errorMessage: document.getElementById('error-message'),
+                downloadPng: document.getElementById('download-png'),
+                downloadSvg: document.getElementById('download-svg'),
+                toast: document.getElementById('toast'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const generateBarcode = () => {
+                const options = {
+                    format: el.format.value,
+                    lineColor: el.barColor.value,
+                    background: el.bgColor.value,
+                    width: parseInt(el.barWidth.value),
+                    height: parseInt(el.barHeight.value),
+                    displayValue: el.displayValue.checked,
+                    fontOptions: "bold", // This is a single string in JsBarcode
+                    font: "Inter",
+                    fontSize: parseInt(el.fontSize.value),
+                    textAlign: el.textAlign.value,
+                    textPosition: el.textPosition.value,
+                    textMargin: 2, // Keep small, control spacing with main margin
+                    margin: parseInt(el.margin.value)
+                };
+
+                try {
+                    JsBarcode(el.preview, el.value.value, options);
+                    el.preview.style.display = 'block';
+                    el.errorMessage.classList.add('hidden');
+                } catch (e) {
+                    el.preview.style.display = 'none'; // Hide broken SVG
+                    el.errorMessage.textContent = e.message.replace('JsBarcode: ', '');
+                    el.errorMessage.classList.remove('hidden');
+                }
+            };
+
+            const download = (format) => {
+                const svg = el.preview;
+                const serializer = new XMLSerializer();
+                let source = serializer.serializeToString(svg);
+
+                if (format === 'svg') {
+                    const blob = new Blob([source], {type: 'image/svg+xml;charset=utf-8'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'barcode.svg';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                } else if (format === 'png') {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const img = new Image();
+                    img.onload = () => {
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+                        const pngUrl = canvas.toDataURL('image/png');
+                        const a = document.createElement('a');
+                        a.href = pngUrl;
+                        a.download = 'barcode.png';
+                        a.click();
+                    };
+                    img.src = 'data:image/svg+xml;base64,' + btoa(source);
+                }
+            };
+
+            [el.value, el.format, el.barColor, el.bgColor, el.displayValue, el.barWidth, el.barHeight, el.margin, el.textAlign, el.textPosition, el.fontSize].forEach(input => {
+                input.addEventListener('input', generateBarcode);
+            });
+            
+            el.barWidth.addEventListener('input', () => el.barWidthLabel.textContent = el.barWidth.value);
+            el.barHeight.addEventListener('input', () => el.barHeightLabel.textContent = el.barHeight.value);
+            el.margin.addEventListener('input', () => el.marginLabel.textContent = el.margin.value);
+            el.fontSize.addEventListener('input', () => el.fontSizeLabel.textContent = el.fontSize.value);
+
+            el.displayValue.addEventListener('change', () => {
+                el.textOptionsGroup.style.display = el.displayValue.checked ? 'block' : 'none';
+                generateBarcode();
+            });
+
+            el.downloadPng.addEventListener('click', () => download('png'));
+            el.downloadSvg.addEventListener('click', () => download('svg'));
+
+            // Mobile layout logic
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden');
+                    el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden');
+                    el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden');
+                    el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                }
+            }
+
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial setup
+            handleMobileLayout();
+            generateBarcode();
+        });
+    </script>
+</body>
+</html>
