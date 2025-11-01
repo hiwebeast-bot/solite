@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Guides | Solite Privacy-First Tools</title>
+    <title>The Solite Blog | Privacy, Productivity, and Modern Web Tools</title>
 
     <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Explore articles, guides, and tips on using Solite's suite of free, private, browser-based tools. Learn about image editing, data conversion, web development, and online privacy.">
-    <meta name="keywords" content="solite blog, privacy tools, online tool guides, image editing tips, web development tutorials, data conversion help, free online tools">
+    <meta name="description" content="Explore articles on privacy-first software, productivity hacks, and design tips for modern creators and developers. The official blog for Solite's free online tools.">
+    <meta name="keywords" content="solite blog, privacy tools, productivity tips, web development, free online tools, creator economy, design tutorials">
     <link rel="canonical" href="https://solite.in/blog.html">
-    <meta property="og:title" content="Blog & Guides | Solite Privacy-First Tools">
-    <meta property="og:description" content="Explore articles and guides on using Solite's suite of free, private, browser-based tools for creatives and developers.">
+    <meta property="og:title" content="The Solite Blog | Privacy, Productivity, and Modern Web Tools">
+    <meta property="og:description" content="Explore articles on privacy-first software, productivity hacks, and design tips for modern creators and developers.">
     <meta property="og:image" content="https://solite.in/assets/solite-og.png">
     <meta property="og:url" content="https://solite.in/blog.html">
     <meta property="og:type" content="website">
@@ -25,94 +25,61 @@
     </script>
     <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
+    <!-- Core Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
     <meta name="theme-color" content="#000000">
 
-    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "The Solite Blog",
+      "url": "https://solite.in/blog.html",
+      "description": "Articles on privacy-first software, productivity hacks, and design tips for modern creators and developers.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Solite",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/assets/apple-touch-icon.png" }
+      }
+    }
+    </script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                 },
             },
         }
     </script>
     <style>
-        /* Custom Scrollbar for Webkit browsers */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        .blog-card-icon-container {
-            aspect-ratio: 16 / 9;
-            border-bottom: 1px solid #374151; /* gray-700 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
     </style>
-     <!-- Schema.org Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Solite Blog & Guides",
-      "url": "https://solite.in/blog.html",
-      "description": "Articles, guides, and tips on using Solite's suite of free, private, browser-based tools.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Solite",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://solite.in/assets/apple-touch-icon.png"
-        }
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "When QR Codes Got Sexy",
-      "url": "https://solite.in/blog/when-qr-codes-got-sexy.html",
-      "datePublished": "2025-11-05",
-      "author": { "@type": "Organization", "name": "Solite" },
-      "publisher": { "@type": "Organization", "name": "Solite" },
-      "image": "https://solite.in/assets/solite-qr-code-generator-og.png",
-      "description": "The story behind building a zero-signup QR code generator that people actually use, and why custom QR codes matter for your brand."
-    }
-    </script>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
-    <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
-                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
+            <a href="./index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
+                 <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
             </a>
              <div class="flex items-center space-x-4">
-                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                <a href="./index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
                     <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" /></svg>
                 </a>
@@ -121,175 +88,196 @@
     </header>
 
     <main class="flex-grow flex flex-col items-center px-4 w-full pt-16 sm:pt-24 z-10">
-        
-        <section class="text-center mb-16">
-            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                Solite Blog & Guides
-            </h1>
-            <p class="mt-6 text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-                Tips, tutorials, and deep dives into our suite of privacy-first tools.
-            </p>
-        </section>
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white">The Solite Blog</h1>
+            <p class="mt-6 text-lg text-gray-400">Articles on privacy, productivity, and design for modern creators and developers. No fluff, just useful insights.</p>
+        </div>
 
-        <section class="w-full max-w-7xl">
-            <!-- Other Posts -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="./blog/when-qr-codes-got-sexy.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-green-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 14.625v4.5a1.125 1.125 0 001.125 1.125h4.5a1.125 1.125 0 001.125-1.125v-4.5a1.125 1.125 0 00-1.125-1.125h-4.5a1.125 1.125 0 00-1.125 1.125z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">When QR Codes Got Sexy</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">The story behind building a zero-signup QR code generator that people actually use, and why custom QR codes matter for your brand.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>November 5, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/from-flat-card-to-floating-magic-css-shadows.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-indigo-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.5 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L12.75 21l1.035.259a3.375 3.375 0 002.456 2.456L17.25 24l.259-1.035a3.375 3.375 0 002.456-2.456L21 19.5l-1.035-.259a3.375 3.375 0 00-2.456-2.456z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">From “Flat Card” to “Floating Magic”</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">The story behind the Solite CSS Shadows Maker and how it can change your UI game by helping you get shadows right, fast.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>November 4, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/how-to-create-css-shadows-guide.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-indigo-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.5 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L12.75 21l1.035.259a3.375 3.375 0 002.456 2.456L17.25 24l.259-1.035a3.375 3.375 0 002.456-2.456L21 19.5l-1.035-.259a3.375 3.375 0 00-2.456-2.456z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How to Create Beautiful CSS Shadows (Fast)</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Learn how to craft realistic CSS box and text shadows with our free CSS Shadows Maker, with live preview and layered shadow support.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>November 3, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/how-solite-image-compression-helps.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-blue-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How Image Compression Boosts Site Performance</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Discover real-life examples of how businesses and creators use Solite's free tool to save time and improve user experience.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 28, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                 <a href="./blog/benefits-of-client-side-text-toolkit.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-green-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Power of a Client-Side Text Toolkit</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Discover the privacy, speed, and efficiency benefits of using a text toolkit that runs entirely in your browser.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/stop-recommending-bad-software.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-purple-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Stop Recommending Bad Software</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">An open letter to content creators about the importance of recommending ethical, privacy-first tools to your audience.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/css-shadow-generator-benefits.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-indigo-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.5 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L12.75 21l1.035.259a3.375 3.375 0 002.456 2.456L17.25 24l.259-1.035a3.375 3.375 0 002.456-2.456L21 19.5l-1.035-.259a3.375 3.375 0 00-2.456-2.456z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Mastering Depth: The Benefits of a CSS Shadow Generator</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Learn how a visual CSS shadow generator can speed up your workflow and help you create complex, realistic, layered shadows for your UI.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 30, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/a-guide-to-the-perfect-favicon.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-pink-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-pink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">A Guide to the Perfect Favicon in 2025</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Learn how to create a complete favicon package for all platforms and why it's crucial for your brand identity.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 3 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/your-next-top-10-list.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-yellow-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">Your Next 'Top 10' List is Already Written</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">A message for bloggers and reviewers: We built a content goldmine of free, private tools so you don't have to look for ideas.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 29, 2025 &middot; 2 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/tweet-to-image-guide.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-cyan-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">How to Convert a Tweet to a Sharable Image</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">Stop taking ugly screenshots. Learn how to turn any tweet into a beautiful, customizable image perfect for sharing.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>October 31, 2025 &middot; 3 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/best-free-online-tools-for-creators.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-red-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6.75h4.5m-4.5 3h4.5m-4.5 3h4.5m3.75 8.25V3.75A2.25 2.25 0 0013.5 1.5h-6A2.25 2.25 0 005.25 3.75v16.5a2.25 2.25 0 002.25 2.25h6A2.25 2.25 0 0018 20.25V8.25A2.25 2.25 0 0015.75 6H12" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">The Secret Website With 20+ Free Tools</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">A review of Solite.in, a suite of free, private online tools for creators and developers. No ads, no sign-ups.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>November 1, 2025 &middot; 4 min read</span></div>
-                    </div>
-                </a>
-
-                <a href="./blog/free-browser-tools-productivity-privacy.html" class="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden">
-                    <div class="blog-card-icon-container bg-teal-900/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A11.953 11.953 0 0112 13.5c-2.998 0-5.74-1.1-7.843-2.918" /></svg>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 transition-colors group-hover:text-white group-hover:underline ">20+ Free Browser Tools to Replace Google Drive & Canva</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">A review of a single site with 20+ free browser tools for productivity and privacy. No ads, no sign-ups.</p>
-                        <div class="text-xs text-gray-500 mt-auto"><span>November 2, 2025 &middot; 5 min read</span></div>
-                    </div>
-                </a>
-
-                <!-- Add more cards as needed -->
-
-            </div>
-        </section>
-
+        <div id="blog-grid" class="max-w-7xl mx-auto w-full mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog cards will be injected here by JavaScript -->
+        </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 mt-24">
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>&copy; 2025 Solite. All Rights Reserved.</span>
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-6">
                 <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
                 <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
                 <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogPosts = [
+                {
+                    url: './blog/browser-tools-solite-modern-creators.html',
+                    title: 'The Quiet Revolution Happening in Your Browser: How Solite Tools Empower Modern Creators',
+                    description: 'From image editing to data conversion — discover how Solite’s private, browser-based apps are reshaping how creators work online.',
+                    date: 'November 1, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/solite-image-compressor-success-story.html',
+                    title: 'How a Simple Browser Tool Saved My Design Workflow (and My Sanity)',
+                    description: 'Discover how a designer solved slow image uploads and privacy worries using Solite’s free Image Compressor — a 100% private browser tool.',
+                    date: 'November 12, 2025',
+                    readTime: '3 min read'
+                },
+                {
+                    url: './blog/top-10-free-browser-tools.html',
+                    title: '🚀 Top 10 Free Browser-Based Tools You’ll Actually Use (No Signup Needed)',
+                    description: 'Stop signing up! We\'ve ranked the Top 10 free, browser-based utility tools you need now. Includes Secure Password Generator, Data Converter, and Privacy Blur—all with no sign-up and local processing for maximum privacy.',
+                    date: 'November 11, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/private-browser-based-tools-future.html',
+                    title: '🔒 Why the Future of Online Tools Is 100% Private and Browser-Based',
+                    description: 'Discover why browser-based, client-side processing is the future of online privacy and how Solite\'s free tools keep your data secure.',
+                    date: 'November 10, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/best-free-browser-tools-for-writers.html',
+                    title: '✍️ The Secret Weapons of High-Velocity Writers: Best Free Browser Tools for Bloggers in 2025',
+                    description: 'Level up your writing in 2025. Discover the best free online tools and browser utilities for bloggers and creators that require no signup and respect your privacy.',
+                    date: 'November 9, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/build-tailwind-forms-visually.html',
+                    title: '🎨 Build Tailwind CSS Forms Visually — No Code Needed',
+                    description: 'Stop coding forms from scratch. Learn how to design beautiful, responsive Tailwind CSS forms visually using free online tools. No coding, no signup needed.',
+                    date: 'November 8, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/free-browser-tools-for-creators.html',
+                    title: 'The Private, Free Online Tools Every Creator Needs',
+                    description: 'Ditch the heavy apps and intrusive data collection. Discover Solite, a suite of free online tools built for privacy, speed, and simplicity.',
+                    date: 'November 7, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/when-qr-codes-got-sexy.html',
+                    title: 'When QR Codes Got Sexy: A QR Code Generator Story',
+                    description: 'Learn the story behind Solite\'s QR Code Generator and how to create custom, branded QR codes that people actually want to scan.',
+                    date: 'November 5, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/from-flat-card-to-floating-magic-css-shadows.html',
+                    title: 'From Flat Card to Floating Magic: A CSS Shadow Tool Story',
+                    description: 'The story behind Solite\'s free CSS Shadows Maker. Learn the design thinking behind realistic shadows and get copy-paste presets.',
+                    date: 'November 4, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/how-to-create-css-shadows-guide.html',
+                    title: 'How to Create Beautiful CSS Shadows (Fast)',
+                    description: 'Learn how to craft realistic CSS box and text shadows with our free CSS Shadows Maker, including presets and pro tips.',
+                    date: 'November 3, 2025',
+                    readTime: '4 min read'
+                },
+                {
+                    url: './blog/free-browser-tools-productivity-privacy.html',
+                    title: '20+ Free Browser Tools to Replace Google Drive & Canva',
+                    description: 'A review of Solite.in, a single site with 20+ free browser tools for productivity and privacy that can replace half the internet.',
+                    date: 'November 2, 2025',
+                    readTime: '5 min read'
+                },
+                {
+                    url: './blog/benefits-of-client-side-text-toolkit.html',
+                    title: 'The Unseen Power of a Client-Side Text Toolkit',
+                    description: 'Discover the benefits of using a client-side text toolkit for privacy, speed, and efficiency without ever uploading your data.',
+                    date: 'October 29, 2025',
+                    readTime: '3 min read'
+                },
+                {
+                    url: './blog/why-client-side-tools-are-the-future-of-privacy.html',
+                    title: 'Why Client-Side Tools are the Future of Online Privacy',
+                    description: 'Learn why processing data in your browser isn\'t just faster—it\'s the key to protecting your personal information online.',
+                    date: 'October 26, 2025',
+                    readTime: '3 min read'
+                }
+                ,
+                {
+                    url: './blog/best-free-online-tools-for-creators.html',
+                    title: 'The Secret Website With 20+ Free Tools Every Creator Should Bookmark',
+                    description: 'A review of Solite.in, a suite of free, private online tools for creators and developers. No ads, no sign-ups.',
+                    date: 'November 1, 2025',
+                    readTime: '4 min read'
+                }
+            ];
+
+            const morePosts = [
+                {
+                    url: './blog/stop-recommending-bad-software.html',
+                    title: "Stop Recommending Bad Software. Your Audience Deserves Better.",
+                    description: "An open letter to bloggers and reviewers. Stop recommending slow, ad-filled, data-harvesting 'free' tools. Here's a suite of 20+ genuinely free, private, and fast tools your audience will actually thank you for.",
+                    date: 'October 29, 2025',
+                    readTime: '3 min read'
+                },
+                {
+                    url: './blog/your-next-top-10-list.html',
+                    title: "Your Next 'Top 10' List is Already Written. You're Welcome.",
+                    description: "A message for bloggers, reviewers, and creators. Discover a suite of 20+ free, private, and genuinely useful tools that are a goldmine for your next article or video.",
+                    date: 'October 29, 2025',
+                    readTime: '2 min read'
+                },
+                {
+                    url: './blog/a-guide-to-the-perfect-favicon.html',
+                    title: 'A Guide to the Perfect Favicon in 2025',
+                    description: 'Create the perfect favicon package for your website with our 2025 guide. Learn about sizes, formats (PNG, ICO, SVG), and design with our free favicon generator.',
+                    date: 'October 29, 2025',
+                    readTime: '3 min read'
+                },
+                {
+                    url: './blog/css-shadow-generator-benefits.html',
+                    title: 'Mastering Depth: The Benefits of a CSS Shadow Generator',
+                    description: 'Learn how a CSS shadow generator can speed up your workflow, help you create complex layered shadows, and improve your UI design.',
+                    date: 'October 30, 2025',
+                    readTime: '3 min read'
+                },
+                {
+                    url: './blog/tweet-to-image-guide.html',
+                    title: 'How to Convert a Tweet to a Sharable Image (The Easy Way)',
+                    description: "Learn how to convert any public tweet into a beautiful, shareable image with Solite's free Tweet to Image tool. Customize themes, hide stats, and download a high-quality PNG instantly.",
+                    date: 'October 31, 2025',
+                    readTime: '3 min read'
+                }
+            ];
+
+            blogPosts.push(...morePosts);
+
+            const grid = document.getElementById('blog-grid');
+
+            blogPosts.forEach(post => {
+                const card = document.createElement('a');
+                card.href = post.url;
+                card.className = 'flex flex-col bg-gray-900/50 border border-gray-800 rounded-2xl group hover:border-gray-700 transition-colors overflow-hidden hover:-translate-y-1.5';
+
+                card.innerHTML = `
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3 transition-colors group-hover:text-white">${post.title}</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">${post.description}</p>
+                        <div class="text-xs text-gray-500 mt-auto">
+                            <span>${post.date} &middot; ${post.readTime}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        });
+    </script>
 </body>
 </html>
