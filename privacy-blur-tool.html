@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Privacy Blur Tool | Redact & Blur Images Online | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Blur or pixelate sensitive parts of an image (faces, license plates, details) with our free, private, online tool. No uploads required. Your images stay on your device.">
+    <meta name="keywords" content="privacy blur tool, blur tool, image privacy, redact image, blur face, pixelate image, censor image, online image editor, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/privacy-blur-tool.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Privacy Blur Tool | Redact & Blur Images Online | Solite">
+    <meta property="og:description" content="Blur or pixelate sensitive parts of an image (faces, license plates, details) with our free, private, online tool. No uploads required.">
+    <meta property="og:url" content="https://solite.in/privacy-blur-tool.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/privacy-blur-tool-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Privacy Blur Tool",
+      "url": "https://solite.in/privacy-blur-tool.html",
+      "description": "A free, client-side tool to blur or pixelate sensitive parts of an image for privacy.",
+      "applicationCategory": "MultimediaApplication",
+      "featureList": [ "Blur parts of an image", "Pixelate parts of an image", "Adjustable brush size", "Undo/Redo functionality", "Download as PNG", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Blur or Pixelate an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image onto the canvas or click to select a file from your device." },
+          { "@type": "HowToStep", "name": "Step 2: Select Tool and Brush Size", "text": "Choose either the 'Blur' or 'Pixelate' tool and adjust the brush size using the slider." },
+          { "@type": "HowToStep", "name": "Step 3: Apply Effect", "text": "Click and drag your mouse over the parts of the image you want to redact." },
+          { "@type": "HowToStep", "name": "Step 4: Download", "text": "Click the 'Download Image' button to save the modified image as a PNG file." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Privacy Blur Tool"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        .tool-btn.active { background-color: #fff; color: #000; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Privacy Blur Tool</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Privacy Blur Tool</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <div class="flex justify-between items-center flex-shrink-0">
+                    <h2 id="controls-heading" class="text-xl font-bold text-white">Privacy Blur Tools</h2>
+                    <div class="flex border border-gray-700 rounded-lg">
+                        <button id="undo-btn" class="p-2 text-gray-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed border-r border-gray-700" title="Undo" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg></button>
+                        <button id="redo-btn" class="p-2 text-gray-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed" title="Redo" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" /></svg></button>
+                    </div>
+                </div>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label class="font-medium">Tool</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button data-tool="blur" class="tool-btn active bg-gray-700 hover:bg-gray-600 p-3 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg><span>Blur</span></button>
+                            <button data-tool="pixelate" class="tool-btn bg-gray-700 hover:bg-gray-600 p-3 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v7.5m0-7.5l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v7.5m9-9l-2.25-1.313M12 3v7.5m0 0l-2.25 1.313M12 3l2.25-1.313M12 3l2.25 1.313M9 15l-2.25-1.313M9 15l2.25-1.313M9 15v7.5m3-7.5l2.25-1.313M12 15l-2.25 1.313M12 15l2.25 1.313M12 15v7.5" /></svg><span>Pixelate</span></button>
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="brush-size-slider" class="font-medium">Brush Size (<span id="brush-size-label">50</span>px)</label>
+                        <input type="range" id="brush-size-slider" min="10" max="200" value="50" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-gray-800">
+                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691v4.992" /></svg><span>Reset All</span></button>
+                    </div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download Image</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-auto">
+                <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
+                    <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+                </div>
+                <canvas id="canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
+                <input type="file" id="image-upload" class="hidden" accept="image/*">
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Tools</span>
+                </button>
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span>Image</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                canvas: document.getElementById('canvas'),
+                uploadPrompt: document.getElementById('upload-prompt'),
+                imageUpload: document.getElementById('image-upload'),
+                outputPane: document.getElementById('output-pane'),
+                toolBtns: document.querySelectorAll('.tool-btn'),
+                brushSizeSlider: document.getElementById('brush-size-slider'),
+                brushSizeLabel: document.getElementById('brush-size-label'),
+                undoBtn: document.getElementById('undo-btn'),
+                redoBtn: document.getElementById('redo-btn'),
+                resetBtn: document.getElementById('reset-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            const ctx = el.canvas.getContext('2d');
+            let originalImage = null, isDrawing = false, activeTool = 'blur', brushSize = 50;
+            let history = [], historyIndex = -1;
+
+            const saveState = () => {
+                if (historyIndex < history.length - 1) history.splice(historyIndex + 1);
+                history.push(ctx.getImageData(0, 0, el.canvas.width, el.canvas.height));
+                if (history.length > 30) history.shift();
+                historyIndex = history.length - 1;
+                updateUndoRedoState();
+            };
+
+            const updateUndoRedoState = () => {
+                el.undoBtn.disabled = historyIndex <= 0;
+                el.redoBtn.disabled = historyIndex >= history.length - 1;
+            };
+
+            const restoreState = (index) => {
+                if (index < 0 || index >= history.length) return;
+                ctx.putImageData(history[index], 0, 0);
+                historyIndex = index;
+                updateUndoRedoState();
+            };
+
+            const handleFile = (file) => {
+                if (!file || !file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    originalImage = new Image();
+                    originalImage.onload = () => {
+                        el.canvas.width = originalImage.width;
+                        el.canvas.height = originalImage.height;
+                        ctx.drawImage(originalImage, 0, 0);
+                        el.uploadPrompt.classList.add('hidden');
+                        el.canvas.classList.remove('hidden');
+                        el.downloadBtn.disabled = false;
+                        el.resetBtn.disabled = false;
+                        history = [];
+                        saveState();
+                    };
+                    originalImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            };
+
+            const getMousePos = (e) => {
+                const rect = el.canvas.getBoundingClientRect();
+                const scaleX = el.canvas.width / rect.width;
+                const scaleY = el.canvas.height / rect.height;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+            };
+
+            const applyEffect = (x, y) => {
+                if (activeTool === 'blur') {
+                    ctx.save();
+                    ctx.filter = `blur(${brushSize / 10}px)`;
+                    ctx.drawImage(el.canvas, x - brushSize / 2, y - brushSize / 2, brushSize, brushSize, x - brushSize / 2, y - brushSize / 2, brushSize, brushSize);
+                    ctx.restore();
+                } else if (activeTool === 'pixelate') {
+                    const pixelSize = Math.max(10, brushSize / 5);
+                    const startX = Math.floor((x - brushSize / 2) / pixelSize) * pixelSize;
+                    const startY = Math.floor((y - brushSize / 2) / pixelSize) * pixelSize;
+                    for (let i = startX; i < x + brushSize / 2; i += pixelSize) {
+                        for (let j = startY; j < y + brushSize / 2; j += pixelSize) {
+                            const imageData = ctx.getImageData(i, j, 1, 1).data;
+                            ctx.fillStyle = `rgba(${imageData[0]}, ${imageData[1]}, ${imageData[2]}, ${imageData[3] / 255})`;
+                            ctx.fillRect(i, j, pixelSize, pixelSize);
+                        }
+                    }
+                }
+            };
+
+            const startDrawing = (e) => { isDrawing = true; applyEffect(getMousePos(e).x, getMousePos(e).y); };
+            const draw = (e) => { if (isDrawing) { e.preventDefault(); applyEffect(getMousePos(e).x, getMousePos(e).y); } };
+            const stopDrawing = () => { if (isDrawing) { isDrawing = false; saveState(); } };
+
+            el.toolBtns.forEach(btn => btn.addEventListener('click', () => {
+                el.toolBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeTool = btn.dataset.tool;
+            }));
+
+            el.brushSizeSlider.addEventListener('input', (e) => {
+                brushSize = parseInt(e.target.value);
+                el.brushSizeLabel.textContent = brushSize;
+            });
+
+            el.undoBtn.addEventListener('click', () => restoreState(historyIndex - 1));
+            el.redoBtn.addEventListener('click', () => restoreState(historyIndex + 1));
+            el.resetBtn.addEventListener('click', () => {
+                ctx.drawImage(originalImage, 0, 0);
+                saveState();
+            });
+
+            el.downloadBtn.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.download = 'redacted-image.png';
+                link.href = el.canvas.toDataURL('image/png');
+                link.click();
+            });
+
+            el.outputPane.addEventListener('click', () => { if (!originalImage) el.imageUpload.click(); });
+            el.imageUpload.addEventListener('change', (e) => handleFile(e.target.files[0]));
+            el.outputPane.addEventListener('dragover', (e) => { e.preventDefault(); el.outputPane.classList.add('border-blue-500'); });
+            el.outputPane.addEventListener('dragleave', () => el.outputPane.classList.remove('border-blue-500'));
+            el.outputPane.addEventListener('drop', (e) => { e.preventDefault(); el.outputPane.classList.remove('border-blue-500'); handleFile(e.dataTransfer.files[0]); });
+
+            el.canvas.addEventListener('mousedown', startDrawing);
+            el.canvas.addEventListener('mousemove', draw);
+            document.addEventListener('mouseup', stopDrawing);
+            el.canvas.addEventListener('touchstart', startDrawing, { passive: false });
+            el.canvas.addEventListener('touchmove', draw, { passive: false });
+            document.addEventListener('touchend', stopDrawing);
+
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden'); el.controlsPane.classList.remove('flex');
+                    el.mobileOutputBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                }
+            }
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

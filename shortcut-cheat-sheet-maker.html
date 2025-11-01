@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Shortcut Cheat Sheet Maker | Printable PDF | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Create, customize, and print beautiful shortcut cheat sheets for any app or topic. Input your commands and export a clean PDF instantly. 100% private and free.">
+    <meta name="keywords" content="shortcut cheat sheet maker, keyboard shortcuts, printable cheat sheet, pdf generator, productivity tool, developer tools, design shortcuts, solite">
+    <link rel="canonical" href="https://solite.in/shortcut-cheat-sheet-maker.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Shortcut Cheat Sheet Maker | Printable PDF | Solite">
+    <meta property="og:description" content="Create, customize, and print beautiful shortcut cheat sheets for any app or topic. Input your commands and export a clean PDF instantly. 100% private and free.">
+    <meta property="og:url" content="https://solite.in/shortcut-cheat-sheet-maker.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/shortcut-cheat-sheet-maker-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Shortcut Cheat Sheet Maker",
+      "url": "https://solite.in/shortcut-cheat-sheet-maker.html",
+      "description": "A free, client-side tool to create and print custom keyboard shortcut cheat sheets for any application.",
+      "applicationCategory": "ProductivityApplication",
+      "featureList": [ "Create cheat sheets from text input", "Auto-layout shortcuts into a grid", "Customize title and column count", "Export as a high-quality, printable PDF", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Create a Shortcut Cheat Sheet",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Add Title and Shortcuts", "text": "Give your cheat sheet a title (e.g., 'Figma Shortcuts'). In the text area, list your shortcuts, one per line, in the format 'Action: Shortcut' (e.g., 'Copy: Cmd+C')." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Layout", "text": "Use the slider to adjust the number of columns to best fit your content." },
+          { "@type": "HowToStep", "name": "Step 3: Download PDF", "text": "Click the 'Download as PDF' button to save a high-quality, printable A4-sized PDF of your cheat sheet." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Shortcut Cheat Sheet Maker"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Shortcut Cheat Sheet Maker</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Shortcut Cheat Sheet Maker</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Cheat Sheet Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="sheet-title" class="font-medium">Title</label>
+                        <input type="text" id="sheet-title" value="Figma Shortcuts" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="shortcuts-input" class="font-medium">Shortcuts</label>
+                        <textarea id="shortcuts-input" rows="10" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono text-sm" placeholder="Action: Shortcut (one per line)&#10;Copy: Cmd+C&#10;Paste: Cmd+V"></textarea>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="columns-slider" class="font-medium">Columns (<span id="columns-label">3</span>)</label>
+                        <input type="range" id="columns-slider" min="1" max="3" value="3" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="theme-color-input" class="font-medium">Theme Color</label>
+                        <input type="color" id="theme-color-input" value="#3b82f6" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                    </div>
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                        <span>Download as PDF</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-800/50 rounded-xl border border-gray-800 p-4 overflow-auto">
+                <!-- PREMIUM MINIMAL TEMPLATE - Fixed mobile overflow -->
+                <div id="sheet-preview" class="aspect-[1/1.414] w-[600px] max-w-[600px] flex-shrink-0 bg-white text-gray-800 p-12 shadow-lg font-sans flex flex-col my-4 lg:my-0">
+                    <h1 id="preview-title" class="text-3xl font-semibold mb-8 text-gray-900 border-b pb-4 flex-shrink-0">Figma Shortcuts</h1>
+                    <div id="preview-grid" class="grid grid-cols-3 gap-x-10 gap-y-5 text-sm">
+                        <!-- JS will inject items here -->
+                    </div>
+                    <footer class="mt-auto pt-12 text-center text-xs text-gray-200">
+                        Generated with <span class="font-semibold text-gray-200">Solite.in</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Preview</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                sheetTitle: document.getElementById('sheet-title'),
+                shortcutsInput: document.getElementById('shortcuts-input'),
+                columnsSlider: document.getElementById('columns-slider'),
+                columnsLabel: document.getElementById('columns-label'),
+                themeColorInput: document.getElementById('theme-color-input'),
+                downloadBtn: document.getElementById('download-btn'),
+                previewTitle: document.getElementById('preview-title'),
+                previewGrid: document.getElementById('preview-grid'),
+                sheetPreview: document.getElementById('sheet-preview'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const debounce = (func, delay = 250) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const updatePreview = () => {
+                // Update Title
+                el.previewTitle.textContent = el.sheetTitle.value || 'Cheat Sheet';
+
+                // Update Theme Color
+                const themeColor = el.themeColorInput.value;
+                el.previewTitle.style.borderColor = themeColor;
+                el.previewTitle.style.color = themeColor;
+
+                // Update Columns
+                const columns = el.columnsSlider.value;
+                el.columnsLabel.textContent = columns;
+                el.previewGrid.style.gridTemplateColumns = `repeat(${columns}, minmax(0, 1fr))`;
+
+                // Parse and render shortcuts
+                const lines = el.shortcutsInput.value.split('\n').filter(line => line.trim() !== '');
+                el.previewGrid.innerHTML = '';
+
+                lines.forEach(line => {
+                    const parts = line.split(':');
+                    const action = (parts[0] || '').trim();
+                    const shortcut = (parts[1] || '').trim();
+
+                    if (action) {
+                        const item = document.createElement('div');
+                        item.className = 'flex justify-between items-center border-b border-gray-100 pb-2';
+                        
+                        const actionSpan = document.createElement('span');
+                        actionSpan.textContent = action;
+                        actionSpan.className = 'text-gray-700';
+                        
+                        const shortcutSpan = document.createElement('span');
+                        shortcutSpan.className = 'font-mono font-semibold text-gray-800';
+                        shortcutSpan.textContent = shortcut;
+
+                        item.appendChild(actionSpan);
+                        if (shortcut) {
+                            item.appendChild(shortcutSpan);
+                        }
+                        el.previewGrid.appendChild(item);
+                    }
+                });
+            };
+
+            const downloadAsPDF = async () => {
+                const { jsPDF } = window.jspdf;
+                const sheet = el.sheetPreview;
+                const downloadBtn = el.downloadBtn;
+                const originalBtnText = downloadBtn.innerHTML;
+                const outputPane = el.outputPane;
+                const paneWasHidden = outputPane.classList.contains('hidden');
+
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<span>Generating...</span>';
+
+                // If pane is hidden (on mobile), temporarily make it visible off-screen for html2canvas
+                if (paneWasHidden) {
+                    outputPane.style.position = 'absolute';
+                    outputPane.style.left = '-9999px';
+                    outputPane.classList.remove('hidden');
+                    outputPane.classList.add('flex');
+                }
+
+                try {
+                    const canvas = await html2canvas(sheet, {
+                        scale: 3, // Use higher scale for print quality
+                        useCORS: true,
+                        backgroundColor: '#ffffff' // Explicitly set background
+                    });
+
+                    const imgData = canvas.toDataURL('image/png', 1.0); // Use high-quality PNG
+                    const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+                    
+                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    pdf.save(`${el.sheetTitle.value.replace(/ /g, '_') || 'cheatsheet'}.pdf`);
+                } catch (error) {
+                    console.error("PDF generation failed:", error);
+                    alert("Sorry, something went wrong while creating the PDF.");
+                } finally {
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = originalBtnText;
+                    // Restore original layout if it was changed
+                    if (paneWasHidden) {
+                        outputPane.style.position = '';
+                        outputPane.style.left = '';
+                        outputPane.classList.add('hidden');
+                        outputPane.classList.remove('flex');
+                    }
+                }
+            };
+
+            function showMobilePane(paneId) {
+                if (paneId === 'controls') {
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.outputPane.classList.add('hidden');
+                    el.mobileControlsBtn.classList.add('active');
+                    el.mobileOutputBtn.classList.remove('active');
+                } else {
+                    el.controlsPane.classList.add('hidden');
+                    el.controlsPane.classList.remove('flex');
+                    el.outputPane.classList.remove('hidden');
+                    el.outputPane.classList.add('flex');
+                    el.mobileControlsBtn.classList.remove('active');
+                    el.mobileOutputBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden');
+                    el.outputPane.classList.add('flex');
+                }
+            }
+
+            // Event Listeners
+            const debouncedUpdate = debounce(updatePreview, 200);
+            el.sheetTitle.addEventListener('input', debouncedUpdate);
+            el.shortcutsInput.addEventListener('input', debouncedUpdate);
+            el.columnsSlider.addEventListener('input', debouncedUpdate);
+            el.themeColorInput.addEventListener('input', debouncedUpdate);
+            el.downloadBtn.addEventListener('click', downloadAsPDF);
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Load
+            el.shortcutsInput.value = "Copy: Cmd+C\nPaste: Cmd+V\nCut: Cmd+X\nUndo: Cmd+Z\nSelect All: Cmd+A\nFind: Cmd+F\nBold: Cmd+B\nItalic: Cmd+I\nSave: Cmd+S\nPrint: Cmd+P\nNew Tab: Cmd+T\nClose Tab: Cmd+W";
+            updatePreview();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite</title>
+    <meta name="description" content="Preview how your website's meta tags will look on Google, Twitter, and LinkedIn. A free, client-side SEO tool to optimize your site's appearance in search results and social shares.">
+    <meta name="keywords" content="meta tag previewer, seo tool, google preview tool, twitter card preview, open graph preview, serpsim, social share preview, solite">
+    <link rel="canonical" href="https://solite.in/meta-tag-previewer.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite">
+    <meta property="og:description" content="Preview how your website's meta tags will look on Google, Twitter, and LinkedIn. A free, client-side SEO tool to optimize your site's appearance.">
+    <meta property="og:url" content="https://solite.in/meta-tag-previewer.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/meta-tag-previewer-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Meta Tag Previewer",
+      "url": "https://solite.in/meta-tag-previewer.html",
+      "description": "A free, client-side tool to preview how your website's meta tags will appear on Google, Twitter, and other social platforms.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Google Search Result Preview", "Twitter Card Preview", "Facebook/LinkedIn Share Preview", "Real-time updates as you type", "Character counters for title and description", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "dateModified": "2025-11-06T10:00:00Z",
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Preview Your Meta Tags",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Enter Your Metadata", "text": "Fill in the Title, Description, URL, and Image URL fields in the controls panel." },
+          { "@type": "HowToStep", "name": "Step 2: Select a Preview", "text": "Use the tabs in the preview pane to switch between Google, Twitter, and Facebook/LinkedIn mockups." },
+          { "@type": "HowToStep", "name": "Step 3: Refine Your Content", "text": "Adjust your title and description using the character counters to ensure they fit within the recommended limits for each platform." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Meta Tag Previewer"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        /* Updated tab styles */
+        .preview-tab-btn { border: 1px solid #4b5563; color: #9ca3af; background-color: transparent; }
+        .preview-tab-btn.active { border-color: #f3f4f6; color: #f3f4f6; }
+        body { visibility: hidden; } /* Hide body until React renders */
+        .preview-bg-light { background-color: #f3f4f6; } /* bg-gray-100 */
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    <div id="root"></div>
+    <noscript>
+        <div class="w-full h-screen flex flex-col items-center justify-center text-center p-8">
+            <h1 class="text-2xl font-bold text-white mb-4">JavaScript is required to use this application.</h1>
+            <p class="text-gray-400">Please enable JavaScript in your browser settings and refresh the page.</p>
+        </div>
+    </noscript>
+
+    <script type="module">
+        import React, { useState, useEffect } from 'https://esm.sh/react@18.2.0';
+        import ReactDOM from 'https://esm.sh/react-dom@18.2.0/client';
+
+        // --- Header Component ---
+        const Header = () => (
+            React.createElement('header', { className: "p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800" },
+                React.createElement('div', { className: "flex justify-between items-center" },
+                    React.createElement('a', { href: "index.html", className: "flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0", 'aria-label': "Solite Homepage" },
+                        React.createElement('div', { className: "flex items-center space-x-3" },
+                            React.createElement('svg', { className: "h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" },
+                                React.createElement('path', { d: "M12 2L2 7l10 5 10-5L12 2z" }),
+                                React.createElement('path', { d: "M2 17l10 5 10-5" }),
+                                React.createElement('path', { d: "M2 7l10 5 10-5" })
+                            ),
+                            React.createElement('span', { className: "text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none" }, "Solite")
+                        ),
+                        React.createElement('span', { className: "h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block" }),
+                        React.createElement('span', { className: "text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none" }, "Meta Tag Previewer")
+                    ),
+                    React.createElement('div', { className: "flex items-center space-x-4" },
+                        React.createElement('a', { href: "index.html#apps", className: "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5" },
+                            React.createElement('span', null, "Free Tools"),
+                            React.createElement('svg', { className: "h-4 w-4 text-gray-500", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "1.5" },
+                                React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" })
+                            )
+                        )
+                    )
+                )
+            )
+        );
+
+        // --- Footer Component ---
+        const Footer = () => (
+            React.createElement('footer', { className: "p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block" },
+                React.createElement('div', { className: "flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6" },
+                    React.createElement('div', { className: "flex items-center space-x-3 mb-4 sm:mb-0" },
+                        React.createElement('svg', { className: "h-6 w-6 text-gray-400 dark:text-gray-500", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" },
+                            React.createElement('path', { d: "M12 2L2 7l10 5 10-5L12 2z" }),
+                            React.createElement('path', { d: "M2 17l10 5 10-5" }),
+                            React.createElement('path', { d: "M2 7l10 5 10-5" })
+                        ),
+                        React.createElement('span', null, "© 2025 Solite. All Rights Reserved.")
+                    ),
+                    React.createElement('div', { className: "flex items-center space-x-6" },
+                        React.createElement('a', { href: "about.html", className: "hover:text-white transition-colors" }, "About"),
+                        React.createElement('a', { href: "blog.html", className: "hover:text-white transition-colors" }, "Blog"),
+                        React.createElement('a', { href: "privacy.html", className: "hover:text-white transition-colors" }, "Privacy"),
+                        React.createElement('a', { href: "terms.html", className: "hover:text-white transition-colors" }, "Terms"),
+                        React.createElement('a', { href: "mailto:support@solite.in", className: "hover:text-white transition-colors" }, "Contact")
+                    )
+                )
+            )
+        );
+
+        // --- Controls Pane Component ---
+        const ControlsPane = ({ metadata, setMetadata }) => {
+            const handleInputChange = (e) => {
+                const { name, value, type, files } = e.target;
+                if (type === 'file' && files && files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        setMetadata(prev => ({ ...prev, [name]: event.target.result }));
+                    };
+                    reader.readAsDataURL(files[0]);
+                } else {
+                    setMetadata(prev => ({ ...prev, [name]: value }));
+                }
+            };
+
+            const handleRemoveImage = (fieldName) => {
+                setMetadata(prev => ({ ...prev, [fieldName]: '' }));
+                // Also clear the file input so the same file can be re-uploaded
+                const inputId = fieldName === 'imageUrl' ? 'social-image-upload' : 'favicon-upload';
+                const inputElement = document.getElementById(inputId);
+                if (inputElement) inputElement.value = '';
+            };
+
+            const CharCounter = ({ value, limit, label }) => {
+                const isOver = value.length > limit;
+                return React.createElement('span', { className: `text-xs ${isOver ? 'text-red-400' : 'text-gray-400'}` }, 
+                    `${value.length} / ${limit}`,
+                    React.createElement('span', { className: 'ml-1' }, label)
+                );
+            };
+
+            return React.createElement('div', { id: "controls-pane", className: "w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col", 'aria-labelledby': "controls-heading" },
+                React.createElement('h2', { id: "controls-heading", className: "text-xl font-bold text-white flex-shrink-0" }, "Metadata Input"),
+                React.createElement('div', { className: "flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-4 pb-16 lg:pb-6" },
+                    React.createElement('div', { className: "space-y-1" },
+                        React.createElement('label', { htmlFor: "title", className: "font-medium text-sm" }, "Title"),
+                        React.createElement('input', { type: "text", id: "title", name: "title", value: metadata.title, onChange: handleInputChange, className: "w-full p-2 rounded-lg bg-gray-800 border border-gray-700", placeholder: "Your Page Title" }),
+                        React.createElement(CharCounter, { value: metadata.title, limit: 60, label: "chars" })
+                    ),
+                    React.createElement('div', { className: "space-y-1" },
+                        React.createElement('label', { htmlFor: "description", className: "font-medium text-sm" }, "Description"),
+                        React.createElement('textarea', { id: "description", name: "description", value: metadata.description, onChange: handleInputChange, rows: "4", className: "w-full p-2 rounded-lg bg-gray-800 border border-gray-700", placeholder: "Your page description..." }),
+                        React.createElement(CharCounter, { value: metadata.description, limit: 160, label: "chars" })
+                    ),
+                    React.createElement('div', { className: "space-y-1" },
+                        React.createElement('label', { htmlFor: "url", className: "font-medium text-sm" }, "URL"),
+                        React.createElement('input', { type: "url", id: "url", name: "url", value: metadata.url, onChange: handleInputChange, className: "w-full p-2 rounded-lg bg-gray-800 border border-gray-700", placeholder: "https://example.com" })
+                    ),
+                    React.createElement('div', { className: "grid grid-cols-2 gap-4" },
+                        React.createElement('div', { className: "space-y-1" },
+                            React.createElement('label', { htmlFor: "social-image-upload", className: "font-medium text-sm" }, "Social Image"),
+                            metadata.imageUrl
+                                ? React.createElement('button', { onClick: () => handleRemoveImage('imageUrl'), className: "w-full text-sm bg-red-900/50 hover:bg-red-900/80 border border-red-800/60 text-red-300 p-2 rounded-lg" }, "Remove Image")
+                                : React.createElement(React.Fragment, null,
+                                    React.createElement('input', { type: "file", id: "social-image-upload", name: "imageUrl", onChange: handleInputChange, className: "hidden", accept:"image/*" }),
+                                    React.createElement('button', { onClick: () => document.getElementById('social-image-upload').click(), className: "w-full text-sm bg-gray-800 hover:bg-gray-700 border border-gray-700 p-2 rounded-lg" }, "Upload Image")
+                                )
+                        ),
+                        React.createElement('div', { className: "space-y-1" },
+                            React.createElement('label', { htmlFor: "favicon-upload", className: "font-medium text-sm" }, "Google Favicon"),
+                            metadata.faviconUrl
+                                ? React.createElement('button', { onClick: () => handleRemoveImage('faviconUrl'), className: "w-full text-sm bg-red-900/50 hover:bg-red-900/80 border border-red-800/60 text-red-300 p-2 rounded-lg" }, "Remove Favicon")
+                                : React.createElement(React.Fragment, null,
+                                    React.createElement('input', { type: "file", id: "favicon-upload", name: "faviconUrl", onChange: handleInputChange, className: "hidden", accept:"image/*" }),
+                                    React.createElement('button', { onClick: () => document.getElementById('favicon-upload').click(), className: "w-full text-sm bg-gray-800 hover:bg-gray-700 border border-gray-700 p-2 rounded-lg" }, "Upload Favicon")
+                                )
+                        )
+                    ),
+                    React.createElement('div', { className: "space-y-1" },
+                        React.createElement('label', { htmlFor: "siteName", className: "font-medium text-sm" }, "Site Name"),
+                        React.createElement('input', { type: "text", id: "siteName", name: "siteName", value: metadata.siteName, onChange: handleInputChange, className: "w-full p-2 rounded-lg bg-gray-800 border border-gray-700", placeholder: "My Awesome Site" }),
+                        React.createElement('p', { className: "text-xs text-gray-500" }, "Used for Facebook/LinkedIn preview.")
+                    )
+                )
+            );
+        };
+
+        // --- Preview Components ---
+        const GooglePreview = ({ title, description, url, faviconUrl }) => {
+            const displayUrl = url ? new URL(url).hostname + new URL(url).pathname.replace(/\/$/, '') : 'example.com';
+            return React.createElement('div', { className: "w-full max-w-xl p-4 font-sans text-left bg-white rounded-lg shadow-sm" },
+                React.createElement('div', { className: "flex items-center gap-2" },
+                    faviconUrl 
+                        ? React.createElement('img', { src: faviconUrl, className: "w-7 h-7 rounded-full object-cover" })
+                        : React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", className: "h-7 w-7 text-gray-400", viewBox: "0 0 48 48" },
+                            React.createElement('path', { fill: "#fbc02d", d: "M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" }), React.createElement('path', { fill: "#e53935", d: "M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657	C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" }), React.createElement('path', { fill: "#4caf50", d: "M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.222,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" }), React.createElement('path', { fill: "#1565c0", d: "M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238	C42.022,35.244,44,30.036,44,24C44,22.659,43.862,21.35,43.611,20.083z" })
+                        ),
+                    React.createElement('div', { className: "flex flex-col" },
+                        React.createElement('p', { className: "text-sm text-black" }, new URL(url || 'https://example.com').hostname),
+                        React.createElement('p', { className: "text-xs text-gray-600" }, displayUrl)
+                    )
+                ),
+                React.createElement('h3', { className: "text-xl text-blue-800 hover:underline mt-1 truncate" }, title || "Your Page Title"),
+                React.createElement('p', { className: "text-sm text-gray-700 mt-1" }, description ? description.substring(0, 160) + (description.length > 160 ? '...' : '') : "Your page description will appear here. Aim for about 160 characters.")
+            );
+        };
+
+        const TwitterPreview = ({ title, description, url, imageUrl, siteName }) => {
+            const domain = url ? new URL(url).hostname : 'example.com';            
+            return React.createElement('div', { className: "w-full max-w-xl rounded-2xl border border-gray-200 bg-white overflow-hidden text-left" },
+                React.createElement('div', { className: "aspect-video bg-gray-200 flex items-center justify-center text-gray-400" },
+                    imageUrl ? React.createElement('img', { src: imageUrl, className: "w-full h-full object-cover", alt: "Preview" }) : React.createElement('div', { className: "w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" }, "Image Preview")
+                ),
+                React.createElement('div', { className: "p-3 border-t border-gray-200" },
+                    React.createElement('p', { className: "text-sm text-gray-500 uppercase truncate" }, domain),
+                    React.createElement('h3', { className: "font-bold text-black mt-1 truncate" }, title || siteName || "Your Page Title"),
+                    React.createElement('p', { className: "text-sm text-gray-600 mt-1" }, description ? description.substring(0, 100) + (description.length > 100 ? '...' : '') : "Your description (up to 100 chars) appears here.")
+                )
+            );
+        };
+
+        const SocialPreview = ({ title, description, url, imageUrl, siteName }) => {
+            const domain = url ? new URL(url).hostname.toUpperCase() : 'EXAMPLE.COM';
+            return React.createElement('div', { className: "w-full max-w-xl rounded-lg bg-white overflow-hidden text-left border border-gray-200" },
+                React.createElement('div', { className: "aspect-video bg-gray-200 flex items-center justify-center text-gray-400" },
+                    imageUrl ? React.createElement('img', { src: imageUrl, className: "w-full h-full object-cover", alt: "Preview" }) : React.createElement('div', { className: "w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" }, "Image Preview")
+                ),
+                React.createElement('div', { className: "p-3 bg-gray-100" },
+                    React.createElement('p', { className: "text-xs text-gray-500 uppercase truncate" }, siteName || domain),
+                    React.createElement('h3', { className: "font-semibold text-gray-900 mt-1 truncate" }, title || "Your Page Title"),
+                    React.createElement('p', { className: "text-sm text-gray-600 mt-1" }, description ? description.substring(0, 50) + (description.length > 50 ? '...' : '') : "A short description...")
+                )
+            );
+        };
+
+        // --- Main Preview Pane Component ---
+        const PreviewPane = ({ metadata }) => {
+            const [activePreview, setActivePreview] = useState('google');
+
+            const previews = {
+                google: { label: React.createElement('span', {className: "flex items-center gap-1.5"}, React.createElement('svg', { className: "w-4 h-4", viewBox: "0 0 24 24", fill: "currentColor" }, React.createElement('path', { d: "M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.96 12.19,19.96C8.52,19.96 5.48,16.92 5.48,13.25C5.48,9.58 8.52,6.54 12.19,6.54C14.04,6.54 15.3,7.27 16.1,8.04L18.25,5.92C16.43,4.14 14.48,3 12.19,3C7.03,3 3,7.03 3,12.19C3,17.34 7.03,21.38 12.19,21.38C17.7,21.38 21.5,17.73 21.5,12.36C21.5,11.76 21.45,11.43 21.35,11.1Z" })), "Google"), component: React.createElement(GooglePreview, metadata) },
+                twitter: { label: React.createElement('span', {className: "flex items-center gap-1.5"}, React.createElement('svg', { className: "w-4 h-4", viewBox: "0 0 24 24", fill: "currentColor" }, React.createElement('path', { d: "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" })), "Twitter"), component: React.createElement(TwitterPreview, metadata) },
+                facebook: { label: React.createElement('span', {className: "flex items-center gap-1.5"}, React.createElement('svg', { className: "w-4 h-4", viewBox: "0 0 24 24", fill: "currentColor" }, React.createElement('path', { d: "M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H17L16,14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" })), "Facebook"), component: React.createElement(SocialPreview, metadata) },
+                linkedin: { label: React.createElement('span', {className: "flex items-center gap-1.5"}, React.createElement('svg', { className: "w-4 h-4", viewBox: "0 0 24 24", fill: "currentColor" }, React.createElement('path', { d: "M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.43 13,11.11V10.28H10.13V18.5H13V13.57C13,12.24 14.02,11.23 15.24,11.23C16.46,11.23 17.47,12.24 17.47,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,6 7.81,5.24 6.88,5.24C5.94,5.24 5.19,6 5.19,6.88C5.19,7.81 5.94,8.56 6.88,8.56M8.27,18.5V10.28H5.5V18.5H8.27Z" })), "LinkedIn"), component: React.createElement(SocialPreview, metadata) }
+            };
+
+            return React.createElement('div', { id: "output-pane", className: "flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden" },
+                React.createElement('div', { className: "flex-shrink-0 p-2 border-b border-gray-800 bg-gray-800/50" },
+                    React.createElement('div', { className: "flex items-center justify-start gap-2" },
+                        Object.keys(previews).map(key =>
+                            React.createElement('button', {
+                                key: key,
+                                onClick: () => setActivePreview(key),
+                                className: `preview-tab-btn font-medium py-2 px-4 rounded-lg text-sm transition-colors ${activePreview === key ? 'active' : ''}`,
+                            }, previews[key].label)
+                        )
+                    )
+                ),
+                React.createElement('div', { className: `flex-grow flex items-center justify-center p-4 sm:p-8 overflow-auto transition-colors preview-bg-light` },
+                    previews[activePreview].component
+                )
+            );
+        };
+
+        // --- Mobile Navigation Component ---
+        const MobileNav = ({ activePane, onPaneChange }) => (
+            React.createElement('div', { id: "mobile-nav", className: "fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40" },
+                React.createElement('div', { className: "flex justify-around items-center h-14" },
+                    React.createElement('button', {
+                        className: `mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activePane === 'controls' ? 'active' : ''}`,
+                        onClick: () => onPaneChange('controls'),
+                        'aria-label': 'Switch to Controls'
+                    },
+                        React.createElement('svg', { className: "w-6 h-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", strokeWidth: "1.5" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" })),
+                        React.createElement('span', null, "Controls")
+                    ),
+                    React.createElement('button', {
+                        className: `mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activePane === 'preview' ? 'active' : ''}`,
+                        onClick: () => onPaneChange('preview'),
+                        'aria-label': 'Switch to Preview'
+                    },
+                        React.createElement('svg', { className: "w-6 h-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", strokeWidth: "1.5" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" }), React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z" })),
+                        React.createElement('span', null, "Preview")
+                    )
+                )
+            )
+        );
+
+        // --- Main App Component ---
+        const App = () => {
+            const [metadata, setMetadata] = useState({
+                title: "Solite | Free, Private, Browser-Based Tools",
+                description: "A powerful suite of free, browser-based tools for modern creators and developers. 100% private and instantly accessible.",
+                url: "https://solite.in",
+                imageUrl: "https://solite.in/assets/solite-og.png",
+                siteName: "Solite",
+                faviconUrl: ""
+            });
+            const [activePane, setActivePane] = useState('controls');
+            const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+            useEffect(() => {
+                const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+                window.addEventListener('resize', handleResize);
+                return () => window.removeEventListener('resize', handleResize);
+            }, []);
+
+            useEffect(() => {
+                document.body.style.visibility = 'visible';
+            }, []);
+
+            return (
+                React.createElement(React.Fragment, null,
+                    React.createElement(Header, null),
+                    React.createElement('main', { className: "flex-grow flex relative min-h-0", style: { height: 'calc(100vh - 72px)' } },
+                        React.createElement('div', { className: "flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0" },
+                            React.createElement('h1', { className: "sr-only" }, "Meta Tag Previewer"),
+                            (isDesktop || activePane === 'controls') && React.createElement(ControlsPane, { metadata, setMetadata }),
+                            (isDesktop || activePane === 'preview') && React.createElement(PreviewPane, { metadata })
+                        ),
+                        React.createElement('aside', { className: "w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block", 'aria-label': 'Advertisement' },
+                            React.createElement('div', { className: "h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400" }, "Ad Area")
+                        ),
+                        !isDesktop && React.createElement(MobileNav, { activePane, onPaneChange: setActivePane })
+                    ),
+                    React.createElement(Footer, null)
+                )
+            );
+        };
+
+        // --- Render the App ---
+        const rootElement = document.getElementById('root');
+        if (rootElement) {
+            const root = ReactDOM.createRoot(rootElement);
+            root.render(React.createElement(App));
+        }
+    </script>
+</body>
+</html>
