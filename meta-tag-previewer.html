@@ -146,7 +146,7 @@
 
         // --- Footer Component ---
         const Footer = () => (
-            React.createElement('footer', { className: "p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block" },
+            React.createElement('footer', { className: "p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50" },
                 React.createElement('div', { className: "flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6" },
                     React.createElement('div', { className: "flex items-center space-x-3 mb-4 sm:mb-0" },
                         React.createElement('svg', { className: "h-6 w-6 text-gray-400 dark:text-gray-500", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" },
@@ -156,11 +156,12 @@
                         ),
                         React.createElement('span', null, "© 2025 Solite. All Rights Reserved.")
                     ),
-                    React.createElement('div', { className: "flex items-center space-x-6" },
-                        React.createElement('a', { href: "about.html", className: "hover:text-white transition-colors" }, "About"),
-                        React.createElement('a', { href: "blog.html", className: "hover:text-white transition-colors" }, "Blog"),
-                        React.createElement('a', { href: "privacy.html", className: "hover:text-white transition-colors" }, "Privacy"),
-                        React.createElement('a', { href: "terms.html", className: "hover:text-white transition-colors" }, "Terms"),
+                    React.createElement('div', { className: "flex items-center justify-center flex-wrap gap-x-6 gap-y-2" },
+                        React.createElement('a', { href: "./about.html", className: "hover:text-white transition-colors" }, "About"),
+                        React.createElement('a', { href: "./blog.html", className: "hover:text-white transition-colors" }, "Blog"),
+                        React.createElement('a', { href: "./privacy.html", className: "hover:text-white transition-colors" }, "Privacy"),
+                        React.createElement('a', { href: "./terms.html", className: "hover:text-white transition-colors" }, "Terms"),
+                        React.createElement('a', { href: "./disclaimer.html", className: "hover:text-white transition-colors" }, "Disclaimer"),
                         React.createElement('a', { href: "mailto:support@solite.in", className: "hover:text-white transition-colors" }, "Contact")
                     )
                 )
