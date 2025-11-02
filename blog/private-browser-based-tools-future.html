@@ -104,15 +104,15 @@
         .prose p, .prose ul, .prose ol, .prose table { margin-top: 1.5em; margin-bottom: 1.5em; }
         .prose a { text-decoration: underline; }
         .prose code { background-color: #374151; padding: 0.2em 0.4em; border-radius: 0.25rem; font-size: 0.85em; }
-        .prose table { width: 100%; border-collapse: collapse; }
-        .prose th, .prose td { border: 1px solid #4b5563; padding: 0.5em 1em; text-align: left; }
+        .prose table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        .prose th, .prose td { border: 1px solid #4b5563; padding: 0.5em 1em; text-align: left; word-break: break-word; }
         .prose th { background-color: #1f2937; }
     </style>
-</head> 
+</head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans break-words overflow-x-hidden">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
             <a href="../index.html" class="flex items-center space-x-3" aria-label="Solite Homepage">
                  <svg class="h-8 w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span class="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Solite</span>
@@ -126,8 +126,8 @@
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col items-center px-4 w-full pt-16 sm:pt-24 z-10">
-        <nav aria-label="Breadcrumb" class="max-w-4xl w-full mx-auto mb-4">
+    <main class="flex-grow flex flex-col items-center w-full pt-16 sm:pt-24 z-10">
+        <nav aria-label="Breadcrumb" class="max-w-4xl w-full mx-auto mb-4 px-4">
             <ol class="flex items-center gap-1 text-sm text-gray-400">
                 <li><a href="../index.html" class="hover:underline">Home</a></li>
                 <li><span aria-hidden="true">&rsaquo;</span></li>
@@ -135,7 +135,7 @@
             </ol>
         </nav>
 
-        <article class="prose prose-invert prose-lg max-w-4xl mx-auto prose-a:text-blue-400 hover:prose-a:underline"">
+        <article class="prose prose-invert prose-lg max-w-4xl w-full mx-auto prose-a:text-blue-400 hover:prose-a:underline px-4">
             <h1>🔒 Why the Future of Online Tools Is 100% Private and Browser-Based</h1>
             <div class="my-6 border-b border-gray-800">
                 <p class="text-base text-gray-400">By The Solite Team &middot; Published on November 10, 2025 &middot; 4 min read</p>
@@ -157,20 +157,18 @@
 
             <h2>⚖️ Solite vs. SaaS: A Question of Trust</h2>
             <p>The comparison between Solite and its SaaS counterparts is not about features; it’s about <strong>architecture and ethics</strong>. SaaS companies ask you to trust their firewalls and their data retention policies. Solite asks you to trust your own machine—the device you already use, control, and secure.</p>
-            <div class="overflow-x-auto">
-                <table>
-                    <thead>
-                        <tr><th>Feature</th><th>Traditional SaaS Model</th><th>Solite Browser-Based Model</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Data Processing</strong></td><td>Cloud Servers (Remote)</td><td><strong>Your Browser/Device (Local)</strong></td></tr>
-                        <tr><td><strong>Privacy Risk</strong></td><td>High (Breach, Logs, Data Mining)</td><td><strong>Near Zero (No Data Transmission)</strong></td></tr>
-                        <tr><td><strong>Internet Dependency</strong></td><td>Total (Must be connected)</td><td><strong>Low (Many tools work Offline)</strong></td></tr>
-                        <tr><td><strong>Business Model</strong></td><td>Data Monetization / Subscriptions</td><td><strong>Transparency / Premium Features</strong></td></tr>
-                        <tr><td><strong>Control</strong></td><td>External (Vendor)</td><td><strong>100% User Control</strong></td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <thead>
+                    <tr><th>Feature</th><th>Traditional SaaS Model</th><th>Solite Browser-Based Model</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Data Processing</strong></td><td>Cloud Servers (Remote)</td><td><strong>Your Browser/Device (Local)</strong></td></tr>
+                    <tr><td><strong>Privacy Risk</strong></td><td>High (Breach, Logs, Data Mining)</td><td><strong>Near Zero (No Data Transmission)</strong></td></tr>
+                    <tr><td><strong>Internet Dependency</strong></td><td>Total (Must be connected)</td><td><strong>Low (Many tools work Offline)</strong></td></tr>
+                    <tr><td><strong>Business Model</strong></td><td>Data Monetization / Subscriptions</td><td><strong>Transparency / Premium Features</strong></td></tr>
+                    <tr><td><strong>Control</strong></td><td>External (Vendor)</td><td><strong>100% User Control</strong></td></tr>
+                </tbody>
+            </table>
             <p>The choice is stark: pay with your data, or maintain absolute sovereignty over it.</p>
 
             <h2>🛠️ The Solite Utility Toolkit: Privacy in Action</h2>
@@ -189,7 +187,7 @@
             <p><em>Ready to experience the privacy difference? <a href="https://solite.in">Explore the Solite suite</a> and put your data back where it belongs.</em></p>
         </article>
 
-        <section class="max-w-4xl mx-auto w-full mt-16 pt-8 border-t border-gray-800 mb-24">
+        <section class="max-w-4xl mx-auto w-full mt-16 pt-8 mb-24 border-t border-gray-800 px-4">
             <h3 class="text-2xl font-bold text-white mb-6">Read More</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <a href="./why-client-side-tools-are-the-future-of-privacy.html" class="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-white/20 transition-colors group">
@@ -205,7 +203,7 @@
     </main>
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm max-w-7xl mx-auto px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>&copy; 2025 Solite. All Rights Reserved.</span>
