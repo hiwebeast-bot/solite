@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Emoji Counter & Analyzer | Count Emojis in Text | Solite</title>
+    <meta name="description" content="Instantly count, list, and analyze emojis in your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators. 100% private.">
+    <meta name="keywords" content="emoji counter, count emojis, emoji frequency, emoji analyzer, emoji list, social media tool, text analysis, emoji stats, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/emoji-counter.html" />
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Solite">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Emoji Counter & Analyzer | Solite">
+    <meta property="og:description" content="Instantly count, list, and analyze emojis in your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators.">
+    <meta property="og:url" content="https://solite.in/emoji-counter.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/emoji-counter-thumbnail.png">
+    <meta property="og:image:alt" content="A preview of the Emoji Counter tool showing emoji statistics.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Emoji Counter",
+      "url": "https://solite.in/emoji-counter.html",
+      "description": "A free, client-side tool to count, list, and analyze the frequency of emojis used in a block of text. Get total counts, unique counts, and emoji density.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Total emoji count", "Unique emoji count", "Emoji frequency list", "Emoji density calculation", "Copy individual emojis", "Copy all stats", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Count Emojis in Text",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste your text containing emojis into the input area." },
+          { "@type": "HowToStep", "name": "Step 2: View Analysis", "text": "The tool will instantly update to show the total emoji count, unique emoji count, emoji density, and a frequency list of all emojis used." },
+          { "@type": "HowToStep", "name": "Step 3: Copy Results", "text": "Click the 'Copy Stats' button to copy the summary, or click the copy icon next to any emoji in the frequency list to copy it individually." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Emoji Counter"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is this emoji counter free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Emoji Counter is completely free to use. There are no sign-ups, ads, or limitations." }
+      },{
+        "@type": "Question",
+        "name": "Is my text private?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. This tool is 100% private because all counting and analysis happens directly in your browser. Your text is never sent to a server." }
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans antialiased">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Emoji Counter</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Emoji Counter & Analyzer</h1>
+
+            <!-- Input Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Your Text</h2>
+                    <button id="clear-btn" title="Clear Text" class="bg-red-900/50 border border-red-800 hover:bg-red-900/70 text-red-300 hover:text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        <span>Clear</span>
+                    </button>
+                </div>
+                <textarea id="input-text" aria-label="Input text with emojis" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800/50 resize-none/50 resize-none text-lg" placeholder="Paste or type your text here... 😀"></textarea>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Emoji Analysis</h2>
+                    <button id="copy-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Stats</span>
+                    </button>
+                </div>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-3">
+                    <!-- Stat Cards -->
+                    <div class="border border-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div>
+                            <div id="total-emojis" class="text-2xl font-bold text-white">0</div>
+                            <div class="text-xs text-gray-400">Total Emojis</div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
+                        <div>
+                            <div id="unique-emojis" class="text-2xl font-bold text-white">0</div>
+                            <div class="text-xs text-gray-400">Unique Emojis</div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" /></svg>
+                        <div>
+                            <div id="emoji-density" class="text-2xl font-bold text-white">0%</div>
+                            <div class="text-xs text-gray-400">Emoji Density</div>
+                        </div>
+                    </div>
+
+                    <!-- Emoji List -->
+                    <div class="border-t border-gray-800 pt-3">
+                        <h3 class="font-semibold text-white mb-3">Emoji Frequency</h3>
+                        <div id="emoji-list" class="space-y-1">
+                            <p class="text-sm text-gray-500">No emojis found yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+    </main>
+
+    <div class="sr-only w-full bg-gray-900 border-t border-gray-800" aria-hidden="false">
+        <section class="max-w-4xl mx-auto px-6 py-12 text-gray-400 prose prose-invert prose-sm prose-a:text-blue-400">
+            <h2 class="text-xl font-bold text-white">About the Emoji Counter Tool</h2>
+            <p>The Solite Emoji Counter is a free, privacy-focused online utility designed for social media managers, content creators, and anyone who needs to quickly analyze the emojis in their text. Unlike other tools, our counter runs entirely in your browser, which means your text is never uploaded to a server. It's 100% private, secure, and incredibly fast.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Total & Unique Emoji Count:</strong> Instantly see how many emojis are in your text and how many of them are unique.</li>
+                <li><strong>Emoji Frequency List:</strong> Get a detailed, sorted list of every emoji used and how many times it appears.</li>
+                <li><strong>Emoji Density:</strong> Understand the ratio of emojis to words in your text, a useful metric for gauging the tone and visual appeal of your content.</li>
+                <li><strong>One-Click Copy:</strong> Easily copy the summary statistics or individual emojis from the frequency list to use in your posts, reports, or analytics.</li>
+                <li><strong>Privacy by Design:</strong> All processing is done client-side. Your data never leaves your device.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-lg shadow-lg mb-4"></div>
+
+    <script>
+        class EmojiCounter {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.analyzeText(); // Initial run
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    inputText: document.getElementById('input-text'),
+                    totalEmojis: document.getElementById('total-emojis'),
+                    uniqueEmojis: document.getElementById('unique-emojis'),
+                    emojiDensity: document.getElementById('emoji-density'),
+                    emojiList: document.getElementById('emoji-list'),
+                    clearBtn: document.getElementById('clear-btn'),
+                    copyBtn: document.getElementById('copy-btn'),
+                    toast: document.getElementById('toast'),
+                };
+                // This regex is a comprehensive pattern to match most modern emojis, including skin tones and ZWJ sequences.
+                this.emojiRegex = /[\p{Emoji_Presentation}\p{Emoji_Modifier_Base}\p{Emoji_Component}\u{200D}]+/gu;
+            }
+
+            attachEventListeners() {
+                this.el.inputText.addEventListener('input', this.debounce(() => this.analyzeText(), 200));
+                this.el.clearBtn.addEventListener('click', () => this.clearAll());
+                this.el.copyBtn.addEventListener('click', () => this.copyStats());
+            }
+
+            analyzeText() {
+                const text = this.el.inputText.value;
+                const emojis = text.match(this.emojiRegex) || [];
+                const words = text.trim().split(/\s+/).filter(Boolean);
+
+                const totalCount = emojis.length;
+                const frequency = {};
+                emojis.forEach(emoji => {
+                    frequency[emoji] = (frequency[emoji] || 0) + 1;
+                });
+
+                const uniqueCount = Object.keys(frequency).length;
+                const density = words.length > 0 ? (totalCount / words.length) * 100 : 0;
+
+                this.el.totalEmojis.textContent = totalCount;
+                this.el.uniqueEmojis.textContent = uniqueCount;
+                this.el.emojiDensity.textContent = `${density.toFixed(1)}%`;
+
+                this.renderEmojiList(frequency);
+            }
+
+            renderEmojiList(frequency) {
+                this.el.emojiList.innerHTML = '';
+                if (Object.keys(frequency).length === 0) {
+                    this.el.emojiList.innerHTML = '<p class="text-sm text-gray-500">No emojis found yet.</p>';
+                    return;
+                }
+
+                const sortedEmojis = Object.entries(frequency).sort(([, a], [, b]) => b - a);
+
+                sortedEmojis.forEach(([emoji, count]) => {
+                    const item = document.createElement('div');
+                    item.className = 'flex items-center justify-between p-2 hover:bg-gray-800 rounded-lg';
+                    item.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">${emoji}</span>
+                            <span class="font-mono text-sm text-gray-400">x ${count}</span>
+                        </div>
+                        <button class="copy-emoji-btn text-gray-500 hover:text-white p-1 rounded-md" data-emoji="${emoji}" title="Copy Emoji">
+                            <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    `;
+                    item.querySelector('.copy-emoji-btn').addEventListener('click', (e) => {
+                        this.copyToClipboard(e.currentTarget.dataset.emoji, `Copied ${e.currentTarget.dataset.emoji}`);
+                    });
+                    this.el.emojiList.appendChild(item);
+                });
+            }
+
+            copyStats() {
+                const statsText = `Total Emojis: ${this.el.totalEmojis.textContent}\nUnique Emojis: ${this.el.uniqueEmojis.textContent}\nEmoji Density: ${this.el.emojiDensity.textContent}`;
+                this.copyToClipboard(statsText, 'Stats copied!');
+            }
+
+            clearAll() {
+                this.el.inputText.value = '';
+                this.analyzeText();
+            }
+
+            copyToClipboard(text, message) {
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showToast(message);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                    this.showToast('Copy failed!', true);
+                });
+            }
+
+            showToast(message, isError = false) {
+                this.el.toast.textContent = message;
+                // Reset colors before showing
+                this.el.toast.classList.remove('bg-red-500', 'text-white', 'bg-white', 'text-black');
+                this.el.toast.classList.add(isError ? 'bg-red-500' : 'bg-white', isError ? 'text-white' : 'text-black');
+                
+                this.el.toast.classList.add('show');
+                
+                setTimeout(() => this.el.toast.classList.remove('show'), 2000);
+            }
+
+            debounce(func, delay) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new EmojiCounter();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags (Unchanged) -->
+    <title>Free Whitespace Normalizer & Text Cleaner | Solite</title>
+    <meta name="description" content="Instantly clean and normalize your text. Remove extra spaces, tabs, and line breaks from any copied text with this free, private online tool.">
+    <meta name="keywords" content="whitespace normalizer, text cleaner, remove extra spaces, remove line breaks, text formatting tool, solite, privacy first, clean text, normalize spaces">
+    <link rel="canonical" href="https://solite.in/whitespace-normalizer.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Unchanged) -->
+    <meta property="og:title" content="Free Whitespace Normalizer & Text Cleaner | Solite">
+    <meta property="og:description" content="Instantly clean and normalize your text. Remove extra spaces, tabs, and line breaks from any copied text with this free, private online tool.">
+    <meta property="og:url" content="https://solite.in/whitespace-normalizer.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/whitespace-normalizer-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag (Unchanged) -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics (Unchanged) -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries (Unchanged) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set (Unchanged) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup (Unchanged) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Whitespace Normalizer",
+      "url": "https://solite.in/whitespace-normalizer.html",
+      "description": "A free, client-side tool to automatically clean and normalize whitespace, tabs, and line breaks from text.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Remove leading/trailing whitespace", "Collapse multiple spaces into one", "Collapse multiple line breaks", "Convert tabs to spaces", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Normalize Whitespace in Text",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste your messy text into the input field." },
+          { "@type": "HowToStep", "name": "Step 2: Select Options", "text": "Choose the normalization rules you want to apply, such as removing extra spaces or line breaks." },
+          { "@type": "HowToStep", "name": "Step 3: Copy Result", "text": "The cleaned text will appear instantly in the output field, ready to be copied." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Whitespace Normalizer"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        /* Premium toast styling for smooth entry/exit */
+        #toast {
+            transform: translateY(200%);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            z-index: 9999;
+        }
+        #toast.show {
+            transform: translateY(-2rem); /* Moves to 2rem above the bottom */
+            opacity: 1;
+        }
+        /* Custom scrollbar (unchanged) */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+
+        /* Style for the clear button inside the textarea */
+        .textarea-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-height: 250px; /* Give a minimum height for mobile */
+        }
+        #clear-input-btn {
+            position: absolute;
+            top: 0.75rem; /* 12px */
+            right: 0.75rem; /* 12px */
+            z-index: 10;
+            opacity: 0; /* Hide by default */
+            pointer-events: none; /* Disable clicks when hidden */
+            transition: opacity 0.15s ease-in-out;
+        }
+        /* Show clear button only when the container is focused or hovered, and input is not empty */
+        .textarea-container:focus-within #clear-input-btn,
+        .textarea-container:hover #clear-input-btn {
+            opacity: 0.5; /* Show partially */
+            pointer-events: auto;
+        }
+        #clear-input-btn:hover {
+            opacity: 1; /* Full opacity on hover */
+        }
+        /* Hide clear button if input is empty */
+        #input-text:placeholder-shown + #clear-input-btn {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans antialiased">
+    <!-- Header (Unchanged) -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Whitespace Normalizer</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Adjusted for sticky footer on mobile -->
+    <main class="flex-grow flex relative min-h-0">
+        <!-- Content Wrapper (Input, Output, Controls) -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col gap-4 min-h-0">
+            <h1 class="sr-only">Whitespace Normalizer & Text Cleaner</h1>
+
+            <!-- 3-Panel Layout Container -->
+            <div class="flex-grow flex flex-col lg:flex-row gap-4 min-h-0">
+
+                <!-- Controls Panel: Restored to original layout -->
+                <div id="controls-pane" class="w-full lg:w-80 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                    <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                        <h2 id="controls-heading" class="text-xl font-bold text-white">Text Cleaner</h2>
+                        <button id="clear-all-btn" class="bg-red-900/50 border border-red-800 hover:bg-red-900/70 text-red-300 hover:text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+
+                    <!-- Scrollable controls area -->
+                    <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                        <fieldset class="space-y-3 min-w-[200px]">
+                            <legend class="font-semibold text-white mb-2">Normalization Options</legend>
+                            <label class="flex items-center space-x-2 cursor-pointer hover:text-white transition-colors"><input type="checkbox" id="opt-trim" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0 focus:ring-2"><span>Trim leading/trailing</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer hover:text-white transition-colors"><input type="checkbox" id="opt-spaces" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0 focus:ring-2"><span>Collapse spaces</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer hover:text-white transition-colors"><input type="checkbox" id="opt-lines" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0 focus:ring-2"><span>Collapse line breaks</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer hover:text-white transition-colors"><input type="checkbox" id="opt-blank-lines" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0 focus:ring-2"><span>Remove blank lines</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer hover:text-white transition-colors"><input type="checkbox" id="opt-tabs" checked class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0 focus:ring-2"><span>Convert tabs to spaces</span></label>
+                        </fieldset>
+                        
+                        <div class="w-full lg:w-px bg-gray-800 lg:h-auto"></div>
+
+                        <fieldset class="flex-grow">
+                            <legend class="font-semibold text-white mb-2">Quick Actions (on Input Text)</legend>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="action-btn bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium p-2 rounded-lg text-sm transition-colors" data-action="sort-az">Sort Lines (A-Z)</button>
+                                <button class="action-btn bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium p-2 rounded-lg text-sm transition-colors" data-action="sort-za">Sort Lines (Z-A)</button>
+                                <button class="action-btn bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium p-2 rounded-lg text-sm transition-colors" data-action="remove-duplicates">Remove Duplicates</button>
+                                <button class="action-btn bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium p-2 rounded-lg text-sm transition-colors" data-action="shuffle">Shuffle Lines</button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <!-- Input Panel -->
+                <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800">
+                    <h2 class="text-xl font-bold text-white flex-shrink-0 mb-4 px-6 pt-4">Input</h2>
+                    <div class="textarea-container">
+                        <textarea id="input-text" class="w-full h-full flex-grow p-4 rounded-lg bg-gray-800 border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 font-mono resize-none" placeholder="Paste your messy text here..."></textarea>
+                        <button id="clear-input-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Clear input">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="input-stats" class="text-sm text-gray-500 p-2 px-6 font-mono">Chars: 0 | Words: 0 | Lines: 0</div>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800">
+                    <div class="flex justify-between items-center mb-4 flex-shrink-0 px-6 pt-4">
+                        <h2 class="text-xl font-bold text-white">Output</h2>
+                        <button id="copy-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="textarea-container">
+                        <textarea id="output-text" readonly class="w-full h-full flex-grow p-4 rounded-lg bg-gray-800 border-gray-700 text-gray-300 focus:outline-none font-mono resize-none cursor-copy" placeholder="Cleaned text appears here..."></textarea>
+                    </div>
+                    <div id="output-stats" class="text-sm text-gray-500 p-2 px-6 font-mono">Chars: 0 | Words: 0 | Lines: 0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Sidebar (Legacy layout: Unchanged) -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+    </main>
+
+    <!-- Footer: Made sticky on mobile -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Premium Toast Notification -->
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 font-semibold py-2 px-5 rounded-lg shadow-lg"></div>
+
+    <script>
+        /**
+         * TextToolkit: A robust class for normalizing and manipulating text.
+         * Fixes bugs from the original, adds features, and cleans up logic.
+         */
+        class TextToolkit {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.updateAll(); // Initial run to set stats
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    inputText: document.getElementById('input-text'),
+                    outputText: document.getElementById('output-text'),
+                    copyBtn: document.getElementById('copy-btn'),
+                    toast: document.getElementById('toast'),
+                    clearAllBtn: document.getElementById('clear-all-btn'),
+                    clearInputBtn: document.getElementById('clear-input-btn'),
+                    inputStats: document.getElementById('input-stats'),
+                    outputStats: document.getElementById('output-stats'),
+                    options: {
+                        trim: document.getElementById('opt-trim'),
+                        spaces: document.getElementById('opt-spaces'),
+                        lines: document.getElementById('opt-lines'),
+                        blankLines: document.getElementById('opt-blank-lines'),
+                        tabs: document.getElementById('opt-tabs'),
+                    },
+                    actionBtns: document.querySelectorAll('.action-btn'),
+                };
+            }
+
+            attachEventListeners() {
+                // Main update trigger
+                this.el.inputText.addEventListener('input', this.debounce(() => this.updateAll(), 150));
+                
+                // Option changes
+                Object.values(this.el.options).forEach(opt => opt.addEventListener('change', () => this.updateAll()));
+                
+                // Button actions
+                this.el.copyBtn.addEventListener('click', () => this.copyOutput());
+                this.el.clearAllBtn.addEventListener('click', () => this.clearAll());
+                this.el.clearInputBtn.addEventListener('click', () => this.clearAll());
+                this.el.actionBtns.forEach(btn => btn.addEventListener('click', (e) => this.performAction(e.currentTarget.dataset.action)));
+
+                // Make output textarea copy on click
+                this.el.outputText.addEventListener('click', () => this.copyOutput());
+            }
+
+            /**
+             * Main orchestrator function.
+             * Reads input, normalizes it, and updates the UI.
+             */
+            updateAll() {
+                const text = this.el.inputText.value;
+                const normalizedText = this.normalize(text);
+                this.el.outputText.value = normalizedText;
+                this.updateStats();
+            }
+
+            /**
+             * Pure function to normalize text based on selected options.
+             * @param {string} text - The input text.
+             * @returns {string} - The normalized text.
+             */
+            normalize(text) {
+                let output = text;
+
+                // 1. Convert tabs to 2 spaces
+                if (this.el.options.tabs.checked) {
+                    output = output.replace(/\t/g, '  ');
+                }
+                
+                // 2. Collapse multiple spaces to one
+                if (this.el.options.spaces.checked) {
+                    output = output.replace(/ +/g, ' ');
+                }
+                
+                // 3. Collapse 3+ line breaks to 2 (preserves single blank lines)
+                if (this.el.options.lines.checked) {
+                    output = output.replace(/(\r\n|\n|\r){3,}/g, '\n\n');
+                }
+                
+                // 4. Remove all blank lines (runs after line collapse)
+                if (this.el.options.blankLines.checked) {
+                    output = output.replace(/(\r\n|\n|\r){2,}/g, '\n'); // First, make all multi-breaks single
+                    output = output.replace(/^\s*[\r\n]/gm, ''); // Then remove empty lines
+                }
+
+                // 5. Trim leading/trailing whitespace
+                if (this.el.options.trim.checked) {
+                    output = output.trim();
+                }
+
+                return output;
+            }
+
+            /**
+             * Performs a state-changing action on the *input* text.
+             * @param {string} action - The action to perform (e.g., 'sort-az').
+             */
+            performAction(action) {
+                let text = this.el.inputText.value;
+                if (!text) {
+                    this.showToast('Nothing to perform action on', 'error');
+                    return;
+                }
+
+                let lines = text.split('\n');
+
+                switch (action) {
+                    case 'sort-az':
+                        lines.sort((a, b) => a.localeCompare(b));
+                        break;
+                    case 'sort-za':
+                        lines.sort((a, b) => b.localeCompare(a));
+                        break;
+                    case 'remove-duplicates':
+                        lines = [...new Set(lines)];
+                        break;
+                    case 'shuffle':
+                        for (let i = lines.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [lines[i], lines[j]] = [lines[j], lines[i]];
+                        }
+                        break;
+                }
+                
+                this.el.inputText.value = lines.join('\n');
+                this.updateAll(); // Re-run normalization and update stats
+            }
+
+            /**
+             * Clears both textareas and updates stats.
+             */
+            clearAll() {
+                this.el.inputText.value = '';
+                this.el.outputText.value = '';
+                this.updateAll(); // Updates stats to zero
+                this.el.inputText.focus();
+            }
+
+            /**
+             * Updates the character, word, and line counts for both fields.
+             */
+            updateStats() {
+                const inputStats = this.getStats(this.el.inputText.value);
+                const outputStats = this.getStats(this.el.outputText.value);
+                
+                this.el.inputStats.textContent = `Chars: ${inputStats.chars} | Words: ${inputStats.words} | Lines: ${inputStats.lines}`;
+                this.el.outputStats.textContent = `Chars: ${outputStats.chars} | Words: ${outputStats.words} | Lines: ${outputStats.lines}`;
+            }
+
+            /**
+             * Calculates stats for a given string.
+             * @param {string} text - The string to analyze.
+             * @returns {{chars: number, words: number, lines: number}}
+             */
+            getStats(text) {
+                if (!text) {
+                    return { chars: 0, words: 0, lines: 0 };
+                }
+                
+                const chars = text.length;
+                const words = (text.match(/\S+/g) || []).length;
+                const lines = text.split('\n').length;
+                
+                return { chars, words, lines };
+            }
+
+            /**
+             * Copies the output text to the clipboard with a fallback.
+             */
+            copyOutput() {
+                const textToCopy = this.el.outputText.value;
+                if (!textToCopy) {
+                    this.showToast('Nothing to copy', 'error');
+                    return;
+                }
+
+                try {
+                    // Modern async clipboard API
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        this.showToast('Copied to clipboard!');
+                    }).catch(err => {
+                        // Fallback for iFrames or older browsers
+                        this.copyFallback(textToCopy);
+                    });
+                } catch (err) {
+                    // Fallback for environments where clipboard API is not available
+                    this.copyFallback(textToCopy);
+                }
+            }
+
+            /**
+             * Fallback copy method using document.execCommand.
+             */
+            copyFallback(text) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed'; // Avoid scrolling
+                textArea.style.top = '-9999px';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    this.showToast('Copied to clipboard!');
+                } catch (err) {
+                    this.showToast('Failed to copy', 'error');
+                    console.error('Fallback copy failed: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+
+            /**
+             * Shows a toast notification.
+             * @param {string} message - The text to display.
+             * @param {'success' | 'error'} type - The type of toast.
+             */
+            showToast(message, type = 'success') {
+                this.el.toast.textContent = message;
+                this.el.toast.className = `fixed bottom-0 left-1/2 -translate-x-1/2 font-semibold py-2 px-5 rounded-lg shadow-lg ${type === 'error' ? 'bg-red-600 text-white' : 'bg-white text-black'}`;
+                
+                this.el.toast.classList.add('show');
+                setTimeout(() => this.el.toast.classList.remove('show'), 2000);
+            }
+
+            /**
+             * Debounce utility to limit function calls.
+             */
+            debounce(func, delay) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new TextToolkit(); // Correctly instantiates the class
+        });
+    </script>
+</body>
+</html>

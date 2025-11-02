@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Image Background Remover (for Solid Colors) | Solite</title>
+    <meta name="description" content="Instantly remove multiple solid color backgrounds from images and logos with this free, private online tool. Uses color keying and thresholding. No AI, no uploads, 100% private.">
+    <meta name="keywords" content="background remover, remove background from image, transparent background, image background remover, color keying, chroma key, solite, free tool, privacy first, remove white background, multi-color removal">
+    <link rel="canonical" href="https://solite.in/image-background-remover.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Image Background Remover (for Solid Colors) | Solite">
+    <meta property="og:description" content="Instantly remove multiple solid color backgrounds from images and logos with this free, private online tool. No AI, no uploads.">
+    <meta property="og:url" content="https://solite.in/image-background-remover.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/image-background-remover-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Background Remover (Lite)",
+      "url": "https://solite.in/image-background-remover.html",
+      "description": "A free, client-side tool to remove multiple solid color backgrounds from images using color keying and thresholding.",
+      "applicationCategory": "MultimediaApplication",
+      "featureList": [ "Remove solid color backgrounds", "Remove multiple color layers", "Color picker for background selection", "Adjustable removal threshold", "Download as transparent PNG", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Remove Multiple Solid Backgrounds from an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image onto the canvas or click to select a file." },
+          { "@type": "HowToStep", "name": "Step 2: Pick First Background Color", "text": "Click on the background color in the image preview that you want to remove. You can also select it manually." },
+          { "@type": "HowToStep", "name": "Step 3: Adjust Threshold", "text": "Use the 'Tolerance' slider to fine-tune the removal. You will see a live preview." },
+          { "@type": "HowToStep", "name": "Step 4: Add Removal", "text": "Click the 'Add Color Removal' button to 'lock in' this removal." },
+          { "@type": "HowToStep", "name": "Step 5: Repeat", "text": "Repeat steps 2-4 to remove more color layers." },
+          { "@type": "HowToStep", "name": "Step 6: Download", "text": "Click the 'Download as PNG' button to save your image with all removals applied." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Image Background Remover"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { 
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] },
+                    animation: { 'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
+                },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+        #toast.show { transform: translateY(2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+        .checkerboard { background-image: linear-gradient(45deg, #374151 25%, transparent 25%), linear-gradient(-45deg, #374151 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #374151 75%), linear-gradient(-45deg, transparent 75%, #374151 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+        /* Style for the removal list */
+        #removal-list .removal-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(185, 28, 28, 0.3); /* MODIFIED: bg-red-800/30 - Less transparent */
+            /* border: 1px solid #b91c1c; */ /* REMOVED: Border */
+            border: none; /* MODIFIED: Ensure no border */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 0.5rem 0.75rem; /* p-2 p-3 */
+            font-family: 'Roboto Mono', monospace;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+            color: #f87171; /* NEW: text-red-400 */
+        }
+        #removal-list .removal-item:hover {
+            /* border-color: #f87171; */ /* REMOVED: Border */
+            background-color: rgba(185, 28, 28, 0.4); /* MODIFIED: hover:bg-red-800/40 */
+        }
+        #removal-list .color-swatch {
+            width: 1.25rem; /* w-5 */
+            height: 1.25rem; /* h-5 */
+            border-radius: 0.25rem; /* rounded */
+            border: 1px solid #4b5563; /* border-gray-600 */
+            flex-shrink: 0;
+        }
+        /* MODIFIED: Style to match the 'clear' button */
+        #removal-list .remove-item-btn {
+            background-color: transparent; /* MODIFIED: Transparent BG */
+            color: #f87171; /* text-red-400 */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.25rem; /* p-1 */
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+            border: none; /* MODIFIED: Removed border */
+        }
+        #removal-list .remove-item-btn:hover {
+            background-color: rgba(248, 113, 113, 0.2); /* MODIFIED: hover:bg-red-400/20 */
+            border: none; /* MODIFIED: Removed border */
+        }
+
+        /* --- NEW: Disabled state styling --- */
+        button:disabled,
+        .control-group:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        button:disabled {
+            pointer-events: none; /* Extra insurance */
+        }
+        
+        /* Make fieldset:disabled apply to children */
+        .control-group:disabled > * {
+            pointer-events: none;
+        }
+
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Background Remover</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Image Background Remover</h1>
+            <!-- Controls Panel -->
+            <!-- MODIFIED: Changed bg-gray-900 to bg-gray-900/50 and rounded-xl to rounded-2xl -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900/50 rounded-2xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <!-- MODIFIED: Added flex container and Undo/Redo buttons -->
+                <div class="flex-shrink-0 flex justify-between items-center">
+                    <h2 id="controls-heading" class="text-xl font-bold text-white">Background Remover</h2>
+                    <!-- MODIFIED: Combined buttons into a border-group -->
+                    <div class="flex border border-gray-700 rounded-lg overflow-hidden">
+                        <button id="undo-btn" title="Undo" class="p-2 hover:bg-gray-800 text-gray-400" disabled>
+                            <!-- MODIFIED: Line icon -->
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+                        </button>
+                        <button id="redo-btn" title="Redo" class="p-2 hover:bg-gray-800 text-gray-400 border-l border-gray-700" disabled>
+                            <!-- MODIFIED: Line icon -->
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <!-- Step 1 -->
+                    <div id="upload-section" class="space-y-2 control-group">
+                        <!-- MODIFIED: Removed "1. " -->
+                        <label class="font-medium">Upload Image</label>
+                        <!-- MODIFIED: Changed border colors -->
+                        <div id="drop-zone" class="cursor-pointer border-2 border-dashed border-gray-700 hover:border-gray-600 rounded-lg p-6 text-center transition-colors">
+                            <p class="font-semibold">Drop an image here</p>
+                            <p class="text-sm text-gray-400">or click to select file</p>
+                            <input type="file" id="image-upload" class="hidden" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div id="main-controls" class="hidden space-y-6">
+                        <!-- Step 2 -->
+                        <fieldset id="step-2-group" class="space-y-2 control-group" disabled>
+                            <!-- MODIFIED: Removed "2. " -->
+                            <label for="color-picker" class="font-medium">Pick Color & Tolerance</label>
+                            <div class="flex items-center gap-2">
+                                <!-- MODIFIED: Changed bg-gray-800 to bg-gray-900/50 -->
+                                <input type="color" id="color-picker" value="#ffffff" class="w-16 h-10 p-1 bg-gray-900/50 rounded-lg cursor-pointer border border-gray-700">
+                                <!-- MODIFIED: Changed bg-gray-800 to bg-gray-900/50 -->
+                                <input type="text" id="hex-input" value="#ffffff" class="w-full p-2 rounded-lg bg-gray-900/50 border border-gray-700 font-mono">
+                            </div>
+                            <p class="text-xs text-gray-400">Click on the image preview to pick a color.</p>
+                        </fieldset>
+                        <fieldset id="step-2-slider-group" class="space-y-2 control-group" disabled>
+                            <label for="threshold-slider" class="font-medium">Tolerance (<span id="threshold-label">20</span>)</label>
+                            <input type="range" id="threshold-slider" min="0" max="100" value="20" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <p class="text-xs text-gray-400">Higher values remove more similar colors.</p>
+                        </fieldset>
+
+                        <!-- Step 3: Commit Button -->
+                        <fieldset id="step-3-group" class="space-y-2 pt-4 border-t border-gray-800 control-group" disabled>
+                             <!-- MODIFIED: Removed "3. " -->
+                             <label class="font-medium">Add Color Removal</label>
+                             <!-- MODIFIED: Changed accent color to gray-800 base -->
+                            <button id="commit-btn" class="w-full bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-all" disabled>
+                                <!-- MODIFIED: Line icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span id="commit-btn-text">Pick a color to add</span>
+                            </button>
+                        </fieldset>
+
+                         <!-- Active Removal List -->
+                        <div class="space-y-3 pt-4 border-t border-gray-800">
+                            <label class="font-medium">Active Removals</label>
+                            <div id="removal-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                                <p id="removal-list-empty" class="text-xs text-gray-500">No colors removed yet. Use the button above to add the currently selected color.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Download/Reset -->
+                        <fieldset id="step-4-group" class="space-y-3 pt-4 border-t border-gray-800 control-group" disabled>
+                             <!-- MODIFIED: Removed "4. " -->
+                             <label class="font-medium">Download</label>
+                             <!-- MODIFIED: Reverted to "total white" style -->
+                            <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                                <span>Download as PNG</span>
+                            </button>
+                            <!-- REMOVED: "Start Over" button removed from here -->
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <!-- MODIFIED: Changed bg-gray-900 to bg-gray-900/50 and rounded-xl to rounded-2xl -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900/50 rounded-2xl border border-gray-800 overflow-hidden">
+                <div id="preview-container" class="flex-grow flex items-center justify-center p-4 checkerboard relative overflow-auto">
+                    <canvas id="canvas" class="max-w-full max-h-full shadow-lg" style="cursor: crosshair;"></canvas>
+                    <!-- NEW: "Clear" button added to the preview corner -->
+                    <!-- MODIFIED: Removed border classes, reduced transparency -->
+                    <button id="remove-image-btn" class="absolute top-3 right-3 bg-red-800/30 hover:bg-red-800/40 text-red-400 font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2 hidden transition-all duration-150" title="Clear Image">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
+                                <span>Clear</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Mobile Navigation Bar -->
+        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Success!</div>
+
+    <script>
+        class BackgroundRemover {
+            constructor() {
+                this.cacheDOMElements();
+                this.attachEventListeners();
+                this.handleMobileLayout();
+                
+                // --- STATE ---
+                this.originalImageData = null; // The untouched, original image
+                this.processedImageData = null; // The image with *all committed removals* applied
+                this.committedRemovals = []; // Array of {r, g, b, threshold, hex} objects
+                this.originalFileName = 'image.png';
+                
+                // --- NEW: History State ---
+                this.history = []; // Stores snapshots of committedRemovals
+                this.historyIndex = -1; // Pointer to the current state in history
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    uploadSection: document.getElementById('upload-section'),
+                    mainControls: document.getElementById('main-controls'),
+                    dropZone: document.getElementById('drop-zone'),
+                    imageUpload: document.getElementById('image-upload'),
+                    canvas: document.getElementById('canvas'),
+                    colorPicker: document.getElementById('color-picker'),
+                    hexInput: document.getElementById('hex-input'),
+                    thresholdSlider: document.getElementById('threshold-slider'),
+                    thresholdLabel: document.getElementById('threshold-label'),
+                    downloadBtn: document.getElementById('download-btn'),
+                    removeImageBtn: document.getElementById('remove-image-btn'),
+                    toast: document.getElementById('toast'),
+                    mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                    mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                    outputPane: document.getElementById('output-pane'),
+                    controlsPane: document.getElementById('controls-pane'),
+                    // --- NEW ELEMENTS ---
+                    commitBtn: document.getElementById('commit-btn'),
+                    commitBtnText: document.getElementById('commit-btn-text'),
+                    removalList: document.getElementById('removal-list'),
+                    removalListEmpty: document.getElementById('removal-list-empty'),
+                    undoBtn: document.getElementById('undo-btn'),
+                    redoBtn: document.getElementById('redo-btn'),
+                    // --- NEW: Control Groups ---
+                    step2Group: document.getElementById('step-2-group'),
+                    step2SliderGroup: document.getElementById('step-2-slider-group'),
+                    step3Group: document.getElementById('step-3-group'),
+                    step4Group: document.getElementById('step-4-group'),
+                };
+                this.ctx = this.el.canvas.getContext('2d');
+            }
+
+            attachEventListeners() {
+                this.el.dropZone.addEventListener('click', () => this.el.imageUpload.click());
+                this.el.imageUpload.addEventListener('change', (e) => this.handleFile(e.target.files[0]));
+                this.el.dropZone.addEventListener('dragover', (e) => { e.preventDefault(); this.el.dropZone.classList.add('border-blue-500'); });
+                this.el.dropZone.addEventListener('dragleave', () => this.el.dropZone.classList.remove('border-blue-500'));
+                this.el.dropZone.addEventListener('drop', (e) => { e.preventDefault(); this.el.dropZone.classList.remove('border-blue-500'); this.handleFile(e.dataTransfer.files[0]); });
+                
+                this.el.canvas.addEventListener('click', (e) => this.pickColorFromCanvas(e));
+                
+                // --- MODIFIED: These listeners now trigger the "live preview" ---
+                this.el.colorPicker.addEventListener('input', this.debounce(() => { 
+                    this.el.hexInput.value = this.el.colorPicker.value; 
+                    this.processImagePreview(); 
+                    this.activateCommitButton(); // --- NEW ---
+                }, 100));
+                this.el.hexInput.addEventListener('input', this.debounce(() => { 
+                    this.el.colorPicker.value = this.el.hexInput.value; 
+                    this.processImagePreview(); 
+                    this.activateCommitButton(); // --- NEW ---
+                }, 250));
+                this.el.thresholdSlider.addEventListener('input', () => { 
+                    this.el.thresholdLabel.textContent = this.el.thresholdSlider.value; 
+                    this.processImagePreview(); 
+                    this.activateCommitButton(); // --- NEW ---
+                });
+                
+                this.el.downloadBtn.addEventListener('click', () => this.downloadImage());
+                this.el.removeImageBtn.addEventListener('click', () => this.resetUI());
+
+                this.el.mobileOutputBtn.addEventListener('click', () => this.showMobilePane('output'));
+                this.el.mobileControlsBtn.addEventListener('click', () => this.showMobilePane('controls'));
+                window.addEventListener('resize', () => this.handleMobileLayout());
+
+                // --- NEW LISTENERS ---
+                this.el.commitBtn.addEventListener('click', () => this.commitRemoval());
+                this.el.undoBtn.addEventListener('click', () => this.undo());
+                this.el.redoBtn.addEventListener('click', () => this.redo());
+            }
+
+            handleFile(file) {
+                if (!file || !file.type.startsWith('image/')) {
+                    this.showToast('Please upload a valid image file.', true);
+                    return;
+                }
+                this.originalFileName = file.name;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.el.canvas.width = img.width;
+                        this.el.canvas.height = img.height;
+                        this.ctx.drawImage(img, 0, 0);
+                        
+                        // --- NEW STATE INITIALIZATION ---
+                        this.originalImageData = this.ctx.getImageData(0, 0, img.width, img.height);
+                        // Create a copy for the processed data
+                        this.processedImageData = new ImageData(new Uint8ClampedArray(this.originalImageData.data), this.originalImageData.width, this.originalImageData.height);
+                        this.committedRemovals = [];
+                        
+                        // --- NEW: Reset history and save initial state ---
+                        this.history = [];
+                        this.historyIndex = -1;
+                        this.saveState(); // Save the initial empty state
+                        
+                        this.el.uploadSection.classList.add('hidden');
+                        this.el.mainControls.classList.remove('hidden');
+                        
+                        // --- NEW: Enable controls ---
+                        this.el.step2Group.disabled = false;
+                        this.el.step2SliderGroup.disabled = false;
+                        this.el.step3Group.disabled = false;
+                        this.el.step4Group.disabled = false;
+                        this.el.commitBtn.disabled = true; // Disabled until user picks
+                        this.el.commitBtnText.textContent = 'Pick a color to add';
+                        this.el.removeImageBtn.classList.remove('hidden'); // Show the new "Clear" button
+                        
+                        this.updateRemovalListUI(); // Show the "no colors" message
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            resetUI() {
+                // --- RESET ALL STATE ---
+                this.originalImageData = null;
+                this.processedImageData = null;
+                this.committedRemovals = [];
+                this.originalFileName = 'image.png';
+                
+                // --- NEW: Reset history ---
+                this.history = [];
+                this.historyIndex = -1;
+                this.updateUndoRedoButtons(); // Disable them
+
+                this.ctx.clearRect(0, 0, this.el.canvas.width, this.el.canvas.height);
+                this.el.imageUpload.value = '';
+                this.el.uploadSection.classList.remove('hidden');
+                this.el.mainControls.classList.add('hidden');
+
+                // --- NEW: Reset disabled states ---
+                this.el.step2Group.disabled = true;
+                this.el.step2SliderGroup.disabled = true;
+                this.el.step3Group.disabled = true;
+                this.el.step4Group.disabled = true;
+                this.el.commitBtn.disabled = true;
+                this.el.commitBtnText.textContent = 'Pick a color to add';
+                this.el.commitBtn.classList.remove('animate-pulse-fast');
+                this.el.removeImageBtn.classList.add('hidden'); // Hide the "Clear" button
+
+                this.updateRemovalListUI(); // This will clear the list
+            }
+
+            pickColorFromCanvas(e) {
+                // Use original image data for picking to get the "true" color
+                if (!this.originalImageData) return;
+
+                const rect = this.el.canvas.getBoundingClientRect();
+                const x = Math.floor((e.clientX - rect.left) * (this.el.canvas.width / rect.width));
+                const y = Math.floor((e.clientY - rect.top) * (this.el.canvas.height / rect.height));
+                
+                // Pick from the *original* image data buffer
+                const index = (y * this.originalImageData.width + x) * 4;
+                const pixel = this.originalImageData.data.slice(index, index + 4);
+
+                const hex = `#${('000000' + ((pixel[0] << 16) | (pixel[1] << 8) | pixel[2]).toString(16)).slice(-6)}`;
+                this.el.colorPicker.value = hex;
+                this.el.hexInput.value = hex;
+                
+                // Show live preview
+                this.processImagePreview();
+                // --- NEW: Activate button ---
+                this.activateCommitButton();
+            }
+
+            /**
+             * NEW: Shows a "live preview" of the *active* color removal
+             * on top of the *committed* removals.
+             */
+            processImagePreview() {
+                if (!this.processedImageData) return; // Don't run if no image is loaded
+
+                const targetColorHex = this.el.hexInput.value;
+                const threshold = parseInt(this.el.thresholdSlider.value);
+                
+                const r = parseInt(targetColorHex.slice(1, 3), 16);
+                const g = parseInt(targetColorHex.slice(3, 5), 16);
+                const b = parseInt(targetColorHex.slice(5, 7), 16);
+
+                // Start from the *committed* image data
+                const imageData = new ImageData(new Uint8ClampedArray(this.processedImageData.data), this.processedImageData.width, this.processedImageData.height);
+                const data = imageData.data;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    // Only process pixels that are not already transparent
+                    if (data[i + 3] > 0) { 
+                        const distance = Math.sqrt(
+                            Math.pow(data[i] - r, 2) +
+                            Math.pow(data[i + 1] - g, 2) +
+                            Math.pow(data[i + 2] - b, 2)
+                        );
+                        if (distance <= threshold) {
+                            data[i + 3] = 0; // Set alpha to 0 (transparent)
+                        }
+                    }
+                }
+                this.ctx.putImageData(imageData, 0, 0);
+            }
+
+            // --- NEW: Method to enable the commit button ---
+            activateCommitButton() {
+                if (!this.originalImageData) return; // Don't enable if no image
+                this.el.commitBtn.disabled = false;
+                this.el.commitBtnText.textContent = `Add ${this.el.hexInput.value} (T:${this.el.thresholdSlider.value})`;
+                // MODIFIED: Removed pulse for white button
+                // this.el.commitBtn.classList.add('animate-pulse-fast');
+                
+                // --- NEW: Premium button enable style ---
+                // When enabled, it gets a "primary" feel
+                this.el.commitBtn.classList.remove('bg-gray-800', 'border-gray-700', 'text-gray-300');
+                this.el.commitBtn.classList.add('bg-white', 'text-black', 'border-transparent');
+            }
+
+            /**
+             * NEW: "Locks in" the active color removal and adds it
+             * to the committed list.
+             */
+            commitRemoval() {
+                const targetColorHex = this.el.hexInput.value;
+                const threshold = parseInt(this.el.thresholdSlider.value);
+                
+                const r = parseInt(targetColorHex.slice(1, 3), 16);
+                const g = parseInt(targetColorHex.slice(3, 5), 16);
+                const b = parseInt(targetColorHex.slice(5, 7), 16);
+
+                // Add to our list
+                this.committedRemovals.push({ r, g, b, threshold, hex: targetColorHex });
+                
+                // --- NEW: Save state to history ---
+                this.saveState();
+
+                // Re-calculate the base processed image from scratch
+                this.rebuildProcessedImageData();
+
+                // Update the UI
+                this.updateRemovalListUI();
+
+                // Show the next live preview (which will just be the committed state)
+                this.processImagePreview();
+                
+                // --- NEW: Deactivate commit button ---
+                this.el.commitBtn.disabled = true;
+                this.el.commitBtnText.textContent = 'Pick a new color to add';
+                // MODIFIED: Removed pulse for white button
+                // this.el.commitBtn.classList.remove('animate-pulse-fast');
+
+                // --- NEW: Revert button to disabled style ---
+                this.el.commitBtn.classList.add('bg-gray-800', 'border-gray-700', 'text-gray-300');
+                this.el.commitBtn.classList.remove('bg-white', 'text-black', 'border-transparent');
+                
+                this.showToast('Color removal added!', false);
+            }
+
+            /**
+             * NEW: Re-calculates the processedImageData from the
+             * original image + all committed removals.
+             */
+            rebuildProcessedImageData() {
+                if (!this.originalImageData) return;
+
+                // Start from a fresh copy of the original
+                this.processedImageData = new ImageData(new Uint8ClampedArray(this.originalImageData.data), this.originalImageData.width, this.originalImageData.height);
+                const data = this.processedImageData.data;
+
+                // Apply *each* committed removal
+                for (let i = 0; i < data.length; i += 4) {
+                    // Only process pixels that are already visible
+                    if (data[i + 3] === 0) continue;
+
+                    for (const removal of this.committedRemovals) {
+                        const distance = Math.sqrt(
+                            Math.pow(data[i] - removal.r, 2) +
+                            Math.pow(data[i + 1] - removal.g, 2) +
+                            Math.pow(data[i + 2] - removal.b, 2)
+                        );
+                        if (distance <= removal.threshold) {
+                            data[i + 3] = 0; // Set alpha to 0
+                            break; // Move to next pixel
+                        }
+                    }
+                }
+            }
+
+            /**
+             * NEW: Updates the visual list of committed removals.
+             */
+            updateRemovalListUI() {
+                this.el.removalList.innerHTML = ''; // Clear list
+                if (this.committedRemovals.length === 0) {
+                    this.el.removalListEmpty.classList.remove('hidden');
+                    return;
+                }
+                
+                this.el.removalListEmpty.classList.add('hidden');
+
+                this.committedRemovals.forEach((removal, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'removal-item';
+                    item.innerHTML = `
+                        <div class="flex items-center gap-2">
+                            <div class="color-swatch" style="background-color: ${removal.hex};"></div>
+                            <span>${removal.hex} (T:${removal.threshold})</span>
+                        </div>
+                        <button class="remove-item-btn" data-index="${index}" title="Remove this color">
+                            <!-- MODIFIED: Line icon -->
+                            <svg class="w-5 h-5 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    `;
+                    item.querySelector('button').addEventListener('click', (e) => this.removeCommittedColor(e));
+                    this.el.removalList.appendChild(item);
+                });
+            }
+
+             /**
+             * NEW: Removes a color from the committed list and rebuilds.
+             */
+            removeCommittedColor(e) {
+                // The dataset.index is on the button
+                const index = parseInt(e.currentTarget.dataset.index);
+                this.committedRemovals.splice(index, 1);
+                
+                // --- NEW: Save state to history ---
+                this.saveState();
+
+                this.rebuildProcessedImageData();
+                this.updateRemovalListUI();
+                this.processImagePreview();
+                
+                // --- NEW: Deactivate commit button ---
+                this.el.commitBtn.disabled = true;
+                this.el.commitBtnText.textContent = 'Pick a new color to add';
+                // MODIFIED: Removed pulse for white button
+                // this.el.commitBtn.classList.remove('animate-pulse-fast');
+                
+                // --- NEW: Revert button to disabled style ---
+                this.el.commitBtn.classList.add('bg-gray-800', 'border-gray-700', 'text-gray-300');
+                this.el.commitBtn.classList.remove('bg-white', 'text-black', 'border-transparent');
+            }
+
+
+            /**
+             * MODIFIED: Downloads the *committed* image data,
+             * not the live preview.
+             */
+            downloadImage() {
+                if (!this.processedImageData) {
+                    this.showToast('No image to download.', true);
+                    return;
+                }
+
+                // 1. Temporarily draw the *committed* data to the canvas
+                this.ctx.putImageData(this.processedImageData, 0, 0);
+
+                // 2. Create the download link
+                const link = document.createElement('a');
+                const baseName = this.originalFileName.substring(0, this.originalFileName.lastIndexOf('.')) || 'solite_generated_transparent_image';
+                link.download = `${baseName}-transparent.png`;
+                link.href = this.el.canvas.toDataURL('image/png');
+                link.click();
+
+                // 3. Redraw the live preview
+                this.processImagePreview();
+            }
+
+            // --- NEW: UNDO/REDO LOGIC ---
+
+            /**
+             * Saves a deep copy of the current `committedRemovals` to the history stack.
+             */
+            saveState() {
+                // Clear any "redo" history if we're branching off
+                if (this.historyIndex < this.history.length - 1) {
+                    this.history = this.history.slice(0, this.historyIndex + 1);
+                }
+                
+                // Create a deep copy of the array and its objects
+                const newState = this.committedRemovals.map(removal => ({ ...removal }));
+                this.history.push(newState);
+                this.historyIndex = this.history.length - 1;
+                
+                this.updateUndoRedoButtons();
+            }
+
+            /**
+             * Reverts to the previous state in the history.
+             */
+            undo() {
+                if (this.historyIndex <= 0) return; // Cannot undo past the initial empty state
+
+                this.historyIndex--;
+                // Get a deep copy from history
+                this.committedRemovals = this.history[this.historyIndex].map(r => ({ ...r }));
+                
+                this.rebuildAndRedraw();
+                this.updateUndoRedoButtons();
+            }
+
+            /**
+             * Moves forward to the next state in the history.
+             */
+            redo() {
+                if (this.historyIndex >= this.history.length - 1) return; // Already at the newest state
+
+                this.historyIndex++;
+                // Get a deep copy from history
+                this.committedRemovals = this.history[this.historyIndex].map(r => ({ ...r }));
+
+                this.rebuildAndRedraw();
+                this.updateUndoRedoButtons();
+            }
+
+            /**
+             * Helper to update all UI after an undo/redo.
+             */
+            rebuildAndRedraw() {
+                this.rebuildProcessedImageData();
+                this.updateRemovalListUI();
+                this.processImagePreview();
+                
+                // Deactivate commit button as the state is now "clean"
+                this.el.commitBtn.disabled = true;
+                this.el.commitBtnText.textContent = 'Pick a new color to add';
+                // MODIFIED: Removed pulse for white button
+                // this.el.commitBtn.classList.remove('animate-pulse-fast');
+
+                // --- NEW: Revert button to disabled style ---
+                this.el.commitBtn.classList.add('bg-gray-800', 'border-gray-700', 'text-gray-300');
+                this.el.commitBtn.classList.remove('bg-white', 'text-black', 'border-transparent');
+            }
+
+            /**
+             * Updates the disabled state of Undo/Redo buttons.
+             */
+            updateUndoRedoButtons() {
+                if (!this.el.undoBtn) return; // Guard if called too early
+                this.el.undoBtn.disabled = this.historyIndex <= 0;
+                this.el.redoBtn.disabled = this.historyIndex >= this.history.length - 1;
+            }
+
+            // --- END: UNDO/REDO LOGIC ---
+
+
+            showToast(message, isError = false) {
+                this.el.toast.textContent = message;
+                this.el.toast.className = `fixed top-0 left-1/2 -translate-x-1/2 font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 ${isError ? 'bg-red-500 text-white' : 'bg-white text-black'}`;
+                this.el.toast.classList.add('show');
+                setTimeout(() => this.el.toast.classList.remove('show'), 3000);
+            }
+
+            debounce(func, delay) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            }
+
+            showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    this.el.outputPane.classList.remove('hidden'); this.el.outputPane.classList.add('flex');
+                    this.el.controlsPane.classList.add('hidden');
+                    this.el.mobileOutputBtn.classList.add('active'); this.el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    this.el.outputPane.classList.add('hidden'); this.el.outputPane.classList.remove('flex');
+                    this.el.controlsPane.classList.remove('hidden'); this.el.controlsPane.classList.add('flex');
+                    this.el.mobileOutputBtn.classList.remove('active'); this.el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    this.showMobilePane(this.el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    this.el.outputPane.classList.remove('hidden'); this.el.outputPane.classList.add('flex');
+                    this.el.controlsPane.classList.remove('hidden'); this.el.controlsPane.classList.add('flex');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new BackgroundRemover();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

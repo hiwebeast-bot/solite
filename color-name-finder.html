@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Color Name Finder (CSS, Crayola, Design) | Solite</title>
+    <meta name="description" content="Find the nearest named color for any HEX code or by picking from an image. A free, private tool for designers to discover names for CSS, Crayola, and common design system colors.">
+    <meta name="keywords" content="color name finder, color name, nearest color, css color names, crayola colors, design system colors, color picker, color tool, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/color-name-finder.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Color Name Finder | Solite">
+    <meta property="og:description" content="Find the nearest named color for any HEX code or by picking from an image. A free, private tool for designers to discover names for CSS, Crayola, and common design system colors.">
+    <meta property="og:url" content="https://solite.in/color-name-finder.html">
+    <meta property="og:site_name" content="Solite App Suite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/color-name-finder-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Color Name Finder",
+      "url": "https://solite.in/color-name-finder.html",
+      "description": "A free, client-side tool to find the nearest named color for any HEX code from CSS, Crayola, and common design system palettes.",
+      "applicationCategory": "DesignApplication",
+      "featureList": [ "Find nearest named color", "Pick color from an image", "Enter HEX code manually", "Supports CSS, Crayola, and Design System color names", "Client-side processing for 100% privacy", "Save color palette" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Find a Color Name",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Provide a Color", "text": "Enter a HEX code, use the color picker, or upload an image and click on a pixel." },
+          { "@type": "HowToStep", "name": "Step 2: View Results", "text": "The tool will instantly show the nearest matching named colors from different palettes like CSS and Crayola." },
+          { "@type": "HowToStep", "name": "Step 3: Save to Palette", "text": "Click 'Add to Palette' to save your favorite colors for later." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Color Name Finder"
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        #zoom-loupe {
+            position: absolute; width: 128px; height: 128px; border-radius: 50%; border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); image-rendering: pixelated; image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges; pointer-events: none; display: none; overflow: hidden;
+            background-color: #111; z-index: 10;
+        }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Color Name Finder</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+      NEW LAYOUT: 
+      - Main container is flex-col (mobile) and lg:flex-row (desktop)
+      - This creates a single scrollable column on mobile and a 3-column layout on desktop.
+      - The old mobile nav bar and its JS logic have been completely removed.
+    -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <!-- Main content area: 3-column layout on desktop, single column on mobile -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Color Name Finder</h1>
+
+            <!-- Column 1: Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Find a Color Name</h2>
+                <!-- Scrolling content area for controls -->
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-6">
+                    <div class="space-y-2">
+                        <label for="hex-input" class="font-medium">Enter HEX or Pick Color</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="hex-input" value="#4F46E5" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono">
+                            <input type="color" id="color-picker" value="#4F46E5" class="w-16 h-auto p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label class="font-medium">...or Pick from an Image</label>
+                        <div id="image-drop-zone" class="cursor-pointer border-2 border-dashed border-gray-600 hover:border-gray-400 rounded-lg p-6 text-center transition-colors">
+                            <p class="font-semibold">Drop an image here</p>
+                            <p class="text-sm text-gray-400">or click to select file</p>
+                            <input type="file" id="image-upload" class="hidden" accept="image/*">
+                        </div>
+                        <div id="image-info" class="hidden text-sm text-center text-gray-400 items-center justify-center gap-2">
+                            <span id="image-name" class="truncate"></span>
+                            <button id="remove-image-btn" class="flex-shrink-0 flex items-center gap-1 text-red-400 hover:text-red-300 font-semibold bg-gray-800 hover:bg-gray-700 px-2 py-1 rounded-md" title="Clear Image">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                               <span>Clear</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Picked Colors Palette -->
+                    <div class="space-y-4 border-t border-gray-800 pt-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-medium">Picked Colors</h3>
+                            <div class="flex items-center gap-2">
+                                <button id="copy-palette-btn" class="text-sm bg-transparent hover:bg-gray-700/50 text-gray-400 hover:text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center gap-1.5" title="Copy all HEX codes">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                    Copy All
+                                </button>
+                                <button id="clear-palette-btn" class="text-sm bg-transparent hover:bg-red-500/20 text-red-500 hover:text-red-400 font-semibold py-2 px-3 rounded-lg transition-colors flex items-center gap-1.5" title="Clear all colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                                    Clear All
+                                </button>
+                            </div>
+                        </div>
+                        <div id="palette-container" class="space-y-2">
+                            <!-- Palette items will be injected here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Preview Panel (NEW) -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden min-h-[300px] lg:min-h-0">
+                <!-- Large color preview, shown by default -->
+                <div id="color-preview-large" class="flex-grow flex items-center justify-center p-4 transition-colors duration-200">
+                    <span class="text-gray-600 font-medium hidden">Upload an image to see it here</span>
+                </div>
+                <!-- Image preview, shown when an image is loaded -->
+                <div id="image-preview-container" class="flex-grow flex items-center justify-center p-4 relative overflow-auto hidden">
+                    <canvas id="image-canvas" class="max-w-full max-h-full"></canvas>
+                    <div id="zoom-loupe"></div>
+                </div>
+            </div>
+
+            <!-- Column 3: Results Panel -->
+            <div id="results-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="results-heading">
+                <h2 id="results-heading" class="text-xl font-bold text-white flex-shrink-0">Results</h2>
+                <!-- Scrolling content area for results -->
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-6">
+                    <div class="flex items-center gap-4">
+                        <div id="current-color-preview" class="w-20 h-20 rounded-lg border-2 border-gray-700 transition-colors duration-200"></div>
+                        <div class="space-y-1 font-mono text-sm w-full">
+                            <div class="flex items-center justify-between gap-2"><span class="text-gray-400">HEX</span> <span id="current-color-hex"></span></div>
+                            <div class="flex items-center justify-between gap-2"><span class="text-gray-400">RGB</span> <span id="current-color-rgb"></span></div>
+                            <div class="flex items-center justify-between gap-2"><span class="text-gray-400">HSL</span> <span id="current-color-hsl"></span></div>
+                        </div>
+                    </div>
+                    <div id="named-colors-output" class="space-y-4">
+                        <!-- Named colors will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- REMOVED: Mobile Navigation Bar -->
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        class ColorNameFinder {
+            constructor() {
+                this.ZOOM_FACTOR = 5;
+                this.LOUPE_SIZE = 128;
+                this.palette = [];
+                this.cacheDOMElements();
+                this.loadColorData().then(() => {
+                    this.attachEventListeners();
+                    this.loadPalette(); // Load saved palette
+                    this.updateFromHex(this.el.hexInput.value); // Load initial color
+                });
+            }
+
+            cacheDOMElements() {
+                this.el = {
+                    controlsPane: document.getElementById('controls-pane'),
+                    hexInput: document.getElementById('hex-input'),
+                    colorPicker: document.getElementById('color-picker'),
+                    imageDropZone: document.getElementById('image-drop-zone'),
+                    imageUpload: document.getElementById('image-upload'),
+                    imageInfo: document.getElementById('image-info'),
+                    imageName: document.getElementById('image-name'),
+                    removeImageBtn: document.getElementById('remove-image-btn'),
+                    
+                    // New/Modified Preview Pane elements
+                    previewPane: document.getElementById('preview-pane'),
+                    colorPreviewLarge: document.getElementById('color-preview-large'),
+                    imagePreviewContainer: document.getElementById('image-preview-container'), // Replaces imagePreviewPane
+                    imageCanvas: document.getElementById('image-canvas'),
+                    zoomLoupe: document.getElementById('zoom-loupe'),
+                    
+                    // Results Pane elements
+                    resultsPane: document.getElementById('results-pane'),
+                    currentColorPreview: document.getElementById('current-color-preview'),
+                    currentColorHex: document.getElementById('current-color-hex'),
+                    currentColorRgb: document.getElementById('current-color-rgb'),
+                    currentColorHsl: document.getElementById('current-color-hsl'),
+                    namedColorsOutput: document.getElementById('named-colors-output'),
+                    
+                    // New Palette elements
+                    copyPaletteBtn: document.getElementById('copy-palette-btn'),
+                    clearPaletteBtn: document.getElementById('clear-palette-btn'),
+                    paletteContainer: document.getElementById('palette-container'),
+
+                    toast: document.getElementById('toast'),
+                    
+                    // REMOVED: Mobile nav elements
+                };
+                this.ctx = this.el.imageCanvas.getContext('2d');
+            }
+
+            async loadColorData() {
+                // In a real app, you might fetch these from a JSON file
+                // For simplicity, they are included here.
+                this.colorData = {
+                    "CSS": [
+                        {"name":"AliceBlue","hex":"#F0F8FF"},{"name":"AntiqueWhite","hex":"#FAEBD7"},{"name":"Aqua","hex":"#00FFFF"},
+                        {"name":"Aquamarine","hex":"#7FFFD4"},{"name":"Azure","hex":"#F0FFFF"},{"name":"Beige","hex":"#F5F5DC"},
+                        {"name":"Bisque","hex":"#FFE4C4"},{"name":"Black","hex":"#000000"},{"name":"BlanchedAlmond","hex":"#FFEBCD"},
+                        {"name":"Blue","hex":"#0000FF"},{"name":"BlueViolet","hex":"#8A2BE2"},{"name":"Brown","hex":"#A52A2A"},
+                        {"name":"BurlyWood","hex":"#DEB887"},{"name":"CadetBlue","hex":"#5F9EA0"},{"name":"Chartreuse","hex":"#7FFF00"},
+                        {"name":"Chocolate","hex":"#D2691E"},{"name":"Coral","hex":"#FF7F50"},{"name":"CornflowerBlue","hex":"#6495ED"},
+                        {"name":"Cornsilk","hex":"#FFF8DC"},{"name":"Crimson","hex":"#DC143C"},{"name":"Cyan","hex":"#00FFFF"},
+                        {"name":"DarkBlue","hex":"#00008B"},{"name":"DarkCyan","hex":"#008B8B"},{"name":"DarkGoldenRod","hex":"#B8860B"},
+                        {"name":"DarkGray","hex":"#A9A9A9"},{"name":"DarkGreen","hex":"#006400"},{"name":"DarkKhaki","hex":"#BDB76B"},
+                        {"name":"DarkMagenta","hex":"#8B008B"},{"name":"DarkOliveGreen","hex":"#556B2F"},{"name":"DarkOrange","hex":"#FF8C00"},
+                        {"name":"DarkOrchid","hex":"#9932CC"},{"name":"DarkRed","hex":"#8B0000"},{"name":"DarkSalmon","hex":"#E9967A"},
+                        {"name":"DarkSlateBlue","hex":"#483D8B"},{"name":"DarkSlateGray","hex":"#2F4F4F"},{"name":"DarkTurquoise","hex":"#00CED1"},
+                        {"name":"DarkViolet","hex":"#9400D3"},{"name":"DeepPink","hex":"#FF1493"},{"name":"DeepSkyBlue","hex":"#00BFFF"},
+                        {"name":"DimGray","hex":"#696969"},{"name":"DodgerBlue","hex":"#1E90FF"},{"name":"FireBrick","hex":"#B22222"},
+                        {"name":"FloralWhite","hex":"#FFFAF0"},{"name":"ForestGreen","hex":"#228B22"},{"name":"Fuchsia","hex":"#FF00FF"},
+                        {"name":"Gainsboro","hex":"#DCDCDC"},{"name":"GhostWhite","hex":"#F8F8FF"},{"name":"Gold","hex":"#FFD700"},
+                        {"name":"GoldenRod","hex":"#DAA520"},{"name":"Gray","hex":"#808080"},{"name":"Green","hex":"#008000"},
+                        {"name":"GreenYellow","hex":"#ADFF2F"},{"name":"HoneyDew","hex":"#F0FFF0"},{"name":"HotPink","hex":"#FF69B4"},
+                        {"name":"IndianRed","hex":"#CD5C5C"},{"name":"Indigo","hex":"#4B0082"},{"name":"Ivory","hex":"#FFFFF0"},
+                        {"name":"Khaki","hex":"#F0E68C"},{"name":"Lavender","hex":"#E6E6FA"},{"name":"LavenderBlush","hex":"#FFF0F5"},
+                        {"name":"LawnGreen","hex":"#7CFC00"},{"name":"LemonChiffon","hex":"#FFFACD"},{"name":"LightBlue","hex":"#ADD8E6"},
+                        {"name":"LightCoral","hex":"#F08080"},{"name":"LightCyan","hex":"#E0FFFF"},{"name":"LightGoldenRodYellow","hex":"#FAFAD2"},
+                        {"name":"LightGray","hex":"#D3D3D3"},{"name":"LightGreen","hex":"#90EE90"},{"name":"LightPink","hex":"#FFB6C1"},
+                        {"name":"LightSalmon","hex":"#FFA07A"},{"name":"LightSeaGreen","hex":"#20B2AA"},{"name":"LightSkyBlue","hex":"#87CEFA"},
+                        {"name":"LightSlateGray","hex":"#778899"},{"name":"LightSteelBlue","hex":"#B0C4DE"},{"name":"LightYellow","hex":"#FFFFE0"},
+                        {"name":"Lime","hex":"#00FF00"},{"name":"LimeGreen","hex":"#32CD32"},{"name":"Linen","hex":"#FAF0E6"},
+                        {"name":"Magenta","hex":"#FF00FF"},{"name":"Maroon","hex":"#800000"},{"name":"MediumAquaMarine","hex":"#66CDAA"},
+                        {"name":"MediumBlue","hex":"#0000CD"},{"name":"MediumOrchid","hex":"#BA55D3"},{"name":"MediumPurple","hex":"#9370DB"},
+                        {"name":"MediumSeaGreen","hex":"#3CB371"},{"name":"MediumSlateBlue","hex":"#7B68EE"},{"name":"MediumSpringGreen","hex":"#00FA9A"},
+                        {"name":"MediumTurquoise","hex":"#48D1CC"},{"name":"MediumVioletRed","hex":"#C71585"},{"name":"MidnightBlue","hex":"#191970"},
+                        {"name":"MintCream","hex":"#F5FFFA"},{"name":"MistyRose","hex":"#FFE4E1"},{"name":"Moccasin","hex":"#FFE4B5"},
+                        {"name":"NavajoWhite","hex":"#FFDEAD"},{"name":"Navy","hex":"#000080"},{"name":"OldLace","hex":"#FDF5E6"},
+                        {"name":"Olive","hex":"#808000"},{"name":"OliveDrab","hex":"#6B8E23"},{"name":"Orange","hex":"#FFA500"},
+                        {"name":"OrangeRed","hex":"#FF4500"},{"name":"Orchid","hex":"#DA70D6"},{"name":"PaleGoldenRod","hex":"#EEE8AA"},
+                        {"name":"PaleGreen","hex":"#98FB98"},{"name":"PaleTurquoise","hex":"#AFEEEE"},{"name":"PaleVioletRed","hex":"#DB7093"},
+                        {"name":"PapayaWhip","hex":"#FFEFD5"},{"name":"PeachPuff","hex":"#FFDAB9"},{"name":"Peru","hex":"#CD853F"},
+                        {"name":"Pink","hex":"#FFC0CB"},{"name":"Plum","hex":"#DDA0DD"},{"name":"PowderBlue","hex":"#B0E0E6"},
+                        {"name":"Purple","hex":"#800080"},{"name":"RebeccaPurple","hex":"#663399"},{"name":"Red","hex":"#FF0000"},
+                        {"name":"RosyBrown","hex":"#BC8F8F"},{"name":"RoyalBlue","hex":"#4169E1"},{"name":"SaddleBrown","hex":"#8B4513"},
+                        {"name":"Salmon","hex":"#FA8072"},{"name":"SandyBrown","hex":"#F4A460"},{"name":"SeaGreen","hex":"#2E8B57"},
+                        {"name":"SeaShell","hex":"#FFF5EE"},{"name":"Sienna","hex":"#A0522D"},{"name":"Silver","hex":"#C0C0C0"},
+                        {"name":"SkyBlue","hex":"#87CEEB"},{"name":"SlateBlue","hex":"#6A5ACD"},{"name":"SlateGray","hex":"#708090"},
+                        {"name":"Snow","hex":"#FFFAFA"},{"name":"SpringGreen","hex":"#00FF7F"},{"name":"SteelBlue","hex":"#4682B4"},
+                        {"name":"Tan","hex":"#D2B48C"},{"name":"Teal","hex":"#008080"},{"name":"Thistle","hex":"#D8BFD8"},
+                        {"name":"Tomato","hex":"#FF6347"},{"name":"Turquoise","hex":"#40E0D0"},{"name":"Violet","hex":"#EE82EE"},
+                        {"name":"Wheat","hex":"#F5DEB3"},{"name":"White","hex":"#FFFFFF"},{"name":"WhiteSmoke","hex":"#F5F5F5"},
+                        {"name":"Yellow","hex":"#FFFF00"},{"name":"YellowGreen","hex":"#9ACD32"}
+                    ],
+                    "Crayola": [
+                        {"name":"Red","hex":"#EE204D"},{"name":"Maroon","hex":"#C8385A"},{"name":"Scarlet","hex":"#FC2847"},
+                        {"name":"Brick Red","hex":"#C62D42"},{"name":"Orange","hex":"#FF7538"},{"name":"Red Orange","hex":"#FF5349"},
+                        {"name":"Yellow Orange","hex":"#FFAE42"},{"name":"Yellow","hex":"#FCE883"},{"name":"Green Yellow","hex":"#F0E891"},
+                        {"name":"Green","hex":"#1CAC78"},{"name":"Blue Green","hex":"#199EBD"},{"name":"Blue","hex":"#1F75FE"},
+                        {"name":"Cerulean","hex":"#1DACD6"},{"name":"Indigo","hex":"#5D76CB"},{"name":"Blue Violet","hex":"#7366BD"},
+                        {"name":"Violet (Purple)","hex":"#926EAE"},{"name":"Red Violet","hex":"#C0448F"},{"name":"Carnation Pink","hex":"#FFAACC"},
+                        {"name":"White","hex":"#FFFFFF"},{"name":"Black","hex":"#000000"},{"name":"Gray","hex":"#95918C"},
+                        {"name":"Brown","hex":"#B4674D"},{"name":"Apricot","hex":"#FDD9B5"},{"name":"Asparagus","hex":"#87A96B"}
+                    ],
+                    "Design System": [
+                        {"name":"Blue","hex":"#007AFF"},{"name":"Indigo","hex":"#5856D6"},{"name":"Purple","hex":"#AF52DE"},
+                        {"name":"Pink","hex":"#FF2D55"},{"name":"Red","hex":"#FF3B30"},{"name":"Orange","hex":"#FF9500"},
+                        {"name":"Yellow","hex":"#FFCC00"},{"name":"Green","hex":"#34C759"},{"name":"Teal","hex":"#5AC8FA"},
+                        {"name":"Cyan","hex":"#32ADE6"},{"name":"Mint","hex":"#63E6E2"},{"name":"Gray","hex":"#8E8E93"},
+                        {"name":"Charcoal","hex":"#1C1C1E"},{"name":"Slate","hex":"#2C2C2E"},{"name":"Silver","hex":"#3A3A3C"}
+                    ]
+                };
+
+                // Pre-calculate LAB values for all named colors
+                for (const category in this.colorData) {
+                    this.colorData[category].forEach(color => {
+                        color.lab = this.rgbToLab(this.hexToRgb(color.hex));
+                    });
+                }
+            }
+
+            attachEventListeners() {
+                this.el.hexInput.addEventListener('input', this.debounce(() => this.updateFromHex(this.el.hexInput.value), 250));
+                this.el.colorPicker.addEventListener('input', () => this.updateFromHex(this.el.colorPicker.value));
+                this.el.imageDropZone.addEventListener('click', () => this.el.imageUpload.click());
+                this.el.imageUpload.addEventListener('change', (e) => this.handleImage(e.target.files[0]));
+                this.el.imageDropZone.addEventListener('dragover', (e) => { e.preventDefault(); this.el.imageDropZone.classList.add('border-blue-500'); });
+                this.el.imageDropZone.addEventListener('dragleave', () => this.el.imageDropZone.classList.remove('border-blue-500'));
+                this.el.imageDropZone.addEventListener('drop', (e) => { e.preventDefault(); this.el.imageDropZone.classList.remove('border-blue-500'); this.handleImage(e.dataTransfer.files[0]); });
+                this.el.removeImageBtn.addEventListener('click', () => this.removeImage());
+                this.el.imageCanvas.addEventListener('mousemove', (e) => this.handlePointerMove(e.clientX, e.clientY));
+                this.el.imageCanvas.addEventListener('click', (e) => this.handleCanvasClick(e.clientX, e.clientY));
+                this.el.imageCanvas.addEventListener('mouseenter', () => { this.el.zoomLoupe.style.display = 'block'; });
+                this.el.imageCanvas.addEventListener('mouseleave', () => { this.el.zoomLoupe.style.display = 'none'; });
+                
+                // New Palette Listeners
+                this.el.copyPaletteBtn.addEventListener('click', () => this.copyPalette());
+                this.el.clearPaletteBtn.addEventListener('click', () => this.clearPalette());
+                this.el.paletteContainer.addEventListener('click', (e) => this.handlePaletteClick(e));
+
+                // REMOVED: Mobile nav listeners
+            }
+
+            // --- Color Logic ---
+            hexToRgb(hex) { const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : null; }
+            rgbToHex(r, g, b) { return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase(); }
+            hexToHsl(hex) { const rgb = this.hexToRgb(hex); if (!rgb) return { h: 0, s: 0, l: 0 }; let { r, g, b } = rgb; r /= 255, g /= 255, b /= 255; const max = Math.max(r, g, b), min = Math.min(r, g, b); let h, s, l = (max + min) / 2; if (max === min) { h = s = 0; } else { const d = max - min; s = l > 0.5 ? d / (2 - max - min) : d / (max + min); switch (max) { case r: h = (g - b) / d + (g < b ? 6 : 0); break; case g: h = (b - r) / d + 2; break; case b: h = (r - g) / d + 4; break; } h /= 6; } return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) }; }
+            rgbToLab({ r, g, b }) {
+                let [x, y, z] = [r / 255, g / 255, b / 255].map(v => v > 0.04045 ? Math.pow((v + 0.055) / 1.055, 2.4) : v / 12.92).map(v => v * 100);
+                [x, y, z] = [x * 0.4124 + y * 0.3576 + z * 0.1805, x * 0.2126 + y * 0.7152 + z * 0.0722, x * 0.0193 + y * 0.1192 + z * 0.9505];
+                [x, y, z] = [x / 95.047, y / 100, z / 108.883].map(v => v > 0.008856 ? Math.pow(v, 1 / 3) : (7.787 * v) + 16 / 116);
+                return { l: (116 * y) - 16, a: 500 * (x - y), b: 200 * (y - z) };
+            }
+            deltaE(lab1, lab2) { return Math.sqrt(Math.pow(lab1.l - lab2.l, 2) + Math.pow(lab1.a - lab2.a, 2) + Math.pow(lab1.b - lab2.b, 2)); }
+
+            findNearestColor(lab, category) {
+                let minDistance = Infinity;
+                let nearestColor = null;
+                this.colorData[category].forEach(color => {
+                    const distance = this.deltaE(lab, color.lab);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearestColor = color;
+                    }
+                });
+                return nearestColor;
+            }
+
+            // --- UI Updates ---
+            updateFromHex(hex) {
+                if (!/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex)) return;
+                const rgb = this.hexToRgb(hex);
+                if (!rgb) return;
+                const hsl = this.hexToHsl(hex);
+                const lab = this.rgbToLab(rgb);
+
+                this.el.hexInput.value = hex;
+                this.el.colorPicker.value = hex;
+                this.el.currentColorPreview.style.backgroundColor = hex;
+                this.el.colorPreviewLarge.style.backgroundColor = hex; // Update new large preview
+                this.el.currentColorHex.textContent = hex;
+                this.el.currentColorRgb.textContent = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
+                this.el.currentColorHsl.textContent = `${hsl.h}, ${hsl.s}%, ${hsl.l}%`;
+
+                this.el.namedColorsOutput.innerHTML = '';
+                for (const category in this.colorData) {
+                    const nearest = this.findNearestColor(lab, category);
+                    this.el.namedColorsOutput.innerHTML += this.createNamedColorElement(category, nearest);
+                }
+            }
+
+            createNamedColorElement(category, color) {
+                return `
+                    <div class="space-y-2">
+                        <h3 class="font-semibold text-white">${category}</h3>
+                        <div class="flex items-center gap-3 p-3 bg-gray-800 border border-gray-700 rounded-lg">
+                            <div class="w-10 h-10 rounded-md flex-shrink-0" style="background-color: ${color.hex};"></div>
+                            <div class="flex-grow">
+                                <p class="font-semibold text-white cursor-pointer" title="Click to copy name" onclick="navigator.clipboard.writeText('${color.name}').then(() => document.dispatchEvent(new CustomEvent('showtoast', { detail: 'Name copied!' })))">${color.name}</p>
+                                <p class="font-mono text-sm text-gray-400 cursor-pointer" title="Click to copy hex" onclick="navigator.clipboard.writeText('${color.hex}').then(() => document.dispatchEvent(new CustomEvent('showtoast', { detail: 'HEX copied!' })))">${color.hex}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // --- Image Handling (MODIFIED) ---
+            handleImage(file) {
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.el.imageName.textContent = file.name;
+                        this.el.imageInfo.classList.remove('hidden');
+                        this.el.imageDropZone.classList.add('hidden');
+                        
+                        // Show image preview, hide color preview
+                        this.el.imagePreviewContainer.classList.remove('hidden');
+                        this.el.colorPreviewLarge.classList.add('hidden');
+
+                        const container = this.el.imagePreviewContainer;
+                        const containerWidth = container.clientWidth - 16;
+                        const containerHeight = container.clientHeight - 16;
+                        const imgAspectRatio = img.width / img.height;
+                        const containerAspectRatio = containerWidth / containerHeight;
+
+                        let displayWidth, displayHeight;
+                        if (imgAspectRatio > containerAspectRatio) {
+                            displayWidth = containerWidth;
+                            displayHeight = containerWidth / imgAspectRatio;
+                        } else {
+                            displayHeight = containerHeight;
+                            displayWidth = containerHeight * imgAspectRatio;
+                        }
+
+                        this.el.imageCanvas.width = displayWidth;
+                        this.el.imageCanvas.height = displayHeight;
+                        this.ctx.drawImage(img, 0, 0, displayWidth, displayHeight);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            removeImage() {
+                this.ctx.clearRect(0, 0, this.el.imageCanvas.width, this.el.imageCanvas.height);
+                this.el.imageInfo.classList.add('hidden');
+                this.el.imageDropZone.classList.remove('hidden');
+                
+                // Hide image preview, show color preview
+                this.el.imagePreviewContainer.classList.add('hidden');
+                this.el.colorPreviewLarge.classList.remove('hidden');
+
+                this.el.imageUpload.value = '';
+            }
+
+            handlePointerMove(clientX, clientY) {
+                const rect = this.el.imageCanvas.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+                const clampedX = Math.max(0, Math.min(x, this.el.imageCanvas.width - 1));
+                const clampedY = Math.max(0, Math.min(y, this.el.imageCanvas.height - 1));
+                if (clampedX >= 0 && clampedY >= 0) {
+                    try {
+                        const pixel = this.ctx.getImageData(clampedX, clampedY, 1, 1).data;
+                        const hex = this.rgbToHex(pixel[0], pixel[1], pixel[2]);
+                        this.updateFromHex(hex);
+                        this.updateLoupe(clientX, clientY, clampedX, clampedY);
+                    } catch (e) { console.warn("Could not get pixel data:", e); }
+                }
+            }
+
+            handleCanvasClick(clientX, clientY) {
+                // The mousemove already updates the color, so a click just finalizes it.
+                // this.showToast('Color selected!');
+                this.addToPalette(); // Automatically add color to palette on click
+            }
+
+            updateLoupe(clientX, clientY, canvasX, canvasY) {
+                this.el.zoomLoupe.style.left = `${clientX - this.LOUPE_SIZE / 2}px`;
+                this.el.zoomLoupe.style.top = `${clientY - this.LOUPE_SIZE / 2}px`;
+                this.el.zoomLoupe.style.backgroundImage = `url(${this.el.imageCanvas.toDataURL()})`;
+                this.el.zoomLoupe.style.backgroundSize = `${this.el.imageCanvas.width * this.ZOOM_FACTOR}px ${this.el.imageCanvas.height * this.ZOOM_FACTOR}px`;
+                const bgX = -(canvasX * this.ZOOM_FACTOR - this.LOUPE_SIZE / 2);
+                const bgY = -(canvasY * this.ZOOM_FACTOR - this.LOUPE_SIZE / 2);
+                this.el.zoomLoupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
+            }
+
+            // --- NEW Palette Logic ---
+            addToPalette() {
+                const hex = this.el.hexInput.value.toUpperCase();
+                if (!/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex)) return;
+
+                const index = this.palette.indexOf(hex);
+                let toastMessage = 'Color added to palette';
+
+                if (index > -1) {
+                    // Color already exists, remove it from its old position
+                    this.palette.splice(index, 1);
+                    toastMessage = 'Color moved to end of palette';
+                }
+                
+                // Add the new color to the end (most recent)
+                this.palette.push(hex);
+
+                // Enforce the 12-color limit (FIFO)
+                if (this.palette.length > 12) {
+                    this.palette.shift(); // Remove the oldest color
+                }
+                
+                this.savePalette();
+                this.renderPalette();
+                this.showToast(toastMessage);
+            }
+
+            copyPalette() {
+                if (this.palette.length === 0) {
+                    this.showToast('Palette is empty');
+                    return;
+                }
+                const textToCopy = this.palette.join('\n');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    this.showToast('All colors copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy palette:', err);
+                    this.showToast('Failed to copy colors');
+                });
+            }
+
+            clearPalette() {
+                if (this.palette.length === 0) {
+                    this.showToast('Palette is already empty');
+                    return;
+                }
+                this.palette = [];
+                this.savePalette();
+                this.renderPalette();
+                this.showToast('Palette cleared');
+            }
+
+            handlePaletteClick(e) {
+                const item = e.target.closest('.palette-item');
+                if (!item) return;
+                const hex = item.dataset.hex;
+
+                if (e.target.closest('.palette-remove-btn')) {
+                    this.removeFromPalette(hex);
+                } else {
+                    // Cicking anywhere else on the item (like the swatch) selects it
+                    this.updateFromHex(hex);
+                    this.showToast('Color selected from palette');
+                }
+            }
+
+            removeFromPalette(hex) {
+                this.palette = this.palette.filter(h => h !== hex);
+                this.savePalette();
+                this.renderPalette();
+                this.showToast('Color removed from palette');
+            }
+
+            savePalette() {
+                try {
+                    localStorage.setItem('solite-color-palette', JSON.stringify(this.palette));
+                } catch (e) {
+                    console.error('Could not save palette to localStorage:', e);
+                }
+            }
+
+            loadPalette() {
+                try {
+                    const saved = localStorage.getItem('solite-color-palette');
+                    if (saved) {
+                        this.palette = JSON.parse(saved);
+                        this.renderPalette();
+                    } else {
+                        this.renderPalette(); // Render empty state
+                    }
+                } catch (e) {
+                    console.error('Could not load palette from localStorage:', e);
+                    this.palette = [];
+                    this.renderPalette(); // Render empty state
+                }
+            }
+
+            renderPalette() {
+                if (this.palette.length === 0) {
+                    this.el.paletteContainer.innerHTML = `<p class="text-sm text-gray-500 italic">Your saved colors will appear here.</p>`;
+                    return;
+                }
+
+                this.el.paletteContainer.innerHTML = this.palette.map(hex => `
+                    <div class="palette-item flex items-center justify-between gap-2 p-2 bg-gray-800 rounded-lg cursor-pointer" data-hex="${hex}">
+                        <div class="flex items-center gap-2 flex-grow">
+                            <div class="palette-color-swatch w-8 h-8 rounded-md flex-shrink-0" style="background-color: ${hex}; border: 1px solid #4B5563;"></div>
+                            <span class="font-mono text-sm text-gray-300">${hex}</span>
+                        </div>
+                        <button class="palette-remove-btn text-gray-500 hover:text-red-400 p-1 rounded-full hover:bg-gray-700 flex-shrink-0" title="Remove color">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="pointer-events: none;"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // --- Utilities ---
+            debounce(func, delay) { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; }
+            showToast(message) { this.el.toast.textContent = message; this.el.toast.classList.add('show'); setTimeout(() => this.el.toast.classList.remove('show'), 2000); }
+            getLuminance(l) { return l / 100; }
+
+            // --- REMOVED: Mobile Layout Logic ---
+            // showMobilePane(), handleInitialLayout(), handleMobileLayout() are no longer needed.
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.colorNameFinder = new ColorNameFinder();
+        });
+        document.addEventListener('showtoast', (e) => {
+            if (window.colorNameFinder) {
+                window.colorNameFinder.showToast(e.detail);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
