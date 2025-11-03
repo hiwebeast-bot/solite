@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Open Graph & Twitter Card Meta Tag Generator | Solite</title>
+    <meta name="description" content="Instantly generate and preview Open Graph and Twitter Card meta tags for perfect social sharing. Customize title, description, image, and card type with our free, private online tool.">
+    <meta name="keywords" content="open graph generator, twitter card generator, meta tag generator, social share preview, og tags, twitter card, seo tool, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/open-graph-generator.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for this page -->
+    <meta property="og:title" content="Free Open Graph & Twitter Card Meta Tag Generator | Solite">
+    <meta property="og:description" content="Instantly generate and preview Open Graph and Twitter Card meta tags for perfect social sharing. Customize title, description, image, and card type with our free, private online tool.">
+    <meta property="og:url" content="https://solite.in/open-graph-generator.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/open-graph-generator-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Open Graph & Twitter Card Meta Tag Generator | Solite">
+    <meta name="twitter:description" content="Instantly generate and preview Open Graph and Twitter Card meta tags for perfect social sharing.">
+    <meta name="twitter:image" content="https://solite.in/assets/open-graph-generator-thumbnail.png">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Open Graph & Twitter Card Generator",
+      "url": "https://solite.in/open-graph-generator.html",
+      "description": "A free, client-side tool to generate and preview Open Graph and Twitter Card meta tags for perfect social sharing and SEO.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Open Graph tag generation", "Twitter Card tag generation", "Live social media previews", "Customizable title, description, image, URL, and site name", "Selectable card types (summary, summary_large_image)", "Copy generated HTML code", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Generate Open Graph Meta Tags",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Enter Your Content", "text": "Fill in the Title, Description, URL, and Image URL for the page you want to share." },
+          { "@type": "HowToStep", "name": "Step 2: Customize Card Types", "text": "Choose the Open Graph type (e.g., 'website', 'article') and the Twitter card type (e.g., 'summary_large_image')." },
+          { "@type": "HowToStep", "name": "Step 3: Copy the Code", "text": "The tool will instantly generate all the necessary HTML meta tags. Click the 'Copy Code' button and paste them into the <head> section of your HTML file." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Open Graph Generator"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are Open Graph tags?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open Graph (OG) tags are snippets of code that control how URLs are displayed when shared on social media. They're part of Facebook's Open Graph protocol and are also used by other sites like LinkedIn. They allow you to specify the title, description, and image for a shared link." }
+      },{
+        "@type": "Question",
+        "name": "What are Twitter Cards?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Twitter Cards are similar to Open Graph tags but are specific to Twitter. They allow you to attach rich photos, videos, and media experiences to Tweets that drive traffic to your website. If you don't specify Twitter Card tags, Twitter will fall back to using your Open Graph tags." }
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        .preview-tab-btn { border: 1px solid #4b5563; color: #9ca3af; background-color: transparent; }
+        .preview-tab-btn.active { border-color: #f3f4f6; color: #f3f4f6; }
+        .preview-bg-light { background-color: #f3f4f6; }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d"M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Open Graph Generator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Open Graph and Twitter Card Meta Tag Generator</h1>
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Metadata Input</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-4 pb-16 lg:pb-6">
+                    <div class="space-y-1"><label for="title" class="font-medium text-sm">Title</label><input type="text" id="title" name="title" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700" placeholder="Your Page Title"><span class="text-xs text-gray-400" id="title-counter">0 / 60 chars</span></div>
+                    <div class="space-y-1"><label for="description" class="font-medium text-sm">Description</label><textarea id="description" name="description" rows="3" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700" placeholder="Your page description..."></textarea><span class="text-xs text-gray-400" id="desc-counter">0 / 160 chars</span></div>
+                    
+                    <!-- *** MODIFIED SECTION START *** -->
+                    <!-- Button has been removed. -->
+                    <div class="space-y-1">
+                        <label for="url" class="font-medium text-sm">URL</label>
+                        <div class="flex items-center gap-2">
+                            <input type="url" id="url" name="url" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 flex-grow" placeholder="https://example.com/page">
+                            <!-- Download button removed from here -->
+                        </div>
+                        <!-- URL error span removed from here -->
+                    </div>
+                    <!-- Button logic removed from here -->
+                    <div class="space-y-1">
+                        <label for="imageUrl" class="font-medium text-sm">Image URL</label>
+                        <div class="flex items-center gap-2">
+                            <input type="url" id="imageUrl" name="imageUrl" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 flex-grow" placeholder="https://example.com/image.png">
+                        </div>
+                    </div>
+                    <!-- *** MODIFIED SECTION END *** -->
+                    
+                    <div class="space-y-1"><label for="siteName" class="font-medium text-sm">Site Name</label><input type="text" id="siteName" name="siteName" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700" placeholder="My Awesome Site"></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1"><label for="ogType" class="font-medium text-sm">OG Type</label><select id="ogType" name="ogType" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"><option value="website">website</option><option value="article">article</option><option value="book">book</option><option value="profile">profile</option></select></div>
+                        <div class="space-y-1"><label for="twitterCard" class="font-medium text-sm">Twitter Card</label><select id="twitterCard" name="twitterCard" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700"><option value="summary_large_image">summary_large_image</option><option value="summary">summary</option></select></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-shrink-0 p-2 border-b border-gray-800 bg-gray-800/50 flex justify-between items-center">
+                    <div class="flex items-center justify-start gap-2">
+                        <button id="preview-tab-btn" class="preview-tab-btn font-medium py-2 px-4 rounded-lg text-sm transition-colors active flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>Preview</button>
+                        <button id="code-tab-btn" class="preview-tab-btn font-medium py-2 px-4 rounded-lg text-sm transition-colors flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>Code</button>
+                    </div>
+                    <button id="copy-code-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm hidden"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy Code</span></button>
+                </div>
+                <!-- *** MODIFIED LINE *** Added min-h-0 to ensure flex-grow + overflow-auto works reliably -->
+                <div id="preview-content" class="flex-grow flex flex-col items-center justify-start p-4 sm:p-8 overflow-auto preview-bg-light space-y-8 min-h-0">
+                    <!-- Previews will be injected here -->
+                </div>
+                <div id="code-content" class="hidden flex-grow">
+                    <textarea id="code-output" readonly class="w-full h-full p-4 font-mono text-sm bg-gray-900 border-0 resize-none focus:outline-none" aria-label="Generated Meta Tags"></textarea>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    </main>
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg><span>Controls</span></button>
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Output</span></button>
+        </div>
+    </div>
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2"><a href="./about.html" class="hover:text-white transition-colors">About</a><a href="./blog.html" class="hover:text-white transition-colors">Blog</a><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // *** MODIFIED SECTION START ***
+            // Default state is now empty to show placeholders
+            const state = {
+                title: "",
+                description: "",
+                url: "",
+                imageUrl: "",
+                siteName: "",
+                ogType: 'website',
+                twitterCard: 'summary_large_image'
+            };
+            // *** MODIFIED SECTION END ***
+
+            const el = {
+                inputs: {
+                    title: document.getElementById('title'),
+                    description: document.getElementById('description'),
+                    url: document.getElementById('url'),
+                    imageUrl: document.getElementById('imageUrl'),
+                    siteName: document.getElementById('siteName'),
+                    ogType: document.getElementById('ogType'),
+                    twitterCard: document.getElementById('twitterCard')
+                },
+                counters: {
+                    title: document.getElementById('title-counter'),
+                    description: document.getElementById('desc-counter')
+                },
+                // *** MODIFIED LINE *** Removed urlError
+                previewContent: document.getElementById('preview-content'),
+                codeContent: document.getElementById('code-content'),
+                codeOutput: document.getElementById('code-output'),
+                previewTabBtn: document.getElementById('preview-tab-btn'),
+                codeTabBtn: document.getElementById('code-tab-btn'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                // *** MODIFIED LINE *** Removed downloadOgImageBtn
+                toast: document.getElementById('toast'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane')
+            };
+
+            const debounce = (func, delay) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
+            const showToast = (message) => { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); };
+
+            const updateState = (key, value) => { 
+                state[key] = value; 
+                renderAll(); 
+                // *** MODIFIED SECTION START ***
+                // All logic related to the download button and URL error
+                // has been removed for simplicity.
+                // *** MODIFIED SECTION END ***
+            };
+
+            const renderAll = () => {
+                renderPreviews();
+                renderCode();
+                updateCounters();
+            };
+
+            const renderPreviews = () => {
+                const { title, description, url, imageUrl, siteName, twitterCard } = state;
+                
+                // *** MODIFIED SECTION START ***
+                // Added try...catch to prevent invalid URLs from crashing the preview
+                let domain = 'example.com';
+                try {
+                    // *** MODIFIED LINE *** Use placeholder if url is empty
+                    if (url) domain = new URL(url).hostname;
+                } catch (e) {
+                    // Invalid URL, use default 'example.com'
+                    // The error message is already handled by updateState
+                }
+                // *** MODIFIED SECTION END ***
+
+                const twitterCardClass = twitterCard === 'summary' ? 'flex items-center gap-4' : '';
+                const twitterImageClass = twitterCard === 'summary' ? 'w-36 h-36 flex-shrink-0' : 'aspect-video';
+
+                el.previewContent.innerHTML = `
+                    <!-- *** MODIFIED LINE *** Added flex-shrink-0 to prevent card from squishing -->
+                    <div class="w-full max-w-xl rounded-2xl border border-gray-200 bg-white overflow-hidden text-left flex-shrink-0">
+                        <div class="${twitterImageClass} bg-gray-200 flex items-center justify-center text-gray-400">
+                            <!-- *** MODIFIED LINE *** Simplified placeholder logic -->
+                            ${imageUrl ? `<img src="${imageUrl}" class="w-full h-full object-cover" alt="Preview">` : 'Image Preview'}
+                        </div>
+                        <div class="p-3 border-t border-gray-200">
+                            <p class="text-sm text-gray-500 uppercase truncate">${domain}</p>
+                            <!-- *** MODIFIED LINE *** Use placeholder text -->
+                            <h3 class="font-bold text-black mt-1 truncate">${title || 'Your Page Title'}</h3>
+                            <!-- *** MODIFIED LINE *** Use placeholder text -->
+                            <p class="text-sm text-gray-600 mt-1">${description ? description.substring(0, 100) + (description.length > 100 ? '...' : '') : 'Your page description...'}</p>
+                        </div>
+                    </div>
+                    <!-- *** MODIFIED LINE *** Added flex-shrink-0 to prevent card from squishing -->
+                    <div class="w-full max-w-xl rounded-lg bg-white overflow-hidden text-left border border-gray-200 flex-shrink-0">
+                        <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-400">
+                            <!-- *** MODIFIED LINE *** Simplified placeholder logic -->
+                            ${imageUrl ? `<img src="${imageUrl}" class="w-full h-full object-cover" alt="Preview">` : 'Image Preview'}
+                        </div>
+                        <div class="p-3 bg-gray-100">
+                            <!-- *** MODIFIED LINE *** Use placeholder text -->
+                            <p class="text-xs text-gray-500 uppercase truncate">${siteName || 'My Awesome Site'}</p>
+                            <!-- *** MODIFIED LINE *** Use placeholder text -->
+                            <h3 class="font-semibold text-gray-900 mt-1 truncate">${title || 'Your Page Title'}</h3>
+                            <!-- *** MODIFIED LINE *** Use placeholder text -->
+                            <p class="text-sm text-gray-600 mt-1">${description ? description.substring(0, 50) + (description.length > 50 ? '...' : '') : 'A short description...'}</p>
+                        </div>
+                    </div>
+                `;
+            };
+
+            // *** MODIFIED SECTION START ***
+            // Updated to show placeholders in the code output as well
+            const renderCode = () => {
+                const { title, description, url, imageUrl, siteName, ogType, twitterCard } = state;
+
+                // Use placeholders if state is empty
+                const pTitle = title || 'Your Page Title';
+                const pDesc = description || 'Your page description...';
+                const pUrl = url || 'https://example.com/page';
+                const pImg = imageUrl || 'https://example.com/image.png';
+                const pSite = siteName || 'My Awesome Site';
+
+                const tags = [
+                    `<!-- Primary Meta Tags -->`,
+                    `<title>${pTitle}</title>`,
+                    `<meta name="title" content="${pTitle}">`,
+                    `<meta name="description" content="${pDesc}">`,
+                    ``,
+                    `<!-- Open Graph / Facebook -->`,
+                    `<meta property="og:type" content="${ogType}">`,
+                    `<meta property="og:url" content="${pUrl}">`,
+                    `<meta property="og:title" content="${pTitle}">`,
+                    `<meta property="og:description" content="${pDesc}">`,
+                    `<meta property="og:image" content="${pImg}">`,
+                    `<meta property="og:site_name" content="${pSite}">`,
+                    ``,
+                    `<!-- Twitter -->`,
+                    `<meta property="twitter:card" content="${twitterCard}">`,
+                    `<meta property="twitter:url" content="${pUrl}">`,
+                    `<meta property="twitter:title" content="${pTitle}">`,
+                    `<meta property="twitter:description" content="${pDesc}">`,
+                    `<meta property="twitter:image" content="${pImg}">`
+                ];
+                el.codeOutput.value = tags.join('\n');
+            };
+            // *** MODIFIED SECTION END ***
+
+            const updateCounters = () => {
+                el.counters.title.textContent = `${state.title.length} / 60 chars`;
+                el.counters.title.classList.toggle('text-red-400', state.title.length > 60);
+                el.counters.description.textContent = `${state.description.length} / 160 chars`;
+                el.counters.description.classList.toggle('text-red-400', state.description.length > 160);
+            };
+
+            const showMobilePane = (paneId) => {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+                }
+            };
+
+            const handleMobileLayout = () => {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                }
+            };
+
+            // Event Listeners
+            Object.keys(el.inputs).forEach(key => {
+                el.inputs[key].addEventListener('input', debounce((e) => updateState(key, e.target.value), 200));
+                el.inputs[key].value = state[key];
+            });
+
+            el.previewTabBtn.addEventListener('click', () => {
+                el.previewContent.classList.remove('hidden'); el.codeContent.classList.add('hidden');
+                el.copyCodeBtn.classList.add('hidden');
+                el.previewTabBtn.classList.add('active'); el.codeTabBtn.classList.remove('active');
+            });
+            el.codeTabBtn.addEventListener('click', () => {
+                el.previewContent.classList.add('hidden'); el.codeContent.classList.remove('hidden');
+                el.previewTabBtn.classList.remove('active'); el.codeTabBtn.classList.add('active');
+                el.copyCodeBtn.classList.remove('hidden');
+            });
+
+            // *** MODIFIED SECTION START ***
+            // Download button click handler has been removed.
+            // *** MODIFIED SECTION END ***
+
+            el.copyCodeBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.codeOutput.value).then(() => showToast('Code copied!'));
+            });
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial Render
+            renderAll();
+            handleMobileLayout();
+            // *** MODIFIED SECTION START ***
+            // Removed triggers for button state
+            // *** MODIFIED SECTION END ***
+        });
+    </script>
+</body>
+</html>
+

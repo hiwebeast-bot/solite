@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Transcript Timestamp Remover | Clean YouTube & Subtitle Files | Solite</title>
+    <meta name="description" content="Remove timestamps from YouTube & subtitle transcripts instantly. Paste text or upload .srt/.txt files to get clean text. No upload, entirely in your browser for 100% privacy.">
+    <meta name="keywords" content="remove timestamps from transcript, transcript cleaner, youtube transcript cleaner, srt timestamp remover, online timestamp remover, free text tool, solite">
+    <link rel="canonical" href="https://solite.in/transcript-timestamp-remover.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Transcript Timestamp Remover | Solite">
+    <meta property="og:description" content="Instantly remove timestamps from YouTube and subtitle transcripts. Paste text or upload files to get clean text without uploading your data.">
+    <meta property="og:url" content="https://solite.in/transcript-timestamp-remover.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/transcript-timestamp-remover-thumbnail.png">
+    <meta name="author" content="Solite">
+    <meta name="publisher" content="Solite">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Transcript Timestamp Remover | Solite">
+    <meta name="twitter:description" content="Instantly remove timestamps from YouTube and subtitle transcripts. Paste text or upload files to get clean text without uploading your data.">
+    <meta name="twitter:image" content="https://solite.in/assets/transcript-timestamp-remover-thumbnail.png">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://solite.in/#organization",
+          "name": "Solite",
+          "url": "https://solite.in/",
+          "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://solite.in/#website",
+          "url": "https://solite.in/",
+          "name": "Solite",
+          "publisher": { "@id": "https://solite.in/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://solite.in/transcript-timestamp-remover.html#webpage",
+          "url": "https://solite.in/transcript-timestamp-remover.html",
+          "name": "Free Transcript Timestamp Remover | Clean YouTube & Subtitle Files | Solite",
+          "isPartOf": { "@id": "https://solite.in/#website" },
+          "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/transcript-timestamp-remover-thumbnail.png" },
+          "description": "Remove timestamps from YouTube & subtitle transcripts instantly. Paste text or upload .srt/.txt files to get clean text. No upload, entirely in your browser for 100% privacy.",
+          "mainEntity": { "@id": "https://solite.in/transcript-timestamp-remover.html#webapp" }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://solite.in/transcript-timestamp-remover.html#webapp",
+          "name": "Transcript Timestamp Remover",
+          "url": "https://solite.in/transcript-timestamp-remover.html",
+          "description": "A free, client-side tool to remove timestamps from YouTube, Zoom, and other video transcripts.",
+          "applicationCategory": "UtilitiesApplication",
+          "featureList": [
+            "Remove timestamps from text",
+            "Upload .srt or .txt files",
+            "Auto-detects common timestamp formats",
+            "Copy cleaned text",
+            "Download cleaned .txt file",
+            "Client-side processing for 100% privacy"
+          ],
+          "offers": { "@type": "Offer", "price": "0" },
+          "operatingSystem": "All",
+          "publisher": { "@id": "https://solite.in/#organization" },
+          "author": { "@id": "https://solite.in/#organization" },
+          "mainEntityOfPage": { "@id": "https://solite.in/transcript-timestamp-remover.html#webpage" }
+        }
+      ]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Transcript Timestamp Remover</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Transcript Timestamp Remover</h1>
+            
+            <!-- Input Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Input Transcript</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="upload-btn" title="Upload .txt or .srt file" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 hover:bg-gray-700 text-sm font-medium">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                            <span>Upload</span>
+                        </button>
+                        <input type="file" id="file-upload" class="hidden" accept=".txt,.srt">
+                        <button id="clear-btn" title="Clear Input" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 hover:bg-gray-700 text-sm font-medium">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="input-text" aria-label="Input text with timestamps" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none" placeholder="Paste your transcript here..."></textarea>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Cleaned Transcript</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy</span>
+                        </button>
+                        <button id="download-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <span>Download .txt</span>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="output-text" aria-label="Cleaned transcript" readonly class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none resize-none" placeholder="Cleaned text will appear here..."></textarea>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                inputText: document.getElementById('input-text'),
+                outputText: document.getElementById('output-text'),
+                uploadBtn: document.getElementById('upload-btn'),
+                fileUpload: document.getElementById('file-upload'),
+                clearBtn: document.getElementById('clear-btn'),
+                copyBtn: document.getElementById('copy-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                toast: document.getElementById('toast'),
+            };
+
+            // Regex to match various timestamp formats, including SRT line numbers and time ranges
+            const TIMESTAMP_REGEX = new RegExp(
+                '(' +
+                '^\\d+\\s*$' + // SRT line numbers (e.g., "123")
+                '|' +
+                '\\d{2}:\\d{2}:\\d{2}[,.]\\d{3}\\s*-->\\s*\\d{2}:\\d{2}:\\d{2}[,.]\\d{3}' + // SRT time range (e.g., "00:01:22,500 --> 00:01:25,000")
+                '|' +
+                '\\[?\\d{1,2}:\\d{2}(?::\\d{2})?(?:[,.]\\d{1,3})?\\]?' + // Common formats like [01:22.5], 01:22, 01:22:45
+                ')', 'gm'
+            );
+
+            const debounce = (func, delay = 250) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            };
+
+            const cleanTranscript = () => {
+                const text = el.inputText.value;
+                // 1. Remove all timestamp lines
+                const lines = text.split('\n');
+                const cleanedLines = lines.filter(line => !TIMESTAMP_REGEX.test(line.trim()));
+                // 2. Join and remove extra whitespace
+                const cleanedText = cleanedLines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+                el.outputText.value = cleanedText;
+            };
+
+            const handleFileUpload = (file) => {
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    el.inputText.value = e.target.result;
+                    cleanTranscript();
+                };
+                reader.readAsText(file);
+            };
+
+            el.inputText.addEventListener('input', debounce(cleanTranscript));
+            el.uploadBtn.addEventListener('click', () => el.fileUpload.click());
+            el.fileUpload.addEventListener('change', (e) => handleFileUpload(e.target.files[0]));
+            el.clearBtn.addEventListener('click', () => {
+                el.inputText.value = '';
+                el.outputText.value = '';
+                el.fileUpload.value = '';
+            });
+            el.copyBtn.addEventListener('click', () => {
+                if (el.outputText.value) {
+                    navigator.clipboard.writeText(el.outputText.value).then(() => showToast('Copied to clipboard!'));
+                }
+            });
+            el.downloadBtn.addEventListener('click', () => {
+                if (el.outputText.value) {
+                    const blob = new Blob([el.outputText.value], { type: 'text/plain;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'cleaned-transcript.txt';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

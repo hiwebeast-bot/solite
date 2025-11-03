@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Markdown to Slides Converter | Export HTML/PDF Offline | Solite</title>
+    <meta name="description" content="Instantly create and export beautiful, interactive HTML or PDF slide decks from Markdown. Features themes, presenter notes, and auto-saving. A free, private, browser-based tool.">
+    <meta name="keywords" content="markdown to slides, markdown presentation, markdown to pdf, markdown to html slides, slide deck generator, reveal.js alternative, offline presentation tool, solite, privacy first, presenter mode">
+    <link rel="canonical" href="https://solite.in/markdown-to-slides-converter.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for this page -->
+    <meta property="og:title" content="Free Markdown to Slides Converter | Export HTML/PDF Offline | Solite">
+    <meta property="og:description" content="Instantly create, save, and export interactive HTML or PDF slide decks from Markdown. Features themes, presenter notes, and drag-and-drop.">
+    <meta property="og:url" content="https://solite.in/markdown-to-slides-converter.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/markdown-to-slides-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Markdown to Slides Converter | Solite">
+    <meta name="twitter:description" content="Instantly create and export beautiful HTML or PDF slide decks from Markdown.">
+    <meta name="twitter:image" content="https://solite.in/assets/markdown-to-slides-thumbnail.png">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Markdown to Slides Converter",
+      "url": "https://solite.in/markdown-to-slides-converter.html",
+      "description": "A free, client-side tool to create and export HTML or PDF slide decks from Markdown, with themes, presenter notes, and local storage persistence.",
+      "applicationCategory": "ProductivityApplication",
+      "featureList": [ "Markdown to HTML slides", "Markdown to PDF slides", "Live preview", "Multiple themes", "Presenter notes support", "Drag-and-drop reordering", "Local storage saving", "Interactive HTML export", "Built-in presenter view (in export)", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All"
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { 
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'], 
+                        mono: ['Roboto Mono', 'monospace'],
+                        serif: ['Source Serif Pro', 'serif']
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        
+        /* Slide Preview Styles */
+        #slide-preview-container { perspective: 1000px; }
+        .slide {
+            width: 100%; height: 100%; padding: 2rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            border: 1px solid #374151; border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out; transform-origin: center center;
+            overflow: auto;
+        }
+        .slide h1, .slide h2, .slide h3 { margin-bottom: 1rem; }
+        .slide p { margin-bottom: 0.5rem; }
+        .slide ul, .slide ol { text-align: left; margin-left: 2rem; width: 100%; max-width: 600px; }
+        .slide li { margin-bottom: 0.25rem; }
+        .slide code { background-color: rgba(0,0,0,0.2); padding: 0.2em 0.4em; border-radius: 0.25rem; }
+        .slide pre { background-color: rgba(0,0,0,0.2); padding: 1rem; border-radius: 0.5rem; text-align: left; overflow-x: auto; }
+        .slide pre code { padding: 0; }
+        .slide blockquote { border-left: 4px solid #4b5563; margin: 1rem 0; padding-left: 1rem; italic; }
+        .slide table { width: auto; max-width: 100%; border-collapse: collapse; margin: 1rem auto; }
+        .slide th, .slide td { border: 1px solid #4b5563; padding: 0.5rem; }
+        .slide th { background-color: rgba(0,0,0,0.1); }
+        .slide img { max-width: 100%; max-height: 400px; border-radius: 0.25rem; margin: 1rem 0; }
+
+        /* --- Theme Styles --- */
+        /* 1. Minimal */
+        .theme-minimal .slide { background-color: #f9fafb; color: #111827; font-family: 'Inter', sans-serif; }
+        .theme-minimal .slide h1, .theme-minimal .slide h2 { font-weight: 800; }
+        .theme-minimal .slide code, .theme-minimal .slide pre { background-color: rgba(0,0,0,0.05); color: #111827; }
+        .theme-minimal .slide blockquote { border-color: #d1d5db; }
+        .theme-minimal .slide th, .theme-minimal .slide td { border-color: #d1d5db; }
+        .theme-minimal .slide th { background-color: #f3f4f6; }
+        /* 2. Corporate */
+        .theme-corporate .slide { background-color: #0369a1; color: #f0f9ff; font-family: 'Inter', sans-serif; }
+        .theme-corporate .slide h1 { font-weight: 900; border-bottom: 3px solid #7dd3fc; padding-bottom: 0.5rem; }
+        .theme-corporate .slide h2 { font-weight: 700; }
+        .theme-corporate .slide code, .theme-corporate .slide pre { background-color: rgba(255,255,255,0.1); }
+        .theme-corporate .slide blockquote { border-color: #7dd3fc; }
+        .theme-corporate .slide th, .theme-corporate .slide td { border-color: #7dd3fc; }
+        .theme-corporate .slide th { background-color: rgba(255,255,255,0.1); }
+        /* 3. Dark */
+        .theme-dark .slide { background-color: #1f2937; color: #d1d5db; font-family: 'Inter', sans-serif; }
+        .theme-dark .slide h1 { color: #ffffff; }
+        .theme-dark .slide code, .theme-dark .slide pre { background-color: rgba(0,0,0,0.2); }
+        .theme-dark .slide blockquote { border-color: #4b5563; }
+        .theme-dark .slide th, .theme-dark .slide td { border-color: #4b5563; }
+        .theme-dark .slide th { background-color: #374151; }
+        /* 4. Academic */
+        .theme-academic .slide { background-color: #fdfbf8; color: #3a3a3a; font-family: 'Source Serif Pro', serif; }
+        .theme-academic .slide h1, .theme-academic .slide h2 { font-weight: 700; }
+        .theme-academic .slide code, .theme-academic .slide pre { background-color: rgba(0,0,0,0.05); color: #111827; font-family: 'Roboto Mono', monospace; }
+        .theme-academic .slide blockquote { border-color: #d1d5db; }
+        .theme-academic .slide th, .theme-academic .slide td { border-color: #d1d5db; }
+        .theme-academic .slide th { background-color: #f3f4f6; }
+        /* 5. Code */
+        .theme-code .slide { background-color: #0e1117; color: #c9d1d9; font-family: 'Roboto Mono', monospace; }
+        .theme-code .slide h1 { color: #58a6ff; font-weight: 600; }
+        .theme-code .slide h2 { color: #a5d6ff; font-weight: 600; }
+        .theme-code .slide code, .theme-code .slide pre { background-color: #161b22; color: #c9d1d9; border: 1px solid #30363d; }
+        .theme-code .slide blockquote { border-color: #30363d; background-color: #161b22; }
+        .theme-code .slide th, .theme-code .slide td { border-color: #30363d; }
+        .theme-code .slide th { background-color: #161b22; }
+        
+        /* New Slide Editor Styles */
+        .slide-editor-item { transition: background-color 0.2s ease, box-shadow 0.2s ease; }
+        .slide-editor-item.dragging { opacity: 0.5; }
+        .drag-handle { cursor: grab; }
+        .slide-editor-item.dragging .drag-handle { cursor: grabbing; }
+        .slide-editor-body { display: none; }
+        .slide-editor-item[data-state="open"] .slide-editor-body { display: block; }
+        .slide-editor-item[data-state="open"] .slide-editor-header { background-color: #374151; }
+        .chevron-icon { transition: transform 0.2s ease; }
+        .slide-editor-item[data-state="open"] .chevron-icon { transform: rotate(90deg); }
+        .editor-tab-btn { background-color: #1f2937; }
+        .editor-tab-btn.active { background-color: #374151; font-weight: 600; color: #ffffff; }
+        .editor-content, .notes-content { display: none; }
+        .editor-content.active, .notes-content.active { display: block; }
+        .toolbar-btn { background-color: #374151; }
+        .toolbar-btn:hover { background-color: #4b5563; }
+        textarea.slide-markdown-input, textarea.slide-notes-input {
+            height: 30vh;
+            min-height: 150px;
+        }
+
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Markdown to Slides</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Markdown to Slides Converter</h1>
+            <!-- Controls & Editor Panel -->
+            <div id="editor-pane" class="w-full lg:w-1/3 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-4 flex flex-col" aria-labelledby="editor-heading">
+                <div class="flex-shrink-0 flex items-center justify-between mb-4">
+                    <h2 id="editor-heading" class="text-xl font-bold text-white">Slide Editor</h2>
+                    <div class="flex items-center gap-2">
+                        <select id="theme-select" class="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg p-2 focus:outline-none">
+                            <option value="minimal">Minimal</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="dark">Dark</option>
+                            <option value="academic">Academic</option>
+                            <option value="code">Code</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Collapsible Slide Editors List -->
+                <div id="slide-editor-list" class="flex-grow overflow-y-auto space-y-2 pr-1">
+                    <!-- Slide editor items will be injected here by JS -->
+                </div>
+                <!-- ADD SLIDE BUTTON ADDED HERE -->
+                <button id="add-slide-btn" class="mt-4 border border-gray-500 hover:border-white text-gray-300 hover:text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm justify-center transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                    Add Slide
+                </button>
+            </div>
+            <!-- Output Pane -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-shrink-0 p-2 border-b border-gray-800 bg-gray-800/50 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <button id="prev-slide-btn" class="p-2 rounded-md hover:bg-gray-700 disabled:opacity-50" title="Previous Slide" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                        <div id="slide-indicator" class="text-sm font-medium">Slide 1 / 1</div>
+                        <button id="next-slide-btn" class="p-2 rounded-md hover:bg-gamma-700 disabled:opacity-50" title="Next Slide" disabled><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="fullscreen-btn" class="p-2 rounded-md hover:bg-gray-700" title="Toggle Fullscreen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/></svg>
+                        </button>
+                        <button id="export-html-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">Export HTML</button>
+                        <button id="export-pdf-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">Export PDF</button>
+                    </div>
+                </div>
+                <div id="slide-preview-container" class="flex-grow flex items-center justify-center p-2 sm:p-4 overflow-auto bg-black/20">
+                    <div id="slide-preview" class="aspect-video w-full max-w-6xl">
+                        <!-- Slide content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    </main>
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-editor-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg><span>Editor</span></button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Preview</span></button>
+        </div>
+    </div>
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0"><svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg><span>&copy; 2025 Solite. All Rights Reserved.</span></div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2"><a href="./about.html" class="hover:text-white transition-colors">About</a><a href="./blog.html" class="hover:text-white transition-colors">Blog</a><a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a><a href="./terms.html" class="hover:text-white transition-colors">Terms</a><a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a><a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a></div>
+        </div>
+    </footer>
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                slideEditorList: document.getElementById('slide-editor-list'),
+                addSlideBtn: document.getElementById('add-slide-btn'),
+                slidePreview: document.getElementById('slide-preview'),
+                slideIndicator: document.getElementById('slide-indicator'),
+                prevBtn: document.getElementById('prev-slide-btn'),
+                nextBtn: document.getElementById('next-slide-btn'),
+                themeSelect: document.getElementById('theme-select'),
+                exportHtmlBtn: document.getElementById('export-html-btn'),
+                exportPdfBtn: document.getElementById('export-pdf-btn'),
+                fullscreenBtn: document.getElementById('fullscreen-btn'),
+                toast: document.getElementById('toast'),
+                mobileEditorBtn: document.getElementById('mobile-editor-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                editorPane: document.getElementById('editor-pane'),
+                previewPane: document.getElementById('preview-pane'),
+            };
+
+            // --- State ---
+            let slideState = []; // Source of truth: [{ id, markdown, notes }, ...]
+            let currentSlideIndex = 0;
+            let draggedItemId = null;
+            const SLIDES_STORAGE_KEY = 'solite_markdownSlidesV3';
+
+            const defaultSlideContents = [
+                { id: crypto.randomUUID(), markdown: `# Welcome to Solite Slides!\n\n- Use the **toolbar** to format text.\n- **Drag-and-drop** slides to reorder.\n- Click the **Notes** tab for presenter notes.\n- Your work is **auto-saved!**`, notes: "This is the first slide. Remember to welcome the user." },
+                { id: crypto.randomUUID(), markdown: `# Features\n\n- 5 Built-in Themes\n- Interactive HTML Export\n- Built-in Presenter View (Press 'P' in export)\n- PDF Export`, notes: "Talk about the new export features." }
+            ];
+            
+            // --- Utils ---
+            const debounce = (func, delay) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
+            const showToast = (message) => { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); };
+            const saveState = () => {
+                try {
+                    localStorage.setItem(SLIDES_STORAGE_KEY, JSON.stringify(slideState));
+                } catch (e) {
+                    console.warn("Could not save to local storage:", e);
+                }
+            };
+            const debouncedSaveAndRender = debounce(() => {
+                saveState();
+                parseAndRender();
+            }, 300);
+
+            // --- Core Functions ---
+
+            function loadState() {
+                let loadedState = null;
+                try {
+                    loadedState = JSON.parse(localStorage.getItem(SLIDES_STORAGE_KEY));
+                } catch (e) {
+                    console.warn("Could not parse local storage:", e);
+                }
+                
+                if (loadedState && Array.isArray(loadedState) && loadedState.length > 0) {
+                    slideState = loadedState;
+                } else {
+                    slideState = defaultSlideContents.map(s => ({...s})); // Deep copy defaults
+                }
+                
+                // Ensure backward compatibility / state health
+                if (!slideState[0].id) {
+                     slideState = slideState.map(s => ({ id: crypto.randomUUID(), markdown: s.markdown || s, notes: s.notes || "" }));
+                }
+
+                renderEditorList();
+                changeTheme();
+                parseAndRender();
+            }
+
+            function renderEditorList() {
+                // Preserve state of textareas and open tabs
+                const oldState = new Map();
+                el.slideEditorList.querySelectorAll('.slide-editor-item').forEach(item => {
+                    oldState.set(item.dataset.id, {
+                        isOpen: item.dataset.state === 'open',
+                        activeTab: item.querySelector('.editor-tab-btn.active')?.dataset.tab || 'editor',
+                        markdown: item.querySelector('.slide-markdown-input')?.value,
+                        notes: item.querySelector('.slide-notes-input')?.value
+                    });
+                });
+
+                el.slideEditorList.innerHTML = slideState.map((slide, index) => {
+                    const saved = oldState.get(slide.id) || { isOpen: false, activeTab: 'editor' };
+                    return `
+                    <div class="slide-editor-item bg-gray-800 rounded-lg border border-gray-700" 
+                         data-id="${slide.id}" 
+                         data-index="${index}" 
+                         data-state="${saved.isOpen ? 'open' : 'closed'}"
+                         draggable="true">
+                        
+                        <div class="slide-editor-header w-full p-3 flex justify-between items-center text-left hover:bg-gray-700/50">
+                            <!-- Left Group: Drag, Chevron, Title -->
+                            <div class="flex items-center gap-3">
+                                <svg class="drag-handle w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                <button class="p-1 -ml-1 rounded-full hover:bg-gray-700 focus:outline-none" data-action="toggle">
+                                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                </button>
+                                <span class="font-semibold text-white" data-action="toggle">Slide ${index + 1}</span>
+                            </div>
+                            <!-- Right Group: Delete Button -->
+                            <div class="flex items-center">
+                                <button class="delete-slide-btn text-gray-400 hover:text-red-400 p-1 rounded" title="Delete Slide" data-action="delete">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-editor-body">
+                            <!-- Tabs -->
+                            <div class="flex border-b border-gray-700">
+                                <button class="editor-tab-btn py-2 px-4 text-sm font-medium ${saved.activeTab === 'editor' ? 'active' : ''}" data-tab="editor">Slide Content</button>
+                                <button class="editor-tab-btn py-2 px-4 text-sm font-medium ${saved.activeTab === 'notes' ? 'active' : ''}" data-tab="notes">Presenter Notes</button>
+                            </div>
+                            <!-- Editor Content -->
+                            <div class="editor-content ${saved.activeTab === 'editor' ? 'active' : ''}">
+                                <div class="editor-toolbar p-2 bg-gray-900 grid grid-cols-5 sm:grid-cols-10 gap-1">
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="# " title="H1">H1</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="## " title="H2">H2</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="### " title="H3">H3</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="**" data-suffix="**" title="Bold">Bold</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="*" data-suffix="*" title="Italic">Italic</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="- " title="List">List</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="1. " title="Ordered List">1.</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="> " title="Quote">Quote</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="[" data-suffix="](url)" title="Link">Link</button>
+                                    <button class="toolbar-btn text-xs rounded" data-syntax="![" data-suffix="](url)" title="Image">Image</button>
+                                </div>
+                                <textarea class="slide-markdown-input w-full p-4 bg-gray-800 border-t border-gray-700 text-gray-300 focus:outline-none resize-y font-mono text-sm">${slide.markdown}</textarea>
+                            </div>
+                            <!-- Notes Content -->
+                            <div class="notes-content ${saved.activeTab === 'notes' ? 'active' : ''}">
+                                <textarea class="slide-notes-input w-full p-4 bg-gray-800 text-gray-300 focus:outline-none resize-y font-mono text-sm">${slide.notes}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                `.trim();
+                }).join('');
+            }
+
+            function parseAndRender() {
+                if (slideState.length === 0) {
+                   slideState.push({ id: crypto.randomUUID(), markdown: "# Add a slide to begin", notes: "" });
+                   renderEditorList();
+                }
+
+                if (currentSlideIndex >= slideState.length) {
+                    currentSlideIndex = slideState.length - 1;
+                }
+                if (currentSlideIndex < 0) currentSlideIndex = 0;
+
+                renderCurrentSlide();
+            }
+
+            function renderCurrentSlide() {
+                if (slideState.length === 0) {
+                    el.slidePreview.innerHTML = `<div class="slide"><h1>No slides yet.</h1></div>`;
+                    el.slideIndicator.textContent = `Slide 0 / 0`;
+                    el.prevBtn.disabled = true;
+                    el.nextBtn.disabled = true;
+                    return;
+                }
+                
+                const slide = slideState[currentSlideIndex];
+                if (!slide) {
+                    currentSlideIndex = 0;
+                    return;
+                }
+
+                el.slidePreview.innerHTML = `<div class="slide">${marked.parse(slide.markdown)}</div>`;
+                el.slideIndicator.textContent = `Slide ${currentSlideIndex + 1} / ${slideState.length}`;
+                el.prevBtn.disabled = currentSlideIndex === 0;
+                el.nextBtn.disabled = currentSlideIndex === slideState.length - 1;
+
+                // Sync editor view
+                el.slideEditorList.querySelectorAll('.slide-editor-item').forEach(item => {
+                    item.classList.remove('ring-2', 'ring-gray-800');
+                    if (item.dataset.id === slide.id) {
+                        item.classList.add('ring-2', 'ring-gray-800');
+                    }
+                });
+            }
+
+            function changeTheme() {
+                const theme = el.themeSelect.value;
+                el.slidePreview.className = `aspect-video w-full max-w-7xl theme-${theme}`;
+                // Save theme choice
+                localStorage.setItem('solite_markdownTheme', theme);
+                renderCurrentSlide(); // Re-render to apply new styles
+            }
+
+            function getThemeStyles() {
+                // Extracts all theme-related CSS to inject into exported files
+                let themeCSS = "";
+                for (const sheet of document.styleSheets) {
+                    try {
+                        for (const rule of sheet.cssRules) {
+                            if (rule.selectorText && (rule.selectorText.startsWith('.theme-') || rule.selectorText.startsWith('.slide'))) {
+                                themeCSS += rule.cssText + '\n';
+                            }
+                        }
+                    } catch (e) { /* Ignore CORS errors on external sheets */ }
+                }
+                // Add base styles
+                return `
+                    body { margin: 0; font-family: sans-serif; }
+                    .slide {
+                        width: 100%; height: 100%; padding: 2rem;
+                        display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+                        transition: all 0.3s ease-in-out;
+                        overflow: auto; box-sizing: border-box;
+                    }
+                    /* Injected Theme CSS */
+                    ${themeCSS}
+                `;
+            }
+            
+            function exportHTML() {
+                const theme = el.themeSelect.value;
+                const slidesHTML = slideState.map(slide => 
+                    `<section class="slide">${marked.parse(slide.markdown)}</section>`
+                ).join('');
+                
+                const notesJSON = JSON.stringify(slideState.map(slide => slide.notes));
+
+                const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: sans-serif; background-color: #000; }
+        #deck {
+            width: 100vw; height: 100vh;
+            display: flex; overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+        }
+        .slide {
+            width: 100vw; height: 100vh;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            /* Base styles, will be overridden by theme */
+            background-color: #f0f0f0; color: #111;
+        }
+        ${getThemeStyles()} /* Inject all theme styles */
+        
+        /* Presenter View */
+        #presenter-view {
+            display: none; /* Hidden by default */
+            position: fixed; inset: 0;
+            background-color: #111; color: #eee;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 2fr 1fr;
+            gap: 1rem; padding: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        #presenter-view.active { display: grid; }
+        .pv-main-slide { grid-column: 1 / 2; grid-row: 1 / 3; }
+        .pv-next-slide { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .pv-notes { grid-column: 2 / 3; grid-row: 2 / 3; }
+        .pv-box { background: #222; border-radius: 0.5rem; overflow: auto; padding: 1rem; }
+        .pv-box h2 { margin: 0 0 1rem; font-size: 1.2rem; color: #888; border-bottom: 1px solid #444; padding-bottom: 0.5rem; }
+        .pv-main-slide .slide { height: 100%; } /* Scale slide to fit */
+        .pv-next-slide .slide { height: 100%; transform: scale(0.9); transform-origin: top left; }
+        .pv-notes pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="theme-${theme}">
+    <div id="deck">
+        ${slidesHTML}
+    </div>
+
+    <div id="presenter-view">
+        <div class="pv-box pv-main-slide"><h2>CURRENT SLIDE</h2><div id="pv-slide-current"></div></div>
+        <div class="pv-box pv-next-slide"><h2>NEXT SLIDE</h2><div id="pv-slide-next"></div></div>
+        <div class="pv-box pv-notes"><h2>NOTES</h2><pre id="pv-notes-content"></pre></div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const notes = ${notesJSON};
+        let currentSlide = 0;
+        let presenterMode = false;
+
+        const pv = {
+            view: document.getElementById('presenter-view'),
+            current: document.getElementById('pv-slide-current'),
+            next: document.getElementById('pv-slide-next'),
+            notes: document.getElementById('pv-notes-content'),
+        };
+
+        function showSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            currentSlide = index;
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+            if (presenterMode) updatePresenterMode();
+        }
+
+        function togglePresenterMode() {
+            presenterMode = !presenterMode;
+            pv.view.classList.toggle('active', presenterMode);
+            if (presenterMode) updatePresenterMode();
+        }
+
+        function updatePresenterMode() {
+            pv.current.innerHTML = slides[currentSlide].outerHTML;
+            pv.next.innerHTML = slides[currentSlide + 1] ? slides[currentSlide + 1].outerHTML : '<p>End of presentation.</p>';
+            pv.notes.textContent = notes[currentSlide] || 'No notes for this slide.';
+        }
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+            if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+            if (e.key.toLowerCase() === 'p') togglePresenterMode();
+            if (e.key.toLowerCase() === 'f') toggleFullscreen();
+        });
+        
+        // Ensure scroll sets current slide (for mouse/trackpad)
+        let scrollTimeout;
+        document.getElementById('deck').addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const newIndex = Math.round(document.getElementById('deck').scrollLeft / window.innerWidth);
+                if (newIndex !== currentSlide) {
+                    currentSlide = newIndex;
+                    if (presenterMode) updatePresenterMode();
+                }
+            }, 100);
+        });
+
+    <\/script>
+</body>
+</html>
+                `;
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'presentation.html'; a.click();
+                URL.revokeObjectURL(url);
+                showToast('Interactive HTML exported!');
+            }
+
+            function exportPDF() {
+                showToast('Generating PDF...');
+                const container = document.createElement('div');
+                container.className = `theme-${el.themeSelect.value}`;
+                container.style.width = '1280px';
+                
+                slideState.forEach(slide => {
+                    const slideEl = document.createElement('div');
+                    slideEl.className = 'slide';
+                    slideEl.style.width = '1280px';
+                    slideEl.style.height = '720px';
+                    slideEl.innerHTML = marked.parse(slide.markdown);
+                    container.appendChild(slideEl);
+                });
+
+                document.body.appendChild(container);
+                html2pdf().from(container).set({
+                    margin: 0,
+                    filename: 'presentation.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true },
+                    jsPDF: { unit: 'px', format: [1280, 720], orientation: 'landscape' }
+                }).save().then(() => {
+                    document.body.removeChild(container);
+                    showToast('PDF exported!');
+                });
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                    el.editorPane.classList.add('hidden');
+                    el.mobilePreviewBtn.classList.add('active'); el.mobileEditorBtn.classList.remove('active');
+                } else {
+                    el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex');
+                    el.editorPane.classList.remove('hidden'); el.editorPane.classList.add('flex');
+                    el.mobilePreviewBtn.classList.remove('active'); el.mobileEditorBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileEditorBtn.classList.contains('active') ? 'editor' : 'preview');
+                } else {
+                    el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                    el.editorPane.classList.remove('hidden'); el.editorPane.classList.add('flex');
+                }
+            }
+
+            function insertMarkdownSyntax(textarea, prefix, suffix = '') {
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                const text = textarea.value;
+                const selectedText = text.substring(start, end);
+
+                let newText;
+                let newCursorPos;
+
+                if (selectedText) {
+                    newText = text.substring(0, start) + prefix + selectedText + suffix + text.substring(end);
+                    newCursorPos = start + prefix.length + selectedText.length + suffix.length;
+                } else {
+                    newText = text.substring(0, start) + prefix + suffix + text.substring(end);
+                    newCursorPos = start + prefix.length;
+                }
+                
+                textarea.value = newText;
+                textarea.focus();
+                textarea.setSelectionRange(newCursorPos, newCursorPos);
+
+                const inputEvent = new Event('input', { bubbles: true, cancelable: true });
+                textarea.dispatchEvent(inputEvent);
+            }
+
+            // --- Event Listeners ---
+
+            // Editor List (Event Delegation)
+            el.slideEditorList.addEventListener('input', (e) => {
+                if (e.target.classList.contains('slide-markdown-input')) {
+                    const id = e.target.closest('.slide-editor-item').dataset.id;
+                    const slide = slideState.find(s => s.id === id);
+                    if (slide) slide.markdown = e.target.value;
+                    debouncedSaveAndRender();
+                }
+                if (e.target.classList.contains('slide-notes-input')) {
+                    const id = e.target.closest('.slide-editor-item').dataset.id;
+                    const slide = slideState.find(s => s.id === id);
+                    if (slide) slide.notes = e.target.value;
+                    debouncedSaveAndRender();
+                }
+            });
+
+            el.slideEditorList.addEventListener('click', (e) => {
+                const item = e.target.closest('.slide-editor-item');
+                if (!item) return;
+
+                const action = e.target.closest('[data-action]')?.dataset.action;
+                
+                if (action === 'delete') {
+                    slideState = slideState.filter(s => s.id !== item.dataset.id);
+                    renderEditorList();
+                    parseAndRender();
+                    saveState();
+                    return;
+                }
+                
+                if (action === 'toggle') {
+                    const newState = item.dataset.state === 'open' ? 'closed' : 'open';
+                    el.slideEditorList.querySelectorAll('.slide-editor-item[data-state="open"]').forEach(openItem => {
+                        if (openItem !== item) openItem.dataset.state = 'closed';
+                    });
+                    item.dataset.state = newState;
+                    if (newState === 'open') {
+                        // Sync preview to this slide
+                        currentSlideIndex = parseInt(item.dataset.index);
+                        renderCurrentSlide();
+                    }
+                    return;
+                }
+
+                const tabBtn = e.target.closest('.editor-tab-btn');
+                if (tabBtn) {
+                    const tabName = tabBtn.dataset.tab;
+                    item.querySelectorAll('.editor-tab-btn').forEach(btn => btn.classList.remove('active'));
+                    tabBtn.classList.add('active');
+                    item.querySelectorAll('.editor-content, .notes-content').forEach(content => content.classList.remove('active'));
+                    item.querySelector(tabName === 'editor' ? '.editor-content' : '.notes-content').classList.add('active');
+                    return;
+                }
+
+                const toolbarBtn = e.target.closest('.toolbar-btn');
+                if (toolbarBtn) {
+                    const textarea = item.querySelector('.slide-markdown-input');
+                    const { syntax, suffix } = toolbarBtn.dataset;
+                    insertMarkdownSyntax(textarea, syntax, suffix);
+                    return;
+                }
+            });
+
+            // Drag and Drop
+            el.slideEditorList.addEventListener('dragstart', (e) => {
+                const item = e.target.closest('.slide-editor-item');
+                if (item) {
+                    draggedItemId = item.dataset.id;
+                    e.dataTransfer.effectAllowed = 'move';
+                    setTimeout(() => item.classList.add('dragging'), 0);
+                }
+            });
+
+            el.slideEditorList.addEventListener('dragend', () => {
+                const item = el.slideEditorList.querySelector(`[data-id="${draggedItemId}"]`);
+                if (item) item.classList.remove('dragging');
+                draggedItemId = null;
+            });
+
+            el.slideEditorList.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            });
+
+            el.slideEditorList.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const targetItem = e.target.closest('.slide-editor-item');
+                if (!targetItem || !draggedItemId || targetItem.dataset.id === draggedItemId) return;
+
+                // Reorder state array
+                const draggedIndex = slideState.findIndex(s => s.id === draggedItemId);
+                const targetIndex = slideState.findIndex(s => s.id === targetItem.dataset.id);
+                
+                const [draggedItem] = slideState.splice(draggedIndex, 1);
+                slideState.splice(targetIndex, 0, draggedItem);
+                
+                // Re-render
+                renderEditorList();
+                parseAndRender();
+                saveState();
+            });
+
+            // Add Slide Button
+            el.addSlideBtn.addEventListener('click', () => {
+                const newSlide = { 
+                    id: crypto.randomUUID(), 
+                    markdown: `# New Slide ${slideState.length + 1}\n\n`, 
+                    notes: "" 
+                };
+                slideState.push(newSlide);
+                renderEditorList();
+                
+                const newItem = el.slideEditorList.querySelector(`[data-id="${newSlide.id}"]`);
+                if (newItem) {
+                    el.slideEditorList.querySelectorAll('.slide-editor-item[data-state="open"]').forEach(item => item.dataset.state = 'closed');
+                    newItem.dataset.state = 'open';
+                    setTimeout(() => {
+                        newItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        newItem.querySelector('textarea.slide-markdown-input').focus();
+                    }, 50);
+                }
+                
+                currentSlideIndex = slideState.length - 1;
+                parseAndRender();
+                saveState();
+            });
+
+            // Standard Controls
+            el.prevBtn.addEventListener('click', () => { if (currentSlideIndex > 0) { currentSlideIndex--; renderCurrentSlide(); } });
+            el.nextBtn.addEventListener('click', () => { if (currentSlideIndex < slideState.length - 1) { currentSlideIndex++; renderCurrentSlide(); } });
+            el.themeSelect.addEventListener('change', changeTheme);
+            el.exportHtmlBtn.addEventListener('click', exportHTML);
+            el.exportPdfBtn.addEventListener('click', exportPDF);
+            el.fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    el.previewPane.requestFullscreen().catch(err => showToast(`Fullscreen failed: ${err.message}`));
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+
+            // Mobile/Resize Controls
+            el.mobileEditorBtn.addEventListener('click', () => showMobilePane('editor'));
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // --- Initial Load ---
+            const savedTheme = localStorage.getItem('solite_markdownTheme');
+            if (savedTheme) el.themeSelect.value = savedTheme;
+            loadState();
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>
+
+
+
