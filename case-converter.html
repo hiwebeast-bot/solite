@@ -6,6 +6,7 @@
     
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Free Case Converter Tool (camelCase, snake_case, etc.) | Solite</title>
+    <!-- ... (rest of head is unchanged) ... -->
     <meta name="description" content="Instantly convert text between camelCase, PascalCase, snake_case, kebab-case, and more with our free online case converter. 100% private, browser-based, and no sign-up required.">
     <meta name="keywords" content="case converter, case switcher, camelcase converter, snake case converter, pascalcase converter, kebab case converter, text case tool, change case, solite">
     <link rel="canonical" href="https://solite.in/case-converter.html" />
@@ -33,7 +34,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Favicon Set -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -42,7 +43,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#000000">
 
-    <!-- Schema.org Markup -->
+    <!-- Schema.org Markup (Adapted for new layout) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,47 +52,10 @@
       "url": "https://solite.in/case-converter.html",
       "description": "A free, client-side tool to convert text between various programming and standard case formats.",
       "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Convert to camelCase", "Convert to PascalCase", "Convert to snake_case", "Convert to kebab-case", "Convert to Sentence case", "Convert to Title Case", "Client-side processing for 100% privacy" ],
+      "featureList": [ "Convert to camelCase", "Convert to PascalCase", "Convert to snake_case", "Convert to kebab-case", "Convert to Sentence case", "Convert to Title Case", "Client-side processing for 100% privacy", "Live conversion" ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Convert Text Case",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Input Text", "text": "Paste or type the text you want to convert into the 'Input' text area." },
-          { "@type": "HowToStep", "name": "Step 2: Choose a Case", "text": "Click on one of the case buttons (e.g., 'camelCase', 'snake_case') to instantly convert your text." },
-          { "@type": "HowToStep", "name": "Step 3: Copy Output", "text": "The converted text will appear in the 'Output' text area. Click the 'Copy' button to copy it to your clipboard." }
-        ]
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Case Converter"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is a case converter?",
-        "acceptedAnswer": { "@type": "Answer", "text": "A case converter is a tool that changes the capitalization of text into a specific format, such as camelCase for variables, snake_case for database columns, or Title Case for headlines. It automates the process of re-typing text to match a required style." }
-      },{
-        "@type": "Question",
-        "name": "Does this tool store my text?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No, this tool is 100% private. All text conversion happens directly in your browser, and your data is never sent to or stored on a server." }
-      }]
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
     }
     </script>
 
@@ -104,16 +68,36 @@
         }
     </script>
     <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
+        /* Toast notification styles */
+        #toast {
+            transform: translateY(150%);
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            z-index: 9999;
+        }
+        #toast.show {
+            transform: translateY(-2rem);
+            opacity: 1;
+        }
+
+        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #111827; } /* bg-gray-900 */
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; } /* bg-gray-600 */
         html { scrollbar-color: #4b5563 #111827; }
+
+        /* Styles for active/inactive tabs */
+        .tab-btn.active {
+            @apply bg-white text-black font-semibold;
+        }
+        .tab-btn.inactive {
+            @apply bg-gray-800 text-gray-400 hover:bg-gray-700;
+        }
     </style> 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
+    <!-- OLD HEADER (as requested) -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
              <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
@@ -135,41 +119,77 @@
         </div>
     </header>
 
-    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col gap-4 min-h-0">
-            <h1 class="sr-only">Case Converter Tool</h1>
-            
-            <div class="flex-1 flex flex-col lg:flex-row gap-4 min-h-0">
-                <!-- Input Panel -->
-                <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
-                    <h2 class="text-xl font-bold text-white flex-shrink-0 mb-4">Input</h2>
-                    <textarea id="input-text" aria-label="Input text" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none font-mono text-sm" placeholder="Type or paste your text here..."></textarea>
-                </div>
-
-                <!-- Output Panel -->
-                <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
-                    <div class="flex justify-between items-center mb-4 flex-shrink-0">
-                        <h2 class="text-xl font-bold text-white">Output</h2>
-                        <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                            <span>Copy</span>
-                        </button>
-                    </div>
-                    <textarea id="output-text" aria-label="Converted output text" readonly class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none resize-none font-mono text-sm" placeholder="Result will appear here..."></textarea>
-                </div>
-            </div>
-
-            <!-- Controls Panel -->
-            <div class="flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-4">
-                <div id="case-buttons" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+    <!-- NEW 3-PANEL LAYOUT -->
+    <main class="flex-grow flex flex-col lg:flex-row relative min-h-0" style="height: calc(100vh - 72px);">
+        
+        <!-- Left Panel: Conversion Styles -->
+        <!-- UPDATED: Width reduced -->
+        <aside class="w-full lg:w-[25%] xl:w-[20%] flex-shrink-0 p-3 pb-0 lg:pb-3 lg:border-r border-gray-800">
+            <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 shadow-lg h-full overflow-y-auto">
+                <h2 class="text-lg font-semibold text-white mb-4">Conversion Style</h2>
+                <div id="case-buttons" class="flex flex-wrap gap-3">
                     <!-- Buttons will be injected here -->
                 </div>
             </div>
+        </aside>
+
+        <!-- Middle Panel: Editor with Tabs -->
+        <!-- UPDATED: Width increased -->
+        <div class="flex-grow w-full lg:w-[55%] xl:w-[60%] p-3 flex flex-col gap-4 min-h-0">
+            <h1 class="sr-only">Case Converter Tool</h1>
+            
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 shadow-lg min-h-0">
+                <!-- Tab Header -->
+                <!-- UPDATED: Re-structured for better spacing with justify-between -->
+                <div class="flex justify-between items-center flex-shrink-0 p-2 border-b border-gray-700">
+                    <!-- Tab Buttons -->
+                    <!-- UPDATED: New style for tabs -->
+                    <div class="flex space-x-2">
+                        <button id="tab-btn-input" class="tab-btn active py-2 px-4 rounded-lg text-sm font-semibold transition-colors">Input</button>
+                        <button id="tab-btn-output" class="tab-btn inactive py-2 px-4 rounded-lg text-sm font-semibold transition-colors">Output</button>
+                    </div>
+                    
+                    <!-- Contextual Controls -->
+                    <!-- UPDATED: Removed padding (pr-6) as justify-between handles it -->
+                    <div>
+                        <button id="clear-btn" class="flex items-center gap-1.5 text-red-400 bg-red-500/10 hover:bg-red-500/20 rounded-lg text-sm font-medium py-2 px-3 transition-colors" aria-label="Clear input">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                            <span>Clear</span>
+                        </button>
+                        <!-- UPDATED: Copy button style -->
+                        <button id="copy-btn" class="hidden flex items-center gap-1.5 bg-white text-black hover:bg-gray-200 rounded-lg text-sm font-semibold py-2 px-3 transition-colors" aria-label="Copy output">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Textarea and Stats Container -->
+                <div class="p-4 flex-grow flex flex-col min-h-0">
+                    <!-- Input Panel -->
+                    <div id="panel-input" class="flex-grow flex flex-col min-h-0">
+                        <textarea id="input-text" aria-label="Input text" class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 resize-none font-mono text-sm transition-colors" placeholder="Type or paste your text here..."></textarea>
+                        <div id="input-stats" class="text-right text-gray-500 text-xs font-mono mt-2 pr-1">0 chars / 0 words</div>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div id="panel-output" class="hidden flex-grow flex flex-col min-h-0">
+                        <textarea id="output-text" aria-label="Converted output text" readonly class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 resize-none font-mono text-sm transition-colors" placeholder="Result will appear here..."></textarea>
+                        <div id="output-stats" class="text-right text-gray-500 text-xs font-mono mt-2 pr-1">0 chars / 0 words</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Ad Sidebar -->
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+
+        <!-- Right Panel: Ad Space (as requested) -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-500">Ad Area</div>
+        </aside>
     </main>
 
+    <!-- OLD FOOTER (as requested) -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -187,8 +207,10 @@
         </div>
     </footer>
 
-    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2.5 px-6 rounded-full shadow-lg">Copied!</div>
 
+    <!-- NEWEST SCRIPT LOGIC -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const el = {
@@ -196,8 +218,18 @@
                 outputText: document.getElementById('output-text'),
                 caseButtons: document.getElementById('case-buttons'),
                 copyBtn: document.getElementById('copy-btn'),
+                clearBtn: document.getElementById('clear-btn'),
                 toast: document.getElementById('toast'),
+                inputStats: document.getElementById('input-stats'),
+                outputStats: document.getElementById('output-stats'),
+                tabBtnInput: document.getElementById('tab-btn-input'),
+                tabBtnOutput: document.getElementById('tab-btn-output'),
+                panelInput: document.getElementById('panel-input'),
+                panelOutput: document.getElementById('panel-output'),
             };
+
+            let currentState = 'camelCase'; // Default case
+            let activeTab = 'input'; // Default tab
 
             const cases = {
                 'Sentence case': (words) => {
@@ -212,6 +244,11 @@
                 'snake_case': (words) => words.map(word => word.toLowerCase()).join('_'),
                 'kebab-case': (words) => words.map(word => word.toLowerCase()).join('-'),
                 'CONSTANT_CASE': (words) => words.map(word => word.toUpperCase()).join('_'),
+                'Header-Case': (words) => words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('-'),
+                'dot.case': (words) => words.map(word => word.toLowerCase()).join('.'),
+                'path/case': (words) => words.map(word => word.toLowerCase()).join('/'),
+                'AlTeRnAtInG cAsE': (words) => words.join(' ').split('').map((c, i) => i % 2 ? c.toUpperCase() : c.toLowerCase()).join(''),
+                'InVeRsE cAsE': (words) => words.join(' ').split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''),
             };
 
             function showToast(message) {
@@ -220,37 +257,146 @@
                 setTimeout(() => el.toast.classList.remove('show'), 2000);
             }
 
-            function getWords(text) {
-                // Match words, splitting by spaces, hyphens, underscores, and case changes
-                const matches = text.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g);
-                return matches ? matches.map(word => word.toLowerCase()) : [];
+            function copyToClipboard(text) {
+                if (!text) return;
+                const dummy = document.createElement('textarea');
+                dummy.style.position = 'absolute';
+                dummy.style.left = '-9999px';
+                dummy.style.top = '0';
+                dummy.setAttribute('readonly', '');
+                dummy.value = text;
+                document.body.appendChild(dummy);
+                dummy.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('Copied to clipboard!');
+                } catch (err)
+                    {
+                    console.error('Copy failed', err);
+                    showToast('Copy failed. Please copy manually.');
+                }
+                document.body.removeChild(dummy);
             }
 
-            function convertCase(targetCase) {
+            function getWords(text) {
+                if (!text) return [];
+                return text
+                    .split(/[\s_-]+|(?<=[a-z0-9])(?=[A-Z])/g)
+                    .filter(Boolean)
+                    .map(w => w.toLowerCase());
+            }
+
+            function updateStats() {
+                const inputText = el.inputText.value;
+                const inputChars = inputText.length;
+                const inputWords = getWords(inputText).length;
+                el.inputStats.textContent = `${inputChars} chars / ${inputWords} words`;
+
+                const outputText = el.outputText.value;
+                const outputChars = outputText.length;
+                const outputWords = getWords(outputText).length;
+                el.outputStats.textContent = `${outputChars} chars / ${outputWords} words`;
+            }
+
+            function convertCase() {
                 const words = getWords(el.inputText.value);
                 if (words.length === 0) {
                     el.outputText.value = '';
+                    updateStats();
                     return;
                 }
-                const converter = cases[targetCase];
+                const converter = cases[currentState];
                 if (converter) {
                     el.outputText.value = converter(words);
                 }
+                updateStats();
+            }
+            
+            function updateActiveButton() {
+                const buttons = el.caseButtons.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    const caseName = btn.dataset.case;
+                    // Reset to inactive styles (light gray border)
+                    btn.classList.remove('border-white', 'text-white', 'bg-gray-800');
+                    btn.classList.add('border-gray-600', 'text-gray-300', 'hover:bg-gray-800');
+
+                    if (caseName === currentState) {
+                        // Apply active styles (white border)
+                        btn.classList.add('border-white', 'text-white', 'bg-gray-800');
+                        btn.classList.remove('border-gray-600', 'text-gray-300', 'hover:bg-gray-800');
+                    }
+                });
             }
 
             function renderButtons() {
                 el.caseButtons.innerHTML = '';
                 for (const caseName in cases) {
                     const button = document.createElement('button');
-                    button.className = 'bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg text-sm transition-colors';
+                    // UPDATED: New button style (bordered, not full-width, not rounded-full)
+                    button.className = 'px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-150 ease-in-out border-gray-600 text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500';
                     button.textContent = caseName;
                     button.dataset.case = caseName;
-                    button.addEventListener('click', () => convertCase(caseName));
+                    
+                    button.addEventListener('click', () => {
+                        currentState = caseName;
+                        convertCase();
+                        updateActiveButton();
+                        // UPDATED: Switch to output tab on click
+                        showTab('output');
+s                    });
                     el.caseButtons.appendChild(button);
                 }
             }
+            
+            function showTab(tabName) {
+                activeTab = tabName;
+                if (tabName === 'input') {
+                    // Show input panel
+                    el.panelInput.classList.remove('hidden');
+                    el.panelInput.classList.add('flex');
+                    el.panelOutput.classList.add('hidden');
+                    el.panelOutput.classList.remove('flex');
+                    
+                    // Show clear button
+                    el.clearBtn.classList.remove('hidden');
+                    el.copyBtn.classList.add('hidden');
+                    
+                    // Update tab styles
+                    el.tabBtnInput.classList.add('active');
+                    el.tabBtnInput.classList.remove('inactive');
+                    el.tabBtnOutput.classList.add('inactive');
+                    el.tabBtnOutput.classList.remove('active');
+                    
+                    // NEW: Update button classes for new style
+                    el.tabBtnInput.classList.remove('bg-gray-800', 'text-gray-400', 'hover:bg-gray-700');
+                    el.tabBtnOutput.classList.add('bg-gray-800', 'text-gray-400', 'hover:bg-gray-700');
+                    el.tabBtnOutput.classList.remove('bg-white', 'text-black', 'font-semibold');
 
-            const debounce = (func, delay = 250) => {
+                } else { // 'output'
+                    // Show output panel
+                    el.panelOutput.classList.remove('hidden');
+                    el.panelOutput.classList.add('flex');
+                    el.panelInput.classList.add('hidden');
+                    el.panelInput.classList.remove('flex');
+                    
+                    // Show copy button
+                    el.copyBtn.classList.remove('hidden');
+                    el.clearBtn.classList.add('hidden');
+                    
+                    // Update tab styles
+                    el.tabBtnOutput.classList.add('active');
+                    el.tabBtnOutput.classList.remove('inactive');
+                    el.tabBtnInput.classList.add('inactive');
+                    el.tabBtnInput.classList.remove('active');
+
+                    // NEW: Update button classes for new style
+                    el.tabBtnOutput.classList.remove('bg-gray-800', 'text-gray-400', 'hover:bg-gray-700');
+                    el.tabBtnInput.classList.add('bg-gray-800', 'text-gray-400', 'hover:bg-gray-700');
+                    el.tabBtnInput.classList.remove('bg-white', 'text-black', 'font-semibold');
+                }
+            }
+
+            const debounce = (func, delay = 200) => {
                 let timeout;
                 return (...args) => {
                     clearTimeout(timeout);
@@ -258,22 +404,35 @@
                 };
             };
 
+            // --- Event Listeners ---
+            
             el.inputText.addEventListener('input', debounce(() => {
-                // On input, just clear the output to indicate it's stale
-                el.outputText.value = '...';
+                convertCase();
             }));
 
             el.copyBtn.addEventListener('click', () => {
-                if (el.outputText.value) {
-                    navigator.clipboard.writeText(el.outputText.value)
-                        .then(() => showToast('Copied to clipboard!'))
-                        .catch(err => console.error('Copy failed', err));
-                }
+                copyToClipboard(el.outputText.value);
             });
 
-            // Initial setup
+            el.clearBtn.addEventListener('click', () => {
+                el.inputText.value = '';
+                convertCase(); // This will clear the output too
+                el.inputText.focus();
+            });
+            
+            el.tabBtnInput.addEventListener('click', () => showTab('input'));
+            el.tabBtnOutput.addEventListener('click', () => showTab('output'));
+
+            // --- Initial setup ---
             renderButtons();
+            el.inputText.value = "Hello World! This-is_a-test... orMaybe_aVariableName";
+            updateActiveButton();
+            convertCase();
+            showTab('input'); // Set initial tab state
         });
     </script>
 </body>
 </html>
+
+
+
