@@ -138,7 +138,7 @@
             display: flex;
         }
         .frame-preview-item.selected {
-            border-color: #3b82f6; /* blue-500 */
+            border-color: #3b82f6; /* white-500 */
             box-shadow: 0 0 0 2px #3b82f6;
         }
         .drag-over {
@@ -198,9 +198,19 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+    <!-- Note: The main container's height is adjusted to account for the header -->
+    <main class="flex-grow flex relative" style="height: calc(100vh - 72px); --header-height: 72px;">
+        <!-- 
+          This wrapper handles the main layout:
+          - On mobile: flex-col, panes will stack. JS will hide one.
+          - On desktop (lg): flex-row, panes are side-by-side.
+        -->
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
-            <!-- Controls Panel -->
+            <!-- 
+              Controls Panel
+              - On mobile: Takes full width, managed by JS (hidden or flex)
+              - On desktop (lg): Fixed width
+            -->
             <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
                 <h2 class="text-xl font-bold text-white mb-6">Controls</h2>
                 
@@ -247,7 +257,7 @@
                 </div>
                     <div class="flex items-center justify-between">
                         <label for="dither-checkbox" class="font-medium">Dithering</label>
-                        <input type="checkbox" id="dither-checkbox" checked class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500">
+                        <input type="checkbox" id="dither-checkbox" checked class="w-4 h-4 text-white-600 bg-gray-700 border-gray-600 rounded focus:ring-white-500">
                     </div>
                 </div>
 
@@ -261,7 +271,11 @@
                 </div>
             </div>
 
-            <!-- Main Workspace -->
+            <!-- 
+              Main Workspace / Preview Panel
+              - On mobile: Takes full width, managed by JS (hidden or flex)
+              - On desktop (lg): Takes remaining space
+            -->
             <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 transition-colors min-h-0 lg:flex">
                 <div id="preview-area" class="flex-grow flex items-center justify-center p-4 relative min-h-0">
                     <div id="prompt-container" class="text-center text-gray-500 cursor-pointer p-8">
@@ -273,7 +287,7 @@
                     <div id="loader" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 text-center">
                         <p id="progress-text" class="mt-2 text-white mb-2">Generating GIF...</p>
                         <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div id="progress-bar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                            <div id="progress-bar" class="bg-white-500 h-2.5 rounded-full" style="width: 0%"></div>
                         </div>
                     </div>
                 </div>
@@ -290,22 +304,23 @@
                 Ad Area
             </div>
         </aside>
-
-        
     </main>
-<!-- Mobile Navigation Bar -->
-        <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
-            <div class="flex justify-around items-center h-14">
-                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
-                    <span>Preview</span>
-                </button>
-                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
-                    <span>Controls</span>
-                </button>
-            </div>
+    
+    <!-- Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+                <span>Preview</span>
+            </button>
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                <span>Controls</span>
+            </button>
         </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -571,9 +586,11 @@
             frameDelayInput.addEventListener('change', (e) => updateSelectedFrameDelay(parseInt(e.target.value)));
 
             generateBtn.addEventListener('click', generateGIF);
-            workspace.addEventListener('click', (e) => {
+            
+            // *** FIX: Changed 'workspace' to 'promptContainer' to fix runtime error ***
+            promptContainer.addEventListener('click', (e) => {
                 if (e.target.closest('#prompt-container')) {
-                    imageUpload.click(); // This seems to be a typo, but let's keep it as it might be intended for a parent element
+                    imageUpload.click();
                 }
             });
 
@@ -591,28 +608,30 @@
             });
 
             // --- Mobile Navigation Logic ---
+            // *** FIX: Simplified logic to only toggle 'hidden' class ***
             function showMobilePane(paneId) {
                 if (paneId === 'preview') {
-                    previewPane.classList.remove('hidden'); previewPane.classList.add('flex');
+                    previewPane.classList.remove('hidden');
                     controlsPane.classList.add('hidden');
-                    mobilePreviewBtn.classList.add('active'); mobileControlsBtn.classList.remove('active');
+                    mobilePreviewBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
                 } else { // 'controls'
-                    previewPane.classList.add('hidden'); previewPane.classList.remove('flex');
-                    controlsPane.classList.remove('hidden'); controlsPane.classList.add('flex');
-                    mobilePreviewBtn.classList.remove('active'); mobileControlsBtn.classList.add('active');
+                    previewPane.classList.add('hidden');
+                    controlsPane.classList.remove('hidden');
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
                 }
             }
 
             mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
             mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
             
+            // *** FIX: Simplified layout handler ***
             function handleMobileLayout() {
                 if (window.innerWidth >= 1024) {
                     // Desktop: show both panes
                     previewPane.classList.remove('hidden');
-                    previewPane.classList.add('flex');
                     controlsPane.classList.remove('hidden');
-                    controlsPane.classList.add('flex');
                 } else {
                     // Mobile: show only the active pane
                     if (mobileControlsBtn.classList.contains('active')) {
