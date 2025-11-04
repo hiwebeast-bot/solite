@@ -149,7 +149,7 @@
             <h1 class="sr-only">Transcript Timestamp Remover</h1>
             
             <!-- Input Panel -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
                 <div class="flex justify-between items-center mb-4 flex-shrink-0">
                     <h2 class="text-xl font-bold text-white">Input Transcript</h2>
                     <div class="flex items-center gap-2">
@@ -163,11 +163,11 @@
                         </button>
                     </div>
                 </div>
-                <textarea id="input-text" aria-label="Input text with timestamps" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none" placeholder="Paste your transcript here..."></textarea>
+                <textarea id="input-text" aria-label="Input text with timestamps" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-700/50 resize-none" placeholder="Paste your transcript here..."></textarea>
             </div>
 
             <!-- Output Panel -->
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6">
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
                 <div class="flex justify-between items-center mb-4 flex-shrink-0">
                     <h2 class="text-xl font-bold text-white">Cleaned Transcript</h2>
                     <div class="flex items-center gap-2">
@@ -175,9 +175,9 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                             <span>Copy</span>
                         </button>
-                        <button id="download-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                            <span>Download .txt</span>
+                        <button id="download-btn" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 hover:bg-gray-700 text-sm font-medium">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            
                         </button>
                     </div>
                 </div>
