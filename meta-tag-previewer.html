@@ -373,7 +373,7 @@
                 React.createElement(React.Fragment, null,
                     React.createElement(Header, null),
                     React.createElement('main', { className: "flex-grow flex relative min-h-0", style: { height: 'calc(100vh - 72px)' } },
-                        React.createElement('div', { className: "flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0" },
+                        React.createElement('div', { className: "flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0" },
                             React.createElement('h1', { className: "sr-only" }, "Meta Tag Previewer"),
                             (isDesktop || activePane === 'controls') && React.createElement(ControlsPane, { metadata, setMetadata }),
                             (isDesktop || activePane === 'preview') && React.createElement(PreviewPane, { metadata })

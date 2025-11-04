@@ -30,7 +30,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon Set -->
@@ -150,15 +150,18 @@
     <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
         <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
             
+            <!-- MODIFICATION: Changed min-h-100% to min-h-0 for correct flex behavior -->
             <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
-                <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-auto">
-                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                <div id="canvas-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 relative overflow-hidden">
+                    <!-- MODIFICATION: Added classes to make prompt fill container on mobile -->
+                    <div id="upload-prompt" class="w-full h-full flex flex-col items-center justify-center text-center cursor-pointer p-8">
                         <h1 class="sr-only">Free Online Image Editor</h1>
                         <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                         <h3 class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</h3>
                         <p class="mt-1 text-sm text-gray-400">Supports PNG, JPG, WebP. Your images stay on your device.</p>
                     </div>
-                    <canvas id="canvas" class="hidden"></canvas>
+                    <!-- MODIFICATION: Added classes to fit canvas to container -->
+                    <canvas id="canvas" class="hidden max-w-full max-h-full object-contain"></canvas>
                     <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/webp">
                     <button id="remove-image-btn" title="Remove Image" class="hidden absolute top-4 right-4 text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-sm rounded-lg p-2 leading-none z-10 flex items-center gap-2 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -443,13 +446,25 @@
             }
 
             function updateCanvas(img) {
-                canvas.width = img.width; canvas.height = img.height; redrawCanvas();
+                // Set canvas logical size to the original image size
+                canvas.width = img.width; 
+                canvas.height = img.height; 
+                
+                // CSS classes (max-w-full, max-h-full) will handle scaling the
+                // canvas element to fit its container (canvas-container).
+                
+                redrawCanvas();
             }
 
             function removeImage() {
                 initialImage = null; originalImage = null; isCropping = false;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 canvas.classList.add('hidden'); removeImageBtn.classList.add('hidden'); uploadPrompt.classList.remove('hidden');
+                
+                // Reset canvas inline style dimensions
+                canvas.style.width = '';
+                canvas.style.height = '';
+
                 resetAllControls();
                 history = []; watermarkImage = null; historyIndex = -1; updateUndoRedoButtons(); imageUpload.value = '';
                 document.getElementById('watermark-text').value = ''; document.getElementById('watermark-color').value = '#ffffff';
@@ -800,7 +815,13 @@
                 mobileControlsBtn.classList.add('active'); mobilePreviewBtn.classList.remove('active');
             });
 
-            window.addEventListener('resize', handleMobileLayout);
+            window.addEventListener('resize', () => {
+                handleMobileLayout();
+                // Re-calculate canvas display size on resize
+                if (originalImage) {
+                    updateCanvas(originalImage);
+                }
+            });
 
             // Initial Setup
             showTab('adjust'); setupColorPresets(); handleMobileLayout(); handleFormatChange();
