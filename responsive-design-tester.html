@@ -11,24 +11,31 @@
     <link rel="canonical" href="https://solite.in/responsive-design-tester.html" />
     <meta name="robots" content="index, follow">
 
-    <!-- New Core Meta Tags -->
-    <meta name="author" content="Solite">
-    <meta name="publisher" content="Solite">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
     <!-- Open Graph for social + AI -->
     <meta property="og:title" content="Free Responsive Design Tester | Solite">
     <meta property="og:description" content="Test your website's responsiveness on multiple screen sizes at once. Preview your site on mobile, tablet, and desktop views simultaneously.">
     <meta property="og:url" content="https://solite.in/responsive-design-tester.html">
-    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Solite">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://solite.in/assets/responsive-design-tester-thumbnail.png">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- Explicit Twitter Card Tags -->
+
+    <!-- ADDED: Top-tier Social & AI Discovery Tags -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A free tool from Solite to test responsive website design on multiple screens." />
+    <meta property="og:locale" content="en_US" />
     <meta name="twitter:title" content="Free Responsive Design Tester | Solite">
     <meta name="twitter:description" content="Test your website's responsiveness on multiple screen sizes at once. Preview your site on mobile, tablet, and desktop views simultaneously.">
     <meta name="twitter:image" content="https://solite.in/assets/responsive-design-tester-thumbnail.png">
+    <meta name="twitter:image:alt" content="A free tool from Solite to test responsive website design on multiple screens.">
+
+    <!-- ADDED: Dublin Core Metadata for AI/Academic/Library Discovery -->
+    <meta name="DC.Title" content="Free Responsive Design Tester | Solite">
+    <meta name="DC.Description" content="Test your website's responsiveness on multiple screen sizes at once. Our free online tool lets you preview your site on mobile, tablet, and desktop views simultaneously.">
+    <meta name="DC.Type" content="Software">
+    <meta name="DC.Publisher" content="Solite">
+    <meta name="DC.Creator" content="Solite">
 
     <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
@@ -40,8 +47,10 @@
     <script src="/_vercel/insights/script.js" defer></script>
 
     <!-- Core Libraries -->
+    <!-- FIX: Added missing Tailwind CDN script -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     
@@ -50,100 +59,60 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
     <meta name="theme-color" content="#000000">
 
-    <!-- Schema.org Markup - ** ADVANCED CONNECTED GRAPH ** -->
+    <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebApplication",
+      "name": "Responsive Design Tester",
+      "url": "https://solite.in/responsive-design-tester.html",
+      "description": "A free, client-side tool to test website responsiveness across multiple screen sizes simultaneously.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Test on multiple screen sizes", "Mobile, Tablet, and Desktop views", "Enter any live URL", "Client-side for privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <!-- ADDED: FAQPage Schema for Google "People Also Ask" & AI Overviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "Organization",
-          "@id": "https://solite.in/#organization",
-          "name": "Solite",
-          "url": "https://solite.in/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://solite.in/apple-touch-icon.png"
+          "@type": "Question",
+          "name": "Why is Responsive Design Important?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In today's multi-device world, users access websites on everything from small smartphones to large desktop monitors. A responsive design ensures that your website looks and functions perfectly on all of them. It's no longer a 'nice-to-have'—it's an essential part of modern web development."
           }
         },
         {
-          "@type": "WebSite",
-          "@id": "https://solite.in/#website",
-          "url": "https://solite.in/",
-          "name": "Solite",
-          "publisher": {
-            "@id": "https://solite.in/#organization"
+          "@type": "Question",
+          "name": "How does responsive design Improve User Experience (UX)?",
+          "acceptedAnswer": {
+            "@type" : "Answer",
+            "text": "A responsive site automatically adjusts its layout, font sizes, and navigation to fit the user's screen. This prevents visitors from needing to pinch-to-zoom, scroll horizontally, or struggle to tap tiny buttons on a mobile device, leading to a much better overall experience and lower bounce rates."
           }
         },
         {
-          "@type": "WebPage",
-          "@id": "https://solite.in/responsive-design-tester.html#webpage",
-          "url": "https://solite.in/responsive-design-tester.html",
-          "name": "Free Responsive Design Tester | Test on Multiple Screens | Solite",
-          "isPartOf": {
-            "@id": "https://solite.in/#website"
-          },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "https://solite.in/assets/responsive-design-tester-thumbnail.png"
-          },
-          "datePublished": "2024-01-01T08:00:00+00:00",
-          "dateModified": "2025-11-03T11:00:00+00:00",
-          "description": "Test your website's responsiveness on multiple screen sizes at once. Our free online tool lets you preview your site on mobile, tablet, and desktop views simultaneously.",
-          "breadcrumb": {
-            "@id": "https://solite.in/responsive-design-tester.html#breadcrumb"
-          },
-          "mainEntity": {
-            "@id": "https://solite.in/responsive-design-tester.html#webapp"
+          "@type": "Question",
+          "name": "How does responsive design Boost Your SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google and other search engines prioritize mobile-friendly websites in their search results. By using a responsive design, you signal to search engines that your site provides a good experience on all devices, which can significantly improve your search rankings."
           }
         },
         {
-          "@type": "BreadcrumbList",
-          "@id": "https://solite.in/responsive-design-tester.html#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://solite.in/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Responsive Design Tester"
-            }
-          ]
-        },
-        {
-          "@type": "WebApplication",
-          "@id": "https://solite.in/responsive-design-tester.html#webapp",
-          "name": "Responsive Design Tester",
-          "url": "https://solite.in/responsive-design-tester.html",
-          "description": "A free, client-side tool to test website responsiveness across multiple screen sizes simultaneously.",
-          "applicationCategory": "DeveloperApplication",
-          "featureList": [
-            "Test on multiple screen sizes",
-            "Simultaneous Mobile, Tablet, and Desktop views",
-            "Device Rotation",
-            "Custom Dimensions",
-            "Enter any live URL",
-            "Client-side for privacy"
-          ],
-          "offers": {
-            "@type": "Offer",
-            "price": "0"
-          },
-          "operatingSystem": "All",
-          "publisher": {
-            "@id": "https://solite.in/#organization"
-          },
-          "author": {
-            "@id": "https://solite.in/#organization"
-          },
-          "mainEntityOfPage": {
-            "@id": "https://solite.in/responsive-design-tester.html#webpage"
+          "@type": "Question",
+          "name": "How does this free responsive tester work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This tool makes it easy to check your site's responsiveness. Just enter your website's URL in the bar above and click 'Load.' You can instantly preview your site in our 'All Devices' view (Mobile, Tablet, and Desktop) or select specific device presets from the dropdown menus to test individual screen sizes."
           }
         }
       ]
@@ -159,160 +128,574 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        /* MODIFICATION: Only changed height (bottom scrollbar) to 12px, kept width (side scrollbar) at 8px */
+        ::-webkit-scrollbar { width: 8px; height: 12px; }
         ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
+        /* MODIFICATION: Adjusted radius slightly for new height */
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 6px; }
+        /* MODIFICATION: Ensured Firefox scrollbar is not set to 'thin' */
+        html { scrollbar-color: #4b5563 #111827; scrollbar-width: auto; }
+        .device-tab-btn { transition: all 0.2s ease-in-out; }
+        .device-tab-btn.active { background-color: #4b5563; color: #fff; }
+        .dropdown-content { display: none; }
+        /* REMOVED: Hover rule */
+        /* .dropdown:hover .dropdown-content { display: block; } */
+        /* ADDED: Click-based rule */
+        .dropdown.open .dropdown-content { display: block; }
         iframe { transition: all 0.3s ease-in-out; }
-    </style> 
+
+        /* ADDED: Styles for grab-to-scroll */
+        #iframe-container.all-devices-view {
+            cursor: grab;
+            user-select: none; /* Prevent text selection while dragging */
+        }
+        #iframe-container.all-devices-view.grabbing {
+            cursor: grabbing;
+        }
+
+        /* Toast Notification Styles */
+        #toast-notification {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+            /* Ensure it's hidden by default, not just transparent */
+            display: none; 
+        }
+        #toast-notification.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ADDED: Styles for collapsible SEO content */
+        #seo-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        #seo-content.open {
+            max-height: 1000px; /* A large enough value to show all content */
+            transition: max-height 0.5s ease-in;
+        }
+        #seo-toggle-btn.open #seo-chevron {
+            transform: rotate(180deg);
+        }
+    </style>    
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
         <div class="flex justify-between items-center">
              <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
-                <div class="flex items-center space-x-3">
+                 <div class="flex items-center space-x-3">
                      <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
-                    </svg>
-                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
-                </div>
-                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Responsive Design Tester</span>
-            </a>
+                         <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                     </svg>
+                     <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                 </div>
+                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                 <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Responsive Design Tester</span>
+             </a>
              <div class="flex items-center space-x-4">
-                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
-                    <span>Free Tools</span>
-                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
-                </a>
-            </div>
+                 <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                     <span>Free Tools</span>
+                     <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                 </a>
+             </div>
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col min-h-0">
-        <div class="flex-shrink-0 p-4 bg-gray-900 border-b border-gray-800">
-            <div class="max-w-4xl mx-auto flex flex-col sm:flex-row gap-2">
-                <input type="url" id="url-input" placeholder="Enter URL (e.g., https://solite.in)" class="flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
-                <button id="load-url-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 rounded-lg">Load</button>
+    <main class="flex-grow flex relative min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col min-h-0">
+            <!-- Control bar for URL and device selection -->
+            <!-- MODIFICATION: Removed flex-wrap to force single line on lg screens -->
+            <div class="flex-shrink-0 p-3 bg-gray-900 rounded-t-xl border-b border-gray-800 flex flex-col lg:flex-row justify-between items-center gap-4">
+                <!-- URL Input Group - Made wider with lg:flex-grow -->
+                <!-- MODIFICATION: Increased gap from gap-2 to gap-3 -->
+                <div class="flex items-center gap-3 w-full lg:flex-grow">
+                    <!-- MODIFICATION: Changed p-3 to py-3 px-3 for explicit height matching -->
+                    <input type="url" id="url-input" placeholder="Enter URL (e.g., https://solite.in)" class="lg:w-[40%] py-3 px-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    <!-- Load Button with Icon -->
+                    <!-- MODIFICATION: Added border-transparent for consistent box-sizing -->
+                    <button id="load-url-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-5 rounded-lg flex items-center gap-2 flex-shrink-0 border border-transparent">
+                        <span>Load</span>
+                        <!-- MODIFICATION: Replaced lni-reload icon with new SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>
+                    </button>
+                </div>
+                
+                <!-- NEW: Contextual & Device Tabs Group -->
+                <!-- MODIFICATION: Removed flex-wrap -->
+                <div class="flex justify-center lg:justify-end items-center gap-2 w-full lg:w-auto">
+                    <!-- Custom Size Inputs (hidden by default) -->
+                    <!-- MOVED: This div is now generated by JS inside the dropdown -->
+                    
+                    <!-- Rotate Button (hidden by default) -->
+                    <!-- MODIFICATION: Changed py-2 to py-3 for uniform height -->
+                    <!-- MODIFICATION: Removed text-sm for uniform font size -->
+                    <button id="rotate-btn" class="hidden device-tab-btn border border-gray-700 font-medium py-3 px-4 rounded-lg flex items-center gap-2 text-gray-300 hover:bg-gray-700" title="Rotate (Swap Width/Height)">
+                        <!-- MODIFICATION: Replaced lni-rotation icon with new SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">  <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>  <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/></svg>
+                    </button>
+                    <!-- Device tabs will be injected here -->
+                    <div id="device-tabs" class="flex items-center gap-2">
+                        <!-- js injection point for the *single* dropdown -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iframe Container -->
+            <!-- Base classes are set here. JS will add/remove layout classes. -->
+            <div id="iframe-container" class="flex-grow flex p-4 overflow-auto bg-gray-900 rounded-b-xl mt-0">
+                <!-- Device frames will be injected here -->
             </div>
         </div>
-        <div id="iframe-container" class="flex-grow flex items-start justify-center gap-4 p-4 overflow-auto">
-            <!-- Device frames will be injected here -->
-        </div>
+        <!-- Sidebar / Ad Area -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
     </main>
 
-    <!-- New SEO Content Section - NOW COLLAPSIBLE -->
-    <section class="w-full bg-black border-t border-gray-800">
-        <div class="max-w-4xl mx-auto p-6 lg:p-8 text-gray-300">
-            <details class="group">
-                <summary class="text-2xl font-bold text-white mb-2 cursor-pointer list-none group-open:mb-6">
-                    <span class="group-hover:text-gray-400 transition-colors">What is Responsive Design & Why Does It Matter?</span>
-                    <svg class="w-5 h-5 inline-block ml-2 group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </summary>
-            
-                <h3 class="text-2xl font-bold text-white mb-4">Why is Responsive Design So Important?</h3>
-                <p class="text-lg mb-4 leading-relaxed">
-                    In today's mobile-first world, more than half of all web traffic comes from mobile devices. If your website is difficult to read or navigate on a phone, visitors will quickly leave. This doesn't just lose you potential customers—it also hurts your search engine rankings.
-            <ul class="list-disc list-inside text-lg mb-6 space-y-2 leading-relaxed">
-                <li><strong>Improved User Experience (UX):</strong> A responsive site adapts its layout, text size, and buttons to fit any screen, making it easy and enjoyable to use.</li>
-                <li><strong>Better SEO Rankings:</strong> Google and other search engines prioritize mobile-friendly websites. A responsive design is a key factor in ranking well in search results.</li>
-                <li><strong>Increased Conversions:</strong> When users can easily browse your site, they are more likely to sign up, make a purchase, or contact you.</li>
-                <li><strong>Simplified Website Management:</strong> Instead of maintaining separate mobile and desktop websites, you have one single site that works everywhere, saving you time and money.</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-white mb-4">How to Use This Tool</h3>
-            <p class="text-lg mb-4 leading-relaxed">
-                Using our free responsive checker is simple:
-            </p>
-            <ol class="list-decimal list-inside text-lg mb-4 space-y-2 leading-relaxed">
-                <li>Enter the full URL of the website you want to test (e.g., `https://example.com`) into the bar at the top.</li>
-                <li>Click the "Load" button.</li>
-                <li>Use the device tabs to instantly switch between different viewports, such as "All Devices", "Mobile", "Tablet", or "Desktop".</li>
-                <li>You can also click the "Rotate" button to check landscape mode or enter custom dimensions for precise testing.</li>
-            </ol>
-                    Our tool is client-side, meaning we never see or store the website you are testing. Your privacy is guaranteed.
-                </p>
-            </details>
-        </div>
+    
     </section>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+    <footer class="p-4 sticky w-full flex-shrink-0 border-t border-gray-800 bg-black">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                <span>&copy; 2025 Solite. All Rights Reserved.</span>
-            </div>
-            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="./about.html" class="hover:text-white transition-colors">About</a>
-                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
-                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
-                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
-                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
-                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
-            </div>
+                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                 <span>&copy; 2025 Solite. All Rights Reserved.</span>
+             </div>
+             <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                 <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                 <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                 <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                 <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                 <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+             </div>
         </div>
     </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 bg-red-600 text-white py-3 px-5 rounded-lg shadow-lg z-50">
+        <span id="toast-message"></span>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlInput = document.getElementById('url-input');
             const loadBtn = document.getElementById('load-url-btn');
             const iframeContainer = document.getElementById('iframe-container');
+            
+            // --- NEW: Selectors for new controls ---
+            const deviceTabsContainer = document.getElementById('device-tabs');
+            // --- REMOVED: Global selectors for custom inputs ---
+            const rotateBtn = document.getElementById('rotate-btn');
+            
+            const LAST_URL_KEY = 'solite_responsive_tester_last_url';
+            
+            let activeDevice = { category: 'All', name: 'All Devices', width: '100%', height: '100%' };
+            
+            // --- NEW: State for custom dimensions ---
+            const defaultCustomDevice = { category: 'Custom', name: 'Custom Size', width: '1024px', height: '768px' };
+            let lastCustomDevice = { ...defaultCustomDevice };
+
+            // --- NEW: State for drag-to-scroll ---
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
             const devices = [
-                { name: 'Mobile', width: '375px', height: '667px' },
-                { name: 'Tablet', width: '768px', height: '1024px' },
-                { name: 'Desktop', width: '1280px', height: '800px' },
-                { name: 'Large Desktop', width: '1920px', height: '1080px' },
+                {    
+                    category: 'Desktop', icon: 'lni-display-alt',
+                    sizes: [
+                        { name: 'Desktop - 1280px', width: '1280px', height: '800px' },
+                        { name: 'Desktop - 1440px', width: '1440px', height: '900px' },
+                        { name: 'Desktop - 1920px', width: '1920px', height: '1080px' },
+                    ]
+                },
+                {    
+                    category: 'Tablet', icon: 'lni-tab',
+                    sizes: [
+                        { name: 'iPad Pro 12.9"', width: '1024px', height: '1366px' },
+                        { name: 'iPad Air', width: '820px', height: '1180px' },
+                        { name: 'iPad Mini', width: '768px', height: '1024px' },
+                    ]
+                },
+                {    
+                    category: 'Mobile', icon: 'lni-mobile',
+                    sizes: [
+                        { name: 'iPhone 14 Pro Max', width: '430px', height: '932px' },
+                        // --- FIX: Removed typo 'KA' ---
+                        { name: 'iPhone 14', width: '390px', height: '844px' },
+                        { name: 'iPhone SE', width: '375px', height: '667px' },
+                        { name: 'Pixel 7', width: '412px', height: '915px' },
+                    ]
+                },
             ];
 
-            function createDeviceFrames() {
-                iframeContainer.innerHTML = '';
-                devices.forEach(device => {
-                    const frameWrapper = document.createElement('div');
-                    frameWrapper.className = 'flex flex-col items-center gap-2 flex-shrink-0';
+            // --- NEW: Load last-used URL from localStorage ---
+            const savedUrl = localStorage.getItem(LAST_URL_KEY);
+            if (savedUrl) {
+                urlInput.value = savedUrl;
+            }
 
+            // --- Toast Notification Logic ---
+            let toastTimer;
+            function showToast(message) {
+                const toast = document.getElementById('toast-notification');
+                const toastMessage = document.getElementById('toast-message');
+                if (!toast || !toastMessage) return;
+
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            // --- End Toast ---
+
+            function renderUI() {
+                renderTabsAndControls(); // MODIFIED: Renamed function
+                renderActiveFrame();
+            }
+
+            // --- MODIFIED: Function now also renders contextual controls ---
+            function renderTabsAndControls() {
+                deviceTabsContainer.innerHTML = ''; // Clear only the tabs part
+
+                // --- NEW: Show/Hide Contextual Controls ---
+                const isCustom = activeDevice.category === 'Custom';
+                // MODIFICATION: Allow rotation for any single-device view (not 'All')
+                const isSingleDeviceView = activeDevice.category !== 'All';
+                
+                // --- REMOVED: Toggling of custom-size-controls div ---
+                rotateBtn.classList.toggle('hidden', !isSingleDeviceView);
+
+                // --- REMOVED: Populating custom inputs here ---
+                
+                // --- REFACTOR: Create a single dropdown for all devices ---
+                const dropdownWrapper = document.createElement('div');
+                dropdownWrapper.className = 'relative dropdown';
+
+                const tabBtn = document.createElement('button');
+                // --- NEW: Add a class for live-updating the text ---
+                // MODIFICATION: Changed py-2 to py-3 for uniform height
+                tabBtn.className = `device-dropdown-btn device-tab-btn border border-gray-700 font-medium py-3 px-5 rounded-lg flex items-center gap-2 text-gray-300 hover:bg-gray-700 min-w-[200px] justify-between`;
+                
+                // --- NEW: Smart button text ---
+                let iconClass = 'lni-grid-alt'; // Default for "All"
+                if (activeDevice.category === 'Custom') iconClass = 'lni-ruler-pencil';
+                else if (activeDevice.category === 'Desktop') iconClass = 'lni-display-alt';
+                else if (activeDevice.category === 'Tablet') iconClass = 'lni-tab';
+                else if (activeDevice.category === 'Mobile') iconClass = 'lni-mobile';
+                
+                tabBtn.innerHTML = `
+                    <span class="flex items-center gap-2">
+                        <i class="lni ${iconClass}"></i>
+                        <span>${activeDevice.name}</span>
+                    </span>
+                    <i class="lni lni-chevron-down text-xs text-gray-500"></i>
+                `;
+
+                // --- NEW: Click listener to toggle dropdown ---
+                tabBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Stop click from propagating to window
+                    // Close any other open dropdowns (good practice)
+                    document.querySelectorAll('.dropdown.open').forEach(d => {
+                        if (d !== dropdownWrapper) d.classList.remove('open');
+                    });
+                    // Toggle this one
+                    dropdownWrapper.classList.toggle('open');
+                });
+
+                const dropdownContent = document.createElement('div');
+                // MODIFICATION: Removed overflow-auto max-h-96
+                dropdownContent.className = 'dropdown-content absolute right-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50';
+                
+                // --- NEW: Stop clicks inside dropdown from closing it ---
+                dropdownContent.addEventListener('click', (e) => e.stopPropagation());
+
+                // --- NEW: Add "All Devices" link ---
+                const allLink = document.createElement('a');
+                allLink.href = '#';
+                allLink.className = `block px-4 py-2 text-white hover:bg-gray-700 text-sm ${activeDevice.category === 'All' ? 'bg-gray-700 font-bold' : ''}`;
+                allLink.textContent = 'All Devices';
+                allLink.onclick = (e) => {
+                    e.preventDefault();
+                    activeDevice = { category: 'All', name: 'All Devices', width: '100%', height: '100%' };
+                    renderUI();
+                };
+                dropdownContent.appendChild(allLink);
+
+                // --- NEW: Add "Custom Size" link ---
+                const customLink = document.createElement('a');
+                customLink.href = '#';
+                customLink.className = `block px-4 py-2 text-white hover:bg-gray-700 text-sm ${activeDevice.category === 'Custom' ? 'bg-gray-700 font-bold' : ''}`;
+                customLink.textContent = 'Custom Size';
+                customLink.onclick = (e) => {
+                    e.preventDefault();
+                    activeDevice = { ...lastCustomDevice }; // Restore last custom size
+                    renderUI();
+                };
+                dropdownContent.appendChild(customLink);
+
+                // --- NEW: Create and append custom controls *inside* dropdown ---
+                const customControlsWrapper = document.createElement('div');
+                customControlsWrapper.id = 'custom-size-controls';
+                // MODIFICATION: Always show the controls, add a border
+                customControlsWrapper.className = `px-4 py-2 border-t border-gray-700/50`; 
+                customControlsWrapper.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="custom-width" class="w-20 p-2 rounded-lg bg-gray-900 border border-gray-700 text-sm" placeholder="Width">
+                        <span class="text-gray-500">x</span>
+                        <input type="number" id="custom-height" class="w-20 p-2 rounded-lg bg-gray-900 border border-gray-700 text-sm" placeholder="Height">
+                        <!-- NEW: "Go" button -->
+                        <button id="custom-size-go-btn" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white" title="Apply Custom Size">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>
+                        </button>
+                    </div>
+                `;
+                dropdownContent.appendChild(customControlsWrapper);
+
+                // --- NEW: Stop clicks inside from closing the dropdown ---
+                customControlsWrapper.addEventListener('click', (e) => e.stopPropagation());
+
+                // --- NEW: Find new inputs and add listeners ---
+                const customWidthInputNew = customControlsWrapper.querySelector('#custom-width');
+                const customHeightInputNew = customControlsWrapper.querySelector('#custom-height');
+
+                // MODIFICATION: Removed 'input' event listeners
+                // customWidthInputNew.addEventListener('input', handleCustomSizeChange);
+                // customHeightInputNew.addEventListener('input', handleCustomSizeChange);
+
+                // --- NEW: Add listeners for "Go" button and Enter key ---
+                const goBtn = customControlsWrapper.querySelector('#custom-size-go-btn');
+                goBtn.addEventListener('click', handleCustomSizeChange);
+                
+                customWidthInputNew.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') handleCustomSizeChange();
+                });
+                customHeightInputNew.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') handleCustomSizeChange();
+                });
+
+                // --- NEW: Populate values if we are in custom mode ---
+                if (isCustom) {
+                    customWidthInputNew.value = parseInt(activeDevice.width, 10) || '';
+                    customHeightInputNew.value = parseInt(activeDevice.height, 10) || '';
+                }
+
+                // --- NEW: Add divider ---
+                const divider = document.createElement('hr');
+                divider.className = 'border-t border-gray-700 my-1';
+                dropdownContent.appendChild(divider);
+
+                // --- NEW: Loop and add grouped devices ---
+                devices.forEach(deviceCategory => {
+                    // --- MODIFICATION: Reverted to simple header ---
+                    const header = document.createElement('div');
+                    header.className = 'px-4 pt-2 pb-1 text-xs font-bold text-gray-500 uppercase tracking-wider';
+                    header.innerHTML = `<span>${deviceCategory.category}</span>`;
+                    dropdownContent.appendChild(header); // Add header
+
+                    // --- MODIFICATION: Removed listWrapper, append links directly ---
+                    deviceCategory.sizes.forEach(size => {
+                        const link = document.createElement('a');
+                        link.href = '#';
+                        const isThisActive = activeDevice.name === size.name;
+                        link.className = `block px-4 py-2 text-white hover:bg-gray-700 text-sm ${isThisActive ? 'bg-gray-700 font-bold' : ''}`;
+                        link.textContent = `${size.name} (${size.width})`;
+                        link.onclick = (e) => {
+                            e.preventDefault();
+                            activeDevice = { ...size, category: deviceCategory.category };
+                            renderUI();
+                        };
+                        dropdownContent.appendChild(link); // MODIFICATION: Append directly to dropdown
+                    });
+
+                    // --- MODIFICATION: Removed click listener and listWrapper logic ---
+                });
+
+                dropdownWrapper.appendChild(tabBtn);
+                dropdownWrapper.appendChild(dropdownContent);
+                deviceTabsContainer.appendChild(dropdownWrapper);
+            }
+
+            // --- MODIFICATION: Split into single vs multi view ---
+            function renderActiveFrame() {
+                iframeContainer.innerHTML = '';
+                
+                // Reset container styles from 'items-center justify-center' or 'flex-col lg:flex-row'
+                iframeContainer.className = 'flex-grow flex p-4 overflow-auto bg-gray-900 rounded-b-xl mt-0';
+                // NEW: Remove grab-to-scroll class by default
+                iframeContainer.classList.remove('all-devices-view', 'grabbing'); 
+
+                if (activeDevice.category === 'All') {
+                    renderMultiDeviceView();
+                } else {
+                    renderSingleDeviceView();
+                }
+            }
+
+            // --- NEW: Function to render single device ---
+            function renderSingleDeviceView() {
+                // Add classes for centering the single frame
+                iframeContainer.classList.add('items-center', 'justify-center');
+                // NEW: Remove grab-to-scroll class
+                iframeContainer.classList.remove('all-devices-view');
+                
+                const device = activeDevice;
+                if (!device) return;
+
+                const iframe = document.createElement('iframe');
+                iframe.className = 'border-2 border-gray-700 rounded-lg shadow-lg bg-white';
+                iframe.style.width = device.width;
+                iframe.style.height = device.height;
+                iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+                iframe.dataset.device = device.category;
+
+                const currentUrl = urlInput.value.trim();
+                if (currentUrl) {
+                    try {
+                        new URL(currentUrl); 
+                        iframe.src = currentUrl;
+                    } catch (_) { /* Invalid URL, do nothing */ }
+                }
+
+                iframeContainer.appendChild(iframe);
+            }
+
+            // --- NEW: Function to render multi-device view ---
+            function renderMultiDeviceView() {
+                // Add classes for side-by-side layout
+                iframeContainer.classList.add('flex-col', 'lg:flex-row', 'gap-6', 'justify-around');
+                // NEW: Add class to enable grab-to-scroll styles
+                iframeContainer.classList.add('all-devices-view');
+
+                // Define the 3 devices to show
+                const multiDevices = [
+                    devices.find(d => d.category === 'Mobile').sizes[0], // iPhone 14 Pro Max
+                    devices.find(d => d.category === 'Tablet').sizes[1], // iPad Air
+                    devices.find(d => d.category === 'Desktop').sizes[0] // Desktop 1280px
+                ];
+
+                const currentUrl = urlInput.value.trim();
+                    let validUrl = '';
+                if (currentUrl) {
+                    try {
+                        new URL(currentUrl);
+                        validUrl = currentUrl;
+                    } catch (_) { /* Invalid URL */ }
+                }
+
+                multiDevices.forEach(device => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex flex-col items-center gap-2 flex-grow';
+                    
                     const label = document.createElement('div');
                     label.className = 'text-sm font-medium text-gray-400';
                     label.textContent = `${device.name} (${device.width})`;
-
+                    
                     const iframe = document.createElement('iframe');
                     iframe.className = 'border-2 border-gray-700 rounded-lg shadow-lg bg-white';
                     iframe.style.width = device.width;
                     iframe.style.height = device.height;
                     iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-                    iframe.dataset.device = device.name;
+                    
+                    if (validUrl) {
+                        iframe.src = validUrl;
+                    }
 
-                    frameWrapper.appendChild(label);
-                    frameWrapper.appendChild(iframe);
-                    iframeContainer.appendChild(frameWrapper);
+                    wrapper.appendChild(label);
+                    wrapper.appendChild(iframe);
+                    iframeContainer.appendChild(wrapper);
                 });
             }
 
+
+            // --- MODIFICATION: Load URL in ALL visible frames ---
             function loadUrlInFrames() {
                 let url = urlInput.value.trim();
-                if (!url) return;
+                if (!url) {
+                    showToast('Please enter a URL to load.'); 
+                    return;
+                }
 
-                // Add https:// if missing
                 if (!url.startsWith('http://') && !url.startsWith('https://')) {
                     url = 'https://' + url;
                     urlInput.value = url;
                 }
 
                 try {
-                    // Validate URL
                     new URL(url);
+                    // --- NEW: Save valid URL to localStorage ---
+                    localStorage.setItem(LAST_URL_KEY, url);
                 } catch (_) {
-                    alert('Please enter a valid URL.');
+                    showToast('Please enter a valid URL.'); 
                     return;
                 }
 
+                // Select ALL iframes in the container
                 const iframes = iframeContainer.querySelectorAll('iframe');
-                iframes.forEach(iframe => {
-                    // Using a proxy can help with X-Frame-Options issues, but for a client-side tool, this is the direct approach.
-                    // Note: Many sites will block this due to 'X-Frame-Options' or 'Content-Security-Policy'.
-                    iframe.src = url;
-                });
+                if (iframes.length > 0) {
+                    iframes.forEach(iframe => {
+                        iframe.src = url;
+                    });
+                }
+            }
+            
+            // --- NEW: Handler for custom input changes ---
+            function handleCustomSizeChange() {
+                // --- NEW: Find inputs dynamically ---
+                const widthInput = document.getElementById('custom-width');
+                const heightInput = document.getElementById('custom-height');
+                if (!widthInput || !heightInput) return; // Inputs don't exist
+
+                const width = widthInput.value;
+                const height = heightInput.value;
+
+                // --- NEW: Check if we need to switch from multi-view to custom-view ---
+                const needsViewSwitch = activeDevice.category !== 'Custom';
+                
+                activeDevice.category = 'Custom';
+                // --- MODIFICATION: Use default if value is empty ---
+                activeDevice.width = `${width || parseInt(defaultCustomDevice.width, 10)}px`;
+                activeDevice.height = `${height || parseInt(defaultCustomDevice.height, 10)}px`;
+                activeDevice.name = `Custom (${width || '...'} x ${height || '...'})`;
+                
+                // Save to persistent custom state
+                lastCustomDevice = { ...activeDevice };
+
+                // If we were on "All" or another preset, we need a full re-render.
+                if (needsViewSwitch) {
+                    renderUI(); // This will re-render tabs, controls, and frame
+                } else {
+                    // We are already in custom view, just update things efficiently
+                    
+                    // Update iframe live
+                    const iframe = iframeContainer.querySelector('iframe');
+                    if (iframe) {
+                        if (width) iframe.style.width = activeDevice.width;
+                        if (height) iframe.style.height = activeDevice.height;
+                    }
+
+                    // Update button text live
+                    const mainBtn = deviceTabsContainer.querySelector('.device-dropdown-btn');
+                    if (mainBtn) {
+                         mainBtn.innerHTML = `
+                            <span class="flex items-center gap-2">
+                                <i class="lni lni-ruler-pencil"></i>
+                                <span>${activeDevice.name}</span>
+                            </span>
+                            <i class="lni lni-chevron-down text-xs text-gray-500"></i>
+                        `;
+                    }
+                }
             }
 
             loadBtn.addEventListener('click', loadUrlInFrames);
@@ -322,9 +705,87 @@
                 }
             });
 
+            // --- NEW: Horizontal scroll on mouse wheel for "All Devices" view ---
+            iframeContainer.addEventListener('wheel', (e) => {
+                if (activeDevice.category === 'All') {
+                    // Prevent default vertical scroll
+                    e.preventDefault();
+                    // Scroll horizontally instead
+                    // e.deltaY is the vertical scroll amount, we use it for horizontal scroll
+                    iframeContainer.scrollLeft += e.deltaY;
+                }
+                // If not in 'All' mode, the default vertical scroll will happen.
+            });
+
+            // --- NEW: Drag-to-scroll for "All Devices" view ---
+            iframeContainer.addEventListener('mousedown', (e) => {
+                if (activeDevice.category !== 'All') return;
+                isDown = true;
+                iframeContainer.classList.add('grabbing');
+                startX = e.pageX - iframeContainer.offsetLeft;
+                scrollLeft = iframeContainer.scrollLeft;
+                e.preventDefault(); // Prevent text selection, etc.
+            });
+            
+            iframeContainer.addEventListener('mouseleave', () => {
+                if (activeDevice.category !== 'All' || !isDown) return;
+                isDown = false;
+                iframeContainer.classList.remove('grabbing');
+            });
+            
+            iframeContainer.addEventListener('mouseup', () => {
+                if (activeDevice.category !== 'All' || !isDown) return;
+                isDown = false;
+                iframeContainer.classList.remove('grabbing');
+            });
+            
+            iframeContainer.addEventListener('mousemove', (e) => {
+                if (!isDown || activeDevice.category !== 'All') return;
+                e.preventDefault();
+                const x = e.pageX - iframeContainer.offsetLeft;
+                const walk = (x - startX) * 2; // *2 for faster scroll
+                iframeContainer.scrollLeft = scrollLeft - walk;
+            });
+            // --- END: Drag-to-scroll ---
+
+            // --- NEW: Event Listeners for new controls ---
+            rotateBtn.addEventListener('click', () => {
+                // MODIFICATION: Allow rotation for any single-device view (not 'All')
+                if (activeDevice.category !== 'All') {
+                    // Swap width and height
+                    const oldWidth = activeDevice.width;
+                    activeDevice.width = activeDevice.height;
+                    activeDevice.height = oldWidth;
+                    renderUI(); // Re-render everything
+                }
+            });
+
+            // --- REMOVED: Event listeners for static custom inputs ---
+            
+            // --- NEW: Global click listener to close dropdown ---
+            window.addEventListener('click', () => {
+                const openDropdown = document.querySelector('.dropdown.open');
+                if (openDropdown) {
+                    openDropdown.classList.remove('open');
+                }
+            });
+
+            // --- NEW: Collapsible SEO Content ---
+            const seoToggleBtn = document.getElementById('seo-toggle-btn');
+            const seoContent = document.getElementById('seo-content');
+
+            if (seoToggleBtn && seoContent) {
+                seoToggleBtn.addEventListener('click', () => {
+                    seoContent.classList.toggle('open');
+                    seoToggleBtn.classList.toggle('open'); // This will trigger the chevron rotation
+                });
+            }
+
             // Initial setup
-            createDeviceFrames();
+            renderUI();
         });
     </script>
 </body>
 </html>
+
+
