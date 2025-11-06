@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Online Text Encrypter & Decrypter (AES) | Solite</title>
+    <meta name="description" content="Encrypt and decrypt text messages with a password using AES-GCM encryption. A free, secure, and private online tool that works entirely in your browser. No data is ever sent to a server.">
+    <meta name="keywords" content="text encrypter, encrypt text, decrypt text, aes encryption online, password protect text, secure text sharing, solite, privacy first">
+    <link rel="canonical" href="https://solite.in/text-encrypter.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Online Text Encrypter & Decrypter | Solite">
+    <meta property="og:description" content="Encrypt and decrypt text messages with a password using AES-GCM encryption. A free, secure, and private online tool that works entirely in your browser.">
+    <meta property="og:url" content="https://solite.in/text-encrypter.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/text-encrypter-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Text Encrypter & Decrypter",
+      "url": "https://solite.in/text-encrypter.html",
+      "description": "A free, client-side tool to encrypt and decrypt text with a password using AES-GCM encryption.",
+      "applicationCategory": "SecurityApplication",
+      "featureList": [ "Encrypt text with a password", "Decrypt text with a password", "AES-GCM 256-bit encryption", "Client-side processing for 100% privacy", "Copy encrypted/decrypted text" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Encrypt Text",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Enter Text & Key", "text": "Type or paste the text you want to encrypt and enter a secret password." },
+          { "@type": "HowToStep", "name": "Step 2: Encrypt", "text": "Click the 'Encrypt' button. The tool will generate a secure, encrypted string." },
+          { "@type": "HowToStep", "name": "Step 3: Share", "text": "Copy the encrypted string and share it. The recipient will need the exact password to decrypt it using this tool." }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
+      },{
+        "@type": "ListItem", "position": 2, "name": "Text Encrypter"
+      }]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is this text encryption secure?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This tool uses AES-GCM, a widely recognized standard for secure, authenticated encryption. The security of the encrypted text depends entirely on the strength and secrecy of your password. All encryption and decryption happen locally in your browser, so your password and data are never sent over the internet." }
+      }]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Text Encrypter</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- Panel 1: Text Box -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
+                <label for="text-input" class="font-medium mb-2">Text to Encrypt / Decrypt</label>
+                <textarea id="text-input" class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50 font-mono resize-none" placeholder="Paste your sensitive text or encrypted message here..."></textarea>
+            </div>
+
+            <!-- Panel 2: Controls -->
+            <div class="w-full lg:w-80 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col space-y-6">
+                <div class="space-y-4">
+                    <label for="password-input" class="font-medium">Secret Password</label>
+                    <input type="password" id="password-input" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono" placeholder="Enter a strong password...">
+                </div>
+
+                <div id="status-message" class="p-3 rounded-lg text-center font-medium hidden"></div>
+
+                <div class="flex-grow"></div>
+
+                <div class="grid grid-cols-1 gap-3 pt-4 border-t border-gray-800">
+                    <button id="encrypt-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <span>Encrypt</span>
+                    </button>
+                    <button id="decrypt-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v3m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
+                        <span>Decrypt</span>
+                    </button>
+                    <button id="copy-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Output</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+    </main>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK -->
+    <div class="w-full text-gray-300 p-2">
+      <details class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Secure Online Text Encryption & Decryption Tool
+          <svg class="w-5 h-5 transition-transform duration-200 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <div class="p-6 space-y-10 leading-relaxed">
+          <section class="space-y-3">
+            <p class="text-lg text-gray-300">
+              The <strong>Solite Text Encrypter</strong> is a free, secure tool to <strong>password-protect your text messages</strong> using the powerful AES-GCM encryption standard. Everything happens directly in your browser, ensuring your data and password are never sent to a server. It's the perfect way to share sensitive information privately.
+            </p>
+          </section>
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Use This Tool?</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>100% Private:</strong> All encryption and decryption are performed client-side. Your data never leaves your device.</li>
+              <li><strong>Strong Encryption:</strong> Uses AES-GCM, a modern, authenticated encryption algorithm trusted worldwide.</li>
+              <li><strong>Simple to Use:</strong> Just enter your text, a password, and click a button. No complex setup required.</li>
+              <li><strong>Free & Accessible:</strong> No sign-up, no limits. A powerful security tool available to everyone.</li>
+            </ul>
+          </section>
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+              <li><strong>To Encrypt:</strong> Enter your plain text and a strong password, then click "Encrypt". Copy the resulting encrypted string.</li>
+              <li><strong>To Decrypt:</strong> Paste the encrypted string, enter the exact same password, and click "Decrypt". Your original text will appear.</li>
+            </ol>
+          </section>
+        </div>
+      </details>
+    </div>
+    <!-- ✅ END SEO BLOCK -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied to clipboard!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                textInput: document.getElementById('text-input'),
+                passwordInput: document.getElementById('password-input'),
+                encryptBtn: document.getElementById('encrypt-btn'),
+                decryptBtn: document.getElementById('decrypt-btn'),
+                copyBtn: document.getElementById('copy-btn'),
+                statusMessage: document.getElementById('status-message'),
+                toast: document.getElementById('toast'),
+            };
+
+            const showToast = (message) => {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            };
+
+            const setStatus = (message, isError = false) => {
+                el.statusMessage.textContent = message;
+                el.statusMessage.className = `p-3 rounded-lg text-center font-medium ${isError ? 'bg-red-900/50 text-red-300' : 'bg-green-900/50 text-green-300'}`;
+            };
+
+            async function getKey(password, salt) {
+                const enc = new TextEncoder();
+                const keyMaterial = await crypto.subtle.importKey(
+                    'raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveKey']
+                );
+                return crypto.subtle.deriveKey(
+                    { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+                    keyMaterial,
+                    { name: 'AES-GCM', length: 256 },
+                    true,
+                    ['encrypt', 'decrypt']
+                );
+            }
+
+            async function encryptText() {
+                const text = el.textInput.value;
+                const password = el.passwordInput.value;
+                if (!text || !password) {
+                    setStatus('Please enter text and a password.', true);
+                    return;
+                }
+
+                try {
+                    const salt = crypto.getRandomValues(new Uint8Array(16));
+                    const iv = crypto.getRandomValues(new Uint8Array(12));
+                    const key = await getKey(password, salt);
+                    const enc = new TextEncoder();
+
+                    const encryptedContent = await crypto.subtle.encrypt(
+                        { name: 'AES-GCM', iv: iv },
+                        key,
+                        enc.encode(text)
+                    );
+
+                    const encryptedBytes = new Uint8Array(encryptedContent);
+                    const combined = new Uint8Array(salt.length + iv.length + encryptedBytes.length);
+                    combined.set(salt);
+                    combined.set(iv, salt.length);
+                    combined.set(encryptedBytes, salt.length + iv.length);
+
+                    el.textInput.value = btoa(String.fromCharCode.apply(null, combined));
+                    setStatus('Encryption successful!', false);
+                } catch (e) {
+                    setStatus(`Encryption failed: ${e.message}`, true);
+                }
+            }
+
+            async function decryptText() {
+                const encryptedText = el.textInput.value;
+                const password = el.passwordInput.value;
+                if (!encryptedText || !password) {
+                    setStatus('Please enter encrypted text and the password.', true);
+                    return;
+                }
+
+                try {
+                    const encryptedData = atob(encryptedText).split('').map(c => c.charCodeAt(0));
+                    const combined = new Uint8Array(encryptedData);
+
+                    const salt = combined.slice(0, 16);
+                    const iv = combined.slice(16, 28);
+                    const data = combined.slice(28);
+
+                    const key = await getKey(password, salt);
+                    const decryptedContent = await crypto.subtle.decrypt(
+                        { name: 'AES-GCM', iv: iv },
+                        key,
+                        data
+                    );
+
+                    const dec = new TextDecoder();
+                    el.textInput.value = dec.decode(decryptedContent);
+                    setStatus('Decryption successful!', false);
+                } catch (e) {
+                    setStatus('Decryption failed. Check your password or the encrypted text.', true);
+                }
+            }
+
+            el.encryptBtn.addEventListener('click', encryptText);
+            el.decryptBtn.addEventListener('click', decryptText);
+            el.copyBtn.addEventListener('click', () => {
+                if (el.textInput.value) {
+                    navigator.clipboard.writeText(el.textInput.value).then(() => showToast('Copied to clipboard!'));
+                }
+            });
+
+            // Toggle details arrow
+            document.querySelector('details summary').addEventListener('click', (e) => {
+                const details = e.target.closest('details');
+                const arrow = e.target.querySelector('svg');
+                if (arrow) {
+                    arrow.style.transform = details.open ? 'rotate(-90deg)' : 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

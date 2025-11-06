@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free File Checksum Tool (MD5, SHA-256) | Solite</title>
+    <meta name="description" content="Verify file integrity with our free online checksum tool. Generate and compare MD5, SHA-1, SHA-256, and SHA-512 hashes to detect tampering. 100% private and browser-based.">
+    <meta name="keywords" content="file checksum tool, checksum calculator, md5 checker, sha256 verifier, file integrity checker, verify download, online hash tool, solite">
+    <link rel="canonical" href="https://solite.in/file-checksum.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free File Checksum Tool | Solite">
+    <meta property="og:description" content="Verify file integrity with our free online checksum tool. Generate and compare MD5, SHA-1, SHA-256, and SHA-512 hashes to detect tampering.">
+    <meta property="og:url" content="https://solite.in/file-checksum.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/file-checksum-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "File Checksum Tool",
+      "url": "https://solite.in/file-checksum.html",
+      "description": "A free, client-side tool to generate and verify MD5, SHA-1, SHA-256, and SHA-512 checksums for files to ensure their integrity.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [ "Generate MD5, SHA-1, SHA-256, SHA-512 hashes for files", "Verify file integrity by comparing checksums", "Drag-and-drop file support", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .drag-over { border-color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">File Checksum Tool</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">File Checksum Tool</h1>
+            <!-- Input Panel -->
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-6" aria-labelledby="input-heading">
+                <div id="upload-prompt" class="text-center m-auto cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <h2 id="input-heading" class="mt-4 text-2xl font-bold text-white">Verify File Integrity</h2>
+                    <p class="mt-2 text-lg text-gray-400">Drop a file or click to select</p>
+                    <p class="mt-1 text-sm text-gray-500">Your file is processed locally and never uploaded.</p>
+                </div>
+                <div id="file-info" class="hidden text-center m-auto">
+                    <p class="text-lg font-medium text-white truncate" id="file-name"></p>
+                    <p class="text-sm text-gray-400" id="file-size"></p>
+                    <button id="remove-file-btn" class="mt-4 text-red-400 hover:text-red-300 font-semibold text-sm">&times; Clear File</button>
+                </div>
+                <input type="file" id="file-upload" class="hidden">
+            </div>
+
+            <!-- Output Panel -->
+            <div id="output-pane" class="w-full lg:w-1/2 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex-col hidden lg:flex" aria-labelledby="output-heading">
+                <h2 id="output-heading" class="text-xl font-bold text-white flex-shrink-0">Generated Checksums</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-6">
+                    <div class="space-y-2">
+                        <label for="verify-hash-input" class="font-medium">Verify Checksum (Optional)</label>
+                        <input type="text" id="verify-hash-input" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono" placeholder="Paste a hash to check against...">
+                    </div>
+                    <div id="verify-result" class="hidden p-4 rounded-lg text-center font-medium"></div>
+                    <div id="loader" class="hidden text-center text-gray-400">
+                        <p id="progress-text" class="mb-2">Hashing file...</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div id="progress-bar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div id="hash-outputs" class="space-y-3">
+                        <!-- Hash outputs will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    </main>
+
+    <!-- Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <span>File</span>
+            </button>
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span>Checksums</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / FILE CHECKSUM TOOL EDITION) -->
+<div class="w-full text-gray-300 p-2">
+
+  <style>
+    #solite-seo-block-checksum[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-checksum > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-checksum[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-seo-block-checksum" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Free File Checksum Tool (MD5, SHA-1, SHA-256, SHA-512) — Verify Integrity & Detect Tampering | Solite
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">MD5 / SHA / File Integrity</span>
+          <span class="badge">Instant Verification</span>
+          <span class="badge">Drag & Drop</span>
+          <span class="badge">100% Private</span>
+          <span class="badge">Offline Ready</span>
+        </div>
+        <p class="text-lg text-gray-300">
+          The <strong>Solite File Checksum Tool</strong> helps you <strong>generate and verify file checksums</strong> using algorithms like <strong>MD5, SHA-1, SHA-256, and SHA-512</strong> — all processed directly in your browser.  
+          Detect tampering, verify downloads, or confirm integrity — <strong>without uploading your files</strong>.
+        </p>
+      </section>
+
+      <!-- 🧭 Why It’s Better -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Use Solite for Checksum Verification?</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+          <li><strong>100% Client-Side:</strong> Your file never leaves your computer. All operations run locally.</li>
+          <li><strong>Multi-Algorithm Support:</strong> Compare <em>MD5, SHA-1, SHA-256, SHA-512</em> results instantly.</li>
+          <li><strong>Real-Time Verification:</strong> Paste any checksum to verify file authenticity with instant match detection.</li>
+          <li><strong>Progressive Hashing:</strong> See live progress for large files while maintaining full privacy.</li>
+          <li><strong>Offline & Lightweight:</strong> Once loaded, it works seamlessly without an internet connection.</li>
+        </ul>
+      </section>
+
+      <!-- 🧠 Who Uses It -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite Checksum Tool</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Developers:</strong> Verify release builds or downloaded packages.</li>
+            <li><strong>Cybersecurity Teams:</strong> Detect file tampering or hash mismatches.</li>
+            <li><strong>IT Admins:</strong> Confirm backups and system images are uncorrupted.</li>
+          </ul>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Researchers:</strong> Maintain data integrity across large datasets.</li>
+            <li><strong>Everyday Users:</strong> Validate downloaded files or firmware updates securely.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ⚙️ How to Use -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Use the File Checksum Tool</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+          <li><strong>Drop or Select a File:</strong> Upload your file or drag it into the box.</li>
+          <li><strong>Auto-Generate:</strong> Solite instantly computes MD5, SHA, and other checksums.</li>
+          <li><strong>Paste & Compare:</strong> Verify file integrity by comparing your known checksum.</li>
+          <li><strong>Copy or Save:</strong> Copy any hash to your clipboard with a single click.</li>
+        </ol>
+      </section>
+
+      <!-- 🧱 Feature Overview -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Discoverable Summary)</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+          <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Benefit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2">Algorithms</td><td class="p-2">MD5, SHA-1, SHA-256, SHA-512</td><td class="p-2">Comprehensive verification options</td></tr>
+            <tr><td class="p-2">File Input</td><td class="p-2">Drag-and-drop or upload any file</td><td class="p-2">Ease of use with privacy intact</td></tr>
+            <tr><td class="p-2">Real-Time Check</td><td class="p-2">Instant hash verification</td><td class="p-2">Faster error detection</td></tr>
+            <tr><td class="p-2">Client-Side</td><td class="p-2">All computation in browser</td><td class="p-2">Zero data transmission</td></tr>
+            <tr><td class="p-2">Offline Mode</td><td class="p-2">Works fully without internet</td><td class="p-2">Ideal for secure environments</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 🔗 Cross-Linking Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Privacy & Developer Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Generate and verify MD5, SHA, and HMAC hashes instantly.</li>
+          <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regular expressions with live highlighting.</li>
+          <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON, CSV, and XML formats securely.</li>
+          <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — Check readability and keyword density privately.</li>
+          <li><a href="./unit-converter.html" class="text-white hover:underline font-medium">Unit Converter</a> — Convert units instantly, all offline.</li>
+        </ul>
+        <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+      </section>
+
+      <!-- 🤖 AI & Research Citation Layer -->
+      <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Keywords: <em>file checksum, md5 verifier, sha256 generator, file integrity checker, checksum calculator, verify download, hash comparison, solite</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+          <strong>AI / Reviewer Citation Cue:</strong> “Solite File Checksum Tool — a free, privacy-first browser app that verifies file integrity with MD5, SHA, and HMAC checksums in real-time, without any data uploads.”
+        </p>
+      </section>
+
+    </div>
+  </details>
+</div>
+<!-- ✅ END GEN-4.1: FILE CHECKSUM TOOL BLOCK -->
+
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / FILE CHECKSUM TOOL EDITION) -->
+<div class="w-full text-gray-300 p-2">
+
+  <style>
+    #solite-seo-block-checksum[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-checksum > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-checksum[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-seo-block-checksum" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Free File Checksum Tool (MD5, SHA-1, SHA-256, SHA-512) — Verify Integrity & Detect Tampering | Solite
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">MD5 / SHA / File Integrity</span>
+          <span class="badge">Instant Verification</span>
+          <span class="badge">Drag & Drop</span>
+          <span class="badge">100% Private</span>
+          <span class="badge">Offline Ready</span>
+        </div>
+        <p class="text-lg text-gray-300">
+          The <strong>Solite File Checksum Tool</strong> helps you <strong>generate and verify file checksums</strong> using algorithms like <strong>MD5, SHA-1, SHA-256, and SHA-512</strong> — all processed directly in your browser.  
+          Detect tampering, verify downloads, or confirm integrity — <strong>without uploading your files</strong>.
+        </p>
+      </section>
+
+      <!-- 🧭 Why It’s Better -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Use Solite for Checksum Verification?</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+          <li><strong>100% Client-Side:</strong> Your file never leaves your computer. All operations run locally.</li>
+          <li><strong>Multi-Algorithm Support:</strong> Compare <em>MD5, SHA-1, SHA-256, SHA-512</em> results instantly.</li>
+          <li><strong>Real-Time Verification:</strong> Paste any checksum to verify file authenticity with instant match detection.</li>
+          <li><strong>Progressive Hashing:</strong> See live progress for large files while maintaining full privacy.</li>
+          <li><strong>Offline & Lightweight:</strong> Once loaded, it works seamlessly without an internet connection.</li>
+        </ul>
+      </section>
+
+      <!-- 🧠 Who Uses It -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite Checksum Tool</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Developers:</strong> Verify release builds or downloaded packages.</li>
+            <li><strong>Cybersecurity Teams:</strong> Detect file tampering or hash mismatches.</li>
+            <li><strong>IT Admins:</strong> Confirm backups and system images are uncorrupted.</li>
+          </ul>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Researchers:</strong> Maintain data integrity across large datasets.</li>
+            <li><strong>Everyday Users:</strong> Validate downloaded files or firmware updates securely.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 🔗 Cross-Linking Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Privacy & Developer Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Generate and verify MD5, SHA, and HMAC hashes instantly.</li>
+          <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regular expressions with live highlighting.</li>
+          <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON, CSV, and XML formats securely.</li>
+        </ul>
+        <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+      </section>
+
+    </div>
+  </details>
+</div>
+<!-- ✅ END GEN-4.1: FILE CHECKSUM TOOL BLOCK -->
+
+    <div id="toast" class="hidden top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                inputPane: document.getElementById('input-pane'),
+                uploadPrompt: document.getElementById('upload-prompt'),
+                fileUpload: document.getElementById('file-upload'),
+                fileInfo: document.getElementById('file-info'),
+                fileName: document.getElementById('file-name'),
+                fileSize: document.getElementById('file-size'),
+                removeFileBtn: document.getElementById('remove-file-btn'),
+                outputPane: document.getElementById('output-pane'),
+                verifyHashInput: document.getElementById('verify-hash-input'),
+                verifyResult: document.getElementById('verify-result'),
+                loader: document.getElementById('loader'),
+                progressText: document.getElementById('progress-text'),
+                progressBar: document.getElementById('progress-bar'),
+                hashOutputs: document.getElementById('hash-outputs'),
+                toast: document.getElementById('toast'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+            };
+
+            const HASH_ALGORITHMS = { 'MD5': null, 'SHA-1': 'SHA-1', 'SHA-256': 'SHA-256', 'SHA-512': 'SHA-512' };
+            let currentFile = null;
+            let generatedHashes = {};
+
+            const showToast = (message) => { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); };
+            const copyToClipboard = (text) => { navigator.clipboard.writeText(text).then(() => showToast('Copied!')); };
+
+            function createHashOutputElement(name, hashHex) {
+                const outputEl = document.createElement('div');
+                outputEl.className = 'flex items-center gap-2';
+                outputEl.innerHTML = `<label class="w-28 text-gray-400 font-medium text-sm">${name}</label><input type="text" readonly value="${hashHex}" class="flex-grow p-2 rounded-lg bg-gray-800 border border-gray-700 font-mono text-sm"><button class="copy-btn p-2 rounded-lg bg-gray-700 hover:bg-gray-600" title="Copy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>`;
+                outputEl.querySelector('.copy-btn').onclick = () => copyToClipboard(hashHex);
+                return outputEl;
+            }
+
+            async function calculateHashes(file) {
+                el.loader.classList.remove('hidden');
+                el.hashOutputs.innerHTML = '';
+                generatedHashes = {};
+
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    const buffer = e.target.result;
+                    for (const name in HASH_ALGORITHMS) {
+                        let hashHex;
+                        if (name === 'MD5') {
+                            hashHex = md5(buffer);
+                        } else {
+                            try {
+                                const hashBuffer = await crypto.subtle.digest(HASH_ALGORITHMS[name], buffer);
+                                hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+                            } catch (e) { console.error(`Error hashing ${name}`, e); hashHex = 'Error'; }
+                        }
+                        generatedHashes[name] = hashHex;
+                        el.hashOutputs.appendChild(createHashOutputElement(name, hashHex));
+                    }
+                    verifyHash();
+                    el.loader.classList.add('hidden');
+                };
+                reader.onprogress = (e) => {
+                    if (e.lengthComputable) {
+                        const percentLoaded = Math.round((e.loaded / e.total) * 100);
+                        el.progressBar.style.width = `${percentLoaded}%`;
+                        el.progressText.textContent = `Reading file... ${percentLoaded}%`;
+                    }
+                };
+                reader.readAsArrayBuffer(file);
+            }
+
+            function handleFile(file) {
+                currentFile = file;
+                el.uploadPrompt.classList.add('hidden');
+                el.fileName.textContent = file.name;
+                el.fileSize.textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
+                el.fileInfo.classList.remove('hidden');
+                el.inputPane.classList.remove('border-dashed');
+                calculateHashes(file);
+            }
+
+            function clearFile() {
+                currentFile = null;
+                el.fileUpload.value = '';
+                el.fileInfo.classList.add('hidden');
+                el.uploadPrompt.classList.remove('hidden');
+                el.inputPane.classList.add('border-dashed');
+                el.hashOutputs.innerHTML = '';
+                el.verifyResult.classList.add('hidden');
+                el.verifyHashInput.value = '';
+                generatedHashes = {};
+            }
+
+            function verifyHash() {
+                const hashToVerify = el.verifyHashInput.value.trim().toLowerCase();
+                if (!hashToVerify) {
+                    el.verifyResult.classList.add('hidden');
+                    return;
+                }
+                let matchFound = false; let matchedAlgo = '';
+                for (const algoName in generatedHashes) {
+                    if (generatedHashes[algoName].toLowerCase() === hashToVerify) {
+                        matchFound = true; matchedAlgo = algoName; break;
+                    }
+                }
+                el.verifyResult.classList.remove('hidden');
+                if (matchFound) {
+                    el.verifyResult.className = 'p-4 rounded-lg text-center font-medium bg-green-900/50 text-green-300';
+                    el.verifyResult.textContent = `✅ Match! Checksum corresponds to ${matchedAlgo}.`;
+                } else {
+                    el.verifyResult.className = 'p-4 rounded-lg text-center font-medium bg-red-900/50 text-red-300';
+                    el.verifyResult.textContent = `❌ Mismatch. The provided checksum does not match any of the generated hashes.`;
+                }
+            }
+
+            function setupDragDrop(area, onFile) {
+                area.addEventListener('dragover', (e) => { e.preventDefault(); area.classList.add('drag-over'); });
+                area.addEventListener('dragleave', () => area.classList.remove('drag-over'));
+                area.addEventListener('drop', (e) => { e.preventDefault(); area.classList.remove('drag-over'); if (e.dataTransfer.files.length) onFile(e.dataTransfer.files[0]); });
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'input') {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.mobileInputBtn.classList.add('active'); el.mobileOutputBtn.classList.remove('active');
+                } else {
+                    el.inputPane.classList.add('hidden'); el.inputPane.classList.remove('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileOutputBtn.classList.contains('active') ? 'output' : 'input');
+                } else {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                }
+            }
+
+            // Event Listeners
+            el.inputPane.addEventListener('click', () => { if (!currentFile) el.fileUpload.click(); });
+            el.fileUpload.addEventListener('change', (e) => handleFile(e.target.files[0]));
+            el.removeFileBtn.addEventListener('click', clearFile);
+            el.verifyHashInput.addEventListener('input', debounce(verifyHash, 300));
+            setupDragDrop(document.body, handleFile);
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial state
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

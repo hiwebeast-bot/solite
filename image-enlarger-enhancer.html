@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- MODIFIED: Title for Enhancer -->
+    <title>Image Enlarger & Enhancer (JPG, PNG, WebP) | Solite</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <!-- MODIFIED: Description for Enhancer -->
+    <meta name="description" content="Enlarge, enhance, and upscale JPG, PNG, and WebP images online for free with Solite's browser-based tool. Automatically enhances brightness, contrast, and saturation. 100% private and secure.">
+    <!-- MODIFIED: Keywords for Enhancer -->
+    <meta name="keywords" content="image enlarger, image enhancer, increase image resolution, image expander, resize image, jpg enlarger, png upscaler, webp upscaler, online image resizing, free image enlarger, solite, increase brightness, increase contrast, automatic enhancement, smart sharpening">
+    <link rel="canonical" href="https://solite.in/image-enlarger.html">
+    <!-- MODIFIED: OG Title for Enhancer -->
+    <meta property="og:title" content="Free Online Image Enlarger & Enhancer | Solite">
+    <meta property="og:description" content="A free browser-based tool to enlarge, upscale, and automatically enhance JPG, PNG, and WebP images. Improves clarity and color instantly.">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:image" content="https://solite.in/assets/solite-image-enlarger-og.png"> <!-- Recommended: Create a new OG image for this tool -->
+    <meta property="og:url" content="https://solite.in/image-enlarger.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;5500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+    <!-- JSZip for downloading (Kept in case of future batch processing) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Enlarger & Enhancer | Solite",
+      "url": "https://solite.in/image-enlarger.html",
+      "description": "A free, privacy-first, browser-based image enlarger and enhancer supporting JPG, PNG, and WebP formats. Automatically increases clarity and detail with adjustable scale.",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": [
+        "High-Quality Image Enlarging",
+        "Automatic Image Enhancement (Contrast, Saturation)",
+        "Automatic Noise Reduction (for >2x scale or >80% quality)",
+        "Automatic Smart Sharpening (for >2x scale or >80% quality)",
+        "Enlarge JPG, PNG, WebP images",
+        "Adjustable scale factor (e.g., 2x, 4x)",
+        "Optional image resizing (width/height)",
+        "Aspect ratio lock for resizing",
+        "Real-time preview of new dimensions",
+        "Download enhanced image",
+        "100% Client-side processing for privacy"
+      ],
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Works fully client-side.",
+      "creator": {
+        "@type": "Organization",
+        "name": "Solite",
+        "url": "https://solite.in"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        input[type=range]::-webkit-slider-thumb {
+             -webkit-appearance: none; appearance: none;
+             width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+
+        /* ADDED: Styles for colored quality slider track */
+        #quality-slider {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+        }
+        #quality-slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+            border-radius: 9999px;
+        }
+        #quality-slider::-moz-range-track {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+            border-radius: 9999px;
+        }
+        
+        /* Blue slider for scale */
+        #scale-slider {
+             background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
+        }
+        #scale-slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 9999px;
+        }
+        #scale-slider::-moz-range-track {
+            background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 9999px;
+        }
+        
+        #image-canvas {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+        details[open] > summary {
+            border-bottom: 1px solid #374151; /* gray-700 */
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- ADDED: Hidden SVG for Unsharp Mask Filter -->
+    <svg width="0" height="0" style="position:absolute;z-index:-1;">
+        <defs>
+            <filter id="unsharp-mask">
+                <!-- Create a blurred copy -->
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blurred" />
+                <!-- Subtract blurred from original to find edges -->
+                <feComposite in="SourceGraphic" in2="blurred" operator="arithmetic" k1="2" k2="-1" k3="0" k4="0" result="edges" />
+                <!-- Combine original and edges -->
+                <feBlend in="SourceGraphic" in2="edges" mode="normal" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- MODIFIED: Header updated for Enhancer -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <!-- MODIFIED: Tool name -->
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Image Enlarger & Enhancer</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex relative">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col gap-4">
+            
+            <div class="w-full flex flex-col lg:flex-row gap-4 min-h-[85vh]">
+                <!-- Preview Pane -->
+                <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
+                    <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto p-2">
+                        <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                            <!-- MODIFIED: H1 for Enhancer -->
+                            <h1 class="sr-only">Free Online Image Enlarger and Enhancer</h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2
+ 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
+                            <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
+                        </div>
+                        <!-- Canvas still shows the original image, CSS scales it to fit -->
+                        <canvas id="image-canvas" class="hidden"></canvas>
+                        <input type="file" id="image-upload" class="hidden" accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Controls Panel -->
+                <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto">
+                    <!-- MODIFIED: Title -->
+                    <h3 class="text-xl font-bold text-white flex-shrink-0">Image Enlarger & Enhancer</h3>
+                    
+                    <!-- MODIFIED: Stats container for Enlarger -->
+                    <div id="stats-container" class="text-center bg-gray-800 p-4 rounded-lg space-y-2 hidden flex-shrink-0">
+                        <div class="text-sm text-gray-400">Original: 
+                            <span id="original-dims" class="font-medium text-white">N/A</span> | 
+                            <span id="original-size" class="font-medium text-white">N/A</span>
+                        </div>
+                        <div id="stats-results">
+                            <div class="text-lg text-gray-200">New Size: 
+                                <span id="new-dims" class="font-bold text-blue-400">N/A</span> | 
+                                <span id="new-size" class="font-bold text-blue-400">N/A</span>
+                            </div>
+                            <div class="text-sm text-blue-400">Scale: <span id="scale-factor">1.0</span>x</div>
+                        </div>
+                        <!-- MODIFIED: Added sharpening message -->
+                        <div id="stats-loader" class="hidden h-12 flex items-center justify-center space-x-2">
+                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            <!-- MODIFIED: ID and default text -->
+                            <span id="processing-message" class="text-sm text-gray-400 hidden">Enhancing...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- MODIFIED: Controls for Enlarger -->
+                    <div id="processing-controls" class="space-y-6 hidden flex-grow min-h-0 overflow-y-auto pr-2">
+                        
+                        <!-- Scale Slider -->
+                        <div class="space-y-2">
+                            <label for="scale-slider" class="font-medium">Scale Factor</label>
+                            <input type="range" id="scale-slider" min="1.0" max="4.0" value="2.0" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-center text-sm text-gray-400">
+                                <span id="scale-label">2.0</span>x
+                            </div>
+                        </div>
+                        
+                        <!-- Resize Dimensions -->
+                        <div class="space-y-2">
+                            <label for="resize-width" class="font-medium">Target Dimensions</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="resize-width" placeholder="Width" aria-label="Resize Width" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                                <button id="aspect-lock-btn" title="Toggle Aspect Ratio Lock" aria-label="Toggle Aspect Ratio Lock" class="p-2 bg-gray-700 text-white rounded-lg flex-shrink-0">
+                                    <svg id="lock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <svg id="unlock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v3m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                                <input type="number" id="resize-height" placeholder="Height" aria-label="Resize Height" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                            </div>
+                        </div>
+                        
+                        <!-- ADDED: Output Format -->
+                        <div class="space-y-2 border-t border-gray-800 pt-4">
+                            <label for="format-select-btn" class="font-medium">Output Format</label>
+                            <div class="relative">
+                                <button id="format-select-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full">
+                                    <span id="format-select-text">JPEG</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div id="format-select-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/jpeg">JPEG</a>
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/webp">WebP</a>
+                                    <!-- ADDED: PNG Option -->
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/png">PNG</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADDED: Output Quality -->
+                         <!-- MODIFIED: Added ID to container -->
+                         <div class="space-y-2" id="quality-slider-container">
+                            <label for="quality-slider" class="font-medium">Output Quality</label>
+                            <input type="range" id="quality-slider" min="0.01" max="1.0" value="0.9" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-center text-sm text-gray-400">
+                                <span id="quality-label">90</span>%
+                            </div>
+                        </div>
+
+                        <!-- MODIFIED: Download button is now the primary action -->
+                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span>Download Image</span>
+                        </button>
+                        <button id="remove-image-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg hidden flex-shrink-0">Remove Image</button>
+                    </div>
+                    <p id="controls-prompt" class="text-gray-500 text-center flex-shrink-0">Upload an image to see enlargement options.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+                Ad Area
+            </div>
+        </aside>
+
+        
+    </main>
+<!-- Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>Preview</span>
+                </button>
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                    <span>Controls</span>
+                </button>
+            </div>
+        </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / IMAGE ENLARGER & ENHANCER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+
+        <style>
+            #solite-seo-block-image-enhancer[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-image-enhancer > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-image-enhancer[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-image-enhancer" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Online Image Enlarger & Enhancer — Upscale, Sharpen & Brighten Instantly | Solite
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Image Enhancer</span>
+                <span class="badge">Image Upscaler</span>
+                <span class="badge">Smart Sharpening</span>
+                <span class="badge">Noise Reduction</span>
+                <span class="badge">Privacy-First</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Image Enlarger & Enhancer</strong> lets you <strong>upscale, brighten, and sharpen images instantly</strong> — all inside your browser.  
+                No uploads, no tracking, and no quality loss. Enhance JPG, PNG, and WebP images with smart filters that boost detail and vibrancy automatically.
+                </p>
+            </section>
+
+            <!-- ⚙️ Why It’s Better -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Image Enhancer Beats Traditional Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>100% Private:</strong> Works fully offline — your photos never leave your device.</li>
+                <li><strong>Automatic Enhancement:</strong> Smartly adjusts brightness, contrast, and saturation in one step.</li>
+                <li><strong>Noise Reduction:</strong> Reduces grain for high-quality upscales at 2×, 3×, or 4× sizes.</li>
+                <li><strong>Smart Sharpening:</strong> Detects edges and restores lost details for crisp, high-resolution output.</li>
+                <li><strong>Multi-Format Export:</strong> Save enhanced images as JPEG, PNG, or WebP — all optimized for quality.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Benefits from Solite Image Enhancer</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Designers:</strong> Turn low-res assets into print-ready visuals with clarity and balance.</li>
+                    <li><strong>Developers:</strong> Generate high-DPI image assets for web or app projects on the fly.</li>
+                    <li><strong>Marketers:</strong> Improve visual quality for campaign creatives and social media images.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Photographers:</strong> Quickly upscale previews or edits without installing heavy software.</li>
+                    <li><strong>Students & Creators:</strong> Fix and enlarge blurry images for presentations or content posts.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- 🧭 How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use the Solite Image Enhancer</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li><strong>Upload Image:</strong> Drop or select your JPG, PNG, or WebP image.</li>
+                <li><strong>Set Scale:</strong> Choose an enlargement factor (1.5×, 2×, 3×, or 4×).</li>
+                <li><strong>Auto-Enhance:</strong> The tool automatically improves contrast, saturation, and sharpness.</li>
+                <li><strong>Preview Result:</strong> View before and after details with size and scale info.</li>
+                <li><strong>Download:</strong> Export your enhanced image with one click — no compression loss.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Feature Overview -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Readable Summary)</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Benefit</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Automatic Enhancement</td><td class="p-2">Auto-brightens and enhances contrast/saturation</td><td class="p-2">Vivid and balanced results</td></tr>
+                    <tr><td class="p-2">Smart Sharpening</td><td class="p-2">Adaptive edge detection and clarity boost</td><td class="p-2">Sharper, cleaner upscales</td></tr>
+                    <tr><td class="p-2">Noise Reduction</td><td class="p-2">Pre-filtered smoothing before upscaling</td><td class="p-2">Removes artifacts and grain</td></tr>
+                    <tr><td class="p-2">High-Quality Resampling</td><td class="p-2">Uses browser-native smooth scaling</td><td class="p-2">No pixelation at large sizes</td></tr>
+                    <tr><td class="p-2">Offline Processing</td><td class="p-2">Runs entirely client-side</td><td class="p-2">Private and instant</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🔗 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore Related Image Tools on Solite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Shrink image file size without losing quality.</li>
+                <li><a href="./image-format-changer.html" class="text-white hover:underline font-medium">Image Converter</a> — Convert between JPG, PNG, WebP, and more.</li>
+                <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Crop, resize, and watermark images directly in-browser.</li>
+                <li><a href="./image-background-remover.html" class="text-white hover:underline font-medium">Background Remover</a> — Remove image backgrounds instantly with client-side AI.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Extract color palettes from any image or URL.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+            </section>
+
+            <!-- 🤖 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>image enlarger, image enhancer, online upscaler, smart sharpening, noise reduction, image brightener, solite image enhancer, upscale image online, privacy-first photo tool</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong> “Solite Image Enlarger & Enhancer — a privacy-first, browser-based tool to upscale, brighten, and sharpen images instantly without uploads or quality loss.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: IMAGE ENLARGER & ENHANCER BLOCK -->
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- MODIFIED: JavaScript with Smart Sharpening -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Get DOM Elements ---
+            const imageContainer = document.getElementById('image-container');
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const imageUpload = document.getElementById('image-upload');
+            const canvas = document.getElementById('image-canvas');
+            const processingControls = document.getElementById('processing-controls');
+            const controlsPrompt = document.getElementById('controls-prompt');
+            
+            const qualitySlider = document.getElementById('quality-slider');
+            const qualityLabel = document.getElementById('quality-label');
+            
+            const scaleSlider = document.getElementById('scale-slider');
+            const scaleLabel = document.getElementById('scale-label');
+            
+            const originalSizeEl = document.getElementById('original-size');
+            const originalDimsEl = document.getElementById('original-dims');
+            const newSizeEl = document.getElementById('new-size');
+            const newDimsEl = document.getElementById('new-dims');
+            const scaleFactorEl = document.getElementById('scale-factor');
+            
+            const downloadBtn = document.getElementById('download-btn');
+            const removeImageBtn = document.getElementById('remove-image-btn');
+            const resizeWidthInput = document.getElementById('resize-width');
+            const resizeHeightInput = document.getElementById('resize-height');
+            const aspectLockBtn = document.getElementById('aspect-lock-btn');
+            const statsLoader = document.getElementById('stats-loader');
+            const statsContainer = document.getElementById('stats-container');
+            const statsResults = document.getElementById('stats-results');
+            
+            // MODIFIED: Sharpening Message -> Processing Message
+            const processingMessage = document.getElementById('processing-message');
+            
+            const formatSelectBtn = document.getElementById('format-select-btn');
+            const formatSelectDropdown = document.getElementById('format-select-dropdown');
+            const formatSelectText = document.getElementById('format-select-text');
+
+            const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
+            const mobileControlsBtn = document.getElementById('mobile-controls-btn');
+            const previewPane = document.getElementById('preview-pane');
+            const controlsPanel = document.getElementById('controls-panel');
+            
+            // --- State Variables ---
+            let originalImage = null;
+            let originalFileName = '';
+            let originalSize = 0;
+            let originalWidth = 0;
+            let originalHeight = 0;
+            let processedDataUrl = '';
+            let exportFormat = 'image/jpeg';
+            let isAspectLocked = false;
+
+            function formatBytes(bytes, decimals = 2) {
+                if (!bytes || bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+
+            function handleImage(file) {
+                if (!file || !file.type.startsWith('image/')) return;
+                originalFileName = file.name;
+                originalSize = file.size;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    originalImage = new Image();
+                    originalImage.onload = () => {
+                        originalWidth = originalImage.width;
+                        originalHeight = originalImage.height;
+                        updateUI();
+                        processImage(); // Initial process on load
+                        if (window.innerWidth < 1024) {
+                            showMobilePane('preview');
+                        }
+                    };
+                    originalImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            const debounce = (func, delay) => {
+                let timeoutId;
+                return function(...args) {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => {
+                        func.apply(this, args);
+                    }, delay);
+                };
+            };
+
+            const debouncedProcessImage = debounce(processImage, 250);
+
+            // REMOVED: Old applySharpen function
+            /*
+            function applySharpen(ctx, width, height) {
+                const imageData = ctx.getImageData(0, 0, width, height);
+                // ... (old code removed) ...
+                ctx.putImageData(outputData, 0, 0);
+            }
+            */
+
+            // MODIFIED: processImage with Noise Reduction, Saturation update, and better messaging
+            async function processImage() {
+                if (!originalImage) return;
+
+                statsResults.classList.add('hidden');
+                statsLoader.classList.remove('hidden');
+                downloadBtn.disabled = true;
+
+                // --- Smart Sharpening Logic ---
+                const quality = parseFloat(qualitySlider.value);
+                const scale = parseFloat(scaleSlider.value);
+                // Condition: scale > 2x OR quality > 80%
+                const applySharpenFilter = scale > 2.0 || quality > 0.8;
+
+                if (applySharpenFilter) {
+                    // MODIFIED: Update message text
+                    processingMessage.textContent = 'Enhancing (Noise Reduction & Sharpening)...';
+                    processingMessage.classList.remove('hidden');
+                } else {
+                    processingMessage.textContent = 'Enhancing...'; // Default message
+                    processingMessage.classList.add('hidden'); // Hide simple enhancing message, loader is enough
+                }
+                // --- End Smart Sharpening Logic ---
+
+                setTimeout(async () => {
+                    try {
+                        // Get all values
+                        const brightness = 100; // 100% = no change
+                        const contrast = 112;   // 112% = 12% contrast boost
+                        const saturation = 108; // 108% = 8% saturation boost
+                        
+                        let targetWidth = parseInt(resizeWidthInput.value) || Math.round(originalWidth * scale);
+                        let targetHeight = parseInt(resizeHeightInput.value) || Math.round(originalHeight * scale);
+
+                        targetWidth = Math.max(1, targetWidth);
+                        targetHeight = Math.max(1, targetHeight);
+
+                        // --- NEW: Multi-stage pipeline ---
+                        
+                        // 1. Source Canvas (for Noise Reduction)
+                        const sourceCanvas = document.createElement('canvas');
+                        sourceCanvas.width = originalWidth;
+                        sourceCanvas.height = originalHeight;
+                        const sourceCtx = sourceCanvas.getContext('2d');
+
+                        // Apply conditional noise reduction *before* scaling
+                        if (applySharpenFilter) {
+                            sourceCtx.filter = 'blur(0.5px)';
+                        }
+                        sourceCtx.drawImage(originalImage, 0, 0); // Draw original image (blurred if filter set)
+
+                        // 2. Target Canvas (for Upscaling & Enhancements)
+                        const tempCanvas = document.createElement('canvas');
+                        tempCanvas.width = targetWidth;
+                        tempCanvas.height = targetHeight;
+                        const ctx = tempCanvas.getContext('2d');
+                        
+                        // Apply Enhancement Filters (Fast)
+                        // MODIFIED: Store base filters
+                        let baseFilters = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%)`;
+                        
+                        // 3. Conditionally apply slow sharpen filter *after* scaling
+                        // MODIFIED: Append USM filter URL to filter string
+                        if (applySharpenFilter) {
+                            // This applies the GPU-accelerated SVG filter
+                            baseFilters += ` url(#unsharp-mask)`;
+                        }
+
+                        ctx.filter = baseFilters;
+                        
+                        // Set high-quality scaling
+                        ctx.imageSmoothingEnabled = true;
+                        ctx.imageSmoothingQuality = 'high';
+                        
+                        // Draw the (potentially blurred) source image onto the new canvas at the target size
+                        ctx.drawImage(sourceCanvas, 0, 0, targetWidth, targetHeight);
+                        
+                        // 3. Conditionally apply slow sharpen filter *after* scaling
+                        // REMOVED: Old applySharpen() call
+                        /*
+                        if (applySharpenFilter) {
+                            applySharpen(ctx, targetWidth, targetHeight);
+                        }
+                        */
+                        // --- End Multi-stage pipeline ---
+                        
+                        // Reset filter (good practice)
+                        ctx.filter = 'none';
+
+                        processedDataUrl = tempCanvas.toDataURL(exportFormat, quality);
+                        const newSize = processedDataUrl.length * (3/4) - (processedDataUrl.endsWith('==') ? 2 : (processedDataUrl.endsWith('=') ? 1 : 0));
+
+                        updateTotals(originalSize, newSize, targetWidth, targetHeight);
+                    
+                    } catch (error) {
+                         console.error("Image processing failed:", error);
+                        newSizeEl.textContent = "Error";
+                        newDimsEl.textContent = "Error";
+                    } finally {
+                        statsLoader.classList.add('hidden');
+                        processingMessage.classList.add('hidden'); // Always hide on completion
+                        statsResults.classList.remove('hidden');
+                        downloadBtn.disabled = false;
+                    }
+                }, 10);
+            }
+
+            function updateUI() {
+                if (originalImage) {
+                    uploadPrompt.classList.add('hidden');
+                    processingControls.classList.remove('hidden');
+                    controlsPrompt.classList.add('hidden');
+                    statsContainer.classList.remove('hidden');
+                    downloadBtn.disabled = false; // Enable download
+                    removeImageBtn.classList.remove('hidden');
+                    
+                    imageContainer.classList.remove('border-dashed', 'items-center', 'justify-center');
+                    imageContainer.classList.add('border-gray-900'); 
+
+                    canvas.classList.remove('hidden');
+                    const ctx = canvas.getContext('2d');
+                    const img = originalImage;
+                    
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    // Set initial resize and scale values
+                    const initialScale = 1.0; // Start at 1x
+                    const targetWidth = Math.round(img.width * initialScale);
+                    const targetHeight = Math.round(img.height * initialScale);
+
+                    resizeWidthInput.value = targetWidth;
+                    resizeHeightInput.value = targetHeight;
+                    scaleSlider.value = initialScale;
+                    scaleLabel.textContent = initialScale.toFixed(1);
+                    
+                    qualitySlider.value = 0.9;
+                    qualityLabel.textContent = '90';
+                    exportFormat = 'image/jpeg';
+                    formatSelectText.textContent = 'JPEG';
+
+                } else {
+                    // Reset UI
+                    uploadPrompt.classList.remove('hidden');
+                    processingControls.classList.add('hidden');
+                    controlsPrompt.classList.remove('hidden');
+                    statsContainer.classList.add('hidden');
+                    
+                    imageContainer.classList.add('border-dashed', 'items-center', 'justify-center');
+                    imageContainer.classList.remove('border-gray-900');
+                    canvas.classList.add('hidden');
+                    removeImageBtn.classList.add('hidden');
+                    downloadBtn.disabled = true;
+                    resizeWidthInput.value = '';
+                    resizeHeightInput.value = '';
+                    scaleSlider.value = 2.0;
+                    scaleLabel.textContent = '2.0';
+                }
+            }
+
+            function updateTotals(original, newSize, targetWidth, targetHeight) {
+                originalDimsEl.textContent = `${originalWidth} x ${originalHeight}`;
+                originalSizeEl.textContent = formatBytes(original);
+                
+                newDimsEl.textContent = `${targetWidth} x ${targetHeight}`;
+                newSizeEl.textContent = formatBytes(newSize);
+                
+                // Update scale factor display based on width
+                const calculatedScale = originalWidth > 0 ? (targetWidth / originalWidth) : 0;
+                scaleFactorEl.textContent = `${calculatedScale.toFixed(1)}x`;
+            }
+
+            function removeImage() {
+                originalImage = null;
+                originalFileName = '';
+                originalSize = 0;
+                originalWidth = 0;
+                originalHeight = 0;
+                processedDataUrl = '';
+                imageUpload.value = '';
+                updateUI();
+            }
+
+            function setupFormatDropdown() {
+                // ADDED: Get quality slider container
+                const qualitySliderContainer = document.getElementById('quality-slider-container');
+
+                formatSelectBtn.addEventListener('click', (e) => { e.stopPropagation(); formatSelectDropdown.classList.toggle('hidden'); });
+                formatSelectDropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        exportFormat = e.target.dataset.value;
+                        formatSelectText.textContent = e.target.textContent;
+                        formatSelectDropdown.classList.add('hidden');
+                        
+                        // ADDED: Logic to disable quality slider for PNG
+                        if (exportFormat === 'image/png') {
+                            qualitySlider.disabled = true;
+                            qualitySliderContainer.classList.add('opacity-50', 'cursor-not-allowed');
+                        } else {
+                            qualitySlider.disabled = false;
+                            qualitySliderContainer.classList.remove('opacity-50', 'cursor-not-allowed');
+                        }
+                        
+                        // Re-process on format change
+                        debouncedProcessImage();
+                    }
+                });
+                document.addEventListener('click', (e) => {
+                     if (!formatSelectBtn.contains(e.target) && !formatSelectDropdown.contains(e.target)) {
+                         formatSelectDropdown.classList.add('hidden');
+                     }
+                 });
+            }
+
+            // --- Event Listeners ---
+
+            imageContainer.addEventListener('click', () => { if(!originalImage) imageUpload.click(); });
+            imageUpload.addEventListener('change', (e) => handleImage(e.target.files[0]));
+            imageContainer.addEventListener('dragover', (e) => { e.preventDefault(); imageContainer.classList.add('border-blue-500'); });
+            imageContainer.addEventListener('dragleave', () => imageContainer.classList.remove('border-blue-500'));
+            imageContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                imageContainer.classList.remove('border-blue-500');
+                handleImage(e.dataTransfer.files[0]);
+            });
+
+            qualitySlider.addEventListener('input', (e) => {
+                const quality = parseFloat(e.target.value);
+                qualityLabel.textContent = Math.round(quality * 100);
+                 debouncedProcessImage();
+            });
+            
+            removeImageBtn.addEventListener('click', removeImage);
+
+            aspectLockBtn.addEventListener('click', () => {
+                isAspectLocked = !isAspectLocked;
+                document.getElementById('lock-icon').classList.toggle('hidden', !isAspectLocked);
+                document.getElementById('unlock-icon').classList.toggle('hidden', isAspectLocked);
+                aspectLockBtn.classList.toggle('bg-white', isAspectLocked);
+                aspectLockBtn.classList.toggle('text-black', isAspectLocked);
+                aspectLockBtn.classList.toggle('bg-gray-700', !isAspectLocked);
+                aspectLockBtn.classList.toggle('text-white', !isAspectLocked);
+            });
+
+            scaleSlider.addEventListener('input', (e) => {
+                if (!originalImage) return;
+                const scale = parseFloat(e.target.value);
+                scaleLabel.textContent = scale.toFixed(1);
+                
+                const targetWidth = Math.round(originalWidth * scale);
+                const targetHeight = Math.round(originalHeight * scale);
+                
+                resizeWidthInput.value = targetWidth;
+                resizeHeightInput.value = targetHeight;
+                
+                debouncedProcessImage();
+            });
+
+            resizeWidthInput.addEventListener('input', () => {
+                if (!originalImage) return;
+                // BUG FIX: Corrected variable name from resizeWidthinput to resizeWidthInput
+                const newWidth = parseInt(resizeWidthInput.value);
+                if (newWidth > 0) {
+                    const scale = newWidth / originalWidth;
+                    if (isAspectLocked) {
+                        resizeHeightInput.value = Math.round(originalHeight * scale);
+                    }
+                    scaleSlider.value = scale;
+                    scaleLabel.textContent = scale.toFixed(1);
+                    debouncedProcessImage();
+                }
+            });
+
+            resizeHeightInput.addEventListener('input', () => {
+                if (!originalImage) return;
+                const newHeight = parseInt(resizeHeightInput.value);
+                if (newHeight > 0) {
+                    const scale = newHeight / originalHeight;
+                    if (isAspectLocked) {
+                        resizeWidthInput.value = Math.round(originalWidth * scale);
+                    }
+                    scaleSlider.value = scale;
+                    scaleLabel.textContent = scale.toFixed(1);
+                    debouncedProcessImage();
+                }
+            });
+            
+            downloadBtn.addEventListener('click', () => {
+                if (!processedDataUrl) return;
+                const link = document.createElement('a');
+                // MODIFIED: Use exportFormat and add "solite-enhanced" to filename
+                const format = exportFormat.split('/')[1] || 'jpg';
+                const name = originalFileName ? originalFileName.substring(0, originalFileName.lastIndexOf('.')) || 'image' : 'image';
+                link.download = `${name}-solite-enhanced.${format}`;
+                link.href = processedDataUrl;
+                link.click();
+            });
+
+            setupFormatDropdown();
+
+            // --- Mobile Navigation Logic ---
+            function showMobilePane(paneId) {
+                if (paneId === 'preview') {
+                    previewPane.classList.remove('hidden');
+                    controlsPanel.classList.add('hidden');
+                    mobilePreviewBtn.classList.add('active');
+                    mobileControlsBtn.classList.remove('active');
+                } else { // 'controls'
+                    previewPane.classList.add('hidden');
+                    controlsPanel.classList.remove('hidden');
+                    controlsPanel.classList.add('flex');
+                    mobilePreviewBtn.classList.remove('active');
+                    mobileControlsBtn.classList.add('active');
+                }
+            }
+
+             function handleMobileLayout() {
+                 if (window.innerWidth < 1024) {
+                     if (!mobilePreviewBtn.classList.contains('active') && !mobileControlsBtn.classList.contains('active')) {
+                         showMobilePane('preview');
+                     }
+                     else if (mobilePreviewBtn.classList.contains('active')) {
+                         showMobilePane('preview');
+                     } else {
+                         showMobilePane('controls');
+                     }
+                 } else {
+                     previewPane.classList.remove('hidden');
+                     controlsPanel.classList.remove('hidden');
+                     controlsPanel.classList.add('flex');
+                     mobilePreviewBtn.classList.remove('active');
+                     mobileControlsBtn.classList.remove('active');
+                 }
+             }
+
+            mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            window.addEventListener('resize', handleMobileLayout);
+            handleMobileLayout();
+
+            // --- Details/Summary Toggle Logic ---
+            document.querySelectorAll('details').forEach((detail) => {
+                detail.addEventListener('toggle', () => {
+                    const arrow = detail.querySelector('.details-arrow');
+                    if (arrow) {
+                        if (detail.open) {
+                            arrow.style.transform = 'rotate(0deg)';
+                        } else {
+                            arrow.style.transform = 'rotate(-90deg)';
+                        }
+                    }
+                });
+                const arrow = detail.querySelector('.details-arrow');
+                if (arrow) {
+                    if (detail.open) {
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(-90deg)';
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body></html>

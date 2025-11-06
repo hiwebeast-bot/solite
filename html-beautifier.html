@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <title>Free Online HTML Beautifier &amp; Formatter | Solite</title>
+  <meta name="description" content="Instantly clean, format, and beautify your messy HTML code with our free online tool. Corrects indentation, spacing, and structure to make your code readable and professional. 100% private.">
+  <meta name="keywords" content="html beautifier, html formatter, clean html, format html, code beautifier, html prettier, solite, privacy first">
+  <link rel="canonical" href="https://solite.in/html-beautifier.html" />
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Online HTML Beautifier & Formatter | Solite">
+  <meta property="og:description" content="Instantly clean, format, and beautify your messy HTML code. Corrects indentation and structure to make your code readable. 100% private and browser-based.">
+  <meta property="og:url" content="https://solite.in/html-beautifier.html">
+  <meta property="og:site_name" content="Solite">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://solite.in/assets/html-beautifier-thumbnail.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+  <!-- Vercel Analytics -->
+  <script>
+      window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- Tailwind + Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Beautify Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTML Beautifier & Formatter",
+    "url": "https://solite.in/html-beautifier.html",
+    "description": "A free, client-side tool to clean, format, and beautify HTML code with customizable indentation and formatting options.",
+    "applicationCategory": "DeveloperApplication",
+    "featureList": ["Format messy HTML", "Customize indentation", "Minify output", "Autosave input", "Copy or Download formatted HTML", "Client-side privacy"],
+    "offers": { "@type": "Offer", "price": "0" },
+    "operatingSystem": "All",
+    "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  }
+  </script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+      },
+    }
+  </script>
+
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    .tab-btn.active { @apply border-white text-white; } /* Active tab has a white bottom border and text */
+    .tab-btn:not(.active) { @apply border-gray-700 text-gray-400 hover:text-white hover:border-gray-500; } /* Inactive tab has a gray border and text */
+  </style>
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+  <!-- Header -->
+  <header class="p-3 sm:p-4 w-full sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+          <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">HTML Beautifier</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-1.5">
+          <span>Free Tools</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+    <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0 overflow-y-auto lg:overflow-y-hidden">
+      <h1 class="sr-only">Free Online HTML Beautifier & Formatter</h1>
+
+      <!-- Controls Panel -->
+      <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+        <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Options</h2>
+        <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-8 pb-16 lg:pb-6">
+          <div class="space-y-4">
+            <h3 class="font-semibold text-white">Formatting Style</h3>
+            <div class="space-y-2">
+              <label for="indent-select" class="text-sm font-medium">Indentation</label>
+              <div class="relative">
+                <select id="indent-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white py-2 px-3 rounded-lg text-sm">
+                  <option value="2">2 Spaces</option>
+                  <option value="4" selected>4 Spaces</option>
+                  <option value="tab">1 Tab</option>
+                </select>
+                <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label for="wrap-line-length" class="text-sm font-medium">Line Wrap</label>
+              <div class="relative">
+                <select id="wrap-line-length" class="custom-select w-full bg-gray-800 border border-gray-700 text-white py-2 px-3 rounded-lg text-sm">
+                  <option value="0">None</option>
+                  <option value="80" selected>80 Characters</option>
+                  <option value="120">120 Characters</option>
+                </select>
+                <svg class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4 pt-6 border-t border-gray-800">
+            <h3 class="font-semibold text-white">Advanced Formatting</h3>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="minify-toggle" class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 rounded"><span>Minify Output</span></label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="preserve-newlines" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 rounded"><span>Preserve Newlines</span></label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="end-with-newline" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 rounded"><span>End with Newline</span></label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="indent-scripts" checked class="h-4 w-4 bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500 rounded"><span>Indent &lt;script&gt; and &lt;style&gt;</span></label>
+          </div>
+          <div class="space-y-3 pt-6 border-t border-gray-800">
+            <button id="beautify-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M20 4l-7 7m-2 2l-7 7"/></svg>
+              <span>Beautify</span>
+            </button>
+            <button id="download-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor Pane (Tabbed) -->
+      <div id="editor-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-3 min-h-0">
+        <div class="flex justify-between items-center mb-3 flex-shrink-0">
+          <div class="flex space-x-2 border-b border-gray-800">
+            <button id="tab-btn-input" class="tab-btn py-2 px-4 text-sm font-medium border-b-2">Input</button>
+            <button id="tab-btn-output" class="tab-btn py-2 px-4 text-sm font-medium border-b-2">Output</button>
+          </div>
+          <div id="contextual-controls">
+            <button id="clear-btn" class="text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm font-medium flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
+              <span>Clear</span>
+            </button>
+            <button id="copy-btn" class="hidden bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex-grow flex flex-col min-h-0">
+          <div id="panel-input" class="flex-grow flex flex-col min-h-0">
+            <textarea id="input-data" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none font-mono text-sm resize-none" placeholder="Paste your messy HTML here..."></textarea>
+            <div class="flex justify-between text-xs text-gray-400 mt-2">
+              <div id="input-stats">Lines: 0 | Tags: 0 | Words: 0 | Size: 0 KB</div>
+              <div id="input-status" class="text-red-400"></div>
+            </div>
+          </div>
+          <div id="panel-output" class="hidden flex-grow flex flex-col min-h-0">
+            <textarea id="output-data" readonly class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 font-mono text-sm resize-none" placeholder="Formatted HTML will appear here..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+      <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+    </aside>
+  </main>
+
+  <!-- Mobile Navigation Bar -->
+  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+      <div class="flex justify-around items-center h-14">
+           <button id="mobile-editor-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+               <span>Editor</span>
+          </button>
+           <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+               <span>Options</span>
+          </button>
+      </div>
+  </div>
+  <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / HTML BEAUTIFIER EDITION) -->
+<div class="w-full text-gray-300 p-2">
+
+  <style>
+    #solite-seo-block-beautifier[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-beautifier > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-beautifier[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-seo-block-beautifier" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Free Online HTML Beautifier & Formatter — Clean, Indent & Organize Code | Solite
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">HTML Formatter</span>
+          <span class="badge">Code Beautifier</span>
+          <span class="badge">Indentation Control</span>
+          <span class="badge">Offline & Private</span>
+          <span class="badge">Instant Preview</span>
+        </div>
+        <p class="text-lg text-gray-300">
+          The <strong>Solite HTML Beautifier</strong> automatically <strong>formats and beautifies messy HTML code</strong> — fixing indentation, spacing, and structure for readability.  
+          100% browser-based, it’s the fastest way to clean HTML code securely without uploading files.
+        </p>
+      </section>
+
+      <!-- 🧭 Why It’s Better -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s HTML Beautifier Stands Out</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+          <li><strong>Smart Formatting Engine:</strong> Auto-corrects indentation and tag structure with customizable settings.</li>
+          <li><strong>Privacy by Design:</strong> Works fully offline. Your HTML never leaves your browser.</li>
+          <li><strong>Minify or Beautify:</strong> Switch instantly between compact and readable code modes.</li>
+          <li><strong>Autosave:</strong> Automatically saves your last input locally, so you never lose work.</li>
+          <li><strong>Lightweight & Fast:</strong> Optimized for developers, content creators, and students who want speed and control.</li>
+        </ul>
+      </section>
+
+      <!-- 🧠 Who Uses It -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite HTML Formatter</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Frontend Developers:</strong> Clean up HTML code from CMS exports or projects.</li>
+            <li><strong>Designers:</strong> Improve structure before importing to editors or builders.</li>
+            <li><strong>Writers & Educators:</strong> Create readable examples for tutorials and documentation.</li>
+          </ul>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Students:</strong> Format messy HTML assignments for clarity and presentation.</li>
+            <li><strong>Agencies:</strong> Quickly format client web pages before deployment.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ⚙️ How to Use -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Use the HTML Beautifier</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+          <li><strong>Paste HTML Code:</strong> Add your unformatted or minified HTML.</li>
+          <li><strong>Set Preferences:</strong> Choose indentation, line wrapping, and advanced options.</li>
+          <li><strong>Click Beautify:</strong> Instantly reformat your HTML in the output panel.</li>
+          <li><strong>Copy or Download:</strong> Get perfectly formatted HTML with one click.</li>
+        </ol>
+      </section>
+
+      <!-- 🧱 Feature Overview -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Discoverable Summary)</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+          <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Benefit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2">Smart Indentation</td><td class="p-2">Customizable spacing (2, 4, or tabs)</td><td class="p-2">Cleaner code control</td></tr>
+            <tr><td class="p-2">Live Output</td><td class="p-2">Instantly formatted result</td><td class="p-2">Immediate visual feedback</td></tr>
+            <tr><td class="p-2">Autosave</td><td class="p-2">LocalStorage persistence</td><td class="p-2">Never lose input</td></tr>
+            <tr><td class="p-2">Minify Option</td><td class="p-2">Compact HTML version</td><td class="p-2">Optimized for production</td></tr>
+            <tr><td class="p-2">Privacy-First</td><td class="p-2">Runs fully offline</td><td class="p-2">No data tracking</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 🔗 Cross-Linking Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Developer Tools on Solite</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Code Editor</a> — Edit and preview HTML, CSS, and JS live in your browser.</li>
+          <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test and visualize regular expressions in real-time.</li>
+          <li><a href="./open-graph-generator.html" class="text-white hover:underline font-medium">Open Graph Generator</a> — Create and preview perfect social share tags.</li>
+          <li><a href="./meta-tag-previewer.html" class="text-white hover:underline font-medium">Meta Tag Previewer</a> — See how your page appears in Google and Twitter cards.</li>
+          <li><a href="./svg-icon-generator.html" class="text-white hover:underline font-medium">SVG Icon Generator</a> — Create vector icons directly from text or emojis.</li>
+        </ul>
+        <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+      </section>
+
+      <!-- 🤖 AI & Research Citation Layer -->
+      <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Keywords: <em>html beautifier, html formatter, code cleaner, format html, html indentation, html minifier, html tidy, solite html tools</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+          <strong>AI / Reviewer Citation Cue:</strong> “Solite HTML Beautifier — a 100% private, browser-based code formatting tool that instantly beautifies messy HTML with precision, control, and no data uploads.”
+        </p>
+      </section>
+
+    </div>
+  </details>
+</div>
+<!-- ✅ END GEN-4.1: HTML BEAUTIFIER BLOCK -->
+
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+  <!-- Footer -->
+  <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+    <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+      <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+        <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+      </div>
+      <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+        <a href="./about.html" class="hover:text-white transition-colors">About</a>
+        <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+        <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+        <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = {
+      inputData: document.getElementById('input-data'),
+      outputData: document.getElementById('output-data'),
+      indentSelect: document.getElementById('indent-select'),
+      copyBtn: document.getElementById('copy-btn'),
+      clearBtn: document.getElementById('clear-btn'),
+      beautifyBtn: document.getElementById('beautify-btn'),
+      downloadBtn: document.getElementById('download-btn'),
+      minifyToggle: document.getElementById('minify-toggle'),
+      wrapLineLength: document.getElementById('wrap-line-length'),
+      preserveNewlines: document.getElementById('preserve-newlines'),
+      endWithNewline: document.getElementById('end-with-newline'),
+      indentScripts: document.getElementById('indent-scripts'),
+      inputStats: document.getElementById('input-stats'),
+      toast: document.getElementById('toast'),
+      inputStatus: document.getElementById('input-status'),
+      mobileEditorBtn: document.getElementById('mobile-editor-btn'),
+      mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+      editorPane: document.getElementById('editor-pane'),
+      controlsPane: document.getElementById('controls-pane'),
+      tabBtnInput: document.getElementById('tab-btn-input'),
+      tabBtnOutput: document.getElementById('tab-btn-output'),
+      panelInput: document.getElementById('panel-input'),
+      panelOutput: document.getElementById('panel-output'),
+      contextualControls: document.getElementById('contextual-controls'),
+    };
+
+    const showToast = msg => {
+      el.toast.textContent = msg;
+      el.toast.classList.add('show');
+      setTimeout(() => el.toast.classList.remove('show'), 2000);
+    };
+
+    const updateStats = () => {
+      const text = el.inputData.value;
+      const lines = text.split(/\n/).length;
+      const words = text.split(/\s+/).filter(Boolean).length;
+      const tags = (text.match(/<[^>]+>/g) || []).length;
+      const sizeKB = (new Blob([text]).size / 1024).toFixed(2);
+      el.inputStats.textContent = `Lines: ${lines} | Tags: ${tags} | Words: ${words} | Size: ${sizeKB} KB`;
+    };
+
+    const formatHtml = () => {
+      const input = el.inputData.value.trim();
+      if (!input) { el.outputData.value = ''; return; }
+
+      const indent = el.indentSelect.value;
+      const wrapLength = parseInt(el.wrapLineLength.value, 10);
+
+      const opts = {
+        indent_size: indent === 'tab' ? 1 : parseInt(indent),
+        indent_char: indent === 'tab' ? '\t' : ' ',
+        wrap_line_length: wrapLength,
+        preserve_newlines: el.preserveNewlines.checked,
+        max_preserve_newlines: el.preserveNewlines.checked ? 1 : 0,
+        end_with_newline: el.endWithNewline.checked,
+        indent_scripts: el.indentScripts.checked ? 'normal' : 'keep',
+        // Default good options
+        indent_inner_html: true,
+        extra_liners: ['head', 'body', '/html']
+      };
+
+      try {
+        let output = html_beautify(input, opts);
+        if (el.minifyToggle.checked)
+          output = output.replace(/\n\s*/g, '').replace(/\s{2,}/g, ' ');
+        el.outputData.value = output;
+        el.inputStatus.textContent = '';
+      } catch {
+        el.inputStatus.textContent = 'Formatting error.';
+        el.outputData.value = input;
+      }
+    };
+
+    const debounce = (fn, delay = 300) => {
+      let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn.apply(this, args), delay); };
+    };
+
+    if (localStorage.htmlInput) el.inputData.value = localStorage.htmlInput;
+    el.inputData.addEventListener('input', debounce(() => {
+      localStorage.htmlInput = el.inputData.value;
+      updateStats(); formatHtml();
+    }, 200));
+
+    el.beautifyBtn.addEventListener('click', formatHtml);
+    el.copyBtn.addEventListener('click', () => {
+      if (el.outputData.value) {
+        navigator.clipboard.writeText(el.outputData.value);
+        showToast('Output Copied!');
+      }
+    });
+    el.clearBtn.addEventListener('click', () => {
+      el.inputData.value = ''; el.outputData.value = ''; localStorage.removeItem('htmlInput'); updateStats();
+    });
+
+    el.downloadBtn.addEventListener('click', () => {
+      const blob = new Blob([el.outputData.value], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'beautified.html';
+      a.click(); URL.revokeObjectURL(a.href);
+      showToast('Downloaded!');
+    });
+
+    el.indentSelect.addEventListener('change', formatHtml);
+    el.minifyToggle.addEventListener('change', formatHtml);
+
+    function showTab(tabName) {
+      if (tabName === 'input') {
+        el.panelInput.classList.remove('hidden');
+        el.panelOutput.classList.add('hidden');
+        el.tabBtnInput.classList.add('active');
+        el.tabBtnOutput.classList.remove('active');
+        el.clearBtn.style.display = 'flex';
+        el.copyBtn.style.display = 'none';
+      } else { // output
+        el.panelInput.classList.add('hidden');
+        el.panelOutput.classList.remove('hidden');
+        el.tabBtnInput.classList.remove('active');
+        el.tabBtnOutput.classList.add('active');
+        el.clearBtn.style.display = 'none';
+        el.copyBtn.style.display = 'flex';
+      }
+    }
+
+    el.tabBtnInput.addEventListener('click', () => showTab('input'));
+    el.tabBtnOutput.addEventListener('click', () => showTab('output'));
+
+    const showMobilePane = (paneId) => {
+        if (paneId === 'editor') {
+            el.editorPane.classList.remove('hidden'); el.editorPane.classList.add('flex');
+            el.controlsPane.classList.add('hidden'); el.controlsPane.classList.remove('flex');
+            el.mobileEditorBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active');
+        } else { // 'controls'
+            el.editorPane.classList.add('hidden'); el.editorPane.classList.remove('flex');
+            el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+            el.mobileEditorBtn.classList.remove('active'); el.mobileControlsBtn.classList.add('active');
+        }
+    }
+
+    const handleMobileLayout = () => {
+        if (window.innerWidth < 1024) {
+            showMobilePane(el.mobileEditorBtn.classList.contains('active') ? 'editor' : 'output');
+        } else {
+            el.editorPane.classList.remove('hidden'); el.editorPane.classList.add('flex');
+            el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+        }
+    }
+
+    el.mobileEditorBtn.addEventListener('click', () => showMobilePane('editor'));
+    el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+    window.addEventListener('resize', handleMobileLayout);
+    updateStats(); formatHtml();
+    handleMobileLayout();
+  });
+  </script>
+</body>
+</html>

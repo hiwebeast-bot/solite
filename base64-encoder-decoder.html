@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Meta Tags -->
+    <title>Free Base64 Encoder & Decoder (Text & File) | Solite</title>
+    <meta name="description" content="Encode and decode text or files to and from Base64 format. A free, fast, and private online tool that works entirely in your browser. No uploads required.">
+    <meta name="keywords" content="base64 encoder, base64 decoder, base64 converter, encode to base64, decode from base64, file to base64, base64 online, solite, developer tool">
+    <link rel="canonical" href="https://solite.in/base64-encoder-decoder.html" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social + AI -->
+    <meta property="og:title" content="Free Base64 Encoder & Decoder | Solite">
+    <meta property="og:description" content="Encode and decode text or files to and from Base64 format. A free, fast, and private online tool that works entirely in your browser.">
+    <meta property="og:url" content="https://solite.in/base64-encoder-decoder.html">
+    <meta property="og:site_name" content="Solite">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://solite.in/assets/base64-encoder-decoder-thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- AdSense Meta Tag -->
+    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- Core Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Favicon Set -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Base64 Encoder & Decoder",
+      "url": "https://solite.in/base64-encoder-decoder.html",
+      "description": "A free, client-side tool to encode and decode text and files to and from Base64 format.",
+      "applicationCategory": "DeveloperApplication",
+      "featureList": [ "Encode text to Base64", "Decode Base64 to text", "Encode files to Base64", "Decode Base64 to file", "Drag-and-drop support", "Client-side processing for 100% privacy" ],
+      "offers": { "@type": "Offer", "price": "0" },
+      "operatingSystem": "All",
+      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
+            },
+        }
+    </script>
+    <style>
+        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+        #toast.show { transform: translateY(-2rem); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+        html { scrollbar-color: #4b5563 #111827; }
+        .mobile-nav-btn.active { color: #ffffff; }
+        .mobile-nav-btn { color: #9ca3af; }
+    </style> 
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Base64 Encoder/Decoder</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Base64 Encoder and Decoder for Text and Files</h1>
+            <!-- Input Panel -->
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-shrink-0 flex justify-between items-center p-2 border-b border-gray-800 bg-gray-800/50">
+                    <h2 class="text-lg font-bold text-white px-2">Input</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="upload-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            <span>Upload</span>
+                        </button>
+                        <div class="flex items-center gap-2 p-1 bg-gray-700 rounded-lg">
+                            <button id="encode-btn" class="px-3 py-1 rounded-md text-sm font-medium bg-white text-black">Encode</button>
+                            <button id="decode-btn" class="px-3 py-1 rounded-md text-sm font-medium text-white">Decode</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="file-info" class="hidden flex-shrink-0 flex justify-between items-center p-2 px-4 border-b border-gray-800 bg-blue-900/50">
+                    <div class="text-sm overflow-hidden">
+                        <p class="font-medium text-white truncate" id="file-name"></p>
+                        <p class="text-xs text-gray-300" id="file-size"></p>
+                    </div>
+                    <button id="remove-file-btn" class="ml-4 flex-shrink-0 text-red-400 hover:text-red-300 font-semibold text-sm">&times; Clear File</button>
+                </div>
+                <div id="input-area" class="flex-grow flex flex-col p-0 m-4 rounded-xl border border-gray-700 overflow-hidden">
+                    <textarea id="input-text" class="w-full flex-grow p-4 bg-transparent text-gray-300 focus:outline-none resize-none font-mono text-sm disabled:opacity-50 disabled:bg-gray-800/50" placeholder="Paste text here..."></textarea>
+                </div>
+                <div id="status-bar" class="flex-shrink-0 p-2 border-t border-gray-800 text-xs text-center font-medium"></div>
+                <input type="file" id="file-upload" class="hidden">
+            </div>
+
+            <!-- Output Panel -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-shrink-0 flex justify-between items-center p-2 border-b border-gray-800 bg-gray-800/50">
+                    <h2 class="text-lg font-bold text-white px-2">Output</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="download-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                            <span>Download</span>
+                        </button>
+                        <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="output-text" readonly class="w-full h-full p-4 bg-transparent text-gray-300 focus:outline-none resize-none font-mono text-sm"></textarea>
+            </div>
+        </div>
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    </main>
+
+    <!-- Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                <span>Input</span>
+            </button>
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.S5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                <span>Output</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                encodeBtn: document.getElementById('encode-btn'),
+                decodeBtn: document.getElementById('decode-btn'),
+                uploadBtn: document.getElementById('upload-btn'), // Added this line
+                inputArea: document.getElementById('input-area'),
+                inputText: document.getElementById('input-text'),
+                fileUpload: document.getElementById('file-upload'),
+                fileInfo: document.getElementById('file-info'),
+                fileName: document.getElementById('file-name'),
+                fileSize: document.getElementById('file-size'),
+                removeFileBtn: document.getElementById('remove-file-btn'),
+                outputText: document.getElementById('output-text'),
+                statusBar: document.getElementById('status-bar'),
+                copyBtn: document.getElementById('copy-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                toast: document.getElementById('toast'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                inputPane: document.getElementById('input-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            let isEncodeMode = true;
+            let currentFile = null;
+            let decodedBlob = null;
+
+            const debounce = (func, delay) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), delay); }; };
+            const showToast = (message) => { el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); };
+
+            function setMode(encode) {
+                isEncodeMode = encode;
+                el.encodeBtn.classList.toggle('bg-white', isEncodeMode);
+                el.encodeBtn.classList.toggle('text-black', isEncodeMode);
+                el.decodeBtn.classList.toggle('bg-white', !isEncodeMode);
+                el.decodeBtn.classList.toggle('text-black', !isEncodeMode);
+                el.decodeBtn.classList.toggle('text-white', isEncodeMode);
+                el.encodeBtn.classList.toggle('text-white', !isEncodeMode);
+                processInput();
+            }
+
+            function processInput() {
+                const input = el.inputText.value;
+                el.statusBar.textContent = '';
+                decodedBlob = null;
+                el.downloadBtn.disabled = true;
+                el.copyBtn.disabled = true;
+
+                if (currentFile) {
+                    processFile(currentFile);
+                    el.inputText.disabled = true; // Disable text area when file is active
+                    return;
+                }
+                el.inputText.disabled = false; // Re-enable if no file
+
+                if (!input) {
+                    el.outputText.value = '';
+                    return;
+                }
+
+                try {
+                    if (isEncodeMode) {
+                        el.outputText.value = btoa(unescape(encodeURIComponent(input)));
+                        el.copyBtn.disabled = false;
+                        el.downloadBtn.disabled = true; // Can't download an encoded string
+                        decodedBlob = null;
+                    } else {
+                        // Decode Mode
+                        let decodedText = '';
+                        let isText = false;
+                        
+                        // 1. Try to decode as text
+                        try {
+                            decodedText = decodeURIComponent(escape(atob(input)));
+                            el.outputText.value = decodedText;
+                            isText = true;
+                            el.copyBtn.disabled = false;
+                            el.statusBar.textContent = '';
+                        } catch (e) {
+                            // Not valid UTF-8 text. Might be binary data.
+                            el.outputText.value = '--- Binary data --- \n(Cannot be displayed as text)';
+                            isText = false;
+                            el.copyBtn.disabled = true;
+                        }
+
+                        // 2. Always try to create a blob for downloading
+                        try {
+                            decodedBlob = base64ToBlob(input);
+                            el.downloadBtn.disabled = false;
+                            if (!isText) {
+                                 el.statusBar.textContent = `Binary file detected (${(decodedBlob.size / 1024).toFixed(2)} KB). Ready to download.`;
+                            }
+                        } catch (blobError) {
+                            // This means the Base64 string itself is invalid
+                            el.outputText.value = '';
+                            el.statusBar.textContent = '❌ Invalid Base64 string';
+                            el.copyBtn.disabled = true;
+                            el.downloadBtn.disabled = true;
+                            decodedBlob = null;
+                        }
+                    }
+                } catch (e) {
+                    // Catch-all for any other weird errors (e.g., btoa failure)
+                    el.outputText.value = '';
+                    el.statusBar.textContent = '❌ An unexpected error occurred.';
+                    el.copyBtn.disabled = true;
+                    el.downloadBtn.disabled = true;
+                    decodedBlob = null;
+                }
+            }
+
+            function processFile(file) {
+                const reader = new FileReader();
+                if (isEncodeMode) {
+                    reader.onload = (e) => {
+                        const dataUrl = e.target.result;
+                        const base64 = dataUrl.split(',')[1];
+                        el.outputText.value = base64;
+                        el.copyBtn.disabled = false;
+                    };
+                    reader.readAsDataURL(file);
+                } else { // Decode mode for file is not a direct action, it's for text input -> file output
+                    el.statusBar.textContent = 'Drop a file to encode it. To decode a file, paste its Base64 content in the text area.';
+                }
+            }
+            
+            function base64ToBlob(base64, contentType = '') {
+                const byteCharacters = atob(base64);
+                const byteArrays = [];
+                for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+                    const slice = byteCharacters.slice(offset, offset + 512);
+                    const byteNumbers = new Array(slice.length);
+                    for (let i = 0; i < slice.length; i++) {
+                        byteNumbers[i] = slice.charCodeAt(i);
+                    }
+                    const byteArray = new Uint8Array(byteNumbers);
+                    byteArrays.push(byteArray);
+                }
+                return new Blob(byteArrays, {type: contentType});
+            }
+
+            function handleFileSelect(file) {
+                if (!isEncodeMode) {
+                    showToast('Switch to "Encode" mode to process a file.');
+                    return;
+                }
+                currentFile = file;
+                el.inputText.value = ''; // Clear text area
+                el.inputText.disabled = true; // Disable text area
+                el.fileName.textContent = file.name;
+                el.fileSize.textContent = `${(file.size / 1024).toFixed(2)} KB`;
+                el.fileInfo.classList.remove('hidden');
+                processFile(file);
+            }
+
+            function clearFile() {
+                currentFile = null;
+                el.fileUpload.value = '';
+                el.fileInfo.classList.add('hidden');
+                el.inputText.disabled = false; // Re-enable text area
+                el.inputText.value = '';
+                processInput();
+            }
+
+            function showMobilePane(paneId) {
+                const isInput = paneId === 'input';
+                el.inputPane.classList.toggle('hidden', !isInput); el.inputPane.classList.toggle('flex', isInput);
+                el.outputPane.classList.toggle('hidden', isInput); el.outputPane.classList.toggle('flex', !isInput);
+                el.mobileInputBtn.classList.toggle('active', isInput);
+                el.mobileOutputBtn.classList.toggle('active', !isInput);
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileOutputBtn.classList.contains('active') ? 'output' : 'input');
+                } else {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                }
+            }
+
+            // Fallback copy function for better compatibility
+            function fallbackCopyTextToClipboard(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                
+                // Avoid scrolling to bottom
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showToast('Copied!');
+                    } else {
+                        showToast('Copy failed!');
+                    }
+                } catch (err) {
+                    showToast('Copy failed!');
+                }
+
+                document.body.removeChild(textArea);
+            }
+
+            // Event Listeners
+            el.encodeBtn.addEventListener('click', () => setMode(true));
+            el.decodeBtn.addEventListener('click', () => setMode(false));
+            el.inputText.addEventListener('input', debounce(processInput, 200));
+            el.removeFileBtn.addEventListener('click', (e) => { e.stopPropagation(); clearFile(); });
+            el.uploadBtn.addEventListener('click', () => el.fileUpload.click());
+            el.fileUpload.addEventListener('change', (e) => { if (e.target.files.length) handleFileSelect(e.target.files[0]); });
+            
+            // REMOVED drag/drop listeners
+
+            el.copyBtn.addEventListener('click', () => {
+                if (el.outputText.value && el.copyBtn.disabled === false) {
+                    try {
+                        // Use modern clipboard API first
+                        navigator.clipboard.writeText(el.outputText.value).then(() => {
+                            showToast('Copied!');
+                        }).catch(() => {
+                            // Fallback for sandboxed environments
+                            fallbackCopyTextToClipboard(el.outputText.value);
+                        });
+                    } catch (err) {
+                        // Fallback if navigator.clipboard is not available
+                        fallbackCopyTextToClipboard(el.outputText.fale);
+                    }
+                }
+            });
+
+            el.downloadBtn.addEventListener('click', () => {
+                if (decodedBlob) {
+                    const url = URL.createObjectURL(decodedBlob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    // Try to get a reasonable filename
+                    let filename = 'decoded_file';
+                    if (currentFile && !isEncodeMode) {
+                        // This case isn't really possible with current logic, but good to have
+                        filename = currentFile.name.replace(/(\.b64|\.txt)$/i, '') || filename;
+                    }
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            });
+            
+            // REMOVED redundant outputText listener
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial state
+            handleMobileLayout();
+        });
+    </script>
+</body>
+</html>

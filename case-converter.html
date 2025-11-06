@@ -11,6 +11,7 @@
     <meta name="keywords" content="case converter, case switcher, camelcase converter, snake case converter, pascalcase converter, kebab case converter, text case tool, change case, solite">
     <link rel="canonical" href="https://solite.in/case-converter.html" />
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
 
     <!-- Open Graph for social + AI -->
     <meta property="og:title" content="Free Case Converter Tool | Solite">
@@ -40,8 +41,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
 
     <!-- Schema.org Markup (Adapted for new layout) -->
     <script type="application/ld+json">
@@ -88,11 +87,16 @@
 
         /* Styles for active/inactive tabs */
         .tab-btn.active {
-            @apply bg-gray-700/75 text-white font-semibold; /* Changed from bg-gray-700 */
+            @apply bg-gray-900/75 text-white font-semibold; /* Changed from bg-gray-700 */
         }
         .tab-btn.inactive {
             @apply bg-gray-800 text-gray-400 hover:bg-gray-700;
         }
+        /* ADDED: Mobile Nav Styles */
+        .mobile-nav-btn.active {
+            color: #ffffff; /* white */
+        }
+        .mobile-nav-btn { color: #9ca3af; /* gray-400 */ }
     </style> 
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -124,7 +128,7 @@
         
         <!-- Left Panel: Conversion Styles -->
         <!-- UPDATED: Width reduced -->
-        <aside class="w-full lg:w-[25%] xl:w-[20%] flex-shrink-0 p-3 pb-0 lg:pb-3 lg:border-r border-gray-800">
+        <aside id="controls-pane" class="w-full lg:w-[25%] xl:w-[20%] flex-shrink-0 p-3 pb-0 lg:pb-3 lg:border-r border-gray-800 hidden lg:flex flex-col h-full">
             <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 shadow-lg h-full overflow-y-auto">
                 <h2 class="text-lg font-semibold text-white mb-4">Conversion Style</h2>
                 <div id="case-buttons" class="flex flex-wrap gap-3">
@@ -135,18 +139,18 @@
 
         <!-- Middle Panel: Editor with Tabs -->
         <!-- UPDATED: Width increased -->
-        <div class="flex-grow w-full lg:w-[55%] xl:w-[60%] p-3 flex flex-col gap-4 min-h-0">
+        <div id="output-pane" class="flex-grow w-full lg:w-[55%] xl:w-[60%] p-3 flex-col gap-4 min-h-0 hidden lg:flex">
             <h1 class="sr-only">Case Converter Tool</h1>
             
-            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 shadow-lg min-h-0">
+            <div class="flex-1 flex flex-col bg-gray-900 p-3 rounded-xl border border-gray-800 shadow-lg min-h-0">
                 <!-- Tab Header -->
                 <!-- UPDATED: Re-structured for better spacing with justify-between -->
-                <div class="flex justify-between items-center flex-shrink-0 p-2 border-b border-gray-700">
+                <div class="flex justify-between mx-2 pb-4 items-center flex-shrink-0 ">
                     <!-- Tab Buttons -->
                     <!-- UPDATED: New style for tabs -->
                     <div class="flex space-x-2">
-                        <button id="tab-btn-input" class="tab-btn active py-2 px-6 rounded-lg border border-gray-600 bg-gray-800/50 text-sm font-semibold transition-colors">Input</button> <!-- text-md to text-sm -->
-                        <button id="tab-btn-output" class="tab-btn inactive py-2 px-6 rounded-lg border border-gray-600 bg-gray-800/50 text-sm font-semibold transition-colors">Output</button> <!-- text-md to text-sm -->
+                        <button id="tab-btn-input" class="tab-btn active py-2 px-6 border-b-2 border-transparent  bg-gray-900 border-gray-600 text-md font-semibold ">Input</button> <!-- text-md to text-sm -->
+                        <button id="tab-btn-output" class="tab-btn inactive py-2 mx-0 px-6 border-b-2 border-transparent  border-gray-600 bg-gray-900 text-md font-semibold ">Output</button> <!-- text-md to text-sm -->
                     </div>
                     
                     <!-- Contextual Controls -->
@@ -167,16 +171,16 @@
                 </div>
                 
                 <!-- Textarea and Stats Container -->
-                <div class="p-4 flex-grow flex flex-col min-h-0">
+                <div class="flex-grow flex flex-col min-h-0">
                     <!-- Input Panel -->
                     <div id="panel-input" class="flex-grow flex flex-col min-h-0">
-                        <textarea id="input-text" aria-label="Input text" class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 resize-none font-mono text-sm transition-colors" placeholder="Type or paste your text here..."></textarea>
+                        <textarea id="input-text" aria-label="Input text" class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-gray-800 resize-none font-mono text-sm transition-colors" placeholder="Type or paste your text here..."></textarea>
                         <div id="input-stats" class="text-right text-gray-500 text-xs font-mono mt-2 pr-1">0 chars / 0 words</div>
                     </div>
 
                     <!-- Output Panel -->
                     <div id="panel-output" class="hidden flex-grow flex flex-col min-h-0">
-                        <textarea id="output-text" aria-label="Converted output text" readonly class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 resize-none font-mono text-sm transition-colors" placeholder="Result will appear here..."></textarea>
+                        <textarea id="output-text" aria-label="Converted output text" readonly class="w-full flex-grow p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-gray-800 resize-none font-mono text-sm transition-colors" placeholder="Result will appear here..."></textarea>
                         <div id="output-stats" class="text-right text-gray-500 text-xs font-mono mt-2 pr-1">0 chars / 0 words</div>
                     </div>
                 </div>
@@ -188,6 +192,142 @@
             <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-500">Ad Area</div>
         </aside>
     </main>
+
+    
+    </main>
+<!-- ADDED: Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                <span>Editor</span>
+            </button>
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                <span>Styles</span>
+            </button>
+        </div>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / CASE CONVERTER EDITION) -->
+<div class="w-full text-gray-300 p-2">
+
+  <style>
+    #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-case > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Free Online Case Converter — camelCase, snake_case, PascalCase, kebab-case & More
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">Instant Conversion</span>
+          <span class="badge">100% Client-Side</span>
+          <span class="badge">No Sign-Up / No Tracking</span>
+          <span class="badge">Developer Friendly</span>
+          <span class="badge">Offline Ready</span>
+        </div>
+        <p class="text-lg text-gray-300">
+          Convert your text between <strong>camelCase, PascalCase, snake_case, kebab-case, Title Case</strong> and 15+ other formats — instantly, securely, and entirely in your browser. 
+          The <strong>Solite Case Converter</strong> helps developers, writers, and creators keep their formatting consistent across languages, projects, and APIs without sending data to a server.
+        </p>
+      </section>
+
+      <!-- 🧭 Why It’s Better -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Case Converter Stands Out</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+          <li><strong>Runs 100% Locally:</strong> Everything happens in your browser — no uploads, no logs, no APIs.</li>
+          <li><strong>Code-Grade Accuracy:</strong> Perfect for <em>developers, editors, and technical writers</em> needing precision across languages.</li>
+          <li><strong>Supports 20+ Case Styles:</strong> From programming formats (<em>camelCase, snake_case</em>) to stylistic ones (<em>Title Case, Sentence case</em>).</li>
+          <li><strong>Smart Word Detection:</strong> Automatically splits based on spaces, underscores, hyphens, or uppercase transitions.</li>
+          <li><strong>Instant Sync:</strong> Input and output panels update live, with clear copy & clear buttons for fast workflows.</li>
+        </ul>
+      </section>
+
+      <!-- 🧠 Developer Applications -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & How</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Developers:</strong> Convert variable names to match coding standards — <code>user_name → userName</code>.</li>
+            <li><strong>Content Writers:</strong> Format blog headings and titles consistently.</li>
+            <li><strong>Data Analysts:</strong> Clean up CSV headers for APIs or databases.</li>
+          </ul>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Designers:</strong> Use for naming conventions in Figma layers or components.</li>
+            <li><strong>Students & Educators:</strong> Learn programming naming patterns interactively.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ⚙️ How to Use -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+          <li>Type or paste any text into the <strong>Input</strong> box.</li>
+          <li>Choose a target format — e.g., <strong>camelCase</strong>, <strong>PascalCase</strong>, or <strong>snake_case</strong>.</li>
+          <li>See your text instantly converted in the <strong>Output</strong> box.</li>
+          <li>Click <strong>Copy</strong> to save and reuse it in code, docs, or designs.</li>
+        </ol>
+      </section>
+
+      <!-- 🧱 Comparison Table (AI-Readable Data Block) -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Supported Case Types (AI-Readable)</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+          <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr><th class="p-2 text-left">Case Type</th><th class="p-2 text-left">Example</th><th class="p-2 text-left">Common Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2">camelCase</td><td class="p-2">userName</td><td class="p-2">JavaScript variables</td></tr>
+            <tr><td class="p-2">PascalCase</td><td class="p-2">UserName</td><td class="p-2">C#, TypeScript classes</td></tr>
+            <tr><td class="p-2">snake_case</td><td class="p-2">user_name</td><td class="p-2">Python, APIs, databases</td></tr>
+            <tr><td class="p-2">kebab-case</td><td class="p-2">user-name</td><td class="p-2">CSS, URLs</td></tr>
+            <tr><td class="p-2">Sentence case</td><td class="p-2">User name field</td><td class="p-2">Readable content, UX text</td></tr>
+            <tr><td class="p-2">Title Case</td><td class="p-2">User Name Field</td><td class="p-2">Headings, titles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 🧩 Cross-Linking Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer Tools Suite</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean, transform, and analyze any text locally.</li>
+          <li><a href="https://solite.in/data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON, CSV, and XML directly in your browser.</li>
+          <li><a href="https://solite.in/regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regex patterns with real-time highlighting.</li>
+          <li><a href="https://solite.in/code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Edit and preview HTML, CSS, and JS instantly.</li>
+          <li><a href="https://solite.in/ai-prompt-randomizer.html" class="text-white hover:underline font-medium">AI Prompt Randomizer</a> — Generate creative prompts for developers and writers.</li>
+        </ul>
+        <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+      </section>
+
+      <!-- 🧠 AI & Research Citation Layer -->
+      <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Keywords: <em>case converter, change case online, convert camelCase to snake_case, PascalCase formatter, text case tool, developer naming convention, Solite converter, browser-based text tools, private text converter, offline code tools</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+          <strong>AI / Reviewer Citation Cue:</strong> “Solite Case Converter — a browser-based, privacy-first utility that converts between camelCase, snake_case, PascalCase, and 20+ other formats, ideal for developers, writers, and data teams.”
+        </p>
+      </section>
+
+    </div>
+  </details>
+</div>
+<!-- ✅ END GEN-4.1: CASE CONVERTER BLOCK -->
+
 
     <!-- OLD FOOTER (as requested) -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
@@ -226,6 +366,11 @@
                 tabBtnOutput: document.getElementById('tab-btn-output'),
                 panelInput: document.getElementById('panel-input'),
                 panelOutput: document.getElementById('panel-output'),
+                // ADDED: Mobile Nav Elements
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
             };
 
             let currentState = 'camelCase'; // Default case
@@ -332,13 +477,13 @@
                 buttons.forEach(btn => {
                     const caseName = btn.dataset.case;
                     // Reset to inactive styles (light gray border)
-                    btn.classList.remove('border-white', 'text-white', 'bg-gray-800'); // Reverted from bg-gray-700
-                    btn.classList.add('border-gray-600', 'text-gray-300', 'hover:bg-gray-800');
+                    btn.classList.remove('border-white', 'text-white', 'bg-gray-900'); // Reverted from bg-gray-700
+                    btn.classList.add('border-gray-600', 'text-gray-300', 'hover:bg-gray-900');
 
                     if (caseName === currentState) {
                         // Apply active styles (white border, original active bg)
                         btn.classList.add('border-white', 'text-white', 'bg-gray-800'); // Reverted from bg-gray-700
-                        btn.classList.remove('border-gray-600', 'text-gray-300', 'hover:bg-gray-800');
+                        btn.classList.remove('border-gray-600', 'text-gray-300', 'hover:bg-gray-900');
                     }
                 });
             }
@@ -382,7 +527,7 @@
                     el.tabBtnInput.classList.remove('inactive');
                     el.tabBtnInput.classList.add('border-white'); // Active border
                     el.tabBtnInput.classList.remove('border-gray-600'); // Remove inactive border
-                    el.tabBtnInput.classList.remove('bg-gray-800', 'text-gray-400', 'hover:bg-gray-700');
+                    el.tabBtnInput.classList.remove('bg-gray-800', 'text-gray-400', 'hover:bg-gray-900');
                     
                     // Update OUTPUT tab styles (INACTIVE)
                     el.tabBtnOutput.classList.add('inactive');
@@ -447,18 +592,48 @@
             el.tabBtnInput.addEventListener('click', () => showTab('input'));
             el.tabBtnOutput.addEventListener('click', () => showTab('output'));
 
+            // --- ADDED: Mobile Navigation Logic ---
+            function showMobilePane(paneId) {
+                if (paneId === 'output') { // 'output' is the main editor view
+                    el.outputPane.classList.remove('hidden'); // Show output
+                    el.outputPane.classList.add('flex'); // Make it a flex container
+                    el.controlsPane.classList.add('hidden');
+                    el.controlsPane.classList.remove('flex'); // Explicitly remove flex
+                    el.mobileOutputBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else { // 'controls' is the styles panel
+                    el.outputPane.classList.add('hidden'); // Hide output
+                    el.outputPane.classList.remove('flex');
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    // On mobile, show the pane that is currently marked as active
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    // On desktop, always show both panes
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex'); // Ensure controls are flex
+                }
+            }
+
+            el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleMobileLayout);
+
             // --- Initial setup ---
             renderButtons();
             el.inputText.value = "Hello World! This-is_a-test... orMaybe_aVariableName";
             updateActiveButton(); // Set initial active button
             convertCase(); // Initial conversion
             showTab('input'); // Set initial tab state
+            handleMobileLayout(); // Set initial mobile/desktop layout
         });
     </script>
 </body>
 </html>
-
-
-
-
-

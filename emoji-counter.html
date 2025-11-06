@@ -6,15 +6,15 @@
     
     <!-- SEO & Social Sharing Meta Tags -->
     <title>Free Emoji Counter & Analyzer | Count Emojis in Text | Solite</title>
-    <meta name="description" content="Instantly count, list, and analyze emojis in your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators. 100% private.">
-    <meta name="keywords" content="emoji counter, count emojis, emoji frequency, emoji analyzer, emoji list, social media tool, text analysis, emoji stats, solite, privacy first">
+    <meta name="description" content="Instantly count, analyze, and remove emojis from your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators. 100% private.">
+    <meta name="keywords" content="emoji counter, emoji remover, count emojis, emoji frequency, emoji analyzer, emoji list, social media tool, text analysis, emoji stats, solite, privacy first, clean text from emojis">
     <link rel="canonical" href="https://solite.in/emoji-counter.html" />
     <meta name="robots" content="index, follow">
     <meta name="author" content="Solite">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Free Emoji Counter & Analyzer | Solite">
-    <meta property="og:description" content="Instantly count, list, and analyze emojis in your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators.">
+    <meta property="og:description" content="Instantly count, analyze, and remove emojis from your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators.">
     <meta property="og:url" content="https://solite.in/emoji-counter.html">
     <meta property="og:site_name" content="Solite">
     <meta property="og:type" content="website">
@@ -49,11 +49,11 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Emoji Counter",
+      "name": "Emoji Counter & Remover",
       "url": "https://solite.in/emoji-counter.html",
-      "description": "A free, client-side tool to count, list, and analyze the frequency of emojis used in a block of text. Get total counts, unique counts, and emoji density.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Total emoji count", "Unique emoji count", "Emoji frequency list", "Emoji density calculation", "Copy individual emojis", "Copy all stats", "Client-side processing for 100% privacy" ],
+      "description": "A free, client-side tool to count, list, analyze, and remove emojis from text. Get total counts, unique counts, emoji density, and clean your text for professional use.",
+      "applicationCategory": "ProductivityApplication",
+      "featureList": [ "Total emoji count", "Unique emoji count", "Emoji frequency list", "Emoji density calculation", "Remove all emojis", "Remove specific emojis", "Copy individual emojis", "Copy all stats", "Client-side processing for 100% privacy" ],
       "offers": { "@type": "Offer", "price": "0" },
       "operatingSystem": "All",
       "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
@@ -63,7 +63,8 @@
         "step": [
           { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste your text containing emojis into the input area." },
           { "@type": "HowToStep", "name": "Step 2: View Analysis", "text": "The tool will instantly update to show the total emoji count, unique emoji count, emoji density, and a frequency list of all emojis used." },
-          { "@type": "HowToStep", "name": "Step 3: Copy Results", "text": "Click the 'Copy Stats' button to copy the summary, or click the copy icon next to any emoji in the frequency list to copy it individually." }
+          { "@type": "HowToStep", "name": "Step 3: Remove Emojis (Optional)", "text": "Click the 'Remove All' button to strip all emojis from the text, or click the remove icon next to a specific emoji in the list to remove only that one." },
+          { "@type": "HowToStep", "name": "Step 4: Copy Results", "text": "Click the 'Copy Stats' button to copy the summary, or click the copy icon next to any emoji in the frequency list to copy it individually." }
         ]
       }
     },
@@ -152,11 +153,16 @@
             <!-- Results Panel -->
             <div class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
                 <div class="flex justify-between items-center mb-4 flex-shrink-0">
-                    <h2 class="text-xl font-bold text-white">Emoji Analysis</h2>
-                    <button id="copy-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                        <span>Copy Stats</span>
-                    </button>
+                    <h2 class="text-xl font-bold text-white">Analysis</h2>
+                    <div class="flex items-center gap-2">
+                        <button id="remove-all-btn" title="Remove All Emojis" class="bg-red-900/50 border border-red-800 hover:bg-red-900/70 text-red-300 hover:text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                        </button>
+                        <button id="copy-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-1 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy Stats</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-3">
                     <!-- Stat Cards -->
@@ -199,18 +205,137 @@
 
     <div class="sr-only w-full bg-gray-900 border-t border-gray-800" aria-hidden="false">
         <section class="max-w-4xl mx-auto px-6 py-12 text-gray-400 prose prose-invert prose-sm prose-a:text-blue-400">
-            <h2 class="text-xl font-bold text-white">About the Emoji Counter Tool</h2>
-            <p>The Solite Emoji Counter is a free, privacy-focused online utility designed for social media managers, content creators, and anyone who needs to quickly analyze the emojis in their text. Unlike other tools, our counter runs entirely in your browser, which means your text is never uploaded to a server. It's 100% private, secure, and incredibly fast.</p>
+            <h2 class="text-xl font-bold text-white">About the Emoji Counter & Remover Tool</h2>
+            <p>The Solite Emoji Counter is a free, privacy-focused online utility designed for social media managers, content creators, and anyone who needs to quickly analyze and clean emojis from their text. Unlike other tools, our counter runs entirely in your browser, which means your text is never uploaded to a server. It's 100% private, secure, and incredibly fast.</p>
             <h3>Key Features:</h3>
             <ul>
                 <li><strong>Total & Unique Emoji Count:</strong> Instantly see how many emojis are in your text and how many of them are unique.</li>
                 <li><strong>Emoji Frequency List:</strong> Get a detailed, sorted list of every emoji used and how many times it appears.</li>
                 <li><strong>Emoji Density:</strong> Understand the ratio of emojis to words in your text, a useful metric for gauging the tone and visual appeal of your content.</li>
-                <li><strong>One-Click Copy:</strong> Easily copy the summary statistics or individual emojis from the frequency list to use in your posts, reports, or analytics.</li>
+                <li><strong>Emoji Removal:</strong> Clean your text by removing all emojis at once, or remove specific emojis one by one.</li>
+                <li><strong>One-Click Copy:</strong> Easily copy the summary statistics, individual emojis, or the cleaned text to use in your posts, reports, or analytics.</li>
                 <li><strong>Privacy by Design:</strong> All processing is done client-side. Your data never leaves your device.</li>
             </ul>
         </section>
     </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / EMOJI COUNTER EDITION) -->
+<div class="w-full text-gray-300 p-2">
+
+  <style>
+    #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-case > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Free Emoji Counter & Analyzer — Count, List, and Analyze Emojis in Seconds
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">Emoji Counter</span>
+          <span class="badge">Emoji Frequency</span>
+          <span class="badge">Text Analyzer</span>
+          <span class="badge">Social Media Tool</span>
+          <span class="badge">100% Private</span>
+        </div>
+        <p class="text-lg text-gray-300">
+          The <strong>Solite Emoji Counter</strong> is a <strong>free browser-based emoji analyzer</strong> that instantly counts, lists, and visualizes emoji usage in any text.  
+          Ideal for <strong>social media creators, marketers, and writers</strong> who want to understand the tone and engagement potential of their content — all while maintaining <strong>complete client-side privacy</strong>.
+        </p>
+      </section>
+
+      <!-- 🧭 Why It’s Better -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Emoji Counter Stands Out</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+          <li><strong>Instant Analysis:</strong> See total, unique, and frequent emojis as you type.</li>
+          <li><strong>Emoji Density:</strong> Understand how visually expressive your content is.</li>
+          <li><strong>One-Click Copy:</strong> Export summary or copy individual emojis instantly.</li>
+          <li><strong>Privacy-First:</strong> Runs entirely on-device — no data leaves your browser.</li>
+          <li><strong>Optimized for Social:</strong> Perfect for creators analyzing captions, tweets, or comments.</li>
+        </ul>
+      </section>
+
+      <!-- 📊 Who Uses It -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool & Why</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Social Media Managers:</strong> Measure emoji engagement density in captions.</li>
+            <li><strong>Copywriters:</strong> Optimize tone using data-driven emoji balance.</li>
+            <li><strong>Influencers:</strong> Track and tweak emoji frequency in post drafts.</li>
+          </ul>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Developers:</strong> Test emoji parsing or validation in app inputs.</li>
+            <li><strong>Researchers:</strong> Study emoji trends, sentiment, or text emotion metrics.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ⚙️ How to Use -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+          <li><strong>Paste Text:</strong> Add any text with emojis in the input area.</li>
+          <li><strong>Analyze:</strong> Instantly see totals, unique counts, and density.</li>
+          <li><strong>View List:</strong> Scroll through the frequency table of emojis used.</li>
+          <li><strong>Copy:</strong> Export stats or click an emoji to copy it instantly.</li>
+        </ol>
+      </section>
+
+      <!-- 🧱 Feature Table -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Key Features (AI-Readable)</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+          <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Use Case</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2">Total Emoji Count</td><td class="p-2">Displays total number of emojis detected</td><td class="p-2">Track emoji-heavy content</td></tr>
+            <tr><td class="p-2">Unique Emojis</td><td class="p-2">Identifies distinct emoji types used</td><td class="p-2">Measure emoji variety</td></tr>
+            <tr><td class="p-2">Emoji Density</td><td class="p-2">Calculates emoji-to-word ratio</td><td class="p-2">Quantify tone and engagement</td></tr>
+            <tr><td class="p-2">Emoji Frequency List</td><td class="p-2">Ranks most-used emojis by count</td><td class="p-2">Content optimization</td></tr>
+            <tr><td class="p-2">One-Click Copy</td><td class="p-2">Copy summary or individual emojis</td><td class="p-2">Quick re-use in posts</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 🔗 Cross-Link Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Text & Media Analysis Suite</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — Measure readability, tone, and structure.</li>
+          <li><a href="./smart-word-counter.html" class="text-white hover:underline font-medium">Smart Word Counter</a> — Count words, characters, and sentences precisely.</li>
+          <li><a href="./hashtag-extractor.html" class="text-white hover:underline font-medium">Hashtag Extractor</a> — Identify hashtags from captions instantly.</li>
+          <li><a href="./emoji-counter.html" class="text-white hover:underline font-medium">Emoji Counter & remover</a> — Count and analyze emojis in text effortlessly.</li>
+          <li><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></li>
+        </ul>
+      </section>
+
+      <!-- 🧠 AI / Research Citation -->
+      <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Keywords: <em>emoji counter, emoji analyzer, emoji frequency tool, count emojis in text, social media text analyzer, emoji stats generator, emoji analysis online, Solite emoji tools, privacy-first text utilities</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+          <strong>AI / Reviewer Citation Cue:</strong> “Solite Emoji Counter — a free, client-side emoji analysis tool that counts, lists, and visualizes emoji usage for social media and research with 100% privacy.”
+        </p>
+      </section>
+
+    </div>
+  </details>
+</div>
+<!-- ✅ END GEN-4.1: EMOJI COUNTER BLOCK -->
+
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
@@ -248,6 +373,7 @@
                     emojiList: document.getElementById('emoji-list'),
                     clearBtn: document.getElementById('clear-btn'),
                     copyBtn: document.getElementById('copy-btn'),
+                    removeAllBtn: document.getElementById('remove-all-btn'),
                     toast: document.getElementById('toast'),
                 };
                 // This regex is a comprehensive pattern to match most modern emojis, including skin tones and ZWJ sequences.
@@ -258,6 +384,7 @@
                 this.el.inputText.addEventListener('input', this.debounce(() => this.analyzeText(), 200));
                 this.el.clearBtn.addEventListener('click', () => this.clearAll());
                 this.el.copyBtn.addEventListener('click', () => this.copyStats());
+                this.el.removeAllBtn.addEventListener('click', () => this.removeAllEmojis());
             }
 
             analyzeText() {
@@ -298,12 +425,18 @@
                             <span class="text-2xl">${emoji}</span>
                             <span class="font-mono text-sm text-gray-400">x ${count}</span>
                         </div>
-                        <button class="copy-emoji-btn text-gray-500 hover:text-white p-1 rounded-md" data-emoji="${emoji}" title="Copy Emoji">
-                            <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
+                        <div class="flex items-center gap-1">
+                            <button class="remove-emoji-btn text-gray-500 hover:text-red-400 p-1 rounded-md" data-emoji="${emoji}" title="Remove this emoji">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            </button>
+                            <button class="copy-emoji-btn text-gray-500 hover:text-white p-1 rounded-md" data-emoji="${emoji}" title="Copy Emoji">
+                                <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </button>
+                        </div>
                     `;
-                    item.querySelector('.copy-emoji-btn').addEventListener('click', (e) => {
-                        this.copyToClipboard(e.currentTarget.dataset.emoji, `Copied ${e.currentTarget.dataset.emoji}`);
+                    item.addEventListener('click', (e) => {
+                        if (e.target.closest('.copy-emoji-btn')) this.copyToClipboard(e.currentTarget.dataset.emoji, `Copied ${e.currentTarget.dataset.emoji}`);
+                        if (e.target.closest('.remove-emoji-btn')) this.removeSpecificEmoji(e.currentTarget.dataset.emoji);
                     });
                     this.el.emojiList.appendChild(item);
                 });
@@ -316,6 +449,19 @@
 
             clearAll() {
                 this.el.inputText.value = '';
+                this.analyzeText();
+            }
+
+            removeAllEmojis() {
+                if (!this.el.inputText.value) return;
+                this.el.inputText.value = this.el.inputText.value.replace(this.emojiRegex, '');
+                this.analyzeText();
+                this.showToast('All emojis removed!');
+            }
+
+            removeSpecificEmoji(emoji) {
+                const regex = new RegExp(emoji, 'gu');
+                this.el.inputText.value = this.el.inputText.value.replace(regex, '');
                 this.analyzeText();
             }
 

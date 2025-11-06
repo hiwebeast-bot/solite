@@ -9,12 +9,14 @@
     <meta name="description" content="A powerful suite of free, private, browser-based tools for modern creators and developers. Edit images, convert data, generate code, and more—all in your browser. No sign-up required.">
     <meta name="keywords" content="free tools, private tools, online tools, developer utilities, image editor, data converter, code editor, password generator, solite, browser-based apps, creative suite">
     <link rel="canonical" href="https://solite.in/">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:title" content="Solite | The Ultimate Suite of Free, Private, Browser-Based Tools">
     <meta property="og:description" content="A powerful suite of free, private, browser-based tools for modern creators and developers. 100% private and instantly accessible.">
     <meta property="og:image" content="https://solite.in/assets/solite-og.png">
     <meta property="og:url" content="https://solite.in/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@solitetools">
 
     <!-- AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-6623613371208692">
@@ -31,6 +33,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/solite-og.png">
+    <link rel="preload" as="style" href="https://cdn.tailwindcss.com">
     
     <!-- Favicon Set -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -38,6 +42,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-title" content="Solite">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     
     <script>
         tailwind.config = {
@@ -133,20 +140,20 @@
     <main class="flex-grow flex flex-col items-center px-4 w-full pt-16 sm:pt-24 z-10">
         <div class="absolute top-0 left-0 right-0 h-[500px] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] -z-10"></div>
         <section class="text-center mb-32 relative">
-            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight opacity-0 translate-y-5 transition-all duration-500 ease-out text-gray-900 dark:text-white">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight opacity-0 translate-y-5 transition-all duration-500 ease-out text-gray-900 dark:text-white" style="animation-delay: 100ms;">
                 Free, Private, Browser-Based Apps
             </h1>
-            <p class="mt-6 text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto opacity-0 translate-y-5 transition-all duration-500 ease-out" style="transition-delay: 200ms;">
+            <p class="mt-6 text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto opacity-0 translate-y-5 transition-all duration-500 ease-out" style="animation-delay: 200ms;">
                 A powerful suite of free, browser-based tools for modern creators and developers. 100% private and instantly accessible.
             </p>
-            <div class="mt-10 max-w-xl mx-auto opacity-0 translate-y-5 transition-all duration-500 ease-out" style="transition-delay: 400ms;">
+            <div class="mt-10 max-w-xl mx-auto opacity-0 translate-y-5 transition-all duration-500 ease-out" style="animation-delay: 300ms;">
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <input type="search" id="tool-search-input" placeholder="Search for an app (e.g., 'image compressor', 'json')" class="block w-full p-4 pl-12 text-lg text-white bg-gray-900/50 border border-gray-700 rounded-full focus:outline-none focus:ring-1 focus:ring-white/50 placeholder-gray-500 transition-all duration-300">
+                    <input type="search" id="tool-search-input" placeholder="Search for an app (e.g., 'image compressor', 'json')" class="block w-full p-4 pl-12 text-lg text-white bg-gray-900/50 border border-gray-700 rounded-full focus:outline-none focus:ring-1 focus:ring-white/50 placeholder-gray-500 transition-all duration-300" style="animation-delay: 400ms;">
                 </div>
                 <p id="no-results-message" class="hidden mt-4 text-gray-400">No apps found. Try a different search.</p>
             </div>
@@ -154,7 +161,7 @@
 
         <section id="apps" class="w-full max-w-screen-2xl pt-12 mb-24">
             <h2 class="text-4xl font-bold text-white mb-16 text-center opacity-0 translate-y-5 transition-all duration-500 ease-out">The Solite App Suite</h2>
-            
+            <div class="sr-only" data-ai-summary>Solite is a collection of 100% client-side, privacy-focused web tools for creators, designers, and developers. It offers tools like image editors, data converters, color pickers, and code generators—all free, secure, and offline-ready.</div>
             <!-- Image & Design Tools -->
             <div class="mb-16 tool-category" data-category="Image & Design Apps">
                 <h3 class="text-2xl font-bold text-white mb-8 text-center sm:text-left border-b border-gray-800 pb-2">Image &amp; Design Apps</h3>
@@ -168,6 +175,15 @@
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" /></svg></div><h3 class="text-xl font-bold text-white">Image Compressor</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Reduce image file sizes with powerful, browser-based compression.</p>
                         <a href="./image-compressor.html" aria-label="Launch Image Compressor" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="upscale image resolution increase enhance">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-blue-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Image Enlarger & Enhancer</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Upscale and enhance images with automatic clarity and color correction.</p>
+                        <a href="./image-enlarger-enhancer.html" aria-label="Launch Image Enlarger & Enhancer" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="image converter jpg png webp avif format changer">
                         <div class="flex items-center space-x-4 mb-4">
@@ -186,7 +202,7 @@
                         <a href="./gif-maker.html" aria-label="Launch GIF Maker" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="metadata stripper privacy location">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg></div><h3 class="text-xl font-bold text-white">EXIF Remover</h3></div>
+                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 1.5v21m-6.364-6.364l12.728-12.728M1.5 12h21m-6.364 6.364L6.364 5.636" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75a2.25 2.25 0 012.25 2.25v12a2.25 2.25 0 01-2.25 2.25H7.5A2.25 2.25 0 015.25 18V6a2.25 2.25 0 012.25-2.25h9z" /></svg></div><h3 class="text-xl font-bold text-white">EXIF Remover</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Remove or edit metadata from your images to protect your privacy.</p>
                         <a href="./exif-stripper.html" aria-label="Launch EXIF Remover" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
@@ -210,7 +226,7 @@
                         <a href="./placeholder-image-generator.html" aria-label="Launch Placeholder Image Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="shadow css box-shadow text-shadow">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg></div><h3 class="text-xl font-bold text-white">CSS Shadows Maker</h3></div>
+                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div><h3 class="text-xl font-bold text-white">CSS Shadows Maker</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Visually create layered box and text shadows and export the CSS.</p>
                         <a href="./css-shadows-maker.html" aria-label="Launch CSS Shadows Maker" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
@@ -225,21 +241,19 @@
                         <a href="./color-palette-generator.html" aria-label="Launch Color Palette Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="color name finder nearest css crayola pantone">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-teal-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42m0 0a6.776 6.776 0 01-3.42 3.42m0 0a6.776 6.776 0 003.42 3.42m0 0a6.776 6.776 0 013.42-3.42m0 0l-3.42 3.42" /></svg></div><h3 class="text-xl font-bold text-white">Color Name Finder</h3></div>
+                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-teal-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-1.5h5.25m-5.25 0h3m-3 0h-3m0 0h1.5m-1.5 0h-3m3.75 0H7.5m9-6h3.75m-3.75 0h.008v.008h-.008v-.008zm0 3h3.75m-3.75 0h.008v.008h-.008v-.008zm0 3h3.75m-3.75 0h.008v.008h-.008v-.008z" /></svg></div><h3 class="text-xl font-bold text-white">Color Name Finder</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Find the nearest named color for any HEX code. Supports CSS, Crayola, and design system palettes.</p>
                         <a href="./color-name-finder.html" aria-label="Launch Color Name Finder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="screenshot caption meme text overlay">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg></div><h3 class="text-xl font-bold text-white">Screenshot Captioner</h3></div>
+                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div><h3 class="text-xl font-bold text-white">Screenshot Captioner</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Add clean text overlays and meme-style captions to your screenshots.</p>
                         <a href="./screenshot-captioner.html" aria-label="Launch Screenshot Captioner" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="privacy blur tool redact pixelate censor">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-red-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 11-9 0v3.75M3.75 18.75h16.5a1.5 1.5 0 001.5-1.5v-6a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v6a1.5 1.5 0 001.5 1.5z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.243 4.243l-4.243-4.243" /></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white">Privacy Blur Tool</h3>
                         </div>
@@ -247,7 +261,7 @@
                         <a href="./privacy-blur-tool.html" aria-label="Launch Privacy Blur Tool" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="gradient css linear radial conic">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-pink-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42m0 0a6.776 6.776 0 01-3.42 3.42m0 0a6.776 6.776 0 003.42 3.42m0 0a6.776 6.776 0 013.42-3.42m0 0l-3.42 3.42" /></svg></div><h3 class="text-xl font-bold text-white">CSS Gradient Generator</h3></div>
+                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-pink-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg></div><h3 class="text-xl font-bold text-white">CSS Gradient Generator</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create linear, radial, and conic CSS gradients with a live preview.</p>
                         <a href="./css-gradient-generator.html" aria-label="Launch CSS Gradient Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
@@ -259,12 +273,32 @@
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="css animation keyframe generator">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l-3 4m6 0l-3 4m0 6l3 4m-6 0l3 4M12 3v4M12 17v4m-5-5l-3 4m16 0l-3-4" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white">CSS Animation Generator</h3>
                         </div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Visually create and customize CSS animations with a timeline editor and presets.</p>
                         <a href="./CSS-Animation-Generator.html" aria-label="Launch CSS Animation Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="favicon generator, ico, png, apple touch icon">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Favicon Generator</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create a complete favicon package (ICO, PNG, SVG) from an image, text, or emoji.</p>
+                        <a href="./favicon-generator.html" aria-label="Launch Favicon Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="barcode generator, upc, ean, code128, svg">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-blue-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Barcode Generator</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate various barcode formats like UPC, EAN, and Code 128. Download as PNG or SVG.</p>
+                        <a href="./barcode-generator.html" aria-label="Launch Barcode Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="background remover transparent color keying chroma key">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-purple-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.789-2.756 9.586m-2.756-9.586C6.244 14.211 4 17.483 4 21h16c0-3.517-2.244-6.789-5.244-9.586M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div><h3 class="text-xl font-bold text-white">Background Remover</h3></div>
@@ -280,6 +314,16 @@
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3 3h18M3 21h18" /></svg></div><h3 class="text-xl font-bold text-white">Spacing Scale Generator</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate a modular spacing scale in PX and REM for consistent design systems.</p>
                         <a href="./Spacing-Scale-Generator.html" aria-label="Launch Spacing Scale Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="device mockup generator iphone ipad macbook browser screenshot">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Device Mockup Generator</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create beautiful mockups for your app or website with iPhone, iPad, and MacBook frames.</p>
+                        <a href="./Device-Mockup-Generator.html" aria-label="Launch Device Mockup Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                 </div>
             </div>
@@ -303,6 +347,17 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Count, list, and analyze the frequency of emojis in your text.</p>
                         <a href="./emoji-counter.html" aria-label="Launch Emoji Counter" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="emoji finder, emoji search, copy emoji, emoji keyboard">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Emoji Finder</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Quickly search, find, and copy emojis. Includes category filtering and works offline.</p>
+                        <a href="./emoji-finder.html" aria-label="Launch Emoji Finder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="json csv xml yaml">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5 0V6.75A2.25 2.25 0 0111.25 4.5h3.75m-3.75 0L15 7.5m-3.75-3L15 7.5" /></svg></div>
                             <h3 class="text-xl font-bold text-white">Data Converter</h3>
@@ -314,6 +369,16 @@
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg></div><h3 class="text-xl font-bold text-white">Email Extractor</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Extract all email addresses from a block of text instantly.</p>
                         <a href="./email-extractor.html" aria-label="Launch Email Extractor" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="hashtag extractor find social media">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-teal-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15M5.25 12.75h15m-4.5 5.25h4.5M12 18.75l-4.5-4.5L3 18.75" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Hashtag Extractor</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Find and extract all unique hashtags from any text for social media or research.</p>
+                        <a href="./hashtag-extractor.html" aria-label="Launch Hashtag Extractor" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="whitespace normalizer cleaner remove extra spaces line breaks tabs">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-pink-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg></div><h3 class="text-xl font-bold text-white">Whitespace Normalizer</h3></div>
@@ -339,6 +404,17 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Instantly create bar, line, and scatter charts from local CSV or JSON files.</p>
                         <a href="./online-chart-maker.html" aria-label="Launch Online Chart Maker" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="url extractor link finder scraper">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-teal-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">URL Extractor</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Find and extract all URLs from a block of text, with options to deduplicate and sort.</p>
+                        <a href="./url-extractor.html" aria-label="Launch URL Extractor" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="transcript timestamp remover youtube srt txt">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-orange-400">
@@ -357,6 +433,16 @@
                         </div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Count words, sentences, and characters. Analyze reading time and text tone locally.</p>
                         <a href="./smart-word-counter.html" aria-label="Launch Smart Word Counter" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="text analyzer readability tone structure seo">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-purple-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Text Analyzer</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Analyze text for readability, tone, structure, and keyword density to improve your writing.</p>
+                        <a href="./text-analyzer.html" aria-label="Launch Text Analyzer" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="url cleaner remove trackers utm fbclid">
                         <div class="flex items-center space-x-4 mb-4">
@@ -410,10 +496,22 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">A private, browser-based vault to store, manage, and tag your code snippets.</p>
                         <a href="./Snippet Manager.html" aria-label="Launch Snippet Manager" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
+                    
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="visual form builder tailwindcss">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg></div><h3 class="text-xl font-bold text-white">Tailwind Form Builder</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Visually build responsive HTML forms with Tailwind CSS.</p>
                         <a href="./tailwind-form-builder.html" aria-label="Launch Tailwind Form Builder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="json formatter validator beautifier prettier">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5l.415-.207a.75.75 0 011.085.67V10.5m0 0h6m-6 0a.75.75 0 00-1.085.67l-.416.207a.75.75 0 01-1.085-.67V7.5m6 4.5l.415.207a.75.75 0 001.085-.67V10.5m0 0h-6m6 0a.75.75 0 01-1.085-.67l-.416-.207a.75.75 0 00-1.085.67v2.25" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">JSON Formatter</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Instantly format, beautify, minify, and validate your JSON data.</p>
+                        <a href="./json-formatter.html" aria-label="Launch JSON Formatter" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="open graph generator twitter card meta tag seo">
                         <div class="flex items-center space-x-4 mb-4">
@@ -425,6 +523,17 @@
                             <h3 class="text-xl font-bold text-white">Open Graph Generator</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate and preview Open Graph and Twitter Card meta tags for perfect social sharing.</p>
                         <a href="./open-graph-generator.html" aria-label="Launch Open Graph Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="uuid guid generator unique identifier">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-purple-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">UUID Generator</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate universally unique identifiers (UUIDs) for your projects.</p>
+                        <a href="./uuid-generator.html" aria-label="Launch UUID Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="markdown slides presentation export html pdf">
                         <div class="flex items-center space-x-4 mb-4">
@@ -458,12 +567,43 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Test and visualize regular expressions in real-time with highlighting and a cheatsheet.</p>
                         <a href="./regex-playground.html" aria-label="Launch Regex Playground" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="encrypt decrypt text password aes secure">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Text Encrypter</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Encrypt and decrypt sensitive text messages with a password using AES encryption.</p>
+                        <a href="./text-encrypter.html" aria-label="Launch Text Encrypter" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="base64 encode decode file text">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-purple-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Base64 Encoder & Decoder</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Encode and decode text or files to and from Base64 format for data transmission.</p>
+                        <a href="./base64-encoder-decoder.html" aria-label="Launch Base64 Encoder & Decoder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="md5 sha1 sha256 verifier">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-pink-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>
                             <h3 class="text-xl font-bold text-white">Hash Generator</h3>
                         </div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate or verify MD5, SHA-1, and SHA-256 hashes from text or files locally.</p>
                         <a href="./hash-generator.html" aria-label="Launch Hash Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="file checksum md5 sha256 integrity verifier">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">File Checksum Tool</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Verify file authenticity and detect tampering by generating and comparing checksums.</p>
+                        <a href="./file-checksum.html" aria-label="Launch File Checksum Tool" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="unix epoch time date">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
@@ -518,6 +658,17 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create printable cheat sheets for any topic or app. Input commands, auto-layout as a grid, and export as a PDF.</p>
                         <a href="./shortcut-cheat-sheet-maker.html" aria-label="Launch Shortcut Cheat Sheet Maker" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="html beautifier formatter prettier clean code">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-orange-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">HTML Beautifier</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Clean, format, and beautify messy HTML code with customizable indentation and options.</p>
+                        <a href="./html-beautifier.html" aria-label="Launch HTML Beautifier" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+        
                 </div>
             </div>
 
@@ -534,6 +685,17 @@
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5z" /></svg></div><h3 class="text-xl font-bold text-white">QR Code Generator</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create and customize QR codes with colors, logos, and styles.</p>
                         <a href="./qr-code-generator.html" aria-label="Launch QR Code Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="email signature generator, html signature, professional signature">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Email Signature Generator</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create professional HTML email signatures with a live preview and multiple templates.</p>
+                        <a href="./email-signature-generator.html" aria-label="Launch Email Signature Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="password random secure">
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg></div><h3 class="text-xl font-bold text-white">Secure Password Generator</h3></div>
@@ -554,46 +716,46 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create realistic fake Instagram posts with custom images, text, and likes.</p>
                         <a href="./instagram-post-generator.html" aria-label="Launch Instagram Post Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="signature draw maker pad">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487z" /></svg></div><h3 class="text-xl font-bold text-white">Signature Pad</h3></div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Draw your digital signature and download it as a transparent PNG.</p>
-                        <a href="./signature-pad.html" aria-label="Launch Signature Pad" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="favicon ico png apple touch icon">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-pink-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></div><h3 class="text-xl font-bold text-white">Favicon Generator</h3></div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create a complete favicon package from an image, text, or emoji.</p>
-                        <a href="./favicon-generator.html" aria-label="Launch Favicon Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="email signature generator">
-                        <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" /></svg></div><h3 class="text-xl font-bold text-white">Email Signature Generator</h3></div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create a professional HTML email signature with a live preview.</p>
-                        <a href="./email-signature-generator.html" aria-label="Launch Email Signature Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="emoji search find copy">
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="linkedin post generator mockup">
                         <div class="flex items-center space-x-4 mb-4">
-                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-[#0a66c2]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 9H2v12h4V9z" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white">Emoji Finder</h3>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Lightweight emoji finder with instant search and copy — all offline.</p>
-                        <a href="./emoji-finder.html" aria-label="Launch Emoji Finder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                            <h3 class="text-xl font-bold text-white">LinkedIn Post Generator</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create realistic fake LinkedIn posts for mockups, presentations, or social media content.</p>
+                        <a href="./linkedin-post-generator.html" aria-label="Launch LinkedIn Post Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="barcode generator upc ean code128 product inventory">
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="online signature maker, draw signature, signature creator">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white">Barcode Generator</h3>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Generate and customize scannable barcodes like UPC, EAN, and Code 128.</p>
-                        <a href="./barcode-generator.html" aria-label="Launch Barcode Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                            <h3 class="text-xl font-bold text-white">Online Signature Maker</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Draw your signature online and download it as a transparent PNG.</p>
+                        <a href="./online-signature-maker.html" aria-label="Launch Online Signature Maker" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
-                </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="tweet to image, convert tweet, twitter screenshot">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-sky-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Tweet to Image</h3></div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Convert any public tweet into a beautiful, shareable image for free.</p>
+                        <a href="./tweet-to-image.html" aria-label="Launch Tweet to Image Converter" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div> <!-- This was the misplaced closing div -->
             </div>
 
             <!-- Other Tools -->
-            <div class="mb-16 tool-category" data-category="More Tools">
+            <div class="mb-16 tool-category" data-category="Generators & Fun Apps">
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center sm:text-left">More Tools</h3>
                 <div id="other-tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="fake whatsapp chat mockup">
@@ -606,19 +768,7 @@
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Create realistic fake WhatsApp chat messages and download as an image.</p>
                         <a href="./whatsapp-chat-generator.html" aria-label="Launch WhatsApp Chat Generator" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="tweet to image screenshot">
-                        <div class="flex items-center space-x-4 mb-4">
-                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-blue-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" /></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">Tweet to Image</h3>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Convert any public tweet into a beautiful, shareable image for free.</p>
-                        <a href="./tweet-to-image.html" aria-label="Launch Tweet to Image" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
-                    </div>
-                <!-- App cards are now static HTML for better SEO -->
-                    <!-- All other tool cards go here -->
-                    <!-- ... I've omitted the rest for brevity, but they would be moved into the appropriate category grid ... -->
+
                 </div>
             </div>
         </section>

@@ -35,7 +35,7 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;5500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon Set -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -108,6 +108,31 @@
         /* ADDED: Mobile Nav Styles */
         .mobile-nav-btn.active { color: #ffffff; }
         .mobile-nav-btn { color: #9ca3af; }
+
+        /* ADDED: Styles for colored slider track */
+        #quality-slider {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+        }
+        #quality-slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+            border-radius: 9999px;
+        }
+        #quality-slider::-moz-range-track {
+            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
+            border-radius: 9999px;
+        }
+
+        /* ADDED: Styles to make canvas fit container */
+        #image-canvas {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+        /* MODIFIED: Style for open details summary */
+        details[open] > summary {
+            border-bottom: 1px solid #374151; /* gray-700 */
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -137,83 +162,91 @@
     </header>
 
     <!-- Main Content Area -->
-    <!-- MODIFIED: Added relative, min-h-0 -->
-    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
-        <!-- MODIFIED: Added pb-16 for mobile nav clearance, added min-h-0 -->
-        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+    <!-- MODIFIED: Removed fixed height, main element now just grows -->
+    <main class="flex-grow flex relative">
+        <!-- MODIFIED: Removed overflow-y-auto and min-h-0, this div now scrolls with the page -->
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col gap-4">
             
-            <!-- Preview Pane -->
-            <!-- MODIFIED: Wrapped image container in preview-pane, added overflow-auto -->
-            <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
-                <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto p-2">
-                    <div id="upload-prompt" class="text-center cursor-pointer p-8">
-                        <!-- MODIFIED: Added screen-reader only H1 -->
-                        <h1 class="sr-only">Free Online Image Compressor</h1>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
-                        <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
-                    </div>
-                    <!-- MODIFIED: Removed max-w/h classes -->
-                    <canvas id="image-canvas" class="hidden"></canvas>
-                    <input type="file" id="image-upload" class="hidden" accept="image/*">
-                </div>
-            </div>
-
-            <!-- Controls Panel -->
-            <!-- MODIFIED: Added lg:block, flex flex-col, overflow-y-auto -->
-            <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto">
-                <h3 class="text-xl font-bold text-white flex-shrink-0">Image Compressor</h3>
-                <div id="stats-container" class="text-center bg-gray-800 p-4 rounded-lg space-y-2 hidden flex-shrink-0">
-                    <div class="text-sm text-gray-400">Original Size: <span id="original-size" class="font-medium text-white">N/A</span></div>
-                    <div id="stats-results">
-                        <div class="text-lg text-gray-200">Compressed Size: <span id="compressed-size" class="font-bold text-green-400">N/A</span></div>
-                        <div class="text-sm text-green-400">Reduction: <span id="reduction-percent">0</span>%</div>
-                    </div>
-                    <div id="stats-loader" class="hidden h-12 flex items-center justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></div>
-                </div>
-                <!-- MODIFIED: Added flex-grow, min-h-0 for scroll content -->
-                <div id="compression-controls" class="space-y-6 hidden flex-grow min-h-0 overflow-y-auto pr-2">
-                    <div class="space-y-2">
-                        <label for="quality-slider" class="font-medium">Quality</label>
-                        <input type="range" id="quality-slider" min="0.1" max="1.0" value="0.8" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer focus:ring-2 focus:ring-white/50">
-                        <div class="text-center text-sm text-gray-400"><span id="quality-label">80</span>%</div>
-                    </div>
-                    <div class="space-y-2 border-t border-gray-800 pt-4">
-                        <label for="resize-width" class="font-medium">Resize (Optional)</label>
-                        <div class="flex items-center gap-2">
-                            <input type="number" id="resize-width" placeholder="Width" aria-label="Resize Width" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
-                            <button id="aspect-lock-btn" title="Toggle Aspect Ratio Lock" aria-label="Toggle Aspect Ratio Lock" class="p-2 bg-gray-700 text-white rounded-lg flex-shrink-0">
-                                <svg id="lock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                                <svg id="unlock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v3m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
-                                </svg>
-                            </button>
-                            <input type="number" id="resize-height" placeholder="Height" aria-label="Resize Height" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+            <!-- ADDED: Wrapper div to hold the app panels in a row on desktop -->
+            <!-- MODIFIED: Changed min-h-0 to min-h-[85vh] to give the app UI a dedicated large height -->
+            <div class="w-full flex flex-col lg:flex-row gap-4 min-h-[85vh]">
+                <!-- Preview Pane -->
+                <!-- MODIFIED: Wrapped image container in preview-pane, added overflow-auto -->
+                <div id="preview-pane" class="flex-1 flex flex-col min-h-0">
+                    <!-- FIX: Re-added the missing image-container div that the JS relies on -->
+                    <div id="image-container" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 relative overflow-auto p-2">
+                        <div id="upload-prompt" class="text-center cursor-pointer p-8">
+                            <!-- MODIFIED: Added screen-reader only H1 -->
+                            <h1 class="sr-only">Free Online Image Compressor</h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <p class="mt-2 text-lg font-medium text-white">Drop an image here or click to upload</p>
+                            <p class="mt-1 text-sm text-gray-400">Your image stays on your device.</p>
                         </div>
+                        <!-- The #image-canvas styling in <head> makes it fit the container -->
+                        <canvas id="image-canvas" class="hidden"></canvas>
+                        <input type="file" id="image-upload" class="hidden" accept="image/*">
                     </div>
-                    <div class="space-y-2">
-                        <label for="format-select-btn" class="font-medium">Output Format</label>
-                        <div class="relative">
-                            <button id="format-select-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full">
-                                <span id="format-select-text">JPEG</span>
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div id="format-select-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/jpeg">JPEG</a>
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/webp">WebP</a>
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/png">PNG</a>
+                </div>
+
+                <!-- Controls Panel -->
+                <!-- MODIFIED: Added lg:block, flex flex-col, overflow-y-auto -->
+                <div id="controls-panel" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-6 lg:block flex flex-col overflow-y-auto">
+                    <h3 class="text-xl font-bold text-white flex-shrink-0">Image Compressor</h3>
+                    <div id="stats-container" class="text-center bg-gray-800 p-4 rounded-lg space-y-2 hidden flex-shrink-0">
+                        <div class="text-sm text-gray-400">Original Size: <span id="original-size" class="font-medium text-white">N/A</span></div>
+                        <div id="stats-results">
+                            <div class="text-lg text-gray-200">Compressed Size: <span id="compressed-size" class="font-bold text-green-400">N/A</span></div>
+                            <div class="text-sm text-green-400">Reduction: <span id="reduction-percent">0</span>%</div>
+                        </div>
+                        <div id="stats-loader" class="hidden h-12 flex items-center justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></div>
+                    </div>
+                    <!-- MODIFIED: Added flex-grow, min-h-0 for scroll content -->
+                    <div id="compression-controls" class="space-y-6 hidden flex-grow min-h-0 overflow-y-auto pr-2">
+                        <div class="space-y-2">
+                            <label for="quality-slider" class="font-medium">Quality</label>
+                            <input type="range" id="quality-slider" min="0.01" max="1.0" value="0.8" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-center text-sm text-gray-400">
+                                <span id="quality-label">80</span>%
+                                <span id="quality-warning" class="text-red-400 ml-1 font-medium"></span>
                             </div>
                         </div>
+                        <div class="space-y-2 border-t border-gray-800 pt-4">
+                            <label for="resize-width" class="font-medium">Resize (Optional)</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="resize-width" placeholder="Width" aria-label="Resize Width" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                                <button id="aspect-lock-btn" title="Toggle Aspect Ratio Lock" aria-label="Toggle Aspect Ratio Lock" class="p-2 bg-gray-700 text-white rounded-lg flex-shrink-0">
+                                    <svg id="lock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <svg id="unlock-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v3m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                                <input type="number" id="resize-height" placeholder="Height" aria-label="Resize Height" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="format-select-btn" class="font-medium">Output Format</label>
+                            <div class="relative">
+                                <button id="format-select-btn" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full">
+                                    <span id="format-select-text">JPEG</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div id="format-select-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/jpeg">JPEG</a>
+                                    <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="image/webp">WebP</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span>Download Image</span>
+                        </button>
+                        <button id="remove-image-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg hidden flex-shrink-0">Remove Image</button>
                     </div>
-                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span>Download Image</span>
-                    </button>
-                    <button id="remove-image-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 text-sm font-medium py-2 rounded-lg hidden flex-shrink-0">Remove Image</button>
+                    <p id="controls-prompt" class="text-gray-500 text-center flex-shrink-0">Upload an image to see compression options.</p>
                 </div>
-                <p id="controls-prompt" class="text-gray-500 text-center flex-shrink-0">Upload an image to see compression options.</p>
+            <!-- ADDED: End of the new wrapper div for app panels -->
             </div>
         </div>
         <!-- Ad Sidebar -->
@@ -222,8 +255,6 @@
                 Ad Area
             </div>
         </aside>
-
-        
     </main>
 <!-- ADDED: Mobile/Tablet Navigation Bar -->
         <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
@@ -239,6 +270,126 @@
             </div>
         </div>
     <!-- MODIFIED: Footer hidden on mobile -->
+     <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / IMAGE COMPRESSOR EDITION) -->
+    <div class="w-full text-gray-300 p-2">
+
+    <style>
+        #solite-seo-block-compressor[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-compressor > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-compressor[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    </style>
+
+    <details id="solite-seo-block-compressor" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Free Online Image Compressor (JPG, PNG, WebP) — Fast, Private & Lossless | Solite
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+
+        <!-- 🧩 Overview -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+            <span class="badge">Image Compressor</span>
+            <span class="badge">JPG Optimizer</span>
+            <span class="badge">PNG Compression</span>
+            <span class="badge">WebP Converter</span>
+            <span class="badge">100% Private</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite Image Compressor</strong> lets you <strong>compress JPG, PNG, and WebP images directly in your browser</strong> — reducing file size instantly while preserving visual quality.  
+            It’s a <em>fully client-side, privacy-first tool</em> — your images never leave your device.
+            </p>
+        </section>
+
+        <!-- ⚙️ Key Advantages -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Image Compressor Outperforms Cloud Tools</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>No Uploads, No Tracking:</strong> All compression happens locally — your images stay private.</li>
+            <li><strong>Real-Time Preview:</strong> See original vs. compressed size and reduction percentage instantly.</li>
+            <li><strong>Adjustable Quality:</strong> Control compression level with a visual slider and live feedback.</li>
+            <li><strong>Optional Resize:</strong> Reduce image dimensions while keeping the aspect ratio locked or free.</li>
+            <li><strong>Offline Ready:</strong> Works fully offline — ideal for designers, photographers, and developers.</li>
+            </ul>
+        </section>
+
+        <!-- 🧠 Who It’s For -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Should Use Solite Image Compressor</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Photographers:</strong> Shrink image files without noticeable quality loss.</li>
+                <li><strong>Web Developers:</strong> Optimize assets for faster site load times.</li>
+                <li><strong>Designers:</strong> Prepare compressed visuals for mockups and portfolios.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Students & Educators:</strong> Reduce file size for reports or projects instantly.</li>
+                <li><strong>Social Media Creators:</strong> Compress and resize before posting high-quality content.</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 🧭 How to Use -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use the Image Compressor</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li><strong>Upload Image:</strong> Drop or click to upload any JPG, PNG, or WebP file.</li>
+            <li><strong>Adjust Quality:</strong> Use the slider to balance quality and size.</li>
+            <li><strong>Resize (Optional):</strong> Enter custom width/height or keep the original dimensions.</li>
+            <li><strong>Select Format:</strong> Choose JPEG or WebP as your output format.</li>
+            <li><strong>Download:</strong> Click “Download Image” to save your optimized file instantly.</li>
+            </ol>
+        </section>
+
+        <!-- 🧱 Feature Table -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Readable Summary)</h3>
+            <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+                <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Benefit</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Multi-Format Support</td><td class="p-2">Compress JPG, PNG, and WebP files</td><td class="p-2">Universal compatibility</td></tr>
+                <tr><td class="p-2">Adjustable Quality</td><td class="p-2">Precision slider with instant preview</td><td class="p-2">Custom control</td></tr>
+                <tr><td class="p-2">Offline Processing</td><td class="p-2">Runs locally, no internet needed</td><td class="p-2">Complete privacy</td></tr>
+                <tr><td class="p-2">Resize Options</td><td class="p-2">Optional width/height input with aspect lock</td><td class="p-2">Flexible optimization</td></tr>
+                <tr><td class="p-2">Live Stats</td><td class="p-2">Shows size reduction and output size</td><td class="p-2">Immediate feedback</td></tr>
+            </tbody>
+            </table>
+        </section>
+
+        <!-- 🔗 Cross-Linking Ecosystem -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Image Tools on Solite</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./image-format-changer.html" class="text-white hover:underline font-medium">Image Converter</a> — Convert between JPG, PNG, WebP, and AVIF formats.</li>
+            <li><a href="./image-enlarger-enhancer.html" class="text-white hover:underline font-medium">Image Enlarger & Enhancer</a> — Upscale and improve low-resolution images.</li>
+            <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Crop, resize, filter, and adjust images directly in your browser.</li>
+            <li><a href="./exif-stripper.html" class="text-white hover:underline font-medium">EXIF Remover</a> — Remove hidden image metadata for privacy.</li>
+            <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Extract and generate color palettes from images.</li>
+            </ul>
+            <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+        </section>
+
+        <!-- 🤖 AI & Research Citation Layer -->
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>image compressor, compress image, jpg compressor, png optimizer, webp converter, reduce image size, online image compression, solite image tools</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong> “Solite Image Compressor — a privacy-first, browser-based image optimization tool that compresses JPG, PNG, and WebP files instantly without uploads or quality loss.”
+            </p>
+        </section>
+
+        </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-4.1: IMAGE COMPRESSOR BLOCK -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -266,6 +417,7 @@
             const controlsPrompt = document.getElementById('controls-prompt');
             const qualitySlider = document.getElementById('quality-slider');
             const qualityLabel = document.getElementById('quality-label');
+            const qualityWarning = document.getElementById('quality-warning');
             const originalSizeEl = document.getElementById('original-size');
             const compressedSizeEl = document.getElementById('compressed-size');
             const reductionPercentEl = document.getElementById('reduction-percent');
@@ -415,6 +567,8 @@
                     statsContainer.classList.remove('hidden');
                     downloadBtn.disabled = false;
                     removeImageBtn.classList.remove('hidden');
+                    
+                    // MODIFIED: Keep flex centering by only removing border-dashed
                     imageContainer.classList.remove('border-dashed', 'items-center', 'justify-center');
                     imageContainer.classList.add('border-gray-900'); // Use solid border
 
@@ -422,7 +576,8 @@
                     const ctx = canvas.getContext('2d');
                     const img = originalImage;
                     
-                     // Draw image at its original size within the scrollable container
+                    // Draw image at its original size
+                    // The CSS handles the scaling of the canvas element
                     canvas.width = img.width;
                     canvas.height = img.height;
                     ctx.drawImage(img, 0, 0);
@@ -437,6 +592,8 @@
                     compressionControls.classList.add('hidden');
                     controlsPrompt.classList.remove('hidden');
                     statsContainer.classList.add('hidden');
+                    
+                    // MODIFIED: Restore all classes
                     imageContainer.classList.add('border-dashed', 'items-center', 'justify-center');
                     imageContainer.classList.remove('border-gray-900');
                     canvas.classList.add('hidden');
@@ -471,6 +628,29 @@
                         exportFormat = e.target.dataset.value;
                         formatSelectText.textContent = e.target.textContent;
                         formatSelectDropdown.classList.add('hidden');
+                        
+                        // MODIFIED: Set smart defaults for each format
+                        let newQuality = 0.8; // Default for JPEG
+                        if (exportFormat === 'image/webp') {
+                            newQuality = 0.75;
+                        }
+                        // MODIFIED: Removed AVIF logic
+
+                        // Update the slider and label
+                        qualitySlider.value = newQuality;
+                        qualityLabel.textContent = Math.round(newQuality * 100);
+
+                        // ADDED: Update warning on format change
+                        if (newQuality < 0.40) {
+                            qualityWarning.textContent = '(Lossy)';
+                        } else {
+                            qualityWarning.textContent = '';
+                        }
+
+                        // All formats here are lossy, so slider is always enabled
+                        qualitySlider.disabled = false;
+                        qualitySlider.classList.remove('opacity-50', 'cursor-not-allowed');
+
                         debouncedCompressImage(); // Recompress on format change
                     }
                 });
@@ -493,7 +673,16 @@
             });
 
             qualitySlider.addEventListener('input', (e) => {
-                qualityLabel.textContent = Math.round(e.target.value * 100);
+                const quality = parseFloat(e.target.value);
+                qualityLabel.textContent = Math.round(quality * 100);
+                
+                // ADDED: Conditional warning logic
+                if (quality < 0.40) {
+                    qualityWarning.textContent = '(Lossy)';
+                } else {
+                    qualityWarning.textContent = '';
+                }
+
                  debouncedCompressImage(); // Use debounced version
             });
             removeImageBtn.addEventListener('click', removeImage);
@@ -506,6 +695,7 @@
                 // Update button style to indicate lock state
                 aspectLockBtn.classList.toggle('bg-white', isAspectLocked);
                 aspectLockBtn.classList.toggle('text-black', isAspectLocked);
+LAG_EN:
                 aspectLockBtn.classList.toggle('bg-gray-700', !isAspectLocked);
                 aspectLockBtn.classList.toggle('text-white', !isAspectLocked);
             });
@@ -584,6 +774,28 @@
             // Initial setup
             handleMobileLayout(); // Set initial layout based on screen size
 
+            // MODIFIED: This logic now correctly handles the single main <details> block
+            document.querySelectorAll('details').forEach((detail) => {
+                detail.addEventListener('toggle', () => {
+                    const arrow = detail.querySelector('.details-arrow');
+                    if (arrow) { // Check if arrow exists
+                        if (detail.open) {
+                            arrow.style.transform = 'rotate(0deg)';
+                        } else {
+                            arrow.style.transform = 'rotate(-90deg)';
+                        }
+                    }
+                });
+                // Set initial state
+                const arrow = detail.querySelector('.details-arrow');
+                if (arrow) { // Check if arrow exists
+                    if (detail.open) {
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(-90deg)';
+                    }
+                }
+            });
 
         });
     </script>
