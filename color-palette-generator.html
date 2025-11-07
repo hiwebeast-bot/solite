@@ -1,159 +1,158 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Optimized Title -->
-    <title>Free Color Palette Generator | Create & Export Schemes | Solite</title>
-    <!-- MODIFIED: Optimized Description -->
-    <meta name="description" content="Generate beautiful, harmonious color palettes (analogous, monochromatic, triadic, complementary) instantly with Solite's free online tool. Lock colors, view shades, export palettes (URL, PNG, SVG, CSS). 100% private.">
-    <!-- MODIFIED: Expanded Keywords -->
-    <meta name="keywords" content="color palette generator, color scheme generator, color palette, design tool, generate colors, analogous, monochromatic, triadic, complementary, export palette, hex codes, free tool, solite">
-    <link rel="canonical" href="https://solite.in/color-palette-generator.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Color Palette Generator | Create & Export Schemes | Solite</title>
+  <meta name="description" content="Generate harmonious color palettes — analogous, monochromatic, triadic, and complementary — instantly. Export as PNG, SVG, CSS, or shareable URL. Free, private, and browser-based by Solite." />
+  <meta name="keywords" content="color palette generator, color scheme generator, generate colors, hex palette, design tool, complementary colors, triadic scheme, solite color tool, private design generator" />
+  <meta name="author" content="Solite" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/color-palette-generator.html" />
 
-    <!-- Open Graph for social + AI -->
-    <!-- MODIFIED: Optimized OG Title -->
-    <meta property="og:title" content="Free Color Palette Generator | Create & Export Schemes | Solite">
-    <!-- MODIFIED: Optimized OG Description -->
-    <meta property="og:description" content="Generate beautiful color palettes instantly. Lock colors, adjust shades, and export as URL, PNG, SVG, or CSS. Free, private, browser-based tool by Solite.">
-    <meta property="og:url" content="https://solite.in/color-palette-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/color-palette-generator-thumbnail.png">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Color Palette Generator | Create & Export Schemes | Solite" />
+  <meta property="og:description" content="Generate and export stunning color palettes instantly. Lock colors, view shades, and export as URL, PNG, SVG, or CSS. 100% client-side privacy." />
+  <meta property="og:url" content="https://solite.in/color-palette-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/color-palette-generator-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Color Palette Generator | Solite" />
+  <meta name="twitter:description" content="Instantly generate and export harmonious color palettes. Private, free, and browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/color-palette-generator-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Color Palette Generator | Solite",
-      "url": "https://solite.in/color-palette-generator.html",
-      "description": "A free, client-side tool to generate, customize, and export color palettes.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [ // MODIFIED: Refined features
-        "Generate color palettes (analogous, monochromatic, triadic, complementary)",
-        "Lock individual colors",
-        "Adjust colors with picker",
-        "View shades and tints",
-        "Copy HEX codes",
-        "Check WCAG contrast ratios",
-        "Export palettes as URL, PNG, SVG, or CSS variables",
-        "Works offline after first load",
-        "Client-side processing for privacy"
-      ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        },
       },
-       "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate a Color Palette",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Generate", "text": "Press the spacebar or click the 'Generate Palette' button to create a new color scheme." },
-          { "@type": "HowToStep", "name": "Step 2: Customize", "text": "Lock colors you like by clicking the lock icon, then generate again to find colors that match. You can also manually adjust any color using its color picker." },
-          { "@type": "HowToStep", "name": "Step 3: Export", "text": "Click the 'Export Palette' button to copy the colors as a URL, CSS variables, or download them as a PNG or SVG file." }
-        ]
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Color Palette Generator"
-      }]
     }
-    </script>
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
+  <!-- 🪞 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🎨 STYLES -->
+  <style>
+    #toast { transform:translateY(150%); transition:transform .3s ease-in-out; z-index:9999; }
+    #toast.show { transform:translateY(-2rem); }
+    ::-webkit-scrollbar { width:6px; height:6px; }
+    ::-webkit-scrollbar-track { background:#1f2937; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background-color:#6b7280; }
+    html { scrollbar-color:#4b5563 #1f2937; scrollbar-width:thin; }
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    #palette-container>.color-column { transition:background-color .2s ease-in-out; }
+    #palette-pane::-webkit-scrollbar { display:none; }
+    #palette-pane { -ms-overflow-style:none; scrollbar-width:none; }
+    @media(max-width:1023px){
+      .color-column .actions,.color-column .contrast-info{opacity:1!important;}
+    }
+  </style>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based Tools",
+        "description": "Solite offers privacy-first, client-side tools for designers and developers — 100% browser-based and data-secure.",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [{ "@id": "https://solite.in/color-palette-generator.html#webapp" }]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/color-palette-generator.html#webapp",
+        "name": "Color Palette Generator",
+        "url": "https://solite.in/color-palette-generator.html",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Generate color palettes (analogous, monochromatic, triadic, complementary)",
+          "Lock and customize individual colors",
+          "View tints, shades, and WCAG contrast ratios",
+          "Export palettes as URL, PNG, SVG, or CSS variables",
+          "Offline-ready and 100% private"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/color-palette-generator.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/color-palette-generator.html#webpage",
+        "name": "Free Color Palette Generator | Create & Export Schemes | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "Generate and export professional color palettes instantly — private, browser-based, and free by Solite.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Color Palette Generator" }
+          ]
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer scrollbar */
-        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
-        /* Custom Scrollbar for Firefox */
-        html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
+      }
+    ]
+  }
+  </script>
 
-        /* Ensure color columns don't shrink below minimum on mobile */
-        #palette-container > .color-column {
-             transition: background-color 0.2s ease-in-out; /* Smooth color change */
-        }
-
-        /* ADDED: Mobile Nav Styles */
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-
-        /* Hide scrollbar for the palette container itself, rely on inner scroll */
-        #palette-pane::-webkit-scrollbar { display: none; }
-        #palette-pane { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Make actions always visible on touch devices (or smaller screens) */
-         @media (max-width: 1023px) {
-            .color-column .actions {
-                opacity: 1 !important; /* Override hover opacity */
-            }
-             .color-column .contrast-info {
-                opacity: 1 !important; /* Show contrast info always on mobile */
-            }
-        }
-
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified schema + privacy meta required -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- MODIFIED: Header updated to mobile-first version -->
@@ -360,11 +359,11 @@
       <section>
         <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Designer Tools Suite</h3>
         <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/color-name-finder.html" class="text-white hover:underline font-medium">Color Name Finder</a> — Identify CSS or Crayola names for any HEX.</li>
-          <li><a href="https://solite.in/image-color-picker.html" class="text-white hover:underline font-medium">Image Color Picker</a> — Extract color palettes directly from images.</li>
-          <li><a href="https://solite.in/image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Reduce file size without quality loss.</li>
-          <li><a href="https://solite.in/css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build linear, radial, and conic gradients.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean and format content for design systems.</li>
+          <li><a href="./color-name-finder.html" class="text-white hover:underline font-medium">Color Name Finder</a> — Identify CSS or Crayola names for any HEX.</li>
+          <li><a href="./image-color-picker.html" class="text-white hover:underline font-medium">Image Color Picker</a> — Extract color palettes directly from images.</li>
+          <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Reduce file size without quality loss.</li>
+          <li><a href="./css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build linear, radial, and conic gradients.</li>
+          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean and format content for design systems.</li>
         </ul>
         <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
       </section>

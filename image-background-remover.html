@@ -1,163 +1,180 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Image Background Remover (for Solid Colors) | Solite</title>
-    <meta name="description" content="Instantly remove multiple solid color backgrounds from images and logos with this free, private online tool. Uses color keying and thresholding. No AI, no uploads, 100% private.">
-    <meta name="keywords" content="background remover, remove background from image, transparent background, image background remover, color keying, chroma key, solite, free tool, privacy first, remove white background, multi-color removal">
-    <link rel="canonical" href="https://solite.in/image-background-remover.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Image Background Remover (for Solid Colors) | Solite">
-    <meta property="og:description" content="Instantly remove multiple solid color backgrounds from images and logos with this free, private online tool. No AI, no uploads.">
-    <meta property="og:url" content="https://solite.in/image-background-remover.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/image-background-remover-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO CORE -->
+  <title>Free Image Background Remover (for Solid Colors) | Solite</title>
+  <meta name="description" content="Remove multiple solid color backgrounds instantly with Solite’s free online background remover. No uploads, no AI — 100% private client-side color keying and thresholding." />
+  <meta name="keywords" content="background remover, remove solid color background, image transparency, color keying, chroma key tool, transparent PNG, privacy first, solite" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/image-background-remover.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Image Background Remover (for Solid Colors) | Solite" />
+  <meta property="og:description" content="Remove multiple solid color backgrounds instantly — no uploads, no AI, 100% client-side. Works with logos, icons, and images." />
+  <meta property="og:url" content="https://solite.in/image-background-remover.html" />
+  <meta property="og:image" content="https://solite.in/assets/image-background-remover-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Image Background Remover tool interface preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image Background Remover (for Solid Colors) | Solite" />
+  <meta name="twitter:description" content="Instantly remove multiple solid color backgrounds — 100% private and browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/image-background-remover-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Background Remover (Lite)",
-      "url": "https://solite.in/image-background-remover.html",
-      "description": "A free, client-side tool to remove multiple solid color backgrounds from images using color keying and thresholding.",
-      "applicationCategory": "MultimediaApplication",
-      "featureList": [ "Remove solid color backgrounds", "Remove multiple color layers", "Color picker for background selection", "Adjustable removal threshold", "Download as transparent PNG", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Suite -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 STRUCTURED DATA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, private, browser-based tools for creators and developers — 100% client-side and privacy-first."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/image-background-remover.html#app",
+        "name": "Image Background Remover (Lite) | Solite",
+        "url": "https://solite.in/image-background-remover.html",
+        "description": "Free, client-side tool to remove multiple solid color backgrounds from images using color keying and thresholding.",
+        "applicationCategory": "MultimediaApplication",
+        "featureList": [
+          "Remove solid color backgrounds",
+          "Select and remove multiple color layers",
+          "Adjustable threshold with live preview",
+          "Download result as transparent PNG",
+          "100% private — no uploads, no AI"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
         "@type": "HowTo",
+        "@id": "https://solite.in/image-background-remover.html#howto",
         "name": "How to Remove Multiple Solid Backgrounds from an Image",
         "step": [
-          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image onto the canvas or click to select a file." },
-          { "@type": "HowToStep", "name": "Step 2: Pick First Background Color", "text": "Click on the background color in the image preview that you want to remove. You can also select it manually." },
-          { "@type": "HowToStep", "name": "Step 3: Adjust Threshold", "text": "Use the 'Tolerance' slider to fine-tune the removal. You will see a live preview." },
-          { "@type": "HowToStep", "name": "Step 4: Add Removal", "text": "Click the 'Add Color Removal' button to 'lock in' this removal." },
-          { "@type": "HowToStep", "name": "Step 5: Repeat", "text": "Repeat steps 2-4 to remove more color layers." },
-          { "@type": "HowToStep", "name": "Step 6: Download", "text": "Click the 'Download as PNG' button to save your image with all removals applied." }
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop your image or click to select a file." },
+          { "@type": "HowToStep", "name": "Step 2: Pick First Color", "text": "Click on a color in the image to remove it." },
+          { "@type": "HowToStep", "name": "Step 3: Adjust Threshold", "text": "Fine-tune background removal with the tolerance slider." },
+          { "@type": "HowToStep", "name": "Step 4: Add Another Removal", "text": "Lock in your first color and pick more backgrounds to remove." },
+          { "@type": "HowToStep", "name": "Step 5: Download Result", "text": "Click ‘Download PNG’ to save your transparent image." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/image-background-remover.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Image Background Remover" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/image-background-remover.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this tool use AI to remove backgrounds?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No, this tool uses pure color keying (chroma key) techniques — it never uploads or processes your image on a remote server." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I remove multiple colors at once?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can sequentially pick and remove several background colors until your subject is isolated." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Image Background Remover"
-      }]
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] },
+          animation: { 'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+        }
+      }
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { 
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] },
-                    animation: { 'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        .checkerboard { background-image: linear-gradient(45deg, #374151 25%, transparent 25%), linear-gradient(-45deg, #374151 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #374151 75%), linear-gradient(-45deg, transparent 75%, #374151 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
-        /* Style for the removal list */
-        #removal-list .removal-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(185, 28, 28, 0.3); /* MODIFIED: bg-red-800/30 - Less transparent */
-            /* border: 1px solid #b91c1c; */ /* REMOVED: Border */
-            border: none; /* MODIFIED: Ensure no border */
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 0.5rem 0.75rem; /* p-2 p-3 */
-            font-family: 'Roboto Mono', monospace;
-            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-            color: #f87171; /* NEW: text-red-400 */
-        }
-        #removal-list .removal-item:hover {
-            /* border-color: #f87171; */ /* REMOVED: Border */
-            background-color: rgba(185, 28, 28, 0.4); /* MODIFIED: hover:bg-red-800/40 */
-        }
-        #removal-list .color-swatch {
-            width: 1.25rem; /* w-5 */
-            height: 1.25rem; /* h-5 */
-            border-radius: 0.25rem; /* rounded */
-            border: 1px solid #4b5563; /* border-gray-600 */
-            flex-shrink: 0;
-        }
-        /* MODIFIED: Style to match the 'clear' button */
-        #removal-list .remove-item-btn {
-            background-color: transparent; /* MODIFIED: Transparent BG */
-            color: #f87171; /* text-red-400 */
-            border-radius: 0.375rem; /* rounded-md */
-            padding: 0.25rem; /* p-1 */
-            cursor: pointer;
-            transition: background-color 0.15s ease-in-out;
-            border: none; /* MODIFIED: Removed border */
-        }
-        #removal-list .remove-item-btn:hover {
-            background-color: rgba(248, 113, 113, 0.2); /* MODIFIED: hover:bg-red-400/20 */
-            border: none; /* MODIFIED: Removed border */
-        }
+  <!-- 🎯 UI + Scrollbar Styling -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+    #toast.show { transform: translateY(2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 16px; height: 16px;
+      background: #ffffff; border-radius: 9999px; cursor: pointer; margin-top: -6px;
+    }
+    .checkerboard {
+      background-image:
+        linear-gradient(45deg,#374151 25%,transparent 25%),
+        linear-gradient(-45deg,#374151 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#374151 75%),
+        linear-gradient(-45deg,transparent 75%,#374151 75%);
+      background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0;
+    }
+    #removal-list .removal-item {
+      display:flex;align-items:center;justify-content:space-between;
+      background-color:rgba(185,28,28,0.3);border:none;border-radius:0.5rem;
+      padding:0.5rem 0.75rem;font-family:'Roboto Mono',monospace;color:#f87171;
+      transition:background-color .15s ease-in-out;
+    }
+    #removal-list .removal-item:hover { background-color:rgba(185,28,28,0.4); }
+    #removal-list .color-swatch {
+      width:1.25rem;height:1.25rem;border-radius:0.25rem;border:1px solid #4b5563;flex-shrink:0;
+    }
+    #removal-list .remove-item-btn {
+      background-color:transparent;color:#f87171;border:none;border-radius:0.375rem;
+      padding:0.25rem;cursor:pointer;transition:background-color .15s ease-in-out;
+    }
+    #removal-list .remove-item-btn:hover { background-color:rgba(248,113,113,0.2); }
+    button:disabled, .control-group:disabled { opacity:.5; cursor:not-allowed; pointer-events:none; }
+  </style>
 
-        /* --- NEW: Disabled state styling --- */
-        button:disabled,
-        .control-group:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        button:disabled {
-            pointer-events: none; /* Extra insurance */
-        }
-        
-        /* Make fieldset:disabled apply to children */
-        .control-group:disabled > * {
-            pointer-events: none;
-        }
-
-    </style> 
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5 schema, AI-aligned OpenGraph, privacy-first SEO, and cross-tool authority signals. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

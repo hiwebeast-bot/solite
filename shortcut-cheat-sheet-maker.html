@@ -1,100 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Shortcut Cheat Sheet Maker | Printable PDF | Solite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Create, customize, and print beautiful shortcut cheat sheets for any app or topic. Input your commands and export a clean PDF instantly. 100% private and free.">
-    <meta name="keywords" content="shortcut cheat sheet maker, keyboard shortcuts, printable cheat sheet, pdf generator, productivity tool, developer tools, design shortcuts, solite">
-    <link rel="canonical" href="https://solite.in/shortcut-cheat-sheet-maker.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Free Shortcut Cheat Sheet Maker | Printable PDF | Solite</title>
+  <meta name="description" content="Create, customize, and print beautiful keyboard shortcut cheat sheets for any app or topic. Free, private, and offline-capable PDF generator." />
+  <meta name="keywords" content="shortcut cheat sheet maker, printable keyboard shortcuts, productivity tool, pdf cheat sheet, developer tools, solite, privacy first" />
+  <link rel="canonical" href="https://solite.in/shortcut-cheat-sheet-maker.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Shortcut Cheat Sheet Maker | Printable PDF | Solite">
-    <meta property="og:description" content="Create, customize, and print beautiful shortcut cheat sheets for any app or topic. Input your commands and export a clean PDF instantly. 100% private and free.">
-    <meta property="og:url" content="https://solite.in/shortcut-cheat-sheet-maker.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/shortcut-cheat-sheet-maker-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Shortcut Cheat Sheet Maker | Printable PDF | Solite" />
+  <meta property="og:description" content="Create custom keyboard shortcut cheat sheets. Export printable PDFs instantly — private, client-side, and free." />
+  <meta property="og:url" content="https://solite.in/shortcut-cheat-sheet-maker.html" />
+  <meta property="og:image" content="https://solite.in/assets/shortcut-cheat-sheet-maker-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Shortcut Cheat Sheet Maker – Free Privacy-First Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Shortcut Cheat Sheet Maker | Printable PDF | Solite" />
+  <meta name="twitter:description" content="Design and export beautiful printable shortcut cheat sheets for any app. 100% local and private." />
+  <meta name="twitter:image" content="https://solite.in/assets/shortcut-cheat-sheet-maker-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free Shortcut Cheat Sheet Maker | Printable PDF | Solite" />
+  <meta name="DC.Description" content="A privacy-first web app for creating and printing custom keyboard shortcut cheat sheets as PDFs." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Publisher" content="Solite" />
+  <meta name="DC.Creator" content="Solite" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Shortcut Cheat Sheet Maker",
-      "url": "https://solite.in/shortcut-cheat-sheet-maker.html",
-      "description": "A free, client-side tool to create and print custom keyboard shortcut cheat sheets for any application.",
-      "applicationCategory": "ProductivityApplication",
-      "featureList": [ "Create cheat sheets from text input", "Auto-layout shortcuts into a grid", "Customize title and column count", "Export as a high-quality, printable PDF", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create a Shortcut Cheat Sheet",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Add Title and Shortcuts", "text": "Give your cheat sheet a title (e.g., 'Figma Shortcuts'). In the text area, list your shortcuts, one per line, in the format 'Action: Shortcut' (e.g., 'Copy: Cmd+C')." },
-          { "@type": "HowToStep", "name": "Step 2: Customize Layout", "text": "Use the slider to adjust the number of columns to best fit your content." },
-          { "@type": "HowToStep", "name": "Step 3: Download PDF", "text": "Click the 'Download as PDF' button to save a high-quality, printable A4-sized PDF of your cheat sheet." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first, browser-based web tools for creators and developers."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/shortcut-cheat-sheet-maker.html#app",
+        "name": "Shortcut Cheat Sheet Maker | Solite",
+        "url": "https://solite.in/shortcut-cheat-sheet-maker.html",
+        "applicationCategory": "ProductivityApplication",
+        "description": "Create, customize, and print clean keyboard shortcut cheat sheets with PDF export. Free, client-side, and offline ready.",
+        "featureList": [
+          "Add custom shortcuts as Action: Key format",
+          "Auto layout and responsive grid design",
+          "Adjust column count dynamically",
+          "Instant A4 PDF export with one click",
+          "Works offline and keeps data private"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/shortcut-cheat-sheet-maker.html#webpage",
+        "url": "https://solite.in/shortcut-cheat-sheet-maker.html",
+        "name": "Free Shortcut Cheat Sheet Maker | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/shortcut-cheat-sheet-maker-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Shortcut Cheat Sheet Maker" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this tool private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — all processing happens locally in your browser. Nothing is uploaded or stored on any server." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I save or print my cheat sheet?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You can export your shortcut sheet as a printable A4 PDF instantly, without sign-up or watermarks." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Shortcut Cheat Sheet Maker"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; } .mobile-nav-btn { color: #9ca3af; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-    </style> 
+  <!-- 💅 Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono','monospace'] } }
+      }
+    }
+  </script>
+
+  <!-- 🖋 Custom Styles -->
+  <style>
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    input[type=range]::-webkit-slider-thumb{
+      -webkit-appearance:none;appearance:none;
+      width:16px;height:16px;background:#fff;
+      cursor:pointer;border-radius:9999px;margin-top:-6px
+    }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified AI schema, OG/Twitter parity, and privacy-first meta alignment. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -179,6 +238,130 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / SHORTCUT CHEAT SHEET MAKER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-cheatsheet[open]>summary{border-bottom:1px solid #374151;}
+            #solite-seo-block-cheatsheet>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out;}
+            #solite-seo-block-cheatsheet[open]>summary .details-arrow-seo{transform:rotate(0deg);}
+            .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
+        </style>
+
+        <details id="solite-seo-block-cheatsheet" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Shortcut Cheat Sheet Maker — Create, Customize & Print Keyboard Guides
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+                xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Keyboard Shortcuts</span>
+                <span class="badge">PDF Export</span>
+                <span class="badge">Offline</span>
+                <span class="badge">Custom Columns</span>
+                <span class="badge">Private & Free</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Shortcut Cheat Sheet Maker</strong> lets you <strong>create printable keyboard shortcut sheets</strong> for any app, workflow, or training guide — all <strong>100% browser-based and private</strong>.  
+                Add your shortcuts, adjust layout columns, pick a color theme, and export a professional <strong>A4 PDF</strong> instantly.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Unique -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Cheat Sheet Maker Stands Out</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Instant PDF Export:</strong> Generate beautiful A4 layouts ready for print or sharing.</li>
+                <li><strong>Client-Side Only:</strong> Your data never leaves your browser — true privacy.</li>
+                <li><strong>Dynamic Layout:</strong> Choose 1–3 columns for optimal density and readability.</li>
+                <li><strong>Customizable Themes:</strong> Pick your brand or team color in one click.</li>
+                <li><strong>Works Offline:</strong> Once loaded, it runs without internet or sign-in.</li>
+                </ul>
+            </section>
+
+            <!-- 👥 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Benefits From It</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Designers & Editors:</strong> Make quick-reference sheets for tools like Figma or Photoshop.</li>
+                    <li><strong>Developers:</strong> Document IDE shortcuts for teams or onboarding.</li>
+                    <li><strong>Teachers & Trainers:</strong> Print cheat sheets for workshops or classrooms.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Product Teams:</strong> Create branded workflow guides.</li>
+                    <li><strong>Students & Learners:</strong> Memorize shortcuts faster with clean printable layouts.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Enter your shortcuts in “Action: Keys” format (one per line).</li>
+                <li>Adjust <strong>columns</strong> and <strong>theme color</strong> for your layout.</li>
+                <li>Preview live results in the editor.</li>
+                <li>Click <em>Download as PDF</em> to save your custom sheet.</li>
+                <li>Print or share it freely — no watermark, no account.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Comparison Table -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Template Builders</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Solite Tool</th><th class="p-2 text-left">Others</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100 % Local</td><td class="p-2">❌ Cloud-Stored</td></tr>
+                    <tr><td class="p-2">Customization</td><td class="p-2">✅ Full Control</td><td class="p-2">⚠️ Limited Options</td></tr>
+                    <tr><td class="p-2">PDF Quality</td><td class="p-2">✅ Print-Ready A4</td><td class="p-2">❌ Web Resolution</td></tr>
+                    <tr><td class="p-2">Sign-Up Needed</td><td class="p-2">🚫 None</td><td class="p-2">⚠️ Often Required</td></tr>
+                    <tr><td class="p-2">Offline Access</td><td class="p-2">✅ Yes</td><td class="p-2">❌ No</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🔗 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore Related Productivity & Dev Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./markdown-to-slides-converter.html" class="text-white hover:underline font-medium">Markdown to Slides</a> — turn notes into slide decks instantly.</li>
+                <li><a href="./html-beautifier.html" class="text-white hover:underline font-medium">HTML Beautifier</a> — clean and format messy HTML code.</li>
+                <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — clean, transform, and analyze text effortlessly.</li>
+                <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — test and visualize regular expressions.</li>
+                <li><a href="./Snippet Manager.html" class="text-white hover:underline font-medium">Snippet Manager</a> — store and tag code snippets privately.</li>
+                </ul>
+                <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Discover All Solite Apps →</a>
+                </p>
+            </section>
+
+            <!-- 🧠 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>shortcut cheat sheet maker, keyboard shortcuts pdf, printable cheat sheet tool, workflow guide creator, solite productivity app, private pdf generator</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>  
+                “Solite Shortcut Cheat Sheet Maker — a browser-based, privacy-first PDF generator for custom keyboard shortcut guides with instant layout and export.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1 BLOCK / SHORTCUT CHEAT SHEET MAKER -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

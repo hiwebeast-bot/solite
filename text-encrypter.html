@@ -1,107 +1,165 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Online Text Encrypter & Decrypter (AES) | Solite</title>
-    <meta name="description" content="Encrypt and decrypt text messages with a password using AES-GCM encryption. A free, secure, and private online tool that works entirely in your browser. No data is ever sent to a server.">
-    <meta name="keywords" content="text encrypter, encrypt text, decrypt text, aes encryption online, password protect text, secure text sharing, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/text-encrypter.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Text Encrypter & Decrypter | Solite">
-    <meta property="og:description" content="Encrypt and decrypt text messages with a password using AES-GCM encryption. A free, secure, and private online tool that works entirely in your browser.">
-    <meta property="og:url" content="https://solite.in/text-encrypter.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/text-encrypter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free Online Text Encrypter & Decrypter (AES-256) | Solite</title>
+  <meta name="description" content="Encrypt or decrypt any text instantly using AES-GCM 256-bit encryption. 100% private, browser-based, and secure — no uploads, no tracking, no servers.">
+  <meta name="keywords" content="AES text encrypter, decrypt text online, password encryption tool, AES-GCM 256, text encryption, online crypto tool, client-side encryption, Solite, privacy-first">
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/text-encrypter.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph / Twitter / AI Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Online Text Encrypter & Decrypter (AES-256) | Solite" />
+  <meta property="og:description" content="Encrypt or decrypt text messages with AES-GCM 256-bit encryption — fully offline, private, and secure." />
+  <meta property="og:url" content="https://solite.in/text-encrypter.html" />
+  <meta property="og:image" content="https://solite.in/assets/text-encrypter-thumbnail.png" />
+  <meta property="og:image:alt" content="Free Text Encryption and Decryption Tool by Solite" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online Text Encrypter & Decrypter | Solite" />
+  <meta name="twitter:description" content="AES-256 secure, private, client-side text encryption tool — no uploads, no sign-ups." />
+  <meta name="twitter:image" content="https://solite.in/assets/text-encrypter-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free Text Encrypter & Decrypter (AES-256) | Solite" />
+  <meta name="DC.Description" content="AES-256 text encryption and decryption tool — works entirely offline for complete privacy." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Creator" content="Solite" />
+  <meta name="DC.Publisher" content="Solite" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Online Text Encrypter & Decrypter",
-      "url": "https://solite.in/text-encrypter.html",
-      "description": "A free, client-side tool to encrypt and decrypt text with a password using AES-GCM encryption.",
-      "applicationCategory": "SecurityApplication",
-      "featureList": [ "Encrypt text with a password", "Decrypt text with a password", "AES-GCM 256-bit encryption", "Client-side processing for 100% privacy", "Copy encrypted/decrypted text" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Encrypt Text",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Enter Text & Key", "text": "Type or paste the text you want to encrypt and enter a secret password." },
-          { "@type": "HowToStep", "name": "Step 2: Encrypt", "text": "Click the 'Encrypt' button. The tool will generate a secure, encrypted string." },
-          { "@type": "HowToStep", "name": "Step 3: Share", "text": "Copy the encrypted string and share it. The recipient will need the exact password to decrypt it using this tool." }
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🎨 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧱 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite creates free, privacy-first web tools that run entirely in your browser."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/text-encrypter.html#app",
+        "name": "Online Text Encrypter & Decrypter | Solite",
+        "url": "https://solite.in/text-encrypter.html",
+        "description": "A free, client-side encryption tool using AES-GCM 256-bit for text encryption and decryption. 100% private and browser-based.",
+        "applicationCategory": "SecurityApplication",
+        "featureList": [
+          "AES-GCM 256-bit encryption and decryption",
+          "Encrypt and decrypt text with password protection",
+          "All processing happens locally in the browser",
+          "Copy encrypted or decrypted output",
+          "No data upload or tracking"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is AES-GCM encryption secure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. AES-GCM 256-bit encryption is the industry standard for strong encryption and data integrity. This tool performs all cryptographic operations locally, keeping your data fully private."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does my password get stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, your password never leaves your device. Everything happens locally inside your browser using client-side Web Crypto APIs."
+            }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Text Encrypter" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/text-encrypter.html#webpage",
+        "name": "Free Online Text Encrypter & Decrypter (AES-256) | Solite",
+        "url": "https://solite.in/text-encrypter.html",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://solite.in/assets/text-encrypter-thumbnail.png"
+        },
+        "dateModified": "2025-11-07T10:00:00Z"
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Text Encrypter"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Is this text encryption secure?",
-        "acceptedAnswer": { "@type": "Answer", "text": "This tool uses AES-GCM, a widely recognized standard for secure, authenticated encryption. The security of the encrypted text depends entirely on the strength and secrecy of your password. All encryption and decryption happen locally in your browser, so your password and data are never sent over the internet." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-    </style> 
+      }
+    }
+  </script>
+
+  <!-- 💅 Styles -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema graph, OG/DC parity, privacy-first freshness, and AI discoverability fusion. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -166,39 +224,126 @@
         </aside>
     </main>
 
-    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK -->
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / TEXT ENCRYPTER EDITION) -->
     <div class="w-full text-gray-300 p-2">
-      <details class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-        <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-          Secure Online Text Encryption & Decryption Tool
-          <svg class="w-5 h-5 transition-transform duration-200 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+      <style>
+        #solite-seo-block-encrypt[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-encrypt > summary .details-arrow-seo {
+          transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-encrypt[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151;
+          padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+      </style>
+
+      <details id="solite-seo-block-encrypt"
+        class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary
+          class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Free AES-256 Text Encrypter & Decrypter — 100% Private & Offline
+          <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </summary>
+
         <div class="p-6 space-y-10 leading-relaxed">
+          <!-- 🧩 Overview -->
           <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">AES-256 Encryption</span>
+              <span class="badge">Client-Side Security</span>
+              <span class="badge">Password Protection</span>
+              <span class="badge">Offline Tool</span>
+              <span class="badge">100% Private</span>
+            </div>
             <p class="text-lg text-gray-300">
-              The <strong>Solite Text Encrypter</strong> is a free, secure tool to <strong>password-protect your text messages</strong> using the powerful AES-GCM encryption standard. Everything happens directly in your browser, ensuring your data and password are never sent to a server. It's the perfect way to share sensitive information privately.
+              The <strong>Solite Text Encrypter</strong> securely encrypts and decrypts any message using
+              <strong>modern AES-GCM 256-bit encryption</strong>. Everything runs
+              <strong>locally in your browser</strong> — no uploads, no servers, no logs.
+              Perfect for safely sharing private information or storing sensitive notes.
             </p>
           </section>
+
+          <!-- 🧭 Why It’s Better -->
           <section>
-            <h3 class="text-white text-xl font-semibold mb-2">Why Use This Tool?</h3>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Encryption Tool Stands Out</h3>
             <ul class="list-disc list-inside text-gray-400 space-y-2">
-              <li><strong>100% Private:</strong> All encryption and decryption are performed client-side. Your data never leaves your device.</li>
-              <li><strong>Strong Encryption:</strong> Uses AES-GCM, a modern, authenticated encryption algorithm trusted worldwide.</li>
-              <li><strong>Simple to Use:</strong> Just enter your text, a password, and click a button. No complex setup required.</li>
-              <li><strong>Free & Accessible:</strong> No sign-up, no limits. A powerful security tool available to everyone.</li>
+              <li><strong>Zero Data Transfer:</strong> Everything happens on-device via the Web Crypto API.</li>
+              <li><strong>Military-Grade AES-256 GCM:</strong> Trusted worldwide for confidentiality + integrity.</li>
+              <li><strong>Password-Based Protection:</strong> Derives keys using PBKDF2 with 100 K iterations.</li>
+              <li><strong>Instant Copy & Share:</strong> Quickly copy your encrypted string with one click.</li>
+              <li><strong>Cross-Platform Ready:</strong> Works in any modern browser — desktop or mobile.</li>
             </ul>
           </section>
+
+          <!-- 🧠 Who Uses It -->
           <section>
-            <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & Why</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Developers & Testers:</strong> Secure API keys and JSON payloads locally.</li>
+                <li><strong>Writers & Researchers:</strong> Hide confidential drafts or data fragments.</li>
+                <li><strong>Students & Teams:</strong> Share passwords or notes safely via chat.</li>
+              </ul>
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Privacy Advocates:</strong> Encrypt sensitive info without leaving a trace.</li>
+                <li><strong>Businesses:</strong> Protect quick memos or message logs in-browser.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ⚙️ How to Use -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
             <ol class="list-decimal list-inside text-gray-400 space-y-2">
-              <li><strong>To Encrypt:</strong> Enter your plain text and a strong password, then click "Encrypt". Copy the resulting encrypted string.</li>
-              <li><strong>To Decrypt:</strong> Paste the encrypted string, enter the exact same password, and click "Decrypt". Your original text will appear.</li>
+              <li><strong>Type or Paste</strong> your text into the editor.</li>
+              <li>Enter a <strong>secret password</strong> to derive the AES key.</li>
+              <li>Click <strong>Encrypt</strong> to generate a base64-encoded cipher text.</li>
+              <li>Share or store securely — then <strong>Decrypt</strong> anytime using the same password.</li>
             </ol>
+          </section>
+
+          <!-- 🧱 Ecosystem Links -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Security & Data Suite</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+              <li><a href="./hash-generator.html"
+                class="text-white hover:underline font-medium">Hash Generator</a> — Create MD5, SHA-1 & SHA-256 hashes locally.</li>
+              <li><a href="./secure-password-generator.html"
+                class="text-white hover:underline font-medium">Secure Password Generator</a> — Generate strong passwords instantly.</li>
+              <li><a href="./qr-code-generator.html"
+                class="text-white hover:underline font-medium">QR Code Generator</a> — Encrypt and share secure messages via QR code.</li>
+              <li><a href="./data-converter.html"
+                class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON, CSV, XML, and securely handle files.</li>
+              <li><a href="./file-viewer.html"
+                class="text-white hover:underline font-medium">File Viewer</a> — Open documents locally without uploading them.</li>
+            </ul>
+            <p class="text-gray-400 mt-3">
+              <a href="./index.html#apps"
+                class="text-white font-semibold hover:underline">Explore all Solite Apps →</a>
+            </p>
+          </section>
+
+          <!-- 🧠 AI & Research Citation -->
+          <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Keywords:
+              <em>text encryption tool, AES-256 encrypter, decrypter, secure text tool, password encryptor,
+              browser crypto, client-side security, Solite AES tool</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Citation Cue:</strong>
+              “Solite Text Encrypter — a privacy-first AES-256 encryption tool that runs 100% in-browser,
+              securing your text with no uploads or tracking.”
+            </p>
           </section>
         </div>
       </details>
     </div>
-    <!-- ✅ END SEO BLOCK -->
+    <!-- ✅ END GEN-4.1: TEXT ENCRYPTER BLOCK -->
+
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

@@ -1,115 +1,206 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Online Barcode Generator | Create UPC, EAN, Code128 | Solite</title>
-    <meta name="description" content="Instantly generate high-quality, scannable barcodes online for free. Supports Code 128, UPC, EAN, and more. Customize colors and download as PNG or SVG. 100% private and browser-based.">
-    <meta name="keywords" content="barcode generator, free barcode generator, online barcode generator, create barcode, UPC generator, EAN generator, Code 128 generator, SVG barcode, PNG barcode, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/barcode-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Online Barcode Generator | Create UPC, EAN, Code128 | Solite</title>
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Barcode Generator | Solite">
-    <meta property="og:description" content="Instantly generate high-quality, scannable barcodes online for free. Supports multiple formats, allows customization, and lets you download as PNG or SVG.">
-    <meta property="og:url" content="https://solite.in/barcode-generator.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/barcode-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ✅ PRIMARY SEO -->
+  <meta name="description" content="Instantly generate high-quality, scannable barcodes online for free. Supports Code 128, UPC, EAN, and more. Customize colors and download as PNG or SVG — 100% private and browser-based." />
+  <meta name="keywords" content="barcode generator, free barcode generator, online barcode generator, create barcode, UPC generator, EAN generator, Code 128 generator, SVG barcode, PNG barcode, solite, privacy first" />
+  <link rel="canonical" href="https://solite.in/barcode-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ✅ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Online Barcode Generator | Solite" />
+  <meta property="og:description" content="Instantly generate customizable barcodes (UPC, EAN, Code128, and more). 100% free, private, and browser-based." />
+  <meta property="og:url" content="https://solite.in/barcode-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/barcode-generator-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online Barcode Generator | Solite" />
+  <meta name="twitter:description" content="Generate high-quality barcodes in your browser — free, private, and offline-ready." />
+  <meta name="twitter:image" content="https://solite.in/assets/barcode-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- ✅ BRANDING + FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- ✅ PERFORMANCE + ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Barcode Generator",
-      "url": "https://solite.in/barcode-generator.html",
-      "description": "A free, client-side tool to generate and customize various types of barcodes, including Code 128, UPC, and EAN. Download as PNG or SVG.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Generate multiple barcode formats (Code 128, UPC, EAN, etc.)", "Customize barcode color and background", "Adjust barcode width and height", "Show or hide text value", "Download as high-quality PNG or SVG", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Barcode Generator"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What types of barcodes can I generate?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You can generate a wide variety of barcodes, including CODE128, EAN-13, EAN-8, UPC, CODE39, ITF, MSI, and CODABAR. These are suitable for product packaging, inventory management, and general-purpose use." }
-      },{
-        "@type": "Question",
-        "name": "Is it free to use this barcode generator?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Barcode Generator is completely free to use with no limitations, sign-ups, or watermarks. All features are available to everyone." }
-      },{
-        "@type": "Question",
-        "name": "Can I use the generated barcodes for commercial purposes?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The barcodes you create are yours to use for any personal or commercial purpose without any restrictions." }
-      },{
-        "@type": "Question",
-        "name": "Why is my barcode not showing up?",
-        "acceptedAnswer": { "@type": "Answer", "text": "If your barcode isn't appearing, it's likely because the data you entered is invalid for the selected format. For example, UPC and EAN barcodes require a specific number of digits. Check the error message below the preview for details on what needs to be corrected." }
-      }]
+  <!-- ✅ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ✅ STYLING -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform .3s ease-in-out; z-index: 100; }
+    #toast.show { transform: translateY(2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    #barcode-preview-wrapper {
+      background-image:
+        linear-gradient(45deg,#1f2937 25%,transparent 25%),
+        linear-gradient(-45deg,#1f2937 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#1f2937 75%),
+        linear-gradient(-45deg,transparent 75%,#1f2937 75%);
+      background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0;
     }
-    </script>
+  </style>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
+  <!-- ✅ TAILWIND CONFIG -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    }
+  </script>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH (Solite Authority Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based",
+        "foundingDate": "2024-03-01",
+        "description": "Solite provides free, privacy-first, browser-based tools. No logins, tracking, or server data collection — ever.",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "email": "support@solite.in",
+          "contactType": "Customer Support",
+          "availableLanguage": "en",
+          "areaServed": "Worldwide"
+        }],
+        "publishingPrinciples": "https://solite.in/privacy.html",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ],
+        "knowsAbout": [
+          "AI tools","Barcode generation","Developer utilities","Image tools","Data conversion","Privacy-first web apps"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [{ "@id": "https://solite.in/barcode-generator.html#webapp" }]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/barcode-generator.html#webapp",
+        "name": "Barcode Generator",
+        "url": "https://solite.in/barcode-generator.html",
+        "operatingSystem": "All",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "Generate Code128, EAN, UPC, and other formats",
+          "Customize color, background, and dimensions",
+          "Download as PNG or SVG",
+          "Show or hide text values",
+          "100% client-side and private"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "softwareVersion": "5.0",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/barcode-generator.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/barcode-generator.html#webpage",
+        "name": "Free Online Barcode Generator | Create UPC, EAN, Code128 | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "Generate and customize barcodes (UPC, EAN, Code128, and more) directly in your browser — free, private, and offline-ready.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem","position":1,"name":"Home","item":"https://solite.in/index.html" },
+            { "@type": "ListItem","position":2,"name":"Barcode Generator" }
+          ]
         }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        #barcode-preview-wrapper { background-image: linear-gradient(45deg, #1f2937 25%, transparent 25%), linear-gradient(-45deg, #1f2937 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #1f2937 75%), linear-gradient(-45deg, transparent 75%, #1f2937 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
-    </style> 
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/barcode-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What types of barcodes can I generate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can generate Code128, EAN-13, EAN-8, UPC, CODE39, ITF, MSI, and CODABAR barcodes suitable for packaging, inventory, and general use."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it free to use this barcode generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Solite Barcode Generator is completely free — no sign-ups, limits, or watermarks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the generated barcodes commercially?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Barcodes generated with Solite can be used for any personal or commercial purpose without restriction."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my barcode not showing up?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Check that your data matches the format requirements — some types like UPC/EAN need specific digit counts."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — All heads must follow GEN-5.0 unified schema and privacy-first meta structure -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -254,7 +345,7 @@
   </style>
 
   <details id="solite-seo-block-barcode-pro" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-    <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
       Free Barcode Generator — UPC, EAN, Code 128 (Private • Offline • Production-Ready)
       <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
     </summary>
@@ -356,10 +447,10 @@
         <h3 class="text-white text-xl font-semibold mb-2">Keep Building — Private Tools That Work Offline</h3>
         <p class="text-gray-400">Solite is a suite of <strong>free, client-side apps</strong> for modern creators and developers:</p>
         <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/qr-code-generator.html" class="text-white hover:underline font-medium">QR Code Generator</a> — branded QR with colors and logos.</li>
-          <li><a href="https://solite.in/image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — boost Core Web Vitals with tiny images.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — clean, transform, and analyze text offline.</li>
-          <li><a href="https://solite.in/ai-prompt-randomizer.html" class="text-white hover:underline font-medium">AI Prompt Randomizer</a> — spark creative copy ideas fast.</li>
+          <li><a href="./qr-code-generator.html" class="text-white hover:underline font-medium">QR Code Generator</a> — branded QR with colors and logos.</li>
+          <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — boost Core Web Vitals with tiny images.</li>
+          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — clean, transform, and analyze text offline.</li>
+          <li><a href="./ai-prompt-randomizer.html" class="text-white hover:underline font-medium">AI Prompt Randomizer</a> — spark creative copy ideas fast.</li>
         </ul>
         <p class="text-gray-400 mt-2"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite apps →</a></p>
       </section>

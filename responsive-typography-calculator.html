@@ -1,98 +1,152 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Responsive Typography & Fluid Type Scale Calculator | Solite</title>
-    <meta name="description" content="A free tool to convert PX to REM, generate fluid typography with CSS clamp(), and create perfect typographic scales. The ultimate responsive design utility for developers.">
-    <meta name="keywords" content="px to rem converter, fluid typography, css clamp generator, typographic scale, responsive typography, css units, web design tool, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/responsive-typography-calculator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Responsive Typography & Fluid Type Scale Calculator | Solite">
-    <meta property="og:description" content="A free tool to convert PX to REM, generate fluid typography with CSS clamp(), and create perfect typographic scales.">
-    <meta property="og:url" content="https://solite.in/responsive-typography-calculator.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/px-to-rem-converter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Responsive Typography & Fluid Type Scale Calculator | Solite</title>
+  <meta name="description" content="Convert PX to REM, generate fluid typography with CSS clamp(), and create perfect type scales for responsive web design. 100% private, browser-based tool by Solite." />
+  <meta name="keywords" content="responsive typography calculator, px to rem converter, css clamp generator, fluid typography, type scale, css units, developer tool, solite, privacy-first" />
+  <link rel="canonical" href="https://solite.in/responsive-typography-calculator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Responsive Typography & Fluid Type Scale Calculator | Solite" />
+  <meta property="og:description" content="A free tool to convert PX to REM, generate CSS clamp() fluid typography, and build scalable type systems — 100% private and browser-based." />
+  <meta property="og:url" content="https://solite.in/responsive-typography-calculator.html" />
+  <meta property="og:image" content="https://solite.in/assets/px-to-rem-converter-thumbnail.png" />
+  <meta property="og:image:alt" content="Responsive Typography & Fluid Type Scale Calculator by Solite" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Responsive Typography & Fluid Type Scale Calculator | Solite" />
+  <meta name="twitter:description" content="Generate fluid typography and responsive type scales using PX to REM and CSS clamp() — fully private and browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/px-to-rem-converter-thumbnail.png" />
+  <meta name="twitter:image:alt" content="Fluid Type Scale Calculator - Solite" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Responsive Typography & Fluid Type Scale Calculator | Solite" />
+  <meta name="DC.Description" content="Free online responsive typography calculator by Solite. Convert PX to REM, generate fluid type scales, and CSS clamp functions instantly." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Publisher" content="Solite" />
+  <meta name="DC.Creator" content="Solite" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Responsive Typography Calculator",
-      "url": "https://solite.in/responsive-typography-calculator.html",
-      "description": "A free, client-side tool to convert pixels to rems, generate fluid typography CSS clamp() functions, and create typographic scales.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "PX to REM conversion", "Fluid Typography (clamp) Generator", "Typographic Scale Generator", "CSS Variable Export", "Customizable base font size", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create Responsive Typography",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Set Base Font Size", "text": "Enter the base font size of your project (usually 16px)." },
-          { "@type": "HowToStep", "name": "Step 2: Convert", "text": "Enter a value in either the 'PX' or 'REM' input field. The other field will update automatically." },
-          { "@type": "HowToStep", "name": "Step 3: Explore Other Tools", "text": "Use the Spacing Scale Generator to create a harmonious spacing system, or the Golden Ratio Calculator for balanced layouts." }
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono','monospace'] } } }
+    }
+  </script>
+
+  <!-- 🖋 Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite provides free, privacy-first browser tools for developers and creators."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/responsive-typography-calculator.html#app",
+        "name": "Responsive Typography & Fluid Type Scale Calculator | Solite",
+        "url": "https://solite.in/responsive-typography-calculator.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A privacy-first tool to convert PX to REM, generate fluid typography with CSS clamp(), and create typographic scales.",
+        "featureList": [
+          "PX ↔ REM conversion",
+          "Fluid typography CSS clamp() generator",
+          "Type scale calculator with preview",
+          "CSS variable export",
+          "Custom base font size setting",
+          "Offline & client-side privacy"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/responsive-typography-calculator.html#webpage",
+        "url": "https://solite.in/responsive-typography-calculator.html",
+        "name": "Responsive Typography & Fluid Type Scale Calculator | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/px-to-rem-converter-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Responsive Typography Calculator" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Fluid Typography Scale?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Fluid typography uses the CSS clamp() function to scale font sizes between defined viewport widths, ensuring type adjusts smoothly between devices." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does PX to REM conversion help?",
+            "acceptedAnswer": { "@type": "Answer", "text": "REM units scale text relative to the root font size, ensuring consistent typography across screen resolutions." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Responsive Typography Calculator"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-    </style> 
+  <!-- 💅 Style Layer -->
+  <style>
+    #toast { transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999 }
+    #toast.show { transform:translateY(-2rem) }
+    ::-webkit-scrollbar { width:8px;height:8px }
+    ::-webkit-scrollbar-track { background:#111827 }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563;border-radius:4px }
+    html { scrollbar-color:#4b5563 #111827 }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified AI schema, privacy-first metadata, OG/Twitter parity, and discovery optimization. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -196,8 +250,125 @@
         <!-- Ad Sidebar -->
         <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
     </main>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / RESPONSIVE TYPOGRAPHY CALCULATOR) -->
+    <div class="w-full text-gray-300 p-2">
+    <style>
+        #solite-seo-block-typography[open]>summary{border-bottom:1px solid #374151;}
+        #solite-seo-block-typography>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out;}
+        #solite-seo-block-typography[open]>summary .details-arrow-seo{transform:rotate(0deg);}
+        .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
+    </style>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50 mt-12">
+    <details id="solite-seo-block-typography" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Responsive Typography Calculator — PX↔REM, CSS Clamp & Fluid Type Scales
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+
+        <!-- 🧩 Overview -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+            <span class="badge">PX → REM Converter</span>
+            <span class="badge">CSS clamp() Generator</span>
+            <span class="badge">Fluid Typography</span>
+            <span class="badge">Type Scale Builder</span>
+            <span class="badge">100% Private</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite Responsive Typography Calculator</strong> lets you <strong>convert PX to REM</strong>, 
+            generate <strong>fluid CSS clamp()</strong> typography, and build <strong>responsive type scales</strong> 
+            that adapt smoothly across devices — all directly in your browser, with no uploads or tracking.
+            </p>
+        </section>
+
+        <!-- ⚙️ Key Features -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">What You Can Do</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Convert between <strong>PX</strong> and <strong>REM</strong> with any custom base font size.</li>
+            <li>Generate <strong>CSS clamp()</strong> rules for fluid type scaling.</li>
+            <li>Build modular <strong>typographic scales</strong> and export them as CSS variables.</li>
+            <li>Instant copy buttons for CSS rules and variables.</li>
+            <li>Everything runs <strong>locally</strong> — 100% private, offline-ready.</li>
+            </ul>
+        </section>
+
+        <!-- 🧭 Why It Matters -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Developers Love This Tool</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Frontend Developers:</strong> Simplify typography setup in scalable design systems.</li>
+            <li><strong>Design System Architects:</strong> Generate fluid scales compatible with modern frameworks.</li>
+            <li><strong>UI/UX Designers:</strong> Preview font behavior across viewport widths instantly.</li>
+            <li><strong>Educators & Students:</strong> Learn responsive design principles interactively.</li>
+            </ul>
+        </section>
+
+        <!-- 🧮 How to Use -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use the Typography Calculator</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Enter your base font size (e.g., 16px).</li>
+            <li>Convert PX ↔ REM instantly or copy the generated CSS rule.</li>
+            <li>Set min/max font sizes and viewport widths to generate a <code>clamp()</code> function.</li>
+            <li>Adjust the type scale ratio and copy all CSS variables for your stylesheet.</li>
+            <li>Use it offline — all calculations happen in your browser.</li>
+            </ol>
+        </section>
+
+        <!-- 📊 Comparison (AI Readable) -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Solite vs Other Typography Calculators</h3>
+            <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+                <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Solite Typography Calculator</th><th class="p-2 text-left">Typical Tools</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Local / Offline</td><td class="p-2">❌ Cloud-based</td></tr>
+                <tr><td class="p-2">Fluid clamp() Output</td><td class="p-2">✅ Instant Generation</td><td class="p-2">⚠️ Manual Entry</td></tr>
+                <tr><td class="p-2">CSS Variable Export</td><td class="p-2">✅ Built-in</td><td class="p-2">❌ Missing</td></tr>
+                <tr><td class="p-2">Custom Ratios</td><td class="p-2">✅ Fully Adjustable</td><td class="p-2">⚠️ Limited Options</td></tr>
+                <tr><td class="p-2">PX↔REM Sync</td><td class="p-2">✅ Real-time Linked Fields</td><td class="p-2">⚠️ Separate Calculators</td></tr>
+            </tbody>
+            </table>
+        </section>
+
+        <!-- 🔗 Cross-Linking Ecosystem -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Developer Tools</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./spacing-scale-generator.html" class="text-white hover:underline font-medium">Spacing Scale Generator</a> — create modular spacing systems.</li>
+            <li><a href="./css-animation-generator.html" class="text-white hover:underline font-medium">CSS Animation Generator</a> — design smooth motion for typography transitions.</li>
+            <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — craft accessible color systems for text and backgrounds.</li>
+            <li><a href="./responsive-design-tester.html" class="text-white hover:underline font-medium">Responsive Design Tester</a> — preview your text scale on all devices.</li>
+            <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — check readability and tone of your typography samples.</li>
+            </ul>
+            <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Discover All Solite Tools →</a></p>
+        </section>
+
+        <!-- 🧠 AI / Research Discovery Layer -->
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>responsive typography calculator, px to rem converter, css clamp generator, type scale, modular typography, css variables, solite developer tools</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong>  
+            “Solite Responsive Typography Calculator — a privacy-first, browser-based tool to convert PX↔REM, generate CSS clamp() fluid typography, and export modular type scales instantly.”
+            </p>
+        </section>
+
+        </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-4.1 BLOCK / RESPONSIVE TYPOGRAPHY CALCULATOR -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50 ">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>

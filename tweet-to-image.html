@@ -1,112 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Tweet to Image Converter | Solite</title>
-    <meta name="description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG. 100% private and browser-based.">
-    <meta name="keywords" content="tweet to image, convert tweet to image, twitter screenshot generator, tweet image generator, free online tool, solite, privacy first, tweet screenshot">
-    <link rel="canonical" href="https://solite.in/tweet-to-image.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Tweet to Image Converter | Solite">
-    <meta property="og:description" content="Convert any public tweet into a beautiful, shareable image for free. Customize the theme and download as a high-quality PNG.">
-    <meta property="og:url" content="https://solite.in/tweet-to-image.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/tweet-to-image-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Tweet to Image Converter — Free Twitter post Generator | Solite</title>
+  <meta name="description" content="Convert any public tweet into a beautiful, shareable image. Choose dark or light mode, hide media, add watermarks, and download high-quality PNGs. 100% private & client-side.">
+  <meta name="keywords" content="tweet to image, twitter screenshot generator, convert tweet to image, tweet to png, tweet capture, social media image maker, tweet to poster, solite, privacy first">
+  <link rel="canonical" href="https://solite.in/tweet-to-image.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph / Twitter / AI Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Tweet to Image Converter — Free Twitter Screenshot Generator | Solite" />
+  <meta property="og:description" content="Convert tweets into shareable images. Private, fast, and browser-based — with themes, watermark options, and one-click PNG export.">
+  <meta property="og:url" content="https://solite.in/tweet-to-image.html" />
+  <meta property="og:image" content="https://solite.in/assets/tweet-to-image-thumbnail.png" />
+  <meta property="og:image:alt" content="Tweet to Image Converter Tool by Solite" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tweet to Image Converter — Free Twitter Screenshot Generator | Solite" />
+  <meta name="twitter:description" content="Create polished tweet screenshots for free. Dark/light mode, hide stats, add watermark — 100% private.">
+  <meta name="twitter:image" content="https://solite.in/assets/tweet-to-image-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Tweet to Image Converter",
-      "url": "https://solite.in/tweet-to-image.html",
-      "description": "A free, client-side tool to convert any public tweet into a beautiful, shareable image.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [ "Convert any public Tweet URL to an image", "Switch between Dark and Light themes", "Download as a high-quality PNG", "Client-side processing for 100% privacy", "Option to hide or show engagement stats (likes, retweets)", "Option to hide or show tweet media (images/video)", "Add a custom text watermark in any corner" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Convert a Tweet to an Image",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Paste Tweet URL", "text": "Copy the URL of any public tweet and paste it into the input field." },
-          { "@type": "HowToStep", "name": "Step 2: Customize Options", "text": "Use the controls to change the theme, hide stats or media, and add an optional watermark." },
-          { "@type": "HowToStep", "name": "Step 3: Download Image", "text": "Click the 'Download as PNG' button to save the generated image." }
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🎨 Favicon & Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- 🧱 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" },
+        "description": "Solite builds free, privacy-first browser tools for creators, designers, and developers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/tweet-to-image.html#webapp",
+        "name": "Tweet to Image Converter",
+        "url": "https://solite.in/tweet-to-image.html",
+        "description": "A free, client-side Tweet to Image converter with dark/light themes, watermark options, and PNG export.",
+        "applicationCategory": "DesignApplication",
+        "featureList": [
+          "Convert any public Tweet URL into an image",
+          "Switch between light/dark mode",
+          "Hide engagement stats and media",
+          "Add custom watermarks",
+          "Download as high-quality PNG",
+          "100% client-side processing"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I use this tool with private tweets?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No, it only works with public tweets. Private or protected tweets cannot be accessed or rendered by the browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it store any tweet data?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No data is stored or uploaded. Everything runs locally on your browser for complete privacy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I change the background or text color?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! You can toggle between light and dark themes and even apply custom watermark text positions before downloading." }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Tweet to Image Converter" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/tweet-to-image.html#webpage",
+        "name": "Tweet to Image Converter | Solite",
+        "url": "https://solite.in/tweet-to-image.html",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/tweet-to-image-thumbnail.png" },
+        "isPartOf": { "@id": "https://solite.in/#website" }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Tweet to Image Converter"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        .tweet-card a { color: #1d9bf0; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .theme-btn.active, .watermark-pos-btn.active { background-color: #4b5563; color: #ffffff; }
-        #tweet-theme-container.light .tweet-card { background-color: #ffffff; border-color: #e5e7eb; }
-        #tweet-theme-container.light .tweet-card .dark\:text-white { color: #111827; }
-        #tweet-theme-container.light .tweet-card .dark\:text-gray-200 { color: #1f2937; }
-        #tweet-theme-container.light .tweet-card .dark\:text-gray-400, #tweet-theme-container.light .tweet-card .dark\:text-gray-500 { color: #6b7280; }
-        #tweet-theme-container.light .tweet-card .dark\:border-gray-700, #tweet-theme-container.light .tweet-card .dark\:border-gray-800 { border-color: #e5e7eb; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+      },
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    .tweet-card a { color: #1d9bf0; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .theme-btn.active, .watermark-pos-btn.active { background-color: #4b5563; color: #ffffff; }
+    #tweet-theme-container.light .tweet-card { background-color: #ffffff; border-color: #e5e7eb; }
+    #tweet-theme-container.light .tweet-card .dark\\:text-white { color: #111827; }
+    #tweet-theme-container.light .tweet-card .dark\\:text-gray-200 { color: #1f2937; }
+    #tweet-theme-container.light .tweet-card .dark\\:text-gray-400,
+    #tweet-theme-container.light .tweet-card .dark\\:text-gray-500 { color: #6b7280; }
+    #tweet-theme-container.light .tweet-card .dark\\:border-gray-700,
+    #tweet-theme-container.light .tweet-card .dark\\:border-gray-800 { border-color: #e5e7eb; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema graph, AI-rich metadata, OG/DC parity, and privacy-first freshness for AI and search discovery. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
@@ -209,6 +268,107 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / TWEET-TO-IMAGE EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-tweet[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-tweet > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-tweet[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-tweet" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Tweet to Image Converter — Beautiful Twitter Screenshots
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Tweet Screenshot Generator</span>
+                <span class="badge">Dark & Light Mode</span>
+                <span class="badge">Watermark Support</span>
+                <span class="badge">Hide Stats & Media</span>
+                <span class="badge">100% Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Tweet to Image Converter</strong> instantly turns any public Tweet into a polished, shareable image — perfect for social posts, blogs, and media kits.  
+                No logins, no servers — everything is <strong>rendered locally</strong> in your browser for true privacy.
+                </p>
+            </section>
+
+            <!-- ⚙️ Key Features -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Creators Love It</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Dark & Light Themes:</strong> Toggle instantly to match your brand or platform.</li>
+                <li><strong>Watermark Control:</strong> Add or remove your handle for authenticity.</li>
+                <li><strong>Smart Cleanup:</strong> Hide media, stats, or timestamps to keep focus on the text.</li>
+                <li><strong>High-Resolution Export:</strong> Download crisp PNGs ready for publishing.</li>
+                <li><strong>Offline & Private:</strong> 100% client-side — your tweet data never leaves your device.</li>
+                </ul>
+            </section>
+
+            <!-- 🧭 Use Cases -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses It</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Social Media Managers:</strong> Create elegant post visuals in seconds.</li>
+                    <li><strong>Writers & Journalists:</strong> Capture tweets for articles and newsletters.</li>
+                    <li><strong>Designers:</strong> Showcase tweet aesthetics in portfolios.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Developers:</strong> Generate clean tweet snapshots for UI mockups.</li>
+                    <li><strong>Marketers:</strong> Turn audience replies into engaging content pieces.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- 🧰 How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Paste a public Tweet URL (e.g., <code>https://x.com/user/status/123...</code>).</li>
+                <li>Customize: hide stats, toggle theme, and add watermark text.</li>
+                <li>Preview your design instantly.</li>
+                <li>Click “Download as PNG” — your image is ready to share!</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Cross-Link Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore More Solite Design & Image Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./favicon-generator.html" class="text-white hover:underline font-medium">Favicon Generator</a> — Turn any image or logo into a web-ready favicon.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Extract and design color palettes from any image.</li>
+                <li><a href="./svg-optimizer.html" class="text-white hover:underline font-medium">SVG Optimizer</a> — Compress and clean SVG files instantly.</li>
+                <li><a href="./image-resizer.html" class="text-white hover:underline font-medium">Image Resizer</a> — Resize and compress images client-side with full privacy.</li>
+                <li><a href="./social-banner-maker.html" class="text-white hover:underline font-medium">Social Banner Maker</a> — Create branded headers for YouTube, Twitter, or LinkedIn.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+            </section>
+
+            <!-- 🧠 AI & SEO Context Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>tweet to image, twitter screenshot generator, convert tweet to png, tweet capture tool, social media post maker, privacy-first tools, solite design suite</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Search Cue:</strong> “Solite Tweet to Image Converter — a 100% private, browser-based tool that turns tweets into shareable visuals for creators, marketers, and designers.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: TWEET-TO-IMAGE SEO BLOCK -->
+
     <!-- Footer -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

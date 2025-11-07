@@ -1,123 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Email Signature Generator | Professional & Customizable | Solite</title>
-    <meta name="description" content="Create a professional HTML email signature with our free and private generator. Live preview, multiple templates, and easy copy-paste for Gmail, Outlook, and more. No sign-up required.">
-    <meta name="keywords" content="email signature generator, free email signature, html signature, professional signature, signature maker, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/email-signature-generator.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Email Signature Generator | Professional & Customizable | Solite</title>
+  <meta name="description" content="Create a professional HTML email signature with Solite’s free and private generator. Live preview, customizable templates, and instant copy-paste for Gmail, Outlook, and more. 100% browser-based." />
+  <meta name="keywords" content="email signature generator, free email signature, html signature, professional email signature, gmail signature, outlook signature, signature maker, solite, privacy-first tool" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/email-signature-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Email Signature Generator | Solite">
-    <meta property="og:description" content="Generate professional, customizable HTML email signatures for free. Live preview, easy copy-paste, and 100% private.">
-    <meta property="og:url" content="https://solite.in/email-signature-generator.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/email-signature-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ SOCIAL + AI PREVIEW -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Email Signature Generator | Solite" />
+  <meta property="og:description" content="Design professional, customizable HTML email signatures. 100% private, free, and instantly copy-ready." />
+  <meta property="og:url" content="https://solite.in/email-signature-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/email-signature-generator-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Email Signature Generator | Solite" />
+  <meta name="twitter:description" content="Free, private email signature generator for professionals — live preview and one-click copy for Gmail & Outlook." />
+  <meta name="twitter:image" content="https://solite.in/assets/email-signature-generator-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Free Email Signature Generator | Solite",
-      "url": "https://solite.in/email-signature-generator.html",
-      "description": "A free, client-side tool to create professional HTML email signatures with live preview and customizable templates.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Generate HTML email signatures", "Live preview", "Customizable details", "Add social media links", "Add company logo or photo", "Copy signature to clipboard", "Client-side processing for privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create an Email Signature",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Fill in Your Details", "text": "Enter your name, title, company, and contact information in the input fields." },
-          { "@type": "HowToStep", "name": "Step 2: Add Links and Logo", "text": "Add your social media links and optionally upload a company logo or personal photo." },
-          { "@type": "HowToStep", "name": "Step 3: Copy Signature", "text": "Click the 'Copy Signature' button and paste the result directly into your email client's signature settings (e.g., Gmail, Outlook)." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Set -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite provides free, privacy-first, browser-based tools for creators and developers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/email-signature-generator.html#app",
+        "name": "Email Signature Generator | Solite",
+        "url": "https://solite.in/email-signature-generator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Generate professional HTML email signatures",
+          "Live preview and copy-ready output",
+          "Customizable templates and colors",
+          "Add logo, photo, and social links",
+          "Browser-only processing for privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/email-signature-generator.html#page",
+        "name": "Free Email Signature Generator | Solite",
+        "description": "Create a professional HTML email signature with customizable templates. Copy directly to Gmail or Outlook.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Email Signature Generator" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/email-signature-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I use this email signature in Gmail or Outlook?",
+            "acceptedAnswer": { "@type": "Answer", "text": "After generating your signature, click 'Copy Signature' and paste it into your email client's signature settings. The HTML formatting remains intact." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this generator private and secure?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Solite’s Email Signature Generator works entirely in your browser. No data is uploaded or stored." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Email Signature Generator"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How do I use the generated signature in Gmail or Outlook?",
-        "acceptedAnswer": { "@type": "Answer", "text": "After customizing your signature, click the 'Copy Signature' button. Then, go to your email client's settings, find the signature editor, and paste the copied content. The HTML formatting, including links and images, will be preserved." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        
-        /* Mobile Nav Styles */
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style>
+  <!-- 🎨 STYLE -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema, AI discovery optimized -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -215,130 +247,130 @@
 
         
     </main>
-<!-- Mobile/Tablet Navigation Bar -->
-        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+    <!-- Mobile/Tablet Navigation Bar -->
+        <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-14">
                 <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Preview</span></button>
                 <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg><span>Controls</span></button>
             </div>
         </div>
         <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / EMAIL SIGNATURE GENERATOR EDITION) -->
-<div class="w-full text-gray-300 p-2">
+    <div class="w-full text-gray-300 p-2">
 
-  <style>
-    #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
-    #solite-seo-block-case > summary .details-arrow-seo {
-      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
-    }
-    #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
-    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
-  </style>
+      <style>
+        #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-case > summary .details-arrow-seo {
+          transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+      </style>
 
-  <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-      Free Email Signature Generator — Professional, Customizable & 100% Private
-      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-    </summary>
+      <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Free Email Signature Generator — Professional, Customizable & 100% Private
+          <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
 
-    <div class="p-6 space-y-10 leading-relaxed">
+        <div class="p-6 space-y-10 leading-relaxed">
 
-      <!-- 🧩 Overview -->
-      <section class="space-y-3">
-        <div class="flex flex-wrap gap-2">
-          <span class="badge">HTML Signature</span>
-          <span class="badge">Live Preview</span>
-          <span class="badge">Add Logo / Photo</span>
-          <span class="badge">Social Links</span>
-          <span class="badge">100% Client-Side</span>
+          <!-- 🧩 Overview -->
+          <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">HTML Signature</span>
+              <span class="badge">Live Preview</span>
+              <span class="badge">Add Logo / Photo</span>
+              <span class="badge">Social Links</span>
+              <span class="badge">100% Client-Side</span>
+            </div>
+            <p class="text-lg text-gray-300">
+              The <strong>Solite Email Signature Generator</strong> lets you create <strong>professional, customizable HTML signatures</strong> for Gmail, Outlook, and other email clients — directly in your browser.  
+              Edit your details, preview instantly, and copy your ready-to-use signature with a single click — <strong>no sign-up, no upload, no tracking</strong>.
+            </p>
+          </section>
+
+          <!-- 🧭 Why It’s Better -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Signature Generator Stands Out</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>Instant Live Preview:</strong> See your design update in real time while editing.</li>
+              <li><strong>Privacy-First:</strong> Everything runs locally in your browser — nothing is sent to a server.</li>
+              <li><strong>Professional HTML Output:</strong> Works perfectly with Gmail, Outlook, Apple Mail, and others.</li>
+              <li><strong>Customizable Templates:</strong> Add your name, title, company, links, logo, and color accents.</li>
+              <li><strong>Responsive Design:</strong> Generates clean HTML that adapts across devices and clients.</li>
+            </ul>
+          </section>
+
+          <!-- 🧠 Who Uses It -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & How</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Freelancers:</strong> Create a polished brand identity in every email.</li>
+                <li><strong>Teams & Startups:</strong> Maintain consistent branding across all employees.</li>
+                <li><strong>Designers:</strong> Build aesthetic, color-coordinated signatures for clients.</li>
+              </ul>
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Marketers:</strong> Embed calls-to-action, banners, or promotional links easily.</li>
+                <li><strong>Students:</strong> Craft professional email signatures for job or internship outreach.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ⚙️ How to Use -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+              <li><strong>Fill In Your Details:</strong> Add your name, title, company, and contact info.</li>
+              <li><strong>Customize:</strong> Add logo, photo, colors, and social links.</li>
+              <li><strong>Preview:</strong> View live updates as you type.</li>
+              <li><strong>Copy Signature:</strong> One click to copy HTML — paste into Gmail, Outlook, or Apple Mail.</li>
+            </ol>
+          </section>
+
+          <!-- 🧱 Supported Features (AI-Readable Data Block) -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Supported Features (AI-Readable)</h3>
+            <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+              <thead class="bg-gray-800 text-gray-200 font-semibold">
+                <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Use Case</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-2">Live Preview</td><td class="p-2">Instantly updates while editing</td><td class="p-2">Real-time design feedback</td></tr>
+                <tr><td class="p-2">Logo Upload</td><td class="p-2">Add personal photo or company logo</td><td class="p-2">Brand personalization</td></tr>
+                <tr><td class="p-2">Accent Color Picker</td><td class="p-2">Choose brand or custom colors</td><td class="p-2">Visual consistency</td></tr>
+                <tr><td class="p-2">Social Media Links</td><td class="p-2">Add LinkedIn, GitHub, Twitter, etc.</td><td class="p-2">Professional networking</td></tr>
+                <tr><td class="p-2">One-Click Copy</td><td class="p-2">Copy HTML signature to clipboard</td><td class="p-2">Quick installation</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- 🧩 Cross-Linking Ecosystem -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Productivity Suite</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+              <li><a href="./email-extractor.html" class="text-white hover:underline font-medium">Email Extractor</a> — Extract, clean, and export email addresses securely.</li>
+              <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Transform and format text instantly.</li>
+              <li><a href="./url-extractor.html" class="text-white hover:underline font-medium">URL Extractor</a> — Collect and organize all links from any text.</li>
+              <li><a href="./html-beautifier.html" class="text-white hover:underline font-medium">HTML Beautifier</a> — Clean and optimize HTML code before pasting.</li>
+              <li><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></li>
+            </ul>
+          </section>
+
+          <!-- 🧠 AI & Research Citation Layer -->
+          <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Keywords: <em>email signature generator, free HTML signature maker, professional email signature, Gmail signature tool, Outlook signature creator, Solite signature generator, privacy first email tools, client-side HTML generator</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Citation Cue:</strong> “Solite Email Signature Generator — a browser-based, privacy-first tool for creating professional HTML email signatures with live preview, color customization, and one-click export for Gmail and Outlook.”
+            </p>
+          </section>
+
         </div>
-        <p class="text-lg text-gray-300">
-          The <strong>Solite Email Signature Generator</strong> lets you create <strong>professional, customizable HTML signatures</strong> for Gmail, Outlook, and other email clients — directly in your browser.  
-          Edit your details, preview instantly, and copy your ready-to-use signature with a single click — <strong>no sign-up, no upload, no tracking</strong>.
-        </p>
-      </section>
-
-      <!-- 🧭 Why It’s Better -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Signature Generator Stands Out</h3>
-        <ul class="list-disc list-inside text-gray-400 space-y-2">
-          <li><strong>Instant Live Preview:</strong> See your design update in real time while editing.</li>
-          <li><strong>Privacy-First:</strong> Everything runs locally in your browser — nothing is sent to a server.</li>
-          <li><strong>Professional HTML Output:</strong> Works perfectly with Gmail, Outlook, Apple Mail, and others.</li>
-          <li><strong>Customizable Templates:</strong> Add your name, title, company, links, logo, and color accents.</li>
-          <li><strong>Responsive Design:</strong> Generates clean HTML that adapts across devices and clients.</li>
-        </ul>
-      </section>
-
-      <!-- 🧠 Who Uses It -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & How</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>Freelancers:</strong> Create a polished brand identity in every email.</li>
-            <li><strong>Teams & Startups:</strong> Maintain consistent branding across all employees.</li>
-            <li><strong>Designers:</strong> Build aesthetic, color-coordinated signatures for clients.</li>
-          </ul>
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>Marketers:</strong> Embed calls-to-action, banners, or promotional links easily.</li>
-            <li><strong>Students:</strong> Craft professional email signatures for job or internship outreach.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ⚙️ How to Use -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
-        <ol class="list-decimal list-inside text-gray-400 space-y-2">
-          <li><strong>Fill In Your Details:</strong> Add your name, title, company, and contact info.</li>
-          <li><strong>Customize:</strong> Add logo, photo, colors, and social links.</li>
-          <li><strong>Preview:</strong> View live updates as you type.</li>
-          <li><strong>Copy Signature:</strong> One click to copy HTML — paste into Gmail, Outlook, or Apple Mail.</li>
-        </ol>
-      </section>
-
-      <!-- 🧱 Supported Features (AI-Readable Data Block) -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Supported Features (AI-Readable)</h3>
-        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
-          <thead class="bg-gray-800 text-gray-200 font-semibold">
-            <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Use Case</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="p-2">Live Preview</td><td class="p-2">Instantly updates while editing</td><td class="p-2">Real-time design feedback</td></tr>
-            <tr><td class="p-2">Logo Upload</td><td class="p-2">Add personal photo or company logo</td><td class="p-2">Brand personalization</td></tr>
-            <tr><td class="p-2">Accent Color Picker</td><td class="p-2">Choose brand or custom colors</td><td class="p-2">Visual consistency</td></tr>
-            <tr><td class="p-2">Social Media Links</td><td class="p-2">Add LinkedIn, GitHub, Twitter, etc.</td><td class="p-2">Professional networking</td></tr>
-            <tr><td class="p-2">One-Click Copy</td><td class="p-2">Copy HTML signature to clipboard</td><td class="p-2">Quick installation</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- 🧩 Cross-Linking Ecosystem -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Productivity Suite</h3>
-        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="./email-extractor.html" class="text-white hover:underline font-medium">Email Extractor</a> — Extract, clean, and export email addresses securely.</li>
-          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Transform and format text instantly.</li>
-          <li><a href="./url-extractor.html" class="text-white hover:underline font-medium">URL Extractor</a> — Collect and organize all links from any text.</li>
-          <li><a href="./html-beautifier.html" class="text-white hover:underline font-medium">HTML Beautifier</a> — Clean and optimize HTML code before pasting.</li>
-          <li><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></li>
-        </ul>
-      </section>
-
-      <!-- 🧠 AI & Research Citation Layer -->
-      <section class="space-y-2">
-        <p class="text-sm text-gray-500 leading-relaxed">
-          Keywords: <em>email signature generator, free HTML signature maker, professional email signature, Gmail signature tool, Outlook signature creator, Solite signature generator, privacy first email tools, client-side HTML generator</em>.
-        </p>
-        <p class="text-xs text-gray-600 italic">
-          <strong>AI / Reviewer Citation Cue:</strong> “Solite Email Signature Generator — a browser-based, privacy-first tool for creating professional HTML email signatures with live preview, color customization, and one-click export for Gmail and Outlook.”
-        </p>
-      </section>
-
+      </details>
     </div>
-  </details>
-</div>
-<!-- ✅ END GEN-4.1: EMAIL SIGNATURE GENERATOR BLOCK -->
+    <!-- ✅ END GEN-4.1: EMAIL SIGNATURE GENERATOR BLOCK -->
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

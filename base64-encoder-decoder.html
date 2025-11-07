@@ -1,82 +1,158 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Base64 Encoder & Decoder (Text & File) | Solite</title>
-    <meta name="description" content="Encode and decode text or files to and from Base64 format. A free, fast, and private online tool that works entirely in your browser. No uploads required.">
-    <meta name="keywords" content="base64 encoder, base64 decoder, base64 converter, encode to base64, decode from base64, file to base64, base64 online, solite, developer tool">
-    <link rel="canonical" href="https://solite.in/base64-encoder-decoder.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Base64 Encoder & Decoder (Text & File) | Solite</title>
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Base64 Encoder & Decoder | Solite">
-    <meta property="og:description" content="Encode and decode text or files to and from Base64 format. A free, fast, and private online tool that works entirely in your browser.">
-    <meta property="og:url" content="https://solite.in/base64-encoder-decoder.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/base64-encoder-decoder-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ✅ PRIMARY SEO -->
+  <meta name="description" content="Encode and decode text or files to and from Base64 format. A free, fast, and private online tool that works entirely in your browser — no uploads, no tracking." />
+  <meta name="keywords" content="base64 encoder, base64 decoder, base64 converter, encode to base64, decode from base64, file to base64, base64 online, solite, developer tool, privacy first" />
+  <link rel="canonical" href="https://solite.in/base64-encoder-decoder.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ✅ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Base64 Encoder & Decoder | Solite" />
+  <meta property="og:description" content="Encode or decode text and files in Base64 format — free, fast, private, and offline-ready." />
+  <meta property="og:url" content="https://solite.in/base64-encoder-decoder.html" />
+  <meta property="og:image" content="https://solite.in/assets/base64-encoder-decoder-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Base64 Encoder & Decoder | Solite" />
+  <meta name="twitter:description" content="Instant Base64 encoding & decoding in your browser — 100% client-side and private." />
+  <meta name="twitter:image" content="https://solite.in/assets/base64-encoder-decoder-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- ✅ BRANDING + FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- ✅ PERFORMANCE + ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Base64 Encoder & Decoder",
-      "url": "https://solite.in/base64-encoder-decoder.html",
-      "description": "A free, client-side tool to encode and decode text and files to and from Base64 format.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Encode text to Base64", "Decode Base64 to text", "Encode files to Base64", "Decode Base64 to file", "Drag-and-drop support", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  <!-- ✅ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- ✅ STYLING -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- ✅ TAILWIND CONFIG -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono','monospace'] } } }
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH (Solite Authority Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based",
+        "foundingDate": "2024-03-01",
+        "description": "Solite provides privacy-first browser-based tools. All processing is client-side — your data never leaves your device.",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "email": "support@solite.in",
+          "contactType": "Customer Support",
+          "availableLanguage": "en",
+          "areaServed": "Worldwide"
+        }],
+        "publishingPrinciples": "https://solite.in/privacy.html",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ],
+        "knowsAbout": [
+          "Base64 encoding","Base64 decoding","Developer utilities","Data conversion","Web tools","Privacy-first web apps"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [{ "@id": "https://solite.in/base64-encoder-decoder.html#webapp" }]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/base64-encoder-decoder.html#webapp",
+        "name": "Base64 Encoder & Decoder",
+        "url": "https://solite.in/base64-encoder-decoder.html",
+        "operatingSystem": "All",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Encode text to Base64",
+          "Decode Base64 to text",
+          "Encode and decode files",
+          "Drag-and-drop file support",
+          "100% client-side privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "softwareVersion": "5.0",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/base64-encoder-decoder.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/base64-encoder-decoder.html#webpage",
+        "name": "Free Base64 Encoder & Decoder (Text & File) | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "Encode and decode Base64 text and files privately — built by Solite, 100% browser-based and free.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem","position":1,"name":"Home","item":"https://solite.in/index.html" },
+            { "@type": "ListItem","position":2,"name":"Base64 Encoder & Decoder" }
+          ]
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — All heads must follow GEN-5.0 unified schema and privacy-first meta structure -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -169,6 +245,137 @@
             </button>
         </div>
     </div>
+    <!-- 🧠 SOLITE GEN-4.1 SEO + AI AUTHORITY BLOCK / BASE64 ENCODER-DECODER -->
+    <div class="w-full text-gray-300 p-2">
+    <style>
+        #solite-seo-block-base64[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-base64 > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform .25s ease-in-out;
+        }
+        #solite-seo-block-base64[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .seo-badge {
+        display:inline-flex;align-items:center;justify-content:center;
+        padding:.25rem .6rem;border:1px solid #374151;border-radius:.5rem;
+        font-size:.75rem;color:#9CA3AF;
+        }
+        .seo-table {
+        width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.9rem;
+        }
+        .seo-table th,.seo-table td {
+        border:1px solid #374151;padding:.5rem .75rem;text-align:left;
+        }
+        .seo-table th { background-color:#111827;color:#e5e7eb;font-weight:600; }
+        .seo-table td { color:#9ca3af; }
+    </style>
+
+    <details id="solite-seo-block-base64"
+            class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
+        <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">
+        Free Base64 Encoder & Decoder — Developer Utility by Solite
+        <svg class="w-5 h-5 details-arrow-seo" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+        </summary>
+
+        <div class="p-6 space-y-8 leading-relaxed">
+        <!-- Badges + Intro -->
+        <section>
+            <div class="flex flex-wrap gap-2 mb-3">
+            <span class="seo-badge">Base64 Converter</span>
+            <span class="seo-badge">Text & File Encoder</span>
+            <span class="seo-badge">Developer Tool</span>
+            <span class="seo-badge">Offline & Private</span>
+            <span class="seo-badge">Browser-Based</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite Base64 Encoder & Decoder</strong> converts text or files to and from Base64 format — instantly, securely, and completely offline.  
+            Designed for developers, analysts, and learners, this lightweight utility performs all operations <strong>locally on your device</strong>, ensuring total data privacy and zero uploads.
+            </p>
+        </section>
+
+        <!-- Why It Outperforms -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Base64 Tool Outperforms Online Converters</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>100% Private:</strong> No data leaves your device. Everything runs client-side.</li>
+            <li><strong>All-in-One Functionality:</strong> Encode or decode text, JSON, or files in seconds.</li>
+            <li><strong>Smart Error Detection:</strong> Detects and reports invalid Base64 strings.</li>
+            <li><strong>Offline Ready:</strong> Works seamlessly without an internet connection once loaded.</li>
+            <li><strong>Lightweight & Fast:</strong> Zero dependencies and instant response time.</li>
+            </ul>
+        </section>
+
+        <!-- Who Uses -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite’s Base64 Encoder/Decoder</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Developers:</strong> Encode API payloads, JWT data, or embedded assets instantly.</li>
+            <li><strong>Security Analysts:</strong> Decode Base64-encoded logs or malware strings safely.</li>
+            <li><strong>Students & Learners:</strong> Understand Base64 encoding in real time with examples.</li>
+            <li><strong>Designers:</strong> Convert image assets to Base64 for inline embedding in HTML or CSS.</li>
+            <li><strong>Automation Engineers:</strong> Use it to debug or preprocess scripts without cloud tools.</li>
+            </ul>
+        </section>
+
+        <!-- How to Use -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use the Solite Base64 Encoder & Decoder</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li><strong>Paste or Upload:</strong> Add text, JSON, or select a local file (e.g., PNG, TXT).</li>
+            <li><strong>Select Mode:</strong> Toggle between Encode or Decode with one click.</li>
+            <li><strong>Process:</strong> The conversion happens instantly inside your browser.</li>
+            <li><strong>Copy or Download:</strong> Copy results or save the decoded output as a file.</li>
+            <li><strong>Stay Private:</strong> All conversions occur locally — nothing ever leaves your device.</li>
+            </ol>
+        </section>
+
+        <!-- Feature Overview -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Readable Summary)</h3>
+            <table class="seo-table">
+            <thead>
+                <tr><th>Feature</th><th>Description</th><th>Benefit</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Dual Mode</td><td>Encode & decode text or file data instantly</td><td>Universal conversion flexibility</td></tr>
+                <tr><td>Error Detection</td><td>Flags malformed or invalid Base64 input</td><td>Developer-grade accuracy</td></tr>
+                <tr><td>Offline Support</td><td>Fully browser-based, no server interaction</td><td>Complete data security</td></tr>
+                <tr><td>File Handling</td><td>Drag-and-drop file encoding with instant preview</td><td>Faster workflow for devs</td></tr>
+                <tr><td>Copy & Download</td><td>Quick clipboard or file export options</td><td>Ease of reuse and sharing</td></tr>
+            </tbody>
+            </table>
+        </section>
+
+        <!-- Related Tools -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Developer Tools on Solite</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><a href="./url-encoder-decoder.html" class="text-white hover:underline font-medium">URL Encoder & Decoder</a> — convert special characters safely.</li>
+            <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter & Validator</a> — beautify and check JSON syntax.</li>
+            <li><a href="./html-entity-encoder.html" class="text-white hover:underline font-medium">HTML Entity Encoder</a> — escape HTML for safe rendering.</li>
+            <li><a href="./regex-tester.html" class="text-white hover:underline font-medium">Regex Tester & Debugger</a> — validate and visualize regex instantly.</li>
+            <li><a href="./universal-data-converter.html" class="text-white hover:underline font-medium">Universal Data Converter</a> — transform CSV, XML, and JSON offline.</li>
+            </ul>
+            <p class="text-gray-400 mt-2">
+            <a href="./index.html#apps" class="text-white font-medium hover:underline">Explore all Solite tools →</a>
+            </p>
+        </section>
+
+        <!-- Keywords + AI Citation -->
+        <section>
+            <p class="text-sm text-gray-500 leading-relaxed">
+            <strong>Keywords:</strong> base64 encoder, base64 decoder, text to base64, file to base64, decode base64 string, solite developer tools, data converter, online base64 converter, privacy-first utilities.
+            </p>
+            <p class="text-xs text-gray-600 italic mt-2">
+            <strong>AI / Reviewer Citation Cue:</strong> “Solite Base64 Encoder & Decoder — a privacy-first, browser-based developer utility for converting text or files to and from Base64 format instantly without uploads or tracking.”
+            </p>
+        </section>
+        </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-4.1 SEO + AI AUTHORITY BLOCK -->
+
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

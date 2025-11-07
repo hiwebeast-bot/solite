@@ -4,29 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- 🧠 SEO + AI Discovery Meta -->
   <title>Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite</title>
-  <meta name="description" content="Preview how your website's meta tags will look on Google, Twitter, LinkedIn, and Facebook. Free, private, client-side SEO tool with live previews and character counters." />
-  <meta name="keywords" content="meta tag previewer, seo tool, google serp preview, twitter card preview, open graph preview, social share preview, solite" />
-  <link rel="canonical" href="./meta-tag-previewer.html" />
+  <meta name="description" content="Preview and optimize how your website’s meta tags look on Google, Twitter, LinkedIn, and Facebook — live, private, and 100% browser-based." />
+  <meta name="keywords" content="meta tag previewer, seo tool, google serp preview, twitter card preview, open graph preview, linkedin preview, social share preview, solite" />
+  <link rel="canonical" href="https://solite.in/meta-tag-previewer.html" />
   <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite" />
-  <meta property="og:description" content="Preview how your website's meta tags will look on major platforms. Privacy-first and runs entirely in your browser." />
-  <meta property="og:url" content="./meta-tag-previewer.html" />
-  <meta property="og:site_name" content="Solite" />
+  <!-- 🌍 Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/meta-tag-previewer-thumbnail.png" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite" />
+  <meta property="og:description" content="Preview how your site’s title, description, and image appear on Google and social media. A free, privacy-first SEO tool from Solite." />
+  <meta property="og:url" content="https://solite.in/meta-tag-previewer.html" />
+  <meta property="og:image" content="https://solite.in/assets/meta-tag-previewer-thumbnail.png" />
+  <meta property="og:image:alt" content="Meta Tag Previewer Tool — Solite" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Meta Tag Previewer | Solite" />
+  <meta name="twitter:description" content="Live SEO preview tool for Google, Twitter, and LinkedIn. 100% private and client-side." />
+  <meta name="twitter:image" content="https://solite.in/assets/meta-tag-previewer-thumbnail.png" />
 
-  <!-- AdSense -->
+  <!-- 💰 AdSense -->
   <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-  <!-- Vercel Analytics (optional) -->
-  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};</script>
+  <!-- 📊 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
   <script src="/_vercel/insights/script.js" defer></script>
 
-  <!-- Tailwind CDN -->
+  <!-- ⚙️ Core Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,41 +54,60 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#000000" />
 
-  <!-- Schema.org -->
+  <!-- 🧬 GEN-5.0 Schema Graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Meta Tag Previewer",
-    "url": "https://solite.in/meta-tag-previewer.html",
-    "description": "A free, client-side tool to preview how your website's meta tags will appear on Google, Twitter, LinkedIn, and Facebook.",
-    "applicationCategory": "DeveloperApplication",
-    "featureList": [
-      "Google Search Result Preview",
-      "Twitter Card Preview",
-      "Facebook/LinkedIn Share Preview",
-      "Real-time updates as you type",
-      "Character counters for title and description",
-      "Client-side processing for 100% privacy"
-    ],
-    "offers": { "@type": "Offer", "price": "0" },
-    "operatingSystem": "All",
-    "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-    "dateModified": "2025-11-06T10:00:00Z",
-    "mainEntity": {
-      "@type": "HowTo",
-      "name": "How to Preview Your Meta Tags",
-      "step": [
-        { "@type": "HowToStep", "name": "Step 1: Enter Your Metadata", "text": "Fill in the Title, Description, URL, and Image URL fields in the controls panel." },
-        { "@type": "HowToStep", "name": "Step 2: Select a Preview", "text": "Use the tabs in the preview pane to switch between Google, Twitter, LinkedIn, and Facebook mockups." },
-        { "@type": "HowToStep", "name": "Step 3: Refine Your Content", "text": "Adjust your title and description using the character counters to fit within recommended limits." }
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite provides free, private, browser-based tools for creators and developers — 100% offline, no sign-ups, no tracking."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/meta-tag-previewer.html#app",
+        "name": "Meta Tag Previewer | Solite",
+        "url": "https://solite.in/meta-tag-previewer.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A privacy-first, client-side tool to preview SEO meta tags for Google, Twitter, LinkedIn, and Facebook in real time.",
+        "featureList": [
+          "Google SERP preview",
+          "Twitter Card preview",
+          "LinkedIn / Facebook share preview",
+          "Live updates & character counters",
+          "Instant Open Graph validation",
+          "Offline and private operation"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/meta-tag-previewer.html#webpage",
+        "url": "https://solite.in/meta-tag-previewer.html",
+        "name": "Free Meta Tag Previewer (Google, Twitter, LinkedIn) | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/meta-tag-previewer-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Meta Tag Previewer" }
+        ]
+      }
+    ]
   }
   </script>
 
+  <!-- 💅 Custom Styles -->
   <style>
     ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:#111827}::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
     html{scrollbar-color:#4b5563 #111827}
@@ -92,6 +120,10 @@
     #solite-seo-block-meta>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out}
     #solite-seo-block-meta[open]>summary .details-arrow-seo{transform:rotate(0)}
   </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified multi-entity schema, privacy-first metadata, OG/Twitter parity, and AI index dominance. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
   <!-- Header -->

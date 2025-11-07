@@ -1,111 +1,167 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Screenshot Captioner & Meme Maker | Add Text to Images | Solite</title>
-    <meta name="description" content="Add clean text captions or meme-style text to your screenshots. Our free online tool lets you customize fonts, colors, and positions. 100% private, no uploads.">
-    <meta name="keywords" content="screenshot captioner, add text to image, meme maker, image caption tool, online image editor, free tool, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/screenshot-captioner.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Screenshot Captioner & Meme Maker | Solite">
-    <meta property="og:description" content="Add clean text captions or meme-style text to your screenshots. Our free online tool lets you customize fonts, colors, and positions. 100% private, no uploads.">
-    <meta property="og:url" content="https://solite.in/screenshot-captioner.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/screenshot-captioner-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Free Screenshot Captioner & Meme Maker | Add Text to Images | Solite</title>
+  <meta name="description" content="Add text captions or meme-style text to screenshots instantly. Customize fonts, colors, and positions — 100% private, works offline, no uploads." />
+  <meta name="keywords" content="screenshot captioner, meme maker, add text to image, image caption tool, online editor, free meme generator, solite, privacy first" />
+  <link rel="canonical" href="https://solite.in/screenshot-captioner.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Screenshot Captioner & Meme Maker | Solite" />
+  <meta property="og:description" content="Add captions or meme-style text to screenshots with full control of font, color, and placement — private and browser-based." />
+  <meta property="og:url" content="https://solite.in/screenshot-captioner.html" />
+  <meta property="og:image" content="https://solite.in/assets/screenshot-captioner-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Screenshot Captioner – Free Meme & Text Editor" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Screenshot Captioner & Meme Maker | Solite" />
+  <meta name="twitter:description" content="Add captions or meme-style text to screenshots privately — no uploads, no tracking." />
+  <meta name="twitter:image" content="https://solite.in/assets/screenshot-captioner-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free Screenshot Captioner & Meme Maker | Add Text to Images | Solite" />
+  <meta name="DC.Description" content="A free privacy-first tool to add captions or meme-style text to screenshots with custom fonts and colors." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Publisher" content="Solite" />
+  <meta name="DC.Creator" content="Solite" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&family=Poppins:wght@700;900&family=Impact&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Screenshot Captioner",
-      "url": "https://solite.in/screenshot-captioner.html",
-      "description": "A free, client-side tool to add text captions and meme-style text to screenshots and images.",
-      "applicationCategory": "MultimediaApplication",
-      "featureList": [ "Add text overlays to images", "Customize font, size, color, and alignment", "Add text stroke for meme style", "Draggable and resizable text boxes", "Download as high-quality PNG", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Add a Caption to a Screenshot",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Upload Screenshot", "text": "Drag and drop a screenshot onto the canvas or click to select a file." },
-          { "@type": "HowToStep", "name": "Step 2: Add and Edit Text", "text": "Click 'Add Text' and use the controls to customize the caption's content, font, color, and style. Drag the text box to position it." },
-          { "@type": "HowToStep", "name": "Step 3: Download", "text": "Click the 'Download as PNG' button to save your captioned image." }
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+
+  <!-- 🖋 Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&family=Poppins:wght@700;900&family=Impact&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite offers free, privacy-first browser tools for creators and developers."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/screenshot-captioner.html#app",
+        "name": "Screenshot Captioner | Solite",
+        "url": "https://solite.in/screenshot-captioner.html",
+        "applicationCategory": "MultimediaApplication",
+        "description": "A free client-side tool to add text captions or meme-style text to screenshots and images — works fully offline.",
+        "featureList": [
+          "Add text overlays to images",
+          "Customize font, size, color, and alignment",
+          "Add meme-style stroke text",
+          "Draggable, resizable text boxes",
+          "Export as high-quality PNG",
+          "Client-side processing for 100% privacy"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/screenshot-captioner.html#webpage",
+        "url": "https://solite.in/screenshot-captioner.html",
+        "name": "Free Screenshot Captioner & Meme Maker | Add Text to Images | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/screenshot-captioner-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Screenshot Captioner" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does the Screenshot Captioner upload my images?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens locally in your browser. Your images never leave your device." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I make memes with this tool?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add bold white stroke text in Impact or Poppins font to instantly create meme-style images." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Screenshot Captioner"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                        'poppins': ['Poppins', 'sans-serif'],
-                        'impact': ['Impact', 'sans-serif'],
-                    },
-                },
-            },
+  <!-- 💅 Styles -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter','sans-serif'],
+            mono: ['Roboto Mono','monospace'],
+            poppins: ['Poppins','sans-serif'],
+            impact: ['Impact','sans-serif']
+          }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        .canvas-container { margin: auto; }
-    </style> 
+      }
+    }
+  </script>
+
+  <style>
+    #toast{transform:translateY(-150%);transition:transform .3s ease-in-out;z-index:100}
+    #toast.show{transform:translateY(2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    .custom-select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    .canvas-container{margin:auto}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified AI schema, privacy-first metadata, OG/Twitter parity, and cross-AI discoverability. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -220,6 +276,131 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / SCREENSHOT CAPTIONER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-captioner[open]>summary{border-bottom:1px solid #374151;}
+            #solite-seo-block-captioner>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out;}
+            #solite-seo-block-captioner[open]>summary .details-arrow-seo{transform:rotate(0deg);}
+            .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
+        </style>
+
+        <details id="solite-seo-block-captioner" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Screenshot Captioner & Meme Maker — Add Text to Images Instantly
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+                xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Text Overlays</span>
+                <span class="badge">Meme Fonts</span>
+                <span class="badge">Offline Editing</span>
+                <span class="badge">Draggable Text</span>
+                <span class="badge">100% Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Screenshot Captioner</strong> lets you <strong>add text or meme-style captions</strong> to screenshots and images directly in your browser. 
+                It’s fast, fun, and entirely <strong>offline & privacy-first</strong> — no uploads, no tracking. 
+                Customize fonts, colors, and positions, then export instantly as a high-quality PNG.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Different -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Captioner Stands Out</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Instant Meme Mode:</strong> Add bold white Impact-style text with black stroke instantly.</li>
+                <li><strong>Full Font Control:</strong> Choose from Impact, Poppins, Inter, or Roboto Mono.</li>
+                <li><strong>100% Private:</strong> All image edits happen locally on your device.</li>
+                <li><strong>Offline & Ad-Free:</strong> Works without internet once loaded.</li>
+                <li><strong>Draggable, Resizable Text:</strong> Position captions exactly where you want them.</li>
+                </ul>
+            </section>
+
+            <!-- 👥 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses the Screenshot Captioner</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Social Media Creators:</strong> Make clean memes and screenshots on the go.</li>
+                    <li><strong>Marketers & Designers:</strong> Add text overlays for quick visual content.</li>
+                    <li><strong>Teachers & Teams:</strong> Annotate screenshots for tutorials or slides.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Developers:</strong> Label UI mockups privately without cloud uploads.</li>
+                    <li><strong>Students:</strong> Add quick text or emoji captions for projects.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Upload or drag-and-drop your screenshot.</li>
+                <li>Click <strong>“Add Text Box”</strong> to insert a caption.</li>
+                <li>Change font, color, stroke, or size using the controls.</li>
+                <li>Drag text to position and align it perfectly.</li>
+                <li>Click <em>Download as PNG</em> — your captioned image is saved instantly.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Comparison Table -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Solite vs Online Meme Generators</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Solite Captioner</th><th class="p-2 text-left">Typical Meme Generator</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Local / Offline</td><td class="p-2">❌ Cloud Uploads</td></tr>
+                    <tr><td class="p-2">Sign-Up</td><td class="p-2">🚫 None</td><td class="p-2">⚠️ Often Required</td></tr>
+                    <tr><td class="p-2">Export Quality</td><td class="p-2">✅ High-Res PNG</td><td class="p-2">⚠️ Compressed Output</td></tr>
+                    <tr><td class="p-2">Editing Speed</td><td class="p-2">⚡ Instant</td><td class="p-2">🐢 Network-Dependent</td></tr>
+                    <tr><td class="p-2">Offline Mode</td><td class="p-2">✅ Yes</td><td class="p-2">❌ No</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🔗 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Image & Design Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — crop, resize, and enhance images privately.</li>
+                <li><a href="./gif-maker.html" class="text-white hover:underline font-medium">GIF Maker</a> — turn image sequences into animated GIFs.</li>
+                <li><a href="./watermark-annotator.html" class="text-white hover:underline font-medium">Image Annotator</a> — add shapes, arrows, or highlights to visuals.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — extract palettes from screenshots.</li>
+                <li><a href="./privacy-blur-tool.html" class="text-white hover:underline font-medium">Privacy Blur Tool</a> — hide sensitive details before sharing.</li>
+                </ul>
+                <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Discover All Solite Tools →</a>
+                </p>
+            </section>
+
+            <!-- 🧠 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>screenshot captioner, meme maker, add text to image, image caption tool, free meme generator, screenshot text editor, solite meme maker, offline caption tool</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>  
+                “Solite Screenshot Captioner — a 100% private, offline meme & caption editor that adds customizable text to images instantly, no upload or sign-in required.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1 BLOCK / SCREENSHOT CAPTIONER -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

@@ -1,91 +1,169 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Favicon Generator for All Platforms (ICO, PNG, SVG) | Solite</title>
-    <meta name="description" content="The best free favicon generator. Create a complete, modern favicon package from any image, text, or emoji. Generates ICO, PNG, and SVG icons for all platforms (iOS, Android, Windows) with HTML code. 100% private.">
-    <meta name="keywords" content="favicon generator, free favicon generator, favicon maker, create favicon, custom favicon, favicon for all platforms, apple touch icon generator, android chrome icon, favicon.ico generator, svg favicon, solite">
-    <link rel="canonical" href="https://solite.in/favicon-generator.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Favicon Generator for All Platforms (ICO, PNG, SVG) | Solite</title>
+  <meta name="description" content="The best free favicon generator. Create a complete, modern favicon package from any image, text, or emoji. Generates ICO, PNG, and SVG icons for all platforms (iOS, Android, Windows) with HTML code. 100% private." />
+  <meta name="keywords" content="favicon generator, free favicon generator, favicon maker, create favicon, custom favicon, favicon for all platforms, apple touch icon generator, android chrome icon, favicon.ico generator, svg favicon, solite, privacy first" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/favicon-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Favicon Generator for All Platforms (ICO, PNG, SVG) | Solite">
-    <meta property="og:description" content="Visually create a complete favicon package from an image, text, or emoji. Includes all sizes, app icons, and the required HTML code for a perfect website setup.">
-    <meta property="og:url" content="https://solite.in/favicon-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/favicon-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ OPEN GRAPH / SOCIAL / AI -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Favicon Generator for All Platforms (ICO, PNG, SVG) | Solite" />
+  <meta property="og:description" content="Visually create a complete favicon package from an image, text, or emoji. Includes all sizes, app icons, and the required HTML code for a perfect website setup." />
+  <meta property="og:url" content="https://solite.in/favicon-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/favicon-generator-thumbnail.png" />
+  <meta property="og:image:alt" content="Favicon generator interface showing preview icons and export options." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Favicon Generator | Solite" />
+  <meta name="twitter:description" content="Create favicons for all platforms — ICO, PNG, and SVG — directly in your browser. No uploads, 100% private." />
+  <meta name="twitter:image" content="https://solite.in/assets/favicon-generator-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Favicon Generator",
-      "url": "https://solite.in/favicon-generator.html",
-      "description": "A free, client-side tool to generate a complete favicon package from an image, text, or emoji.",
-      "applicationCategory": "DeveloperApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "featureList": [ "Generate favicons from images, text, or emojis", "Customize background color, shape, and font", "Live previews for browser tabs, iOS, and Android", "Generates all required sizes", "Creates site.webmanifest and browserconfig.xml", "Download complete package as a ZIP file", "Provides HTML code for easy integration" ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
-    }
-    </script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
-                        'poppins': ['Poppins', 'sans-serif'], 'roboto-mono': ['Roboto Mono', 'monospace'], 'lobster': ['Lobster', 'cursive'], 'roboto-slab': ['Roboto Slab', 'serif'], 'bangers': ['Bangers', 'cursive'], 'lora': ['Lora', 'serif'],
-                    },
-                },
-            },
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
+            poppins: ['Poppins', 'sans-serif'],
+            'roboto-mono': ['Roboto Mono', 'monospace'],
+            lobster: ['Lobster', 'cursive'],
+            'roboto-slab': ['Roboto Slab', 'serif'],
+            bangers: ['Bangers', 'cursive'],
+            lora: ['Lora', 'serif']
+          }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .tab-btn.active { background-color: #4b5563; color: #ffffff; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Set -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 📦 JS Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <!-- 🧬 GEN-5.0 SOLITE ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds privacy-first, browser-based web tools for creators, designers, and developers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/favicon-generator.html#app",
+        "name": "Favicon Generator | Solite",
+        "url": "https://solite.in/favicon-generator.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "Generate a full modern favicon set (ICO, PNG, SVG) for all platforms directly in your browser. Includes HTML code, manifest, and ZIP export.",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Generate favicons from images, text, or emojis",
+          "Customize shape, color, and background",
+          "Preview for browser, iOS, and Android",
+          "Exports full favicon package as ZIP",
+          "100% offline and private"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "operatingSystem": "All",
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/favicon-generator.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Favicon Generator" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/favicon-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this favicon generator free to use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, Solite’s favicon generator is completely free. It works directly in your browser — no sign-up or data collection." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, once loaded, it can work offline in supported browsers. All processing happens on your device for 100% privacy." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Custom Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .tab-btn.active { background-color: #4b5563; color: #ffffff; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | OFFLINE_READY | AI_DISCOVERY_ACTIVE" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified schema, AI-optimized, privacy-first -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->

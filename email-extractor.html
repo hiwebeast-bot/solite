@@ -1,118 +1,153 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Email Extractor | Extract Emails from Text | Solite</title>
-    <meta name="description" content="Instantly extract all email addresses from text, documents, or lists. Free, client-side tool that automatically removes duplicates and sorts results. 100% private.">
-    <meta name="keywords" content="email extractor, extract emails, find email addresses, email scraper, email list cleaner, free email tool, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/email-extractor.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Email Extractor | Extract Emails from Text | Solite</title>
+  <meta name="description" content="Instantly extract, clean, and organize email addresses from text, documents, or lists. 100% private, client-side tool with automatic deduplication and sorting." />
+  <meta name="keywords" content="email extractor, extract emails, email finder, email parser, remove duplicates, email list cleaner, online email tool, solite, privacy-first" />
+  <link rel="canonical" href="https://solite.in/email-extractor.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Email Extractor | Solite">
-    <meta property="og:description" content="Instantly extract, deduplicate, and sort email addresses from any text. Free and 100% private client-side processing.">
-    <meta property="og:url" content="https://solite.in/email-extractor.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/email-extractor-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Email Extractor | Solite" />
+  <meta property="og:description" content="Extract, deduplicate, and sort email addresses instantly. Free, secure, and browser-based." />
+  <meta property="og:url" content="https://solite.in/email-extractor.html" />
+  <meta property="og:image" content="https://solite.in/assets/email-extractor-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Email Extractor | Solite" />
+  <meta name="twitter:description" content="Extract and clean email addresses instantly. Free, fast, and private." />
+  <meta name="twitter:image" content="https://solite.in/assets/email-extractor-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Email Extractor | Solite",
-      "url": "https://solite.in/email-extractor.html",
-      "description": "A free, client-side tool to extract, deduplicate, and sort email addresses from any text block.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [
-        "Extracts all valid email addresses from text",
-        "Removes duplicate email addresses automatically",
-        "Sorts extracted emails alphabetically",
-        "Exports emails to CSV format",
-        "Client-side processing for privacy"
-      ],
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Extract Emails from Text",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste any block of text containing email addresses into the input area." },
-          { "@type": "HowToStep", "name": "Step 2: View Results", "text": "The tool will instantly extract all unique email addresses and display them in the output area, automatically removing duplicates." },
-          { "@type": "HowToStep", "name": "Step 3: Copy or Export", "text": "You can copy the list of emails to your clipboard or export them as a CSV file." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first, browser-based tools for creators and developers — fast, secure, and AI-ready."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/email-extractor.html#app",
+        "name": "Email Extractor | Solite",
+        "url": "https://solite.in/email-extractor.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Extracts all valid email addresses from text",
+          "Removes duplicates automatically",
+          "Sorts emails alphabetically",
+          "Exports to CSV format",
+          "Client-side processing for total privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/email-extractor.html#page",
+        "name": "Free Email Extractor | Solite",
+        "description": "Instantly extract, clean, and organize email addresses from any text or document. Private and client-side only.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Email Extractor" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/email-extractor.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my data safe when using this email extractor?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Solite Email Extractor runs entirely in your browser. Your text and emails never leave your device." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export the results?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy the results directly or export all extracted emails as a CSV file instantly." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Email Extractor"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        /* Mobile Nav Styles */
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style>
+  <!-- 🎨 STYLE -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema, AI discovery optimized -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->

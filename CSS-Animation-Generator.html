@@ -1,90 +1,143 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free CSS Animation Generator | Visual Keyframe Tool | Solite</title>
-    <meta name="description" content="Visually create and customize CSS animations with our free online generator. Use presets or build from scratch with a timeline editor. Export clean @keyframes and animation code.">
-    <meta name="keywords" content="css animation generator, keyframe generator, visual css animation, free animation tool, css transition generator, create css animation, solite">
-    <link rel="canonical" href="https://solite.in/css-animation-generator.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free CSS Animation Generator | Visual Keyframe Tool | Solite</title>
+  <meta name="description" content="Visually create and customize CSS animations with presets or a timeline editor. Live preview, fine-tune easing/duration/iterations, and export clean @keyframes + animation code. 100% private, browser-based." />
+  <meta name="keywords" content="css animation generator, keyframe generator, visual css animation, css timeline, easing editor, free animation tool, css transition generator, create css animation, @keyframes, solite" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/css-animation-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free CSS Animation Generator | Visual Keyframe Tool | Solite">
-    <meta property="og:description" content="Visually create and customize CSS animations with our free online generator. Use presets or build from scratch with a timeline editor, then export clean code.">
-    <meta property="og:url" content="https://solite.in/css-animation-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/css-animation-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free CSS Animation Generator | Visual Keyframe Tool | Solite" />
+  <meta property="og:description" content="Design CSS animations visually with presets and a timeline. Preview live and export clean @keyframes + animation code. Private & client-side." />
+  <meta property="og:url" content="https://solite.in/css-animation-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/css-animation-generator-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free CSS Animation Generator | Visual Keyframe Tool | Solite" />
+  <meta name="twitter:description" content="Build animations visually, tweak easing & timing, then export @keyframes. 100% browser-based privacy." />
+  <meta name="twitter:image" content="https://solite.in/assets/css-animation-generator-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "CSS Animation Generator",
-      "url": "https://solite.in/css-animation-generator.html",
-      "description": "A free, client-side tool to visually create and customize CSS animations and export the corresponding keyframes and CSS properties using presets and a timeline editor.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate CSS Animations with Presets", "Visual Timeline for Keyframe Editing", "Live Preview", "Customize transform, opacity, and color", "Adjust duration, delay, timing, and iteration", "Export @keyframes and animation code", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode:'class',
+      theme:{ extend:{ fontFamily:{ sans:['Inter','sans-serif'], mono:['Roboto Mono','monospace'] } } }
     }
-    </script>
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                    },
-                },
-            },
+  <!-- 🪞 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🎨 UI / Styles -->
+  <style>
+    #toast{transform:translateY(-150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(2rem)}
+    .custom-select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    .keyframe-pill.active{background:#fff;color:#111827;border-color:#fff}
+  </style>
+  <style id="animation-style-tag"></style>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://solite.in/#organization",
+        "name":"Solite",
+        "url":"https://solite.in",
+        "logo":"https://solite.in/assets/apple-touch-icon.png",
+        "slogan":"Free • Private • Browser-Based Tools",
+        "description":"Solite builds privacy-first, browser-based tools for designers and developers — 100% client-side with no tracking."
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://solite.in/#website",
+        "url":"https://solite.in",
+        "name":"Solite",
+        "inLanguage":"en",
+        "publisher":{"@id":"https://solite.in/#organization"},
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://solite.in/search?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        },
+        "hasPart":[{"@id":"https://solite.in/css-animation-generator.html#webapp"}]
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://solite.in/css-animation-generator.html#webapp",
+        "name":"CSS Animation Generator",
+        "url":"https://solite.in/css-animation-generator.html",
+        "applicationCategory":"DeveloperApplication",
+        "operatingSystem":"All",
+        "featureList":[
+          "Visual timeline for keyframe editing",
+          "Animation presets (fade, slide, scale, rotate, etc.)",
+          "Live preview with transform/opacity/color",
+          "Control duration, delay, easing, iteration, direction, fill-mode",
+          "Export clean @keyframes and animation CSS"
+        ],
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "softwareVersion":"5.0",
+        "creator":{"@id":"https://solite.in/#organization"},
+        "dateModified":"2025-11-07T10:00:00Z",
+        "mainEntityOfPage":"https://solite.in/css-animation-generator.html"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://solite.in/css-animation-generator.html#webpage",
+        "name":"Free CSS Animation Generator | Visual Keyframe Tool | Solite",
+        "isPartOf":{"@id":"https://solite.in/#website"},
+        "about":{"@id":"https://solite.in/#organization"},
+        "description":"Visually design CSS animations with presets and a timeline, preview instantly, then export @keyframes + animation code. Private and client-side.",
+        "breadcrumb":{
+          "@type":"BreadcrumbList",
+          "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://solite.in/index.html"},
+            {"@type":"ListItem","position":2,"name":"CSS Animation Generator"}
+          ]
         }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .keyframe-pill.active { background-color: #fff; color: #111827; border-color: #fff; }
-    </style>
-    <style id="animation-style-tag"></style>
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema + privacy-first meta enforced -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -317,11 +370,11 @@
       <section>
         <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer Tools Suite</h3>
         <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build beautiful gradients visually.</li>
-          <li><a href="https://solite.in/css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Design layered box/text shadows.</li>
-          <li><a href="https://solite.in/code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Edit HTML, CSS, and JS instantly.</li>
-          <li><a href="https://solite.in/responsive-typography-calculator.html" class="text-white hover:underline font-medium">Typography Calculator</a> — Generate fluid text scales.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean, format, and transform text locally.</li>
+          <li><a href="./css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build beautiful gradients visually.</li>
+          <li><a href="./css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Design layered box/text shadows.</li>
+          <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Edit HTML, CSS, and JS instantly.</li>
+          <li><a href="./responsive-typography-calculator.html" class="text-white hover:underline font-medium">Typography Calculator</a> — Generate fluid text scales.</li>
+          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean, format, and transform text locally.</li>
         </ul>
         <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
       </section>

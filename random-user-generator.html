@@ -1,116 +1,137 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Random User Generator (Fake Name, Email, Address) | Solite</title>
-    <meta name="description" content="Generate realistic fake user data for testing and development with our free online tool. Create random names, emails, addresses, phone numbers, and more. 100% private and instant.">
-    <meta name="keywords" content="random user generator, fake data generator, test data generator, dummy data generator, generate fake names, generate fake emails, generate fake addresses, json user data, fake person generator, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/random-user-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Random User Data Generator | Solite">
-    <meta property="og:description" content="Generate realistic fake user data for testing and development. Create random names, emails, addresses, and more. 100% private and instant.">
-    <meta property="og:url" content="https://solite.in/random-user-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/random-user-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Free Random User Generator (Fake Name, Email, Address) | Solite</title>
+  <meta name="description" content="Generate realistic fake user data for testing and development. Create random names, emails, addresses, and phone numbers — 100% private and browser-based." />
+  <meta name="keywords" content="random user generator, fake data generator, dummy data, test data tool, generate fake name, fake email, random json user, privacy tool, solite, offline generator" />
+  <link rel="canonical" href="https://solite.in/random-user-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Random User Generator | Fake Name, Email & Address | Solite" />
+  <meta property="og:description" content="Generate fake user data instantly — names, emails, addresses, and phone numbers for testing. 100% private and client-side." />
+  <meta property="og:url" content="https://solite.in/random-user-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/random-user-generator-thumbnail.png" />
+  <meta property="og:image:alt" content="Random User Data Generator by Solite" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Random User Generator | Solite" />
+  <meta name="twitter:description" content="Generate realistic fake user data instantly. 100% private, no uploads required." />
+  <meta name="twitter:image" content="https://solite.in/assets/random-user-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📊 Vercel Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Random User Data Generator",
-      "url": "https://solite.in/random-user-generator.html",
-      "description": "A free, client-side tool to generate realistic fake user data for testing and development, including names, emails, addresses, and more.",
-      "applicationCategory": "DeveloperTool",
-      "featureList": [ "Generate random user profiles for testing", "Create fake names, emails, addresses, and phone numbers", "Generate multiple users at once", "Filter by gender and nationality (India, USA, UK)", "Copy all generated data as a JSON array", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate Random User Data",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Set Options", "text": "Choose the number of users to generate, and optionally filter by gender and nationality." },
-          { "@type": "HowToStep", "name": "Step 2: Generate", "text": "Click the 'Generate New Users' button to create the profiles." },
-          { "@type": "HowToStep", "name": "Step 3: Copy Data", "text": "Copy individual details from the user cards or click 'Copy All as JSON' to get the complete dataset for your project." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    }
+  </script>
+
+  <!-- 🖋 Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first browser tools for creators and developers — 100% client-side, no uploads, no tracking."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/random-user-generator.html#app",
+        "name": "Random User Generator | Solite",
+        "url": "https://solite.in/random-user-generator.html",
+        "applicationCategory": "DeveloperTool",
+        "description": "Generate realistic fake user data (name, email, address, phone) for testing and design mockups. Runs fully offline.",
+        "featureList": [
+          "Generate fake names, emails, and addresses",
+          "Filter by gender or nationality (India, USA, UK)",
+          "Generate multiple users at once",
+          "Copy individual or full JSON dataset",
+          "Instant results — client-side only"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/random-user-generator.html#webpage",
+        "url": "https://solite.in/random-user-generator.html",
+        "name": "Free Random User Generator (Fake Name, Email, Address) | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/random-user-generator-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Random User Generator" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/random-user-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is this tool used for?",
+            "acceptedAnswer": { "@type": "Answer", "text": "This tool is designed for developers and testers to quickly generate dummy user profiles for populating databases, testing applications, or creating mockups — without using real personal data." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Random User Generator"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is this tool used for?",
-        "acceptedAnswer": { "@type": "Answer", "text": "This tool is used by developers and testers to generate realistic fake user data (also known as dummy data or test data) for populating databases, testing application sign-up forms, and creating design mockups without using real people's information." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .copy-btn:hover svg { color: #fff; }
-    </style> 
+  <!-- 💅 Style Layer -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform .3s ease-in-out; }
+    #toast.show { transform: translateY(2rem); }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+    .custom-select { -webkit-appearance:none; -moz-appearance:none; appearance:none; }
+    .mobile-nav-btn.active { color:#ffffff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    .copy-btn:hover svg { color:#fff; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified schema, privacy-first metadata, OG/Twitter parity, and AI discovery optimization. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -206,6 +227,124 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / RANDOM USER GENERATOR EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+
+        <style>
+            #solite-seo-block-user[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-user > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-user[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-user" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Random User Generator — Fake Names, Emails & Test Data
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Fake Data Generator</span>
+                <span class="badge">Developer Tool</span>
+                <span class="badge">Privacy-First</span>
+                <span class="badge">Offline</span>
+                <span class="badge">JSON Output</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Random User Generator</strong> creates realistic <strong>dummy data for testing and design</strong>.  
+                Generate random names, emails, addresses, and phone numbers — all processed securely on your device with <strong>zero data sharing</strong>.
+                </p>
+            </section>
+
+            <!-- ⚙️ Features -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Key Features</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Generate <strong>fake names, emails, phone numbers, and addresses</strong>.</li>
+                <li>Filter by <strong>gender</strong> or <strong>nationality</strong> (India, USA, UK).</li>
+                <li>Output data as <strong>JSON</strong> for instant testing.</li>
+                <li>Supports <strong>multiple profiles</strong> at once.</li>
+                <li>Runs fully <strong>client-side</strong> — no uploads or API calls.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Use Cases -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & Why</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Developers:</strong> Populate apps, APIs, and UIs with realistic test users.</li>
+                    <li><strong>Designers:</strong> Add placeholder data to mockups and UI demos.</li>
+                    <li><strong>QA Testers:</strong> Simulate edge cases without using real data.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Students & Learners:</strong> Practice with random datasets in JSON.</li>
+                    <li><strong>Data Scientists:</strong> Generate small synthetic datasets for testing pipelines.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- 🧭 How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Generate Random Users</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Select the number of users, gender, and nationality.</li>
+                <li>Click “Generate” to instantly view user cards.</li>
+                <li>Copy individual fields or the full JSON dataset.</li>
+                <li>Use the data safely in your app, UI, or testing workflow.</li>
+                </ol>
+            </section>
+
+            <!-- 📊 Comparison -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Solite vs API-Based Random Data Generators</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Solite User Generator</th><th class="p-2 text-left">Typical API Tools</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Data Privacy</td><td class="p-2">✅ 100% Client-Side</td><td class="p-2">❌ Sends Data to Servers</td></tr>
+                    <tr><td class="p-2">Offline Support</td><td class="p-2">✅ Works Offline</td><td class="p-2">❌ Requires Internet</td></tr>
+                    <tr><td class="p-2">Customization</td><td class="p-2">✅ Gender, Nationality, Count</td><td class="p-2">⚠️ Limited Options</td></tr>
+                    <tr><td class="p-2">Export Format</td><td class="p-2">✅ JSON</td><td class="p-2">⚠️ API-Dependent</td></tr>
+                    <tr><td class="p-2">Tracking / Logs</td><td class="p-2">✅ None</td><td class="p-2">❌ Often Enabled</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🔗 Cross-Tool Linking -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — Clean and inspect generated data quickly.</li>
+                <li><a href="./uuid-generator.html" class="text-white hover:underline font-medium">UUID Generator</a> — Create secure unique IDs for test users.</li>
+                <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — Examine random bios or user notes.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a></p>
+            </section>
+
+            <!-- 🧠 AI + Search Discovery Cue -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>random user generator, fake name email address, dummy data tool, json fake users, developer test data, solite user generator, offline faker alternative</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>  
+                “Solite Random User Generator — an offline, privacy-first fake data creator for developers, designers, and testers to build and demo with realistic profiles.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1 BLOCK / RANDOM USER GENERATOR -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

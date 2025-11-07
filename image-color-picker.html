@@ -1,160 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Optimized Title -->
-    <title>Free Image Color Picker & Palette Generator | Solite</title>
-    <!-- MODIFIED: Optimized Description -->
-    <meta name="description" content="Extract colors & create palettes from images with this free online color picker tool. Eyedropper finds HEX, RGB, HSL codes instantly. 100% private & browser-based.">
-    <!-- MODIFIED: Expanded Keywords -->
-    <meta name="keywords" content="image color picker, color picker from image, online color picker, eyedropper tool, color palette generator, hex color picker, rgb color picker, hsl color picker, accessibility contrast checker, solite, free tool">
-    <link rel="canonical" href="https://solite.in/image-color-picker.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 SEO CORE -->
+  <title>Free Image Color Picker & Palette Generator | Solite</title>
+  <meta name="description" content="Extract colors & generate palettes from images with Solite’s free online color picker. Get HEX, RGB, and HSL codes instantly with the zoom eyedropper. 100% private, no uploads." />
+  <meta name="keywords" content="image color picker, color palette generator, eyedropper from image, extract hex colors, rgb picker, hsl picker, color contrast checker, free online tool, solite, privacy first" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/image-color-picker.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <!-- MODIFIED: Optimized OG Title -->
-    <meta property="og:title" content="Free Image Color Picker & Palette Generator | Solite">
-    <meta property="og:description" content="Free browser-based image color picker. Upload an image, use the eyedropper, get HEX/RGB/HSL codes, check contrast, and build palettes. No login required.">
-    <meta property="og:url" content="https://solite.in/image-color-picker.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/image-color-picker-thumbnail.png">
+  <!-- ⚡ SOCIAL + AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Image Color Picker & Palette Generator | Solite" />
+  <meta property="og:description" content="Free browser-based image color picker with HEX, RGB, and HSL codes. Eyedropper with zoom & palette builder. Works 100% offline and private." />
+  <meta property="og:url" content="https://solite.in/image-color-picker.html" />
+  <meta property="og:image" content="https://solite.in/assets/image-color-picker-thumbnail.png" />
+  <meta property="og:image:alt" content="Screenshot of Solite Image Color Picker interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image Color Picker & Palette Generator | Solite" />
+  <meta name="twitter:description" content="Extract HEX, RGB, and HSL colors from images instantly. 100% private, no uploads." />
+  <meta name="twitter:image" content="https://solite.in/assets/image-color-picker-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Color Picker | Solite", // MODIFIED: Added Solite
-      "url": "https://solite.in/image-color-picker.html",
-      "description": "A free, client-side tool to extract color palettes from images using an eyedropper with zoom. Provides HEX, RGB, HSL codes and accessibility contrast ratios.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [
-        "Upload images (PNG, JPG, etc.)",
-        "Eyedropper tool with zoom loupe for precise color selection",
-        "Extract HEX, RGB, and HSL color codes",
-        "WCAG AA contrast ratio checker for accessibility",
-        "Build and manage a palette of picked colors",
-        "Copy individual or all picked colors"
-      ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Set -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 STRUCTURED DATA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Organization",
+        "@id": "https://solite.in/#organization",
         "name": "Solite",
-        "url": "https://solite.in/"
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite provides free, private, browser-based tools for creators, developers, and designers. 100% client-side and privacy-first."
       },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/image-color-picker.html#app",
+        "name": "Image Color Picker & Palette Generator | Solite",
+        "url": "https://solite.in/image-color-picker.html",
+        "applicationCategory": "DesignApplication",
+        "description": "A free, client-side tool to extract colors and build palettes from images. Supports HEX, RGB, HSL, and contrast checking for accessibility.",
+        "featureList": [
+          "Upload images (PNG, JPG, WebP)",
+          "Eyedropper with zoom loupe for precise color selection",
+          "Extract HEX, RGB, and HSL color codes",
+          "Contrast ratio checker (WCAG AA)",
+          "Palette builder with copy and clear functions",
+          "Client-side privacy — no uploads"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "operatingSystem": "All",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
         "@type": "HowTo",
+        "@id": "https://solite.in/image-color-picker.html#howto",
         "name": "How to Pick Colors from an Image",
         "step": [
-          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image onto the page or click to select a file from your device." },
-          { "@type": "HowToStep", "name": "Step 2: Pick Colors", "text": "Move your mouse over the image to see a zoomed-in loupe and live color values. Click on the image to add a color to your palette." },
-          { "@type": "HowToStep", "name": "Step 3: Copy or Clear", "text": "Click on any color in your palette to copy its HEX code. You can also copy all colors at once or clear the palette to start over." }
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image or click to upload from your device." },
+          { "@type": "HowToStep", "name": "Step 2: Pick Colors", "text": "Hover to preview, click to pick colors. HEX, RGB, and HSL values update in real time." },
+          { "@type": "HowToStep", "name": "Step 3: Manage Palette", "text": "Copy or clear picked colors. Build complete color palettes for your design." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/image-color-picker.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Image Color Picker" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/image-color-picker.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this color picker free to use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Image Color Picker is completely free and requires no sign-up or installation." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, since all processing happens in your browser, it can be used offline after loading once." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my images private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All image analysis is done locally on your device — nothing is uploaded or stored anywhere." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Image Color Picker"
-      }]
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        },
+      },
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        :is(button, a, select, input):focus-visible {
-            outline: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-        }
-        #image-canvas { cursor: crosshair; }
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        #zoom-loupe {
-            position: absolute;
-            width: 128px;
-            height: 128px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-            pointer-events: none;
-            display: none;
-            overflow: hidden;
-            background-color: #111;
-            z-index: 10;
-        }
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; /* gray-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        /* Custom Scrollbar for Firefox */
-        html { scrollbar-color: #4b5563 #111827; }
+  <!-- 🧱 UI + Accessibility Styling -->
+  <style>
+    :is(button,a,select,input):focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+    }
+    #image-canvas { cursor: crosshair; }
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    #zoom-loupe {
+      position: absolute; width: 128px; height: 128px; border-radius: 50%;
+      border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;
+      pointer-events: none; display: none; overflow: hidden; background-color: #111; z-index: 10;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
 
-        /* ADDED: Mobile Nav Styles */
-        .mobile-nav-btn.active {
-            color: #ffffff; /* white */
-        }
-        .mobile-nav-btn {
-            color: #9ca3af; /* gray-400 */
-        }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5 schema, AI-aligned metadata, privacy-first SEO, and cross-tool authority consistency. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

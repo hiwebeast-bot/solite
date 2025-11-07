@@ -1,106 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Text Analyzer & Word Counter | Solite</title>
-    <meta name="description" content="A free, private online tool to count words, characters, sentences, and paragraphs. Get reading time estimates, tone analysis, and keyword density—all in your browser.">
-    <meta name="keywords" content="word counter, character counter, sentence counter, reading time calculator, text analyzer, tone detector, keyword density, solite, free online tool, privacy first">
-    <link rel="canonical" href="https://solite.in/text-analyzer.html" />
-    <meta name="robots" content="index, follow">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Text Analyzer & Word Counter | Solite">
-    <meta property="og:description" content="Go beyond basic counting. Analyze your text for reading time, tone, and keyword density with our free, private, browser-based tool.">
-    <meta property="og:url" content="https://solite.in/text-analyzer.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/smart-word-counter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Discovery -->
+  <title>Free Text Analyzer & Word Counter | Solite</title>
+  <meta name="description" content="Analyze your text instantly. Count words, characters, sentences, and paragraphs — plus get reading time, tone, and keyword density. 100% private & browser-based.">
+  <meta name="keywords" content="text analyzer, word counter, character counter, sentence counter, paragraph counter, reading time calculator, tone detector, keyword density, solite, privacy first">
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/text-analyzer.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://esm.sh/sentiment@5.0.2" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 🌐 Open Graph / Twitter / AI Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Solite App Suite">
+  <meta property="og:title" content="Free Text Analyzer & Word Counter | Solite">
+  <meta property="og:description" content="Go beyond word counts — analyze reading time, tone, and keyword density in real time. Works fully offline, no uploads.">
+  <meta property="og:url" content="https://solite.in/text-analyzer.html">
+  <meta property="og:image" content="https://solite.in/assets/smart-word-counter-thumbnail.png">
+  <meta property="og:image:alt" content="Free Online Text Analyzer and Word Counter Tool by Solite">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Text Analyzer & Word Counter | Solite" />
+  <meta name="twitter:description" content="Analyze text tone, keyword density, and reading time — 100% private and free." />
+  <meta name="twitter:image" content="https://solite.in/assets/smart-word-counter-thumbnail.png" />
 
-    <!-- Schema.org Markup for AI & Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Text Analyzer",
-      "url": "https://solite.in/text-analyzer.html",
-      "description": "A free, client-side text analysis tool that counts words, characters, sentences, and paragraphs, and provides reading time, tone analysis, and keyword density.",
-      "applicationCategory": "ProductivityApplication",
-      "featureList": [ "Word Count", "Character Count", "Sentence Count", "Paragraph Count", "Reading Time Estimation", "Text Tone Analysis (Sentiment)", "Keyword Density Analysis", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  <!-- 📚 Dublin Core -->
+  <meta name="DC.Title" content="Free Text Analyzer & Word Counter | Solite">
+  <meta name="DC.Description" content="A free, privacy-first text analyzer to count words, characters, and more — with tone and keyword analysis.">
+  <meta name="DC.Type" content="Software">
+  <meta name="DC.Publisher" content="Solite">
+  <meta name="DC.Creator" content="Solite">
+
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://esm.sh/sentiment@5.0.2" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <!-- 🎨 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- 🧱 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite offers free, privacy-first web tools for text, data, and creative tasks."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/text-analyzer.html#app",
+        "name": "Text Analyzer | Solite",
+        "url": "https://solite.in/text-analyzer.html",
+        "description": "A free, client-side text analysis tool that counts words, characters, and sentences, and provides tone and keyword analysis.",
+        "applicationCategory": "ProductivityApplication",
+        "featureList": [
+          "Word, character, sentence, and paragraph count",
+          "Reading time estimation",
+          "Tone and sentiment detection",
+          "Keyword frequency and density analysis",
+          "Privacy-first local processing (no uploads)"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is reading time calculated?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Reading time is based on 225 words per minute — a standard average reading speed for English text." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does tone analysis work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The tone analyzer uses a local AFINN-based sentiment library to score positivity, negativity, or neutrality. No data leaves your browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my text private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100%. All processing happens locally in your browser — nothing is sent or saved on servers." }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Text Analyzer" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/text-analyzer.html#webpage",
+        "name": "Free Text Analyzer & Word Counter | Solite",
+        "url": "https://solite.in/text-analyzer.html",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/smart-word-counter-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace'],
+          },
+        },
+      },
     }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Text Analyzer"
-      }]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How is the reading time calculated?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Reading time is estimated based on an average reading speed of 225 words per minute. This is a common standard used for English text." }
-      },{
-        "@type": "Question",
-        "name": "How does the tone analysis work?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The tone analysis uses a client-side sentiment analysis library (AFINN wordlist) to score the text. It identifies positive and negative words to determine if the overall tone is positive, negative, or neutral. No data is sent to a server." }
-      },{
-        "@type": "Question",
-        "name": "Is my text private?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, your text is 100% private. All counting and analysis happens directly in your browser. Nothing you type is ever uploaded or stored on our servers." }
-      }]
-    }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { 
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'], 
-                        mono: ['Roboto Mono', 'monospace'] 
-                    } 
-                },
-            },
-        }
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        body { visibility: hidden; } /* Hide body until React renders */
-    </style>
+  <!-- 💅 Styles -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    body { visibility: hidden; } /* Prevent flash before render */
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): Unified schema graph, OG/DC parity, freshness signals, and AI discoverability fusion. -->
 </head>
   <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     <div id="root"></div>
@@ -534,6 +587,114 @@
                         ),
                         !isDesktop && React.createElement(MobileNav, { activePane: activePane, onPaneChange: setActivePane })
                     ),
+                    
+                    /* 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / TEXT ANALYZER EDITION) */
+                    React.createElement('div', { className: "w-full text-gray-300 p-2" },
+                      React.createElement('style', { dangerouslySetInnerHTML: { __html: `
+                        #solite-seo-block-text[open] > summary { border-bottom: 1px solid #374151; }
+                        #solite-seo-block-text > summary .details-arrow-seo {
+                          transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+                        }
+                        #solite-seo-block-text[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+                        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+                      `}}),
+                      React.createElement('details', { id: "solite-seo-block-text", className: "w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40" },
+                        React.createElement('summary', { className: "text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center" },
+                          "Free Text Analyzer — Count, Measure & Improve Your Writing",
+                          React.createElement('svg', { className: "w-5 h-5 transition-transform duration-200 transform details-arrow-seo", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "2" },
+                            React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M19 9l-7 7-7-7" })
+                          )
+                        ),
+                        React.createElement('div', { className: "p-6 space-y-10 leading-relaxed" },
+
+                          // 🧩 Overview
+                          React.createElement('section', { className: "space-y-3" },
+                            React.createElement('div', { className: "flex flex-wrap gap-2" },
+                              ['Word Counter','Tone Detector','Keyword Density','Readability','Privacy-First'].map(b =>
+                                React.createElement('span', { key:b, className:'badge' }, b))
+                            ),
+                            React.createElement('p', { className: "text-lg text-gray-300" },
+                              "The ", React.createElement('strong', null, "Solite Text Analyzer"),
+                              " measures your content beyond word counts — offering live ", 
+                              React.createElement('strong', null, "tone, readability, and keyword density"),
+                              " — all computed locally in your browser for ",
+                              React.createElement('strong', null, "complete privacy and precision"), "."
+                            )
+                          ),
+
+                          // 🧭 Why It’s Better
+                          React.createElement('section', null,
+                            React.createElement('h3', { className:"text-white text-xl font-semibold mb-2"}, "Why It’s Better"),
+                            React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
+                              "Local processing — zero uploads or tracking.",
+                              "Instant results for words, characters, and readability.",
+                              "Tone & sentiment scoring built-in.",
+                              "Keyword frequency detection for SEO insights.",
+                              "Clean, distraction-free interface built with Tailwind CSS."
+                            ].map((t,i)=>React.createElement('li',{key:i},t)))
+                          ),
+
+                          // 🧠 Who Uses It
+                          React.createElement('section',null,
+                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"Who Uses It"),
+                            React.createElement('div',{className:"grid md:grid-cols-2 gap-4"},
+                              React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
+                                "Writers & Bloggers — polish content before publishing.",
+                                "Students — ensure word limits and clarity.",
+                                "Copywriters — balance tone and readability."
+                              ].map((t,i)=>React.createElement('li',{key:i},t))),
+                              React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
+                                "Developers — integrate content stats locally.",
+                                "Editors — measure reading time and tone instantly."
+                              ].map((t,i)=>React.createElement('li',{key:i},t)))
+                            )
+                          ),
+
+                          // ⚙️ How to Use
+                          React.createElement('section',null,
+                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"How to Use"),
+                            React.createElement('ol',{className:"list-decimal list-inside text-gray-400 space-y-2"},[
+                              "Paste or type your text into the editor.",
+                              "View live counts and tone feedback.",
+                              "Review readability, sentiment, and keyword density.",
+                              "Copy or export your analysis as needed."
+                            ].map((t,i)=>React.createElement('li',{key:i},t)))
+                          ),
+
+                          // 🧩 Ecosystem
+                          React.createElement('section',null,
+                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"Part of Solite’s Text & Data Suite"),
+                            React.createElement('ul',{className:"list-disc list-inside text-gray-400 mt-2 space-y-2"},[
+                              ["./smart-word-counter.html","Smart Word Counter — Live text metrics & tone detection."],
+                              ["./case-converter.html","Case Converter — Convert between camelCase, PascalCase, etc."],
+                              ["./emoji-counter.html","Emoji Counter — Measure emotion in your writing."],
+                              ["./hashtag-extractor.html","Hashtag Extractor — Pull hashtags from content instantly."],
+                              ["./text-toolkit.html","Text Toolkit — Clean, transform, and format your writing."]
+                            ].map(([href,label])=>React.createElement('li',{key:href},
+                              React.createElement('a',{href, className:'text-white hover:underline font-medium'},label)
+                            ))),
+                            React.createElement('p',{className:"text-gray-400 mt-3"},
+                              React.createElement('a',{href:'./index.html#apps',className:'text-white font-semibold hover:underline'},"Explore all Solite Apps →")
+                            )
+                          ),
+
+                          // 🧠 Citation Layer
+                          React.createElement('section',{className:"space-y-2"},
+                      	  React.createElement('p',{className:"text-sm text-gray-500"},
+                              React.createElement('em',null,
+                                "Keywords: text analyzer, word counter, readability tool, tone detector, keyword density analyzer, privacy-first writing tool, Solite text tools."
+                              )
+                            ),
+                            React.createElement('p',{className:"text-xs text-gray-600 italic"},
+                              React.createElement('strong',null,"AI / Reviewer Cue: "),
+                              "“Solite Text Analyzer — a privacy-first writing intelligence tool that quantifies readability, tone, and SEO metrics locally.”"
+                            )
+                          )
+                        )
+                      )
+                    ),
+                    /* ✅ END GEN-4.1: TEXT ANALYZER BLOCK */
+
                     React.createElement(Footer, null),
                     React.createElement(Toast, { message: toastMessage, isVisible: isToastVisible })
                 )

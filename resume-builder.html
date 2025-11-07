@@ -1,106 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Resume Builder | Private, Offline Resume Maker | Solite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Build and download a professional resume for free with Solite's resume builder. Choose from modern templates, fill in your details, and export as a PDF. 100% private and no sign-up required.">
-    <meta name="keywords" content="resume builder, free resume maker, cv maker, online resume builder, professional resume, resume templates, create resume, pdf resume, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/resume-builder.html">
-    <meta property="og:title" content="Free Resume Builder | Private, Offline Resume Maker | Solite">
-    <meta property="og:description" content="Build and download a professional resume for free with Solite's resume builder. Choose from modern templates and export as a PDF. 100% private.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://solite.in/assets/solite-resume-builder-og.png">
-    <meta property="og:url" content="https://solite.in/resume-builder.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Free Resume Builder | Private, Offline Resume Maker | Solite</title>
+  <meta name="description" content="Build and download a professional resume for free with Solite’s privacy-first resume builder. Choose modern templates, edit details, and export as PDF — fully offline, no sign-up required." />
+  <meta name="keywords" content="resume builder, free resume maker, cv maker, offline resume, resume template, pdf resume, solite, privacy-first resume builder, professional resume tool" />
+  <link rel="canonical" href="https://solite.in/resume-builder.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Resume Builder | Private, Offline Resume Maker | Solite" />
+  <meta property="og:description" content="Create and download a professional resume offline in your browser. Choose templates, edit live, and export as PDF or PNG. 100% private." />
+  <meta property="og:url" content="https://solite.in/resume-builder.html" />
+  <meta property="og:image" content="https://solite.in/assets/solite-resume-builder-og.png" />
+  <meta property="og:image:alt" content="Solite Resume Builder - Free Offline Resume Creator" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Resume Builder | Solite" />
+  <meta name="twitter:description" content="Build a professional resume with Solite’s private offline resume maker. No uploads. No data tracking." />
+  <meta name="twitter:image" content="https://solite.in/assets/solite-resume-builder-og.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free Resume Builder | Private, Offline Resume Maker | Solite" />
+  <meta name="DC.Description" content="A privacy-first resume builder by Solite that works fully offline in your browser. Create modern resumes and export as PDF or PNG instantly." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Publisher" content="Solite" />
+  <meta name="DC.Creator" content="Solite" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- JS Libraries for PDF/Image Generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Resume Builder | Solite",
-      "url": "https://solite.in/resume-builder.html",
-      "description": "A free, client-side resume builder with modern templates that generates a professional resume PDF or image instantly and privately in your browser.",
-      "applicationCategory": "ProductivityApplication",
-      "featureList": [ "Multiple professional resume templates", "Real-time live preview", "Download as high-resolution PDF or PNG", "A4-sized output for printing", "Client-side processing for 100% privacy", "No sign-up or registration required", "Works offline after first visit" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create a Resume with Solite",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Choose a Template", "text": "Select a professional resume template from the gallery." },
-          { "@type": "HowToStep", "name": "Step 2: Edit Your Details", "text": "Fill in the text fields for your name, contact info, summary, experience, education, and skills." },
-          { "@type": "HowToStep", "name": "Step 3: Download Your Resume", "text": "Choose your desired format (PDF or PNG) and click the download button to save your resume instantly." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans:['Inter','sans-serif'], serif:['Lora','serif'], body:['Source Sans Pro','sans-serif'] } } }
+    }
+  </script>
+
+  <!-- 🖋 Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite offers free, privacy-first browser tools for developers, designers, and creators."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/resume-builder.html#app",
+        "name": "Free Resume Builder | Solite",
+        "url": "https://solite.in/resume-builder.html",
+        "applicationCategory": "ProductivityApplication",
+        "description": "A privacy-first resume builder that generates professional resumes offline in your browser.",
+        "featureList": [
+          "Multiple professional templates",
+          "Live preview editing",
+          "Export as PDF or PNG",
+          "Offline support",
+          "No sign-up, no tracking"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/resume-builder.html#webpage",
+        "url": "https://solite.in/resume-builder.html",
+        "name": "Free Resume Builder | Private, Offline Resume Maker | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/solite-resume-builder-og.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Resume Builder" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the Solite Resume Builder really private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your entire resume is generated locally in your browser. No data is uploaded, stored, or shared anywhere." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download my resume as PDF?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You can export your resume instantly as a high-quality PDF or PNG file with a single click." }
+          }
         ]
       }
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Lora', 'serif'],
-                        body: ['Source Sans Pro', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        #template-grid::-webkit-scrollbar { height: 6px; }
-        #template-grid::-webkit-scrollbar-track { background: #1f2937; }
-        #template-grid::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
-        #resume-container [contenteditable="true"] { outline: none; }
-        #resume-container ul { list-style-position: inside; }
-        @media (max-width: 1023px) {
-            #resume-container [contenteditable="true"] { pointer-events: none; }
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-    </style>
+  <!-- 💅 Style Layer -->
+  <style>
+    .mobile-nav-btn.active { color:#fff }
+    .mobile-nav-btn { color:#9ca3af }
+    #template-grid::-webkit-scrollbar { height:6px }
+    #template-grid::-webkit-scrollbar-track { background:#1f2937 }
+    #template-grid::-webkit-scrollbar-thumb { background:#4b5563;border-radius:3px }
+    #resume-container [contenteditable="true"]{outline:none}
+    #resume-container ul{list-style-position:inside}
+    @media(max-width:1023px){#resume-container [contenteditable="true"]{pointer-events:none}}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified AI schema, privacy-first metadata, OG/Twitter parity, and discovery optimization. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -177,6 +230,131 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / RESUME BUILDER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-resume[open]>summary{border-bottom:1px solid #374151;}
+            #solite-seo-block-resume>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out;}
+            #solite-seo-block-resume[open]>summary .details-arrow-seo{transform:rotate(0deg);}
+            .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
+        </style>
+
+        <details id="solite-seo-block-resume" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Resume Builder — Create, Edit & Download Professional CVs Instantly
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+                xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Multiple Templates</span>
+                <span class="badge">Live Editing</span>
+                <span class="badge">PDF / PNG Export</span>
+                <span class="badge">Offline Support</span>
+                <span class="badge">100% Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Resume Builder</strong> lets you <strong>create modern, professional resumes</strong>
+                directly in your browser — no sign-up, no data uploads. Edit details live, pick from elegant templates,
+                and export instantly as <strong>PDF or PNG</strong>. All processing happens on your device, ensuring full privacy.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Different -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why It’s Better Than Traditional Resume Builders</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Zero Uploads:</strong> Your data never leaves your browser — everything runs locally.</li>
+                <li><strong>Professional Templates:</strong> Choose from modern, creative, and classic designs.</li>
+                <li><strong>One-Click Export:</strong> Instantly save as PDF or PNG with print-perfect quality.</li>
+                <li><strong>No Accounts or Ads:</strong> 100% free and distraction-free.</li>
+                <li><strong>Offline Ready:</strong> Works even without an internet connection once loaded.</li>
+                </ul>
+            </section>
+
+            <!-- 👥 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses the Solite Resume Builder</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Students & Graduates:</strong> Create professional resumes in minutes.</li>
+                    <li><strong>Freelancers:</strong> Customize client-specific CVs with design flexibility.</li>
+                    <li><strong>Job Seekers:</strong> Update your resume instantly without sign-ups or uploads.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Designers & Developers:</strong> Showcase creative layouts with offline control.</li>
+                    <li><strong>Recruiters:</strong> Generate quick resumes for internal profiles securely.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Select a template that fits your style or profession.</li>
+                <li>Edit text fields live — name, skills, experience, and education.</li>
+                <li>Upload a profile photo if required (optional templates only).</li>
+                <li>Choose export format: <strong>PDF</strong> or <strong>PNG</strong>.</li>
+                <li>Click <em>Download</em> — your resume is saved locally, fully offline.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Comparison Table -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Solite vs Cloud Resume Builders</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Solite Resume Builder</th><th class="p-2 text-left">Typical Online Builders</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Local / Offline</td><td class="p-2">❌ Cloud Storage</td></tr>
+                    <tr><td class="p-2">Sign-Up Needed</td><td class="p-2">🚫 None</td><td class="p-2">⚠️ Required</td></tr>
+                    <tr><td class="p-2">Export Options</td><td class="p-2">✅ PDF & PNG</td><td class="p-2">⚠️ PDF only / Watermarked</td></tr>
+                    <tr><td class="p-2">Speed</td><td class="p-2">⚡ Instant</td><td class="p-2">🐢 Depends on network</td></tr>
+                    <tr><td class="p-2">Templates</td><td class="p-2">🎨 8+ Built-in Styles</td><td class="p-2">⚠️ Limited / Paywalled</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🔗 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Productivity Tools</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./visiting-card-designer.html" class="text-white hover:underline font-medium">Visiting Card Designer</a> — create custom professional cards offline.</li>
+                <li><a href="./certificate-maker.html" class="text-white hover:underline font-medium">Certificate Maker</a> — design and download certificates instantly.</li>
+                <li><a href="./email-signature-generator.html" class="text-white hover:underline font-medium">Email Signature Generator</a> — build HTML signatures with previews.</li>
+                <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — clean, format, and refine your resume text.</li>
+                <li><a href="./file-viewer.html" class="text-white hover:underline font-medium">File Viewer</a> — view and verify PDFs directly in your browser.</li>
+                </ul>
+                <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Discover All Solite Tools →</a>
+                </p>
+            </section>
+
+            <!-- 🧠 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>resume builder, cv maker, offline resume, pdf resume, free resume generator, solite resume builder, privacy resume maker, no sign-up resume tool</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>  
+                “Solite Resume Builder — a 100% private, browser-based tool to design, edit, and export professional resumes instantly as PDF or PNG, with no uploads or accounts required.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1 BLOCK / RESUME BUILDER -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

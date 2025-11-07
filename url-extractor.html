@@ -1,99 +1,157 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free URL Extractor | Extract Links from Text | Solite</title>
-    <meta name="description" content="Instantly extract all URLs and links from text, documents, or source code. Free, private tool that automatically removes duplicates and sorts results. No uploads required.">
-    <meta name="keywords" content="url extractor, extract links, link extractor, find urls in text, url scraper, free seo tool, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/url-extractor.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free URL Extractor — Extract Links from Text Instantly | Solite</title>
+  <meta name="description" content="Extract all URLs from any text, document, or source code instantly. Free, privacy-first tool that removes duplicates, sorts links, and exports results — all in your browser.">
+  <meta name="keywords" content="url extractor, extract links from text, link scraper, url finder, seo tools, data cleaner, web utilities, solite, privacy first, client side tools">
+  <link rel="canonical" href="https://solite.in/url-extractor.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Solite">
+  <meta name="publisher" content="Solite">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="theme-color" content="#000000">
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free URL Extractor | Solite">
-    <meta property="og:description" content="Instantly extract, deduplicate, and sort all URLs from any text. A free and 100% private client-side tool.">
-    <meta property="og:url" content="https://solite.in/url-extractor.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/url-extractor-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🌐 Open Graph + Twitter for AI + Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Solite App Suite">
+  <meta property="og:title" content="Free URL Extractor — Extract Links from Text Instantly | Solite">
+  <meta property="og:description" content="Extract, deduplicate, and sort all URLs from any text. A free and 100% private browser-based tool.">
+  <meta property="og:url" content="https://solite.in/url-extractor.html">
+  <meta property="og:image" content="https://solite.in/assets/url-extractor-thumbnail.png">
+  <meta property="og:image:alt" content="Solite URL Extractor Tool Screenshot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free URL Extractor — Extract Links from Text | Solite">
+  <meta name="twitter:description" content="Extract all links from any text or file instantly — free, private, client-side, and fast.">
+  <meta name="twitter:image" content="https://solite.in/assets/url-extractor-thumbnail.png">
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "URL Extractor | Solite",
-      "url": "https://solite.in/url-extractor.html",
-      "description": "A free, client-side tool to extract, deduplicate, and sort URLs from any text block.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [
-        "Extracts all valid URLs from text",
-        "Removes duplicate links automatically",
-        "Sorts extracted URLs alphabetically",
-        "Exports URLs to CSV format",
-        "Client-side processing for privacy"
-      ],
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Extract URLs from Text",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste any block of text containing URLs into the input area." },
-          { "@type": "HowToStep", "name": "Step 2: View Results", "text": "The tool will instantly extract all unique URLs and display them in the output area, automatically removing duplicates." },
-          { "@type": "HowToStep", "name": "Step 3: Copy or Export", "text": "You can copy the list of links to your clipboard or export them as a CSV file." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- 🎨 Favicon & Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- 🧱 GEN-5.0 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" },
+        "description": "Solite builds privacy-first, browser-based tools for creators, developers, and digital professionals."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/url-extractor.html#webapp",
+        "name": "URL Extractor",
+        "url": "https://solite.in/url-extractor.html",
+        "description": "A free, client-side tool to extract all URLs from text, remove duplicates, and export results with full privacy.",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "Extracts valid URLs from text or documents",
+          "Removes duplicate links automatically",
+          "Sorts URLs alphabetically for readability",
+          "Exports URLs as CSV or plain text",
+          "Fully client-side for 100% privacy"
+        ],
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this tool store or upload my data?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All extraction happens in your browser — nothing is uploaded or saved on any server." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export the extracted URLs?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy them directly or download as a CSV file with one click." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it detect incomplete or malformed URLs?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. It validates common URL formats and filters out invalid or partial links automatically." }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "URL Extractor" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/url-extractor.html#webpage",
+        "url": "https://solite.in/url-extractor.html",
+        "name": "Free URL Extractor | Extract Links from Text | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/url-extractor-thumbnail.png" },
+        "isPartOf": { "@id": "https://solite.in/#website" }
       }
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style>
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED">
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema, AI discovery alignment, privacy-first metadata, and OG/Twitter consistency for ultimate ranking authority. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -185,6 +243,89 @@
             </button>
         </div>
     </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / URL EXTRACTOR) -->
+    <div class="w-full text-gray-300 p-2">
+    <style>
+        #solite-seo-block-url[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-url > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-url[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    </style>
+
+    <details id="solite-seo-block-url" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Free URL Extractor — Copy, Clean, Export Links in One Click
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+        <!-- Overview -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+            <span class="badge">URL Extraction</span>
+            <span class="badge">Duplicate Removal</span>
+            <span class="badge">Tracker Cleaner</span>
+            <span class="badge">CSV/TXT Export</span>
+            <span class="badge">100% Client-Side</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite URL Extractor</strong> pulls every valid link from messy text, code, or notes — then
+            <em>deduplicates, cleans tracking parameters, and exports</em> in seconds. Private by design: nothing leaves your browser.
+            </p>
+        </section>
+
+        <!-- Why it’s useful -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">What makes it different</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Cleaner Output:</strong> Strips UTM, fbclid/gclid, and other trackers.</li>
+            <li><strong>Domain Analytics:</strong> Quick host frequency to spot top sources.</li>
+            <li><strong>Root Mode:</strong> Collapse long URLs to their root for deduping.</li>
+            <li><strong>Zero Uploads:</strong> True client-side parsing for privacy.</li>
+            </ul>
+        </section>
+
+        <!-- Who uses it -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Great for</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>SEO & Growth:</strong> Extract backlinks from pasted reports.</li>
+                <li><strong>Researchers:</strong> Collect citations and sources fast.</li>
+                <li><strong>Developers:</strong> Parse logs, HTML, and readme files.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Social Teams:</strong> Clean tracking off shared links.</li>
+                <li><strong>Students:</strong> Build link lists for projects.</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- Cross-links -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">More Solite tools</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Universal Data Converter</a> — CSV, JSON, XML & more.</li>
+            <li><a href="./transcript-timestamp-remover.html" class="text-white hover:underline font-medium">Transcript Timestamp Remover</a> — Clean pasted text.</li>
+            <li><a href="./timestamp-converter.html" class="text-white hover:underline font-medium">Timestamp Converter</a> — Unix ↔ human-readable.</li>
+            <li><a href="./unit-converter.html" class="text-white hover:underline font-medium">Unit Converter</a> — Web/dev + science units.</li>
+            <li><a href="./tweet-to-image.html" class="text-white hover:underline font-medium">Tweet to Image</a> — Polished social captures.</li>
+            </ul>
+            <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+        </section>
+
+        <!-- AI & SEO cue -->
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500">Keywords: <em>url extractor, extract links from text, link scraper, remove utm, deduplicate urls, export urls csv, privacy-first url tool</em>.</p>
+            <p class="text-xs text-gray-600 italic"><strong>AI / Reviewer Cue:</strong> “Extract & clean URLs locally — no uploads, tracker removal, CSV/TXT export.”</p>
+        </section>
+        </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-4.1: URL EXTRACTOR SEO BLOCK -->
+
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

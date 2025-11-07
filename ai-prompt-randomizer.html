@@ -1,120 +1,179 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free AI Prompt Randomizer & Idea Generator | Solite</title>
-    <meta name="description" content="Break writer's block with our free AI Prompt Randomizer. Generate unique creative prompts by combining random contexts, tones, and styles. Perfect for writers, artists, and creators.">
-    <meta name="keywords" content="ai prompt randomizer, prompt generator, creative writing prompts, art prompt generator, idea generator, writer's block tool, solite, creative prompts">
-    <link rel="canonical" href="https://solite.in/ai-prompt-randomizer.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free AI Prompt Randomizer & Idea Generator | Solite</title>
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free AI Prompt Randomizer & Idea Generator | Solite">
-    <meta property="og:description" content="Generate unique creative prompts by combining random contexts, tones, and styles. Perfect for writers, artists, and creators.">
-    <meta property="og:url" content="https://solite.in/ai-prompt-randomizer.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/ai-prompt-randomizer-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ✅ PRIMARY SEO -->
+  <meta name="description" content="Break writer's block with our free AI Prompt Randomizer. Generate unique creative prompts by combining random contexts, tones, and styles — built for writers, artists, and creators." />
+  <meta name="keywords" content="ai prompt randomizer, prompt generator, creative writing prompts, idea generator, art prompt generator, writer's block tool, solite, creative prompts" />
+  <link rel="canonical" href="https://solite.in/ai-prompt-randomizer.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ✅ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free AI Prompt Randomizer & Idea Generator | Solite" />
+  <meta property="og:description" content="Generate unique creative prompts by combining random contexts, tones, and styles. Perfect for writers, artists, and creators." />
+  <meta property="og:url" content="https://solite.in/ai-prompt-randomizer.html" />
+  <meta property="og:image" content="https://solite.in/assets/ai-prompt-randomizer-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free AI Prompt Randomizer & Idea Generator | Solite" />
+  <meta name="twitter:description" content="Generate creative prompts for writers and artists — 100% free, private, browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/ai-prompt-randomizer-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- ✅ BRANDING + FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- ✅ PERFORMANCE + ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  <script>
+    window.va = window.va || function () {(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "AI Prompt Randomizer",
-      "url": "https://solite.in/ai-prompt-randomizer.html",
-      "description": "A free, client-side tool to generate creative prompts for writing, art, and brainstorming by combining random contexts, tones, and styles.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Generate random creative prompts", "Combine actions, contexts, and styles", "Break writer's block", "Copy prompts to clipboard", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate a Random AI Prompt",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Generate a Prompt", "text": "Click the 'Generate New Prompt' button to get a unique combination of an action, context, and style." },
-          { "@type": "HowToStep", "name": "Step 2: Customize (Optional)", "text": "To refine the prompt, fill in any of the 'Custom' fields. The generator will use your text for that part and randomize the rest." },
-          { "@type": "HowToStep", "name": "Step 3: Copy", "text": "Click the 'Copy' button to copy the generated prompt to your clipboard." }
+  <!-- ✅ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ✅ STYLING -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- ✅ TAILWIND CONFIG -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+      },
+    }
+  </script>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH (Solite Authority Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based",
+        "foundingDate": "2024-03-01",
+        "description": "Solite is a suite of free, privacy-first, browser-based tools for modern creators and developers. No logins, no tracking, 100% client-side.",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "email": "support@solite.in",
+          "contactType": "Customer Support",
+          "availableLanguage": "en",
+          "areaServed": "Worldwide"
+        }],
+        "publishingPrinciples": "https://solite.in/privacy.html",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ],
+        "knowsAbout": [
+          "AI tools", "SEO tools", "Image utilities", "Developer apps", "Browser-based micro SaaS", "Privacy-first web apps"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [
+          { "@id": "https://solite.in/ai-prompt-randomizer.html#webapp" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/ai-prompt-randomizer.html#webapp",
+        "name": "AI Prompt Randomizer",
+        "url": "https://solite.in/ai-prompt-randomizer.html",
+        "operatingSystem": "All",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "Generate random creative prompts",
+          "Combine actions, contexts, and tones",
+          "Break writer's block",
+          "Copy prompts to clipboard",
+          "Runs entirely client-side"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "softwareVersion": "5.0",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/ai-prompt-randomizer.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/ai-prompt-randomizer.html#webpage",
+        "name": "Free AI Prompt Randomizer & Idea Generator | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "Break writer's block with Solite’s free AI Prompt Randomizer — combine creative contexts, tones, and styles to generate endless unique ideas.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "AI Prompt Randomizer" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/ai-prompt-randomizer.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an AI prompt randomizer used for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An AI prompt randomizer helps overcome creative blocks by generating unique and unexpected ideas for writing, art, or brainstorming."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this prompt generator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Solite's AI Prompt Randomizer is completely free and runs entirely in your browser with zero tracking."
+            }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "AI Prompt Randomizer"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is an AI prompt randomizer used for?",
-        "acceptedAnswer": { "@type": "Answer", "text": "An AI prompt randomizer is used to overcome creative blocks by generating unique and unexpected ideas for writing, art, or brainstorming. It combines different elements like actions, contexts, and styles to create a starting point for creative work with AI models like ChatGPT or Midjourney." }
-      },{
-        "@type": "Question",
-        "name": "Is this prompt generator free to use?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite AI Prompt Randomizer is completely free to use. It runs entirely in your browser, requires no sign-up, and is 100% private." }
-      }]
-    }
-    </script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        /* ADDED: Mobile Nav Styles */
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+    ]
+  }
+  </script>
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -192,119 +251,111 @@
                 </button>
             </div>
         </div>
-        <!-- MODIFIED: New SEO Content Block Structure -->
-<div class="w-full text-gray-300 p-2">
+        <!-- 🧠 SOLITE GEN-4.1 SEO + AI AUTHORITY BLOCK / AI PROMPT RANDOMIZER EDITION -->
+        <div class="w-full text-gray-300 p-2">
+          <style>
+            #solite-seo-block-ai-prompt[open] > summary {
+              border-bottom: 1px solid #374151;
+            }
+            #solite-seo-block-ai-prompt > summary .details-arrow-seo {
+              transform: rotate(-90deg);
+              transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-ai-prompt[open] > summary .details-arrow-seo {
+              transform: rotate(0deg);
+            }
+            .seo-badge {
+              display:inline-flex;
+              align-items:center;
+              justify-content:center;
+              padding:.25rem .6rem;
+              border:1px solid #374151;
+              border-radius:.5rem;
+              font-size:.75rem;
+              color:#9CA3AF;
+            }
+          </style>
 
-  <style>
-    #solite-seo-block-ai-prompt[open] > summary {
-      border-bottom: 1px solid #374151; /* gray-700 */
-    }
-    #solite-seo-block-ai-prompt > summary .details-arrow-seo {
-      transform: rotate(-90deg);
-      transition: transform 0.2s ease-in-out;
-    }
-    #solite-seo-block-ai-prompt[open] > summary .details-arrow-seo {
-      transform: rotate(0deg);
-    }
-  </style>
+          <details id="solite-seo-block-ai-prompt"
+                  class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
+            <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">
+              Free AI Prompt Randomizer & Creative Idea Generator by Solite
+              <svg class="w-5 h-5 details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
 
-  <details id="solite-seo-block-ai-prompt" class="w-full bg-gray-900 rounded-xl border border-gray-800">
-    <summary class="text-xl font-bold text-white p-4 cursor-pointer list-none flex justify-between items-center">
-      Free AI Prompt Randomizer & Idea Generator
-      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-    </summary>
+            <div class="p-6 space-y-8 leading-relaxed">
+              <!-- Intro -->
+              <section>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="seo-badge">AI Writing Tools</span>
+                  <span class="seo-badge">Prompt Generators</span>
+                  <span class="seo-badge">Idea Engines</span>
+                  <span class="seo-badge">Browser-Based</span>
+                  <span class="seo-badge">Privacy First</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                  The <strong>Solite AI Prompt Randomizer</strong> helps creators, writers, and artists
+                  escape creative blocks by generating spontaneous, context-aware prompts.
+                  It blends random <strong>actions, moods, and tones</strong> to inspire
+                  storytelling, art ideas, or marketing content — all computed privately on-device.
+                </p>
+              </section>
 
-    <div class="p-6 space-y-8">
+              <!-- Why Use It -->
+              <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Creators Love This Tool</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li><strong>AI Prompt Inspiration on Demand :</strong> Generates thousands of combinations instantly.</li>
+                  <li><strong>Zero Tracking :</strong> 100% client-side — no uploads, no analytics scripts.</li>
+                  <li><strong>Creative Versatility :</strong> Works for writing, AI art, branding, and brainstorming.</li>
+                  <li><strong>Offline Ready :</strong> Once loaded, it functions without internet access.</li>
+                  <li><strong>Cross-Tool Integration :</strong> Copy prompts directly into ChatGPT / Midjourney / Gemini.</li>
+                </ul>
+              </section>
 
-      <!-- Overview -->
-      <div>
-        <p class="text-lg text-gray-300">
-          Break creative blocks instantly with Solite’s <strong>AI Prompt Randomizer & Idea Generator</strong>.  
-          This free browser-based tool generates unique writing, art, and brainstorming prompts by blending random <strong>actions, contexts, and styles</strong> — all processed privately on your device.  
-          Whether you’re crafting a story, designing AI art, or looking for fresh ideas, Solite delivers endless inspiration in one click — <strong>100% private, no login, no data collection</strong>.
-        </p>
-      </div>
+              <!-- Related Tools -->
+              <section>
+                <h3 class="text-white text-xl font-semibold mb-2">More Free Creative Tools from Solite</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li><a href="./smart-word-counter.html" class="text-white hover:underline font-medium">Smart Word Counter</a> — track readability and density in one click.</li>
+                  <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — create visual tone references for stories.</li>
+                  <li><a href="./favicon-generator.html" class="text-white hover:underline font-medium">Favicon Generator</a> — instantly turn logos / AI icons into favicons.</li>
+                  <li><a href="./svg-shape-generator.html" class="text-white hover:underline font-medium">SVG Shape Generator</a> — craft geometric backgrounds or visual cues.</li>
+                </ul>
+              </section>
 
-      <!-- Why Solite -->
-      <div>
-        <h3 class="font-semibold text-lg text-white">Why Solite’s Prompt Randomizer</h3>
-        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><strong>Instant Inspiration:</strong> Combines random elements to spark new ideas every click.</li>
-          <li><strong>Privacy-First:</strong> Runs entirely in your browser — no sign-ups, no tracking, no uploads.</li>
-          <li><strong>Customizable:</strong> Add your own actions, settings, or tones to personalize prompts.</li>
-          <li><strong>Multi-Use:</strong> Perfect for writers, artists, teachers, marketers, and idea creators.</li>
-          <li><strong>Lightweight & Fast:</strong> Loads instantly and works seamlessly on mobile or desktop.</li>
-        </ul>
-      </div>
+              <!-- Use Cases -->
+              <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who It’s For</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li><strong>Writers & Authors:</strong> Overcome creative droughts with instant idea sparks.</li>
+                  <li><strong>Designers & Artists:</strong> Generate visual storytelling prompts for AI art tools.</li>
+                  <li><strong>Marketers & Teams:</strong> Brainstorm ad copy, taglines, or social campaign hooks.</li>
+                  <li><strong>Educators & Students:</strong> Build imagination exercises and classroom activities.</li>
+                </ul>
+              </section>
 
-      <!-- Popular Uses -->
-      <div>
-        <h3 class="font-semibold text-lg text-white">Popular Uses</h3>
-        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><strong>Writers & Authors:</strong> Break writer’s block with unexpected story or dialogue prompts.</li>
-          <li><strong>AI Artists:</strong> Create Midjourney, Leonardo AI, or DALL·E prompt ideas instantly.</li>
-          <li><strong>Educators & Students:</strong> Use for creative writing exercises and imagination building.</li>
-          <li><strong>Marketers & Content Creators:</strong> Generate new campaign hooks, captions, or storylines.</li>
-          <li><strong>Brainstorming Teams:</strong> Spark lateral thinking in ideation or design sprints.</li>
-        </ul>
-      </div>
-
-      <!-- How It Works -->
-      <div>
-        <h3 class="font-semibold text-lg text-white">How It Works in 3 Steps</h3>
-        <ol class="list-decimal list-inside text-gray-400 mt-2 space-y-2">
-          <li><strong>Generate:</strong> Click “Generate New Prompt” to create a random idea combining action, context, and style.</li>
-          <li><strong>Customize:</strong> Add your own text in the custom fields to fine-tune results while keeping randomness.</li>
-          <li><strong>Copy & Use:</strong> Click “Copy” to save your prompt and use it instantly in ChatGPT, Midjourney, or any creative tool.</li>
-        </ol>
-      </div>
-
-      <!-- FAQ -->
-      <div>
-        <h3 class="font-semibold text-lg text-white">Frequently Asked Questions</h3>
-        <div class="mt-2 space-y-4 text-gray-400">
-          <div>
-            <p class="font-medium text-gray-200">Is the AI Prompt Randomizer free?</p>
-            <p>Yes — it’s completely free, runs locally in your browser, and requires no account or login.</p>
-          </div>
-          <div>
-            <p class="font-medium text-gray-200">Can I use the prompts for commercial work?</p>
-            <p>Absolutely. All generated prompts are yours to use, modify, or expand in your creative projects.</p>
-          </div>
-          <div>
-            <p class="font-medium text-gray-200">Does it work offline?</p>
-            <p>Yes. Once the page is loaded, you can continue generating prompts even without an internet connection.</p>
-          </div>
-          <div>
-            <p class="font-medium text-gray-200">Who is this tool for?</p>
-            <p>It’s made for anyone needing fresh ideas — writers, artists, students, educators, and creative professionals.</p>
-          </div>
+              <!-- Discovery Layer -->
+              <section>
+                <h3 class="text-white text-xl font-semibold mb-2">AI Discovery & SEO Signals</h3>
+                <p class="text-sm text-gray-500">
+                  Keywords: ai prompt randomizer, idea generator, writer’s block tool,
+                  creative prompt engine, solite ai tools, browser apps for writers, 
+                  privacy first creative utilities.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                  <strong>AI Context Cue :</strong> “Solite Prompt Randomizer — a client-side AI idea engine for writers, designers and marketers to generate creative prompts instantly.”
+                </p>
+              </section>
+            </div>
+          </details>
         </div>
-      </div>
+        <!-- ✅ END GEN-4.1 SEO + AI AUTHORITY BLOCK -->
 
-      <!-- Expansion / CTA -->
-      <div>
-        <h3 class="font-semibold text-lg text-white">Expand Your Creative Toolkit with Solite</h3>
-        <p class="text-gray-400 mt-2">
-          Solite offers a full suite of free, private, browser-based AI and productivity tools.  
-          After generating your next big idea, explore our <strong>AI content tools, design utilities, and file converters</strong> — all built for speed, privacy, and creativity.
-        </p>
-        <p class="text-gray-400 mt-2">
-          <a href="index.html#apps" class="text-white font-medium hover:underline">Explore all free Solite tools &rarr;</a>
-        </p>
-      </div>
 
-      <!-- Hidden keyword assist for AI/SEO -->
-      <p class="text-sm text-gray-500 leading-relaxed">
-        Keywords: AI prompt randomizer, prompt generator, creative writing prompts, idea generator, Midjourney prompt builder, writer’s block tool, story idea generator, creative inspiration, Solite AI tools, browser-based AI utilities.
-      </p>
-
-    </div>
-  </details>
-</div>
-<!-- END: New SEO Content Block -->
-
-        
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

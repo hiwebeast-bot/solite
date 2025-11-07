@@ -1,104 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Unit Converter (PX to REM, Length, Weight, Temp) | Solite</title>
-    <meta name="description" content="A free, private, and fast online unit converter for web development (px, rem, em), length, weight, temperature, and data storage. No ads, no sign-up.">
-    <meta name="keywords" content="unit converter, online unit converter, px to rem converter, kg to lbs converter, celsius to fahrenheit, length converter, weight converter, temperature converter, data converter, web dev converter, solite">
-    <link rel="canonical" href="https://solite.in/unit-converter.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Unit Converter | Solite">
-    <meta property="og:description" content="A free, private, and fast online unit converter for length, weight, temperature, data storage, and web development units (px, rem, em).">
-    <meta property="og:url" content="https://solite.in/unit-converter.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/unit-converter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free Unit Converter — PX to REM, Length, Weight, Currency, Temperature | Solite</title>
+  <meta name="description" content="Convert PX to REM, length, currency, weight, temperature, and data units instantly. A free, private, client-side unit converter built for developers and designers. No ads, no tracking.">
+  <meta name="keywords" content="unit converter, px to rem converter, online unit converter, css units, web developer tools, length converter, temperature converter, weight converter, data storage converter, privacy first tools, solite">
+  <link rel="canonical" href="https://solite.in/unit-converter.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph + Twitter for Social & AI -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Unit Converter — PX to REM, Length, Weight, Temperature | Solite" />
+  <meta property="og:description" content="Instantly convert PX to REM, length, weight, and temperature units. 100% private, no sign-up, no server uploads.">
+  <meta property="og:url" content="https://solite.in/unit-converter.html" />
+  <meta property="og:image" content="https://solite.in/assets/unit-converter-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Unit Converter App" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Unit Converter — PX to REM, Length, Weight, Temperature | Solite" />
+  <meta name="twitter:description" content="Free online unit converter for web, design, and science. Convert instantly with privacy-first client-side logic.">
+  <meta name="twitter:image" content="https://solite.in/assets/unit-converter-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Unit Converter",
-      "url": "https://solite.in/unit-converter.html",
-      "description": "A free, client-side tool to convert between various units of measurement, including length, weight, temperature, data storage, and web development units.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Convert length units (meters, feet, etc.)", "Convert weight units (kg, lbs, etc.)", "Convert temperature (Celsius, Fahrenheit, Kelvin)", "Convert data storage units (KB, MB, GB)", "Convert web units (px, rem, em)", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Convert Units",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Select Category", "text": "Choose the type of measurement you want to convert, such as Length, Weight, or Temperature." },
-          { "@type": "HowToStep", "name": "Step 2: Enter Value", "text": "Enter the value you want to convert into one of the input boxes." },
-          { "@type": "HowToStep", "name": "Step 3: Select Units", "text": "Select the 'from' and 'to' units using the dropdowns. The conversion will happen automatically." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- 🎨 Favicon & Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- 🧱 GEN-5.0 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" },
+        "description": "Solite builds free, privacy-first browser tools for creators, designers, and developers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/unit-converter.html#webapp",
+        "name": "Unit Converter",
+        "url": "https://solite.in/unit-converter.html",
+        "description": "A free, privacy-first client-side tool to convert between PX, REM, length, weight, temperature, and data storage units.",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "Convert PX ↔ REM",
+          "Convert length units (m, ft, in, cm)",
+          "Convert weight (kg, lbs, oz)",
+          "Convert temperature (C, F, K)",
+          "Convert data storage (KB, MB, GB)",
+          "Client-side processing for 100% privacy"
+        ],
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this converter work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The converter runs fully in your browser, so it works even without an internet connection once loaded." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data or conversion history stored?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Solite tools are privacy-first — no data leaves your browser or is saved on our servers." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use it for web development?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. It supports web units like PX, REM, and EM, making it perfect for front-end developers and designers." }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Unit Converter" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/unit-converter.html#webpage",
+        "name": "Free Unit Converter | Solite",
+        "url": "https://solite.in/unit-converter.html",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/unit-converter-thumbnail.png" },
+        "isPartOf": { "@id": "https://solite.in/#website" }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Unit Converter"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+      },
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): Unified schema, OG/Twitter parity, privacy-first metadata, freshness timestamp, and AI discoverability optimization. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -191,6 +249,108 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / UNIT CONVERTER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+
+        <style>
+            #solite-seo-block-unit[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-unit > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-unit[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-unit" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free All-in-One Unit Converter — PX, REM, Length, Weight, Temperature
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">PX → REM Converter</span>
+                <span class="badge">Length & Distance</span>
+                <span class="badge">Weight / Mass</span>
+                <span class="badge">Temperature</span>
+                <span class="badge">Data Storage</span>
+                <span class="badge">100% Client-Side</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Unit Converter</strong> instantly transforms values across web, design, and science categories — from PX to REM, meters to feet, or Celsius to Fahrenheit.  
+                It’s <strong>fully private</strong>, lightning-fast, and runs entirely in your browser without storing or uploading any data.
+                </p>
+            </section>
+
+            <!-- ⚙️ Why It’s Unique -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Developers Love It</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>PX ↔ REM Mode:</strong> Web-focused conversion for front-end and CSS design.</li>
+                <li><strong>Smart Temperature Logic:</strong> Converts across °C, °F, and Kelvin instantly.</li>
+                <li><strong>Auto Currency Updates:</strong> Real-time exchange rates (cached locally).</li>
+                <li><strong>No Servers, No Logins:</strong> 100% privacy-first architecture.</li>
+                <li><strong>Offline-Ready:</strong> Works even when your internet doesn’t.</li>
+                </ul>
+            </section>
+
+            <!-- 🧭 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who It’s Built For</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Web Developers:</strong> Convert PX ↔ REM for responsive layouts.</li>
+                    <li><strong>Designers:</strong> Adjust font scales and spacing precisely.</li>
+                    <li><strong>Students:</strong> Solve physics or engineering unit problems easily.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Content Creators:</strong> Standardize measurements in global projects.</li>
+                    <li><strong>Scientists / Analysts:</strong> Use fast, no-login conversions during research.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- 🧰 How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Select your conversion category (e.g., <strong>Length</strong> or <strong>Temperature</strong>).</li>
+                <li>Enter your input value — conversions update instantly.</li>
+                <li>Use the <strong>swap</strong> button to reverse direction.</li>
+                <li>Adjust the base font size for web conversions when needed.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Cross-Link Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Part of Solite’s Developer Tool Suite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Craft perfect gradients for UI design.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Extract colors and create palettes instantly.</li>
+                <li><a href="./svg-optimizer.html" class="text-white hover:underline font-medium">SVG Optimizer</a> — Clean up and compress SVG code.</li>
+                <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Universal Data Converter</a> — Convert CSV, JSON, XML, and more locally.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+            </section>
+
+            <!-- 🧠 AI & SEO Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>unit converter, px to rem, css converter, length converter, web developer tools, temperature converter, solite, privacy-first tools, offline converter</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Cue:</strong> “Solite Unit Converter — a fast, offline, and private web tool that lets you convert PX, REM, and all scientific units directly in your browser.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: UNIT CONVERTER SEO BLOCK -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

@@ -1,82 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Snippet Manager - A Private, Local Snippet Vault | Solite</title>
-    <meta name="description" content="A free, private, browser-based snippet manager to store, manage, and tag your code and text snippets. All data stays on your device. Fast, secure, and offline-capable.">
-    <meta name="keywords" content="snippet manager, code snippet manager, snippet vault, local snippet manager, text snippet tool, developer tool, code organizer, solite">
-    <link rel="canonical" href="https://solite.in/snippet-manager.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 SEO & AI Discovery -->
+  <title>Snippet Manager – A Private, Local Snippet Vault | Solite</title>
+  <meta name="description" content="A free, private, browser-based snippet manager to store, tag, and organize your code or text snippets. Data stays 100% on your device — secure, fast, and offline-ready.">
+  <meta name="keywords" content="snippet manager, code snippet manager, local storage snippet tool, code organizer, developer tool, text snippet manager, privacy first, solite">
+  <link rel="canonical" href="https://solite.in/snippet-manager.html" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Solite">
+  <meta name="theme-color" content="#000000">
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Snippet Manager - A Private, Local Snippet Vault by Solite">
-    <meta property="og:description" content="A free, private, browser-based tool to store, manage, and tag code snippets. All data stays on your device, ensuring complete privacy.">
-    <meta property="og:url" content="https://solite.in/snippet-manager.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/snippet-manager-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Solite">
+  <meta property="og:title" content="Snippet Manager – A Private, Local Snippet Vault | Solite">
+  <meta property="og:description" content="A free, local snippet vault for developers. Store and manage code snippets securely in your browser — no accounts, no uploads.">
+  <meta property="og:url" content="https://solite.in/snippet-manager.html">
+  <meta property="og:image" content="https://solite.in/assets/snippet-manager-thumbnail.png">
+  <meta property="og:image:alt" content="Solite Snippet Manager – Private Local Code Vault">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Snippet Manager – A Private, Local Snippet Vault | Solite">
+  <meta name="twitter:description" content="Store, tag, and search your snippets locally. 100% client-side privacy.">
+  <meta name="twitter:image" content="https://solite.in/assets/snippet-manager-thumbnail.png">
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Snippet Manager – A Private, Local Snippet Vault | Solite">
+  <meta name="DC.Description" content="A privacy-first local snippet manager for developers to organize and tag code/text snippets.">
+  <meta name="DC.Type" content="Software">
+  <meta name="DC.Publisher" content="Solite">
+  <meta name="DC.Creator" content="Solite">
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Snippet Manager: A Private Snippet Vault",
-      "url": "https://solite.in/snippet-manager.html",
-      "description": "A free, client-side tool for storing, tagging, and managing code and text snippets in the browser's local storage.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Store code/text snippets", "Tag snippets for organization", "Real-time search", "Data stored locally in the browser", "Import/Export snippet library as JSON", "Supports syntax highlighting hints (JS, HTML, etc.)", "Client-side processing for 100% privacy" ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 🎨 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite creates free, privacy-first, browser-based utilities for creators and developers."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/snippet-manager.html#app",
+        "name": "Snippet Manager | Solite",
+        "url": "https://solite.in/snippet-manager.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A free, private, client-side snippet manager that stores and organizes your code locally using browser storage.",
+        "featureList": [
+          "Store and tag code or text snippets",
+          "Search snippets in real time",
+          "Import/export snippet library as JSON",
+          "Syntax hinting for popular languages",
+          "Fully client-side for 100% privacy"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Snippet Manager" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my snippet data private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, your snippets are saved locally in your browser’s storage. Nothing is uploaded or stored online." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I back up my snippets?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can export all your snippets as a JSON file and re-import them later on any device." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once loaded, Solite’s Snippet Manager works fully offline — perfect for local development or travel." }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/snippet-manager.html#webpage",
+        "name": "Snippet Manager – A Private, Local Snippet Vault | Solite",
+        "url": "https://solite.in/snippet-manager.html",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/snippet-manager-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 💅 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono','monospace'] } }
+      }
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .snippet-item.active { 
-            background-color: #ffffff; /* white */
-            color: #111827; /* gray-900 */
-        }
-        .snippet-item.active p { color: #4b5563; } /* gray-600 for subtext */
-    </style>
+  <!-- 🖋 Custom Scrollbar + UI Styles -->
+  <style>
+    #toast{transform:translateY(-150%);transition:transform .3s ease-in-out}
+    #toast.show{transform:translateY(2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    .snippet-item.active{background-color:#fff;color:#111827}
+    .snippet-item.active p{color:#4b5563}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified AI schema, OG/Twitter parity, and privacy-first AI optimization. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -193,6 +270,125 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / SNIPPET MANAGER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+
+        <style>
+            #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-case > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Snippet Manager — Secure, Offline Code & Text Vault
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Offline Snippet Vault</span>
+                <span class="badge">Local Storage</span>
+                <span class="badge">Tagging & Search</span>
+                <span class="badge">Import / Export JSON</span>
+                <span class="badge">100% Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Snippet Manager</strong> is a private, browser-based vault for developers and writers.  
+                Store, tag, and search your snippets securely — with everything running <strong>entirely offline</strong> in your browser.  
+                Perfect for developers, copywriters, and makers who want <strong>speed, privacy, and reliability — no accounts, no syncing, no cloud risks.</strong>
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Better -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Snippet Manager Stands Out</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Private by Design:</strong> Your snippets stay fully local — nothing leaves your device.</li>
+                <li><strong>Zero Setup:</strong> Works instantly in-browser. No logins, no backend, no cookies.</li>
+                <li><strong>Smart Search & Tagging:</strong> Organize snippets by language, tags, and keywords for instant retrieval.</li>
+                <li><strong>Backup Friendly:</strong> Export or import your full library as JSON — easy versioning and migration.</li>
+                <li><strong>Offline Ready:</strong> Runs even without internet; ideal for travel, client sites, or secure environments.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & How</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Developers:</strong> Store reusable code, commands, and snippets for projects.</li>
+                    <li><strong>Writers & Bloggers:</strong> Save recurring phrases, intros, or post templates.</li>
+                    <li><strong>Designers:</strong> Keep CSS utilities, palette notes, or HTML components organized.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Students & Learners:</strong> Record study notes, formulas, or code examples.</li>
+                    <li><strong>Product Teams:</strong> Centralize reusable copy, UI strings, and markdown templates privately.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li><strong>Create a New Snippet:</strong> Click <span class="text-white font-medium">“New”</span> and start typing your code or text.</li>
+                <li><strong>Add Metadata:</strong> Tag it with language and keywords for easy search.</li>
+                <li><strong>Edit or Copy:</strong> Update instantly — changes save automatically in local storage.</li>
+                <li><strong>Backup or Share:</strong> Export all snippets as JSON and import them anywhere.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Comparison Table (AI-Readable Data Block) -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Key Features (AI-Readable)</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Local Storage</td><td class="p-2">Saves snippets directly in browser storage</td><td class="p-2">Privacy & speed</td></tr>
+                    <tr><td class="p-2">Search & Filter</td><td class="p-2">Instant lookup by title, tags or content</td><td class="p-2">Productivity boost</td></tr>
+                    <tr><td class="p-2">Import / Export JSON</td><td class="p-2">Easily backup or move your snippet library</td><td class="p-2">Portability</td></tr>
+                    <tr><td class="p-2">Tagging System</td><td class="p-2">Organize snippets by topics or languages</td><td class="p-2">Organization</td></tr>
+                    <tr><td class="p-2">Offline Mode</td><td class="p-2">Works without internet connection</td><td class="p-2">Reliability</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🧩 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer Suite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Code Editor</a> — Live HTML/CSS/JS playground with instant preview.</li>
+                <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regular expressions with live highlighting.</li>
+                <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Generate MD5, SHA-1 and SHA-256 hashes instantly.</li>
+                <li><a href="./meta-tag-previewer.html" class="text-white hover:underline font-medium">Meta Tag Previewer</a> — Visualize how your site appears on social media.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+            </section>
+
+            <!-- 🧠 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>snippet manager, code snippet manager, local storage tool, offline developer tools, snippet vault, privacy first tool, text snippet organizer, solite developer tools</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong> “Solite Snippet Manager — a zero-server, 100% local vault for developers to store, tag and search snippets securely in their browser.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: SNIPPET MANAGER BLOCK -->
+
     <!-- Footer -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

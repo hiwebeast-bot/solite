@@ -1,82 +1,160 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Online UUID Generator (v1 & v4) | Solite</title>
-    <meta name="description" content="Generate unique identifiers (UUIDs) instantly with our free online tool. Create version 1 (timestamp-based) and version 4 (random) UUIDs. 100% private and browser-based.">
-    <meta name="keywords" content="uuid generator, guid generator, create uuid, generate uuid v4, generate uuid v1, unique identifier, online tool, solite, developer tool">
-    <link rel="canonical" href="https://solite.in/uuid-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online UUID Generator (v1 & v4) | Solite">
-    <meta property="og:description" content="Generate unique identifiers (UUIDs) instantly with our free online tool. Create version 1 (timestamp-based) and version 4 (random) UUIDs.">
-    <meta property="og:url" content="https://solite.in/uuid-generator.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/uuid-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free UUID Generator (v1 & v4) — Online Unique ID Maker | Solite</title>
+  <meta name="description" content="Generate UUIDs (v1 & v4) instantly in your browser. No sign-up, no upload — create timestamp-based or random unique identifiers privately with Solite." />
+  <meta name="keywords" content="uuid generator, guid generator, generate uuid online, uuid v1, uuid v4, unique id tool, developer utilities, solite, privacy first" />
+  <link rel="canonical" href="https://solite.in/uuid-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph + Twitter for Social & AI -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free UUID Generator (v1 & v4) — Online Unique ID Maker | Solite" />
+  <meta property="og:description" content="Generate UUIDs instantly (v1 timestamp-based & v4 random). 100% private and browser-based." />
+  <meta property="og:url" content="https://solite.in/uuid-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/uuid-generator-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite UUID Generator Preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free UUID Generator (v1 & v4) | Solite" />
+  <meta name="twitter:description" content="Generate unique UUIDs online instantly — v1 (timestamp) & v4 (random). 100% private." />
+  <meta name="twitter:image" content="https://solite.in/assets/uuid-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📊 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "UUID Generator",
-      "url": "https://solite.in/uuid-generator.html",
-      "description": "A free, client-side tool to generate version 1 (timestamp-based) and version 4 (random) UUIDs with formatting options.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate UUID v1", "Generate UUID v4", "Generate multiple UUIDs", "Customize formatting (uppercase, hyphens)", "Copy generated UUIDs", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
-    }
-    </script>
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+  <!-- 🎨 Favicon & Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧱 GEN-5.0 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" },
+        "description": "Solite builds privacy-first, browser-based tools for developers, designers, and creators."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/uuid-generator.html#webapp",
+        "name": "UUID Generator",
+        "url": "https://solite.in/uuid-generator.html",
+        "description": "A free, client-side UUID generator supporting version 1 (timestamp-based) and version 4 (random) identifiers.",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Generate UUID v1 (timestamp-based)",
+          "Generate UUID v4 (random)",
+          "Create multiple UUIDs in one click",
+          "Customize case and hyphen formatting",
+          "Copy results instantly",
+          "100% client-side and private"
+        ],
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What’s the difference between UUID v1 and v4?",
+            "acceptedAnswer": { "@type": "Answer", "text": "UUID v1 uses timestamps and hardware info, while UUID v4 generates purely random IDs." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are UUIDs generated securely?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All generation uses browser cryptography (window.crypto) for secure random values." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The UUIDs are created entirely in your browser — nothing is uploaded or stored." }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "UUID Generator" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/uuid-generator.html#webpage",
+        "url": "https://solite.in/uuid-generator.html",
+        "name": "Free UUID Generator (v1 & v4) | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/uuid-generator-thumbnail.png" },
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } }
+      }
+    };
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema, AI discovery alignment, privacy-first metadata, and OG/Twitter consistency for top-tier ranking authority. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -157,6 +235,111 @@
             </button>
         </div>
     </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / UUID GENERATOR) -->
+    <div class="w-full text-gray-300 p-2">
+      <style>
+        #solite-seo-block-uuid[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-uuid > summary .details-arrow-seo {
+          transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-uuid[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge {
+          display:inline-flex; align-items:center; gap:.5rem;
+          border:1px solid #374151; padding:.25rem .6rem;
+          border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+        }
+      </style>
+
+      <details id="solite-seo-block-uuid" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Free UUID Generator (v1 & v4) — Online Unique ID Maker | Solite
+          <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+              xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+
+          <!-- 🧩 Overview -->
+          <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">UUID v1 & v4</span>
+              <span class="badge">Bulk Generation</span>
+              <span class="badge">100% Private</span>
+              <span class="badge">Offline Ready</span>
+              <span class="badge">Developer Tool</span>
+            </div>
+            <p class="text-lg text-gray-300">
+              The <strong>Solite UUID Generator</strong> instantly creates
+              <strong>Version 1 (timestamp-based)</strong> and <strong>Version 4 (random)</strong>
+              UUIDs right inside your browser — no uploads, no tracking, completely client-side.
+            </p>
+          </section>
+
+          <!-- 🧭 Why It’s Different -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why It’s the Best Free UUID Generator</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>True Client-Side:</strong> 100% private — nothing leaves your browser.</li>
+              <li><strong>v1 & v4 Support:</strong> Choose timestamp or random generation modes.</li>
+              <li><strong>Bulk Create:</strong> Generate up to 1 000 UUIDs instantly.</li>
+              <li><strong>Format Options:</strong> Toggle hyphens / uppercase with a click.</li>
+              <li><strong>Offline Mode:</strong> Works even without an internet connection.</li>
+            </ul>
+          </section>
+
+          <!-- 👨‍💻 Who Uses It -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite UUID Generator</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Developers:</strong> Create unique IDs for APIs and databases.</li>
+                <li><strong>Testers / QA:</strong> Generate consistent test data identifiers.</li>
+                <li><strong>Admins:</strong> Produce unique tracking IDs or log references.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ⚙️ How to Use -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+              <li>Select your preferred UUID version (v1 or v4) and formatting.</li>
+              <li>Choose how many IDs to generate.</li>
+              <li>Click <strong>Generate UUIDs</strong> — copy or export instantly.</li>
+            </ol>
+          </section>
+
+          <!-- 🔗 Related Solite Tools -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">More Developer Tools</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Create MD5, SHA1, SHA256 hashes.</li>
+              <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — Validate and beautify API data.</li>
+              <li><a href="./timestamp-converter.html" class="text-white hover:underline font-medium">Timestamp Converter</a> — Unix ↔ readable time.</li>
+            </ul>
+            <p class="text-gray-400 mt-3">
+              <a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a>
+            </p>
+          </section>
+
+          <!-- 🤖 AI & SEO Discovery Layer -->
+          <section class="space-y-2">
+            <p class="text-sm text-gray-500">
+              Keywords: <em>uuid generator, guid tool, create uuid online, uuid v1 v4, unique identifier tool, developer utilities, solite, client-side uuid generator</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Cue:</strong> “Solite UUID Generator — free, browser-based, privacy-first UUID creator supporting v1 and v4 with bulk generation and format options.”
+            </p>
+          </section>
+
+        </div>
+      </details>
+    </div>
+    <!-- ✅ END GEN-4.1 UUID GENERATOR BLOCK -->
+
 
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
@@ -175,101 +358,7 @@
         </div>
     </footer>
 
-    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / UUID GENERATOR EDITION) -->
-<div class="w-full text-gray-300 p-2">
-
-  <style>
-    #solite-seo-block-uuid[open] > summary { border-bottom: 1px solid #374151; }
-    #solite-seo-block-uuid > summary .details-arrow-seo {
-      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
-    }
-    #solite-seo-block-uuid[open] > summary .details-arrow-seo { transform: rotate(0deg); }
-    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
-  </style>
-
-  <details id="solite-seo-block-uuid" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-    <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-      Free Online UUID Generator (v1 & v4) — Create Unique Identifiers Instantly | Solite
-      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7 7" /></svg>
-    </summary>
-
-    <div class="p-6 space-y-10 leading-relaxed">
-
-      <!-- 🧩 Overview -->
-      <section class="space-y-3">
-        <div class="flex flex-wrap gap-2">
-          <span class="badge">UUID v1 & v4</span>
-          <span class="badge">Bulk Generation</span>
-          <span class="badge">100% Private</span>
-          <span class="badge">No Uploads</span>
-          <span class="badge">Offline Ready</span>
-        </div>
-        <p class="text-lg text-gray-300">
-          The <strong>Solite UUID Generator</strong> lets you instantly create <strong>Version 1 (timestamp-based)</strong> and <strong>Version 4 (random)</strong> universally unique identifiers (UUIDs) directly in your browser. 
-          Generate multiple UUIDs, customize formatting, and copy them with one click — all with <strong>total privacy</strong> as no data ever leaves your device.
-        </p>
-      </section>
-
-      <!-- 🧭 Why It’s Better -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s UUID Generator Is Different</h3>
-        <ul class="list-disc list-inside text-gray-400 space-y-2">
-          <li><strong>100% Client-Side:</strong> All generation happens locally. Your actions are never logged or tracked.</li>
-          <li><strong>v1 and v4 Support:</strong> Choose between random (v4) for most use cases or timestamp-based (v1) for time-series data.</li>
-          <li><strong>Bulk Generation:</strong> Create up to 1,000 UUIDs at once for testing or database seeding.</li>
-          <li><strong>Formatting Control:</strong> Easily toggle uppercase and hyphens to match your project's requirements.</li>
-          <li><strong>Offline-Ready:</strong> Once loaded, the tool works without an internet connection, perfect for secure environments.</li>
-        </ul>
-      </section>
-
-      <!-- 🧠 Who Uses It -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite UUID Generator</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>Developers:</strong> Generate primary keys for databases or unique IDs for API requests.</li>
-            <li><strong>QA Testers:</strong> Create unique identifiers for test data and user accounts.</li>
-            <li><strong>System Administrators:</strong> Generate unique tracking IDs for assets or log entries.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ⚙️ How to Use -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">How to Use the UUID Generator</h3>
-        <ol class="list-decimal list-inside text-gray-400 space-y-2">
-          <li><strong>Select Options:</strong> Choose the number of UUIDs, the version (v1 or v4), and formatting preferences.</li>
-          <li><strong>Generate:</strong> Click the "Generate UUIDs" button.</li>
-          <li><strong>Copy:</strong> Click "Copy All" to copy the entire list to your clipboard.</li>
-        </ol>
-      </section>
-
-      <!-- 🔗 Cross-Linking Ecosystem -->
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer Toolkit</h3>
-        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Create cryptographic hashes for data integrity.</li>
-          <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — Validate and format JSON data for APIs.</li>
-          <li><a href="./timestamp-converter.html" class="text-white hover:underline font-medium">Timestamp Converter</a> — Convert between Unix timestamps and human-readable dates.</li>
-        </ul>
-        <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
-      </section>
-
-      <!-- 🤖 AI & Research Citation Layer -->
-      <section class="space-y-2">
-        <p class="text-sm text-gray-500 leading-relaxed">
-          Keywords: <em>uuid generator, guid generator, create uuid, generate uuid v4, generate uuid v1, unique identifier, online tool, solite, developer tool, client-side uuid, private guid tool</em>.
-        </p>
-        <p class="text-xs text-gray-600 italic">
-          <strong>AI / Reviewer Citation Cue:</strong> “Solite UUID Generator — a free, privacy-first browser tool that generates version 1 and version 4 UUIDs with bulk creation and formatting options, all processed client-side.”
-        </p>
-      </section>
-
-    </div>
-  </details>
-</div>
-<!-- ✅ END GEN-4.1: UUID GENERATOR BLOCK -->
-
+   
     <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
 
     <script>

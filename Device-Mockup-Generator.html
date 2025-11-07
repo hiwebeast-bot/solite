@@ -1,137 +1,172 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags (Optimized) -->
-    <title>Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite</title>
-    <meta name="description" content="Generate stunning, high-resolution mockups for your app or website. Our free online tool features iPhone, iPad, MacBook, and browser frames. Fully customizable, 100% private, no sign-up required.">
-    <meta name="keywords" content="device mockup generator, apple mockup, iphone mockup, ipad mockup, macbook mockup, browser mockup, free mockup generator, app screenshot mockup, website presentation, solite, privacy first, screenshot mockup">
-    <link rel="canonical" href="https://solite.in/Device-Mockup-Generator.html">
-    <meta property="og:title" content="Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite">
-    <meta property="og:description" content="Generate stunning, high-resolution mockups for your app or website. Our free online tool features iPhone, iPad, MacBook, and browser frames. Fully customizable and 100% private.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://solite.in/assets/solite-browser-mockup-og.png">
-    <meta property="og:url" content="https://solite.in/Device-Mockup-Generator.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite</title>
+  <meta name="description" content="Generate stunning, high-resolution mockups for your app or website. Featuring iPhone, iPad, MacBook, and browser frames. Free, customizable, and 100% private — no sign-up required." />
+  <meta name="keywords" content="device mockup generator, apple mockup, iphone mockup, ipad mockup, macbook mockup, browser mockup, app screenshot mockup, free mockup generator, solite, privacy-first, design tool" />
+  <link rel="canonical" href="https://solite.in/device-mockup-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="dark-theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite" />
+  <meta property="og:description" content="Generate high-resolution mockups for iPhone, iPad, MacBook, or browser frames. Fully private, free, and customizable." />
+  <meta property="og:url" content="https://solite.in/device-mockup-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/solite-browser-mockup-og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Device Mockup Generator | Solite" />
+  <meta name="twitter:description" content="Instantly create professional mockups for Apple devices and browsers. Works offline. No data leaves your browser." />
+  <meta name="twitter:image" content="https://solite.in/assets/solite-browser-mockup-og.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="dark-theme-color" content="#000000">
+  <!-- 📈 Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org Markup (Optimized) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Device Mockup Generator | Solite",
-      "url": "https://solite.in/Device-Mockup-Generator.html",
-      "description": "A free, client-side tool to create professional device mockups for website or app screenshots, featuring iPhone, iPad, MacBook, and Safari-style Browser frames.",
-      "applicationCategory": "MultimediaApplication",
-      "featureList": [ "iPhone Mockups", "iPad Mockups", "MacBook Laptop Mockups", "Browser Mockups", "Light & Dark Mode UI", "Transparent Background Option", "Customizable Backgrounds", "Proportional Scaling", "High-Resolution PNG Downloads", "Client-side processing for privacy", "No Sign-up Required" ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Create a Device Mockup",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Upload Screenshot", "text": "Click 'Upload Image' and select your app or website screenshot." },
-          { "@type": "HowToStep", "name": "Step 2: Choose Device Frame", "text": "Select a device frame from the options: Browser, iPhone, iPad, or MacBook." },
-          { "@type": "HowToStep", "name": "Step 3: Customize Style", "text": "Adjust the background color, shadow, and other device-specific styles like the browser URL or theme." },
-          { "@type": "HowToStep", "name": "Step 4: Download Mockup", "text": "Click the 'Download as PNG' button to save your high-resolution mockup image." }
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🎨 JS Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- 🧬 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite creates privacy-first, browser-based tools for creators and developers — free, fast, and secure."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/device-mockup-generator.html#app",
+        "name": "Device Mockup Generator | Solite",
+        "url": "https://solite.in/device-mockup-generator.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "iPhone, iPad, and MacBook mockups",
+          "Browser window mockups",
+          "Light & Dark UI modes",
+          "Transparent or custom backgrounds",
+          "Proportional scaling and high-resolution exports",
+          "Full client-side rendering (100% private)"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/device-mockup-generator.html#page",
+        "name": "Free Apple Device Mockup Generator (iPhone, iPad, Mac) | Solite",
+        "description": "A private, browser-based tool for generating high-quality device mockups. No uploads, no tracking, no sign-ups.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Device Mockup Generator" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/device-mockup-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What devices are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "You can create mockups for iPhone, iPad, MacBook, and generic browser frames. Each is fully customizable with adjustable backgrounds and themes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool store my images?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All processing is handled entirely in your browser. Your images never leave your device, ensuring total privacy." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Device Mockup Generator"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What devices can I create mockups for?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You can create mockups for a generic browser window, an iPhone, an iPad, and a MacBook. You can customize the style of the browser and MacBook frames." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], },
-                },
-            },
-        }
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        html.light ::-webkit-scrollbar-track { background: #e5e7eb; }
-        html.dark ::-webkit-scrollbar-track { background: #111827; }
-        html.light ::-webkit-scrollbar-thumb { background-color: #9ca3af; }
-        html.dark ::-webkit-scrollbar-thumb { background-color: #4b5563; }
-        .mobile-nav-btn { color: #6b7280; }
-        html.dark .mobile-nav-btn { color: #9ca3af; }
-        .mobile-nav-btn.active { color: #000000; }
-        html.dark .mobile-nav-btn.active { color: #ffffff; }
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
-        #toast.show { transform: translateY(2rem); }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #4f46e5; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        html.dark input[type=range]::-webkit-slider-thumb { background: #ffffff; }
-        .style-btn { border-bottom: 2px solid transparent; }
-        .style-btn.active { border-bottom-color: #4f46e5; color: #111827; }
-        html.dark .style-btn.active { border-bottom-color: #ffffff; color: #ffffff; }
-        .checkerboard { background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
-        
-        /* Special style for html2canvas rendering */
-        .for-canvas-rendering {
-            /* This nudges the text up slightly only during download */
-            line-height: 0.1 !important;
-            padding-bottom: 10px !important;
-        }
-    </style>
+  <!-- 🎨 STYLES -->
+  <style>
+    ::-webkit-scrollbar{width:8px;height:8px}
+    html.light ::-webkit-scrollbar-track{background:#e5e7eb}
+    html.dark ::-webkit-scrollbar-track{background:#111827}
+    html.light ::-webkit-scrollbar-thumb{background-color:#9ca3af}
+    html.dark ::-webkit-scrollbar-thumb{background-color:#4b5563}
+    .mobile-nav-btn{color:#6b7280}
+    html.dark .mobile-nav-btn{color:#9ca3af}
+    .mobile-nav-btn.active{color:#000}
+    html.dark .mobile-nav-btn.active{color:#fff}
+    #toast{transform:translateY(-150%);transition:transform .3s ease-in-out}
+    #toast.show{transform:translateY(2rem)}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#4f46e5;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    html.dark input[type=range]::-webkit-slider-thumb{background:#fff}
+    .style-btn{border-bottom:2px solid transparent}
+    .style-btn.active{border-bottom-color:#4f46e5;color:#111827}
+    html.dark .style-btn.active{border-bottom-color:#fff;color:#fff}
+    .checkerboard{background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}
+    .for-canvas-rendering{line-height:0.1!important;padding-bottom:10px!important}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema, AI discovery optimized -->
 </head>
+
 <body class="bg-white dark:bg-black text-gray-800 dark:text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">

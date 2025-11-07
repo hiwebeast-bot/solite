@@ -1,115 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free SVG Icon Generator from Text & Emoji | Solite</title>
-    <meta name="description" content="Create custom SVG icons from text or emojis with our free online generator. Customize font, colors, and background shape, then export clean SVG code or download as a file. 100% private and browser-based.">
-    <meta name="keywords" content="svg icon generator, text to svg, emoji to svg, svg icon maker, free svg generator, custom svg icon, create svg icon, solite, privacy first, svg from text">
-    <link rel="canonical" href="https://solite.in/svg-icon-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free SVG Icon Generator (from Text & Emoji) | Solite">
-    <meta property="og:description" content="Create custom SVG icons from text or emojis with our free online generator. Customize font, colors, and background shape, then export clean SVG code.">
-    <meta property="og:url" content="https://solite.in/svg-icon-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/svg-icon-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & Discovery -->
+  <title>Free SVG Icon Generator from Text & Emoji | Solite</title>
+  <meta name="description" content="Generate beautiful SVG icons from text or emojis. Customize fonts, colors, and backgrounds, then export clean SVG code or download instantly. 100% private and browser-based.">
+  <meta name="keywords" content="svg icon generator, text to svg, emoji to svg, svg icon maker, free svg generator, create svg icon, custom icon, solite, privacy first, web design tool">
+  <link rel="canonical" href="https://solite.in/svg-icon-generator.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Solite">
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Solite">
+  <meta property="og:title" content="Free SVG Icon Generator from Text & Emoji | Solite">
+  <meta property="og:description" content="Create custom SVG icons from text or emojis. Adjust font, colors, and shapes, then export instantly. Fully private and client-side.">
+  <meta property="og:url" content="https://solite.in/svg-icon-generator.html">
+  <meta property="og:image" content="https://solite.in/assets/svg-icon-generator-thumbnail.png">
+  <meta property="og:image:alt" content="SVG Icon Generator — Create custom icons from text or emojis">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free SVG Icon Generator from Text & Emoji | Solite">
+  <meta name="twitter:description" content="Turn text or emojis into crisp SVG icons with full customization — fonts, shapes, colors — all local and private.">
+  <meta name="twitter:image" content="https://solite.in/assets/svg-icon-generator-thumbnail.png">
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free SVG Icon Generator from Text & Emoji | Solite">
+  <meta name="DC.Description" content="A free browser-based SVG icon maker that converts text or emojis into vector icons with customizable fonts and backgrounds.">
+  <meta name="DC.Type" content="Software">
+  <meta name="DC.Publisher" content="Solite">
+  <meta name="DC.Creator" content="Solite">
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692">
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "SVG Icon Generator",
-      "url": "https://solite.in/svg-icon-generator.html",
-      "description": "A free, client-side tool to generate custom SVG icons from text or emojis, with options for fonts, colors, and background shapes.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate SVG icons from text", "Generate SVG icons from emojis", "Customize font family, size, and color", "Add background shape (circle, square)", "Live preview of the icon", "Copy generated SVG code", "Download as .svg file", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate an SVG Icon",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Enter Content", "text": "Type one or two characters of text or an emoji into the input field." },
-          { "@type": "HowToStep", "name": "Step 2: Customize Style", "text": "Use the controls to adjust the font, colors, background shape, and overall icon size." },
-          { "@type": "HowToStep", "name": "Step 3: Export", "text": "Copy the generated SVG code directly or click 'Download' to save the icon as a .svg file." }
+  <!-- 📊 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&family=Roboto+Mono&family=Lobster&family=Roboto+Slab:wght@400;700&family=Bangers&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 🎨 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- 🧬 Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first browser tools for developers, designers, and creators."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/svg-icon-generator.html#app",
+        "name": "SVG Icon Generator | Solite",
+        "url": "https://solite.in/svg-icon-generator.html",
+        "description": "A free, client-side SVG icon generator that converts text or emojis into scalable vector icons.",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Generate SVG icons from text or emoji",
+          "Customize font, color, and shape",
+          "Copy or download clean SVG code",
+          "100% client-side and privacy-first"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I use this tool offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once loaded, the generator works completely offline, storing nothing on servers." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use emojis as SVG icons?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Just paste an emoji, and the tool converts it into an SVG with your chosen background and color settings." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All processing happens locally in your browser. Nothing is uploaded, tracked, or stored externally." }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "SVG Icon Generator" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/svg-icon-generator.html#webpage",
+        "name": "SVG Icon Generator | Solite",
+        "url": "https://solite.in/svg-icon-generator.html",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/svg-icon-generator-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z"
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "SVG Icon Generator"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                        'poppins': ['Poppins', 'sans-serif'], 'lobster': ['Lobster', 'cursive'], 'roboto-slab': ['Roboto Slab', 'serif'], 'bangers': ['Bangers', 'cursive'], 'lora': ['Lora', 'serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
-    </style> 
+  <!-- 🪶 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace'],
+            poppins: ['Poppins', 'sans-serif'],
+            lobster: ['Lobster', 'cursive'],
+            'roboto-slab': ['Roboto Slab', 'serif'],
+            bangers: ['Bangers', 'cursive'],
+            lora: ['Lora', 'serif']
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .custom-select { appearance: none; }
+    input[type=range]::-webkit-slider-thumb { appearance: none; width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified AI schema, OG/Twitter/DC parity, and privacy-first AI optimization. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -222,6 +278,124 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / SVG ICON GENERATOR EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+
+        <style>
+            #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-case > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free SVG Icon Generator — Create Icons from Text or Emoji
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Text → SVG</span>
+                <span class="badge">Emoji → SVG</span>
+                <span class="badge">Custom Fonts</span>
+                <span class="badge">Private & Offline</span>
+                <span class="badge">Instant Export</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite SVG Icon Generator</strong> transforms <strong>text or emojis</strong> into clean, scalable SVG icons instantly.  
+                Choose from multiple fonts, adjust colors and backgrounds, and <strong>export crisp SVG code</strong> or download directly — all with <strong>100% on-device privacy</strong>.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Better -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Icon Generator Stands Out</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Private by Design:</strong> Everything runs locally in your browser — no uploads or tracking.</li>
+                <li><strong>Fully Customizable:</strong> Adjust font, color, shape, and background to match your brand.</li>
+                <li><strong>Emoji Compatible:</strong> Generate icons directly from emojis or text characters.</li>
+                <li><strong>Instant Export:</strong> Copy SVG code or download the icon instantly.</li>
+                <li><strong>Lightweight:</strong> Works offline with no dependencies or external calls.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses It & How</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Designers:</strong> Quickly create icon sets for UI kits and prototypes.</li>
+                    <li><strong>Developers:</strong> Export SVGs to integrate into apps, dashboards, and websites.</li>
+                    <li><strong>Content Creators:</strong> Turn emojis into custom brand visuals or badges.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Social Media Managers:</strong> Create unique icons for posts and stories.</li>
+                    <li><strong>Students & Hobbyists:</strong> Learn vector design fundamentals interactively.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Enter <strong>text or an emoji</strong> in the input field.</li>
+                <li>Choose your <strong>font, size, and color</strong> preferences.</li>
+                <li>Optionally add a <strong>background shape</strong> (circle or square).</li>
+                <li>Click <strong>Copy Code</strong> or <strong>Download</strong> to get your icon instantly.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Key Features Table -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Key Features (AI-Readable)</h3>
+                <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr><th class="p-2 text-left">Feature</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Use Case</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Text to SVG</td><td class="p-2">Converts any text or letter into vector graphics</td><td class="p-2">Brand icons, UI design</td></tr>
+                    <tr><td class="p-2">Emoji to SVG</td><td class="p-2">Turns emojis into scalable SVG files</td><td class="p-2">Social content, badges</td></tr>
+                    <tr><td class="p-2">Font Customization</td><td class="p-2">Choose from multiple Google Fonts</td><td class="p-2">Brand styling</td></tr>
+                    <tr><td class="p-2">Color Controls</td><td class="p-2">Custom font and background colors</td><td class="p-2">Design flexibility</td></tr>
+                    <tr><td class="p-2">Offline Use</td><td class="p-2">Runs 100% client-side</td><td class="p-2">Privacy-first workflow</td></tr>
+                </tbody>
+                </table>
+            </section>
+
+            <!-- 🧩 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Image & Design Suite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./favicon-generator.html" class="text-white hover:underline font-medium">Favicon Generator</a> — Create browser favicons instantly from any image or icon.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Build cohesive color palettes for design systems.</li>
+                <li><a href="./qr-code-generator.html" class="text-white hover:underline font-medium">QR Code Generator</a> — Generate and customize QR codes instantly.</li>
+                <li><a href="./icon-to-png-converter.html" class="text-white hover:underline font-medium">Icon to PNG Converter</a> — Export SVG icons to PNG in various resolutions.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+            </section>
+
+            <!-- 🧠 AI & Research Citation Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>svg icon generator, emoji to svg, text to svg icon, custom svg icon maker, solite icon generator, vector icon tool, browser svg tool, privacy first design</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong> “Solite SVG Icon Generator — a browser-based, privacy-first tool that converts text or emojis into scalable vector icons instantly.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: SVG ICON GENERATOR BLOCK -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

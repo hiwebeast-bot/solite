@@ -1,111 +1,164 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>CSS Gradient Generator (Linear, Radial, Conic) | Solite</title>
-    <meta name="description" content="Generate beautiful CSS gradients (linear, radial, and conic) with our free online tool. Customize colors, angles, and positions with a live preview and get instant code output. 100% private.">
-    <meta name="keywords" content="css gradient generator, linear gradient generator, radial gradient generator, conic gradient, gradient maker, css tool, online gradient generator, free gradient, solite">
-    <link rel="canonical" href="https://solite.in/css-gradient-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free CSS Gradient Generator (Linear, Radial, Conic) | Solite">
-    <meta property="og:description" content="Generate beautiful CSS gradients (linear, radial, conic) with live preview and instant code output. Customize colors, angles, and positions.">
-    <meta property="og:url" content="https://solite.in/css-gradient-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/css-gradient-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free CSS Gradient Generator (Linear, Radial, Conic) | Solite</title>
+  <meta name="description" content="Generate stunning CSS gradients (linear, radial, and conic) with Solite's free, privacy-first online generator. Customize color stops, angles, and positions with live preview and instant CSS export." />
+  <meta name="keywords" content="css gradient generator, linear gradient, radial gradient, conic gradient, gradient maker, css gradient tool, online gradient generator, free css gradient, solite, color stops, privacy first" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/css-gradient-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free CSS Gradient Generator (Linear, Radial, Conic) | Solite" />
+  <meta property="og:description" content="Design beautiful gradients visually — linear, radial, or conic — with instant CSS output. 100% private, browser-based tool by Solite." />
+  <meta property="og:url" content="https://solite.in/css-gradient-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/css-gradient-generator-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free CSS Gradient Generator | Solite" />
+  <meta name="twitter:description" content="Create linear, radial, or conic gradients with live preview and instant CSS export. 100% private and client-side." />
+  <meta name="twitter:image" content="https://solite.in/assets/css-gradient-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "CSS Gradient Generator",
-      "url": "https://solite.in/css-gradient-generator.html",
-      "description": "A free, client-side tool to generate linear, radial, and conic CSS gradients with live preview and code output.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate linear CSS gradients", "Generate radial CSS gradients", "Generate conic CSS gradients", "Customizable color stops", "Adjust angle, position, and shape", "Live preview", "Copy generated CSS code", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate a CSS Gradient",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Choose Gradient Type", "text": "Select whether you want to create a Linear, Radial, or Conic gradient." },
-          { "@type": "HowToStep", "name": "Step 2: Adjust Colors and Properties", "text": "Add, remove, or change the color stops. Use the sliders to adjust properties like the angle for linear gradients or the position for radial and conic gradients." },
-          { "@type": "HowToStep", "name": "Step 3: Copy CSS", "text": "Copy the generated CSS code from the output box and paste it into your stylesheet." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode:'class',
+      theme:{ extend:{ fontFamily:{ sans:['Inter','sans-serif'] } } }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🎨 UI / Styles -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    input[type=range]::-moz-range-thumb{width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px}
+    .custom-select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+    .gradient-type-btn.active{background-color:#4b5563;color:#fff}
+    .color-stop-item.dragging{opacity:.5}
+  </style>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://solite.in/#organization",
+        "name":"Solite",
+        "url":"https://solite.in",
+        "logo":"https://solite.in/assets/apple-touch-icon.png",
+        "slogan":"Free • Private • Browser-Based Tools",
+        "description":"Solite creates free, privacy-first, browser-based tools for creators and developers."
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://solite.in/#website",
+        "url":"https://solite.in",
+        "name":"Solite",
+        "publisher":{"@id":"https://solite.in/#organization"},
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://solite.in/search?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        },
+        "hasPart":[{"@id":"https://solite.in/css-gradient-generator.html#webapp"}]
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://solite.in/css-gradient-generator.html#webapp",
+        "name":"CSS Gradient Generator",
+        "url":"https://solite.in/css-gradient-generator.html",
+        "applicationCategory":"DeveloperApplication",
+        "featureList":[
+          "Generate linear, radial, and conic gradients",
+          "Customize color stops, angles, and shapes",
+          "Live gradient preview",
+          "Copy clean CSS gradient code",
+          "Client-side only — 100% private"
+        ],
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "creator":{"@id":"https://solite.in/#organization"},
+        "softwareVersion":"5.0",
+        "dateModified":"2025-11-07T10:00:00Z",
+        "operatingSystem":"All"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://solite.in/css-gradient-generator.html#webpage",
+        "name":"Free CSS Gradient Generator (Linear, Radial, Conic) | Solite",
+        "isPartOf":{"@id":"https://solite.in/#website"},
+        "about":{"@id":"https://solite.in/#organization"},
+        "description":"A free, privacy-first gradient generator for web designers and developers to create linear, radial, and conic gradients with live preview and instant CSS output.",
+        "breadcrumb":{
+          "@type":"BreadcrumbList",
+          "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://solite.in/index.html"},
+            {"@type":"ListItem","position":2,"name":"CSS Gradient Generator"}
+          ]
+        }
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://solite.in/css-gradient-generator.html#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Can I export gradients as images?",
+            "acceptedAnswer":{"@type":"Answer","text":"Currently, Solite's CSS Gradient Generator outputs clean CSS code. You can capture screenshots or use browser dev tools to export gradient images."}
+          },
+          {
+            "@type":"Question",
+            "name":"Is my color data stored anywhere?",
+            "acceptedAnswer":{"@type":"Answer","text":"No. Solite is 100% client-side. All gradient generation happens locally in your browser, and no color data or settings are sent to servers."}
+          },
+          {
+            "@type":"Question",
+            "name":"Which browsers support conic gradients?",
+            "acceptedAnswer":{"@type":"Answer","text":"Modern browsers including Chrome, Firefox, Safari, and Edge all support conic gradients using the CSS conic-gradient() function."}
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "CSS Gradient Generator"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        .gradient-type-btn.active { background-color: #4b5563; color: #ffffff; }
-        .color-stop-item.dragging { opacity: 0.5; }
-    </style> 
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema + AI discovery optimized -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -348,11 +401,11 @@
       <section>
         <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Design Tools Suite</h3>
         <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/image-color-picker.html" class="text-white hover:underline font-medium">Image Color Picker</a> — Extract palette directly from any image.</li>
-          <li><a href="https://solite.in/color-name-finder.html" class="text-white hover:underline font-medium">Color Name Finder</a> — Identify human-readable names for HEX values.</li>
-          <li><a href="https://solite.in/css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Create box and text shadows visually.</li>
-          <li><a href="https://solite.in/css-animation-generator.html" class="text-white hover:underline font-medium">CSS Animation Generator</a> — Build keyframe animations interactively.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean, format, and transform text locally.</li>
+          <li><a href="./image-color-picker.html" class="text-white hover:underline font-medium">Image Color Picker</a> — Extract palette directly from any image.</li>
+          <li><a href="./color-name-finder.html" class="text-white hover:underline font-medium">Color Name Finder</a> — Identify human-readable names for HEX values.</li>
+          <li><a href="./css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Create box and text shadows visually.</li>
+          <li><a href="./css-animation-generator.html" class="text-white hover:underline font-medium">CSS Animation Generator</a> — Build keyframe animations interactively.</li>
+          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean, format, and transform text locally.</li>
         </ul>
         <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
       </section>

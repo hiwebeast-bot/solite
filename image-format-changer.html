@@ -1,153 +1,145 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="Instantly convert images online. Our free image converter supports JPG, PNG, WebP, AVIF, and more. Compress and change image formats privately in your browser. No uploads required.">
-    <meta name="keywords" content="image converter, convert image format, jpg to png, png to jpg, webp converter, avif converter, image format changer, free online converter, solite">
-    <link rel="canonical" href="https://solite.in/image-format-changer.html">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Solite">
+  <!-- 🧠 SEO & Metadata -->
+  <title>Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite</title>
+  <meta name="description" content="Convert and compress images instantly — JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF. 100% free, private, and browser-based. No uploads or tracking.">
+  <meta name="keywords" content="image converter, convert image, jpg to png, png to webp, avif converter, gif converter, tiff to jpg, online converter, image compression, solite, privacy-first">
+  <meta name="author" content="Solite" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://solite.in/image-format-changer.html" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite">
-    <meta property="og:description" content="A free online tool to convert and compress JPG, PNG, and WebP images without losing quality. Reduce image file sizes instantly in your browser.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://solite.in/assets/image-converter-thumbnail.png">
-    <meta property="og:url" content="https://solite.in/image-format-changer.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite">
-    <meta name="twitter:description" content="Instantly convert images online. Our free image converter supports JPG, PNG, WebP, AVIF, and more. Compress and change image formats privately in your browser.">
-    <meta name="twitter:image" content="https://solite.in/assets/image-converter-thumbnail.png">
+  <!-- 🧩 Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite" />
+  <meta property="og:description" content="Instantly convert JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF images online. 100% private and browser-based — no uploads, no tracking." />
+  <meta property="og:image" content="https://solite.in/assets/image-converter-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Image Converter Interface" />
+  <meta property="og:url" content="https://solite.in/image-format-changer.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online Image Converter | Solite" />
+  <meta name="twitter:description" content="Convert and compress images instantly. JPG, PNG, WebP, AVIF, and more — 100% private and free." />
+  <meta name="twitter:image" content="https://solite.in/assets/image-converter-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://solite.in/#organization",
-          "name": "Solite",
-          "url": "https://solite.in/",
-          "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://solite.in/#website",
-          "url": "https://solite.in/",
-          "name": "Solite",
-          "publisher": { "@id": "https://solite.in/#organization" }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://solite.in/image-format-changer.html#webpage",
-          "url": "https://solite.in/image-format-changer.html",
-          "name": "Free Online Image Converter | Convert JPG, PNG, WebP, AVIF | Solite",
-          "isPartOf": { "@id": "https://solite.in/#website" },
-          "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/image-converter-thumbnail.png" },
-          "description": "Instantly convert images online. Our free image converter supports JPG, PNG, WebP, AVIF, and more. Compress and change image formats privately in your browser. No uploads required.",
-          "mainEntity": { "@id": "https://solite.in/image-format-changer.html#webapp" }
-        },
-        {
-          "@type": "WebApplication",
-          "@id": "https://solite.in/image-format-changer.html#webapp",
-          "name": "Image Converter",
-          "url": "https://solite.in/image-format-changer.html",
-          "description": "A free, privacy-first, browser-based image converter supporting JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF formats with adjustable quality and resize options.",
-          "applicationCategory": "MultimediaApplication",
-          "featureList": [
-            "Convert JPG, PNG, WebP, AVIF, GIF, BMP, TIFF images",
-            "Adjustable compression quality",
-            "Optional image resizing",
-            "Aspect ratio lock",
-            "Real-time preview of file size",
-            "Download converted image",
-            "Client-side processing for privacy"
-          ],
-          "operatingSystem": "All",
-          "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-          "provider": { "@id": "https://solite.in/#organization" },
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "mainEntityOfPage": { "@id": "https://solite.in/image-format-changer.html#webpage" }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [{
+  <!-- 🧱 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite offers free, privacy-first, browser-based tools for creators and developers — no sign-up, no tracking, 100% client-side."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/image-format-changer.html#app",
+        "name": "Image Converter | Solite",
+        "url": "https://solite.in/image-format-changer.html",
+        "description": "A free, client-side image converter that supports JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF. Compress or resize with adjustable quality — no uploads required.",
+        "applicationCategory": "MultimediaApplication",
+        "featureList": [
+          "Convert JPG, PNG, WebP, AVIF, GIF, BMP, TIFF",
+          "Adjust compression quality and size",
+          "Optional resize with aspect ratio lock",
+          "Preview output and file size",
+          "Batch conversion with JSZip support",
+          "100% client-side privacy"
+        ],
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript; runs fully in-browser.",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/image-format-changer.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Image Converter" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/image-format-changer.html#faq",
+        "mainEntity": [
+          {
             "@type": "Question",
-            "name": "What image formats can I convert to?",
-            "acceptedAnswer": { "@type": "Answer", "text": "You can convert your images to several popular formats, including JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF." }
-          },{
+            "name": "Which formats can I convert to?",
+            "acceptedAnswer": { "@type": "Answer", "text": "You can convert images to JPG, PNG, WebP, AVIF, GIF, BMP, and TIFF formats directly in your browser." }
+          },
+          {
             "@type": "Question",
-            "name": "Is this image converter free to use?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Image Converter is completely free to use with no limitations or watermarks. All features are available without any sign-up." }
-          },{
+            "name": "Is this image converter private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — Solite processes everything locally in your browser. Your files never leave your device." }
+          },
+          {
             "@type": "Question",
-            "name": "Is my image upload private?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes, your privacy is guaranteed. This tool is 100% client-side, which means your image is processed directly in your browser and is never uploaded to our servers." }
-          }]
-        }
-      ]
+            "name": "Can I compress images while converting?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can adjust quality and resize dimensions while converting to optimize file size without losing clarity." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        input[type=range]::-webkit-slider-thumb {
-             -webkit-appearance: none; appearance: none;
-             width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px;
-        }
-        input[type=range]::-moz-range-thumb {
-            width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px;
-        }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
+  <!-- 💅 Styling -->
+  <style>
+    input[type=range]::-webkit-slider-thumb,
+    input[type=range]::-moz-range-thumb {
+      width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
 
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5.0 schema, privacy-first metadata, and AI-aligned SEO for all Solite tools. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

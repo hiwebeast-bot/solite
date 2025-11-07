@@ -1,116 +1,143 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Online Hash Generator (MD5, SHA-256) & Verifier | Solite</title>
-    <meta name="description" content="Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files. A free, fast, and private online tool that works entirely in your browser. No uploads required.">
-    <meta name="keywords" content="hash generator, hash checker, md5 generator, sha256 generator, file hash generator, verify hash, online hash tool, solite">
-    <link rel="canonical" href="https://solite.in/hash-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Hash Generator & Verifier | Solite">
-    <meta property="og:description" content="Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files. A free, fast, and private online tool that works entirely in your browser.">
-    <meta property="og:url" content="https://solite.in/hash-generator.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/hash-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO CORE -->
+  <title>Free Online Hash Generator (MD5, SHA-256) & Verifier | Solite</title>
+  <meta name="description" content="Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files with Solite’s free online hash generator. 100% browser-based, fast, and private." />
+  <meta name="keywords" content="hash generator, md5 generator, sha256 tool, verify file integrity, hash checker, hash comparison, file hash calculator, online hash verifier, solite, privacy first" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/hash-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Online Hash Generator (MD5, SHA-256) & Verifier | Solite" />
+  <meta property="og:description" content="Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files — free, private, and offline-ready." />
+  <meta property="og:url" content="https://solite.in/hash-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/hash-generator-thumbnail.png" />
+  <meta property="og:image:alt" content="Preview of the Solite Online Hash Generator interface showing hash results." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online Hash Generator & Verifier | Solite" />
+  <meta name="twitter:description" content="Free, browser-based tool to generate and verify hashes like MD5, SHA-1, and SHA-256. 100% private and secure." />
+  <meta name="twitter:image" content="https://solite.in/assets/hash-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Online Hash Generator & Verifier",
-      "url": "https://solite.in/hash-generator.html",
-      "description": "A free, client-side tool to generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Generate MD5, SHA-1, SHA-256, SHA-512 hashes", "Process text input or file uploads", "Verify file integrity by comparing hashes", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate a Hash",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Provide Input", "text": "Type text into the input box or drop a file onto the page." },
-          { "@type": "HowToStep", "name": "Step 2: View Hashes", "text": "The tool will automatically generate standard hashes (MD5, SHA-1, etc.) for your input." },
-          { "@type": "HowToStep", "name": "Step 3: Verify (Optional)", "text": "To verify a file's integrity, paste the expected hash into the 'Verify Hash' field. The tool will show a match if one of the generated hashes is identical." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Suite -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 STRUCTURED DATA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds privacy-first, browser-based tools for creators and developers — 100% client-side and data-secure."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/hash-generator.html#app",
+        "name": "Online Hash Generator & Verifier | Solite",
+        "url": "https://solite.in/hash-generator.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A free, client-side tool to generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files.",
+        "featureList": [
+          "Generate MD5, SHA-1, SHA-256, SHA-512 hashes",
+          "Process text or file inputs",
+          "Compare and verify file integrity",
+          "Offline-ready, client-side privacy"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/hash-generator.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Hash Generator" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/hash-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a hash used for?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Hashes are unique digital fingerprints used to verify data integrity or securely store information like passwords. They ensure files haven’t been altered during transfer." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this tool safe and private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All hashing and verification occur locally in your browser. Your data never leaves your device." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Hash Generator"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is a hash used for?",
-        "acceptedAnswer": { "@type": "Answer", "text": "A hash is a unique digital fingerprint of data. It's commonly used to verify file integrity (to ensure a downloaded file hasn't been corrupted or tampered with) and to securely store passwords (by hashing them instead of storing them in plain text)." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .drag-over { border-color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+      }
+    }
+  </script>
+
+  <!-- 🧠 UI + Scroll Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .drag-over { border-color: #3b82f6; background-color: rgba(59,130,246,0.1); }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): Unified schema, AI-optimized metadata, privacy-first SEO architecture -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

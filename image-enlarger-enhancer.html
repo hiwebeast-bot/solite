@@ -1,153 +1,167 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- MODIFIED: Title for Enhancer -->
-    <title>Image Enlarger & Enhancer (JPG, PNG, WebP) | Solite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Description for Enhancer -->
-    <meta name="description" content="Enlarge, enhance, and upscale JPG, PNG, and WebP images online for free with Solite's browser-based tool. Automatically enhances brightness, contrast, and saturation. 100% private and secure.">
-    <!-- MODIFIED: Keywords for Enhancer -->
-    <meta name="keywords" content="image enlarger, image enhancer, increase image resolution, image expander, resize image, jpg enlarger, png upscaler, webp upscaler, online image resizing, free image enlarger, solite, increase brightness, increase contrast, automatic enhancement, smart sharpening">
-    <link rel="canonical" href="https://solite.in/image-enlarger.html">
-    <!-- MODIFIED: OG Title for Enhancer -->
-    <meta property="og:title" content="Free Online Image Enlarger & Enhancer | Solite">
-    <meta property="og:description" content="A free browser-based tool to enlarge, upscale, and automatically enhance JPG, PNG, and WebP images. Improves clarity and color instantly.">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:image" content="https://solite.in/assets/solite-image-enlarger-og.png"> <!-- Recommended: Create a new OG image for this tool -->
-    <meta property="og:url" content="https://solite.in/image-enlarger.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO CORE -->
+  <title>Free Image Enlarger & Enhancer (JPG, PNG, WebP) | Solite</title>
+  <meta name="description" content="Enlarge, enhance, and upscale JPG, PNG, and WebP images online for free. Solite’s privacy-first image enhancer improves brightness, contrast, sharpness, and color instantly — all in your browser." />
+  <meta name="keywords" content="image enlarger, image enhancer, image upscaler, upscale image, enlarge image, image sharpener, image clarity, jpg enlarger, png upscaler, webp enhancer, solite, privacy-first, image quality improver" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/image-enlarger.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Image Enlarger & Enhancer (JPG, PNG, WebP) | Solite" />
+  <meta property="og:description" content="Upscale and enhance JPG, PNG, and WebP images directly in your browser — no uploads, no tracking. 100% private." />
+  <meta property="og:url" content="https://solite.in/image-enlarger.html" />
+  <meta property="og:image" content="https://solite.in/assets/solite-image-enlarger-og.png" />
+  <meta property="og:image:alt" content="Solite Image Enlarger and Enhancer Interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Image Enlarger & Enhancer | Solite" />
+  <meta name="twitter:description" content="Free, private image upscaler and enhancer. Works offline — enlarge JPG, PNG, WebP with clarity boost." />
+  <meta name="twitter:image" content="https://solite.in/assets/solite-image-enlarger-og.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;5500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <!-- JSZip for downloading (Kept in case of future batch processing) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Enlarger & Enhancer | Solite",
-      "url": "https://solite.in/image-enlarger.html",
-      "description": "A free, privacy-first, browser-based image enlarger and enhancer supporting JPG, PNG, and WebP formats. Automatically increases clarity and detail with adjustable scale.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [
-        "High-Quality Image Enlarging",
-        "Automatic Image Enhancement (Contrast, Saturation)",
-        "Automatic Noise Reduction (for >2x scale or >80% quality)",
-        "Automatic Smart Sharpening (for >2x scale or >80% quality)",
-        "Enlarge JPG, PNG, WebP images",
-        "Adjustable scale factor (e.g., 2x, 4x)",
-        "Optional image resizing (width/height)",
-        "Aspect ratio lock for resizing",
-        "Real-time preview of new dimensions",
-        "Download enhanced image",
-        "100% Client-side processing for privacy"
-      ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Works fully client-side.",
-      "creator": {
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 STRUCTURED DATA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Organization",
+        "@id": "https://solite.in/#organization",
         "name": "Solite",
-        "url": "https://solite.in"
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first, browser-based tools for creators and developers. No sign-up, no tracking, 100% client-side."
       },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/image-enlarger.html#app",
+        "name": "Image Enlarger & Enhancer | Solite",
+        "url": "https://solite.in/image-enlarger.html",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "A privacy-first tool to enlarge, upscale, and enhance images with improved clarity, brightness, and contrast — directly in your browser.",
+        "featureList": [
+          "Upscale JPG, PNG, and WebP images up to 4x",
+          "Automatic enhancement (brightness, contrast, saturation)",
+          "Smart sharpening and noise reduction",
+          "Adjustable scale and quality controls",
+          "Real-time preview before download",
+          "100% offline processing for privacy"
+        ],
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Works fully client-side.",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://solite.in/image-enlarger.html#howto",
+        "name": "How to Enlarge and Enhance an Image",
+        "step": [
+          { "@type": "HowToStep", "name": "Step 1: Upload Image", "text": "Drag and drop an image or click to upload a JPG, PNG, or WebP file." },
+          { "@type": "HowToStep", "name": "Step 2: Adjust Scale & Quality", "text": "Use sliders to set scale (e.g., 2x, 4x) and enhancement intensity (sharpness, color, contrast)." },
+          { "@type": "HowToStep", "name": "Step 3: Preview & Download", "text": "Preview results instantly and download your upscaled image with improved clarity." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/image-enlarger.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Image Enlarger" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/image-enlarger.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this tool use AI?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. It uses deterministic client-side algorithms to enhance clarity, color, and sharpness — without external servers or AI processing." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my image uploaded to a server?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs in your browser. Your images never leave your device." }
+          },
+          {
+            "@type": "Question",
+            "name": "What formats are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "You can upload and enhance JPG, PNG, and WebP images, and download the result in any of these formats." }
+          }
+        ]
       }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+      },
     }
-    </script>
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        input[type=range]::-webkit-slider-thumb {
-             -webkit-appearance: none; appearance: none;
-             width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px;
-        }
-        input[type=range]::-moz-range-thumb {
-            width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
+  <!-- 🧱 UI + Accessibility Styling -->
+  <style>
+    input[type=range]::-webkit-slider-thumb,
+    input[type=range]::-moz-range-thumb {
+      width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px;
+    }
+    #quality-slider {
+      background: linear-gradient(to right, #ef4444 0%, #eab308 40%, #22c55e 100%);
+      border-radius: 9999px;
+    }
+    #scale-slider {
+      background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
+      border-radius: 9999px;
+    }
+    #image-canvas {
+      max-width: 100%; max-height: 100%;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
 
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-
-        /* ADDED: Styles for colored quality slider track */
-        #quality-slider {
-            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
-        }
-        #quality-slider::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
-            border-radius: 9999px;
-        }
-        #quality-slider::-moz-range-track {
-            background: linear-gradient(to right, #ef4444 0%, #ef4444 5%, #f97316 10%, #eab308 30%, #22c55e 60%, #22c55e 100%);
-            border-radius: 9999px;
-        }
-        
-        /* Blue slider for scale */
-        #scale-slider {
-             background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
-        }
-        #scale-slider::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
-            border-radius: 9999px;
-        }
-        #scale-slider::-moz-range-track {
-            background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
-            border-radius: 9999px;
-        }
-        
-        #image-canvas {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-        }
-        details[open] > summary {
-            border-bottom: 1px solid #374151; /* gray-700 */
-        }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5.0 schema, privacy-first metadata, and AI-aligned SEO for all Solite tools. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

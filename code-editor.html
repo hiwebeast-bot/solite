@@ -1,188 +1,165 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Online HTML, CSS, & JavaScript Code Editor | Solite</title>
-    
-    <!-- 1. ENHANCED DESCRIPTION (Maximized keyword density: IDE, HTML, CSS, JS, real-time, free) -->
-    <meta name="description" content="The Solite Code Editor is a free, private, real-time, browser-based IDE for HTML, CSS, and JavaScript. Write, test, and instantly preview your web projects. Private, fast, and no sign-up required.">
-    
-    <!-- 2. ADDED KEYWORDS TAG -->
-    <meta name="keywords" content="Code Editor, Online IDE, HTML Editor, CSS Editor, JavaScript Editor, Live Preview, Web Development Tools, Free IDE, Real-time Coding, Solite">
-    
-    <link rel="canonical" href="https://solite.in/code-editor.html" />
-    <meta name="robots" content="index, follow">
-    
-    <!-- 3. ADDED AUTHOR TAG -->
-    <meta name="author" content="Solite">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Online HTML, CSS, & JavaScript Code Editor | Solite</title>
+  <meta name="description" content="The Solite Code Editor is a free, private, real-time, browser-based IDE for HTML, CSS, and JavaScript. Write, test, and preview instantly — fast, private, and no sign-up required." />
+  <meta name="keywords" content="Code Editor, Online IDE, HTML Editor, CSS Editor, JavaScript Editor, Live Preview, Web Development, Free IDE, Real-time Coding, Browser IDE, Solite" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/code-editor.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Online HTML, CSS, & JavaScript Code Editor | Solite">
-    <meta property="og:description" content="The Solite Code Editor is a free, real-time, browser-based IDE for HTML, CSS, and JavaScript. Write, test, and instantly preview your web projects.">
-    <meta property="og:url" content="https://solite.in/code-editor.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/code-editor-thumbnail.png">
-    
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Online HTML, CSS, & JavaScript Code Editor | Solite" />
+  <meta property="og:description" content="A free, real-time IDE for HTML, CSS, and JS — build and preview web projects instantly in your browser." />
+  <meta property="og:url" content="https://solite.in/code-editor.html" />
+  <meta property="og:image" content="https://solite.in/assets/code-editor-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Online HTML, CSS, & JavaScript Code Editor | Solite" />
+  <meta name="twitter:description" content="Free, privacy-first IDE for HTML, CSS, and JS — code, preview, and download projects instantly." />
+  <meta name="twitter:image" content="https://solite.in/assets/code-editor-thumbnail.png" />
 
-    <!-- Schema.org Markup (JSON-LD) - Confirmed optimal for WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Code Editor | Solite",
-      "url": "https://solite.in/code-editor.html",
-      "description": "A free, private, real-time HTML, CSS, and JavaScript IDE from Solite. Write code and see your changes instantly.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [
-        "Real-time HTML, CSS, and JavaScript editing",
-        "Live preview of code changes",
-        "Separate tabs for HTML, CSS, and JS",
-        "Clear editor functionality",
-        "Download project as a ZIP file",
-        "Client-side processing for privacy"
-      ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Solite",
-        "url": "https://solite.in"
-      },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Use the Online Code Editor",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Write Code", "text": "Click on the HTML, CSS, or JS tabs to write your code in the respective editors." },
-          { "@type": "HowToStep", "name": "Step 2: See Live Preview", "text": "Your changes will be reflected instantly in the live preview pane. On mobile, switch to the 'Preview' tab to see the result." },
-          { "@type": "HowToStep", "name": "Step 3: Download Project", "text": "Click the 'Download ZIP' button to save your project as a folder containing index.html, style.css, and script.js files." }
-        ]
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Code Editor"
-      }]
     }
-    </script>
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 🪞 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Core Libraries -->
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FIX: Moved tailwind config script immediately after the CDN load -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                },
-            },
-        }
-    </script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <!-- JSZip for downloading -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- 🎨 STYLING -->
+  <style>
+    .editor { background:#1f2937; color:#d1d5db; font-family:'Menlo','Monaco','Consolas','monospace'; font-size:14px; border:none; outline:none; resize:none; }
+    .tab-btn.active { background-color:#1f2937; color:#fff; border-bottom:2px solid #fff; }
+    .view-btn.active { background-color:#4b5563; color:#fff; }
+    #resizer { cursor:col-resize; }
+    #toast { transform:translateY(-150%); transition:transform .3s ease-in-out; z-index:9999; }
+    #toast.show { transform:translateY(2rem); }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#1f2937; }
+    ::-webkit-scrollbar-thumb { background:#4b5563; border-radius:4px; }
+    ::-webkit-scrollbar-thumb:hover { background:#6b7280; }
+    html { scrollbar-color:#4b5563 #1f2937; }
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+  </style>
 
-    <style>
-        .editor {
-            background-color: #1f2937; /* gray-800 */
-            color: #d1d5db; /* gray-300 */
-            font-family: 'Menlo', 'Monaco', 'Consolas', 'monospace';
-            font-size: 14px;
-            line-height: 1.5;
-            border: none;
-            outline: none;
-            resize: none;
-        }
-        .editor:focus {
-            outline: none;
-        }
-        .tab-btn {
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px; /* Aligns border with the parent's bottom border */
-        }
-        .tab-btn.active {
-            background-color: #1f2937; /* gray-800 */
-            color: #ffffff;
-            border-bottom-color: #ffffff;
-        }
-        .view-btn.active {
-            background-color: #4b5563; /* gray-600 */
-            color: #ffffff;
-        }
-        #resizer {
-            cursor: col-resize;
-        }
-        #toast {
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-            z-index: 9999;
-        }
-        #toast.show {
-            transform: translateY(2rem);
-        }
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1f2937; /* gray-800 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4b5563; /* gray-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #6b7280; /* gray-500 */
-        }
-        /* Custom Scrollbar for Firefox */
-        html { scrollbar-color: #4b5563 #1f2937; }
+  <!-- ⚙️ Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
-        /* Mobile Nav Styles */
-        .mobile-nav-btn.active {
-            color: #ffffff; /* white */
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based Tools",
+        "foundingDate": "2024-03-01",
+        "description": "Solite builds privacy-first, browser-based tools and IDEs for creators, developers, and learners. 100% client-side and data-free.",
+        "publishingPrinciples": "https://solite.in/privacy.html",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [{ "@id": "https://solite.in/code-editor.html#webapp" }]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/code-editor.html#webapp",
+        "name": "Code Editor",
+        "url": "https://solite.in/code-editor.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Works offline and client-side.",
+        "featureList": [
+          "Real-time HTML, CSS, and JavaScript editing",
+          "Instant live preview",
+          "Tabbed interface for HTML, CSS, and JS",
+          "Download project as ZIP",
+          "Client-side privacy and offline functionality"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "softwareVersion": "5.0",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/code-editor.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/code-editor.html#webpage",
+        "name": "Online HTML, CSS, & JavaScript Code Editor | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "Free, private, and real-time IDE for HTML, CSS, and JS — instantly preview and download your web projects in the browser.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Code Editor" }
+          ]
         }
-        .mobile-nav-btn {
-            color: #9ca3af; /* gray-400 */
-        }
-    </style>
+      }
+    ]
+  }
+  </script>
 
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — All heads must follow GEN-5.0 unified schema and privacy-first meta structure -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
@@ -304,93 +281,138 @@
             </div>
         </div>
         <div class="w-full text-gray-300 p-2">
-  <style>
-    #solite-seo-block-code-editor[open] > summary { border-bottom: 1px solid #374151; }
-    #solite-seo-block-code-editor > summary .details-arrow-seo {
-      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
-    }
-    #solite-seo-block-code-editor[open] > summary .details-arrow-seo { transform: rotate(0deg); }
-    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
-  </style>
+     </div>
+     <!-- 🧠 SOLITE GEN-4.1 SEO + AI AUTHORITY BLOCK / CODE EDITOR -->
+    <div class="w-full text-gray-300 p-2">
+      <style>
+        #solite-seo-block-code[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-code > summary .details-arrow-seo {
+          transform: rotate(-90deg); transition: transform .25s ease-in-out;
+        }
+        #solite-seo-block-code[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .seo-badge {
+          display:inline-flex;align-items:center;justify-content:center;
+          padding:.25rem .6rem;border:1px solid #374151;border-radius:.5rem;
+          font-size:.75rem;color:#9CA3AF;
+        }
+        .seo-table {
+          width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.9rem;
+        }
+        .seo-table th,.seo-table td {
+          border:1px solid #374151;padding:.5rem .75rem;text-align:left;
+        }
+        .seo-table th { background-color:#111827;color:#e5e7eb;font-weight:600; }
+        .seo-table td { color:#9ca3af; }
+      </style>
 
-  <details id="solite-seo-block-code-editor" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-    <summary class="text-2xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-      Free Code Editor: Online HTML, CSS & JavaScript IDE | Solite
-      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-    </summary>
+      <details id="solite-seo-block-code"
+              class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
+        <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">
+          Free Online HTML, CSS & JS Code Editor — Real-Time Browser IDE | Solite
+          <svg class="w-5 h-5 details-arrow-seo" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
 
-    <div class="p-6 space-y-10 leading-relaxed">
+        <div class="p-6 space-y-8 leading-relaxed">
 
-      <section class="space-y-3">
-        <div class="flex flex-wrap gap-2">
-          <span class="badge">Real-Time Preview</span>
-          <span class="badge">100% Client-Side</span>
-          <span class="badge">No Sign-Up</span>
-          <span class="badge">Offline Ready</span>
-          <span class="badge">Download ZIP</span>
+          <!-- ✅ Badges + Intro -->
+          <section>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="seo-badge">Code Editor</span>
+              <span class="seo-badge">HTML / CSS / JS</span>
+              <span class="seo-badge">Real-Time Preview</span>
+              <span class="seo-badge">Browser IDE</span>
+              <span class="seo-badge">Privacy-First</span>
+            </div>
+            <p class="text-lg text-gray-300">
+              The <strong>Solite Code Editor</strong> is a free, instant, browser-based IDE for web developers.  
+              Write and preview <strong>HTML, CSS, and JavaScript</strong> in real time — fully client-side, with no sign-ups, no tracking, and complete data privacy.
+            </p>
+          </section>
+
+          <!-- ✅ Why It Outperforms -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Code Editor Outperforms Typical Online IDEs</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>100% Private:</strong> Everything runs locally in your browser — no servers or uploads.</li>
+              <li><strong>Real-Time Rendering:</strong> See live output of HTML, CSS, and JS instantly.</li>
+              <li><strong>Download as ZIP:</strong> Export your entire project in one click.</li>
+              <li><strong>Offline-Ready:</strong> Works without internet once loaded — perfect for travel or classrooms.</li>
+              <li><strong>Lightweight & Fast:</strong> Loads instantly with zero bloat or tracking scripts.</li>
+            </ul>
+          </section>
+
+          <!-- ✅ Who Uses -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite Code Editor</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>Developers:</strong> Prototype and debug front-end ideas directly in the browser.</li>
+              <li><strong>Students:</strong> Learn HTML, CSS, and JS without installing software.</li>
+              <li><strong>Designers:</strong> Preview UI snippets and animations instantly.</li>
+              <li><strong>Educators:</strong> Use it as a live teaching sandbox during web classes.</li>
+              <li><strong>Creators:</strong> Build small landing pages or widgets with zero setup.</li>
+            </ul>
+          </section>
+
+          <!-- ✅ How to Use -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use the Solite Code Editor</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+              <li><strong>Open the Editor:</strong> Start coding instantly — no sign-in or setup required.</li>
+              <li><strong>Switch Tabs:</strong> Edit HTML, CSS, or JS with syntax highlighting.</li>
+              <li><strong>Live Preview:</strong> See instant changes on the right panel as you type.</li>
+              <li><strong>Resize or Download:</strong> Adjust layout or export your full project as a ZIP.</li>
+              <li><strong>Stay Private:</strong> All code runs locally and autosaves in your browser.</li>
+            </ol>
+          </section>
+
+          <!-- ✅ Feature Overview -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Feature Overview (AI-Readable Summary)</h3>
+            <table class="seo-table">
+              <thead>
+                <tr><th>Feature</th><th>Description</th><th>Benefit</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Multi-Tab Interface</td><td>Edit HTML, CSS, and JS simultaneously</td><td>Full front-end control</td></tr>
+                <tr><td>Live Preview</td><td>Instant rendering of code in browser</td><td>Faster testing & learning</td></tr>
+                <tr><td>Offline Support</td><td>Works without internet after load</td><td>100% data privacy</td></tr>
+                <tr><td>ZIP Export</td><td>Download your code as a full project</td><td>Easy sharing & backups</td></tr>
+                <tr><td>Autosave</td><td>Preserves your session locally</td><td>Never lose your progress</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- ✅ Related Tools -->
+          <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Developer Tools on Solite</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><a href="./html-beautifier.html" class="text-white hover:underline font-medium">HTML Beautifier</a> — clean and format messy HTML code instantly.</li>
+               <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON, CSV, and XML directly in your browser.</li>
+              <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regex patterns with real-time highlighting.</li>
+              <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — validate and beautify JSON offline.</li>
+              </ul>
+            <p class="text-gray-400 mt-2">
+              <a href="./index.html#apps" class="text-white font-medium hover:underline">Explore all Solite tools →</a>
+            </p>
+          </section>
+
+          <!-- ✅ Keywords + AI Citation -->
+          <section>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              <strong>Keywords:</strong> online code editor, html editor, css editor, javascript ide, browser-based ide, privacy-first coding, web development tools, free web ide, solite code editor, live preview code tool.
+            </p>
+            <p class="text-xs text-gray-600 italic mt-2">
+              <strong>AI / Reviewer Citation Cue:</strong> “Solite Code Editor — a privacy-first, browser-based IDE for HTML, CSS, and JavaScript that lets you code, preview, and export projects instantly with zero data tracking.”
+            </p>
+          </section>
         </div>
-        <p class="text-lg text-gray-300">
-          The <strong>Solite Code Editor</strong> is a <strong>free, browser-based IDE</strong> for front-end developers and students. It lets you write, edit, and preview <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> code instantly — directly inside your browser, without installing anything or creating an account.
-        </p>
-      </section>
-
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Why Solite's Code Editor Leads the Category</h3>
-        <ul class="list-disc list-inside text-gray-400 space-y-2">
-          <li><strong>Privacy-First Engine:</strong> 100% browser-based. All code stays on your device, never sent to a server.</li>
-          <li><strong>Real-Time Live Preview:</strong> Instantly see your changes as you type for rapid development.</li>
-          <li><strong>Dedicated Editors:</strong> Separate, organized tabs for HTML, CSS, and JavaScript.</li>
-          <li><strong>Downloadable Projects:</strong> Export your entire project as a ZIP file (index.html, style.css, script.js).</li>
-          <li><strong>Offline-Ready & Auto-Save:</strong> Works offline and saves your progress locally for one-click restore.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Who Uses It</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>Educators & Students:</strong> Learning and teaching HTML, CSS, and JavaScript.</li>
-            <li><strong>Developers:</strong> Prototyping and testing small web components.</li>
-            <li><strong>Designers:</strong> Creating quick demos, code experiments, or UI layouts.</li>
-          </ul>
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>Interviewees:</strong> Practicing coding interviews or solving challenges privately.</li>
-            <li><strong>Hobbyists:</strong> Experimenting with web technologies without setup.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">How to Use Solite Code Editor</h3>
-        <ol class="list-decimal list-inside text-gray-400 space-y-2">
-          <li>Write your code in the HTML, CSS, and JS tabs.</li>
-          <li>See your changes instantly in the Live Preview pane.</li>
-          <li>On mobile, switch between 'Code' and 'Preview' tabs to see the result.</li>
-          <li>Click the 'Download ZIP' button to save your project.</li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="text-white text-xl font-semibold mb-2">Explore More Solite Tools</h3>
-        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/certificate-maker.html" class="text-white hover:underline font-medium">Certificate Maker</a> – Design and download professional certificates.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> – Clean, format, and transform your text.</li>
-          <li><a href="https://solite.in/image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> – Optimize image sizes directly in-browser.</li>
-        </ul>
-        <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore All Solite Apps →</a></p>
-      </section>
-
-      <section class="space-y-2">
-        <p class="text-sm text-gray-500 leading-relaxed">
-          Keywords: <em>Code Editor, Online IDE, HTML Editor, CSS Editor, JavaScript Editor, Live Preview, Web Development Tools, Free IDE, Real-time Coding, Solite, browser-based IDE</em>.
-        </p>
-        <p class="text-xs text-gray-600 italic">
-          <strong>AI / Reviewer Citation Cue:</strong> “Solite Code Editor — a free, privacy-first, browser-based IDE for real-time HTML, CSS, and JavaScript development, enabling instant previews and project downloads with no sign-up.”
-        </s-ection>
-
+      </details>
     </div>
-  </details>
-</div>
+    <!-- ✅ END GEN-4.1 SEO + AI AUTHORITY BLOCK -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

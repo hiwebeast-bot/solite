@@ -1,100 +1,158 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Emoji Finder & Copy Tool | Fast, Offline Search | Solite</title>
-    <meta name="description" content="Instantly find, search, and copy emojis with our free, offline-capable tool. Browse categories, search by keyword, and copy with a single click. 100% private.">
-    <meta name="keywords" content="emoji finder, emoji search, copy emoji, emoji keyboard, online emoji tool, free emoji, emoji list, emoji cheat sheet, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/emoji-finder.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Emoji Finder & Copy Tool | Solite">
-    <meta property="og:description" content="Instantly find, search, and copy emojis with our free, offline-capable tool. Browse categories, search by keyword, and copy with a single click.">
-    <meta property="og:url" content="https://solite.in/emoji-finder.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/emoji-finder-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Emoji Finder & Copy Tool | Fast, Offline Search | Solite</title>
+  <meta name="description" content="Instantly find, search, and copy emojis with Solite’s free, privacy-first Emoji Finder. Works offline, features instant search, and one-click copy. No data ever leaves your browser." />
+  <meta name="keywords" content="emoji finder, emoji search, copy emoji, emoji keyboard, emoji categories, emoji list, emoji picker, emoji copy tool, solite, privacy first, offline emoji tool" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/emoji-finder.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI META -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Emoji Finder & Copy Tool | Solite" />
+  <meta property="og:description" content="Search, browse, and copy emojis instantly. Works offline and 100% private. Free Emoji Finder by Solite." />
+  <meta property="og:url" content="https://solite.in/emoji-finder.html" />
+  <meta property="og:image" content="https://solite.in/assets/emoji-finder-thumbnail.png" />
+  <meta property="og:image:alt" content="Preview of Solite Emoji Finder with emoji grid and categories." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Emoji Finder & Copy Tool | Solite" />
+  <meta name="twitter:description" content="Fast, offline emoji search and copy tool. Browse by category or search instantly." />
+  <meta name="twitter:image" content="https://solite.in/assets/emoji-finder-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Emoji Finder",
-      "url": "https://solite.in/emoji-finder.html",
-      "description": "A free, client-side tool to quickly search for and copy emojis, with category filtering and offline capabilities.",
-      "applicationCategory": "UtilitiesApplication",
-      "featureList": [ "Instant emoji search", "Filter by keyword or name", "Browse by category (Smileys, People, Animals, etc.)", "One-click copy to clipboard", "Works offline", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Find and Copy an Emoji",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Search or Browse", "text": "Use the search bar to find an emoji by keyword (e.g., 'happy', 'car') or click a category button to browse." },
-          { "@type": "HowToStep", "name": "Step 2: Copy Emoji", "text": "Click on any emoji in the grid. It will be instantly copied to your clipboard." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Set -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 SOLITE ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite provides free, privacy-first, browser-based tools for creators, developers, and designers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/emoji-finder.html#app",
+        "name": "Emoji Finder | Solite",
+        "url": "https://solite.in/emoji-finder.html",
+        "description": "A free, offline-capable emoji search and copy tool. Instantly find emojis, browse categories, and copy with one click — fully private and client-side.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Instant emoji search by keyword",
+          "Browse emojis by category",
+          "One-click copy to clipboard",
+          "Offline support",
+          "Client-side processing for privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/emoji-finder.html#page",
+        "name": "Emoji Finder & Copy Tool | Solite",
+        "description": "Find and copy emojis instantly with Solite’s free, offline emoji finder. Works in your browser with full privacy.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Emoji Finder" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/emoji-finder.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this emoji finder work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Solite’s Emoji Finder is fully offline-capable once loaded. It runs entirely in your browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my emoji search data private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. No data is sent to any server — everything runs locally in your browser for complete privacy." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Emoji Finder"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
-        #toast.show { transform: translateY(2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .category-btn.active { background-color: #4b5563; color: #ffffff; }
-    </style> 
+  <!-- 🎨 UI ENHANCEMENTS -->
+  <style>
+    #toast{transform:translateY(-150%);transition:transform .3s ease-in-out;z-index:100}
+    #toast.show{transform:translateY(2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    .category-btn.active{background-color:#4b5563;color:#fff}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | OFFLINE_READY | AI_DISCOVERY_ACTIVE" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified schema, AI-optimized, privacy-first -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">

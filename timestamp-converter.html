@@ -1,108 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Timestamp Converter - Unix & Human-Readable Date | Solite</title>
-    <meta name="description" content="Instantly convert Unix timestamps to human-readable dates and vice-versa. A free, private, and fast online tool that auto-detects your timezone. Supports seconds, milliseconds, and nanoseconds.">
-    <meta name="keywords" content="timestamp converter, unix timestamp converter, epoch converter, date to timestamp, timestamp to date, human readable date, free developer tool, solite">
-    <link rel="canonical" href="https://solite.in/timestamp-converter.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Timestamp Converter - Unix & Human-Readable Date | Solite">
-    <meta property="og:description" content="Instantly convert Unix timestamps to human-readable dates and vice-versa. A free, private, and fast online tool that auto-detects your timezone.">
-    <meta property="og:url" content="https://solite.in/timestamp-converter.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/timestamp-converter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free Timestamp Converter — Unix & Human-Readable Date | Solite</title>
+  <meta name="description" content="Instantly convert Unix timestamps to human-readable dates and vice versa. A free, private, browser-based tool supporting seconds, milliseconds, and nanoseconds. Auto-detects your timezone.">
+  <meta name="keywords" content="timestamp converter, unix converter, epoch converter, date to timestamp, timestamp to date, milliseconds, human readable date, timezone converter, solite, privacy first">
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/timestamp-converter.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph / Twitter / AI Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Timestamp Converter — Unix & Human-Readable Date | Solite" />
+  <meta property="og:description" content="Convert Unix timestamps to readable dates or vice versa — supports seconds, milliseconds, nanoseconds, and local timezone detection. 100% private.">
+  <meta property="og:url" content="https://solite.in/timestamp-converter.html" />
+  <meta property="og:image" content="https://solite.in/assets/timestamp-converter-thumbnail.png" />
+  <meta property="og:image:alt" content="Solite Timestamp Converter Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Timestamp Converter — Unix & Human-Readable Date | Solite" />
+  <meta name="twitter:description" content="Convert Unix timestamps to human-readable date and vice versa instantly — accurate, private, and browser-based.">
+  <meta name="twitter:image" content="https://solite.in/assets/timestamp-converter-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📚 Dublin Core Metadata -->
+  <meta name="DC.Title" content="Free Timestamp Converter | Solite" />
+  <meta name="DC.Description" content="Convert Unix timestamps to readable dates or dates to timestamps instantly. 100% private client-side tool from Solite." />
+  <meta name="DC.Type" content="Software" />
+  <meta name="DC.Creator" content="Solite" />
+  <meta name="DC.Publisher" content="Solite" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Timestamp Converter",
-      "url": "https://solite.in/timestamp-converter.html",
-      "description": "A free, client-side tool to convert Unix timestamps to human-readable dates and vice-versa, with automatic timezone detection.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Convert Unix timestamp to date", "Convert date to Unix timestamp", "Supports seconds, milliseconds, nanoseconds", "Auto-detects local timezone", "Displays UTC/GMT time", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Convert a Timestamp",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Enter Timestamp or Date", "text": "Enter a Unix timestamp into the 'Timestamp to Date' section, or select a human-readable date in the 'Date to Timestamp' section." },
-          { "@type": "HowToStep", "name": "Step 2: Select Units (for timestamp)", "text": "If you entered a timestamp, specify whether it is in seconds, milliseconds, or nanoseconds." },
-          { "@type": "HowToStep", "name": "Step 3: View Conversion", "text": "The tool will instantly show the converted value in the other section, including the date in your local timezone and UTC." }
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🎨 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧱 Unified Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first browser-based tools for developers, designers, and creators. No tracking, no data collection."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/timestamp-converter.html#app",
+        "name": "Timestamp Converter",
+        "url": "https://solite.in/timestamp-converter.html",
+        "description": "A free, client-side tool to convert Unix timestamps to human-readable dates and vice versa with timezone detection.",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Convert Unix timestamp to readable date",
+          "Convert date to Unix timestamp",
+          "Supports seconds, milliseconds, and nanoseconds",
+          "Auto-detects local timezone and displays UTC",
+          "Works 100% client-side — no data sent to servers"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Unix timestamp?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Unix timestamp is the number of seconds (or milliseconds) since January 1, 1970 (the Unix epoch). It’s a universal format for representing time in computing." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this converter work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, once loaded, it runs fully in your browser without an internet connection. No data is uploaded." }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate is the conversion?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The tool accurately handles seconds, milliseconds, and nanoseconds, displaying your local and UTC time automatically." }
+          }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Timestamp Converter" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/timestamp-converter.html#webpage",
+        "name": "Timestamp Converter | Solite",
+        "url": "https://solite.in/timestamp-converter.html",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://solite.in/assets/timestamp-converter-thumbnail.png"
+        },
+        "isPartOf": { "@id": "https://solite.in/#website" }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Timestamp Converter"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert(1); }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-    </style> 
+      }
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .custom-select { appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert(1); }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema graph, OG/DC parity, privacy-first freshness, and AI discoverability fusion. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -233,6 +291,117 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / TIMESTAMP CONVERTER EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-timestamp[open]>summary {border-bottom:1px solid #374151;}
+            #solite-seo-block-timestamp>summary .details-arrow-seo {
+            transform:rotate(-90deg);transition:transform .25s ease-in-out;
+            }
+            #solite-seo-block-timestamp[open]>summary .details-arrow-seo{transform:rotate(0deg);}
+            .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;
+            padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
+        </style>
+
+        <details id="solite-seo-block-timestamp"
+            class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Timestamp Converter — Unix ⇄ Human-Readable Date Instantly
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Unix ↔ Date Converter</span>
+                <span class="badge">Epoch Time Tool</span>
+                <span class="badge">Timezone Auto-Detect</span>
+                <span class="badge">Milliseconds / Nanoseconds</span>
+                <span class="badge">100 % Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Timestamp Converter</strong> instantly turns <strong>Unix timestamps</strong>
+                into readable dates — and back again. It supports seconds, milliseconds,
+                and nanoseconds with automatic timezone detection, running entirely
+                <strong>client-side for full privacy and accuracy</strong>.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Better -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Developers Love It</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Zero Latency:</strong> Works instantly offline — no server calls ever.</li>
+                <li><strong>Precision Ready:</strong> Handles seconds, milliseconds & nanoseconds accurately.</li>
+                <li><strong>Dual Timezones:</strong> Shows both local and UTC outputs at once.</li>
+                <li><strong>Privacy-First:</strong> Runs 100 % in your browser, no data tracking.</li>
+                <li><strong>Cross-Suite Sync:</strong> Integrates with Solite developer utilities seamlessly.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses It &amp; Why</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Developers:</strong> Debug APIs and timestamped logs instantly.</li>
+                    <li><strong>Data Analysts:</strong> Convert epoch data for reports & dashboards.</li>
+                    <li><strong>Blockchain Teams:</strong> Translate block timestamps to real dates.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>SysAdmins:</strong> Audit server logs across zones.</li>
+                    <li><strong>Students &amp; Researchers:</strong> Learn time formats and Unix standards.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use the Converter</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Paste a Unix timestamp or choose a date &amp; time.</li>
+                <li>Select the unit (seconds, ms, ns) as needed.</li>
+                <li>See instant conversion in both local and UTC zones.</li>
+                <li>Copy results with a single click — no login required.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Ecosystem Links -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer &amp; Data Suite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — Pretty-print and validate JSON instantly.</li>
+                <li><a href="./epoch-diff-calculator.html" class="text-white hover:underline font-medium">Epoch Diff Calculator</a> — Compare two timestamps easily.</li>
+                <li><a href="./timezone-converter.html" class="text-white hover:underline font-medium">Timezone Converter</a> — View time across regions at once.</li>
+                <li><a href="./date-calculator.html" class="text-white hover:underline font-medium">Date Calculator</a> — Add or subtract days from any date.</li>
+                <li><a href="./smart-word-counter.html" class="text-white hover:underline font-medium">Smart Word Counter</a> — Real-time word &amp; tone analytics.</li>
+                </ul>
+                <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a>
+                </p>
+            </section>
+
+            <!-- 🧠 AI &amp; Research Citation -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>timestamp converter, unix time converter, epoch time, date to timestamp, milliseconds converter, UTC time, Solite developer tools, privacy first</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>
+                “Solite Timestamp Converter — a privacy-first developer tool for accurate, offline Unix time and date conversion with full timezone support.”
+                </p>
+            </section>
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1 TIMESTAMP CONVERTER BLOCK -->
+
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">

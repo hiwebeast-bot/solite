@@ -1,123 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Online Data Converter (JSON, YAML, XML, CSV) | Solite</title>
-    <meta name="description" content="Free online tool to convert between data formats. Instantly convert JSON to YAML, XML to JSON, CSV to JSON, and more. 100% private, client-side processing.">
-    <meta name="keywords" content="data converter, json converter, yaml converter, xml converter, csv converter, json to yaml, yaml to json, csv to json, online tool, solite">
-    <link rel="canonical" href="https://solite.in/data-converter.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Online Data Converter (JSON, YAML, XML, CSV) | Solite</title>
+  <meta name="description" content="Free online data converter to instantly transform JSON, YAML, XML, CSV, and TOML formats. 100% private and client-side — no uploads, no tracking." />
+  <meta name="keywords" content="data converter, json converter, yaml converter, xml converter, csv converter, json to yaml, yaml to json, csv to json, online data tool, solite, privacy-first" />
+  <link rel="canonical" href="https://solite.in/data-converter.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online Data Converter | Solite">
-    <meta property="og:description" content="Instantly convert between JSON, YAML, XML, CSV, and TOML. Free, private, and powerful client-side data conversion.">
-    <meta property="og:url" content="https://solite.in/data-converter.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/data-converter-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Online Data Converter | Solite" />
+  <meta property="og:description" content="Convert JSON, YAML, XML, CSV, and TOML instantly — private, browser-based, and free." />
+  <meta property="og:url" content="https://solite.in/data-converter.html" />
+  <meta property="og:image" content="https://solite.in/assets/data-converter-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Online Data Converter (JSON, YAML, XML, CSV) | Solite" />
+  <meta name="twitter:description" content="Convert between JSON, YAML, XML, CSV, and TOML formats instantly in your browser. Free & private." />
+  <meta name="twitter:image" content="https://solite.in/assets/data-converter-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Data Conversion Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="https://unpkg.com/@iarna/toml@2.2.5/parse-string.js"></script>
-    <script src="https://unpkg.com/@iarna/toml@2.2.5/stringify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.2.5/fxparser.min.js"></script>
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Data Converter | Solite",
-      "url": "https://solite.in/data-converter.html",
-      "description": "A free, client-side tool for converting between various data formats like JSON, YAML, XML, CSV, and TOML.",
-      "applicationCategory": "DeveloperApplication",
-      "featureList": [ "Convert JSON", "Convert YAML", "Convert XML", "Convert CSV", "Convert TOML", "Live conversion", "Client-side processing for privacy", "Copy to clipboard", "Download file" ],
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Convert Data Formats",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Select Input Format", "text": "Choose the format of your source data (e.g., JSON, CSV) from the first dropdown." },
-          { "@type": "HowToStep", "name": "Step 2: Paste Data", "text": "Paste your data into the 'Input' text area. The tool will attempt to convert it in real-time." },
-          { "@type": "HowToStep", "name": "Step 3: Select Output Format and Export", "text": "Choose your desired output format from the second dropdown. You can then copy the result or download it as a file." }
+  <!-- 📚 Data Conversion Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <script src="https://unpkg.com/@iarna/toml@2.2.5/parse-string.js"></script>
+  <script src="https://unpkg.com/@iarna/toml@2.2.5/stringify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.2.5/fxparser.min.js"></script>
+
+  <!-- 🎨 UI Styles -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+    .custom-select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+  </style>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite develops free, privacy-first, browser-based tools for modern developers and creators."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [ { "@id": "https://solite.in/data-converter.html#webapp" } ]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/data-converter.html#webapp",
+        "name": "Data Converter | Solite",
+        "url": "https://solite.in/data-converter.html",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Convert JSON, YAML, XML, CSV, and TOML",
+          "Instant bidirectional conversion",
+          "Live preview and error handling",
+          "Copy and export data",
+          "Client-side only — 100% private"
+        ],
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "softwareVersion": "5.0",
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/data-converter.html#webpage",
+        "name": "Online Data Converter (JSON, YAML, XML, CSV) | Solite",
+        "description": "Convert JSON, YAML, XML, CSV, and TOML with full privacy. No server-side processing.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Data Converter" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/data-converter.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which formats are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The Solite Data Converter supports JSON, YAML, XML, CSV, and TOML. All conversions are handled client-side for full privacy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, once loaded, it works fully offline since all conversions are processed locally in your browser." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Data Converter"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What data formats can this tool convert?",
-        "acceptedAnswer": { "@type": "Answer", "text": "This tool can convert between several common data formats, including JSON, YAML, XML, CSV, and TOML." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified schema, AI discovery optimized -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

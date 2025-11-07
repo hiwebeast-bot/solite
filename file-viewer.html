@@ -1,128 +1,149 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Free Online File Viewer - View PDF, DOCX, XLSX | Solite</title>
-    <meta name="description" content="A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.">
-    <meta name="keywords" content="file viewer, online document viewer, view pdf, view docx, view xlsx, view pptx, view odt, view ods, view odp, solite, privacy first, universal file viewer">
-    <link rel="canonical" href="https://solite.in/file-viewer.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Online File Viewer — View PDF, DOCX, XLSX, PPTX | Solite</title>
+  <meta name="description" content="View PDF, DOCX, XLSX, PPTX, and more instantly in your browser. A free, private, client-side file viewer by Solite — no uploads, no sign-up required." />
+  <meta name="keywords" content="file viewer, document viewer, view pdf online, docx viewer, xlsx viewer, pptx viewer, open office viewer, odt viewer, privacy first, solite" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/file-viewer.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Online File Viewer - View PDF, DOCX, XLSX | Solite">
-    <meta property="og:description" content="Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. A free, private, browser-based file viewer by Solite.">
-    <meta property="og:url" content="https://solite.in/file-viewer.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/file-viewer-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- ⚡ OPEN GRAPH / SOCIAL / AI -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Online File Viewer | Solite" />
+  <meta property="og:description" content="View PDF, DOCX, XLSX, PPTX, and more directly in your browser. 100% private and offline-ready by Solite." />
+  <meta property="og:url" content="https://solite.in/file-viewer.html" />
+  <meta property="og:image" content="https://solite.in/assets/file-viewer-thumbnail.png" />
+  <meta property="og:image:alt" content="Preview of Solite File Viewer interface showing document rendering." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online File Viewer | Solite" />
+  <meta name="twitter:description" content="Instantly view documents like PDF, DOCX, XLSX, and PPTX — private, client-side, and free." />
+  <meta name="twitter:image" content="https://solite.in/assets/file-viewer-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Universal File Viewer | Solite",
-      "url": "https://solite.in/file-viewer.html",
-      "description": "A free, private online file viewer. Instantly view PDF, DOCX, XLSX, PPTX, and other documents in your browser. No uploads, no sign-up required.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "dateModified": "2025-11-06T10:00:00Z",
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to View a File Online",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Upload File", "text": "Drag and drop a file (like a PDF, DOCX, or XLSX) onto the page, or click to select a file from your device." },
-          { "@type": "HowToStep", "name": "Step 2: View", "text": "The file will be rendered directly in your browser. Your file is never uploaded to a server." },
-          { "@type": "HowToStep", "name": "Step 3: Navigate (if applicable)", "text": "Use the navigation controls at the bottom to move between pages or zoom in and out." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- ⚙️ File Viewer Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.15/dist/docx-preview.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pptx-js@0.2.2/dist/pptx.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webodf/0.5.7/webodf.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 
+      "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js";
+  </script>
+
+  <!-- 🧬 GEN-5 SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds privacy-first, client-side web tools for developers, designers, and creators."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/file-viewer.html#app",
+        "name": "Universal File Viewer | Solite",
+        "url": "https://solite.in/file-viewer.html",
+        "description": "A free, private online file viewer to open PDF, DOCX, XLSX, PPTX, and other formats directly in your browser without uploading.",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "View PDF, DOCX, XLSX, PPTX, and OpenDocument files",
+          "Client-side rendering, 100% private",
+          "Zoom, scroll, and navigate documents",
+          "Supports drag-and-drop"
+        ],
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript-enabled modern browser",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://solite.in/file-viewer.html#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "File Viewer" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/file-viewer.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What file types are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "You can view PDF, DOCX, XLSX, PPTX, ODT, ODS, ODP, and most common image or text files directly in your browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my file uploaded?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Never. All rendering happens in your browser — your file never leaves your device." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Universal File Viewer"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What file types can I view with this tool?",
-        "acceptedAnswer": { "@type": "Answer", "text": "This tool can view a wide range of file types directly in your browser, including PDF, DOCX (Microsoft Word), XLSX (Microsoft Excel), PPTX (Microsoft PowerPoint), ODT, ODS, ODP, as well as common image and text files." }
-      }]
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
     }
-    </script>
+  </script>
 
-    <!-- File Viewer Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.15/dist/docx-preview.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pptx-js@0.2.2/dist/pptx.min.js"></script>
-    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webodf/0.5.7/webodf.js"></script>
-    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js`;</script>
+  <!-- 🎨 Styles -->
+  <style>
+    .pptx-viewer { background: #f0f0f0; padding: 1rem; }
+    .pptx-viewer section { margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .docx-wrapper { padding: 2rem; background: #fff; color: #000; }
+    .sheetjs-table { border-collapse: collapse; width: 100%; background: #fff; color: #000; }
+    .sheetjs-table th, .sheetjs-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .sheetjs-table th { background-color: #f2f2f2; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+  </style>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                },
-            },
-        }
-    </script>
-    <style>
-        .pptx-viewer { background: #f0f0f0; padding: 1rem; }
-        .pptx-viewer section { margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .docx-wrapper { padding: 2rem; background: white; color: black; }
-        .sheetjs-table { border-collapse: collapse; width: 100%; color: black; background: white; }
-        .sheetjs-table th, .sheetjs-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        .sheetjs-table th { background-color: #f2f2f2; }
-        .docx-wrapper.fit-width { width: 100% !important; }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN_5_SCHEMA | PRIVACY_FIRST | OFFLINE_READY | AI_DISCOVERY_ACTIVE" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — Unified Schema, Privacy-First Metadata, AI Discovery Optimization -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

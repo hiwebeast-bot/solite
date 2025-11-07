@@ -1,122 +1,163 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <!-- MODIFIED: Optimized Title -->
-    <title>Free Image Watermarker & Annotator Tool | Draw, Text, Logos | Solite</title>
-    <!-- MODIFIED: Optimized Description -->
-    <meta name="description" content="Add watermarks (text/image) and annotations (draw, shapes) to your images online with Solite's free tool. Works directly in your browser. 100% private and secure.">
-    <!-- MODIFIED: Expanded Keywords -->
-    <meta name="keywords" content="image watermarker, image annotator, add watermark to photo, add text to image, draw on image, online annotation tool, free watermarker, solite">
-    <link rel="canonical" href="https://solite.in/watermark-annotator.html" />
-    <meta name="robots" content="index, follow">
+  <!-- 🧠 SEO & Discovery -->
+  <title>Free Image Watermarker & Annotator Tool | Draw, Text, Logos | Solite</title>
+  <meta name="description" content="Add text, logo, or shape watermarks and annotations to your images online. Draw freely, add text, and export high-quality results. 100% private, browser-based, and secure." />
+  <meta name="keywords" content="image watermarker, annotate image, draw on image, add watermark, logo overlay, online photo annotator, solite tools, privacy-first editor" />
+  <link rel="canonical" href="https://solite.in/watermark-annotator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph for social + AI -->
-     <!-- MODIFIED: Optimized OG Title -->
-    <meta property="og:title" content="Free Image Watermarker & Annotator Tool | Solite">
-     <!-- MODIFIED: Optimized OG Description -->
-    <meta property="og:description" content="Use our free online tool to watermark and annotate images. Draw, add text, shapes, and place image logos directly in your browser. 100% private.">
-    <meta property="og:url" content="https://solite.in/watermark-annotator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/watermark-annotator-thumbnail.png">
+  <!-- 🌐 Open Graph & Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Image Watermarker & Annotator Tool | Solite" />
+  <meta property="og:description" content="Add watermarks and annotations to images. Draw, add text or logos directly in your browser — 100% private and free." />
+  <meta property="og:url" content="https://solite.in/watermark-annotator.html" />
+  <meta property="og:image" content="https://solite.in/assets/watermark-annotator-thumbnail.png" />
+  <meta property="og:image:alt" content="Watermark & Annotator Tool Preview | Solite" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image Watermarker & Annotator Tool | Solite" />
+  <meta name="twitter:description" content="Add text, logos, and drawings to images online. Free, private, and browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/watermark-annotator-thumbnail.png" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Removed duplicate font load -->
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Watermarker & Annotator | Solite",
-      "url": "https://solite.in/watermark-annotator.html",
-      "description": "A free, client-side tool to add watermarks and annotations like text, shapes, and drawings to images.",
-      "applicationCategory": "MultimediaApplication",
-      "featureList": [
-        "Add text watermarks with customizable font, size, color, and opacity",
-        "Add image watermarks with adjustable size and opacity",
-        "Freehand drawing with pencil tool (customizable color and size)",
-        "Draw shapes (rectangle, circle, triangle) with customizable color and size",
-        "Undo/Redo functionality",
-        "Download annotated images (PNG format)",
-        "Client-side processing for privacy"
-      ],
-      "softwareVersion": "1.0",
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "provider": {
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+
+  <!-- 🎨 Icons & Manifest -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧱 GEN-5.0 Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Organization",
+        "@id": "https://solite.in/#organization",
         "name": "Solite",
-        "url": "https://solite.in"
+        "url": "https://solite.in",
+        "logo": { "@type": "ImageObject", "url": "https://solite.in/apple-touch-icon.png" },
+        "description": "Solite builds free, privacy-first browser tools for developers and creators."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/watermark-annotator.html#webpage",
+        "url": "https://solite.in/watermark-annotator.html",
+        "name": "Free Image Watermarker & Annotator | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/watermark-annotator-thumbnail.png" },
+        "description": "Free online tool to watermark and annotate images with text, logos, and drawings."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/watermark-annotator.html#webapp",
+        "name": "Image Watermarker & Annotator",
+        "applicationCategory": "MultimediaApplication",
+        "featureList": [
+          "Text and image watermarks",
+          "Freehand drawing & shapes",
+          "Undo/redo controls",
+          "PNG export",
+          "Client-side privacy"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Image Watermarker & Annotator" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I add both text and image watermarks?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add text watermarks with full font customization, and image watermarks with adjustable opacity and size." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool upload my image?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All editing happens locally in your browser. Nothing is uploaded or stored on any server." }
+          }
+        ]
       }
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <!-- Fabric.js for Object-Oriented Canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                    },
-                },
-            },
+  <!-- 💅 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] }
         }
-    </script>
-    <style>
-        #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
-        #toast.show { transform: translateY(2rem); }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
-        input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #ffffff; cursor: pointer; border-radius: 9999px; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer */
-        ::-webkit-scrollbar-track { background: #1f2937; /* gray-800 */ }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; /* gray-600 */ border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; /* gray-500 */ }
-        html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
+      }
+    };
+  </script>
 
-        .tool-btn.active { background-color: #fff; color: #000; }
-        .layer-item.selected { background-color: #374151; } /* gray-700 */
-        .tab-btn { border-bottom: 2px solid transparent; color: #9ca3af; }
-        .tab-btn.active { border-color: #fff; color: #fff; }
-        .canvas-container { margin: auto; } /* Center fabric.js canvas */
+  <!-- 🎨 Styles -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform 0.3s ease-in-out; z-index: 100; }
+    #toast.show { transform: translateY(2rem); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width:16px; height:16px; background:#fff; border-radius:9999px; cursor:pointer; margin-top:-6px; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #1f2937; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
+    html { scrollbar-color: #4b5563 #1f2937; scrollbar-width: thin; }
+    .tool-btn.active { background-color: #fff; color: #000; }
+    .layer-item.selected { background-color: #374151; }
+    .tab-btn { border-bottom: 2px solid transparent; color: #9ca3af; }
+    .tab-btn.active { border-color: #fff; color: #fff; }
+    .canvas-container { margin: auto; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    #canvas-pane > div { height: 100%; }
+  </style>
 
-        /* ADDED: Mobile Nav Styles */
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-
-        /* Ensure canvas container respects parent height */
-        #canvas-pane > div { height: 100%; }
-    </style>
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified schema, AI discovery alignment, privacy-first metadata, OG/Twitter parity, and freshness optimization. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Removed mobile viewport height JS fix -->
@@ -295,6 +336,106 @@
                 </button>
             </div>
         </div>
+        <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / IMAGE WATERMARKER & ANNOTATOR EDITION) -->
+        <div class="w-full text-gray-300 p-2">
+        <style>
+            #solite-seo-block-watermark[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-watermark > summary .details-arrow-seo {
+            transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+            }
+            #solite-seo-block-watermark[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-seo-block-watermark" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+            Free Image Watermarker & Annotator — Add Text, Logo & Draw Online
+            <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+
+            <div class="p-6 space-y-10 leading-relaxed">
+
+            <!-- 🧩 Overview -->
+            <section class="space-y-3">
+                <div class="flex flex-wrap gap-2">
+                <span class="badge">Draw & Annotate</span>
+                <span class="badge">Add Text & Logos</span>
+                <span class="badge">Shape Tools</span>
+                <span class="badge">Undo / Redo</span>
+                <span class="badge">100% Private</span>
+                </div>
+                <p class="text-lg text-gray-300">
+                The <strong>Solite Image Watermarker & Annotator</strong> lets you add text, logos, drawings, or shapes directly on images — instantly and securely.
+                Everything runs <strong>locally in your browser</strong>, ensuring your photos never leave your device. Perfect for creators, photographers, teachers, and anyone who needs to mark or annotate images with full privacy.
+                </p>
+            </section>
+
+            <!-- 🧭 Why It’s Better -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s Watermarker Stands Out</h3>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Private by Design:</strong> Works entirely offline — no uploads, no tracking.</li>
+                <li><strong>Multi-Layer Editing:</strong> Add text, logos, shapes, and freehand drawings.</li>
+                <li><strong>Full Control:</strong> Customize opacity, color, font, and stroke width in real time.</li>
+                <li><strong>High-Resolution Export:</strong> Download print-ready PNGs with preserved quality.</li>
+                <li><strong>Optimized for Speed:</strong> Built with Fabric.js 5 + Tailwind 3 for fast, smooth editing.</li>
+                </ul>
+            </section>
+
+            <!-- 🧠 Who Uses It -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Who Uses Solite Watermarker</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Content Creators:</strong> Add logos or tags before posting online.</li>
+                    <li><strong>Photographers:</strong> Protect original work with custom watermarks.</li>
+                    <li><strong>Teachers & Trainers:</strong> Annotate screenshots or visual lessons easily.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Marketers:</strong> Create quick branded visuals for campaigns.</li>
+                    <li><strong>Developers:</strong> Generate annotated UI previews or bug reports.</li>
+                </ul>
+                </div>
+            </section>
+
+            <!-- ⚙️ How to Use -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li><strong>Upload an Image:</strong> Drag & drop or click the upload area.</li>
+                <li><strong>Add Elements:</strong> Insert text, logo, shapes, or draw with pencil.</li>
+                <li><strong>Adjust Settings:</strong> Tweak color, opacity, and size as needed.</li>
+                <li><strong>Export:</strong> Download your final annotated image in seconds.</li>
+                </ol>
+            </section>
+
+            <!-- 🧱 Cross-Linking Ecosystem -->
+            <section>
+                <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Design & Media Suite</h3>
+                <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./favicon-generator.html" class="text-white hover:underline font-medium">Favicon Generator</a> — Convert logos or images into favicons instantly.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Build perfect color sets for your brand.</li>
+                <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Reduce image size without losing quality.</li>
+                <li><a href="./certificate-maker.html" class="text-white hover:underline font-medium">Certificate Maker</a> — Design printable certificates in seconds.</li>
+                </ul>
+                <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></p>
+            </section>
+
+            <!-- 🤖 AI & Research Discovery Layer -->
+            <section class="space-y-2">
+                <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>image watermarker, annotate image, draw on photo, add logo watermark, free photo annotator, browser image editor, Solite tools, privacy-first app, client-side editing</em>.
+                </p>
+                <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong> “Solite Image Watermarker & Annotator — a privacy-first, in-browser image editor that adds text, drawings, and watermarks without uploading your data anywhere.”
+                </p>
+            </section>
+
+            </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-4.1: IMAGE WATERMARKER & ANNOTATOR BLOCK -->
+
     <!-- MODIFIED: Footer hidden on mobile -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">

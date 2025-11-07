@@ -1,104 +1,156 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Color Name Finder (CSS, Crayola, Design) | Solite</title>
-    <meta name="description" content="Find the nearest named color for any HEX code or by picking from an image. A free, private tool for designers to discover names for CSS, Crayola, and common design system colors.">
-    <meta name="keywords" content="color name finder, color name, nearest color, css color names, crayola colors, design system colors, color picker, color tool, solite, privacy first">
-    <link rel="canonical" href="https://solite.in/color-name-finder.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Color Name Finder | Solite">
-    <meta property="og:description" content="Find the nearest named color for any HEX code or by picking from an image. A free, private tool for designers to discover names for CSS, Crayola, and common design system colors.">
-    <meta property="og:url" content="https://solite.in/color-name-finder.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/color-name-finder-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Color Name Finder (CSS, Crayola, Design) | Solite</title>
+  <meta name="description" content="Find the nearest named color for any HEX code or image pixel. Supports CSS, Crayola, and design palettes. 100% private, browser-based, and free." />
+  <meta name="keywords" content="color name finder, color name, nearest color, css color names, crayola colors, design system colors, color picker, hex color name, solite tools" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/color-name-finder.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI PREVIEWS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Color Name Finder | Solite" />
+  <meta property="og:description" content="Find the nearest named color from HEX or images — CSS, Crayola, and design palettes included. 100% client-side & private." />
+  <meta property="og:url" content="https://solite.in/color-name-finder.html" />
+  <meta property="og:image" content="https://solite.in/assets/color-name-finder-thumbnail.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Color Name Finder | Solite" />
+  <meta name="twitter:description" content="Instantly identify color names from HEX or image pixels — powered by Solite’s privacy-first tools." />
+  <meta name="twitter:image" content="https://solite.in/assets/color-name-finder-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Color Name Finder",
-      "url": "https://solite.in/color-name-finder.html",
-      "description": "A free, client-side tool to find the nearest named color for any HEX code from CSS, Crayola, and common design system palettes.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [ "Find nearest named color", "Pick color from an image", "Enter HEX code manually", "Supports CSS, Crayola, and Design System color names", "Client-side processing for 100% privacy", "Save color palette" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Find a Color Name",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Provide a Color", "text": "Enter a HEX code, use the color picker, or upload an image and click on a pixel." },
-          { "@type": "HowToStep", "name": "Step 2: View Results", "text": "The tool will instantly show the nearest matching named colors from different palettes like CSS and Crayola." },
-          { "@type": "HowToStep", "name": "Step 3: Save to Palette", "text": "Click 'Add to Palette' to save your favorite colors for later." }
-        ]
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Color Name Finder"
-      }]
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] },
+        },
+      },
     }
-    </script>
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
+  <!-- 🪞 Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🎨 STYLE -->
+  <style>
+    #toast { transform:translateY(150%); transition:transform .3s ease-in-out; z-index:9999; }
+    #toast.show { transform:translateY(-2rem); }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+    #zoom-loupe {
+      position:absolute; width:128px; height:128px; border-radius:50%;
+      border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.3);
+      image-rendering:pixelated; pointer-events:none; display:none;
+      background-color:#111; z-index:10; overflow:hidden;
+    }
+  </style>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based Tools",
+        "description": "Solite builds privacy-first, browser-based utilities for designers and developers — 100% client-side, no tracking, no data collection.",
+        "sameAs": [
+          "https://solite.in",
+          "https://www.solite.in",
+          "https://solite-pied.vercel.app"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "hasPart": [{ "@id": "https://solite.in/color-name-finder.html#webapp" }]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/color-name-finder.html#webapp",
+        "name": "Color Name Finder",
+        "url": "https://solite.in/color-name-finder.html",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "featureList": [
+          "Find nearest named color for HEX values",
+          "Pick color from image pixel",
+          "Supports CSS, Crayola, and design system colors",
+          "Instant HEX-to-name conversion",
+          "Save favorite colors to palette",
+          "100% client-side privacy"
+        ],
+        "softwareVersion": "5.0",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/color-name-finder.html"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/color-name-finder.html#webpage",
+        "name": "Free Color Name Finder (CSS, Crayola, Design) | Solite",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "description": "A free, private, client-side tool that finds the nearest named color from HEX or image pixels using CSS, Crayola, and design palettes.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Color Name Finder" }
+          ]
         }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        #zoom-loupe {
-            position: absolute; width: 128px; height: 128px; border-radius: 50%; border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); image-rendering: pixelated; image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges; pointer-events: none; display: none; overflow: hidden;
-            background-color: #111; z-index: 10;
-        }
-    </style> 
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — All tools must maintain unified schema and privacy-first meta -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
@@ -317,11 +369,11 @@
       <section>
         <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Designer Tools Suite</h3>
         <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-          <li><a href="https://solite.in/image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Optimize images without leaving your browser.</li>
-          <li><a href="https://solite.in/color-palette-generator.html" class="text-white hover:underline font-medium">Palette Generator</a> — Build cohesive color schemes from any seed.</li>
-          <li><a href="https://solite.in/text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean and transform copy for UI/UX.</li>
-          <li><a href="https://solite.in/code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Test color tokens in HTML/CSS/JS instantly.</li>
-          <li><a href="https://solite.in/data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON tokens for design systems.</li>
+          <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Optimize images without leaving your browser.</li>
+          <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Palette Generator</a> — Build cohesive color schemes from any seed.</li>
+          <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Tools</a> — Clean and transform copy for UI/UX.</li>
+          <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Test color tokens in HTML/CSS/JS instantly.</li>
+          <li><a href="./data-converter.html" class="text-white hover:underline font-medium">Data Converter</a> — Convert JSON tokens for design systems.</li>
         </ul>
         <p class="text-gray-400 mt-3"><a href="https://solite.in/index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
       </section>

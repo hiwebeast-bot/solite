@@ -1,111 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Placeholder Image Generator | Custom Dimensions & Text | Solite</title>
-    <meta name="description" content="Create custom placeholder images with specific dimensions, text, and colors. A free online tool to generate dummy images for mockups and development. Download as PNG, JPG, or SVG.">
-    <meta name="keywords" content="placeholder image generator, dummy image generator, image placeholder, custom placeholder image, image with text, developer image tool, solite, fake image generator, privacy first">
-    <link rel="canonical" href="https://solite.in/placeholder-image-generator.html" />
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for social + AI -->
-    <meta property="og:title" content="Free Placeholder Image Generator | Custom Dimensions & Text | Solite">
-    <meta property="og:description" content="Create custom placeholder images with specific dimensions, text, and colors. Free online tool to generate dummy images for mockups and development.">
-    <meta property="og:url" content="https://solite.in/placeholder-image-generator.html">
-    <meta property="og:site_name" content="Solite App Suite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/placeholder-image-generator-thumbnail.png">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 SEO + AI Discovery -->
+  <title>Free Placeholder Image Generator | Custom Dimensions & Text | Solite</title>
+  <meta name="description" content="Generate custom placeholder images with your own dimensions, colors, and text. Free, fast, and 100% browser-based — perfect for designers and developers." />
+  <meta name="keywords" content="placeholder image generator, dummy image, placeholder creator, image with text, fake image generator, developer tool, design mockup, solite, privacy-first tool" />
+  <link rel="canonical" href="https://solite.in/placeholder-image-generator.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solite" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Placeholder Image Generator | Custom Dimensions & Text | Solite" />
+  <meta property="og:description" content="Create custom placeholder images with dimensions, text, and colors. Free online image generator for designers and developers." />
+  <meta property="og:url" content="https://solite.in/placeholder-image-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/placeholder-image-generator-thumbnail.png" />
+  <meta property="og:image:alt" content="Placeholder Image Generator by Solite" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Placeholder Image Generator | Solite" />
+  <meta name="twitter:description" content="Create dummy images with custom dimensions and text. Download as PNG, JPG, or SVG. 100% private and browser-based." />
+  <meta name="twitter:image" content="https://solite.in/assets/placeholder-image-generator-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📊 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Placeholder Image Generator",
-      "url": "https://solite.in/placeholder-image-generator.html",
-      "description": "A free, client-side tool to generate custom placeholder images with specific dimensions, text, and colors.",
-      "applicationCategory": "DesignApplication",
-      "featureList": [ "Generate placeholder images", "Custom dimensions (width, height)", "Custom text, colors, and fonts", "Download as PNG, JPG, or SVG", "Copy Data URL for direct use", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "dateModified": "2025-11-06T10:00:00Z",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Generate a Placeholder Image",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Set Dimensions", "text": "Enter the desired width and height for your placeholder image." },
-          { "@type": "HowToStep", "name": "Step 2: Customize Appearance", "text": "Optionally, add custom text and adjust the background color, text color, and font." },
-          { "@type": "HowToStep", "name": "Step 3: Download or Copy", "text": "Choose your format (PNG, JPG, or SVG) and click 'Download', or copy the Data URL for direct use in your code." }
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono','monospace'] } } }
+    }
+  </script>
+
+  <!-- 🖋 Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite offers privacy-first, browser-based creative and developer tools designed for simplicity, speed, and AI discoverability."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/placeholder-image-generator.html#app",
+        "name": "Placeholder Image Generator | Solite",
+        "url": "https://solite.in/placeholder-image-generator.html",
+        "applicationCategory": "DesignApplication",
+        "description": "A free, client-side web app to create placeholder images with customizable dimensions, text, and colors — ideal for mockups and UI design.",
+        "featureList": [
+          "Custom dimensions (width & height)",
+          "Custom text and colors",
+          "Multiple formats: PNG, JPG, SVG",
+          "Instant Data URL copy",
+          "Fully private, client-side processing"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "operatingSystem": "All",
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/placeholder-image-generator.html#webpage",
+        "url": "https://solite.in/placeholder-image-generator.html",
+        "name": "Free Placeholder Image Generator | Custom Dimensions & Text | Solite",
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/placeholder-image-generator-thumbnail.png" },
+        "dateModified": "2025-11-07T10:00:00Z",
+        "isPartOf": { "@id": "https://solite.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Placeholder Image Generator" }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Placeholder Image Generator"
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-        .mobile-nav-btn.active { color: #ffffff; }
-        .mobile-nav-btn { color: #9ca3af; }
-        .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-    </style> 
+  <!-- 💅 Style Layer -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .mobile-nav-btn.active { color: #ffffff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .custom-select { -webkit-appearance:none; -moz-appearance:none; appearance:none; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified AI schema, privacy-first metadata, OG/Twitter parity, and discovery optimization. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     

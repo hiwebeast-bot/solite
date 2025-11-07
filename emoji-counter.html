@@ -1,114 +1,161 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Social Sharing Meta Tags -->
-    <title>Free Emoji Counter & Analyzer | Count Emojis in Text | Solite</title>
-    <meta name="description" content="Instantly count, analyze, and remove emojis from your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators. 100% private.">
-    <meta name="keywords" content="emoji counter, emoji remover, count emojis, emoji frequency, emoji analyzer, emoji list, social media tool, text analysis, emoji stats, solite, privacy first, clean text from emojis">
-    <link rel="canonical" href="https://solite.in/emoji-counter.html" />
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Solite">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Free Emoji Counter & Analyzer | Solite">
-    <meta property="og:description" content="Instantly count, analyze, and remove emojis from your text with our free online tool. Find total emoji count, unique emojis, and frequency. Perfect for social media creators.">
-    <meta property="og:url" content="https://solite.in/emoji-counter.html">
-    <meta property="og:site_name" content="Solite">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://solite.in/assets/emoji-counter-thumbnail.png">
-    <meta property="og:image:alt" content="A preview of the Emoji Counter tool showing emoji statistics.">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Emoji Counter & Analyzer | Count Emojis in Text | Solite</title>
+  <meta name="description" content="Count, analyze, and remove emojis from any text with Solite’s free online Emoji Counter. Instantly see total, unique, and frequent emojis — fully private and client-side." />
+  <meta name="keywords" content="emoji counter, emoji analyzer, emoji frequency, emoji remover, count emojis online, emoji stats tool, emoji list extractor, text emoji analyzer, solite, privacy-first" />
+  <meta name="author" content="Solite" />
+  <link rel="canonical" href="https://solite.in/emoji-counter.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- ⚡ SOCIAL + AI META -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Emoji Counter & Analyzer | Solite" />
+  <meta property="og:description" content="Instantly count, analyze, and remove emojis from text. Free, 100% private browser-based emoji counter for social media creators." />
+  <meta property="og:url" content="https://solite.in/emoji-counter.html" />
+  <meta property="og:image" content="https://solite.in/assets/emoji-counter-thumbnail.png" />
+  <meta property="og:image:alt" content="Emoji Counter dashboard showing emoji statistics." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Emoji Counter & Analyzer | Solite" />
+  <meta name="twitter:description" content="Free, private emoji counter tool for creators — count, analyze, and remove emojis instantly." />
+  <meta name="twitter:image" content="https://solite.in/assets/emoji-counter-thumbnail.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Core Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
+  <!-- 📈 Vercel Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Emoji Counter & Remover",
-      "url": "https://solite.in/emoji-counter.html",
-      "description": "A free, client-side tool to count, list, analyze, and remove emojis from text. Get total counts, unique counts, emoji density, and clean your text for professional use.",
-      "applicationCategory": "ProductivityApplication",
-      "featureList": [ "Total emoji count", "Unique emoji count", "Emoji frequency list", "Emoji density calculation", "Remove all emojis", "Remove specific emojis", "Copy individual emojis", "Copy all stats", "Client-side processing for 100% privacy" ],
-      "offers": { "@type": "Offer", "price": "0" },
-      "operatingSystem": "All",
-      "provider": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" },
-      "mainEntity": {
-        "@type": "HowTo",
-        "name": "How to Count Emojis in Text",
-        "step": [
-          { "@type": "HowToStep", "name": "Step 1: Paste Text", "text": "Paste your text containing emojis into the input area." },
-          { "@type": "HowToStep", "name": "Step 2: View Analysis", "text": "The tool will instantly update to show the total emoji count, unique emoji count, emoji density, and a frequency list of all emojis used." },
-          { "@type": "HowToStep", "name": "Step 3: Remove Emojis (Optional)", "text": "Click the 'Remove All' button to strip all emojis from the text, or click the remove icon next to a specific emoji in the list to remove only that one." },
-          { "@type": "HowToStep", "name": "Step 4: Copy Results", "text": "Click the 'Copy Stats' button to copy the summary, or click the copy icon next to any emoji in the frequency list to copy it individually." }
+  <!-- 🧩 Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 🪞 Favicon Set -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite offers privacy-first, browser-based tools for creators, developers, and designers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in",
+        "name": "Solite App Suite",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/emoji-counter.html#app",
+        "name": "Emoji Counter & Analyzer | Solite",
+        "url": "https://solite.in/emoji-counter.html",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "5.0",
+        "featureList": [
+          "Count total emojis in text",
+          "Show unique emojis and frequency",
+          "Remove emojis automatically",
+          "Emoji density and usage insights",
+          "Client-side processing for 100% privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/emoji-counter.html#page",
+        "name": "Emoji Counter & Analyzer | Solite",
+        "description": "Analyze and count emojis in your text instantly with Solite’s free, private emoji counter tool.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "about": { "@id": "https://solite.in/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Emoji Counter" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/emoji-counter.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this emoji counter free to use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Solite’s Emoji Counter is completely free with no ads or sign-ups required." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my text private?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All analysis runs locally in your browser — your data never leaves your device." }
+          }
         ]
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html"
-      },{
-        "@type": "ListItem", "position": 2, "name": "Emoji Counter"
-      }]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Is this emoji counter free to use?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Solite Emoji Counter is completely free to use. There are no sign-ups, ads, or limitations." }
-      },{
-        "@type": "Question",
-        "name": "Is my text private?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. This tool is 100% private because all counting and analysis happens directly in your browser. Your text is never sent to a server." }
-      }]
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } },
-            },
-        }
-    </script>
-    <style>
-        #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
-        #toast.show { transform: translateY(-2rem); }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        html { scrollbar-color: #4b5563 #111827; }
-    </style> 
+  <!-- 🎨 UI ENHANCEMENTS -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .mobile-nav-btn.active{color:#fff}
+    .mobile-nav-btn{color:#9ca3af}
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AI_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — unified schema, AI discovery optimized -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans antialiased">
     
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">

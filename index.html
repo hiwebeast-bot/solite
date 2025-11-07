@@ -1,119 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solite | The Ultimate Suite of Free, Private, Browser-Based Tools</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO & Social Sharing Meta Tags -->
-    <meta name="description" content="A powerful suite of free, private, browser-based tools for modern creators and developers. Edit images, convert data, generate code, and more—all in your browser. No sign-up required.">
-    <meta name="keywords" content="free tools, private tools, online tools, developer utilities, image editor, data converter, code editor, password generator, solite, browser-based apps, creative suite">
-    <link rel="canonical" href="https://solite.in/">
-    <meta property="og:locale" content="en_IN">
-    <meta property="og:title" content="Solite | The Ultimate Suite of Free, Private, Browser-Based Tools">
-    <meta property="og:description" content="A powerful suite of free, private, browser-based tools for modern creators and developers. 100% private and instantly accessible.">
-    <meta property="og:image" content="https://solite.in/assets/solite-og.png">
-    <meta property="og:url" content="https://solite.in/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@solitetools">
+  <!-- 🧠 SEO & Primary Meta -->
+  <title>Solite | The Ultimate Suite of Free, Private, Browser-Based Tools</title>
+  <meta name="description" content="A powerful suite of free, privacy-first, browser-based tools for creators and developers. Edit images, format code, convert data, and build smarter—all client-side.">
+  <meta name="keywords" content="free online tools, solite, privacy tools, browser apps, developer utilities, image editor, code beautifier, text converter, data tools, web utilities, AI tools, privacy-first">
+  <meta name="author" content="Solite" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://solite.in/" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-title" content="Solite" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <!-- AdSense Meta Tag -->
-    <meta name="google-adsense-account" content="ca-pub-6623613371208692">
+  <!-- 🌐 Open Graph / Twitter / AI Discovery -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Solite | The Ultimate Suite of Free, Private, Browser-Based Tools" />
+  <meta property="og:description" content="A modern toolkit of free, privacy-first, browser-based tools. Fast, powerful, and 100% client-side for creators and developers." />
+  <meta property="og:url" content="https://solite.in/" />
+  <meta property="og:image" content="https://solite.in/assets/solite-og.png" />
+  <meta property="og:image:alt" content="Solite App Suite Preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solite | Free Privacy-First Tools" />
+  <meta name="twitter:description" content="Solite offers free, browser-based tools for creators and developers — private, powerful, and instant." />
+  <meta name="twitter:image" content="https://solite.in/assets/solite-og.png" />
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js" defer></script>
+  <!-- 💰 Monetization -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="/assets/solite-og.png">
-    <link rel="preload" as="style" href="https://cdn.tailwindcss.com">
-    
-    <!-- Favicon Set -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#000000">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="apple-mobile-web-app-title" content="Solite">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { // MODIFIED: Added scale for mobile preview adjustment
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Custom Scrollbar for Webkit browsers */
-        ::-webkit-scrollbar { width: 6px; height: 6px; } /* Slimmer scrollbar */
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
-        html { scrollbar-color: #4b5563 #111827; }
+  <!-- 📈 Analytics -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
 
-    </style>
-     <!-- Schema.org Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Solite",
-      "alternateName": "Solite App Suite",
-      "applicationCategory": "DesignApplication",
-      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
-      "url": "https://solite.in/",
-      "description": "A powerful suite of free, private, browser-based tools for modern creators and developers. All tools run client-side, ensuring your data never leaves your computer.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/assets/solite-og.png" />
+
+  <!-- 🪞 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- 🧬 GEN-5.0 SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/apple-touch-icon.png",
+        "description": "Solite builds privacy-first, browser-based tools for modern creators and developers — 100% client-side, no sign-up, no tracking.",
+        "sameAs": [
+          "https://x.com/solitetools",
+          "https://github.com/solitetools",
+          "https://www.linkedin.com/company/solite-tools"
+        ]
       },
-      "mainEntity": {
+      {
+        "@type": "WebSite",
+        "@id": "https://solite.in/#website",
+        "url": "https://solite.in/",
+        "name": "Solite App Suite",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solite.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://solite.in/#webpage",
+        "url": "https://solite.in/",
+        "name": "Solite | Free Browser-Based Tools",
+        "description": "A unified suite of private, browser-based tools for design, code, and productivity — free forever and privacy-first.",
+        "isPartOf": { "@id": "https://solite.in/#website" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://solite.in/assets/solite-og.png" },
+        "dateModified": "2025-11-07T10:00:00Z"
+      },
+      {
         "@type": "ItemList",
+        "@id": "https://solite.in/#tool-list",
+        "name": "Solite Tools Collection",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "Image Editor", "url": "https://solite.in/image-editor.html" }},
           { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "Image Compressor", "url": "https://solite.in/image-compressor.html" }},
           { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "GIF Maker", "url": "https://solite.in/gif-maker.html" }},
-          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "EXIF Remover", "url": "https://solite.in/exif-stripper.html" }},
-          { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Image Color Picker", "url": "https://solite.in/image-color-picker.html" }},
-          { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareApplication", "name": "Image Annotator", "url": "https://solite.in/watermark-annotator.html" }},
-          { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareApplication", "name": "Placeholder Image Generator", "url": "https://solite.in/placeholder-image-generator.html" }},
-          { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareApplication", "name": "Text Tools", "url": "https://solite.in/text-toolkit.html" }},
-          { "@type": "ListItem", "position": 9, "item": { "@type": "SoftwareApplication", "name": "Data Converter", "url": "https://solite.in/data-converter.html" }},
-          { "@type": "ListItem", "position": 10, "item": { "@type": "SoftwareApplication", "name": "Email Extractor", "url": "https://solite.in/email-extractor.html" }},
-          { "@type": "ListItem", "position": 11, "item": { "@type": "SoftwareApplication", "name": "Case Converter", "url": "https://solite.in/case-converter.html" }},
-          { "@type": "ListItem", "position": 12, "item": { "@type": "SoftwareApplication", "name": "Placeholder Text Generator", "url": "https://solite.in/placeholder-text-generator.html" }},
-          { "@type": "ListItem", "position": 13, "item": { "@type": "SoftwareApplication", "name": "Code Editor", "url": "https://solite.in/code-editor.html" }},
-          { "@type": "ListItem", "position": 14, "item": { "@type": "SoftwareApplication", "name": "Tailwind Form Builder", "url": "https://solite.in/tailwind-form-builder.html" }},
-          { "@type": "ListItem", "position": 15, "item": { "@type": "SoftwareApplication", "name": "Shortcut Cheat Sheet Maker", "url": "https://solite.in/shortcut-cheat-sheet-maker.html" }},
-          { "@type": "ListItem", "position": 16, "item": { "@type": "SoftwareApplication", "name": "Privacy Blur Tool", "url": "https://solite.in/privacy-blur-tool.html" }},
-          { "@type": "ListItem", "position": 17, "item": { "@type": "SoftwareApplication", "name": "Color Name Finder", "url": "https://solite.in/color-name-finder.html" }},
-          { "@type": "ListItem", "position": 18, "item": { "@type": "SoftwareApplication", "name": "Image Background Remover", "url": "https://solite.in/image-background-remover.html" }},
-          { "@type": "ListItem", "position": 19, "item": { "@type": "SoftwareApplication", "name": "Responsive Typography Calculator", "url": "https://solite.in/responsive-typography-calculator.html" }},
-          { "@type": "ListItem", "position": 20, "item": { "@type": "SoftwareApplication", "name": "Spacing Scale Generator", "url": "https://solite.in/spacing-scale-generator.html" }},
-          { "@type": "ListItem", "position": 21, "item": { "@type": "SoftwareApplication", "name": "Whitespace Normalizer", "url": "https://solite.in/whitespace-normalizer.html" }},
-          { "@type": "ListItem", "position": 22, "item": { "@type": "SoftwareApplication", "name": "Responsive Design Tester", "url": "https://solite.in/responsive-design-tester.html" }},
-          { "@type": "ListItem", "position": 23, "item": { "@type": "SoftwareApplication", "name": "Transcript Timestamp Remover", "url": "https://solite.in/transcript-timestamp-remover.html" }},
-          { "@type": "ListItem", "position": 24, "item": { "@type": "SoftwareApplication", "name": "Image Converter", "url": "https://solite.in/image-format-changer.html" }}
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Image Background Remover", "url": "https://solite.in/image-background-remover.html" }},
+          { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Image Converter", "url": "https://solite.in/image-format-changer.html" }},
+          { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareApplication", "name": "Color Picker", "url": "https://solite.in/image-color-picker.html" }},
+          { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareApplication", "name": "Text Toolkit", "url": "https://solite.in/text-toolkit.html" }},
+          { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareApplication", "name": "Data Converter", "url": "https://solite.in/data-converter.html" }},
+          { "@type": "ListItem", "position": 9, "item": { "@type": "SoftwareApplication", "name": "Code Beautifier", "url": "https://solite.in/html-beautifier.html" }},
+          { "@type": "ListItem", "position": 10, "item": { "@type": "SoftwareApplication", "name": "Responsive Design Tester", "url": "https://solite.in/responsive-design-tester.html" }}
         ]
       }
+    ]
+  }
+  </script>
+
+  <!-- 🎨 Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } }
+      }
     }
-    </script>
+  </script>
+
+  <!-- 💅 Styling -->
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background-color: #6b7280; }
+    html { scrollbar-color: #4b5563 #111827; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5.0 schema, privacy-first metadata, and AI-aligned SEO for total index dominance. -->
 </head>
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans antialiased">
     
@@ -501,6 +522,16 @@
                         <div class="flex items-center space-x-4 mb-4"><div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg></div><h3 class="text-xl font-bold text-white">Tailwind Form Builder</h3></div>
                         <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Visually build responsive HTML forms with Tailwind CSS.</p>
                         <a href="./tailwind-form-builder.html" aria-label="Launch Tailwind Form Builder" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="regex library common patterns cheatsheet">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg border border-gray-700 text-red-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Regex Library</h3>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">Explore and copy common regular expressions for URLs, emails, passwords, and more.</p>
+                        <a href="./regex-library.html" aria-label="Launch Regex Library" class="mt-auto bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group">Launch <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></a>
                     </div>
                     <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 flex flex-col h-full opacity-0 translate-y-5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-700" data-keywords="json formatter validator beautifier prettier">
                         <div class="flex items-center space-x-4 mb-4">
