@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Image Enlarger — AUTHORITY + PERFORMANCE EDITION -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +10,15 @@
   <meta name="description" content="Enlarge, enhance, and upscale JPG, PNG, and WebP images online for free. Solite’s privacy-first image enhancer improves brightness, contrast, sharpness, and color instantly — all in your browser." />
   <meta name="keywords" content="image enlarger, image enhancer, image upscaler, upscale image, enlarge image, image sharpener, image clarity, jpg enlarger, png upscaler, webp enhancer, solite, privacy-first, image quality improver" />
   <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Solite — Image Enlarger & Enhancer" />
   <link rel="canonical" href="https://solite.in/image-enlarger.html" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
   <!-- ⚡ SOCIAL + AI DISCOVERY -->
   <meta property="og:type" content="website" />
@@ -20,14 +27,18 @@
   <meta property="og:description" content="Upscale and enhance JPG, PNG, and WebP images directly in your browser — no uploads, no tracking. 100% private." />
   <meta property="og:url" content="https://solite.in/image-enlarger.html" />
   <meta property="og:image" content="https://solite.in/assets/solite-image-enlarger-og.png" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/image-enlarger.html&meta=false&screenshot=true" />
   <meta property="og:image:alt" content="Solite Image Enlarger and Enhancer Interface" />
+  <meta property="og:locale" content="en_IN" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Image Enlarger & Enhancer | Solite" />
   <meta name="twitter:description" content="Free, private image upscaler and enhancer. Works offline — enlarge JPG, PNG, WebP with clarity boost." />
   <meta name="twitter:image" content="https://solite.in/assets/solite-image-enlarger-og.png" />
+  <meta name="twitter:image:alt" content="Solite Image Enlarger and Enhancer Interface" />
 
   <!-- 💰 Monetization -->
   <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6623613371208692" crossorigin="anonymous"></script>
 
   <!-- 📈 Analytics -->
   <script>
@@ -37,15 +48,19 @@
 
   <!-- 🧩 Core Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 Non-blocking Font Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  </noscript>
 
-  <!-- 🪞 Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <!-- 🪞 Favicons (from /assets/) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
 
   <!-- 🧬 GEN-5.0 STRUCTURED DATA GRAPH -->
   <script type="application/ld+json">
@@ -57,8 +72,16 @@
         "@id": "https://solite.in/#organization",
         "name": "Solite",
         "url": "https://solite.in",
-        "logo": "https://solite.in/apple-touch-icon.png",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
         "description": "Solite builds free, privacy-first, browser-based tools for creators and developers. No sign-up, no tracking, 100% client-side."
+      },
+      {
+        "@type": "CreativeWorkSeries",
+        "@id": "https://solite.in/#suite",
+        "name": "Solite App Suite",
+        "url": "https://solite.in",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "isPartOf": { "@id": "https://solite.in/#organization" }
       },
       {
         "@type": "WebApplication",
@@ -78,6 +101,8 @@
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Works fully client-side.",
         "creator": { "@id": "https://solite.in/#organization" },
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "isPartOf": { "@id": "https://solite.in/#suite" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "dateModified": "2025-11-07T10:00:00Z"
       },
@@ -128,9 +153,7 @@
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: {
-        extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } },
-      },
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
     }
   </script>
 
@@ -163,6 +186,7 @@
   <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
   <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition): unified GEN-5.0 schema, privacy-first metadata, and AI-aligned SEO for all Solite tools. -->
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- ADDED: Hidden SVG for Unsharp Mask Filter -->
