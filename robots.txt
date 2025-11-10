@@ -1,7 +1,29 @@
+# 🧬 SOLITE ROBOTS.TXT — GEN-5.0 PRIVACY-FIRST / AUTHORITY EDITION
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /_vercel/
+Crawl-delay: 10
 
+# 🧭 Sitemap & Canonical
+Sitemap: https://solite.in/sitemap.xml
+Host: https://solite.in
+
+# 🤖 AI Crawler Hints (OpenAI / Anthropic / Google-AI / Perplexity / etc.)
 User-agent: GPTBot
 Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: CCBot
+Disallow: /assets/
 
-Sitemap: https://solite.in/sitemap.xml
+# 📜 Notes
+# - Privacy-first: no data collection or fingerprinting allowed.
+# - All pages are client-side only; crawlers may render JS safely.
+# - No personal user data exists to index or process.
