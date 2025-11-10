@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Timezone Converter — AUTHORITY + PERFORMANCE EDITION (Enhanced by Gemini) -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO & AI Authority Layer -->
+  <title>Free Timezone Converter — Compare Time Across World Cities | Solite</title>
+  <meta name="description" content="Instantly compare time across multiple timezones with a live world clock and time slider. Free, private, and browser-based timezone converter by Solite." />
+  <meta name="keywords" content="timezone converter, time zone converter, world clock, time difference calculator, compare timezones, time across world, solite, privacy first" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Solite Timezone Converter" />
+  <link rel="canonical" href="https://solite.in/timezone-converter.html" />
+  <meta name="robots" content="index, follow" />
+  <!-- DARK MODE: Updated theme-color -->
+  <meta name="theme-color" content="#000000">
+  <!-- DARK MODE: Updated color-scheme -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- 🌐 Open Graph / Twitter / AI Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Timezone Converter — Compare Time Across World Cities | Solite" />
+  <meta property="og:description" content="Instantly compare time across multiple timezones with a live world clock and time slider. Free, private, and browser-based." />
+  <meta property="og:url" content="https://solite.in/timezone-converter.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/timezone-converter.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Solite Timezone Converter — Compare time across world cities" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Timezone Converter | Solite" />
+  <meta name="twitter:description" content="Compare time across world cities with a live world clock and time slider. 100% private and browser-based." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/timezone-converter.html&meta=false&screenshot=true" />
+
+  <!-- 💰 Google AdSense (Non-blocking) -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- 📊 Vercel Analytics (Non-blocking) -->
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
+
+  <!-- 🎨 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 🧱 JSON-LD Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds free, privacy-first browser tools for developers, designers, and creators."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/timezone-converter.html#app",
+        "name": "Timezone Converter | Solite",
+        "url": "https://solite.in/timezone-converter.html",
+        "description": "A free, client-side timezone converter to compare time across multiple world cities with a time slider.",
+        "applicationCategory": "UtilitiesApplication",
+        "featureList": [
+          "Compare multiple timezones",
+          "Time slider for future/past times",
+          "Auto-detects local timezone",
+          "Shows UTC offset and relative time",
+          "100% private — all processing happens locally",
+          "Base timezone pinning",
+          "Business hours indicator",
+          "Set time for base timezone",
+          "Copy schedule for calendar"
+        ],
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- DARK MODE: Added Tailwind config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 💅 Custom Styles -->
+  <style>
+    /* Toast */
+    #toast { 
+        transform: translateY(150%); 
+        transition: transform 0.3s ease-in-out; 
+        z-index: 9999; 
+    }
+    #toast.show { 
+        transform: translateY(-2rem); 
+    }
+  
+    /* Scrollbar - DARK MODE updated */
+    :root {
+      --scrollbar-track: #e5e7eb; /* gray-200 */
+      --scrollbar-thumb: #9ca3af; /* gray-400 */
+    }
+    html.dark {
+      --scrollbar-track: #1f2937; /* gray-800 */
+      --scrollbar-thumb: #4b5563; /* gray-600 */
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background-color: var(--scrollbar-thumb); border-radius: 4px; }
+    html { scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
+    
+    /* Custom select hide */
+    .custom-select { appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+    
+    /* Time slider thumb - DARK MODE updated */
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #000; /* Light mode */
+      cursor: pointer;
+      border-radius: 50%;
+      margin-top: -6px; /* Center thumb on track */
+    }
+    html.dark input[type="range"]::-webkit-slider-thumb {
+        background: #fff; /* Dark mode */
+    }
+    
+    /* Native date/time input coloring - DARK MODE updated */
+    input[type="date"], input[type="time"] {
+        color-scheme: light;
+    }
+    html.dark input[type="date"], html.dark input[type="time"] {
+        color-scheme: dark;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        /* Set filter for a light gray icon */
+        filter: grayscale(1) opacity(0.5); 
+    }
+    html.dark input[type="date"]::-webkit-calendar-picker-indicator,
+    html.dark input[type="time"]::-webkit-calendar-picker-indicator {
+        /* Invert icon for dark mode */
+        filter: invert(1) opacity(0.6); 
+    }
+    
+    /* Font for cards */
+    .font-mono {
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    /* Suggestion box for timezone search */
+    #add-timezone-suggestions {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+</head>
+
+<!-- DARK MODE: Added dark mode classes to body -->
+<body class="bg-white dark:bg-black text-gray-800 dark:text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- HEADER (Theme Toggle REMOVED) -->
+    <!-- DARK MODE: Added dark mode classes -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Timezone Converter</span>
+            </a>
+             <div class="flex items-center space-x-2 sm:space-x-4">
+                <!-- THEME TOGGLE BUTTON WAS HERE. IT HAS BEEN REMOVED. -->
+                <a href="index.html#apps" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN (Enhanced Layout) -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <h1 class="sr-only">Timezone Converter</h1>
+
+        <!-- Main Content Area (now flex row) - pb-16 for mobile nav clearance -->
+        <div class="flex-grow w-full lg:w-[80%] flex flex-col lg:flex-row min-h-0 pb-16 lg:pb-0">
+            
+            <!-- LEFT PANEL (Controls) - Full Height Background -->
+            <!-- DARK MODE: Added dark mode classes -->
+            <aside id="controls-pane" class="w-full lg:w-96 flex-shrink-0 rounded-xl border border-gray-800 p-3 flex flex-col">
+                <div class="h-full flex w-full lg:w-20% flex-col gap-4 p-4 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-y-auto">
+                    
+                    <!-- Controls: Add Timezone -->
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <label for="add-timezone-input" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Add Timezone</label>
+                            <input type="text" id="add-timezone-input" placeholder="Start typing a city or timezone (e.g., 'Paris', 'Tokyo', 'PST')..." class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-white/50" autocomplete="off">
+                            <div id="add-timezone-suggestions" class="absolute z-10 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden">
+                                <!-- Suggestions will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls: Time Selection -->
+                    <div class="flex-shrink-0 space-y-4">
+                        <!-- Date/Time Inputs -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                            <div>
+                                <label for="date-input" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Date</label>
+                                <input type="date" id="date-input" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-white/50">
+                            </div>
+                            <div>
+                                <label for="time-input" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Set Base Time</label>
+                                <div class="flex gap-2">
+                                   <input type="time" id="time-input" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-white/50">
+                                   <button id="set-time-btn" class="bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white font-medium py-3 px-5 rounded-lg border border-gray-300 dark:border-gray-400">Set</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Time Slider -->
+                        <div class="mt-8 mb-4">
+                            <label for="time-slider" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Time Offset (from selected date)</label>
+                            <div class="flex items-center gap-4">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 font-mono">-12h</span>
+                                <input type="range" id="time-slider" min="-12" max="12" value="0" step="0.5" class="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 font-mono">+12h</span>
+                            </div>
+                        </div>
+                         <!-- Buttons -->
+                        <div class="flex items-center space-x-2">
+                            <button id="now-btn" class="bg-gray-600 hover:bg-gray-500 dark:bg-gray-700 dark:bg-opacity-80 dark:hover:bg-gray-600 text-white font-medium py-3 px-5 rounded-lg w-full sm:w-1/2 lg:w-auto lg:flex-grow border border-gray-500 dark:border-gray-600">Now</button>
+                            <button id="copy-schedule-btn" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-3 px-5 rounded-lg w-full sm:w-1/2 lg:w-auto lg:flex-grow flex items-center justify-center space-x-2 border border-gray-300 dark:border-gray-700" title="Copy schedule to clipboard">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT PANEL (Cards) -->
+            <div id="output-pane" class="flex-grow w-full flex flex-col min-h-0 p-3">
+                <!-- Timezone Cards -->
+                <div id="timezone-list" class="flex flex-wrap gap-4 overflow-y-auto items-start">
+                    <!-- Timezone cards will be injected here -->
+                </div>
+                
+                <!-- Empty State -->
+                <!-- DARK MODE: Added dark mode class -->
+                <div id="empty-state" class="flex-grow flex items-center justify-center text-gray-400 dark:text-gray-600 hidden">
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <p class="mt-4 text-lg">Your timezone list is empty.</p>
+                        <p>Add a timezone in the left panel to get started.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Ad Sidebar (Unchanged) -->
+        <!-- DARK MODE: Added dark mode classes -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-200 dark:border-gray-800 hidden lg:block"><div class="h-full bg-gray-200/50 dark:bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-500">Ad Area</div></aside>
+    </main>
+
+    <!-- Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Timezones</span>
+            </button>
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                <span>Controls</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- FOOTER (Unchanged) -->
+    <!-- DARK MODE: Added dark mode classes -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-black dark:hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-black dark:hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-black dark:hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-black dark:hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-black dark:hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-black dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Toast Notification -->
+    <!-- DARK MODE: Added dark mode classes -->
+    <div id="toast" class="fixed bottom-0 right-0 left-0 sm:left-auto sm:right-8 mb-8 sm:mb-0 px-6 py-4 bg-gray-800 dark:bg-white text-white dark:text-black text-base font-semibold rounded-lg shadow-lg mx-auto sm:mx-0">
+        Schedule copied!
+    </div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                timezoneList: document.getElementById('timezone-list'),
+                addTimezoneInput: document.getElementById('add-timezone-input'),
+                addTimezoneSuggestions: document.getElementById('add-timezone-suggestions'),
+                timeSlider: document.getElementById('time-slider'),
+                dateInput: document.getElementById('date-input'),
+                timeInput: document.getElementById('time-input'),
+                setTimeBtn: document.getElementById('set-time-btn'),
+                nowBtn: document.getElementById('now-btn'),
+                copyScheduleBtn: document.getElementById('copy-schedule-btn'),
+                emptyState: document.getElementById('empty-state'),
+                toast: document.getElementById('toast'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+                outputPane: document.getElementById('output-pane'),
+            };
+
+            const KEYS = {
+                TIMEZONES: 'solite_timezones_v2',
+                BASE: 'solite_base_timezone_v2',
+            };
+            
+            let allTimezones = [];
+            let baseDate = new Date(); // The anchor date
+            let selectedTimezones = [];
+            let localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            let baseTimezone = localTimezone; // The "pinned" timezone for comparison
+            let scheduleData = []; // For copying
+
+            // --- Theme Management REMOVED ---
+            
+            // --- Toast Notification ---
+            let toastTimer;
+            function showToast(message) {
+                clearTimeout(toastTimer);
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    el.toast.classList.remove('show');
+                }, 2000);
+            }
+
+            // --- State Management ---
+            
+            function loadState() {
+                const savedTzs = localStorage.getItem(KEYS.TIMEZONES);
+                const savedBase = localStorage.getItem(KEYS.BASE);
+                
+                const defaultTimezones = [localTimezone, "Europe/London", "Asia/Kolkata", "America/New_York"];
+                selectedTimezones = savedTzs ? JSON.parse(savedTzs) : [...new Set(defaultTimezones)];
+                baseTimezone = savedBase || localTimezone;
+                
+                if (!selectedTimezones.includes(localTimezone)) {
+                    selectedTimezones.unshift(localTimezone);
+                }
+                if (!selectedTimezones.includes(baseTimezone)) {
+                    baseTimezone = localTimezone;
+                }
+            }
+
+            function saveState() {
+                localStorage.setItem(KEYS.TIMEZONES, JSON.stringify(selectedTimezones));
+                localStorage.setItem(KEYS.BASE, baseTimezone);
+            }
+
+            // --- Core Render Function ---
+
+            // Define the single, filled heart path
+            const filledHeartPath = 'M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z';
+
+            // DARK MODE: Updated heart colors
+            // SVG for the base (pinned) state - high contrast color
+            const baseHeart = `<svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="${filledHeartPath}" clip-rule="evenodd"></path></svg>`;
+
+            // SVG for the unpinned state - subtle gray color
+            const unpinnedHeart = `<svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="${filledHeartPath}" clip-rule="evenodd"></path></svg>`;
+
+
+            function render() {
+                el.timezoneList.innerHTML = '';
+                scheduleData = []; // Clear schedule data
+                
+                if (selectedTimezones.length === 0) {
+                    el.emptyState.classList.remove('hidden');
+                    return;
+                }
+                el.emptyState.classList.add('hidden');
+
+                const timeOffset = parseFloat(el.timeSlider.value);
+                const displayDate = new Date(baseDate.getTime() + timeOffset * 60 * 60 * 1000);
+                
+                // Update date input to reflect baseDate (ignoring time)
+                el.dateInput.value = baseDate.toISOString().split('T')[0];
+
+                // Get base timezone's offset for relative calculations
+                const baseTzDate = new Date(displayDate.toLocaleString('en-US', { timeZone: baseTimezone }));
+                const baseTzOffset = baseTzDate.getTimezoneOffset();
+
+                selectedTimezones.forEach(tz => {
+                    const card = document.createElement('div');
+                    const isBase = tz === baseTimezone;
+                    const isLocal = tz === localTimezone;
+                    
+                    // DARK MODE: Updated card classes
+                    card.className = `p-4 rounded-xl border w-full md:w-[calc(50%_-_0.5rem)] lg:w-[calc(50%_-_0.5rem)] xl:w-[calc(33.3333%_-_0.6666rem)] ${isBase 
+                        ? 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-500' // Pinned card with an even lighter gray border
+                        : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800'}`; // Un-pinned card with dark gray border
+                    
+                    const formatter = new Intl.DateTimeFormat('en-US', {
+                        timeZone: tz,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true,
+                        weekday: 'long',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+
+                    const parts = formatter.formatToParts(displayDate);
+                    const find = (type) => parts.find(p => p.type === type)?.value || '';
+
+                    const timeString = `${find('hour')}:${find('minute')} ${find('dayPeriod')}`;
+                    const dateString = `${find('weekday')}, ${find('month')} ${find('day')}`;
+                    const cityName = tz.split('/').pop().replace(/_/g, ' ');
+                    
+                    const tempDate = new Date(displayDate.toLocaleString('en-US', { timeZone: tz }));
+                    const tzOffset = tempDate.getTimezoneOffset();
+                    const hour24 = tempDate.getHours();
+                    
+                    // Add to schedule data
+                    scheduleData.push({ 
+                        time: timeString, 
+                        date: dateString, 
+                        city: cityName,
+                        isLocal: isLocal
+                    });
+                    
+                    // Relative Offset (from base)
+                    const relativeOffsetHours = (baseTzOffset - tzOffset) / 60;
+                    let relativeString = 'Base time';
+                    if (relativeOffsetHours !== 0) {
+                        relativeString = `${Math.abs(relativeOffsetHours)} hours ${relativeOffsetHours > 0 ? 'ahead' : 'behind'}`;
+                    }
+                    
+                    // UTC Offset
+                    const utcOffsetMinutes = -tzOffset;
+                    const utcOffsetHours = Math.floor(Math.abs(utcOffsetMinutes) / 60);
+                    const utcOffsetMins = Math.abs(utcOffsetMinutes) % 60;
+                    const utcOffsetString = `UTC${utcOffsetMinutes >= 0 ? '+' : '-'}${String(utcOffsetHours).padStart(2, '0')}:${String(utcOffsetMins).padStart(2, '0')}`;
+                    
+                    // Icon logic: Use baseHeart if pinned, unpinnedHeart if not.
+                    const pinIcon = isBase ? baseHeart : unpinnedHeart;
+
+                    const workIndicator = hour24 >= 9 && hour24 < 17
+                        ? '<span class="h-2.5 w-2.5 bg-green-500 rounded-full" title="Within 9-5 work hours"></span>'
+                        : '<span class="h-2.5 w-2.5 bg-gray-400 rounded-full" title="Outside 9-5 work hours"></span>';
+
+                    // DARK MODE: Added dark mode classes to innerHTML
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start">
+                            <div class="flex-grow">
+                                <h2 class="text-lg font-bold text-gray-900 dark:text-white">${cityName}</h2>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">${tz.split('/')[0].replace(/_/g, ' ')}</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                ${isLocal ? '<span class="text-xs bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded-full">Local</span>' : ''}
+                                <button class="pin-tz-btn text-gray-400 hover:text-gray-800 dark:text-gray-500 dark:hover:text-red-500" data-tz="${tz}" title="Set as base timezone">${pinIcon}</button>
+                                <button class="remove-tz-btn text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-500" data-tz="${tz}" title="Remove">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-right mt-4">
+                            <div class="flex items-center justify-end space-x-2">
+                                ${workIndicator}
+                                <p class="text-3xl font-bold text-gray-900 dark:text-white font-mono leading-tight">${timeString}</p>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-0">${dateString}</p>
+                        </div>
+                        <div class="text-right mt-2 text-xs text-gray-500 dark:text-gray-400 font-mono">
+                            <p>${relativeString}</p>
+                            <p>${utcOffsetString}</p>
+                        </div>
+                    `;
+                    el.timezoneList.appendChild(card);
+                });
+                
+                addCardEventListeners();
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'output') {
+                    el.outputPane.classList.remove('hidden');
+                    el.outputPane.classList.add('flex'); // This is correct
+                    el.controlsPane.classList.add('hidden');
+                    el.mobileOutputBtn.classList.add('active');
+                    el.mobileControlsBtn.classList.remove('active');
+                } else {
+                    el.outputPane.classList.add('hidden'); // This is correct
+                    el.outputPane.classList.remove('flex'); // This is correct
+                    el.controlsPane.classList.remove('hidden');
+                    el.controlsPane.classList.add('flex');
+                    el.mobileOutputBtn.classList.remove('active');
+                    el.mobileControlsBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    showMobilePane(el.mobileControlsBtn.classList.contains('active') ? 'controls' : 'output');
+                } else {
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                }
+            }
+
+            // --- Event Listeners ---
+            
+            function addCardEventListeners() {
+                document.querySelectorAll('.remove-tz-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const tzToRemove = e.currentTarget.dataset.tz;
+                        if (selectedTimezones.length > 0) { // Allow removing last one
+                            selectedTimezones = selectedTimezones.filter(tz => tz !== tzToRemove);
+                            if (baseTimezone === tzToRemove) {
+                                baseTimezone = selectedTimezones.length > 0 ? selectedTimezones[0] : localTimezone;
+                            }
+                            saveState();
+                            render();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.pin-tz-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        baseTimezone = e.currentTarget.dataset.tz;
+                        saveState();
+                        render();
+                    });
+                });
+            }
+            
+            function updateTimezoneSuggestions() {
+                const query = el.addTimezoneInput.value.toLowerCase().replace(/_/g, ' ');
+                if (!query) {
+                    el.addTimezoneSuggestions.classList.add('hidden');
+                    return;
+                }
+                
+                const matches = allTimezones.filter(tz => 
+                    tz.toLowerCase().replace(/_/g, ' ').includes(query)
+                ).slice(0, 10); // Show top 10
+                
+                if (matches.length > 0) {
+                    // DARK MODE: Added dark mode classes to suggestion items
+                    el.addTimezoneSuggestions.innerHTML = matches.map(tz => 
+                        `<div class="p-3 hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white cursor-pointer" data-tz="${tz}">${tz.replace(/_/g, ' ')}</div>`
+                    ).join('');
+                    el.addTimezoneSuggestions.classList.remove('hidden');
+                } else {
+                    el.addTimezoneSuggestions.classList.add('hidden');
+                }
+            }
+
+            el.addTimezoneInput.addEventListener('input', updateTimezoneSuggestions);
+            el.addTimezoneInput.addEventListener('focus', updateTimezoneSuggestions);
+            
+            // Hide suggestions on blur
+            el.addTimezoneInput.addEventListener('blur', () => {
+                // Delay to allow click on suggestion
+                setTimeout(() => el.addTimezoneSuggestions.classList.add('hidden'), 150);
+            });
+
+            // Add timezone from suggestion
+            el.addTimezoneSuggestions.addEventListener('mousedown', (e) => {
+                // Use mousedown to fire before blur
+                const tz = e.target.dataset.tz;
+                if (tz && !selectedTimezones.includes(tz)) {
+                    selectedTimezones.push(tz);
+                    saveState();
+                    render();
+                }
+                el.addTimezoneInput.value = '';
+                el.addTimezoneSuggestions.classList.add('hidden');
+            });
+
+            el.timeSlider.addEventListener('input', render);
+            
+            el.dateInput.addEventListener('change', (e) => {
+                const [year, month, day] = e.target.value.split('-').map(Number);
+                if (year && month && day) {
+                    // Get current time
+                    const hours = baseDate.getHours();
+                    const minutes = baseDate.getMinutes();
+                    // Set to that time on the new day
+                    baseDate = new Date(year, month - 1, day, hours, minutes);
+                }
+                el.timeSlider.value = 0; // Reset slider
+                render();
+            });
+
+            el.nowBtn.addEventListener('click', () => {
+                baseDate = new Date();
+                el.timeSlider.value = 0;
+                render();
+            });
+            
+            el.setTimeBtn.addEventListener('click', () => {
+                const timeValue = el.timeInput.value;
+                if (!timeValue) {
+                    showToast("Please select a time first.");
+                    return;
+                }
+                
+                const [year, month, day] = el.dateInput.value.split('-').map(Number);
+                const [hours, minutes] = timeValue.split(':').map(Number);
+
+                // --- Start Timezone-Aware Time Setting Logic ---
+                
+                // 1. Create a "dummy" date object in UTC representing the desired local time
+                const localTimeAsUtc = new Date(Date.UTC(year, month - 1, day, hours, minutes));
+
+                // 2. Determine the base timezone's actual offset (in minutes) on that specific day
+                const offsetDate = new Date(Date.UTC(year, month - 1, day, 12)); // Arbitrary time on that day
+                const formatter = new Intl.DateTimeFormat('en-US', { 
+                    timeZone: baseTimezone, 
+                    timeZoneName: 'longOffset',
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric'
+                });
+                
+                const parts = formatter.formatToParts(offsetDate);
+                const gmtOffsetString = parts.find(p => p.type === 'timeZoneName')?.value.replace('GMT', '') || '+0';
+                
+                // Convert offset string (e.g., "-07:00" or "+5:30") to total minutes
+                const offsetParts = gmtOffsetString.split(':');
+                const offsetHours = parseInt(offsetParts[0], 10);
+                const offsetMinutes = parseInt(offsetParts[1] || 0, 10);
+                // Total offset minutes from UTC. If it's UTC+5:30, it's 330 minutes. If UTC-7, it's -420 minutes.
+                const totalOffsetMinutes = (Math.abs(offsetHours) * 60 + offsetMinutes) * (offsetHours >= 0 ? 1 : -1);
+
+                // 3. Calculate the true UTC time that corresponds to the desired local time.
+                // True UTC time = Desired Local Time (as UTC) - Local Offset
+                const utcMilliseconds = localTimeAsUtc.getTime() - (totalOffsetMinutes * 60 * 1000);
+                
+                baseDate = new Date(utcMilliseconds);
+                el.timeSlider.value = 0; // Reset slider
+                render();
+            });
+            
+            el.copyScheduleBtn.addEventListener('click', () => {
+                if (scheduleData.length === 0) {
+                    showToast("No schedule to copy.");
+                    return;
+                }
+                
+                const scheduleText = scheduleData.map(item => {
+                    return `${item.time} (${item.date}) - ${item.city}${item.isLocal ? ' (Local)' : ''}`;
+                }).join('\n');
+                
+                try {
+                    // Fallback for secure contexts where clipboard API might be restricted
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(scheduleText).then(() => {
+                            showToast('Schedule copied!');
+                        }, (err) => {
+                            console.error('Failed to copy to clipboard:', err);
+                            showToast('Failed to copy.');
+                        });
+                    } else if (document.execCommand) {
+                        // Older fallback method
+                        const textarea = document.createElement('textarea');
+                        textarea.value = scheduleText;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        showToast('Schedule copied!');
+                    } else {
+                        showToast('Copy failed: Clipboard access denied.');
+                    }
+                } catch (err) {
+                    showToast('Copy failed: ' + err.message);
+                }
+            });
+
+            // --- Initialization ---
+            function init() {
+                try {
+                    // Intl.supportedValuesOf provides clean timezone list
+                    allTimezones = Intl.supportedValuesOf('timeZone');
+                } catch (e) {
+                    console.error("Timezones not fully supported, falling back to basic list.", e);
+                    allTimezones = ["America/New_York", "Europe/London", "Asia/Tokyo", "UTC", "America/Los_Angeles", "Australia/Sydney", "Europe/Paris"];
+                }
+                
+                // Theme initialization REMOVED
+                loadState();
+                render();
+                handleMobileLayout();
+            }
+            
+            init();
+        });
+    </script>
+</body>
+</html>
