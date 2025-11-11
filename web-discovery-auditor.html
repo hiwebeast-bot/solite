@@ -7,10 +7,9 @@
 
   <!-- 🧠 SEO & AI DISCOVERY -->
   <title>Web Discovery Auditor | Free SEO & Trust Audit | Solite</title>
-  <meta name="description" content="Audit your website’s discoverability, SEO, and trust signals — 100 % private, client-side, and lightning fast." />
-  <meta name="keywords" content="seo audit, website auditor, discoverability checker, trust audit, solite tools, free seo analyzer" />
+  <meta name="description" content="Audit your website’s SEO, discoverability, accessibility, and trust signals — 100% private, client-side, and lightning fast with Solite Web Discovery Auditor." />
   <link rel="canonical" href="https://solite.in/web-discovery-auditor.html" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="author" content="Solite" />
   <meta name="publisher" content="Solite" />
   <meta name="application-name" content="Web Discovery Auditor – Solite" />
@@ -21,8 +20,8 @@
   <!-- 🌍 OPEN GRAPH / TWITTER -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Solite" />
-  <meta property="og:title" content="Web Discovery Auditor | Solite" />
-  <meta property="og:description" content="Free, client-side SEO & discoverability audit. Analyze SEO, trust, and social metadata instantly." />
+  <meta property="og:title" content="Web Discovery Auditor | Free SEO & Trust Audit | Solite" />
+  <meta property="og:description" content="Free, privacy-first SEO & discoverability audit tool. Instantly check your site’s SEO, accessibility, and trust metrics." />
   <meta property="og:url" content="https://solite.in/web-discovery-auditor.html" />
   <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/web-discovery-auditor.html&meta=false&screenshot=true" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,13 +32,22 @@
   <!-- ⚙️ PERFORMANCE LAYER -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono&display=swap" />
+  </noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: { fontFamily: { sans: ['Inter','system-ui','sans-serif'] } } }
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
     };
   </script>
 
@@ -70,6 +78,42 @@
         "description": "A free, privacy-first discoverability and SEO audit tool that runs entirely in your browser.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "CreativeWorkSeries",
+        "name": "Solite Web Tools Series",
+        "publisher": { "@id": "https://solite.in/#organization" },
+        "url": "https://solite.in",
+        "description": "A collection of privacy-first, client-side web utilities designed for creators, developers, and marketers."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the Web Discovery Auditor private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Solite Web Discovery Auditor runs 100% client-side — no data leaves your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the auditor check for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It checks SEO vitals, social metadata, accessibility, trust, and discoverability signals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it store or track my audits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, Solite never stores or transmits your data. All audits happen securely in your browser."
+            }
+          }
+        ]
       }
     ]
   }
@@ -78,21 +122,36 @@
   <!-- 💰 ADS + ANALYTICS -->
   <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6623613371208692" crossorigin="anonymous"></script>
-  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};</script>
+  <script>
+    window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments)};
+  </script>
   <script src="/_vercel/insights/script.js" defer></script>
 
   <!-- 🎨 INLINE STYLE LAYER -->
   <style>
-    ::-webkit-scrollbar { width:8px; height:8px; }
-    ::-webkit-scrollbar-thumb { background:#4b5563; border-radius:4px; }
-    html { scrollbar-color:#4b5563 #111827; }
-    body { background:#000; color:#e5e7eb; font-family:'Inter',sans-serif; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    body { background: #000; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+    .filter-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; border: 1px solid #374151; background-color: #1f2937; color: #9ca3af; transition: all 0.2s; }
+    .filter-btn:hover { background-color: #374151; color: #ffffff; }
+    .filter-btn.active { background-color: #1f2937; color: #ffffff; border-color: #ffffff; }
+    .action-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; border: 1px solid #374151; background-color: #1f2937; color: #d1d5db; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s; }
+    .action-btn:hover { background-color: #374151; color: #ffffff; }
+    .code-wrapper { position: relative; }
+    .copy-code-btn { position: absolute; top: 0.5rem; right: 0.5rem; background-color: #374151; border: 1px solid #4b5563; color: #9ca3af; padding: 0.25rem; border-radius: 0.25rem; opacity: 0; transition: opacity 0.2s; }
+    .code-wrapper:hover .copy-code-btn { opacity: 1; }
+    .copy-code-btn:hover { background-color: #4b5563; color: white; }
+    .result-item summary::-webkit-details-marker { display: none; }
+    .result-item summary { list-style: none; }
+    .result-item[data-status="passed"] { border-left-color: #34d399; }
+    .result-item[data-status="failed"] { border-left-color: #ef4444; }
+    .result-item[data-status="manual"] { border-left-color: #38bdf8; }
   </style>
 
-  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
-  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_BALANCED | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-BALANCED -->
+  <meta name="solite-ai-signature" content="SOLITE_GEN5_BALANCED_HEAD | AUTHORITY+PERFORMANCE | PRIVACY-FIRST | SEO+AI_DISCOVERY_OPTIMIZED" />
 </head>
-
 
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
@@ -121,33 +180,36 @@
         <div class="flex-grow w-full lg:w-[80%] p-3 flex flex-col gap-4 min-h-0 overflow-y-auto">
             <h1 class="sr-only">Web Discovery Auditor</h1>
             
-            <div id="app-panel" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-6 sm:p-8 space-y-6">
+            <div id="app-panel" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 sm:p-8">
                 <!-- Idle State -->
-                <div id="idle-state" class="w-full max-w-2xl mx-auto my-auto">
+                <div id="idle-state" class="w-full max-w-3xl mx-auto my-auto text-center">
                     <div id="error-message" class="hidden w-full bg-red-900/50 border border-red-500 text-red-300 p-4 rounded-lg mb-6 text-center"></div>
-                    <div data-index="0" class="opacity-0 translate-y-5 transition-all duration-500 ease-out">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 text-center">Discovery & Trust Audit</h2>
-                        <p class="text-center text-gray-400 mb-8">A private, in-browser audit of your site's vitals.</p>
-                    </div>
-                    <div data-index="1" class="space-y-2 mt-8 opacity-0 translate-y-5 transition-all duration-500 ease-out">
+                    
+                    <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Web Discovery Audit</h2>
+                    <p class="mt-4 max-w-xl mx-auto text-lg text-gray-400">A free, privacy-first SEO audit of your site's vitals — explained simply and beautifully.</p>
+
+                    <div class="mt-10 max-w-xl mx-auto">
                         <label for="url-input" class="sr-only">URL to Audit</label>
                         <div class="flex gap-2">
                             <div class="relative flex-grow">
                                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9" /></svg>
+                                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9" /></svg>
                                 </div>
-                                <input type="url" id="url-input" placeholder="https://solite.in" class="w-full p-4 pl-12 text-lg rounded-lg bg-gray-800 border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-colors duration-300">
+                                <input type="url" id="url-input" placeholder="https://solite.in" class="w-full p-4 pl-12 text-lg rounded-lg bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:border-white transition-colors duration-300">
                             </div>
-                            <button id="audit-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-4 px-6 rounded-lg flex-shrink-0 flex items-center gap-2 transition-all duration-300 transform hover:scale-105">
+                            <button id="audit-btn" class="text-black bg-white font-semibold py-4 px-6 rounded-lg flex-shrink-0 flex items-center gap-2 transition-all duration-200 border-2 border-white/50 hover:bg-white hover:text-black">
                                 <span class="hidden sm:inline">Audit</span>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M5 7l5 5-5 5" /></svg>
                             </button>
                         </div>
-                        <p class="text-xs text-gray-500 text-center">Note: Cross-origin audits may fail. Use a valid, accessible URL.</p>
+                        <p class="text-xs text-gray-600 text-left mt-2">Note: Cross-origin audits may fail. Use a valid, accessible URL.</p>
                     </div>
-                    <div data-index="2" class="mt-6 text-left w-full text-gray-800 p-6 rounded-lg border border-gray-800 translate-y-5 transition-all duration-500 ease-out">
-                        <h3 class="font-semibold text-white mb-4">What we'll check:</h3>
-                        <ul id="placeholder-checklist" class="space-y-2 text-gray-500"></ul>
+
+                    <div class="mt-12 w-full text-left border-t border-gray-800 pt-8">
+                        <h3 class="font-semibold text-white text-center mb-6">Audit Focus Areas:</h3>
+                        <div id="placeholder-checklist" class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-400 max-w-2xl mx-auto">
+                           <!-- JS will populate this -->
+                        </div>
                     </div>
                 </div>
                 
@@ -157,7 +219,7 @@
                         <iframe id="audit-iframe" class="w-full h-full rounded-lg bg-white" sandbox="allow-scripts allow-same-origin" title="Audit Preview"></iframe>
                     </div>
                     <div class="w-full rounded-full h-2 mt-6 bg-gray-700">
-                        <div id="audit-progress-bar" class="h-2 rounded-full transition-all duration-500 ease-out bg-white" style="width: 0%"></div>
+                        <div id="audit-progress-bar" class="h-2 rounded-full transition-all duration-200 ease-out bg-white" style="width: 0%"></div>
                     </div>
                     <div class="mt-4 flex items-center w-full">
                         <div id="audit-loading-view" class="flex items-center w-full">
@@ -178,14 +240,19 @@
                 </div>
 
                 <!-- Results State -->
-                <div id="results-state" class="hidden w-full">
+                <div id="results-state" class="hidden w-full h-full flex flex-col">
                     <!-- This content will be dynamically generated by JS -->
                 </div>
             </div>
-
-            <div id="seo-info-container">
-                 <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / WEB DISCOVERY AUDITOR EDITION) -->
-                <div class="w-full text-gray-300 ">
+        </div>
+        
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+    </main>
+    <div id="seo-info-container">
+                    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / WEB DISCOVERY AUDITOR EDITION) -->
+                <div class="w-full text-gray-300 mb-2 ">
 
                 <style>
                 #solite-seo-block-webdiscovery[open] > summary { border-bottom: 1px solid #374151; }
@@ -227,7 +294,7 @@
                         <li><strong>Complete Discoverability View:</strong> Audits SEO, accessibility, technical, and social signals.</li>
                         <li><strong>Educational Scoring:</strong> Each result includes “Why It Matters” and “How to Fix.”</li>
                         <li><strong>Instant Analysis:</strong> Loads and scans your site within seconds using secure proxy chains.</li>
-                        <li><strong>Zero Tracking:</strong> 100 % compliant with privacy-by-design principles.</li>
+                        <li><strong>Zero Tracking:</strong> 100% compliant with privacy-by-design principles.</li>
                     </ul>
                     </section>
 
@@ -304,12 +371,6 @@
                 <!-- ✅ END GEN-4.1 BLOCK / WEB DISCOVERY AUDITOR -->
 
             </div>
-        </div>
-        
-        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
-        </aside>
-    </main>
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -355,41 +416,26 @@
         ];
 
         const PLACEHOLDER_ITEMS = [
-            "Title tag present & optimized", "Meta description present & compelling", "Mobile-friendly viewport configured",
-            "Exactly one H1 tag present", "Canonical tag specified", "HTTPS is in use for security",
-            "Open Graph & Twitter tags for social sharing", "Images have descriptive alt text",
-            "Structured data (JSON-LD) for rich results", "robots.txt file is present", "Sitemap.xml is declared"
+            "SEO Core Vitals", "Semantic & Schema", "Social Metadata", "Technical Health", "Accessibility Signals", "Trust & Security"
         ];
         
         const COLORS = {
-            green: 'text-emerald-400', yellow: 'text-amber-400', red: 'text-red-500',
-            blue: 'text-sky-400', fix: 'text-amber-300'
+            green: '#34d399', yellow: '#facc15', red: '#ef4444',
+            blue: '#38bdf8', gray: '#6b7280'
         };
 
         let currentAuditData = null;
         let auditStepInterval = null;
 
-        // --- Core Logic ---
-
         function setState(stateId) {
-            ['idle-state', 'auditing-state', 'results-state'].forEach(id => {
-                const element = document.getElementById(id);
-                if (element) element.classList.add('hidden');
-            });
-            const activeElement = document.getElementById(stateId);
-            if (activeElement) {
-                activeElement.classList.remove('hidden');
-            }
-            // Show/hide SEO block based on state
+            ['idle-state', 'auditing-state', 'results-state'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+            document.getElementById(stateId)?.classList.remove('hidden');
             el.seoInfoContainer.style.display = (stateId === 'idle-state' || stateId === 'results-state') ? 'block' : 'none';
         }
 
         async function startAudit() {
             let url = el.urlInput.value.trim();
-            if (!url) {
-                showError("Please enter a URL.");
-                return;
-            }
+            if (!url) { showError("Please enter a URL."); return; }
 
             setState('auditing-state');
             el.errorMessage.classList.add('hidden');
@@ -398,45 +444,32 @@
             el.auditLoadingView.classList.remove('hidden');
             el.auditCompleteView.classList.add('hidden');
             
-            // Start cycling through audit steps text
             let stepIndex = 0;
             el.auditStatusText.textContent = AUDIT_STEPS[stepIndex];
             auditStepInterval = setInterval(() => {
                 stepIndex = (stepIndex + 1) % AUDIT_STEPS.length;
                 el.auditStatusText.textContent = AUDIT_STEPS[stepIndex];
-            }, 2000);
+            }, 1800);
             
             el.auditIframe.src = "about:blank";
             setTimeout(() => {
-                let displayUrl = url;
-                 if (!displayUrl.startsWith('http://') && !displayUrl.startsWith('https://')) {
-                    displayUrl = 'https://' + displayUrl;
-                }
+                let displayUrl = url.startsWith('http') ? url : 'https://' + url;
                 el.auditIframe.src = displayUrl;
             }, 100);
 
             try {
-                const data = await runAudit(
-                    url,
+                currentAuditData = await runAudit(url, 
                     (status) => { el.auditStatusText.textContent = status; },
-                    (step, total) => {
-                        const percentage = Math.round((step / total) * 100);
-                        el.auditProgressBar.style.width = `${percentage}%`;
-                    }
+                    (step, total) => { el.auditProgressBar.style.width = `${Math.round((step / total) * 100)}%`; }
                 );
-                currentAuditData = data;
                 
                 clearInterval(auditStepInterval);
                 el.auditProgressBar.style.width = `100%`;
-                el.auditProgressBar.classList.remove('bg-white');
-                el.auditProgressBar.classList.add('bg-emerald-400');
+                el.auditProgressBar.classList.replace('bg-white', 'bg-emerald-400');
                 el.auditLoadingView.classList.add('hidden');
                 el.auditCompleteView.classList.remove('hidden');
                 
-                setTimeout(() => {
-                    renderResults(data);
-                    setState('results-state');
-                }, 1500);
+                setTimeout(() => { renderResults(currentAuditData); setState('results-state'); }, 1500);
 
             } catch (err) {
                 clearInterval(auditStepInterval);
@@ -452,111 +485,193 @@
 
         function populatePlaceholders() {
             el.placeholderChecklist.innerHTML = PLACEHOLDER_ITEMS.map(item => `
-                <li class="flex items-start">
-                    <svg class="w-4 h-4 text-gray-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>${item}</span>
-                </li>
+                </div>
             `).join('');
         }
 
-        // --- Rendering Logic ---
-
         function createScoreCircleHTML(score, size, strokeWidth) {
-            const getScoreColorClass = (s) => {
-                if (s >= 85) return COLORS.green; if (s >= 60) return COLORS.yellow; return COLORS.red;
-            };
-            const colorClass = getScoreColorClass(score);
+            const fontSize = size >= 100 ? 'text-4xl' : (size <= 48 ? 'text-lg' : 'text-3xl');
+            if (score === null) {
+                 return `
+                    <div class="relative inline-block flex-shrink-0" style="width: ${size}px; height: ${size}px;">
+                        <svg class="w-full h-full">
+                            <circle class="text-gray-700" stroke-width="${strokeWidth}" stroke="currentColor" fill="transparent" r="${(size / 2) - strokeWidth}" cx="${size / 2}" cy="${size / 2}" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold ${fontSize} text-gray-500">-</span>
+                    </div>`;
+            }
+            const color = score >= 85 ? COLORS.green : score >= 60 ? COLORS.yellow : COLORS.red;
             const radius = (size / 2) - strokeWidth;
             const circumference = 2 * Math.PI * radius;
             const offset = circumference * (1 - score / 100);
-            const fontSize = size <= 48 ? 'text-lg' : 'text-3xl';
-
+           
             return `
                 <div class="relative inline-block flex-shrink-0" style="width: ${size}px; height: ${size}px;">
                     <svg class="w-full h-full">
                         <circle class="text-gray-700" stroke-width="${strokeWidth}" stroke="currentColor" fill="transparent" r="${radius}" cx="${size / 2}" cy="${size / 2}" />
-                        <circle class="${colorClass}" stroke-width="${strokeWidth}" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round" stroke="currentColor" fill="transparent" r="${radius}" cx="${size / 2}" cy="${size / 2}" style="transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 0.5s ease-out;" />
+                        <circle stroke-width="${strokeWidth}" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round" stroke="${color}" fill="transparent" r="${radius}" cx="${size/2}" cy="${size/2}" style="transform: rotate(-90deg); transform-origin: 50% 50%;" />
                     </svg>
-                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold ${fontSize} ${colorClass}">${score}</span>
+                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold ${fontSize}" style="color: ${color}">${score}</span>
                 </div>`;
         }
         
-        function renderResults(data) {
-            const allChecks = Object.values(data.checks).flat();
-            const overallScore = calculateScore(allChecks);
-            const overallScoreColors = getScoreColors(overallScore);
+        function getScoreColor(score) {
+            if (score === null) return COLORS.gray;
+            if (score >= 85) return COLORS.green;
+            if (score >= 60) return COLORS.yellow;
+            return COLORS.red;
+        }
 
+        function renderResults(data) {
             const categoryOrder = ['seo', 'technical', 'accessibility', 'social', 'semantic'];
             const categoryTitles = {
                 seo: 'SEO Core', technical: 'Technical Health', accessibility: 'Accessibility & Trust',
                 social: 'Social Metadata', semantic: 'Semantic & Discoverability'
             };
             
-            const resultsHTML = `
-                <div class="print-only hidden mb-8 text-center">
-                     <h1 class="text-3xl font-bold mb-2">Web Discoverability Report</h1>
-                     <p class="text-gray-600">${data.url}</p>
-                     <p class="text-sm text-gray-500">Report generated on ${new Date(data.timestamp).toLocaleString()}</p>
+            const allChecks = Object.values(data.checks).flat();
+            const overallScore = calculateScore(allChecks);
+            
+            let scoreBgClass = 'bg-gray-800/15';
+            let scoreBorderClass = 'border-gray-700';
+
+            if (overallScore !== null) {
+                if (overallScore >= 85) { scoreBgClass = 'bg-emerald-900/15'; scoreBorderClass = 'border-emerald-400'; } 
+                else if (overallScore >= 60) { scoreBgClass = 'bg-yellow-900/15'; scoreBorderClass = 'border-yellow-400'; } 
+                else { scoreBgClass = 'bg-red-900/15'; scoreBorderClass = 'border-red-500'; }
+            }
+            
+            el.resultsState.innerHTML = `
+                <div class="p-8 ${scoreBgClass} border-b ${scoreBorderClass} transition-colors duration-500">
+                  <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+                      <div class="flex items-center gap-6">
+                          ${createScoreCircleHTML(overallScore, 100, 7)}
+                          <div>
+                              <h2 class="text-2xl sm:text-3xl font-bold text-white">Audit Complete</h2>
+                              <p class="text-gray-400 break-all">${data.url}</p>
+                              <p class="text-gray-400 text-sm mt-1">Report generated on ${new Date(data.timestamp).toLocaleString()}</p>
+                          </div>
+                      </div>
+                  </div>
                 </div>
 
-                <div id="score-header-container" class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 px-8 py-8 bg-gray-800/50 border border-gray-700 rounded-xl">
-                    <div class="flex items-center gap-4">
-                        ${createScoreCircleHTML(overallScore, 80, 6)}
-                        <div>
-                            <h2 class="text-2xl sm:text-3xl font-bold text-white">Audit Complete</h2>
-                            <p class="text-gray-400 break-all">${data.url}</p>
-                            <p class="text-xs text-gray-500 mt-1 screen-only">Report generated on ${new Date(data.timestamp).toLocaleString()}</p>
-                        </div>
+                <div id="results-controls" class="sticky top-0 z-20 bg-gray-900/80 backdrop-blur-md p-4 border-b border-gray-700 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <div id="filter-container" class="flex flex-wrap items-center gap-2">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="passed">Passed</button>
+                        <button class="filter-btn" data-filter="failed">Failed</button>
+                        <button class="filter-btn" data-filter="manual">Manual</button>
                     </div>
-                    <div class="flex items-center gap-2 flex-shrink-0 w-full sm:w-auto">
-                        <button id="reset-audit-btn" class="sm:w-auto bg-gray-800/50 border border-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5m16 2v-5h-5M4 15a9 9 0 1115 0M20 9a9 9 0 01-15 0"/></svg>
-                            <span>New Audit</span>
+                    <div class="hidden sm:block flex-grow"></div>
+                     <div id="export-container" class="flex flex-wrap items-center gap-2">
+                        <button id="copy-markdown-btn" class="action-btn">
+                          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                          <span>Copy as Markdown</span>
+                        </button>
+                        <button id="reset-audit-btn" class="action-btn bg-white text-black hover:bg-gray-200">
+                           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                           <span>New Audit</span>
                         </button>
                     </div>
                 </div>
 
-                <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    ${categoryOrder.map((key, index) => {
+                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-2">
+                    ${categoryOrder.map((key) => {
+                        if (!data.checks[key]) return '';
                         const checks = data.checks[key];
                         const score = calculateScore(checks);
-                        const scoreColors = getScoreColors(score);
-                        const title = categoryTitles[key];
-                        
+                        const allPassed = score === 100;
+                        const scoreColorClass = score >= 85 ? 'text-emerald-400' : score >= 60 ? 'text-yellow-400' : 'text-red-500';
+                        const scoreBarColorClass = score >= 85 ? 'bg-emerald-400' : score >= 60 ? 'bg-yellow-400' : 'bg-red-500';
+
                         return `
-                        <div class="result-card bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden" style="animation-delay: ${index * 100}ms;">
-                            <div class="p-6 flex justify-between items-center">
-                                <h3 class="text-lg font-semibold text-white">${title}</h3>
-                                ${createScoreCircleHTML(score, 48, 4)}
+                        <div class="result-section py-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 mb-4">
+                                <h3 class="text-lg font-semibold text-white">${categoryTitles[key]}</h3>
+                                <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                                    <div class="w-24 bg-gray-700 rounded-full h-1.5">
+                                        <div class="h-1.5 rounded-full ${scoreBarColorClass}" style="width: ${score}%"></div>
+                                    </div>
+                                    <span class="font-semibold font-mono ${scoreColorClass} w-24 text-right whitespace-nowrap">${score} / 100</span>
+                                </div>
                             </div>
-                            <div class="space-y-3 px-6 pb-6 border-t border-gray-700">
+                            <div>
+                                ${allPassed ? `
+                                <div class="text-center py-4 px-6 bg-gray-800/50 rounded-lg">
+                                    <svg class="w-8 h-8 mx-auto text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="mt-2 text-emerald-400 font-semibold">Excellent! No issues found.</p>
+                                    <p class="text-sm text-gray-400">All checks in this category passed.</p>
+                                </div>
+                                ` : `
+                                <div class="space-y-2">
                                 ${checks.map(check => `
-                                    <details class="text-sm pt-3 border-b border-gray-700 pb-3 last:pb-0 last:border-b-0 group">
-                                        <summary class="flex items-center list-none cursor-pointer">
-                                            ${getStatusIcon(check.passed)}
-                                            <span class="flex-grow ml-2">${check.label}</span>
-                                            <span class="text-gray-400 ml-2 font-mono hidden sm:inline">${check.value}</span>
-                                            <svg class="w-4 h-4 text-gray-500 ml-2 transform transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                    <details class="result-item bg-gray-800/50 rounded-r-lg border-l-2" data-status="${check.passed === null ? 'manual' : (check.passed ? 'passed' : 'failed')}">
+                                        <summary class="flex items-center list-none cursor-pointer p-4 transition-colors hover:bg-gray-800 rounded-r-md">
+                                            <span class="flex-grow font-medium text-gray-200">${check.label}</span>
+                                            <span class="text-gray-400 ml-2 font-mono text-sm hidden sm:inline">${check.value}</span>
+                                            <svg class="w-5 h-5 text-gray-500 ml-4 transform transition-transform group-open:rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                                         </summary>
-                                        <div class="mt-3 pl-7 text-gray-400 space-y-2">
+                                        <div class="pt-2 pb-4 px-4 ml-1 text-gray-400 text-sm space-y-2 border-t border-gray-700">
                                             <p><strong>Why it matters:</strong> ${check.details}</p>
-                                            ${check.fix ? `<div class="mt-2"><strong>How to fix:</strong><pre class="bg-gray-900 p-2 rounded-md text-xs ${COLORS.fix} mt-1 overflow-x-auto"><code>${check.fix.replace(/</g, '&lt;')}</code></pre></div>` : ''}
+                                            ${check.fix ? `<p class="mt-2"><strong>How to fix:</strong> <span class="text-gray-300">${renderFix(check.fix)}</span></p>` : ''}
                                         </div>
                                     </details>
                                 `).join('')}
+                                </div>
+                                `}
                             </div>
                         </div>`;
                     }).join('')}
-                </div>
-            `;
-            el.resultsState.innerHTML = resultsHTML;
+                </div>`;
+            
+            el.resultsState.addEventListener('click', (e) => {
+                const copyBtn = e.target.closest('.copy-code-btn');
+                if (copyBtn) {
+                    const code = copyBtn.closest('.code-wrapper').querySelector('code').textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        copyBtn.querySelector('span').textContent = 'Copied!';
+                        setTimeout(() => { copyBtn.querySelector('span').textContent = 'Copy'; }, 2000);
+                    });
+                }
+            });
+            
             document.getElementById('reset-audit-btn').addEventListener('click', () => { window.location.reload(); });
-        }
+            
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    document.querySelectorAll('.result-item').forEach(item => {
+                        const status = item.dataset.status;
+                        const isManualCheck = status === 'manual';
+                        let show = false;
+                        if(filter === 'all') show = true;
+                        else if(filter === 'passed' && status === 'passed') show = true;
+                        else if(filter === 'failed' && status === 'failed') show = true;
+                        else if(filter === 'manual' && isManualCheck) show = true;
+                        item.style.display = show ? 'block' : 'none';
+                    });
+                });
+            });
 
-        function getStatusIcon(passed) {
-            if (passed === true) return `<svg class="w-5 h-5 ${COLORS.green} mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-            if (passed === false) return `<svg class="w-5 h-5 ${COLORS.red} mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-            return `<svg class="w-5 h-5 ${COLORS.blue} mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            document.getElementById('copy-markdown-btn').addEventListener('click', handleCopyMarkdown);
+        }
+        
+        function renderFix(fixText) {
+            return fixText.replace(/<code>(.*?)<\/code>/gs, (match, code) => {
+                return `<div class="code-wrapper my-2 bg-gray-950 border border-gray-700 rounded-md">
+                            <pre class="p-4 text-xs overflow-x-auto"><code class="text-white">${code.replace(/</g, '&lt;')}</code></pre>
+                            <button class="copy-code-btn" aria-label="Copy code snippet">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span class="sr-only">Copy</span>
+                            </button>
+                        </div>`;
+            }).replace(/\n/g, '<br>'); // Keep line breaks
         }
 
         function calculateScore(checks) {
@@ -566,21 +681,38 @@
             const score = relevantChecks.reduce((sum, c) => sum + (c.passed ? c.weight : 0), 0);
             return Math.round((score / totalWeight) * 100);
         }
-
-        function getScoreColors(score) {
-            if (score >= 85) return { text: COLORS.green, bg: 'bg-emerald-900/50', border: 'border-emerald-500/50' };
-            if (score >= 60) return { text: COLORS.yellow, bg: 'bg-amber-900/50', border: 'border-amber-500/50' };
-            return { text: COLORS.red, bg: 'bg-red-900/50', border: 'border-red-500/50' };
-        }
         
-        // --- Audit Service Logic (inlined) ---
+        function handleCopyMarkdown() {
+            const { url, checks } = currentAuditData;
+            const categoryTitles = {
+                seo: 'SEO Core', technical: 'Technical Health', accessibility: 'Accessibility & Trust',
+                social: 'Social Metadata', semantic: 'Semantic & Discoverability'
+            };
+            let markdown = `# Web Discovery Audit Report for ${url}\n\n`;
+            markdown += `_Generated on ${new Date().toLocaleString()} with Solite Web Discovery Auditor._\n\n`;
+
+            for (const categoryKey in categoryTitles) {
+                if (!checks[categoryKey]) continue;
+                markdown += `## ${categoryTitles[categoryKey]}\n\n`;
+                checks[categoryKey].forEach(check => {
+                    const status = check.passed === true ? '✅ Passed' : (check.passed === false ? '❌ Failed' : '🔵 Manual Check');
+                    markdown += `### ${status}: ${check.label}\n`;
+                    markdown += `**Value:** \`${check.value}\`\n\n`;
+                    markdown += `**Why it matters:** ${check.details}\n\n`;
+                    if (check.fix) markdown += `**How to fix:** \`${check.fix.replace(/<.*?>/g, '')}\`\n\n`;
+                });
+            }
+            navigator.clipboard.writeText(markdown).then(() => {
+                alert('Report copied to clipboard as Markdown!');
+            }, () => {
+                alert('Failed to copy report.');
+            });
+        }
 
         async function runAudit(rawUrl, onStatusUpdate, onProgressUpdate) {
              const totalSteps = 7;
              let url = rawUrl.trim();
-             if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                 url = 'https://' + url;
-             }
+             if (!url.startsWith('http')) url = 'https://' + url;
              let origin;
              try { origin = new URL(url).origin; } catch (e) { throw new Error("Invalid URL provided."); }
              
@@ -639,20 +771,20 @@
         function runSeoChecks(doc, url) {
              const results = [];
              const title = doc.querySelector('title');
-             results.push(createCheck('Title Tag', !!(title && title.textContent && title.textContent.length > 0), title ? `${title.textContent.length} chars` : 'Missing', 'A concise, descriptive title is crucial for search engine rankings and user clicks.', '<title>Your Compelling Title</title>'));
+             results.push(createCheck('Title Tag', !!(title && title.textContent && title.textContent.length > 0), title ? `${title.textContent.length} chars` : 'Missing', 'A concise, descriptive title is crucial for search engine rankings and user clicks.', '<code>&lt;title&gt;Your Compelling Title&lt;/title&gt;</code>'));
              const description = doc.querySelector('meta[name="description"]');
-             results.push(createCheck('Meta Description', !!(description && description.getAttribute('content') && description.getAttribute('content').length > 0), description ? `${description.getAttribute('content').length} chars` : 'Missing', 'The meta description is your sales pitch on the SERP. It should be compelling and under 160 characters.', '<meta name="description" content="A compelling summary of your page content.">'));
+             results.push(createCheck('Meta Description', !!(description && description.getAttribute('content') && description.getAttribute('content').length > 0), description ? `${description.getAttribute('content').length} chars` : 'Missing', 'The meta description is your sales pitch on the SERP. It should be compelling and under 160 characters.', '<code>&lt;meta name="description" content="A compelling summary of your page content."&gt;</code>'));
              const h1s = doc.querySelectorAll('h1');
-             results.push(createCheck('Single H1 Tag', h1s.length === 1, `${h1s.length} found`, 'A single, clear H1 tag provides a strong signal to search engines about the page\'s main topic.', '<h1>Your Main Page Heading</h1>'));
+             results.push(createCheck('Single H1 Tag', h1s.length === 1, `${h1s.length} found`, 'A single, clear H1 tag provides a strong signal to search engines about the page\'s main topic.', '<code>&lt;h1&gt;Your Main Page Heading&lt;/h1&gt;</code>'));
              const canonical = doc.querySelector('link[rel="canonical"]');
-             results.push(createCheck('Canonical Tag', !!canonical, canonical ? 'Present' : 'Missing', 'A canonical tag prevents duplicate content issues by specifying the "master" version of a page.', '<link rel="canonical" href="https://example.com/your-page" />'));
+             results.push(createCheck('Canonical Tag', !!canonical, canonical ? 'Present' : 'Missing', 'A canonical tag prevents duplicate content issues by specifying the "master" version of a page.', '<code>&lt;link rel="canonical" href="https://example.com/your-page" /&gt;</code>'));
              const viewport = doc.querySelector('meta[name="viewport"]');
-             results.push(createCheck('Mobile Viewport', !!(viewport && viewport.getAttribute('content')?.includes('width=device-width')), viewport ? 'Present' : 'Missing', 'The viewport meta tag is essential for responsive design, ensuring your site scales correctly on mobile devices.', '<meta name="viewport" content="width=device-width, initial-scale=1.0">'));
+             results.push(createCheck('Mobile Viewport', !!(viewport && viewport.getAttribute('content')?.includes('width=device-width')), viewport ? 'Present' : 'Missing', 'The viewport meta tag is essential for responsive design, ensuring your site scales correctly on mobile devices.', '<code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>'));
              results.push(createCheck('HTTPS', url.startsWith('https://'), url.startsWith('https://') ? 'Secure' : 'Insecure', 'HTTPS encrypts data between the user and the server, which is a trust signal and a ranking factor.', 'Ensure your site is served over HTTPS.'));
              const images = doc.querySelectorAll('img');
              const imagesWithAlt = doc.querySelectorAll('img[alt]');
              const altCoverage = images.length > 0 ? Math.round((imagesWithAlt.length / images.length) * 100) : 100;
-             results.push(createCheck('Image Alt Text', altCoverage > 80, `${altCoverage}% coverage`, 'Alt text makes images accessible to screen readers and provides context to search engines.', '<img src="..." alt="A descriptive summary of the image">'));
+             results.push(createCheck('Image Alt Text', altCoverage > 80, `${altCoverage}% coverage`, 'Alt text makes images accessible to screen readers and provides context to search engines.', '<code>&lt;img src="..." alt="A descriptive summary of the image"&gt;</code>'));
              return results;
         }
         function runSemanticChecks(doc) {
@@ -671,10 +803,10 @@
              const results = [];
              const getOg = (prop) => doc.querySelector(`meta[property="og:${prop}"]`)?.getAttribute('content');
              const getTw = (prop) => doc.querySelector(`meta[name="twitter:${prop}"]`)?.getAttribute('content');
-             results.push(createCheck('OG Title', !!getOg('title'), getOg('title') ? 'Present' : 'Missing', 'The Open Graph title defines how your content appears when shared on platforms like Facebook and LinkedIn.', '<meta property="og:title" content="Your Share Title">'));
-             results.push(createCheck('OG Description', !!getOg('description'), getOg('description') ? 'Present' : 'Missing', 'The OG description provides a summary for social shares.', '<meta property="og:description" content="Your share description.">'));
-             results.push(createCheck('OG Image', !!getOg('image'), getOg('image') ? 'Present' : 'Missing', 'An OG image makes your shared content far more engaging.', '<meta property="og:image" content="https://example.com/share-image.png">'));
-             results.push(createCheck('Twitter Card', !!getTw('card'), getTw('card') || 'Missing', 'Twitter Cards provide rich media previews when your content is shared on X.', '<meta name="twitter:card" content="summary_large_image">'));
+             results.push(createCheck('OG Title', !!getOg('title'), getOg('title') ? 'Present' : 'Missing', 'The Open Graph title defines how your content appears when shared on platforms like Facebook and LinkedIn.', '<code>&lt;meta property="og:title" content="Your Share Title"&gt;</code>'));
+             results.push(createCheck('OG Description', !!getOg('description'), getOg('description') ? 'Present' : 'Missing', 'The OG description provides a summary for social shares.', '<code>&lt;meta property="og:description" content="Your share description."&gt;</code>'));
+             results.push(createCheck('OG Image', !!getOg('image'), getOg('image') ? 'Present' : 'Missing', 'An OG image makes your shared content far more engaging.', '<code>&lt;meta property="og:image" content="https://example.com/share-image.png"&gt;</code>'));
+             results.push(createCheck('Twitter Card', !!getTw('card'), getTw('card') || 'Missing', 'Twitter Cards provide rich media previews when your content is shared on X.', '<code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code>'));
              return results;
         }
         async function runTechnicalChecks(doc, html, origin, onStatusUpdate) {
@@ -682,76 +814,36 @@
             const pageSize = Math.round(html.length / 1024);
             results.push(createCheck('Page Size', pageSize < 500, `${pageSize} KB`, 'Smaller page sizes lead to faster load times and a better user experience.', 'Optimize images, minify CSS/JS, and enable server compression.'));
             const nonBlockingFonts = doc.querySelectorAll('link[rel="preload"][as="style"][onload*="this.rel=\'stylesheet\'"]').length > 0;
-            results.push(createCheck('Non-blocking Fonts', nonBlockingFonts, nonBlockingFonts ? 'Detected' : 'Not Detected', 'Loading fonts asynchronously prevents them from blocking page render, improving perceived performance.', '<link rel="preload" as="style" href="..." onload="this.rel=\'stylesheet\'">'));
+            results.push(createCheck('Non-blocking Fonts', nonBlockingFonts, nonBlockingFonts ? 'Detected' : 'Not Detected', 'Loading fonts asynchronously prevents them from blocking page render, improving perceived performance.', '<code>&lt;link rel="preload" as="style" href="..." onload="this.rel=\'stylesheet\'"&gt;</code>'));
             const robotsUrl = `https://proxy-worker.hiwebeast.workers.dev/?url=${encodeURIComponent(origin + '/robots.txt')}`;
             try {
                 onStatusUpdate('Fetching robots.txt...');
-                const robotsRes = await fetchWithRetry(robotsUrl, 5, 1000, (attempt) => onStatusUpdate(`Retrying robots.txt... (Attempt ${attempt}/5)`));
+                const robotsRes = await fetchWithRetry(robotsUrl, 3, 500, (attempt) => onStatusUpdate(`Retrying...`));
                 const robotsTxt = await robotsRes.text();
                 results.push(createCheck('robots.txt Found', true, 'Found', 'A robots.txt file was found at the root of the domain, which is the correct location.', 'Ensure this file contains the correct directives for web crawlers.'));
                 const lines = robotsTxt.split('\n').map(line => line.trim().toLowerCase());
-                const hasWildcardUserAgent = lines.some(line => line.startsWith('user-agent: *'));
-                results.push(createCheck('Wildcard User-Agent', hasWildcardUserAgent, hasWildcardUserAgent ? 'Present' : 'Missing', 'A `User-agent: *` directive provides instructions for all web crawlers. It\'s a good practice to include it as a default.', 'Add `User-agent: *` to your robots.txt to define rules for general bots.'));
-                let wildcardDirectives = []; let inWildcardBlock = false;
-                for (const line of lines) {
-                    if (line.startsWith('user-agent:')) { inWildcardBlock = line === 'user-agent: *'; }
-                    if (inWildcardBlock && (line.startsWith('disallow:') || line.startsWith('allow:'))) { wildcardDirectives.push(line); }
-                }
-                const isSiteBlocked = wildcardDirectives.some(line => line === 'disallow: /');
-                results.push(createCheck('Site-wide Crawl Block', !isSiteBlocked, isSiteBlocked ? 'Site Blocked' : 'Not Blocked', 'A `Disallow: /` directive under `User-agent: *` prevents all crawlers from accessing your entire site. This is a critical issue.', 'Remove the `Disallow: /` line from your robots.txt unless you intentionally want to block the entire site from search engines.'));
-                const areResourcesBlocked = wildcardDirectives.some(line => line.includes('disallow: /css') || line.includes('disallow: /js') || line.includes('.css') || line.includes('.js'));
-                results.push(createCheck('Critical Resource Blocking', !areResourcesBlocked, areResourcesBlocked ? 'Potentially Blocked' : 'Allowed', 'Blocking CSS or JS files can prevent Google from rendering your page correctly, impacting indexing and ranking.', 'Review `Disallow` rules to ensure you are not blocking essential `.css` or `.js` files or folders.'));
                 const sitemapLine = lines.find(line => line.startsWith('sitemap:'));
-                if (sitemapLine) {
-                    results.push(createCheck('Sitemap Declaration', true, 'Referenced in robots.txt', 'A sitemap.xml file, referenced in robots.txt, helps search engines find all your pages.', 'Ensure the sitemap URL in robots.txt is correct and the sitemap is valid.'));
-                    try {
-                        const sitemapUrlString = sitemapLine.substring('sitemap:'.length).trim();
-                        if (!sitemapUrlString.startsWith('http')) { throw new Error("Sitemap URL doesn't start with http/https."); }
-                        const sitemapUrl = new URL(sitemapUrlString);
-                        const sitemapPath = sitemapUrl.pathname;
-                        const disallowedPaths = wildcardDirectives.filter(line => line.startsWith('disallow:')).map(line => line.substring('disallow:'.length).trim()).filter(path => path.length > 0);
-                        const isSitemapBlocked = disallowedPaths.some(disallowedPath => { if (disallowedPath === '/') return true; return sitemapPath.startsWith(disallowedPath); });
-                        results.push(createCheck('Sitemap Accessibility', !isSitemapBlocked, isSitemapBlocked ? 'Blocked by rule' : 'Accessible', 'Your sitemap must be accessible to crawlers. A `Disallow` rule can accidentally block it, preventing search engines from discovering all your pages.', isSitemapBlocked ? `A 'Disallow' rule in your robots.txt is blocking the path to your sitemap (${sitemapPath}). Remove or modify the conflicting directive.` : 'The sitemap appears to be accessible according to your robots.txt rules.'));
-                    } catch (e) { results.push(createCheck('Sitemap Accessibility', false, 'Invalid URL', 'The sitemap URL declared in robots.txt appears to be invalid or malformed.', `Correct the sitemap URL in robots.txt. The current value is: ${sitemapLine}`)); }
-                } else { results.push(createCheck('Sitemap Declaration', false, 'Not in robots.txt', 'No sitemap.xml reference was found in your robots.txt. This is the recommended way to declare it.', 'Add a line to your robots.txt: `Sitemap: https://your-domain.com/sitemap.xml`')); }
+                results.push(createCheck('Sitemap Declaration', !!sitemapLine, sitemapLine ? 'Referenced' : 'Missing', 'A sitemap.xml file, referenced in robots.txt, helps search engines find all your pages.', 'Add a line to your robots.txt: <code>Sitemap: https://your-domain.com/sitemap.xml</code>'));
             } catch (e) {
                 results.push(createCheck('robots.txt Found', false, 'Not Found / Blocked', 'Could not fetch robots.txt. It may not exist or the server is blocking the proxy.', 'Ensure a robots.txt file exists at your site\'s root.'));
-                results.push(createCheck('Sitemap Declaration', false, 'N/A (no robots.txt)', 'Sitemap check skipped as robots.txt could not be fetched.', 'N/A'));
+                results.push(createCheck('Sitemap Declaration', null, 'N/A (no robots.txt)', 'Sitemap check skipped as robots.txt could not be fetched.', 'N/A'));
             }
             return results;
         }
         function runAccessibilityChecks(doc) {
              const results = [];
              const lang = doc.documentElement.lang;
-             results.push(createCheck('HTML Lang Attribute', !!lang, lang || 'Missing', 'The `lang` attribute helps screen readers and search engines understand the page\'s language.', '<html lang="en">'));
+             results.push(createCheck('HTML Lang Attribute', !!lang, lang || 'Missing', 'The `lang` attribute helps screen readers and search engines understand the page\'s language.', '<code>&lt;html lang="en"&gt;</code>'));
              const links = doc.querySelectorAll('a');
              const accessibleLinks = Array.from(links).every(a => a.textContent?.trim() !== '' || a.getAttribute('aria-label'));
-             results.push(createCheck('Accessible Links', accessibleLinks, accessibleLinks ? 'Good' : 'Needs Review', 'Icon-only links must have an `aria-label` to be accessible to screen reader users.', '<a href="..." aria-label="Description of link purpose">...</a>'));
+             results.push(createCheck('Accessible Links', accessibleLinks, accessibleLinks ? 'Good' : 'Needs Review', 'Icon-only links must have an `aria-label` to be accessible to screen reader users.', '<code>&lt;a href="..." aria-label="Description of link purpose"&gt;...&lt;/a&gt;</code>'));
              return results;
         }
 
         // --- Event Listeners & Init ---
 
         el.auditBtn.addEventListener('click', startAudit);
-        el.urlInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') startAudit();
-        });
-        
-        // Initial animation for idle state
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const delay = parseInt(el.dataset.index || '0') * 100;
-                    setTimeout(() => {
-                        el.classList.remove('opacity-0', 'translate-y-5');
-                    }, delay);
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('#idle-state [data-index]').forEach(elem => observer.observe(elem));
+        el.urlInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') startAudit(); });
         
         populatePlaceholders();
         setState('idle-state');

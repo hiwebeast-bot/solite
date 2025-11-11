@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / CERTIFICATE MAKER — AUTHORITY + PERFORMANCE EDITION -->
+<!-- 🧬 SOLITE GEN-5.1 ROBUST HEAD / CERTIFICATE MAKER — CORE EDITOR EDITION -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   <meta name="brand" content="Solite" />
   <meta name="application-name" content="Certificate Maker" />
   <meta name="publisher" content="Solite" />
-  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+  <meta name="generator" content="Solite GEN-5.1 Robust — Core Editor Edition" />
 
   <!-- 🤖 AI DISCOVERY LAYER -->
   <meta name="ai-indexing" content="enabled" />
@@ -46,12 +46,15 @@
 
   <!-- ⚙️ CORE LIBRARIES -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
   <!-- ⚡ NON-BLOCKING FONT LOAD -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap" as="style" onload="this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab&family=Poppins:wght@700&family=Bangers&family=Lora&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab:wght@400;700&family=Poppins:wght@700&family=Bangers&family=Lora:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&family=Lobster&family=Roboto+Slab:wght@400;700&family=Poppins:wght@700&family=Bangers&family=Lora:wght@400;700&display=swap"></noscript>
 
   <!-- 🪞 FAVICONS -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
@@ -60,14 +63,25 @@
 
   <!-- 🎨 STYLING -->
   <style>
+    @keyframes pulse-bg {
+      0% { background-color: rgba(156, 163, 175, 0.2); }
+      50% { background-color: rgba(156, 163, 175, 0.4); }
+      100% { background-color: rgba(156, 163, 175, 0.2); }
+    }
     .mobile-nav-btn.active { color:#fff; }
     .mobile-nav-btn { color:#9ca3af; }
-    [contenteditable]:focus { outline:dashed 2px #3b82f6; border-radius:0.25rem; }
+    [contenteditable]:focus { outline:none; }
+    .content-selected {
+        outline:none !important; 
+        border-radius:0.25rem; 
+        animation: pulse-bg 2s ease-in-out infinite;
+    }
     #template-grid::-webkit-scrollbar { height:6px; }
     #template-grid::-webkit-scrollbar-track { background:#1f2937; }
     #template-grid::-webkit-scrollbar-thumb { background:#4b5563; border-radius:3px; }
     #template-grid::-webkit-scrollbar-thumb:hover { background:#6b7280; }
     html { scrollbar-color:#4b5563 #1f2937; background-color:#0f172a; color-scheme:dark light; }
+    .image-selected { outline: dashed 2px #4b5563; border-radius:0.25rem; }
   </style>
 
   <script>
@@ -133,9 +147,9 @@
           "Offline and privacy-first operation"
         ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "softwareVersion": "5.0",
+        "softwareVersion": "5.1",
         "creator": { "@id": "https://solite.in/#organization" },
-        "dateModified": "2025-11-07T10:00:00Z",
+        "dateModified": "2025-11-08T10:00:00Z",
         "mainEntityOfPage": "https://solite.in/certificate-maker.html"
       },
       {
@@ -151,17 +165,16 @@
   }
   </script>
 
-  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.1-AI-AUTHORITY -->
   <meta name="solite-ai-signature"
-        content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
-  <!-- ⚡ Solite uses APEX HEAD v5.0 (Authority Predator Edition) — All heads must follow GEN-5.0 unified schema and privacy-first meta structure -->
+        content="APEX_HEAD_V5.1 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+  <!-- ⚡ Solite uses APEX HEAD v5.1 (Authority Predator Edition) — All heads must follow GEN-5.1 unified schema and privacy-first meta structure -->
 </head>
 
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
     
     <!-- Header -->
     <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <!-- MODIFIED: Replaced with mobile-first header from code-editor.html -->
         <div class="flex justify-between items-center">
             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
                 <div class="flex items-center space-x-3">
@@ -185,123 +198,118 @@
     </header>
 
     <!-- Main Content -->
-    <!-- MODIFIED: Changed main to be relative for mobile nav -->
     <main class="flex-grow flex relative">
-        <!-- ADDED: sr-only h1 for accessibility and SEO -->
         <h1 class="sr-only">Free Certificate Maker &amp; Certificate Template Generator</h1>
-
-        <!-- Main content wrapper with padding for mobile nav -->
-        <!-- MODIFIED: Added pb-16 for mobile nav clearance, simplified padding -->
-        <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
+        <div id="main-content-wrapper" class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
             
-            <!-- Controls Panel (Controls Pane) -->
-            <!-- MODIFIED: Added overflow-y-auto, changed to lg:w-[30%] -->
             <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
-                <h3 class="text-xl font-bold text-white mb-4">Controls</h3>
-                
-                <!-- Download Controls -->
-                <div class="flex items-center space-x-4 mb-6">
-                    <div class="flex items-center flex-grow">
-                        <div class="relative w-full">
-                            <button id="download-format-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-l-lg flex items-center justify-between w-full h-full">
-                                <span id="download-format-text">PDF</span>
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div id="download-format-dropdown" class="hidden absolute left-0 mt-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
-                            </div>
-                        </div>
-                         <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-r-lg flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
-                            <span>Download</span>
+                <h3 class="text-xl font-bold text-white mb-4">Select a Template</h3>
+
+                <!-- Templates Section (Moved to top) -->
+                <div class="flex-grow flex flex-col min-h-0">
+                    <h4 class="text-lg font-semibold text-white"></h4>
+                    <div id="template-grid" class="flex-grow overflow-y-auto grid grid-cols-2 gap-3 pr-2">
+                    </div>
+                </div>
+
+                <hr class="border-gray-700 my-6">
+
+                <!-- Logo/Sign Upload Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                        <label for="logo-upload-input" id="logo-upload-label" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+                            <span>Add Logo</span>
+                        </label>
+                        <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+                        <button id="remove-logo-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                            <span>Remove Logo</span>
+                        </button>
+                    </div>
+                    <div>
+                        <label for="sign-upload-input" id="sign-upload-label" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"></path></svg>
+                            <span>Add Sign</span>
+                        </label>
+                        <input type="file" id="sign-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+                         <button id="remove-sign-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                            <span>Remove Sign</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Logo Upload -->
-                <!-- MODIFIED: Changed grid-cols-2 to grid-cols-1 lg:grid-cols-2 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+                <div id="image-controls-container" class="space-y-4 hidden mt-4">
+                    <h4 class="text-lg font-semibold text-white">Selected Image</h4>
                     <div>
-                        <label for="logo-upload-input" id="logo-upload-label" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
-                            <span>Upload Logo</span>
-                        </label>
-                        <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                        <button id="remove-logo-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 w-full">Remove Logo</button>
+                        <label for="image-opacity-slider" class="block text-sm font-medium text-gray-300">Opacity</label>
+                        <input type="range" id="image-opacity-slider" min="0" max="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
                     </div>
                     <div>
-                        <label for="sign-upload-input" id="sign-upload-label" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"></path></svg>
-                            <span>Upload Sign</span>
-                        </label>
-                        <input type="file" id="sign-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-                        <button id="remove-sign-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 w-full">Remove Sign</button>
+                        <label class="block text-sm font-medium text-gray-300">Size</label>
+                         <p id="image-size-display" class="text-sm text-gray-400"></p>
                     </div>
                 </div>
 
-                <!-- Template Gallery -->
-                <div class="flex-grow flex flex-col min-h-0">
-                    <h4 class="text-lg font-semibold text-white mb-4">Templates</h4>
-                    <!-- Made grid scrollable on its own -->
-                    <div id="template-grid" class="flex-grow overflow-y-auto grid grid-cols-2 gap-3 pr-2">
-                        <!-- Templates load here -->
+                <hr class="border-gray-700 my-6">
+
+                <!-- Download/Reset Section (Moved to bottom) -->
+                <div class="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                    <!-- Format Dropdown -->
+                    <div class="relative">
+                        <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                            <span id="download-format-text">PDF</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                        </div>
                     </div>
+                    <!-- Download Button -->
+                     <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap">
+                        <span id="download-btn-content" class="flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                          <span class="ml-2">Download</span>
+                        </span>
+                    </button>
+                    <!-- Reset Button -->
+                    <button id="reset-btn" class="bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Certificate">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.664 0l3.18-3.185m-3.18-3.182V6.108a8.25 8.25 0 00-11.664 0v3.232" /></svg>
+                    </button>
                 </div>
             </div>
 
-            <!-- NEW: Edit Panel (Mobile-Only) -->
-            <div id="edit-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex-col overflow-y-auto hidden">
-                <h3 class="text-xl font-bold text-white mb-4">Edit Text</h3>
-                <div id="edit-fields-container" class="space-y-4">
-                    <!-- Dynamic fields will be injected here -->
-                </div>
-            </div>
-
-            <!-- Main Workspace (Preview Pane) -->
-            <!-- MODIFIED: 
-                - Removed items-center justify-center (base)
-                - Added lg:items-center lg:justify-center (for desktop)
-                - Changed overflow-hidden to overflow-auto
-            -->
             <div id="certificate-canvas" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
                 <div id="certificate-container" class="aspect-[1.414/1] w-[800px] lg:w-full shadow-2xl relative overflow-hidden bg-white flex-shrink-0">
-                    <!-- Certificate template loads here -->
                 </div>
             </div>
 
         </div>
-        <!-- Ad Sidebar -->
         <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
             <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
                 Ad Area
             </div>
         </aside>
 
-        
     </main>
 <!-- Mobile/Tablet Navigation Bar -->
-        <!-- MODIFIED: Added 3rd tab and increased height -->
         <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
             <div class="flex justify-around items-center h-16 py-1">
-                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3 active">
+                <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
                     <span>Controls</span>
                 </button>
-                <button id="mobile-edit-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.08a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-                    </svg>
-                    <span>Edit Text</span>
-                </button>
-                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3">
+                <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     <span>Preview</span>
                 </button>
             </div>
         </div>
-        <!-- 🧠 SOLITE GEN-4.1 SEO + AI AUTHORITY BLOCK / CERTIFICATE MAKER -->
+
+        <!-- SEO BLOCK UNCHANGED -->
         <div class="w-full text-gray-300 p-2">
         <style>
             #solite-seo-block-certificate[open] > summary { border-bottom: 1px solid #374151; }
@@ -429,9 +437,9 @@
             </div>
         </details>
         </div>
-        <!-- ✅ END GEN-4.1 SEO + AI AUTHORITY BLOCK -->
+        <!-- ✅ END SEO BLOCK -->
 
-    <!-- Footer: Hidden on mobile to save space -->
+    <!-- FOOTER UNCHANGED -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
@@ -458,19 +466,19 @@
                     description: 'Clean lines and bold shapes for corporate recognition.',
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>`,
                     html: `<div class="w-full h-full flex flex-col bg-white text-gray-800 font-sans relative">
-                               <div class="absolute top-8 right-8 w-24 h-24 resizable-logo"></div>
+                               <div class="absolute top-8 right-8 w-24 h-24 resizable-logo" data-type="image" data-image-type="logo"></div>
                                <div class="flex-grow flex flex-col justify-center items-start z-10 p-12">
                                    <p contenteditable="true" placeholder="CERTIFICATE OF" class="text-lg tracking-widest text-gray-500">CERTIFICATE OF</p>
                                    <h1 contenteditable="true" placeholder="ACHIEVEMENT" class="text-6xl font-bold my-2">ACHIEVEMENT</h1>
                                    <p contenteditable="true" placeholder="PROUDLY PRESENTED TO" class="text-md mt-8">PROUDLY PRESENTED TO</p>
-                                   <p contenteditable="true" placeholder="Recipient Name" class="text-4xl my-2 font-display font-bold tracking-wide text-blue-600">Recipient Name</p>
+                                   <p contenteditable="true" placeholder="Recipient Name" class="text-4xl my-2 font-display font-bold tracking-wide" style="color: #2563eb;">Recipient Name</p>
                                    <p contenteditable="true" placeholder="Reason for award..." class="mt-4 max-w-lg text-gray-600">
                                        For demonstrating outstanding skill and dedication in completing the Advanced Web Development Bootcamp.
                                    </p>
                                </div>
                                <div class="h-24 bg-gray-100 mt-auto flex justify-between items-center p-12 z-10">
                                    <div class="relative w-48 text-left">
-                                       <div class="resizable-signature absolute bottom-6 left-0 w-32 h-16"></div>
+                                       <div class="resizable-signature absolute bottom-6 left-0 w-32 h-16" data-type="image" data-image-type="signature"></div>
                                        <p contenteditable="true" placeholder="Signature" class="text-sm">Signature</p></div>
                                    <div class="relative w-48 text-right">
                                        <p contenteditable="true" placeholder="Date" class="text-sm">November 20, 2025</p>
@@ -495,8 +503,8 @@
                                    <p contenteditable="true" placeholder="Reason for award..." class="text-center max-w-xl">In recognition of outstanding academic performance and exemplary dedication to the principles of higher learning.</p>
                                </div>
                                <div class="w-full flex justify-around items-center z-10 mt-auto px-16">
-                                   <div class="text-center w-1/3 relative"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">University Dean</p></div>
-                                   <div class="w-24 h-24 resizable-logo"></div>
+                                   <div class="text-center w-1/3 relative"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">University Dean</p></div>
+                                   <div class="w-24 h-24 resizable-logo" data-type="image" data-image-type="logo"></div>
                                    <div class="text-center w-1/3"><p contenteditable="true" placeholder="Date">November 20, 2025</p></div>
                                </div>
                            </div>`
@@ -507,7 +515,7 @@
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
                     html: `<div class="w-full h-full p-12 flex flex-col bg-white text-gray-900 font-sans">
                                 <div class="w-full flex justify-between items-start">
-                                    <div class="resizable-logo w-20 h-20"></div>
+                                    <div class="resizable-logo w-20 h-20" data-type="image" data-image-type="logo"></div>
                                     <div class="text-right">
                                         <p contenteditable="true" placeholder="CERTIFICATE" class="font-bold text-lg">CERTIFICATE</p>
                                         <p contenteditable="true" placeholder="OF COMPLETION" class="text-sm text-gray-500">OF COMPLETION</p>
@@ -519,7 +527,7 @@
                                     <p contenteditable="true" placeholder="For successfully completing the course..." class="mt-6 max-w-lg mx-auto text-gray-600">For successfully completing the course on Advanced Project Management.</p>
                                 </div>
                                 <div class="w-full flex justify-between items-center pt-4 text-sm">
-                                    <div class="relative w-48 text-left"><div class="resizable-signature absolute bottom-6 left-0 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
+                                    <div class="relative w-48 text-left"><div class="resizable-signature absolute bottom-6 left-0 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
                                     <p contenteditable="true" placeholder="Date" class="text-right">November 20, 2025</p>
                                 </div>
                             </div>`
@@ -530,14 +538,14 @@
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>`,
                     html: `<div class="w-full h-full p-4 bg-gray-50 text-gray-800 font-sans relative">
                                 <div class="w-full h-full border-2 border-gray-300 p-8 flex flex-col items-center text-center">
-                                    <div class="resizable-logo w-24 h-24 mb-4"></div>
+                                    <div class="resizable-logo w-24 h-24 mb-4" data-type="image" data-image-type="logo"></div>
                                     <p contenteditable="true" placeholder="CERTIFICATE OF RECOGNITION" class="text-xl tracking-widest">CERTIFICATE OF RECOGNITION</p>
                                     <p contenteditable="true" placeholder="AWARDED TO" class="text-gray-500 mt-8">AWARDED TO</p>
                                     <p contenteditable="true" placeholder="Recipient Name" class="text-5xl my-2 font-serif" style="font-family: 'Playfair Display', serif;">Recipient Name</p>
                                     <p contenteditable="true" placeholder="For their exceptional leadership..." class="mt-4 max-w-xl">For their exceptional leadership and dedication during the fiscal year 2024.</p>
                                     <div class="flex-grow"></div>
                                     <div class="flex justify-around w-full mt-12 items-center text-center">
-                                        <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">CEO Signature</p></div>
+                                        <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">CEO Signature</p></div>
                                         <div class="relative w-48">
                                             <p contenteditable="true" placeholder="Date">November 20, 2025</p>
                                         </div>
@@ -553,7 +561,7 @@
                                 <div class="absolute -top-2 -left-16 w-40 text-blue-600">
                                     <svg viewBox="0 0 100 100" fill="currentColor"><path d="M20,0 L20,100 L50,80 L80,100 L80,0 Z"></path><path d="M35,15 h30" stroke="white" stroke-width="3"></path><path d="M35,25 h30" stroke="white" stroke-width="3"></path><path d="M35,35 h30" stroke="white" stroke-width="3"></path></svg>
                                 </div>
-                                <div class="resizable-logo absolute top-8 right-8 w-24 h-24"></div>
+                                <div class="resizable-logo absolute top-8 right-8 w-24 h-24" data-type="image" data-image-type="logo"></div>
                                 <div class="flex-grow flex flex-col items-center justify-center text-center mt-4">
                                     <p contenteditable="true" placeholder="CERTIFICATE OF MERIT" class="text-5xl font-bold">CERTIFICATE OF MERIT</p>
                                     <p contenteditable="true" placeholder="This award is presented to" class="mt-8 text-xl">This award is presented to</p>
@@ -561,7 +569,7 @@
                                     <p contenteditable="true" placeholder="For placing first in..." class="max-w-md">for placing first in the regional science olympiad and demonstrating exceptional scientific acumen.</p>
                                 </div>
                                 <div class="w-full flex justify-around items-center mt-8 text-center text-center">
-                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">Head of Committee</p></div>
+                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">Head of Committee</p></div>
                                     <div class="relative w-48"><p contenteditable="true" placeholder="Date">November 20, 2025</p></div>
                                 </div>
                             </div>`
@@ -577,8 +585,7 @@
                                        <p contenteditable="true" placeholder="VERIFIED SKILL" class="text-4xl font-bold">VERIFIED SKILL</p>
                                        <p contenteditable="true" placeholder="Online Course Completion" class="text-lg text-blue-400">Online Course Completion</p>
                                    </div>
-                                   <div class="w-20 h-20 bg-white p-1 rounded-lg resizable-logo">
-                                       <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://solite.com" alt="QR Code">
+                                   <div class="resizable-logo w-20 h-20 bg-white p-1 rounded-lg" data-type="image" data-image-type="logo">
                                    </div>
                                </div>
                                <div class="flex-grow flex flex-col justify-center z-10">
@@ -599,7 +606,7 @@
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.321h5.365c.414 0 .79.336.79.75a.75.75 0 01-.79.75h-5.365a.562.562 0 00-.475.321l-2.125 5.111a.563.563 0 01-1.04 0l-2.125-5.111a.563.563 0 00-.475-.321H3.75a.75.75 0 01-.79-.75.75.75 0 01.79-.75h5.365a.562.562 0 00.475.321l2.125-5.111z" /></svg>`,
                     html: `<div class="w-full h-full bg-[#2B3A67] text-white font-cartoon relative overflow-hidden p-8 flex flex-col" style="font-family: 'Bangers', cursive;">
                                 <svg class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="10" cy="15" r="1.5" fill="white"/><circle cx="80" cy="10" r="1" fill="white"/><circle cx="90" cy="60" r="2" fill="white"/><circle cx="15" cy="80" r="1" fill="white"/><circle cx="50" cy="50" r="1.2" fill="white"/></svg>
-                                <div class="resizable-logo absolute top-8 right-8 w-20 h-20"></div>
+                                <div class="resizable-logo absolute top-8 right-8 w-20 h-20" data-type="image" data-image-type="logo"></div>
                                 <div class="text-center flex flex-col items-center justify-center flex-grow z-10">
                                     <h1 contenteditable="true" placeholder="SPACE EXPLORER" class="text-7xl text-yellow-300" style="text-shadow: 3px 3px #000;">SPACE EXPLORER</h1>
                                     <p contenteditable="true" placeholder="AWARDED TO" class="text-3xl mt-6">AWARDED TO</p>
@@ -607,7 +614,7 @@
                                     <p contenteditable="true" placeholder="For completing the..." class="text-2xl">For completing the Summer Reading Mission!</p>
                                 </div>
                                 <div class="w-full flex justify-around items-center text-xl z-10 mt-auto text-center">
-                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">Librarian</p></div>
+                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">Librarian</p></div>
                                     <div class="relative w-48"><p contenteditable="true" placeholder="Date">November 20, 2025</p></div>
                                 </div>
                             </div>`
@@ -631,8 +638,8 @@
                                         </div>
                                         <div class="flex-grow"></div>
                                         <div class="w-full flex justify-around items-center mt-12 text-sm text-center">
-                                            <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
-                                            <div class="resizable-logo w-20 h-20"></div>
+                                            <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
+                                            <div class="resizable-logo w-20 h-20" data-type="image" data-image-type="logo"></div>
                                             <div class="relative w-48"><p contenteditable="true" placeholder="Date">November 20, 2025</p></div>
                                         </div>
                                     </div>
@@ -647,17 +654,17 @@
                     description: 'A formal, centered design with a large seal placeholder.',
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>`,
                     html: `<div class="w-full h-full p-12 flex flex-col items-center text-center bg-white text-gray-800 font-serif relative" style="font-family: 'Playfair Display', serif;">
-                                <div class="w-full h-full absolute top-0 left-0 border-8 border-gray-200"></div>
-                                <div class="w-full h-full absolute top-0 left-0 border border-gray-400 m-4"></div>
+                                <div class="absolute inset-0 border-8 border-gray-200"></div>
+                                <div class="absolute inset-4 border border-gray-400"></div>
                                 <h1 contenteditable="true" placeholder="CERTIFICATE" class="text-5xl font-bold tracking-wider z-10">CERTIFICATE</h1>
                                 <p contenteditable="true" placeholder="OF APPRECIATION" class="text-2xl mt-2 tracking-widest z-10">OF APPRECIATION</p>
                                 <p contenteditable="true" placeholder="This Certificate is Awarded to" class="mt-12 text-lg z-10">This Certificate is Awarded to</p>
                                 <p contenteditable="true" placeholder="Recipient Name" class="text-4xl my-4 z-10">Recipient Name</p>
                                 <p contenteditable="true" placeholder="In recognition of their valuable..." class="max-w-lg z-10">In recognition of their valuable contribution and dedicated service.</p>
                                 <div class="flex-grow z-10"></div>
-                                <div class="resizable-logo w-32 h-32 mb-4 z-10"></div>
+                                <div class="resizable-logo w-32 h-32 mb-4 z-10" data-type="image" data-image-type="logo"></div>
                                 <div class="flex justify-around w-full mt-4 text-center items-center z-10">
-                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
+                                    <div class="relative w-48"><div class="resizable-signature absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-16" data-type="image" data-image-type="signature"></div><p contenteditable="true" placeholder="Signature">Signature</p></div>
                                     <div class="relative w-48"><p contenteditable="true" placeholder="Date">November 20, 2025</p></div>
                                 </div>
                             </div>`
@@ -667,7 +674,7 @@
                     description: 'A minimalist design that emphasizes bold typography.',
                     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" /></svg>`,
                     html: `<div class="w-full h-full p-12 flex flex-col bg-white text-gray-900 font-sans">
-                                <div class="resizable-logo w-24 h-24 mb-8"></div>
+                                <div class="resizable-logo w-24 h-24 mb-8" data-type="image" data-image-type="logo"></div>
                                 <p contenteditable="true" placeholder="Certificate of Training" class="text-lg text-gray-500">Certificate of Training</p>
                                 <p contenteditable="true" placeholder="Recipient Name" class="text-6xl font-extrabold my-4">Recipient Name</p>
                                 <p contenteditable="true" placeholder="Has successfully completed..." class="text-lg max-w-xl">Has successfully completed the requirements for the course titled "Leadership and Management" and is hereby recognized for their achievement.</p>
@@ -681,26 +688,91 @@
             ];
             templates.push(...moreTemplates);
 
-            const templateGrid = document.getElementById('template-grid');
             const certificateContainer = document.getElementById('certificate-container');
+            const certificateCanvas = document.getElementById('certificate-canvas');
+            const templateGrid = document.getElementById('template-grid');
+            const downloadBtn = document.getElementById('download-btn');
+            const downloadBtnContent = document.getElementById('download-btn-content');
+            
             const logoUploadInput = document.getElementById('logo-upload-input');
             const logoUploadLabel = document.getElementById('logo-upload-label');
             const removeLogoBtn = document.getElementById('remove-logo-btn');
             const signUploadInput = document.getElementById('sign-upload-input');
             const signUploadLabel = document.getElementById('sign-upload-label');
             const removeSignBtn = document.getElementById('remove-sign-btn');
-            const downloadBtn = document.getElementById('download-btn');
+            const resetBtn = document.getElementById('reset-btn');
+
+            const imageControlsContainer = document.getElementById('image-controls-container');
+            const imageOpacitySlider = document.getElementById('image-opacity-slider');
+            const imageSizeDisplay = document.getElementById('image-size-display');
             
-            // Mobile Nav Elements
             const controlsPane = document.getElementById('controls-panel');
-            const editPane = document.getElementById('edit-panel'); // NEW
-            const editFieldsContainer = document.getElementById('edit-fields-container'); // NEW
-            const previewPane = document.getElementById('certificate-canvas'); // This is the preview
+            const previewPane = document.getElementById('certificate-canvas');
             const mobileControlsBtn = document.getElementById('mobile-controls-btn');
-            const mobileEditBtn = document.getElementById('mobile-edit-btn'); // NEW
             const mobilePreviewBtn = document.getElementById('mobile-preview-btn');
 
             let downloadFormat = 'pdf';
+            let selectedElement = null;
+            let currentTemplateId = templates[0].id;
+            const LOCAL_STORAGE_KEY = 'soliteCertificateState';
+
+            function saveState() {
+                if (!certificateContainer.innerHTML) return;
+                const elements = [];
+                certificateContainer.querySelectorAll('[contenteditable], [data-type="image"]').forEach((el, index) => {
+                    const state = {
+                        id: el.dataset.id || `el-${index}`,
+                        type: el.hasAttribute('contenteditable') ? 'text' : 'image',
+                        styles: {
+                            transform: el.style.transform,
+                            width: el.style.width,
+                            height: el.style.height,
+                            opacity: el.style.opacity,
+                            fontFamily: el.style.fontFamily,
+                            fontSize: el.style.fontSize,
+                            fontWeight: el.style.fontWeight,
+                            textAlign: el.style.textAlign,
+                            color: el.style.color
+                        },
+                    };
+                    if (state.type === 'text') {
+                        state.html = el.innerHTML;
+                    } else { // image
+                        state.html = el.innerHTML;
+                        state.class = el.className;
+                    }
+                    el.dataset.id = state.id;
+                    elements.push(state);
+                });
+
+                const state = {
+                    templateId: currentTemplateId,
+                    elements: elements
+                };
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
+            }
+
+            function loadState() {
+                const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+                if (savedState) {
+                    const state = JSON.parse(savedState);
+                    loadTemplate(state.templateId, false); // don't save state again while loading
+
+                    state.elements.forEach(elementState => {
+                        const el = certificateContainer.querySelector(`[data-id="${elementState.id}"]`);
+                        if (el) {
+                            el.innerHTML = elementState.html;
+                            Object.assign(el.style, elementState.styles);
+                            if (elementState.type === 'image' && elementState.class) {
+                                el.className = elementState.class;
+                            }
+                        }
+                    });
+                    updateImageUploadControls();
+                } else {
+                    loadTemplate(templates[0].id);
+                }
+            }
 
             function populateGallery() {
                 templateGrid.innerHTML = '';
@@ -714,84 +786,68 @@
                         <h3 class="font-semibold text-white text-sm mb-1">${template.name}</h3>
                     `;
                     card.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent jump link
-                        loadTemplate(template.id);
-                        // Switch to preview pane on mobile when a template is clicked
+                        e.preventDefault();
+                        if (currentTemplateId !== template.id) {
+                            loadTemplate(template.id);
+                        }
                         if (window.innerWidth < 1024) {
-                            // MODIFIED: Switch to EDIT tab, not preview
-                            mobileEditBtn.click();
+                            mobilePreviewBtn.click();
                         }
                     });
                     templateGrid.appendChild(card);
                 });
             }
 
-            function loadTemplate(templateId) {
+            function loadTemplate(templateId, shouldSaveState = true) {
                 const template = templates.find(t => t.id === templateId);
                 if (template) {
-                    // Reset logo and signature when changing templates
-                    removeUploadedImage('.resizable-logo', logoUploadLabel, removeLogoBtn);
-                    removeUploadedImage('.resizable-signature', signUploadLabel, removeSignBtn);
-
-                    // Remove active state from all cards
-                    document.querySelectorAll('.template-card.border-white').forEach(card => {
-                        card.classList.remove('border-white');
-                        card.classList.add('border-gray-700'); // Revert to default border
-                    });
-                    // Add active state to the selected card
+                    currentTemplateId = templateId;
+                    
+                    document.querySelectorAll('.template-card.border-white').forEach(card => card.classList.replace('border-white', 'border-gray-700'));
                     document.querySelector(`.template-card[data-template-id="${templateId}"]`)?.classList.replace('border-gray-700', 'border-white');
                     
                     certificateContainer.innerHTML = template.html;
-                    editFieldsContainer.innerHTML = ''; // Clear previous fields
+                    
+                    certificateContainer.querySelectorAll('[contenteditable], [data-type="image"]').forEach((el, index) => {
+                        el.dataset.id = `el-${index}`;
+                    });
 
-                    certificateContainer.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
-                        const placeholder = el.getAttribute('placeholder') || `Text Field ${index + 1}`;
-                        const currentValue = el.innerText;
-                        
-                        // Use a unique ID for targeting
-                        const targetId = `editable-${templateId}-${index}`;
-                        el.dataset.targetId = targetId; // Link the preview element to the input
-
-                        // Create label
-                        const label = document.createElement('label');
-                        label.className = 'block text-sm font-medium text-gray-300';
-                        label.htmlFor = targetId;
-                        label.innerText = placeholder;
-
-                        // Create input or textarea based on content length or placeholder
-                        let input;
-                        if (currentValue.length > 100 || placeholder.toLowerCase().includes('reason for') || placeholder.toLowerCase().includes('demonstrating') || placeholder.toLowerCase().includes('completing the course')) {
-                            input = document.createElement('textarea');
-                            input.rows = 3;
-                        } else {
-                            input = document.createElement('input');
-                            input.type = 'text';
-                        }
-                        
-                        input.id = targetId; // Link the input to the label
-                        input.value = currentValue;
-                        input.className = 'mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
-                        
-                        // Add live update listener
-                        input.addEventListener('input', (e) => {
-                            const targetElement = document.querySelector(`#certificate-container [data-target-id="${targetId}"]`);
-                            if (targetElement) {
-                                targetElement.innerText = e.target.value;
+                    setupInteract();
+                    updateImageUploadControls();
+                    
+                    // Auto-focus the largest text element for editing
+                    setTimeout(() => {
+                        let biggestTextEl = null;
+                        let maxFontSize = 0;
+                        certificateContainer.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                            const style = window.getComputedStyle(el);
+                            if (style.display !== 'none' && style.visibility !== 'hidden') {
+                                const fontSize = parseInt(style.fontSize, 10);
+                                if (fontSize > maxFontSize) {
+                                    maxFontSize = fontSize;
+                                    biggestTextEl = el;
+                                }
                             }
                         });
 
-                        editFieldsContainer.appendChild(label);
-                        editFieldsContainer.appendChild(input);
-                        
-                        // Still add focus classes for desktop editing
-                        el.classList.add('focus:outline-dashed', 'focus:outline-2', 'focus:outline-gray-500', 'focus:rounded');
-                        el.classList.add('empty:before:content-[attr(placeholder)]', 'empty:before:text-gray-400', 'empty:before:pointer-events-none');
-                    });
-                    
-                    setupInteract();
+                        if (biggestTextEl) {
+                            selectElement(biggestTextEl);
+                            biggestTextEl.focus();
+                            const selection = window.getSelection();
+                            const range = document.createRange();
+                            range.selectNodeContents(biggestTextEl);
+                            range.collapse(false); // Collapse the range to the end point.
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+                    }, 100);
+
+                    if (shouldSaveState) {
+                       saveState();
+                    }
                 }
             }
-
+            
             function handleImageUpload(event, targetSelector, uploadLabel, removeBtn) {
                 const file = event.target.files[0];
                 if (file) {
@@ -799,16 +855,15 @@
                     reader.onload = (e) => {
                         const targetContainer = certificateContainer.querySelector(targetSelector);
                         if (targetContainer) {
-                            const img = targetContainer.querySelector('img') || document.createElement('img');
+                            const img = document.createElement('img');
                             img.src = e.target.result;
                             img.style.width = '100%';
                             img.style.height = '100%';
                             img.style.objectFit = 'contain';
                             targetContainer.innerHTML = '';
                             targetContainer.appendChild(img);
-
-                            uploadLabel.classList.add('hidden');
-                            removeBtn.classList.remove('hidden');
+                            updateImageButtonVisibility(targetSelector, uploadLabel, removeBtn);
+                            saveState();
                         }
                     };
                     reader.readAsDataURL(file);
@@ -820,26 +875,74 @@
                 if (targetContainer) {
                     targetContainer.innerHTML = '';
                 }
-                uploadLabel.classList.remove('hidden');
-                removeBtn.classList.add('hidden');
+                updateImageButtonVisibility(targetSelector, uploadLabel, removeBtn);
+                saveState();
             }
 
-            logoUploadInput.addEventListener('change', (e) => {
-                handleImageUpload(e, '.resizable-logo', logoUploadLabel, removeLogoBtn);
-            });
-            removeLogoBtn.addEventListener('click', () => {
-                removeUploadedImage('.resizable-logo', logoUploadLabel, removeLogoBtn);
-            });
+            function updateImageButtonVisibility(targetSelector, uploadLabel, removeBtn) {
+                 const targetContainer = certificateContainer.querySelector(targetSelector);
+                 if (targetContainer && targetContainer.querySelector('img')) {
+                     uploadLabel.classList.add('hidden');
+                     removeBtn.classList.remove('hidden');
+                 } else {
+                     uploadLabel.classList.remove('hidden');
+                     removeBtn.classList.add('hidden');
+                 }
+            }
+            
+            function updateImageUploadControls() {
+                const logoContainer = certificateContainer.querySelector('[data-image-type="logo"]');
+                const signContainer = certificateContainer.querySelector('[data-image-type="signature"]');
 
-            signUploadInput.addEventListener('change', (e) => {
-                handleImageUpload(e, '.resizable-signature', signUploadLabel, removeSignBtn);
-            });
-            removeSignBtn.addEventListener('click', () => {
-                removeUploadedImage('.resizable-signature', signUploadLabel, removeSignBtn);
-            });
+                if (logoContainer) {
+                    logoUploadInput.disabled = false;
+                    logoUploadLabel.classList.remove('opacity-50', 'cursor-not-allowed');
+                    logoUploadLabel.title = '';
+                    updateImageButtonVisibility('[data-image-type="logo"]', logoUploadLabel, removeLogoBtn);
+                } else {
+                    logoUploadInput.disabled = true;
+                    logoUploadLabel.classList.add('opacity-50', 'cursor-not-allowed');
+                    logoUploadLabel.title = 'This template does not support a logo.';
+                    logoUploadLabel.classList.remove('hidden');
+                    removeLogoBtn.classList.add('hidden');
+                }
+
+                if (signContainer) {
+                    signUploadInput.disabled = false;
+                    signUploadLabel.classList.remove('opacity-50', 'cursor-not-allowed');
+                    signUploadLabel.title = '';
+                    updateImageButtonVisibility('[data-image-type="signature"]', signUploadLabel, removeSignBtn);
+                } else {
+                    signUploadInput.disabled = true;
+                    signUploadLabel.classList.add('opacity-50', 'cursor-not-allowed');
+                    signUploadLabel.title = 'This template does not support a signature.';
+                    signUploadLabel.classList.remove('hidden');
+                    removeSignBtn.classList.add('hidden');
+                }
+            }
+
+            function deselectAll() {
+                if (selectedElement) {
+                    selectedElement.classList.remove('content-selected', 'image-selected');
+                    selectedElement = null;
+                }
+                imageControlsContainer.classList.add('hidden');
+            }
+
+            function selectElement(element) {
+                deselectAll();
+                selectedElement = element;
+                if (element.hasAttribute('contenteditable')) {
+                    selectedElement.classList.add('content-selected');
+                } else if (element.dataset.type === 'image') {
+                    selectedElement.classList.add('image-selected');
+                    updateImageControls();
+                    imageControlsContainer.classList.remove('hidden');
+                }
+            }
 
             function setupInteract() {
-                interact('.resizable-logo, .resizable-signature')
+                interact('[data-type="image"]')
                     .resizable({
                         edges: { left: true, right: true, bottom: true, top: true },
                         listeners: {
@@ -853,7 +956,9 @@
                                     transform: `translate(${x}px, ${y}px)`
                                 });
                                 Object.assign(event.target.dataset, { x, y });
-                            }
+                                updateImageControls();
+                            },
+                             end() { saveState(); }
                         },
                         modifiers: [ 
                             interact.modifiers.aspectRatio({ ratio: 'preserve' }),
@@ -869,20 +974,36 @@
                                 y = (parseFloat(y) || 0) + event.dy;
                                 event.target.style.transform = `translate(${x}px, ${y}px)`;
                                 Object.assign(event.target.dataset, { x, y });
-                            }
+                            },
+                            end() { saveState(); }
                         },
                         inertia: true,
                     });
             }
 
+            function updateImageControls() {
+                if (!selectedElement || selectedElement.dataset.type !== 'image') return;
+                imageOpacitySlider.value = selectedElement.style.opacity || 1;
+                const rect = selectedElement.getBoundingClientRect();
+                imageSizeDisplay.textContent = `${Math.round(rect.width)}px × ${Math.round(rect.height)}px`;
+            }
+            
+            imageOpacitySlider.addEventListener('input', () => {
+                if (selectedElement && selectedElement.dataset.type === 'image') {
+                    selectedElement.style.opacity = imageOpacitySlider.value;
+                    saveState();
+                }
+            });
+
             downloadBtn.addEventListener('click', async () => {
-                certificateContainer.querySelectorAll('[contenteditable]').forEach(el => el.classList.remove('focus:outline-dashed', 'focus:outline-2', 'focus:outline-blue-500', 'focus:rounded'));
-                if (document.activeElement) document.activeElement.blur();
-                await new Promise(resolve => setTimeout(resolve, 150)); // A slightly longer delay can help ensure rendering is complete
+                deselectAll();
+                downloadBtn.disabled = true;
+                downloadBtnContent.innerHTML = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-2">Download</span>`;
+
+                await new Promise(resolve => setTimeout(resolve, 150));
 
                 const paneWasHidden = previewPane.classList.contains('hidden');
                 if (paneWasHidden) {
-                    // Temporarily move the pane off-screen to make it renderable by html2canvas
                     previewPane.style.position = 'absolute';
                     previewPane.style.left = '-9999px';
                     previewPane.classList.remove('hidden');
@@ -894,31 +1015,28 @@
                     const format = downloadFormat;
                     const filename = `Solite-Certificate.${format}`;
                     
-                    const link = document.createElement('a');
-                    link.download = filename;
-
-                    // Use a blob for more reliable downloading on mobile
-                    canvas.toBlob((blob) => {
-                        if (format === 'pdf') {
-                            const { jsPDF } = window.jspdf;
-                            const imgData = canvas.toDataURL('image/jpeg', 0.95);
-                            const pdf = new jsPDF({ orientation: canvas.width > canvas.height ? 'landscape' : 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
-                            pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
-                            pdf.save(filename);
-                        } else {
+                    if (format === 'pdf') {
+                        const { jsPDF } = window.jspdf;
+                        const imgData = canvas.toDataURL('image/jpeg', 0.95);
+                        const pdf = new jsPDF({ orientation: canvas.width > canvas.height ? 'landscape' : 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+                        pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
+                        pdf.save(filename);
+                    } else {
+                         canvas.toBlob((blob) => {
+                            const link = document.createElement('a');
+                            link.download = filename;
                             link.href = URL.createObjectURL(blob);
                             link.click();
                             URL.revokeObjectURL(link.href);
-                        }
-                    }, `image/${format}`, 1.0);
+                        }, `image/${format}`, 1.0);
+                    }
 
                 } catch (error) {
                     console.error("Download failed:", error);
-                    // Replaced alert() with console.error
-                    console.error("Sorry, something went wrong during the download process.");
                 } finally {
-                    certificateContainer.querySelectorAll('[contenteditable]').forEach(el => el.classList.add('focus:outline-dashed', 'focus:outline-2', 'focus:outline-blue-500', 'focus:rounded'));
-                    // Restore original layout if it was changed
+                    downloadBtn.disabled = false;
+                    downloadBtnContent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg><span class="ml-2">Download</span>`;
+
                     if (paneWasHidden) {
                         previewPane.style.position = '';
                         previewPane.style.left = '';
@@ -943,121 +1061,94 @@
                 });
             }
 
-            // --- REPLACED: Mobile Navigation Logic (3 Tabs) ---
             mobileControlsBtn.addEventListener('click', () => {
                 controlsPane.classList.remove('hidden');
-                controlsPane.classList.add('flex'); 
-                editPane.classList.add('hidden');
-                editPane.classList.remove('flex');
+                controlsPane.classList.add('flex');
                 previewPane.classList.add('hidden');
                 previewPane.classList.remove('flex');
-
                 mobileControlsBtn.classList.add('active');
-                mobileEditBtn.classList.remove('active');
                 mobilePreviewBtn.classList.remove('active');
             });
-
-            mobileEditBtn.addEventListener('click', () => { // NEW
-                controlsPane.classList.add('hidden');
-                controlsPane.classList.remove('flex');
-                editPane.classList.remove('hidden');
-                editPane.classList.add('flex');
-                previewPane.classList.add('hidden');
-                previewPane.classList.remove('flex');
-
-                mobileControlsBtn.classList.remove('active');
-                mobileEditBtn.classList.add('active');
-                mobilePreviewBtn.classList.remove('active');
-            });
-
+            
             mobilePreviewBtn.addEventListener('click', () => {
                 controlsPane.classList.add('hidden');
                 controlsPane.classList.remove('flex');
-                editPane.classList.add('hidden');
-                editPane.classList.remove('flex');
                 previewPane.classList.remove('hidden');
-                previewPane.classList.add('flex'); 
-
+                previewPane.classList.add('flex');
                 mobileControlsBtn.classList.remove('active');
-                mobileEditBtn.classList.remove('active');
                 mobilePreviewBtn.classList.add('active');
             });
-
-
-            // Initial view setup for mobile/tablet (default to controls view)
-            const handleInitialMobileLayout = () => {
-                if (window.innerWidth < 1024) { // Check for lg breakpoint
-                    // Default to controls view
-                    controlsPane.classList.remove('hidden');
-                    controlsPane.classList.add('flex');
-                    editPane.classList.add('hidden');
-                    editPane.classList.remove('flex');
-                    previewPane.classList.add('hidden');
-                    previewPane.classList.remove('flex');
-                    
-                    mobileControlsBtn.classList.add('active');
-                    mobileEditBtn.classList.remove('active');
-                    mobilePreviewBtn.classList.remove('active');
+            
+            const handleInitialLayout = () => {
+                if (window.innerWidth < 1024) {
+                    mobileControlsBtn.click();
                 } else {
-                    // Default to side-by-side for desktop
                     controlsPane.classList.remove('hidden');
                     controlsPane.classList.add('flex');
-                    editPane.classList.add('hidden'); // Edit pane is mobile-only
-                    editPane.classList.remove('flex');
                     previewPane.classList.remove('hidden');
                     previewPane.classList.add('flex');
                 }
             };
-            
-            // Handle layout on load
-            handleInitialMobileLayout();
 
-            // Handle layout on resize
             window.addEventListener('resize', () => {
-                 if (window.innerWidth >= 1024) {
-                    // Desktop view: show controls and preview
+                if (window.innerWidth >= 1024) {
                     controlsPane.classList.remove('hidden');
                     controlsPane.classList.add('flex');
-                    editPane.classList.add('hidden'); // Edit pane is mobile-only
-                    editPane.classList.remove('flex');
                     previewPane.classList.remove('hidden');
                     previewPane.classList.add('flex');
-                 } else {
-                    // Mobile view: respect the active tab
+                } else {
                     if (mobileControlsBtn.classList.contains('active')) {
-                        controlsPane.classList.remove('hidden');
-                        controlsPane.classList.add('flex');
-                        editPane.classList.add('hidden');
-                        editPane.classList.remove('flex');
-                        previewPane.classList.add('hidden');
-                        previewPane.classList.remove('flex');
-                    } else if (mobileEditBtn.classList.contains('active')) {
-                        controlsPane.classList.add('hidden');
-                        controlsPane.classList.remove('flex');
-                        editPane.classList.remove('hidden');
-                        editPane.classList.add('flex');
-                        previewPane.classList.add('hidden');
-                        previewPane.classList.remove('flex');
-                    } else { // Preview is active
-                        controlsPane.classList.add('hidden');
-                        controlsPane.classList.remove('flex');
-                        editPane.classList.add('hidden');
-                        editPane.classList.remove('flex');
-                        previewPane.classList.remove('hidden');
-                        previewPane.classList.add('flex');
+                       controlsPane.classList.remove('hidden');
+                       previewPane.classList.add('hidden');
+                    } else {
+                       controlsPane.classList.add('hidden');
+                       previewPane.classList.remove('hidden');
                     }
-                 }
+                }
             });
-            // --- End of Mobile Nav Logic ---
+            
+            certificateCanvas.addEventListener('click', (e) => {
+                const target = e.target.closest('[contenteditable], [data-type="image"]');
+                if (target) {
+                    if (target !== selectedElement) {
+                        selectElement(target);
+                    }
+                } else {
+                    deselectAll();
+                }
+            });
+            
+            certificateContainer.addEventListener('input', saveState);
+
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset? All your changes will be lost.')) {
+                    localStorage.removeItem(LOCAL_STORAGE_KEY);
+                    loadTemplate(currentTemplateId);
+                }
+            });
+            
+            logoUploadInput.addEventListener('change', (e) => handleImageUpload(e, '[data-image-type="logo"]', logoUploadLabel, removeLogoBtn));
+            removeLogoBtn.addEventListener('click', () => removeUploadedImage('[data-image-type="logo"]', logoUploadLabel, removeLogoBtn));
+            signUploadInput.addEventListener('change', (e) => handleImageUpload(e, '[data-image-type="signature"]', signUploadLabel, removeSignBtn));
+            removeSignBtn.addEventListener('click', () => removeUploadedImage('[data-image-type="signature"]', signUploadLabel, removeSignBtn));
 
             populateGallery();
             setupDownloadDropdown();
-            loadTemplate(templates[0].id); // Load the first template by default
+            loadState();
+            handleInitialLayout();
             
             document.addEventListener('click', (e) => {
-                // Check if the click is outside the dropdown
                 if (!e.target.closest('#download-format-btn') && !e.target.closest('#download-format-dropdown')) {
                     document.getElementById('download-format-dropdown').classList.add('hidden');
+                }
+                 
+                const isClickOnCanvas = certificateCanvas.contains(e.target);
+                const isClickOnImageControls = imageControlsContainer.contains(e.target);
+
+                if (!isClickOnCanvas && !isClickOnImageControls) {
+                    if (selectedElement) {
+                        deselectAll();
+                    }
                 }
             });
 
