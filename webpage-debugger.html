@@ -129,9 +129,14 @@
     ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
     html { scrollbar-color: #4b5563 #111827; }
     body { background: #000; color: #e5e7eb; font-family: 'Inter', sans-serif; }
-    .filter-btn, .action-btn {
+    .filter-btn {
       padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500;
       transition: all 0.2s; border: 1px solid #374151; background-color: #1f2937; color: #9ca3af;
+    }
+    .action-btn {
+      padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500;
+      transition: all 0.2s; border: 1px solid #374151; background-color: #1f2937; color: #d1d5db;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; white-space: nowrap;
     }
     .filter-btn:hover, .action-btn:hover { background-color: #374151; color: #fff; }
     .filter-btn.active { background-color: #1f2937; color: #fff; border-color: #fff; }
@@ -190,7 +195,7 @@
                     
                     <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Webpage Debugger</h2>
                     <p class="mt-4 max-w-xl mx-auto text-lg text-gray-400">A developer-focused tool to debug any webpage or local HTML file for issues in HTML, performance, accessibility, SEO, and security.</p>
-
+                    
                     <div class="mt-10 max-w-xl mx-auto">
                         <label for="url-input" class="sr-only">URL or File to Debug</label>
                         <div class="flex gap-2">
@@ -214,6 +219,7 @@
                         </div>
                         <p class="text-xs text-gray-600 text-left mt-2">Note: Cross-origin audits may fail for live URLs. Use a valid, accessible URL.</p>
                     </div>
+
 
                     <div class="mt-12 w-full text-left border-t border-gray-800 pt-8">
                         <h3 class="font-semibold text-white text-center mb-6">What We'll Debug:</h3>
@@ -261,7 +267,7 @@
         </aside>
     </main>
     <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / INSTANT CODE FIX REPORT EDITION) -->
-    <div class="w-full text-gray-300 mx-2 mb-2">
+    <div id="seo-info-container" class="w-full text-gray-300 mx-2 mb-2">
     <style>
     #solite-info-block-codefix[open] > summary { border-bottom: 1px solid #374151; }
     #solite-info-block-codefix > summary .details-arrow-seo {
@@ -455,7 +461,7 @@
         async function startAudit(source = null) {
             if (!source) {
                 let url = el.urlInput.value.trim();
-                if (!url) { showError("Please enter a URL."); return; }
+                if (!url) { showError("Please enter a URL or upload a file."); return; }
                 source = { type: 'url', value: url, name: url };
             }
             
@@ -520,7 +526,59 @@
                 </div>
             `).join('');
         }
+
+        function renderFix(fixText) {
+             return fixText.replace(/<code>(.*?)<\/code>/gs, (match, code) => {
+                 return `<div class="code-wrapper mt-1">
+                             <pre class="bg-gray-950 p-3 rounded-md text-xs text-white font-mono overflow-x-auto"><code>${code.replace(/</g, '&lt;')}</code></pre>
+                             <button class="copy-code-btn" title="Copy code">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                             </button>
+                         </div>`;
+             }).replace(/\n/g, '<br>');
+        }
         
+        function getTopIssues(checks) {
+            return Object.values(checks)
+                .flat()
+                .filter(check => check.passed === false)
+                .sort((a, b) => (b.weight || 3) - (a.weight || 3))
+                .slice(0, 3);
+        }
+
+        function renderKeyIssues(issues) {
+            if (issues.length === 0) {
+                return `
+                    <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-10 h-10 text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Excellent Work!</h3>
+                                <p class="text-gray-400">No critical issues were found in the automated checks.</p>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            return `
+                <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Key Issues Found</h3>
+                    <div class="space-y-4">
+                        ${issues.map(issue => `
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-red-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.008v.008H12v-.008Z" /></svg>
+                                <div>
+                                    <p class="font-semibold text-gray-200">${issue.label}</p>
+                                    <p class="text-sm text-gray-400">${issue.details}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
         function renderResults(data) {
             const categoryOrder = ['html', 'performance', 'accessibility', 'security', 'seo', 'network', 'manual'];
             const categoryTitles = {
@@ -535,6 +593,7 @@
             
             const allChecks = Object.values(data.checks).flat().filter(c => c.passed !== null);
             const overallScore = calculateScore(allChecks);
+            const topIssues = getTopIssues(data.checks);
             
             let scoreBgClass = 'bg-gray-800/15';
             let scoreBorderClass = 'border-gray-700';
@@ -557,8 +616,18 @@
                 </div>
 
                 <div id="results-controls" class="sticky top-0 z-20 bg-gray-900/80 backdrop-blur-md p-4 border-b border-gray-700 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                     <div class="hidden sm:block flex-grow"></div>
+                     <div id="filter-container" class="flex flex-wrap items-center gap-2">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="passed">Passed</button>
+                        <button class="filter-btn" data-filter="failed">Failed</button>
+                        <button class="filter-btn" data-filter="manual">Manual</button>
+                    </div>
+                    <div class="hidden sm:block flex-grow"></div>
                      <div id="export-container" class="flex flex-wrap items-center gap-2">
+                        <button id="copy-markdown-btn" class="action-btn">
+                          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                          <span>Copy as Markdown</span>
+                        </button>
                         <button id="reset-audit-btn" class="action-btn bg-white text-black hover:bg-gray-200">
                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
                            <span>New Audit</span>
@@ -566,7 +635,8 @@
                     </div>
                 </div>
 
-                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-2">
+                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-4">
+                    ${renderKeyIssues(topIssues)}
                     ${categoryOrder.map((key) => {
                         if (key === 'security' && data.sourceType === 'file') {
                             return ''; // Hide security section for local files
@@ -584,7 +654,7 @@
                         }
                         
                         return `
-                        <div class="result-section py-6">
+                        <div class="result-section py-4">
                             <div class="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 mb-4">
                                 <h3 class="text-lg font-semibold text-white">${categoryTitles[key]}</h3>
                                 <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -606,7 +676,7 @@
                                         </summary>
                                         <div class="pt-2 pb-4 px-4 ml-1 text-gray-400 text-sm space-y-2 border-t border-gray-700">
                                             <p><strong>Why it matters:</strong> ${check.details}</p>
-                                            ${check.fix ? `<div class="mt-2"><strong>How to fix:</strong><div class="code-wrapper mt-1"><pre class="bg-gray-900 p-3 rounded-md text-xs text-amber-300 overflow-x-auto"><code>${check.fix.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre><button class="copy-code-btn" title="Copy code"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></button></div></div>` : ''}
+                                            ${check.fix ? `<div class="mt-2"><strong>How to fix:</strong> <span class="text-gray-300">${renderFix(check.fix)}</span></div>` : ''}
                                         </div>
                                     </details>
                                 `}).join('')}
@@ -616,10 +686,29 @@
                 </div>`;
             
             document.getElementById('reset-audit-btn').addEventListener('click', () => { window.location.reload(); });
+            document.getElementById('copy-markdown-btn').addEventListener('click', handleCopyMarkdown);
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    document.querySelectorAll('.result-item').forEach(item => {
+                        const status = item.dataset.status;
+                        let show = false;
+                        if (filter === 'all') show = true;
+                        else if (filter === 'passed' && status === 'passed') show = true;
+                        else if (filter === 'failed' && status === 'failed') show = true;
+                        else if (filter === 'manual' && status === 'manual') show = true;
+                        item.style.display = show ? 'block' : 'none';
+                    });
+                });
+            });
             
             document.querySelectorAll('.copy-code-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    const code = e.currentTarget.previousElementSibling.textContent;
+                    const code = e.currentTarget.closest('.code-wrapper').querySelector('code').textContent;
                     navigator.clipboard.writeText(code).then(() => {
                         e.currentTarget.innerHTML = '<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
                         setTimeout(() => {
@@ -649,10 +738,41 @@
 
         function calculateScore(checks) {
             const relevantChecks = checks.filter(c => c.passed !== null && typeof c.passed !== 'undefined' );
-            if (relevantChecks.length === 0) return 0;
+            if (relevantChecks.length === 0) return 100;
             const totalWeight = relevantChecks.reduce((sum, c) => sum + (c.weight || 3), 0);
             const score = relevantChecks.reduce((sum, c) => sum + (c.passed ? (c.weight || 3) : 0), 0);
             return Math.round((score / totalWeight) * 100);
+        }
+        
+        function handleCopyMarkdown() {
+            if (!currentAuditData) return;
+            const { url, checks } = currentAuditData;
+            const categoryTitles = {
+                html: 'HTML & Markup', performance: 'Performance', accessibility: 'Accessibility (A11y)',
+                security: 'Security & Headers', seo: 'SEO & Discoverability', network: 'Network & Dependencies',
+                manual: 'Manual Checks & Further Debugging'
+            };
+
+            let markdown = `# Webpage Debug Report for ${url}\n\n`;
+            markdown += `_Generated on ${new Date().toLocaleString()} with Solite Webpage Debugger._\n\n`;
+
+            for (const categoryKey in categoryTitles) {
+                if (!checks[categoryKey] || (categoryKey === 'security' && currentAuditData.sourceType === 'file')) continue;
+
+                markdown += `## ${categoryTitles[categoryKey]}\n\n`;
+                checks[categoryKey].forEach(check => {
+                    const status = check.passed === true ? '✅ Passed' : (check.passed === false ? '❌ Failed' : '🔵 Manual Check');
+                    markdown += `### ${status}: ${check.label}\n`;
+                    if (check.value) markdown += `**Value:** \`${check.value}\`\n\n`;
+                    markdown += `**Why it matters:** ${check.details}\n\n`;
+                    if (check.fix) markdown += `**How to fix:** ${check.fix.replace(/<.*?>/g, '')}\n\n`;
+                });
+            }
+            navigator.clipboard.writeText(markdown).then(() => {
+                alert('Report copied to clipboard as Markdown!');
+            }, () => {
+                alert('Failed to copy report.');
+            });
         }
 
         async function runAudit(source, onStatusUpdate, onProgressUpdate) {
@@ -664,7 +784,7 @@
                 if (!url.startsWith('http')) url = 'https://' + url;
                 const proxyUrl = `https://proxy-worker.hiwebeast.workers.dev/?url=${encodeURIComponent(url)}`;
                 onStatusUpdate('Fetching page data...'); onProgressUpdate(1, totalSteps);
-                const response = await fetch(proxyUrl);
+                const response = await fetchWithRetry(proxyUrl, 3, 1000, (attempt) => onStatusUpdate(`Retrying fetch... (Attempt ${attempt + 1}/3)`));
                 if (!response.ok) throw new Error(`Failed to fetch URL: ${response.statusText}`);
                 html = await response.text();
             } else { // type === 'file'
@@ -710,6 +830,19 @@
                  }, 
                  timestamp: new Date().toISOString() 
              };
+                }
+
+        async function fetchWithRetry(url, retries = 3, delay = 1000, onRetry = () => {}) {
+             for (let i = 0; i < retries; i++) {
+                 try {
+                     if (i > 0) { onRetry(i); await new Promise(res => setTimeout(res, delay * i)); }
+                     const response = await fetch(url);
+                     if (!response.ok) throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+                     return response;
+                 } catch (error) {
+                     if (i === retries - 1) throw error;
+                 }
+             }
         }
 
         function createCheck(label, passed, value, details, fix, weight = 3) {
@@ -726,10 +859,10 @@
             const idCounts = {};
             ids.forEach(el => { if(el.id) idCounts[el.id] = (idCounts[el.id] || 0) + 1; });
             const duplicateIds = Object.keys(idCounts).filter(id => idCounts[id] > 1);
-            checks.push(createCheck('No Duplicate IDs', duplicateIds.length === 0, `${duplicateIds.length} found`, 'Element IDs must be unique within a document for HTML to be valid and for scripts and styles to work reliably.', duplicateIds.length > 0 ? `Fix duplicate IDs: ${duplicateIds.join(', ')}` : ''));
+            checks.push(createCheck('No Duplicate IDs', duplicateIds.length === 0, `${duplicateIds.length} found`, 'Element IDs must be unique within a document for HTML to be valid and for scripts and styles to work reliably.', duplicateIds.length > 0 ? `Fix duplicate IDs: <code>${duplicateIds.join(', ')}</code>` : ''));
 
             const h1s = doc.querySelectorAll('h1');
-            checks.push(createCheck('Single H1 Tag', h1s.length === 1, `${h1s.length} found`, 'A single, clear H1 tag provides a strong signal to search engines and screen readers about the page\'s main topic.', h1s.length !== 1 ? 'Ensure there is exactly one <h1> element on the page.' : '', 5));
+            checks.push(createCheck('Single H1 Tag', h1s.length === 1, `${h1s.length} found`, 'A single, clear H1 tag provides a strong signal to search engines and screen readers about the page\'s main topic.', h1s.length !== 1 ? 'Ensure there is exactly one <code>&lt;h1&gt;</code> element on the page.' : '', 5));
             
             const headings = Array.from(doc.querySelectorAll('h1, h2, h3, h4, h5, h6')).map(h => parseInt(h.tagName.substring(1)));
             let hierarchyOK = true;
@@ -739,16 +872,16 @@
             const images = doc.querySelectorAll('img');
             const imagesWithoutAlt = Array.from(images).filter(img => !img.alt?.trim());
             const altCoverage = images.length > 0 ? Math.round(((images.length - imagesWithoutAlt.length) / images.length) * 100) : 100;
-            checks.push(createCheck('Image Alt Text Coverage', altCoverage === 100, `${altCoverage}%`, 'Alt text makes images accessible to screen readers and provides context to search engines.', altCoverage < 100 ? 'Add descriptive `alt` attributes to all `<img>` elements.' : '', 4));
+            checks.push(createCheck('Image Alt Text Coverage', altCoverage === 100, `${altCoverage}%`, 'Alt text makes images accessible to screen readers and provides context to search engines.', altCoverage < 100 ? 'Add descriptive <code>alt</code> attributes to all <code>&lt;img&gt;</code> elements.' : '', 4));
 
             const main = doc.querySelector('main');
             const nav = doc.querySelector('nav');
             const footer = doc.querySelector('footer');
             const missingLandmarks = [!main && 'main', !nav && 'nav', !footer && 'footer'].filter(Boolean);
-            checks.push(createCheck('Semantic Landmarks', missingLandmarks.length === 0, missingLandmarks.length > 0 ? `${missingLandmarks.join(', ')} missing` : 'All present', 'Using <main>, <nav>, and <footer> landmark elements improves document structure and accessibility for screen reader users.', 'Wrap your main content in a <main> tag, primary navigation in <nav>, and site footer in <footer>.'));
+            checks.push(createCheck('Semantic Landmarks', missingLandmarks.length === 0, missingLandmarks.length > 0 ? `${missingLandmarks.join(', ')} missing` : 'All present', 'Using <main>, <nav>, and <footer> landmark elements improves document structure and accessibility for screen reader users.', 'Wrap your main content in a <code>&lt;main&gt;</code> tag, primary navigation in <code>&lt;nav&gt;</code>, and site footer in <code>&lt;footer&gt;</code>.'));
 
             const deprecatedTags = doc.querySelectorAll('b, i, font');
-            checks.push(createCheck('No Deprecated Tags', deprecatedTags.length === 0, `${deprecatedTags.length} found`, 'Using deprecated tags like <b>, <i>, and <font> is against modern web standards. Use CSS for styling and semantic tags (<strong>, <em>) for meaning.', 'Replace <b> with <strong>, <i> with <em>, and use CSS for any styling previously done with <font>.'));
+            checks.push(createCheck('No Deprecated Tags', deprecatedTags.length === 0, `${deprecatedTags.length} found`, 'Using deprecated tags like <b>, <i>, and <font> is against modern web standards. Use CSS for styling and semantic tags (<strong>, <em>) for meaning.', 'Replace <code>&lt;b&gt;</code> with <code>&lt;strong&gt;</code>, <code>&lt;i&gt;</code> with <code>&lt;em&gt;</code>, and use CSS for any styling previously done with <code>&lt;font&gt;</code>.'));
 
             return checks;
         }
@@ -757,10 +890,10 @@
             const checks = [];
             
             const blockingScripts = doc.querySelectorAll('head > script[src]:not([async]):not([defer])');
-            checks.push(createCheck('No Render-Blocking Scripts in <head>', blockingScripts.length === 0, `${blockingScripts.length} found`, 'Scripts in the <head> without `async` or `defer` attributes block the browser from rendering the page until they are downloaded and executed.', blockingScripts.length > 0 ? 'Add the `async` or `defer` attribute to <script> tags in the head.' : ''));
+            checks.push(createCheck('No Render-Blocking Scripts in <head>', blockingScripts.length === 0, `${blockingScripts.length} found`, 'Scripts in the <head> without `async` or `defer` attributes block the browser from rendering the page until they are downloaded and executed.', blockingScripts.length > 0 ? 'Add the <code>async</code> or <code>defer</code> attribute to <code>&lt;script&gt;</code> tags in the head.' : ''));
 
             const dimensionlessImages = doc.querySelectorAll('img:not([width]):not([height])');
-            checks.push(createCheck('Images Have Dimensions', dimensionlessImages.length === 0, `${dimensionlessImages.length} found`, 'Specifying `width` and `height` attributes on images prevents layout shifts (CLS) as the page loads.', dimensionlessImages.length > 0 ? 'Add `width` and `height` attributes to all `<img>` tags.' : ''));
+            checks.push(createCheck('Images Have Dimensions', dimensionlessImages.length === 0, `${dimensionlessImages.length} found`, 'Specifying `width` and `height` attributes on images prevents layout shifts (CLS) as the page loads.', dimensionlessImages.length > 0 ? 'Add <code>width</code> and <code>height</code> attributes to all <code>&lt;img&gt;</code> tags.' : ''));
 
             const docSize = Math.round(html.length / 1024);
             checks.push(createCheck('Small HTML Document Size', docSize < 100, `${docSize} KB`, 'A smaller initial HTML document can be downloaded and parsed faster, leading to a quicker start of the rendering process.', docSize >= 100 ? 'Consider reducing the initial HTML payload by moving inline scripts/styles to external files or deferring non-critical content.' : ''));
@@ -772,11 +905,11 @@
             const checks = [];
             
             const lang = doc.documentElement.lang;
-            checks.push(createCheck('HTML Lang Attribute', !!lang, lang || 'Missing', 'The `lang` attribute helps screen readers and search engines understand the page\'s language.', !lang ? 'Add a `lang` attribute to the <html> tag, e.g., `<html lang="en">`.' : ''));
+            checks.push(createCheck('HTML Lang Attribute', !!lang, lang || 'Missing', 'The `lang` attribute helps screen readers and search engines understand the page\'s language.', !lang ? 'Add a <code>lang</code> attribute to the <code>&lt;html&gt;</code> tag, e.g., <code>&lt;html lang="en"&gt;</code>.' : ''));
 
             const links = doc.querySelectorAll('a');
             const inaccessibleLinks = Array.from(links).filter(a => !a.textContent?.trim() && !a.getAttribute('aria-label') && a.querySelectorAll('img[alt]').length === 0);
-            checks.push(createCheck('Accessible Links', inaccessibleLinks.length === 0, `${inaccessibleLinks.length} issues`, 'Links must have meaningful text content or an `aria-label` to be understood by screen reader users.', inaccessibleLinks.length > 0 ? 'Add descriptive text or an `aria-label` to links that only contain icons or non-descriptive content.' : ''));
+            checks.push(createCheck('Accessible Links', inaccessibleLinks.length === 0, `${inaccessibleLinks.length} issues`, 'Links must have meaningful text content or an `aria-label` to be understood by screen reader users.', inaccessibleLinks.length > 0 ? 'Add descriptive text or an <code>aria-label</code> to links that only contain icons or non-descriptive content.' : ''));
             
             const inputs = doc.querySelectorAll('input:not([type=hidden]):not([type=submit]), textarea, select');
             const inputsWithoutLabels = Array.from(inputs).filter(i => {
@@ -785,7 +918,7 @@
                 if (i.getAttribute('aria-label') || i.getAttribute('aria-labelledby')) return false;
                 return true;
             });
-            checks.push(createCheck('All Inputs Have Labels', inputsWithoutLabels.length === 0, `${inputsWithoutLabels.length} issues`, 'Every form control must have an associated label to be accessible. This helps users understand what information to provide.', inputsWithoutLabels.length > 0 ? 'Use the `<label for="...">` attribute, wrap the input in a `<label>`, or use `aria-label` for all form inputs.' : ''));
+            checks.push(createCheck('All Inputs Have Labels', inputsWithoutLabels.length === 0, `${inputsWithoutLabels.length} issues`, 'Every form control must have an associated label to be accessible. This helps users understand what information to provide.', inputsWithoutLabels.length > 0 ? 'Use the <code>&lt;label for="..."&gt;</code> attribute, wrap the input in a <code>&lt;label&gt;</code>, or use <code>aria-label</code> for all form inputs.' : ''));
             
             return checks;
         }
@@ -800,11 +933,11 @@
                 checks.push(createCheck('Uses HTTPS', isHttps, isHttps ? 'Secure' : 'Insecure', 'HTTPS encrypts data between the browser and the server, protecting user information and building trust. It is a baseline security requirement.', !isHttps ? 'Migrate your site to HTTPS and configure redirects from HTTP.' : '', 5));
             }
 
-            checks.push(createCheck('Content Security Policy (CSP)', null, 'Manual Check', 'A Content Security Policy is a powerful security layer that helps prevent Cross-Site Scripting (XSS) and other injection attacks.', 'Check for a `Content-Security-Policy` HTTP header. A basic policy can restrict script sources. Nginx: `add_header Content-Security-Policy "default-src \'self\';" always;`'));
+            checks.push(createCheck('Content Security Policy (CSP)', null, 'Manual Check', 'A Content Security Policy is a powerful security layer that helps prevent Cross-Site Scripting (XSS) and other injection attacks.', 'Check for a `Content-Security-Policy` HTTP header. A basic policy can restrict script sources. Nginx: <code>add_header Content-Security-Policy "default-src \'self\';" always;</code>'));
             
-            checks.push(createCheck('HTTP Strict Transport Security (HSTS)', null, 'Manual Check', 'The HSTS header forces browsers to only communicate with your site over HTTPS, preventing downgrade attacks.', 'Check for a `Strict-Transport-Security` HTTP header. Nginx: `add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;`'));
+            checks.push(createCheck('HTTP Strict Transport Security (HSTS)', null, 'Manual Check', 'The HSTS header forces browsers to only communicate with your site over HTTPS, preventing downgrade attacks.', 'Check for a `Strict-Transport-Security` HTTP header. Nginx: <code>add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;</code>'));
             
-            checks.push(createCheck('X-Frame-Options', null, 'Manual Check', 'The X-Frame-Options header helps protect your site from "clickjacking" attacks by controlling whether it can be embedded in an <iframe>.', 'Check for an `X-Frame-Options` HTTP header. Recommended value: `SAMEORIGIN`. Nginx: `add_header X-Frame-Options "SAMEORIGIN" always;`'));
+            checks.push(createCheck('X-Frame-Options', null, 'Manual Check', 'The X-Frame-Options header helps protect your site from "clickjacking" attacks by controlling whether it can be embedded in an <iframe>.', 'Check for an `X-Frame-Options` HTTP header. Recommended value: `SAMEORIGIN`. Nginx: <code>add_header X-Frame-Options "SAMEORIGIN" always;</code>'));
 
             return checks;
         }
@@ -812,11 +945,11 @@
         function runSeoChecks(doc) {
             const checks = [];
             const title = doc.querySelector('title');
-            checks.push(createCheck('Title Tag Present', !!(title && title.textContent), title ? `${title.textContent.length} chars` : 'Missing', 'A descriptive title is crucial for search engine rankings and user clicks.', !title ? '<title>Your Compelling Title</title>' : '', 5));
+            checks.push(createCheck('Title Tag Present', !!(title && title.textContent), title ? `${title.textContent.length} chars` : 'Missing', 'A descriptive title is crucial for search engine rankings and user clicks.', !title ? '<code>&lt;title&gt;Your Compelling Title&lt;/title&gt;</code>' : '', 5));
             const description = doc.querySelector('meta[name="description"]');
-            checks.push(createCheck('Meta Description Present', !!description?.content, description ? `${description.content.length} chars` : 'Missing', 'The meta description acts as your sales pitch on the search results page.', !description ? '<meta name="description" content="A compelling summary...">' : '', 4));
+            checks.push(createCheck('Meta Description Present', !!description?.content, description ? `${description.content.length} chars` : 'Missing', 'The meta description acts as your sales pitch on the search results page.', !description ? '<code>&lt;meta name="description" content="A compelling summary..."&gt;</code>' : '', 4));
             const canonical = doc.querySelector('link[rel="canonical"]');
-            checks.push(createCheck('Canonical Tag Present', !!canonical, canonical ? 'Found' : 'Missing', 'A canonical tag prevents duplicate content issues by specifying the "master" version of a page.', !canonical ? '<link rel="canonical" href="...">' : ''));
+            checks.push(createCheck('Canonical Tag Present', !!canonical, canonical ? 'Found' : 'Missing', 'A canonical tag prevents duplicate content issues by specifying the "master" version of a page.', !canonical ? '<code>&lt;link rel="canonical" href="..."&gt;</code>' : ''));
             return checks;
         }
 
@@ -870,8 +1003,8 @@
                 createCheck('No Console Errors', null, 'Manual Check', 'JavaScript errors logged in the console can break functionality and degrade the user experience.', 'Open your browser\'s Developer Tools (F12 or Ctrl+Shift+I), go to the Console tab, and check for any red error messages when the page loads and as you interact with it.'),
                 createCheck('No Layout Overflow', null, 'Manual Check', 'Content that overflows its container can create unwanted horizontal scrollbars, especially on mobile, which is a significant usability issue.', 'In your browser, slowly narrow the window width. Look for any point where a horizontal scrollbar appears, indicating that an element is wider than the viewport.'),
                 createCheck('Sufficient Color Contrast', null, 'Manual Check', 'Text must have sufficient color contrast against its background to be readable by users with low vision, per WCAG guidelines.', 'In Chrome DevTools, inspect a text element. In the Styles pane, click the color swatch. The color picker tool will show a contrast ratio. Aim for AA or AAA rating.'),
-                createCheck('No @import in CSS', null, 'Manual Check', 'Using `@import` inside a CSS file can create render-blocking request chains, slowing down page load. Use `<link>` tags instead.', 'Search your CSS files for `@import` rules. Replace them with `<link rel="stylesheet">` tags directly in your HTML head for parallel downloading.'),
-                createCheck('No document.write()', null, 'Manual Check', '`document.write()` can severely harm performance and is a source of security vulnerabilities. Its use is a strong anti-pattern in modern web development.', 'Search your JavaScript codebase for any instances of `document.write()` and replace them with modern DOM manipulation methods like `createElement()` and `appendChild()`.'),
+                createCheck('No @import in CSS', null, 'Manual Check', 'Using `@import` inside a CSS file can create render-blocking request chains, slowing down page load. Use `<link>` tags instead.', 'Search your CSS files for <code>@import</code> rules. Replace them with <code>&lt;link rel="stylesheet"&gt;</code> tags directly in your HTML head for parallel downloading.'),
+                createCheck('No document.write()', null, 'Manual Check', '`document.write()` can severely harm performance and is a source of security vulnerabilities. Its use is a strong anti-pattern in modern web development.', 'Search your JavaScript codebase for any instances of <code>document.write()</code> and replace them with modern DOM manipulation methods like <code>createElement()</code> and <code>appendChild()</code>.'),
                 createCheck('No Unused CSS', null, 'Manual Check', 'Shipping unused CSS increases page size and slows down rendering. Identifying and removing it can significantly improve performance.', 'In Chrome DevTools, open the Command Menu (Ctrl+Shift+P), type "Show Coverage", and run it. The report will show unused CSS and JS.'),
             ];
         }
@@ -897,8 +1030,9 @@
         // --- Event Listeners & Init ---
         el.auditBtn.addEventListener('click', () => startAudit());
         el.urlInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') startAudit(); });
-        el.fileInput.addEventListener('change', handleFileSelect);
         
+        el.fileInput.addEventListener('change', handleFileSelect);
+
         populatePlaceholders();
         setState('idle-state');
     });

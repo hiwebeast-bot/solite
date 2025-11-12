@@ -517,14 +517,48 @@
                     <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold ${fontSize}" style="color: ${color}">${score}</span>
                 </div>`;
         }
-        
-        function getScoreColor(score) {
-            if (score === null) return COLORS.gray;
-            if (score >= 85) return COLORS.green;
-            if (score >= 60) return COLORS.yellow;
-            return COLORS.red;
+
+        function getTopIssues(checks) {
+            return Object.values(checks)
+                .flat()
+                .filter(check => check.passed === false)
+                .sort((a, b) => b.weight - a.weight)
+                .slice(0, 3);
         }
 
+        function renderKeyIssues(issues) {
+            if (issues.length === 0) {
+                return `
+                    <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-10 h-10 text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Excellent Work!</h3>
+                                <p class="text-gray-400">No critical issues were found in the automated checks.</p>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            return `
+                <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Key Issues Found</h3>
+                    <div class="space-y-4">
+                        ${issues.map(issue => `
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-red-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.008v.008H12v-.008Z" /></svg>
+                                <div>
+                                    <p class="font-semibold text-gray-200">${issue.label}</p>
+                                    <p class="text-sm text-gray-400">${issue.details}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+        
         function renderResults(data) {
             const categoryOrder = ['seo', 'technical', 'accessibility', 'social', 'semantic'];
             const categoryTitles = {
@@ -544,6 +578,8 @@
                 else { scoreBgClass = 'bg-red-900/15'; scoreBorderClass = 'border-red-500'; }
             }
             
+            const topIssues = getTopIssues(data.checks);
+
             el.resultsState.innerHTML = `
                 <div class="p-8 ${scoreBgClass} border-b ${scoreBorderClass} transition-colors duration-500">
                   <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
@@ -578,7 +614,8 @@
                     </div>
                 </div>
 
-                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-2">
+                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-4">
+                    ${renderKeyIssues(topIssues)}
                     ${categoryOrder.map((key) => {
                         if (!data.checks[key]) return '';
                         const checks = data.checks[key];
@@ -588,7 +625,7 @@
                         const scoreBarColorClass = score >= 85 ? 'bg-emerald-400' : score >= 60 ? 'bg-yellow-400' : 'bg-red-500';
 
                         return `
-                        <div class="result-section py-6">
+                        <div class="result-section py-4">
                             <div class="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 mb-4">
                                 <h3 class="text-lg font-semibold text-white">${categoryTitles[key]}</h3>
                                 <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -823,7 +860,7 @@
                 results.push(createCheck('robots.txt Found', true, 'Found', 'A robots.txt file was found at the root of the domain, which is the correct location.', 'Ensure this file contains the correct directives for web crawlers.'));
                 const lines = robotsTxt.split('\n').map(line => line.trim().toLowerCase());
                 const sitemapLine = lines.find(line => line.startsWith('sitemap:'));
-                results.push(createCheck('Sitemap Declaration', !!sitemapLine, sitemapLine ? 'Referenced' : 'Missing', 'A sitemap.xml file, referenced in robots.txt, helps search engines find all your pages.', 'Add a line to your robots.txt: <code>Sitemap: https://your-domain.com/sitemap.xml</code>'));
+                results.push(createCheck('Sitemap Declaration', !!sitemapLine, sitemapLine ? 'Referenced' : 'Missing', 'A sitemap.xml file, referenced in robots.txt, helps search engines find all your pages.', 'Add a line to your robots.txt: code>Sitemap: https://your-domain.com/sitemap.xml</code>'));
             } catch (e) {
                 results.push(createCheck('robots.txt Found', false, 'Not Found / Blocked', 'Could not fetch robots.txt. It may not exist or the server is blocking the proxy.', 'Ensure a robots.txt file exists at your site\'s root.'));
                 results.push(createCheck('Sitemap Declaration', null, 'N/A (no robots.txt)', 'Sitemap check skipped as robots.txt could not be fetched.', 'N/A'));

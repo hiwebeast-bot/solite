@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Privacy Scanner — AUTHORITY + PERFORMANCE EDITION -->
@@ -128,6 +129,15 @@
     ::-webkit-scrollbar-thumb { background:#4b5563; border-radius:4px; }
     html { scrollbar-color:#4b5563 #111827; }
     body { background:#000; color:#e5e7eb; font-family:'Inter',sans-serif; }
+    .filter-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; border: 1px solid #374151; background-color: #1f2937; color: #9ca3af; transition: all 0.2s; }
+    .filter-btn:hover { background-color: #374151; color: #ffffff; }
+    .filter-btn.active { background-color: #1f2937; color: #ffffff; border-color: #ffffff; }
+    .action-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; border: 1px solid #374151; background-color: #1f2937; color: #d1d5db; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s; white-space: nowrap; }
+    .action-btn:hover { background-color: #374151; color: #ffffff; }
+    .result-item summary::-webkit-details-marker { display: none; }
+    .result-item summary { list-style: none; }
+    .result-item[data-status="passed"] { border-left-color: #34d399; }
+    .result-item[data-status="failed"] { border-left-color: #ef4444; }
   </style>
 
   <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-BALANCED -->
@@ -232,7 +242,7 @@
         </aside>
     </main>
     <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / PRIVACY SCANNER EDITION) -->
-    <div class="w-full text-gray-300 mx-2 mb-2">
+    <div id="seo-info-container" class="w-full text-gray-300 mx-2 mb-2">
 
     <style>
     #solite-info-block-privacy[open] > summary { border-bottom: 1px solid #374151; }
@@ -469,6 +479,47 @@
             `).join('');
         }
         
+        function getTopIssues(checks) {
+            return Object.values(checks)
+                .flat()
+                .filter(check => check.passed === false)
+                .sort((a, b) => b.weight - a.weight)
+                .slice(0, 2);
+        }
+
+        function renderKeyIssues(issues) {
+            if (issues.length === 0) {
+                return `
+                    <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-10 h-10 text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Great Privacy Score!</h3>
+                                <p class="text-gray-400">No high-risk privacy issues were found.</p>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            return `
+                <div class="p-6 bg-gray-800/50 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Key Privacy Risks</h3>
+                    <div class="space-y-4">
+                        ${issues.map(issue => `
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-red-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.008v.008H12v-.008Z" /></svg>
+                                <div>
+                                    <p class="font-semibold text-gray-200">${issue.label}</p>
+                                    <p class="text-sm text-gray-400">${issue.details}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
         function renderResults(data) {
             const categoryOrder = ['trackers', 'thirdParty', 'dataCollection', 'security'];
             const categoryTitles = {
@@ -480,6 +531,7 @@
             
             const allChecks = Object.values(data.checks).flat();
             const overallScore = calculateScore(allChecks);
+            const topIssues = getTopIssues(data.checks);
             
             let scoreBgClass = 'bg-gray-800/15';
             let scoreBorderClass = 'border-gray-700';
@@ -505,8 +557,17 @@
                 </div>
 
                 <div id="results-controls" class="sticky top-0 z-20 bg-gray-900/80 backdrop-blur-md p-4 border-b border-gray-700 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                     <div class="hidden sm:block flex-grow"></div>
-                     <div id="export-container" class="flex flex-wrap items-center gap-2">
+                     <div id="filter-container" class="flex flex-wrap items-center gap-2">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="passed">Passed</button>
+                        <button class="filter-btn" data-filter="failed">Failed</button>
+                    </div>
+                    <div class="hidden sm:block flex-grow"></div>
+                    <div id="export-container" class="flex flex-wrap items-center gap-2">
+                        <button id="copy-markdown-btn" class="action-btn">
+                          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                          <span>Copy as Markdown</span>
+                        </button>
                         <button id="reset-scan-btn" class="action-btn bg-white text-black hover:bg-gray-200">
                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
                            <span>New Scan</span>
@@ -514,7 +575,8 @@
                     </div>
                 </div>
 
-                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-2">
+                <div id="results-content" class="flex-grow overflow-y-auto px-6 py-4">
+                    ${renderKeyIssues(topIssues)}
                     ${categoryOrder.map((key) => {
                         if (!data.checks[key]) return '';
                         const checks = data.checks[key];
@@ -523,7 +585,7 @@
                         const scoreBarColorClass = score >= 85 ? 'bg-emerald-400' : score >= 60 ? 'bg-yellow-400' : 'bg-red-500';
 
                         return `
-                        <div class="result-section py-6">
+                        <div class="result-section py-4">
                             <div class="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 mb-4">
                                 <h3 class="text-lg font-semibold text-white">${categoryTitles[key]}</h3>
                                 <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -552,6 +614,24 @@
                 </div>`;
             
             document.getElementById('reset-scan-btn').addEventListener('click', () => { window.location.reload(); });
+            document.getElementById('copy-markdown-btn').addEventListener('click', handleCopyMarkdown);
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    document.querySelectorAll('.result-item').forEach(item => {
+                        const status = item.dataset.status;
+                        let show = false;
+                        if (filter === 'all') show = true;
+                        else if (filter === 'passed' && status === 'passed') show = true;
+                        else if (filter === 'failed' && status === 'failed') show = true;
+                        item.style.display = show ? 'block' : 'none';
+                    });
+                });
+            });
         }
 
         function createScoreCircleHTML(score, size, strokeWidth) {
@@ -577,6 +657,50 @@
             const score = checks.reduce((sum, c) => sum + (c.passed ? c.weight : 0), 0);
             return Math.round((score / totalWeight) * 100);
         }
+        
+        function handleCopyMarkdown() {
+            if (!currentScanData) return;
+            const { url, checks } = currentScanData;
+            const categoryTitles = {
+                trackers: 'Tracking & Analytics', thirdParty: 'Third-Party Connections',
+                dataCollection: 'Data Collection & Recording', security: 'Security & Policy'
+            };
+
+            let markdown = `# Privacy Scan Report for ${url}\n\n`;
+            markdown += `_Generated on ${new Date().toLocaleString()} with Solite Privacy Scanner._\n\n`;
+
+            for (const categoryKey in categoryTitles) {
+                if (!checks[categoryKey]) continue;
+
+                markdown += `## ${categoryTitles[categoryKey]}\n\n`;
+                checks[categoryKey].forEach(check => {
+                    const status = check.passed ? '✅ Passed' : '❌ Failed';
+                    markdown += `### ${status}: ${check.label}\n`;
+                    markdown += `**Value:** \`${check.value}\`\n\n`;
+                    markdown += `**Why it matters:** ${check.details}\n\n`;
+                });
+            }
+            navigator.clipboard.writeText(markdown).then(() => {
+                alert('Report copied to clipboard as Markdown!');
+            }, () => {
+                alert('Failed to copy report.');
+            });
+        }
+
+        async function fetchWithRetry(url, retries = 3, delay = 1000, onRetry) {
+             for (let i = 0; i < retries; i++) {
+                 try {
+                     if (i > 0) { onRetry(i + 1); await new Promise(res => setTimeout(res, delay * i)); }
+                     const response = await fetch(url);
+                     if (!response.ok) { throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`); }
+                     return response;
+                 } catch (error) {
+                     console.warn(`Attempt ${i + 1} failed:`, error.message);
+                     if (i === retries - 1) { throw error; }
+                 }
+             }
+             throw new Error('All fetch retries failed.');
+        }
 
         async function runScan(rawUrl, onStatusUpdate, onProgressUpdate) {
              const totalSteps = 6;
@@ -588,8 +712,7 @@
              const proxyUrl = `https://proxy-worker.hiwebeast.workers.dev/?url=${encodeURIComponent(url)}`;
              
              onStatusUpdate('Fetching page data...'); onProgressUpdate(1, totalSteps);
-             const response = await fetch(proxyUrl);
-             if (!response.ok) throw new Error(`Failed to fetch URL: ${response.statusText}`);
+             const response = await fetchWithRetry(proxyUrl, 3, 1000, (attempt) => onStatusUpdate(`Retrying... (Attempt ${attempt}/3)`));
              const html = await response.text();
              
              const parser = new DOMParser();

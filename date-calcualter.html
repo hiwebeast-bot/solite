@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Date Calculator — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO & AI DISCOVERY -->
+  <title>Date & Age Calculator | Week Number, Countdown & Work Days | Solite</title>
+  <meta name="description" content="A free, private, and powerful date calculator to find week numbers, create countdowns, add/subtract time, calculate durations, and find your exact age. 100% client-side." />
+  <meta name="keywords" content="date calculator, age calculator, date difference, working days calculator, business days calculator, countdown timer, add days to date, week number calculator, ISO 8601 week number, solite, free date tool" />
+  <link rel="canonical" href="https://solite.in/date-calculator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Date Calculator – Solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Date & Age Calculator | Week Number, Countdown & Durations | Solite" />
+  <meta property="og:description" content="A free, private, and powerful date calculator to find week numbers, create countdowns, calculate business days, add/subtract time, and find your exact age. 100% client-side." />
+  <meta property="og:url" content="https://solite.in/date-calculator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/date-calculator.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Date Calculator | Free & Private Date Tool | Solite" />
+  <meta name="twitter:description" content="Find week numbers, create countdowns, calculate date differences, add/subtract time, and find your age instantly. 100% private and runs in your browser." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/date-calculator.html&meta=false&screenshot=true" />
+
+  <!-- ⚙️ PERFORMANCE LAYER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono&display=swap" /></noscript>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- 🧱 ICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 🧩 STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/date-calculator.html#app",
+        "name": "Date Calculator",
+        "applicationCategory": "ProductivityTool",
+        "operatingSystem": "Web",
+        "url": "https://solite.in/date-calculator.html",
+        "description": "A free, client-side utility to find week numbers, perform date arithmetic, create countdowns, calculate working days, find the duration between dates, and determine age.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the Date Calculator private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All calculations are performed entirely in your browser. No data you enter is ever sent to a server."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this tool calculate the week number of a date?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the 'Date Info' feature can instantly calculate the ISO 8601 week number for any date."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this calculator handle time as well as dates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the 'Date Difference' calculator includes optional time inputs for precise duration calculations down to the minute."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 💰 ADS + ANALYTICS -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6623613371208692" crossorigin="anonymous"></script>
+  <script>window.va=window.va||function(){(window.va.q=window.va.q||[]).push(arguments)};</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- 🎨 INLINE UI STYLE -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    body { background: #000; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+    .tab-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; border: 1px solid transparent; background-color: transparent; color: #9ca3af; transition: all 0.2s; white-space: nowrap; flex: 1 1 0%; }
+    .tab-btn:hover { background-color: #374151; color: #ffffff; }
+    .tab-btn.active { background-color: #1f2937; color: #ffffff; border-color: #4b5563; }
+    input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.8); cursor: pointer; }
+    .input-wrapper { position: relative; }
+    .today-btn { 
+        position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+        background-color: #374151; color: #9ca3af; font-size: 0.75rem; font-weight: 600;
+        padding: 0.25rem 0.5rem; border-radius: 0.375rem; border: 1px solid #4b5563;
+        cursor: pointer; transition: all 0.2s;
+    }
+    .today-btn:hover { background-color: #4b5563; color: white; }
+    .copy-btn {
+        position: absolute; top: 1rem; right: 1rem;
+        background-color: #1f2937; border: 1px solid #374151; color: #9ca3af;
+        padding: 0.5rem; border-radius: 0.5rem; transition: all 0.2s; z-index: 10;
+    }
+    .copy-btn:hover { background-color: #374151; color: white; }
+    .styled-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-right: 2.5rem;
+      }
+    .mobile-nav-btn {
+        flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        padding: 0.5rem 0; gap: 0.25rem; color: #9ca3af; transition: all 0.2s;
+    }
+    .mobile-nav-btn.active, .mobile-nav-btn:hover { color: white; }
+    .mobile-nav-btn.active { background-color: #374151; border-radius: 0.5rem; }
+    .quick-action-btn {
+        flex: 1; background-color: #1f2937; border: 1px solid #374151;
+        color: #9ca3af; font-weight: 500; font-family: 'Roboto Mono', monospace;
+        padding: 0.5rem; border-radius: 0.375rem; transition: all 0.2s; text-align: center;
+    }
+    .quick-action-btn:hover { background-color: #374151; color: white; border-color: #4b5563; }
+    
+    #toast {
+        position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
+        background-color: #111827; color: white; padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem; border: 1px solid #374151;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        transition: bottom 0.5s ease-in-out; z-index: 50;
+    }
+    #toast.show { bottom: 20px; }
+
+    /* Calendar styles */
+    .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .calendar-day { text-align: center; padding: 4px; border-radius: 4px; font-size: 0.875rem; }
+    .calendar-day.header { color: #6b7280; font-weight: 600; }
+    .calendar-day.other-month { color: #4b5563; }
+    .calendar-day.today { background-color: #374151; color: white; }
+    .calendar-day.selected { background-color: #3b82f6; color: white; font-weight: bold; }
+  </style>
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Date Calculator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full flex flex-col lg:flex-row relative min-h-0">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-24 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <!-- Controls Panel -->
+            <div class="w-full lg:w-96 flex-shrink-0 flex flex-col gap-4 bg-gray-900 rounded-xl border border-gray-800 p-6 min-h-0 overflow-y-auto">
+                <h1 class="text-2xl font-bold text-white">Date Calculator</h1>
+                
+                <!-- Desktop Tabs -->
+                <div id="desktop-tabs" class="hidden lg:flex flex-wrap items-center bg-gray-800/50 p-1 rounded-lg text-sm">
+                    <button class="tab-btn active" data-tab="add-subtract">Add/Subtract</button>
+                    <button class="tab-btn" data-tab="difference">Difference</button>
+                    <button class="tab-btn" data-tab="age">Age</button>
+                    <button class="tab-btn" data-tab="info">Info</button>
+                    <button class="tab-btn" data-tab="countdown">Countdown</button>
+                </div>
+
+                <!-- Add/Subtract Panel -->
+                <div id="add-subtract-panel" class="space-y-6">
+                    <div class="space-y-2">
+                        <label for="as-start-date" class="font-medium text-gray-400">Start Date</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="as-start-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-white/50 focus:border-white transition-colors">
+                            <button class="today-btn" data-target="as-start-date">Today</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-medium text-gray-400">Quick Actions</label>
+                        <div id="quick-actions-container" class="grid grid-cols-3 gap-2">
+                           <button class="quick-action-btn" data-action="subtract" data-unit="y" data-value="1">-1y</button>
+                           <button class="quick-action-btn" data-action="subtract" data-unit="m" data-value="1">-1m</button>
+                           <button class="quick-action-btn" data-action="subtract" data-unit="d" data-value="7">-7d</button>
+                           <button class="quick-action-btn" data-action="add" data-unit="y" data-value="1">+1y</button>
+                           <button class="quick-action-btn" data-action="add" data-unit="m" data-value="1">+1m</button>
+                           <button class="quick-action-btn" data-action="add" data-unit="d" data-value="7">+7d</button>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label class="font-medium text-gray-400">Custom Durations</label>
+                        <div id="as-durations-container" class="space-y-2">
+                            <!-- Dynamic duration rows will be inserted here -->
+                        </div>
+                        <button id="as-add-duration-btn" class="w-full text-center bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium py-2 px-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg> Add Duration
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Date Difference Panel -->
+                <div id="difference-panel" class="hidden space-y-4">
+                    <div class="space-y-2">
+                        <label class="font-medium text-gray-400">From</label>
+                        <div class="flex gap-2">
+                            <div class="input-wrapper flex-grow">
+                                <input type="date" id="diff-start-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                                <button class="today-btn" data-target="diff-start-date">Today</button>
+                            </div>
+                            <input type="time" id="diff-start-time" class="p-3 rounded-lg bg-gray-800 border border-gray-700 w-32">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-medium text-gray-400">To</label>
+                        <div class="flex gap-2">
+                            <div class="input-wrapper flex-grow">
+                                <input type="date" id="diff-end-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                                <button class="today-btn" data-target="diff-end-date">Today</button>
+                            </div>
+                            <input type="time" id="diff-end-time" class="p-3 rounded-lg bg-gray-800 border border-gray-700 w-32">
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <label class="font-medium text-gray-400">Exclude Weekends</label>
+                        <div class="flex items-center justify-around bg-gray-800/50 p-2 rounded-lg">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" id="diff-exclude-saturday" class="accent-blue-400 h-4 w-4 rounded bg-gray-700 border-gray-600"> Saturday
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" id="diff-exclude-sunday" class="accent-blue-400 h-4 w-4 rounded bg-gray-700 border-gray-600" checked> Sunday
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Age Calculator Panel -->
+                <div id="age-panel" class="hidden space-y-4">
+                    <div class="space-y-2">
+                        <label for="age-dob" class="font-medium text-gray-400">Date of Birth</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="age-dob" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="age-at-date" class="font-medium text-gray-400">Age at Date</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="age-at-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                            <button class="today-btn" data-target="age-at-date">Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Info Panel -->
+                <div id="info-panel" class="hidden space-y-4">
+                    <div class="space-y-2">
+                        <label for="info-date" class="font-medium text-gray-400">Select Date</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="info-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                            <button class="today-btn" data-target="info-date">Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Countdown Panel -->
+                <div id="countdown-panel" class="hidden space-y-4">
+                    <div class="space-y-2">
+                        <label for="cd-event-name" class="font-medium text-gray-400">Event Name</label>
+                        <input type="text" id="cd-event-name" placeholder="e.g., New Year's Day" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="cd-date" class="font-medium text-gray-400">Countdown To</label>
+                        <div class="flex gap-2">
+                            <div class="input-wrapper flex-grow">
+                                <input type="date" id="cd-date" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                            </div>
+                            <input type="time" id="cd-time" value="00:00" class="p-3 rounded-lg bg-gray-800 border border-gray-700 w-32">
+                        </div>
+                    </div>
+                </div>
+
+
+                <button id="reset-btn" class="mt-auto w-full text-center bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium py-3 px-4 rounded-lg transition-colors">Reset</button>
+            </div>
+
+            <!-- Results Panel -->
+            <div id="results-panel" class="flex-grow flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-6 text-center relative">
+                <!-- Results will be injected here by JS -->
+            </div>
+        </div>
+        
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+    </main>
+    
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="lg:hidden fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-xl border-t border-gray-800 p-2 flex items-center justify-around z-40">
+         <button class="mobile-nav-btn active" data-tab="add-subtract">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            <span class="text-xs">Add/Sub</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="difference">
+             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m-15 0l6.75-6.75M4.5 12l6.75 6.75" /></svg>
+            <span class="text-xs">Difference</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="age">
+             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            <span class="text-xs">Age</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="info">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
+            <span class="text-xs">Info</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="countdown">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <span class="text-xs">Countdown</span>
+        </button>
+    </nav>
+
+
+     <!-- SEO Block -->
+    <div class="p-3 w-full">
+         <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / DATE CALCULATOR - WEEK NUMBER EDITION) -->
+        <div id="seo-info-container" class="w-full text-gray-300">
+        <style>
+        #solite-info-block-datecalc[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-info-block-datecalc > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-info-block-datecalc[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+
+        <details id="solite-info-block-datecalc" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        About The Solite Date & Age Calculator
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+            <span class="badge">Date Calculator</span>
+            <span class="badge">Week Number</span>
+            <span class="badge">Age Calculator</span>
+            <span class="badge">Countdown Timer</span>
+            <span class="badge">Privacy-First</span>
+            <span class="badge">Client-Side</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite Date & Age Calculator</strong> is a comprehensive, privacy-first utility for all common date-related calculations. Whether you need to find a future date, calculate the exact duration between two events, get the ISO week number, determine business days, or find your precise age, this tool provides instant, accurate answers — <strong>100% in your browser, with no data ever sent to a server.</strong>
+            </p>
+        </section>
+
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Core Features</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Add/Subtract Time:</strong> Easily add or subtract multiple durations (years, months, weeks, days) from a date.</li>
+            <li><strong>Date & Time Difference:</strong> Instantly find the precise duration between two dates and times, down to the minute.</li>
+            <li><strong>Working Days Calculator:</strong> Calculate the number of business days between two dates, with options to exclude weekends.</li>
+            <li><strong>Detailed Age Calculator:</strong> Find your exact age and see it broken down into total months, weeks, days, and more.</li>
+            <li><strong>Date Info:</strong> Get the ISO 8601 Week Number, Quarter, and Day of the Year for any date.</li>
+            <li><strong>Event Countdown:</strong> Create a live countdown to any future date and time, perfect for deadlines or personal events.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who It’s For</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Project Managers:</strong> Calculate timelines using the working days and week number features.</li>
+                <li><strong>HR Professionals:</strong> Determine employee anniversaries or time-based eligibility with precision.</li>
+                <li><strong>Logistics & Planners:</strong> Work with ISO week numbers for scheduling.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Students & Researchers:</strong> Calculate durations for historical events or deadlines.</li>
+                <li><strong>Anyone:</strong> Calculate your age, plan vacations, or track personal milestones.</li>
+            </ul>
+            </div>
+        </section>
+        
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>date calculator, age calculator, working days calculator, business day calculator, countdown timer, week number calculator, iso 8601 week, time duration calculator, add days to date, days between dates.</em>
+            </p>
+            <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong>  
+            “The Solite Date Calculator is a free, comprehensive, and privacy-focused web tool that performs all calculations client-side. It combines multiple functions, including an age calculator, a week number finder, a working days calculator, and a countdown timer into one clean interface.”
+            </p>
+        </section>
+
+        </div>
+        </details>
+        </div>
+        <!-- ✅ END GEN-5.2 BLOCK / DATE CALCULATOR -->
+    </div>
+
+    <div id="toast">Copied to clipboard!</div>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z" /><path d="M2 17l10 5 10-5" /><path d="M2 7l10 5 10-5" /></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const
+            // Tabs & Navigation
+            desktopTabs = document.querySelectorAll('#desktop-tabs .tab-btn'),
+            mobileNavBtns = document.querySelectorAll('#mobile-nav .mobile-nav-btn'),
+            
+            panels = {
+                'add-subtract': document.getElementById('add-subtract-panel'),
+                'difference': document.getElementById('difference-panel'),
+                'age': document.getElementById('age-panel'),
+                'info': document.getElementById('info-panel'),
+                'countdown': document.getElementById('countdown-panel'),
+            },
+            
+            // Add/Subtract elements
+            asStartDate = document.getElementById('as-start-date'),
+            quickActionsContainer = document.getElementById('quick-actions-container'),
+            asDurationsContainer = document.getElementById('as-durations-container'),
+            asAddDurationBtn = document.getElementById('as-add-duration-btn'),
+
+            // Difference elements
+            diffStartDate = document.getElementById('diff-start-date'),
+            diffStartTime = document.getElementById('diff-start-time'),
+            diffEndDate = document.getElementById('diff-end-date'),
+            diffEndTime = document.getElementById('diff-end-time'),
+            diffExcludeSaturday = document.getElementById('diff-exclude-saturday'),
+            diffExcludeSunday = document.getElementById('diff-exclude-sunday'),
+
+            // Age elements
+            ageDob = document.getElementById('age-dob'),
+            ageAtDate = document.getElementById('age-at-date'),
+            
+            // Date Info elements
+            infoDate = document.getElementById('info-date'),
+
+            // Countdown elements
+            cdEventName = document.getElementById('cd-event-name'),
+            cdDate = document.getElementById('cd-date'),
+            cdTime = document.getElementById('cd-time'),
+
+            // Common
+            todayBtns = document.querySelectorAll('.today-btn'),
+            resetBtn = document.getElementById('reset-btn'),
+            resultsPanel = document.getElementById('results-panel'),
+            toast = document.getElementById('toast');
+
+        let activeTab = 'add-subtract';
+        let countdownInterval = null;
+        
+        // --- UTILITY FUNCTIONS ---
+        const getLocalDateString = (date) => {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        };
+
+        const getLocalTimeString = (date) => {
+             const h = String(date.getHours()).padStart(2, '0');
+             const m = String(date.getMinutes()).padStart(2, '0');
+             return `${h}:${m}`;
+        };
+
+        const setToday = () => {
+            const today = new Date();
+            const todayString = getLocalDateString(today);
+            [asStartDate, diffStartDate, diffEndDate, ageAtDate, infoDate, cdDate].forEach(el => el.value = todayString);
+            [diffStartTime, diffEndTime].forEach(el => el.value = getLocalTimeString(today));
+            
+            const dobDefault = new Date(today.getFullYear() - 25, today.getMonth(), today.getDate());
+            ageDob.value = getLocalDateString(dobDefault);
+        };
+        
+        const formatFullDate = (date, options = {}) => {
+            const defaultOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return new Intl.DateTimeFormat('en-US', { ...defaultOptions, ...options }).format(date);
+        }
+        
+        const showToast = (message) => {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        };
+        
+        // --- STATE MANAGEMENT ---
+        const saveState = () => {
+            const asDurations = Array.from(asDurationsContainer.querySelectorAll('.duration-row')).map(row => ({
+                operation: row.querySelector('[name="as-operation"]').value,
+                value: row.querySelector('[name="as-value"]').value,
+                unit: row.querySelector('[name="as-unit"]').value,
+            }));
+
+            const state = {
+                activeTab,
+                asStartDate: asStartDate.value,
+                asDurations,
+                diffStartDate: diffStartDate.value, diffStartTime: diffStartTime.value,
+                diffEndDate: diffEndDate.value, diffEndTime: diffEndTime.value,
+                diffExcludeSaturday: diffExcludeSaturday.checked, diffExcludeSunday: diffExcludeSunday.checked,
+                ageDob: ageDob.value, ageAtDate: ageAtDate.value,
+                infoDate: infoDate.value,
+                cdEventName: cdEventName.value, cdDate: cdDate.value, cdTime: cdTime.value,
+            };
+            localStorage.setItem('dateCalculatorState', JSON.stringify(state));
+        };
+
+        const loadState = () => {
+            const state = JSON.parse(localStorage.getItem('dateCalculatorState'));
+            if (!state) {
+                setToday();
+                addDurationRow(); // Add one default duration row
+                return;
+            };
+            
+            asStartDate.value = state.asStartDate;
+            asDurationsContainer.innerHTML = '';
+            if (state.asDurations && state.asDurations.length > 0) {
+                state.asDurations.forEach(d => addDurationRow(d.operation, d.value, d.unit));
+            } else {
+                addDurationRow();
+            }
+
+            diffStartDate.value = state.diffStartDate; diffStartTime.value = state.diffStartTime;
+            diffEndDate.value = state.diffEndDate; diffEndTime.value = state.diffEndTime;
+            diffExcludeSaturday.checked = state.diffExcludeSaturday; diffExcludeSunday.checked = state.diffExcludeSunday;
+            ageDob.value = state.ageDob; ageAtDate.value = state.ageAtDate;
+            infoDate.value = state.infoDate;
+            cdEventName.value = state.cdEventName; cdDate.value = state.cdDate; cdTime.value = state.cdTime;
+
+            setActiveTab(state.activeTab || 'add-subtract');
+        };
+
+        const setActiveTab = (tabName) => {
+             desktopTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+             mobileNavBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === tabName));
+            
+             Object.values(panels).forEach(p => p.classList.add('hidden'));
+             if(panels[tabName]) panels[tabName].classList.remove('hidden');
+            
+             activeTab = tabName;
+             calculate();
+        };
+
+        // --- TAB & NAVIGATION HANDLING ---
+        [...desktopTabs, ...mobileNavBtns].forEach(btn => {
+            btn.addEventListener('click', () => {
+                setActiveTab(btn.dataset.tab);
+            });
+        });
+        
+        // --- DYNAMIC DURATION ROW ---
+        const addDurationRow = (op = 'add', val = 1, unit = 'd') => {
+            const row = document.createElement('div');
+            row.className = 'duration-row flex items-center gap-2';
+            row.innerHTML = `
+                <select name="as-operation" class="p-2 rounded-lg bg-gray-800 border border-gray-700 styled-select text-sm">
+                    <option value="add" ${op === 'add' ? 'selected' : ''}>+</option>
+                    <option value="subtract" ${op === 'subtract' ? 'selected' : ''}>-</option>
+                </select>
+                <input type="number" name="as-value" value="${val}" min="0" class="flex-grow p-2 text-center rounded-lg bg-gray-800 border border-gray-700">
+                <select name="as-unit" class="flex-grow p-2 rounded-lg bg-gray-800 border border-gray-700 styled-select text-sm">
+                    <option value="y" ${unit === 'y' ? 'selected' : ''}>Years</option>
+                    <option value="m" ${unit === 'm' ? 'selected' : ''}>Months</option>
+                    <option value="w" ${unit === 'w' ? 'selected' : ''}>Weeks</option>
+                    <option value="d" ${unit === 'd' ? 'selected' : ''}>Days</option>
+                </select>
+                <button class="as-remove-duration-btn p-2 text-gray-500 hover:text-red-400 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                </button>
+            `;
+            asDurationsContainer.appendChild(row);
+            row.querySelector('.as-remove-duration-btn').addEventListener('click', () => {
+                row.remove();
+                calculate();
+            });
+            row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculate));
+        };
+        asAddDurationBtn.addEventListener('click', () => addDurationRow());
+
+
+        // --- CALCULATION LOGIC ---
+        const getDayOfYear = (date) => {
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            return Math.floor(diff / oneDay);
+        };
+        const getISOWeek = (date) => {
+            const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+            const dayNum = d.getUTCDay() || 7;
+            d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        };
+        const getQuarter = (date) => Math.floor(date.getMonth() / 3) + 1;
+        const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+        const calculateAddSubtract = (quickAction = null) => {
+            if (!asStartDate.value) return renderEmpty("Please select a start date.");
+            const start = new Date(asStartDate.value + 'T12:00:00');
+            const resultDate = new Date(start);
+            
+            if (quickAction) {
+                const { action, unit, value } = quickAction;
+                const multiplier = action === 'add' ? 1 : -1;
+                const val = parseInt(value);
+                if (unit === 'y') resultDate.setFullYear(resultDate.getFullYear() + (val * multiplier));
+                if (unit === 'm') resultDate.setMonth(resultDate.getMonth() + (val * multiplier));
+                if (unit === 'd') resultDate.setDate(resultDate.getDate() + (val * multiplier));
+                asStartDate.value = getLocalDateString(resultDate);
+                calculate();
+                return;
+            }
+
+            const durationRows = asDurationsContainer.querySelectorAll('.duration-row');
+            if(durationRows.length === 0) {
+                 renderSingleDateResult(resultDate, "Resulting Date");
+                 return;
+            }
+
+            durationRows.forEach(row => {
+                const op = row.querySelector('[name="as-operation"]').value;
+                const val = parseInt(row.querySelector('[name="as-value"]').value) || 0;
+                const unit = row.querySelector('[name="as-unit"]').value;
+                const multiplier = op === 'add' ? 1 : -1;
+
+                if (unit === 'y') resultDate.setFullYear(resultDate.getFullYear() + (val * multiplier));
+                if (unit === 'm') resultDate.setMonth(resultDate.getMonth() + (val * multiplier));
+                if (unit === 'w') resultDate.setDate(resultDate.getDate() + (val * 7 * multiplier));
+                if (unit === 'd') resultDate.setDate(resultDate.getDate() + (val * multiplier));
+            });
+            
+            renderSingleDateResult(resultDate, "Resulting Date");
+        };
+
+        const calculateDifference = () => {
+            if (!diffStartDate.value || !diffEndDate.value) return renderEmpty("Please select 'From' and 'To' dates.");
+            
+            const startStr = `${diffStartDate.value}T${diffStartTime.value || '00:00'}`;
+            const endStr = `${diffEndDate.value}T${diffEndTime.value || '00:00'}`;
+            let start = new Date(startStr);
+            let end = new Date(endStr);
+            
+            if (start > end) [start, end] = [end, start];
+
+            let ms = end - start;
+            const totalMinutes = Math.floor(ms / 60000);
+            const totalHours = ms / 3600000;
+            const totalDays = ms / 86400000;
+            const totalWeeks = ms / 604800000;
+            
+            let years = end.getFullYear() - start.getFullYear();
+            let months = end.getMonth() - start.getMonth();
+            let days = end.getDate() - start.getDate();
+            let hours = end.getHours() - start.getHours();
+            let minutes = end.getMinutes() - start.getMinutes();
+            
+            if (minutes < 0) { hours--; minutes += 60; }
+            if (hours < 0) { days--; hours += 24; }
+            if (days < 0) {
+                months--;
+                const lastMonthEnd = new Date(end.getFullYear(), end.getMonth(), 0);
+                days += lastMonthEnd.getDate();
+            }
+            if (months < 0) { years--; months += 12; }
+            
+            let workingDays = 0;
+            let tempDate = new Date(start);
+            tempDate.setHours(0,0,0,0);
+            let endDateForLoop = new Date(end);
+            endDateForLoop.setHours(0,0,0,0);
+
+            while(tempDate <= endDateForLoop) {
+                 const dayOfWeek = tempDate.getDay();
+                 if (! (diffExcludeSaturday.checked && dayOfWeek === 6) && !(diffExcludeSunday.checked && dayOfWeek === 0) ) {
+                    workingDays++;
+                 }
+                 tempDate.setDate(tempDate.getDate() + 1);
+            }
+            
+            const resultSummary = `${years}y, ${months}m, ${days}d, ${hours}h, ${minutes}min`;
+            resultsPanel.innerHTML = `
+                ${createCopyButton(resultSummary)}
+                <p class="text-gray-400 text-lg">Duration Between Dates</p>
+                <p id="main-result" class="text-3xl md:text-4xl font-extrabold text-white mt-2 font-mono tracking-tighter">${resultSummary}</p>
+                 <div class="mt-6 w-full max-w-md text-left border-t border-gray-700 pt-4 grid grid-cols-2 gap-x-8 gap-y-2 text-md">
+                   <p class="flex justify-between"><span>Working Days:</span> <span class="font-medium text-white font-mono">${workingDays.toLocaleString()}</span></p>
+                   <p class="flex justify-between"><span>Total Weeks:</span> <span class="font-medium text-white font-mono">${totalWeeks.toFixed(2)}</span></p>
+                   <p class="flex justify-between"><span>Total Days:</span> <span class="font-medium text-white font-mono">${totalDays.toFixed(2)}</span></p>
+                   <p class="flex justify-between"><span>Total Hours:</span> <span class="font-medium text-white font-mono">${totalHours.toFixed(2)}</span></p>
+                   <p class="flex justify-between col-span-2"><span>Total Minutes:</span> <span class="font-medium text-white font-mono">${totalMinutes.toLocaleString()}</span></p>
+                </div>`;
+        };
+        
+        const getZodiacSign = (day, month) => {
+            const signs = [
+                ["Capricorn", 120], ["Aquarius", 218], ["Pisces", 320], ["Aries", 420], 
+                ["Taurus", 521], ["Gemini", 621], ["Cancer", 722], ["Leo", 823], 
+                ["Virgo", 923], ["Libra", 1023], ["Scorpio", 1122], ["Sagittarius", 1222], ["Capricorn", 1231]
+            ];
+            const date = (month + 1) * 100 + day;
+            return signs.find(sign => date <= sign[1])[0];
+        };
+        const getBirthstone = (month) => {
+            const stones = ["Garnet", "Amethyst", "Aquamarine", "Diamond", "Emerald", "Pearl", "Ruby", "Peridot", "Sapphire", "Opal", "Topaz", "Turquoise"];
+            return stones[month];
+        };
+
+        const calculateAge = () => {
+            if (!ageDob.value || !ageAtDate.value) return renderEmpty("Please provide both dates.");
+            
+            const dob = new Date(ageDob.value);
+            const atDate = new Date(ageAtDate.value);
+
+            if (dob > atDate) return renderEmpty("Date of birth cannot be in the future.");
+            
+            const msDiff = atDate - dob;
+            const totalDays = Math.floor(msDiff / 86400000);
+            
+            let years = atDate.getFullYear() - dob.getFullYear();
+            let months = atDate.getMonth() - dob.getMonth();
+            let days = atDate.getDate() - dob.getDate();
+
+            if (days < 0) { months--; days += new Date(atDate.getFullYear(), atDate.getMonth(), 0).getDate(); }
+            if (months < 0) { years--; months += 12; }
+
+            const nextBirthday = new Date(atDate.getFullYear(), dob.getMonth(), dob.getDate());
+            if (nextBirthday < atDate) nextBirthday.setFullYear(atDate.getFullYear() + 1);
+            const daysToBday = Math.ceil((nextBirthday - atDate) / 86400000);
+            
+            const bornOnDay = formatFullDate(dob, { weekday: 'long' });
+
+            const resultSummary = `${years} years, ${months} months, ${days} days`;
+            resultsPanel.innerHTML = `
+                ${createCopyButton(resultSummary)}
+                <p class="text-gray-400 text-lg">Your Age</p>
+                <p id="main-result" class="text-4xl md:text-5xl font-extrabold text-white mt-2 font-mono tracking-tighter">${resultSummary}</p>
+                 <div class="mt-4 w-full max-w-2xl text-left border-t border-gray-700 pt-4">
+                     <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
+                        <div class="space-y-2">
+                            <p class="flex justify-between items-center text-md"><span>Next Birthday:</span><span class="font-medium text-white text-right font-mono">${formatFullDate(nextBirthday, { weekday: 'short', month: 'short', day: 'numeric'})} (${daysToBday} days)</span></p>
+                            <p class="flex justify-between items-center text-md"><span>Born on a:</span><span class="font-medium text-white font-mono">${bornOnDay}</span></p>
+                            <p class="flex justify-between items-center text-md"><span>Zodiac Sign:</span><span class="font-medium text-white font-mono">${getZodiacSign(dob.getDate(), dob.getMonth())}</span></p>
+                            <p class="flex justify-between items-center text-md"><span>Birthstone:</span><span class="font-medium text-white font-mono">${getBirthstone(dob.getMonth())}</span></p>
+                        </div>
+                        <div class="space-y-2">
+                             <p class="flex justify-between items-center text-md"><span>In Total Months:</span><span class="font-medium text-white font-mono">${(years * 12 + months).toLocaleString()}</span></p>
+                             <p class="flex justify-between items-center text-md"><span>In Total Weeks:</span><span class="font-medium text-white font-mono">${(totalDays / 7).toFixed(1)}</span></p>
+                             <p class="flex justify-between items-center text-md"><span>In Total Days:</span><span class="font-medium text-white font-mono">${totalDays.toLocaleString()}</span></p>
+                        </div>
+                     </div>
+                 </div>`;
+        };
+        
+        const calculateInfo = () => {
+            if (!infoDate.value) return renderEmpty("Please select a date to get information.");
+            const date = new Date(infoDate.value + 'T12:00:00');
+            const resultSummary = `Info for ${formatFullDate(date)}`;
+            
+            resultsPanel.innerHTML = `
+                ${createCopyButton(resultSummary)}
+                <p class="text-gray-400 text-lg">Date Information</p>
+                <p id="main-result" class="text-2xl font-bold text-white mt-2">${formatFullDate(date)}</p>
+                <div class="mt-6 w-full max-w-sm text-left border-t border-gray-700 pt-4 grid grid-cols-1 gap-y-2 text-md">
+                   <p class="flex justify-between"><span>Day of Year:</span> <span class="font-medium text-white font-mono">${getDayOfYear(date)}</span></p>
+                   <p class="flex justify-between"><span>Week Number:</span> <span class="font-medium text-white font-mono">${getISOWeek(date)} (ISO 8601)</span></p>
+                   <p class="flex justify-between"><span>Quarter:</span> <span class="font-medium text-white font-mono">Q${getQuarter(date)}</span></p>
+                   <p class="flex justify-between"><span>Leap Year:</span> <span class="font-medium text-white font-mono">${isLeapYear(date.getFullYear()) ? 'Yes' : 'No'}</span></p>
+                </div>`;
+        };
+
+        const calculateCountdown = () => {
+            if (countdownInterval) clearInterval(countdownInterval);
+            if (!cdDate.value) return renderEmpty("Please select a date for the countdown.");
+            
+            const eventName = cdEventName.value.trim() || "Event";
+            const targetDate = new Date(`${cdDate.value}T${cdTime.value || '00:00'}`);
+            
+            const update = () => {
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    if (countdownInterval) clearInterval(countdownInterval);
+                    resultsPanel.innerHTML = `
+                        <p class="text-gray-400 text-lg">Countdown to</p>
+                        <p class="text-3xl font-bold text-white mb-4">${eventName}</p>
+                        <p class="text-5xl md:text-7xl font-extrabold text-emerald-400 font-mono tracking-tighter">Event has passed!</p>
+                        <p class="text-gray-500 mt-2">Finished on ${formatFullDate(targetDate)}</p>
+                    `;
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                resultsPanel.innerHTML = `
+                    <p class="text-gray-400 text-lg">Countdown to</p>
+                    <p class="text-3xl font-bold text-white mb-4">${eventName}</p>
+                    <div class="grid grid-cols-4 gap-2 md:gap-4 text-center">
+                        <div><p class="text-4xl md:text-6xl font-extrabold text-white font-mono">${String(d).padStart(2,'0')}</p><p class="text-xs text-gray-500">DAYS</p></div>
+                        <div><p class="text-4xl md:text-6xl font-extrabold text-white font-mono">${String(h).padStart(2,'0')}</p><p class="text-xs text-gray-500">HOURS</p></div>
+                        <div><p class="text-4xl md:text-6xl font-extrabold text-white font-mono">${String(m).padStart(2,'0')}</p><p class="text-xs text-gray-500">MINUTES</p></div>
+                        <div><p class="text-4xl md:text-6xl font-extrabold text-white font-mono">${String(s).padStart(2,'0')}</p><p class="text-xs text-gray-500">SECONDS</p></div>
+                    </div>
+                `;
+            };
+
+            update();
+            countdownInterval = setInterval(update, 1000);
+        };
+
+        const calculate = () => {
+            if (countdownInterval) clearInterval(countdownInterval);
+            switch(activeTab) {
+                case 'add-subtract': calculateAddSubtract(); break;
+                case 'difference': calculateDifference(); break;
+                case 'age': calculateAge(); break;
+                case 'info': calculateInfo(); break;
+                case 'countdown': calculateCountdown(); break;
+            }
+            saveState();
+            attachCopyListener();
+        };
+
+        const renderEmpty = (message) => {
+             if (countdownInterval) clearInterval(countdownInterval);
+            resultsPanel.innerHTML = `
+                <div class="flex flex-col items-center justify-center text-center text-gray-500">
+                    <svg class="w-16 h-16 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M-4.5 12.75h.008v.008h-.008v-.008Z" /></svg>
+                    <p class="max-w-xs">${message}</p>
+                </div>
+            `;
+        };
+
+        const renderCalendar = (date) => {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const today = new Date();
+            const selectedDay = date.getDate();
+
+            const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let daysHtml = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => `<div class="calendar-day header">${d}</div>`).join('');
+            
+            for (let i = 0; i < firstDay; i++) daysHtml += `<div class="calendar-day other-month"></div>`;
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                let classes = 'calendar-day';
+                if (day === selectedDay) classes += ' selected';
+                else if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) classes += ' today';
+                daysHtml += `<div class="${classes}">${day}</div>`;
+            }
+
+            return `
+                <div class="w-full max-w-xs mx-auto bg-gray-800/50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="font-bold text-white text-lg">${monthName}</p>
+                        <p class="font-semibold text-gray-400">${year}</p>
+                    </div>
+                    <div class="calendar-grid">${daysHtml}</div>
+                </div>`;
+        };
+        
+        const renderSingleDateResult = (date, title) => {
+            const resultSummary = formatFullDate(date);
+            resultsPanel.innerHTML = `
+                ${createCopyButton(resultSummary)}
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-8 w-full">
+                    <div class="flex-shrink-0">
+                       ${renderCalendar(date)}
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <p class="text-gray-400 text-lg">${title}</p>
+                        <p id="main-result" class="text-3xl font-bold text-white mt-1">${resultSummary}</p>
+                    </div>
+                </div>`;
+        };
+
+        const createCopyButton = (textToCopy) => {
+            return `<button id="copy-summary-btn" class="copy-btn" title="Copy Summary" data-copy-text="${textToCopy}">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </button>`;
+        };
+
+        const attachCopyListener = () => {
+            const copyBtn = document.getElementById('copy-summary-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', (e) => {
+                    const text = e.currentTarget.dataset.copyText;
+                    if(text) {
+                        navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
+                    }
+                });
+            }
+        };
+        
+        // --- EVENT LISTENERS ---
+        const allInputs = document.querySelectorAll('input, select');
+        allInputs.forEach(el => el.addEventListener('input', calculate));
+        
+        todayBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetId = e.currentTarget.dataset.target;
+                document.getElementById(targetId).value = getLocalDateString(new Date());
+                calculate();
+            });
+        });
+        
+        quickActionsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.quick-action-btn');
+            if (btn) {
+                calculateAddSubtract({
+                    action: btn.dataset.action,
+                    unit: btn.dataset.unit,
+                    value: btn.dataset.value
+                });
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            localStorage.removeItem('dateCalculatorState');
+            setToday();
+            asDurationsContainer.innerHTML = '';
+            addDurationRow();
+            diffExcludeSaturday.checked = false; diffExcludeSunday.checked = true;
+            cdEventName.value = '';
+            calculate();
+        });
+
+        // --- INITIALIZATION ---
+        loadState();
+        calculate();
+    });
+    </script>
+</body>
+</html>
