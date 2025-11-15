@@ -100,9 +100,15 @@
   <!-- 🎨 INLINE STYLE LAYER -->
   <style>
     ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
     ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-    html { scrollbar-color: #4b5563 #111827; }
-    body { background: #000; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+    html { color-scheme: dark light; scroll-behavior: smooth; }
+    .prose h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1em; }
+    .prose h2 { font-weight: 700; margin-top: 2.2em; margin-bottom: 1.2em; }
+    .prose h3 { font-weight: 700; }
+    .prose p, .prose ul, .prose ol { margin-top: 1.5em; margin-bottom: 1.5em; }
+    .prose a { text-decoration: underline; color: #60a5fa; }
+    .prose code { background-color: #374151; padding: 0.2em 0.4em; border-radius: 0.25rem; font-size: 0.85em; }
   </style>
 
   <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
@@ -230,18 +236,18 @@
         </div>
     </main>
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6 max-w-7xl mx-auto">
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-800 mt-24">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>&copy; 2025 Solite. All Rights Reserved.</span>
             </div>
             <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="../about.html" class="hover:text-white transition-colors">About</a>
-                <a href="../blog.html" class="hover:text-white transition-colors">Blog</a>
-                <a href="../privacy.html" class="hover:text-white transition-colors">Privacy</a>
-                <a href="../terms.html" class="hover:text-white transition-colors">Terms</a>
-                <a href="../disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>

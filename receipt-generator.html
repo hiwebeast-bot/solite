@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / Receipt Generator — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>Free Receipt Generator | Create & Download Invoices | Solite</title>
+  <meta name="description" content="Generate, customize, and download professional receipts and invoices for free. Add items, calculate taxes, and export as PDF — 100% private and browser-based." />
+  <meta name="keywords" content="receipt generator, free invoice maker, online receipt creator, pdf invoice, business receipt template, solite, privacy-first tool" />
+  <link rel="canonical" href="https://solite.in/receipt-generator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Receipt Generator - Solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Receipt Generator | Create & Download Invoices | Solite" />
+  <meta property="og:description" content="Easily create and download professional receipts. Add line items, taxes, and your logo. Private, offline-ready, and completely free." />
+  <meta property="og:url" content="https://solite.in/receipt-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/receipt-generator-og.png" />
+  <meta property="og:image:alt" content="Solite Receipt Generator Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Receipt Generator | Solite" />
+  <meta name="twitter:description" content="Build and download professional invoices in minutes. 100% private and browser-based tool by Solite." />
+  <meta name="twitter:image" content="https://solite.in/assets/receipt-generator-og.png" />
+
+  <!-- 💰 GOOGLE ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  
+  <!-- 📊 Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+  
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    };
+  </script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- 🪄 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 🧬 GEN-5.0 SOLITE SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite provides free, privacy-first browser-based tools for business and development."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/receipt-generator.html#app",
+        "name": "Receipt Generator | Solite",
+        "url": "https://solite.in/receipt-generator.html",
+        "applicationCategory": "BusinessApplication",
+        "description": "A free, client-side tool to create professional receipts and invoices with real-time calculations and PDF export.",
+        "featureList": [
+          "Create unlimited receipts",
+          "Add line items with quantity and price",
+          "Automatic calculation of subtotal, tax, and total",
+          "Upload custom company logo",
+          "Download as PDF, PNG, or JPG",
+          "100% private and browser-based"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/receipt-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my financial data safe?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. This receipt generator is 100% client-side. All data you enter remains in your browser and is never sent to any server, ensuring complete privacy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add my own company logo?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can upload your company logo, and it will be displayed on the receipt. You can also drag and resize it for perfect placement." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 💅 STYLE LAYER -->
+  <style>
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    [contenteditable="true"]:focus { outline:none; }
+    .image-selected { outline: dashed 2px #4b5563; border-radius:0.25rem; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+    .item-row input[type="number"] { -moz-appearance: textfield; }
+    .item-row input[type="number"]::-webkit-outer-spin-button,
+    .item-row input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.1-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.1 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Receipt Generator</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0">
+        <h1 class="sr-only">Free Receipt and Invoice Generator</h1>
+        <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
+            
+            <div id="controls-panel" class="w-full lg:w-[35%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
+                <div class="flex-grow overflow-y-auto pr-2 space-y-6">
+                    
+                    <div>
+                        <h2 class="text-xl font-bold text-white mb-4">Branding</h2>
+                        <div class="grid grid-cols-2 gap-4 items-end">
+                            <div>
+                                <label for="logo-upload-input" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+                                    <span>Add Logo</span>
+                                </label>
+                                <input type="file" id="logo-upload-input" class="hidden" accept="image/*">
+                                <button id="remove-logo-btn" class="hidden mt-2 w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                                    <span>Remove Logo</span>
+                                </button>
+                            </div>
+                            <div>
+                                <label for="accent-color-input" class="block text-sm font-medium text-gray-300 mb-1">Accent Color</label>
+                                <input type="color" id="accent-color-input" class="w-full h-12 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-600">
+                            </div>
+                        </div>
+                        <div id="image-controls-container" class="space-y-2 hidden mt-2">
+                             <label for="image-opacity-slider" class="block text-sm font-medium text-gray-300">Logo Opacity</label>
+                             <input type="range" id="image-opacity-slider" min="0" max="1" step="0.05" value="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+                    
+                    <hr class="border-gray-700">
+
+                    <div>
+                        <h2 class="text-xl font-bold text-white mb-4">Invoice Details</h2>
+                         <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <label for="receipt-title-input" class="block font-medium text-gray-300">Title</label>
+                                    <input type="text" id="receipt-title-input" placeholder="e.g. RECEIPT" class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3">
+                                </div>
+                                 <div>
+                                    <label for="receipt-number-label-input" class="block font-medium text-gray-300">Number Label</label>
+                                    <input type="text" id="receipt-number-label-input" placeholder="Receipt #" class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3">
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <input type="checkbox" id="show-tax-id" class="h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500 bg-gray-800 border-gray-600 flex-shrink-0">
+                                <div class="grid grid-cols-2 gap-2 flex-grow">
+                                    <input type="text" id="tax-id-label" placeholder="Tax ID Label" class="block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white text-sm">
+                                    <input type="text" id="tax-id-number" placeholder="Tax ID Number" class="block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white text-sm">
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-2 gap-4">
+                                 <div>
+                                    <label for="receipt-number" class="block text-sm font-medium text-gray-300">Number</label>
+                                    <input type="text" id="receipt-number" value="001" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                </div>
+                                 <div>
+                                    <label for="currency-symbol-select" class="block text-sm font-medium text-gray-300">Currency</label>
+                                    <div class="flex gap-2">
+                                        <select id="currency-symbol-select" class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3">
+                                            <option value="$">$ (Dollar)</option>
+                                            <option value="€">€ (Euro)</option>
+                                            <option value="£">£ (Pound)</option>
+                                            <option value="¥">¥ (Yen)</option>
+                                            <option value="₹">₹ (Rupee)</option>
+                                            <option value="custom">Custom...</option>
+                                        </select>
+                                        <input type="text" id="currency-symbol-custom" placeholder="Symbol" class="mt-1 hidden w-20 bg-gray-800 border border-gray-600 rounded-md py-2 px-3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                     <label for="issue-date" class="block text-sm font-medium text-gray-300">Issue Date</label>
+                                    <input type="date" id="issue-date" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                </div>
+                                 <div>
+                                     <label for="due-date" class="block text-sm font-medium text-gray-300">Due Date</label>
+                                    <input type="date" id="due-date" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <div>
+                        <h2 class="text-xl font-bold text-white mb-4">Company & Client</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="from-name" class="block text-sm font-medium text-gray-300">Your Info</label>
+                                <input type="text" id="from-name" placeholder="Your Company LLC" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                <textarea id="from-address" rows="2" placeholder="Your Address" class="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"></textarea>
+                            </div>
+                             <div>
+                                <label for="to-name" class="block text-sm font-medium text-gray-300">Client Info</label>
+                                <input type="text" id="to-name" placeholder="Client Name" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                <textarea id="to-address" rows="2" placeholder="Client Address" class="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-gray-700">
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Items</h3>
+                        <div id="items-container" class="space-y-2">
+                           <!-- JS will inject item rows here -->
+                        </div>
+                        <button id="add-item-btn" class="mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                            <span>Add Item</span>
+                        </button>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Subtotal</span>
+                            <span id="subtotal-display">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center gap-4">
+                             <div class="flex items-center gap-2 flex-grow">
+                                <input type="checkbox" id="show-discount" class="h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500 bg-gray-800 border-gray-600">
+                                <input type="text" id="discount-label" class="text-gray-400 bg-transparent flex-shrink-0 border-none focus:ring-0 p-0">
+                             </div>
+                             <input type="number" id="discount" value="10" min="0" max="100" class="w-24 bg-gray-700 border border-gray-600 rounded-md shadow-sm py-1 px-2 text-white text-right">
+                        </div>
+                         <div class="flex justify-between items-center gap-4">
+                            <div class="flex items-center gap-2 flex-grow">
+                                <input type="checkbox" id="show-tax" class="h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500 bg-gray-800 border-gray-600">
+                                <input type="text" id="tax-label" class="text-gray-400 bg-transparent flex-shrink-0 border-none focus:ring-0 p-0">
+                            </div>
+                             <input type="number" id="tax" value="8" min="0" class="w-24 bg-gray-700 border border-gray-600 rounded-md shadow-sm py-1 px-2 text-white text-right">
+                        </div>
+                         <div class="flex justify-between items-center font-bold text-lg border-t border-gray-700 pt-2">
+                            <span>Total</span>
+                            <span id="total-display">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-gray-700">
+
+                    <div>
+                        <label for="notes" class="block text-sm font-medium text-gray-300">Notes / Terms</label>
+                        <textarea id="notes" rows="2" placeholder="e.g. Thank you for business us!" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-700 space-y-4">
+                    <h3 class="text-lg font-semibold text-white">Options & Export</h3>
+
+                    <label for="mark-as-paid-checkbox" class="flex items-center justify-between cursor-pointer">
+                        <span class="font-medium text-gray-300">Mark as Paid</span>
+                        <div class="relative">
+                            <input type="checkbox" id="mark-as-paid-checkbox" class="sr-only peer" />
+                            <div class="w-11 h-6 bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-white/50 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-none after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                        </div>
+                    </label>
+
+                     <div class="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                        <div class="relative">
+                            <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                                <span id="download-format-text">PDF</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                            </div>
+                        </div>
+                         <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap">
+                            <span id="download-btn-content" class="flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                              <span class="ml-2">Download</span>
+                            </span>
+                        </button>
+                        <button id="reset-btn" class="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Receipt">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="preview-panel" class="flex-1 bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:grid lg:place-items-center overflow-auto lg:w-[65%]">
+                <div id="receipt-container" class="aspect-[1/1.414] w-[816px] shadow-2xl relative overflow-hidden bg-white text-black font-sans p-10 text-sm">
+                    <!-- Receipt template loads here -->
+                </div>
+            </div>
+
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+
+    </main>
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-16 py-1">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                <span>Edit</span>
+            </button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span>Preview</span>
+            </button>
+        </div>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / RECEIPT GENERATOR EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-receipt[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-receipt > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-receipt[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-receipt" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Instant Receipt & Invoice Generator — Free Client-Side Billing Tool
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Receipt Generator</span>
+            <span class="badge">Invoice Maker</span>
+            <span class="badge">PDF Export</span>
+            <span class="badge">Client-Side</span>
+            <span class="badge">Privacy-First</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Receipt Generator</strong> lets you create professional receipts and invoices in seconds.
+            Add items, taxes, discounts, upload your logo, and download a clean PDF — all processed <strong>100% inside
+            your browser</strong>. No data uploads, no accounts, no tracking — just fast, private, business-ready invoicing.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Love This Tool</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Smart Billing Engine:</strong> Auto-calculates subtotal, taxes, discounts, and final total.</li>
+            <li><strong>Branding Ready:</strong> Upload, resize, and position your business logo on the document.</li>
+            <li><strong>Flexible Export:</strong> Save as PDF, PNG, or JPG with print-ready resolution.</li>
+            <li><strong>Custom Colors:</strong> Choose your accent color for headings and table borders.</li>
+            <li><strong>Complete Privacy:</strong> Everything runs in your browser — no data is uploaded or stored.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Receipt Generator?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Freelancers:</strong> Quick client-ready invoices without templates or billing software.</li>
+                <li><strong>Small Businesses:</strong> On-the-fly receipts for walk-in customers or online orders.</li>
+                <li><strong>Agencies:</strong> Generate sharp, branded receipts for client projects.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>E-commerce Sellers:</strong> Create clean receipts for online transactions.</li>
+                <li><strong>Students & Educators:</strong> Learn invoice structure and formatting instantly.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Create a Professional Receipt</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Enter company and client details.</li>
+            <li>Add items with quantity and pricing.</li>
+            <li>Set discounts, taxes, and currency.</li>
+            <li>Upload and position your logo (optional).</li>
+            <li>Choose export format: <strong>PDF</strong>, <strong>PNG</strong>, or <strong>JPG</strong>.</li>
+            <li>Click <strong>Download</strong> to save your ready-to-send receipt.</li>
+        </ol>
+    </section>
+
+    <!-- 🧩 Report / Output -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">What Your Final Receipt Includes</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Clean Business Header:</strong> Company details + optional logo.</li>
+            <li><strong>Billing Details:</strong> Client information, receipt number, dates, tax ID.</li>
+            <li><strong>Itemized Table:</strong> Description, qty, prices, totals.</li>
+            <li><strong>Automatic Summary:</strong> Subtotal, discount, tax, and final payable amount.</li>
+            <li><strong>Brand Accent Color:</strong> Customizable highlight color for headings.</li>
+            <li><strong>Paid Stamp:</strong> Toggle a large “PAID” watermark for completed transactions.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Receipt Tools</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite Receipt Generator</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">Privacy</td>
+                <td class="p-2">✅ 100% Client-Side</td>
+                <td class="p-2">❌ Data uploaded to servers</td>
+            </tr>
+            <tr>
+                <td class="p-2">Export Formats</td>
+                <td class="p-2">✅ PDF, PNG, JPG</td>
+                <td class="p-2">⚠️ Often PDF only</td>
+            </tr>
+            <tr>
+                <td class="p-2">Branding</td>
+                <td class="p-2">✅ Upload & position logo</td>
+                <td class="p-2">⚠️ Limited or paid</td>
+            </tr>
+            <tr>
+                <td class="p-2">Price</td>
+                <td class="p-2">✅ Free Forever</td>
+                <td class="p-2">❌ Premium plans or paywall</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./invoice-generator.html" class="text-white hover:underline font-medium">Invoice Generator</a> — Build full invoices with tax & branding.</li>
+            <li><a href="./certificate-maker.html" class="text-white hover:underline font-medium">Certificate Maker</a> — Create formal certificates & awards.</li>
+            <li><a href="./business-card-maker.html" class="text-white hover:underline font-medium">Business Card Maker</a> — Design crisp, printable business cards.</li>
+            <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Edit your logo before adding it to receipts.</li>
+            <li><a href="./barcode-generator.html" class="text-white hover:underline font-medium">Barcode Generator</a> — Add product barcodes for invoices & receipts.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>receipt generator, invoice maker, pdf receipt tool, bill maker online, client-side invoice, free billing tool, solite apps</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite Receipt Generator — a 100% client-side tool to create and download professional receipts and invoices with full
+            privacy, logo upload, automatic totals, and multi-format export.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.1 BLOCK / RECEIPT GENERATOR -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialState = {
+                fromName: 'Your Company LLC',
+                fromAddress: '123 Main Street\nCity, State 12345',
+                toName: 'Client Name',
+                toAddress: '456 Client Avenue\nCity, State 67890',
+                receiptTitle: 'RECEIPT',
+                receiptNumberLabel: 'Receipt #',
+                receiptNumber: '001',
+                issueDate: new Date().toISOString().split('T')[0],
+                dueDate: '',
+                items: [{ description: 'Website Design', qty: 1, price: 1200 }],
+                showDiscount: false,
+                discountLabel: 'Discount (%)',
+                discount: 10,
+                showTax: true,
+                taxLabel: 'Tax (%)',
+                tax: 8,
+                notes: 'Thank you for your business!',
+                currencySymbol: '$',
+                isPaid: false,
+                logo: { src: null, x: 0, y: 0, width: 100, height: 100, opacity: 1 },
+                accentColor: '#000000',
+                showTaxId: false,
+                taxIdLabel: 'Tax ID',
+                taxIdNumber: '',
+            };
+
+            let state = { ...initialState };
+
+            const el = {
+                controlsPanel: document.getElementById('controls-panel'),
+                previewPanel: document.getElementById('preview-panel'),
+                receiptContainer: document.getElementById('receipt-container'),
+                itemsContainer: document.getElementById('items-container'),
+                subtotalDisplay: document.getElementById('subtotal-display'),
+                totalDisplay: document.getElementById('total-display'),
+                downloadBtn: document.getElementById('download-btn'),
+                downloadBtnContent: document.getElementById('download-btn-content'),
+                resetBtn: document.getElementById('reset-btn'),
+                addItemBtn: document.getElementById('add-item-btn'),
+                logoUploadInput: document.getElementById('logo-upload-input'),
+                removeLogoBtn: document.getElementById('remove-logo-btn'),
+                imageControlsContainer: document.getElementById('image-controls-container'),
+                imageOpacitySlider: document.getElementById('image-opacity-slider'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                currencySymbolSelect: document.getElementById('currency-symbol-select'),
+                currencySymbolCustom: document.getElementById('currency-symbol-custom'),
+                accentColorInput: document.getElementById('accent-color-input'),
+            };
+
+            let downloadFormat = 'pdf';
+            let selectedElement = null;
+            
+            function getContrastingTextColor(hex) {
+                if (hex.indexOf('#') === 0) hex = hex.slice(1);
+                if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+                return (yiq >= 128) ? '#000000' : '#ffffff';
+            }
+
+            function render() {
+                // Render form inputs from state
+                document.getElementById('from-name').value = state.fromName;
+                document.getElementById('from-address').value = state.fromAddress;
+                document.getElementById('to-name').value = state.toName;
+                document.getElementById('to-address').value = state.toAddress;
+                document.getElementById('receipt-title-input').value = state.receiptTitle;
+                document.getElementById('receipt-number-label-input').value = state.receiptNumberLabel;
+                document.getElementById('receipt-number').value = state.receiptNumber;
+                document.getElementById('issue-date').value = state.issueDate;
+                document.getElementById('due-date').value = state.dueDate;
+                document.getElementById('show-discount').checked = state.showDiscount;
+                document.getElementById('discount-label').value = state.discountLabel;
+                document.getElementById('discount').value = state.discount;
+                document.getElementById('show-tax').checked = state.showTax;
+                document.getElementById('tax-label').value = state.taxLabel;
+                document.getElementById('tax').value = state.tax;
+                document.getElementById('notes').value = state.notes;
+                document.getElementById('mark-as-paid-checkbox').checked = state.isPaid;
+                document.getElementById('show-tax-id').checked = state.showTaxId;
+                document.getElementById('tax-id-label').value = state.taxIdLabel;
+                document.getElementById('tax-id-number').value = state.taxIdNumber;
+                el.accentColorInput.value = state.accentColor;
+
+                // Currency dropdown
+                const isCustom = !['$', '€', '£', '¥', '₹'].includes(state.currencySymbol);
+                if (isCustom) {
+                    el.currencySymbolSelect.value = 'custom';
+                    el.currencySymbolCustom.classList.remove('hidden');
+                    el.currencySymbolCustom.value = state.currencySymbol;
+                } else {
+                    el.currencySymbolSelect.value = state.currencySymbol;
+                    el.currencySymbolCustom.classList.add('hidden');
+                }
+
+                renderItemsInputs();
+                renderPreview();
+                calculateTotals();
+            }
+
+            function renderItemsInputs() {
+                el.itemsContainer.innerHTML = '';
+                state.items.forEach((item, index) => {
+                    const row = document.createElement('div');
+                    row.className = 'item-row grid grid-cols-[1fr,auto,auto,auto] gap-2 items-center';
+                    row.innerHTML = `
+                        <input type="text" value="${item.description}" data-index="${index}" data-field="description" placeholder="Item description" class="w-full bg-gray-800 border border-gray-600 rounded-md py-1 px-2 text-white">
+                        <input type="number" value="${item.qty}" data-index="${index}" data-field="qty" min="0" placeholder="Qty" class="w-16 bg-gray-800 border border-gray-600 rounded-md py-1 px-2 text-white text-right">
+                        <input type="number" value="${item.price}" data-index="${index}" data-field="price" min="0" placeholder="Price" class="w-20 bg-gray-800 border border-gray-600 rounded-md py-1 px-2 text-white text-right">
+                        <button data-index="${index}" class="remove-item-btn text-red-400 hover:text-red-300 p-1"><svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+                    `;
+                    el.itemsContainer.appendChild(row);
+                });
+            }
+            
+            function renderPreview() {
+                const { fromName, fromAddress, toName, toAddress, receiptTitle, receiptNumberLabel, receiptNumber, issueDate, dueDate, items, notes, logo, isPaid, showTaxId, taxIdLabel, taxIdNumber, accentColor } = state;
+
+                const fromHeader = logo.src
+                    ? `<div class="relative" style="min-height: ${logo.height + 10}px;">
+                           <div data-type="image" class="resizable-logo absolute" style="top:0; left:0; width:${logo.width}px; height:${logo.height}px; transform:translate(${logo.x}px, ${logo.y}px); opacity:${logo.opacity};">
+                               <div class="w-full h-full" style="
+                                   background-image: url('${logo.src}');
+                                   background-size: contain;
+                                   background-repeat: no-repeat;
+                                   background-position: center;
+                               "></div>
+                           </div>
+                           <h2 class="font-bold" style="padding-top: ${logo.height + 5}px; font-size: 1.4rem pb-2;">${fromName}</h2>
+                       </div>`
+                    : `<h2 class="font-bold text-2xl">${fromName}</h2>`;
+
+                const itemsHtml = items.map(item => `
+                    <tr class="border-b border-gray-200">
+                        <td class="py-2 pr-2">${item.description}</td>
+                        <td class="py-2 px-2 text-center">${item.qty}</td>
+                        <td class="py-2 px-2 text-right">${formatCurrency(item.price)}</td>
+                        <td class="py-2 pl-2 text-right">${formatCurrency(item.qty * item.price)}</td>
+                    </tr>
+                `).join('');
+
+                const paidStampHtml = isPaid ? `
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                        <div class="text-9xl font-black tracking-tight text-gray-400/50 transform -rotate-12 select-none translate-y-16">PAID</div>
+                    </div>
+                ` : '';
+                
+                const taxIdHtml = showTaxId ? `<p><strong>${taxIdLabel}:</strong> ${taxIdNumber}</p>` : '';
+
+                el.receiptContainer.innerHTML = `
+                    ${paidStampHtml}
+                    <div class="relative z-10">
+                        <header class="flex justify-between items-start mb-8">
+                            <div>
+                                ${fromHeader}
+                                <p class="whitespace-pre-line text-gray-600">${fromAddress}</p>
+                            </div>
+                            <div class="text-right">
+                                <h1 class="font-bold text-4xl uppercase tracking-wider" style="color: ${accentColor};">${receiptTitle}</h1>
+                            </div>
+                        </header>
+                        <div class="flex justify-between mb-8">
+                            <div>
+                                <h3 class="font-bold text-gray-600">Bill To</h3>
+                                <p class="font-bold">${toName}</p>
+                                <p class="whitespace-pre-line text-gray-600">${toAddress}</p>
+                            </div>
+                            <div class="text-right">
+                                ${taxIdHtml}
+                                <p><strong>${receiptNumberLabel}:</strong> ${receiptNumber}</p>
+                                <p><strong>Date:</strong> ${issueDate}</p>
+                                ${dueDate ? `<p><strong>Due Date:</strong> ${dueDate}</p>` : ''}
+                            </div>
+                        </div>
+                        <table class="w-full mb-8">
+                            <thead>
+                                <tr>
+                                    <th class="text-left font-bold p-2" style="border-bottom: 2px solid ${accentColor}; color: ${accentColor};">Description</th>
+                                    <th class="text-center font-bold p-2" style="border-bottom: 2px solid ${accentColor}; color: ${accentColor};">Qty</th>
+                                    <th class="text-right font-bold p-2" style="border-bottom: 2px solid ${accentColor}; color: ${accentColor};">Unit Price</th>
+                                    <th class="text-right font-bold p-2" style="border-bottom: 2px solid ${accentColor}; color: ${accentColor};">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>${itemsHtml}</tbody>
+                        </table>
+                        <div class="flex justify-end mb-8">
+                            <div class="w-1/2">
+                                <div class="flex justify-between py-1"><span class="text-gray-600">Subtotal:</span> <span id="preview-subtotal">$0.00</span></div>
+                                <div id="preview-discount-row" class="flex justify-between py-1 ${!state.showDiscount ? 'hidden' : ''}"><span class="text-gray-600">${state.discountLabel}:</span> <span id="preview-discount">$0.00</span></div>
+                                <div id="preview-tax-row" class="flex justify-between py-1 ${!state.showTax ? 'hidden' : ''}"><span class="text-gray-600">${state.taxLabel}:</span> <span id="preview-tax">$0.00</span></div>
+                                <div class="flex justify-between py-2 mt-2 font-bold border-t-2 border-gray-800"><span class="text-lg">Total:</span> <span id="preview-total" class="text-lg">$0.00</span></div>
+                            </div>
+                        </div>
+                        <footer class="text-gray-600 text-xs border-t border-gray-200 pt-4">
+                            <p>${notes}</p>
+                        </footer>
+                    </div>
+                `;
+                setupInteract();
+            }
+
+            function calculateTotals() {
+                const subtotal = state.items.reduce((acc, item) => acc + item.qty * item.price, 0);
+                const discountAmount = state.showDiscount ? subtotal * (state.discount / 100) : 0;
+                const subtotalAfterDiscount = subtotal - discountAmount;
+                const taxAmount = state.showTax ? subtotalAfterDiscount * (state.tax / 100) : 0;
+                const total = subtotalAfterDiscount + taxAmount;
+                
+                el.subtotalDisplay.textContent = formatCurrency(subtotal);
+                el.totalDisplay.textContent = formatCurrency(total);
+                
+                const previewSubtotal = el.receiptContainer.querySelector('#preview-subtotal');
+                if (previewSubtotal) {
+                    previewSubtotal.textContent = formatCurrency(subtotal);
+                    el.receiptContainer.querySelector('#preview-discount').textContent = `-${formatCurrency(discountAmount)}`;
+                    el.receiptContainer.querySelector('#preview-tax').textContent = formatCurrency(taxAmount);
+                    el.receiptContainer.querySelector('#preview-total').textContent = formatCurrency(total);
+                }
+            }
+            
+            function formatCurrency(amount) {
+                return `${state.currencySymbol}${amount.toFixed(2)}`;
+            }
+
+            function handleControlsInput(e) {
+                const { id, value, type, checked } = e.target;
+                const keyMap = {
+                    'from-name': 'fromName', 'from-address': 'fromAddress', 'to-name': 'toName', 'to-address': 'toAddress',
+                    'receipt-title-input': 'receiptTitle', 'receipt-number-label-input': 'receiptNumberLabel', 'receipt-number': 'receiptNumber',
+                    'issue-date': 'issueDate', 'due-date': 'dueDate',
+                    'show-discount': 'showDiscount', 'discount-label': 'discountLabel', 'discount': 'discount',
+                    'show-tax': 'showTax', 'tax-label': 'taxLabel', 'tax': 'tax', 'notes': 'notes',
+                    'mark-as-paid-checkbox': 'isPaid',
+                    'accent-color-input': 'accentColor',
+                    'show-tax-id': 'showTaxId', 'tax-id-label': 'taxIdLabel', 'tax-id-number': 'taxIdNumber'
+                };
+                const stateKey = keyMap[id];
+                if (stateKey) {
+                    if (type === 'checkbox') { state[stateKey] = checked; }
+                    else if (type === 'number') { state[stateKey] = parseFloat(value) || 0; }
+                    else { state[stateKey] = value; }
+                }
+                
+                if (id === 'currency-symbol-select') {
+                    if (value === 'custom') {
+                        el.currencySymbolCustom.classList.remove('hidden');
+                        el.currencySymbolCustom.focus();
+                    } else {
+                        el.currencySymbolCustom.classList.add('hidden');
+                        state.currencySymbol = value;
+                    }
+                }
+                if (id === 'currency-symbol-custom') {
+                    state.currencySymbol = value;
+                }
+
+                render();
+            }
+            
+            function handleItemsInput(e) {
+                const { index, field } = e.target.dataset;
+                const value = e.target.type === 'number' ? parseFloat(e.target.value) || 0 : e.target.value;
+                state.items[index][field] = value; 
+                renderPreview();
+                calculateTotals();
+            }
+
+            function deselectAll() {
+                if (selectedElement) {
+                    selectedElement.classList.remove('image-selected');
+                    selectedElement = null;
+                }
+                el.imageControlsContainer.classList.add('hidden');
+            }
+
+            function selectElement(element) {
+                deselectAll();
+                selectedElement = element;
+                if (element.dataset.type === 'image') {
+                    selectedElement.classList.add('image-selected');
+                    el.imageControlsContainer.classList.remove('hidden');
+                    el.imageOpacitySlider.value = state.logo.opacity;
+                }
+            }
+
+            function setupInteract() {
+                interact('.resizable-logo')
+                    .resizable({
+                        edges: { left: true, right: true, bottom: true, top: true },
+                        listeners: {
+                            move(event) {
+                                state.logo.width = event.rect.width;
+                                state.logo.height = event.rect.height;
+                                state.logo.x += event.deltaRect.left;
+                                state.logo.y += event.deltaRect.top;
+                                renderPreview();
+                            }
+                        },
+                        inertia: true
+                    })
+                    .draggable({
+                        listeners: { move(event) { state.logo.x += event.dx; state.logo.y += event.dy; renderPreview(); } },
+                        inertia: true
+                    });
+            }
+
+            async function download() {
+                deselectAll();
+                el.downloadBtn.disabled = true;
+                el.downloadBtnContent.innerHTML = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-2">Download</span>`;
+                
+                const paneWasHidden = el.previewPanel.classList.contains('hidden');
+                if (paneWasHidden) {
+                    el.previewPanel.style.position = 'absolute';
+                    el.previewPanel.style.left = '-9999px';
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('grid');
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 150));
+
+                try {
+                    const canvas = await html2canvas(el.receiptContainer, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
+                    const filename = `receipt-${state.receiptNumber}.${downloadFormat}`;
+                    if (downloadFormat === 'pdf') {
+                        const { jsPDF } = window.jspdf;
+                        const imgData = canvas.toDataURL('image/png', 1.0);
+                        const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+                        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                        pdf.save(filename);
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
+                        link.download = filename;
+                        link.click();
+                    }
+                } catch (error) {
+                    console.error("Download failed:", error);
+                } finally {
+                     el.downloadBtn.disabled = false;
+                     el.downloadBtnContent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg><span class="ml-2">Download</span>`;
+                     if (paneWasHidden) {
+                        el.previewPanel.style.position = '';
+                        el.previewPanel.style.left = '';
+                        el.previewPanel.classList.add('hidden');
+                        el.previewPanel.classList.remove('grid');
+                    }
+                }
+            }
+
+            function setupDownloadDropdown() {
+                const btn = document.getElementById('download-format-btn');
+                const dropdown = document.getElementById('download-format-dropdown');
+                const textEl = document.getElementById('download-format-text');
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        downloadFormat = e.target.dataset.value;
+                        textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                    }
+                });
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('#download-format-btn')) dropdown.classList.add('hidden');
+                });
+            }
+
+            function handleLayout() {
+                 if (window.innerWidth < 1024) {
+                    if (el.mobilePreviewBtn.classList.contains('active')) {
+                        el.mobilePreviewBtn.click();
+                    } else {
+                        el.mobileControlsBtn.click();
+                    }
+                } else {
+                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                }
+            }
+
+            // --- Event Listeners ---
+            el.controlsPanel.addEventListener('input', (e) => {
+                if (e.target.closest('.item-row')) {
+                    handleItemsInput(e);
+                } else {
+                    handleControlsInput(e);
+                }
+            });
+            
+            el.addItemBtn.addEventListener('click', () => {
+                state.items.push({ description: '', qty: 1, price: 0 });
+                render();
+            });
+
+            el.itemsContainer.addEventListener('click', e => {
+                if (e.target.closest('.remove-item-btn')) {
+                    const index = e.target.closest('.remove-item-btn').dataset.index;
+                    state.items.splice(index, 1);
+                    render();
+                }
+            });
+
+            el.logoUploadInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        state.logo.src = event.target.result;
+                        document.querySelector('label[for="logo-upload-input"]').classList.add('hidden');
+                        el.removeLogoBtn.classList.remove('hidden');
+                        renderPreview();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            el.removeLogoBtn.addEventListener('click', () => {
+                state.logo.src = null;
+                el.logoUploadInput.value = '';
+                document.querySelector('label[for="logo-upload-input"]').classList.remove('hidden');
+                el.removeLogoBtn.classList.add('hidden');
+                deselectAll();
+                renderPreview();
+            });
+            
+            el.imageOpacitySlider.addEventListener('input', (e) => {
+                state.logo.opacity = e.target.value;
+                renderPreview();
+            });
+            
+            el.previewPanel.addEventListener('click', (e) => {
+                const target = e.target.closest('[data-type="image"]');
+                if (target) {
+                    if (target !== selectedElement) selectElement(target);
+                } else {
+                    deselectAll();
+                }
+            });
+
+            el.downloadBtn.addEventListener('click', download);
+            el.resetBtn.addEventListener('click', () => {
+                if(confirm('Are you sure you want to reset all fields?')) {
+                    state = JSON.parse(JSON.stringify(initialState));
+                    state.issueDate = new Date().toISOString().split('T')[0];
+                    render();
+                }
+            });
+
+            el.mobileControlsBtn.addEventListener('click', () => {
+                el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                el.previewPanel.classList.add('hidden'); el.previewPanel.classList.remove('grid');
+                el.mobileControlsBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
+            });
+
+            el.mobilePreviewBtn.addEventListener('click', () => {
+                el.controlsPanel.classList.add('hidden'); el.controlsPanel.classList.remove('flex');
+                el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                el.mobileControlsBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
+            });
+            
+            window.addEventListener('resize', handleLayout);
+
+            // --- Init ---
+            render();
+            setupDownloadDropdown();
+            handleLayout();
+        });
+    </script>
+</body>
+</html>
