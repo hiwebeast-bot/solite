@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>Free Salary Slip (Payslip) Generator | Create & Download | Solite</title>
+  <meta name="description" content="Generate, customize, and download professional salary slips (payslips) for free. Add earnings & deductions, calculate net salary, add your logo, and export as PDF — 100% private and browser-based." />
+  <meta name="keywords" content="salary slip generator, payslip generator, free payslip maker, online salary slip, pdf payslip, payroll slip, net salary calculator, solite, privacy-first tool" />
+  <link rel="canonical" href="https://solite.in/salary-slip-generator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Salary Slip Generator - Solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Salary Slip (Payslip) Generator | Solite" />
+  <meta property="og:description" content="Easily create and download professional salary slips. Add unlimited earnings and deductions, and export as PDF. Private, offline-ready, and completely free." />
+  <meta property="og:url" content="https://solite.in/salary-slip-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/salary-slip-generator-og.png" />
+  <meta property="og:image:alt" content="Solite Salary Slip Generator Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Salary Slip Generator | Solite" />
+  <meta name="twitter:description" content="Build and download professional payslips in minutes. 100% private and browser-based tool by Solite." />
+  <meta name="twitter:image" content="https://solite.in/assets/salary-slip-generator-og.png" />
+  
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    };
+  </script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- 🧬 SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Salary Slip Generator | Solite",
+    "url": "https://solite.in/salary-slip-generator.html",
+    "applicationCategory": "BusinessApplication",
+    "description": "A free, client-side tool to create professional salary slips with real-time calculations of net pay and PDF export.",
+    "featureList": [
+      "Create unlimited salary slips",
+      "Add unlimited earnings and deductions",
+      "Automatic calculation of gross earnings, total deductions, and net salary",
+      "Add company and employee details",
+      "Upload custom company logo",
+      "Download as PDF, PNG, or JPG",
+      "100% private and browser-based"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- 💅 STYLE LAYER -->
+  <style>
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    [contenteditable="true"]:focus { outline:none; }
+    .image-selected { outline: dashed 2px #4b5563; border-radius:0.25rem; }
+    ::-webkit-scrollbar { width:5px; height:5px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+    .item-row input[type="number"] { -moz-appearance: textfield; }
+    .item-row input[type="number"]::-webkit-outer-spin-button,
+    .item-row input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    
+    #solite-info-block[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <!-- React UMD scripts -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- Babel for in-browser JSX transpilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    <div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback, useMemo, useRef } = React;
+
+const PreviewPanel = ({ state, setState, calculations, activeView }) => {
+    const previewPanelRef = useRef(null);
+    const invoiceWrapperRef = useRef(null);
+    const selectedElementRef = useRef(null);
+
+    const scalePreview = useCallback(() => {
+        const previewPanel = previewPanelRef.current;
+        const invoiceWrapper = invoiceWrapperRef.current;
+        if (!previewPanel || !invoiceWrapper) return;
+
+        const INVOICE_WIDTH = 816;
+        if (window.innerWidth < 1024) {
+            invoiceWrapper.style.transform = '';
+            return;
+        }
+
+        const panelWidth = previewPanel.clientWidth;
+        const padding = 96; // lg:p-12 -> 3rem * 2 = 96px
+        const scale = Math.min(1, (panelWidth - padding) / INVOICE_WIDTH);
+        invoiceWrapper.style.transform = `scale(${scale})`;
+    }, []);
+
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver(scalePreview);
+        if (previewPanelRef.current) {
+            resizeObserver.observe(previewPanelRef.current);
+        }
+        window.addEventListener('resize', scalePreview);
+        scalePreview();
+
+        return () => {
+            if (previewPanelRef.current) {
+                resizeObserver.unobserve(previewPanelRef.current);
+            }
+            window.removeEventListener('resize', scalePreview);
+        };
+    }, [scalePreview]);
+    
+    useEffect(() => {
+        const interact = window.interact;
+        if (!interact) return;
+
+        const interaction = interact('.resizable-logo')
+            .resizable({
+                edges: { left: true, right: true, bottom: true, top: true },
+                listeners: {
+                    move(event) {
+                        setState(s => ({
+                            ...s,
+                            logo: {
+                                ...s.logo,
+                                width: event.rect.width,
+                                height: event.rect.height,
+                                x: s.logo.x + event.deltaRect.left,
+                                y: s.logo.y + event.deltaRect.top
+                            }
+                        }));
+                    }
+                },
+                inertia: true
+            })
+            .draggable({
+                listeners: {
+                    move(event) {
+                        setState(s => ({ ...s, logo: { ...s.logo, x: s.logo.x + event.dx, y: s.logo.y + event.dy } }));
+                    }
+                },
+                inertia: true
+            });
+        
+        return () => interaction.unset();
+    }, [setState]);
+
+    const formatCurrency = (amount) => {
+        return `${state.currencySymbol}${Number(amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    };
+
+    const deselectAll = () => {
+        if (selectedElementRef.current) {
+            selectedElementRef.current.classList.remove('image-selected');
+            selectedElementRef.current = null;
+        }
+    };
+
+    const selectElement = (element) => {
+        deselectAll();
+        selectedElementRef.current = element;
+        selectedElementRef.current.classList.add('image-selected');
+    };
+
+    const handlePreviewClick = (e) => {
+        const target = e.target.closest('[data-type="image"]');
+        if (target) {
+            if (target !== selectedElementRef.current) selectElement(target);
+        } else {
+            deselectAll();
+        }
+    };
+    
+    return (
+        <div ref={previewPanelRef} id="preview-panel" onClick={handlePreviewClick} className={`flex-1 bg-gray-900 rounded-xl border border-gray-800 relative lg:grid place-items-center p-4 lg:p-12 overflow-auto lg:h-[90vh] ${activeView === 'preview' ? 'grid' : 'hidden'}`}>
+            <div ref={invoiceWrapperRef} id="invoice-wrapper" className="origin-top transition-transform duration-200">
+                <div id="invoice-container" className="aspect-[1/1.414] w-[816px] shadow-2xl relative overflow-hidden bg-white text-black font-sans p-10 text-sm">
+                    <header style={{ borderBottom: `2px solid ${state.accentColor}` }} className="pb-4 mb-6 flex justify-between items-start">
+                        <div className="flex-1">
+                            {state.logo.src && (
+                                <div data-type="image" className="resizable-logo absolute cursor-move" style={{ top: `${state.logo.y}px`, left: `${state.logo.x}px`, width: `${state.logo.width}px`, height: `${state.logo.height}px`, opacity: state.logo.opacity, zIndex: 1 }}>
+                                    <div className="w-full h-full" style={{ backgroundImage: `url('${state.logo.src}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'left top' }}></div>
+                                </div>
+                            )}
+                            <h1 className="text-2xl font-bold" style={{ paddingTop: state.logo.src ? `${state.logo.height + 5}px`: '0' }}>{state.companyName}</h1>
+                            <p className="whitespace-pre-line text-gray-600">{state.companyAddress}</p>
+                        </div>
+                        <div className="text-right">
+                            <h2 className="text-3xl font-bold uppercase tracking-wider" style={{ color: state.accentColor }}>{state.payslipTitle}</h2>
+                            <p className="text-gray-600">For the month of {new Date(state.paymentDate).toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
+                        </div>
+                    </header>
+
+                    <section className="mb-6 p-4 border border-gray-200 rounded-lg text-xs">
+                        <h3 className="font-bold text-base mb-3" style={{ color: state.accentColor }}>Employee Summary</h3>
+                        <div className="grid grid-cols-3 gap-x-6 gap-y-2">
+                            <div><strong>Employee Name:</strong><br/>{state.employeeName}</div>
+                            <div><strong>Employee ID:</strong><br/>{state.employeeId}</div>
+                            <div><strong>Designation:</strong><br/>{state.employeeDesignation}</div>
+                            <div className="col-span-2"><strong>Pay Period:</strong><br/>{state.payPeriodStart} to {state.payPeriodEnd}</div>
+                             <div><strong>Payment Date:</strong><br/>{state.paymentDate}</div>
+                        </div>
+                    </section>
+                    
+                    <section className="flex gap-8 mb-6">
+                        <div className="w-1/2">
+                             <h3 className="font-bold text-lg mb-2 pb-1 text-left" style={{ borderBottom: `2px solid ${state.accentColor}`, color: state.accentColor }}>Earnings</h3>
+                             <table className="w-full">
+                                <thead>
+                                    <tr className="border-b-2 border-gray-300">
+                                        <th className="text-left font-semibold p-2">Description</th>
+                                        <th className="text-right font-semibold p-2">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {state.earnings.map(item => (
+                                        <tr key={item.id} className="border-b border-gray-200">
+                                            <td className="p-2">{item.description}</td>
+                                            <td className="p-2 text-right">{formatCurrency(item.amount)}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                             </table>
+                        </div>
+                         <div className="w-1/2">
+                             <h3 className="font-bold text-lg mb-2 pb-1 text-left" style={{ borderBottom: `2px solid ${state.accentColor}`, color: state.accentColor }}>Deductions</h3>
+                             <table className="w-full">
+                                <thead>
+                                    <tr className="border-b-2 border-gray-300">
+                                        <th className="text-left font-semibold p-2">Description</th>
+                                        <th className="text-right font-semibold p-2">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {state.deductions.map(item => (
+                                        <tr key={item.id} className="border-b border-gray-200">
+                                            <td className="p-2">{item.description}</td>
+                                            <td className="p-2 text-right">{formatCurrency(item.amount)}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                             </table>
+                        </div>
+                    </section>
+                    
+                     <section className="flex justify-end mb-6">
+                        <div className="w-1/2 space-y-1">
+                            <div className="flex justify-between items-baseline py-2 border-b-2 border-gray-300">
+                                <span className="font-semibold">Gross Earnings</span>
+                                <span className="text-right">{formatCurrency(calculations.grossEarnings)}</span>
+                            </div>
+                            <div className="flex justify-between items-baseline py-2 ">
+                                <span className="font-semibold">Total Deductions</span>
+                                <span className="text-right">{formatCurrency(calculations.totalDeductions)}</span>
+                            </div>
+                            <div className="flex justify-between items-baseline mt-2 pt-3 font-bold text-lg" style={{ borderTop: '2px solid black' }}>
+                                <span>Net Salary</span>
+                                <span className="text-right">{formatCurrency(calculations.netSalary)}</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    {state.netSalaryInWords && (
+                        <section className="mb-6">
+                            <p><strong>Amount in Words: </strong>{calculations.netSalaryInWordsText}</p>
+                        </section>
+                    )}
+
+                    <footer className="text-gray-600 text-xs border-t border-gray-200 pt-4 absolute bottom-10 w-[calc(100%-5rem)]">
+                        <div className="flex justify-between items-end">
+                            <div>
+                                <p className="font-bold mb-2">Notes / Remarks:</p>
+                                <p>{state.notes}</p>
+                            </div>
+                             {state.showSignature && (
+                                <div className="text-center">
+                                    <div className="w-48 h-12"></div>
+                                    <p className="border-t-2 border-gray-400 pt-1">Authorised Signatory</p>
+                                </div>
+                             )}
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const ControlsPanel = ({
+    state,
+    setState,
+    calculations,
+    handleReset,
+    handleDownload,
+    isDownloading,
+    downloadFormat,
+    setDownloadFormat,
+    activeView
+}) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleInputChange = (e) => {
+        const { id, value, type } = e.target;
+        const checked = e.target.checked;
+        
+        setState(prevState => {
+            const key = id;
+            if (type === 'checkbox') {
+                return { ...prevState, [key]: checked };
+            }
+            if (typeof prevState[key] === 'number') {
+                return { ...prevState, [key]: parseFloat(value) || 0 };
+            }
+            return { ...prevState, [key]: value };
+        });
+    };
+    
+    const handleCurrencyChange = (e) => {
+        const { id, value } = e.target;
+        if (id === 'currencySymbolSelect') {
+            if (value === 'custom') {
+                 setState(s => ({ ...s, currencySymbol: '' }));
+                 setTimeout(() => document.getElementById('currencySymbolCustom')?.focus(), 0);
+            } else {
+                 setState(s => ({ ...s, currencySymbol: value }));
+            }
+        } else {
+             setState(s => ({ ...s, currencySymbol: value }));
+        }
+    }
+    
+    const isCustomCurrency = !['$', '€', '£', '¥', '₹'].includes(state.currencySymbol);
+
+    const handleLineItemChange = (index, field, value, type) => {
+        const items = [...state[type]];
+        const item = { ...items[index] };
+        if (field === 'amount') {
+            item[field] = Number(value) || 0;
+        } else {
+            item[field] = value;
+        }
+        items[index] = item;
+        setState(prevState => ({ ...prevState, [type]: items }));
+    };
+
+    const addLineItem = (type) => {
+        const newItem = { id: crypto.randomUUID(), description: '', amount: 0 };
+        setState(prevState => ({ ...prevState, [type]: [...prevState[type], newItem] }));
+    };
+
+    const removeLineItem = (id, type) => {
+        setState(prevState => ({
+            ...prevState,
+            [type]: prevState[type].filter(item => item.id !== id)
+        }));
+    };
+    
+    const handleLogoUpload = (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const src = event.target?.result;
+                setState(prevState => ({ ...prevState, logo: { ...prevState.logo, src } }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
+    const removeLogo = () => {
+        setState(prevState => ({ ...prevState, logo: { ...prevState.logo, src: null } }));
+        const input = document.getElementById('logo-upload-input');
+        if(input) input.value = '';
+    };
+
+    const formatCurrency = (amount) => {
+        return `${state.currencySymbol}${Number(amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    };
+
+    const DetailsSection = ({ title, children }) => (
+        <div className="border-b border-gray-800 last:border-b-0 p-4">
+            <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
+            <div className="space-y-4">
+                {children}
+            </div>
+        </div>
+    );
+
+    return (
+        <div id="controls-panel" className={`w-full lg:w-[420px] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 flex flex-col lg:h-[90vh] ${activeView === 'controls' ? 'flex' : 'hidden'} lg:flex`}>
+            <div className="flex-grow overflow-y-auto pr-1">
+                
+                <DetailsSection title="Branding & Company">
+                    <div className="grid grid-cols-2 gap-4 items-end">
+                         <div>
+                           {!state.logo.src && (
+                             <label htmlFor="logo-upload-input" className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+                                <span>Add Logo</span>
+                            </label>
+                           )}
+                           <input type="file" id="logo-upload-input" className="hidden" accept="image/*" onChange={handleLogoUpload}/>
+                            {state.logo.src && (
+                                <button id="remove-logo-btn" onClick={removeLogo} className="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                                    <span>Remove Logo</span>
+                                </button>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="accentColor" className="block text-sm font-medium text-gray-300 mb-1">Accent Color</label>
+                            <input type="color" id="accentColor" value={state.accentColor} onChange={handleInputChange} className="w-full h-12 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-600"/>
+                        </div>
+                    </div>
+                     <div className={`space-y-2 ${!state.logo.src ? 'hidden' : ''} mt-2`}>
+                         <label htmlFor="logoOpacity" className="block text-sm font-medium text-gray-300">Logo Opacity</label>
+                         <input type="range" id="logoOpacity" min="0" max="1" step="0.05" value={state.logo.opacity} onChange={(e) => setState(s => ({...s, logo: {...s.logo, opacity: parseFloat(e.target.value)}}))} className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"/>
+                    </div>
+                     <div>
+                        <label className="block text-sm font-medium text-gray-300">Company Details</label>
+                        <input type="text" id="companyName" value={state.companyName} onChange={handleInputChange} placeholder="Your Company LLC" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <textarea id="companyAddress" rows={2} value={state.companyAddress} onChange={handleInputChange} placeholder="Your Address" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Payslip Details">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                       <div>
+                            <label htmlFor="payslipTitle" className="block font-medium text-gray-300">Title</label>
+                            <input type="text" id="payslipTitle" value={state.payslipTitle} onChange={handleInputChange} placeholder="e.g. SALARY SLIP" className="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3"/>
+                        </div>
+                        <div>
+                            <label htmlFor="currencySymbolSelect" className="block font-medium text-gray-300">Currency</label>
+                            <div className="flex gap-2">
+                            <select id="currencySymbolSelect" value={isCustomCurrency ? 'custom' : state.currencySymbol} onChange={handleCurrencyChange} className="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3">
+                                <option value="₹">₹ (Rupee)</option>
+                                <option value="$">$ (Dollar)</option>
+                                <option value="€">€ (Euro)</option>
+                                <option value="£">£ (Pound)</option>
+                                <option value="¥">¥ (Yen)</option>
+                                <option value="custom">Custom...</option>
+                            </select>
+                            <input type="text" id="currencySymbolCustom" placeholder="Symbol" value={isCustomCurrency ? state.currencySymbol : ''} onChange={handleCurrencyChange} className={`mt-1 w-20 bg-gray-800 border border-gray-600 rounded-md py-2 px-3 ${!isCustomCurrency ? 'hidden' : ''}`}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                         <div>
+                            <label htmlFor="payPeriodStart" className="block text-sm font-medium text-gray-300">Pay Period Start</label>
+                            <input type="date" id="payPeriodStart" value={state.payPeriodStart} onChange={handleInputChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        </div>
+                         <div>
+                            <label htmlFor="payPeriodEnd" className="block text-sm font-medium text-gray-300">Pay Period End</label>
+                            <input type="date" id="payPeriodEnd" value={state.payPeriodEnd} onChange={handleInputChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="paymentDate" className="block text-sm font-medium text-gray-300">Payment Date</label>
+                        <input type="date" id="paymentDate" value={state.paymentDate} onChange={handleInputChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Employee Details">
+                    <input type="text" id="employeeName" value={state.employeeName} onChange={handleInputChange} placeholder="Employee Name" className="block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    <input type="text" id="employeeId" value={state.employeeId} onChange={handleInputChange} placeholder="Employee ID" className="block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    <input type="text" id="employeeDesignation" value={state.employeeDesignation} onChange={handleInputChange} placeholder="Designation" className="block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                </DetailsSection>
+
+                <div className="p-4 space-y-4">
+                    <div className="grid grid-cols-1 gap-6">
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Earnings</h3>
+                            <div className="space-y-2 mt-3">
+                                {state.earnings.map((item, index) => (
+                                    <div key={item.id} className="item-row grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                                        <input type="text" value={item.description} onChange={(e) => handleLineItemChange(index, 'description', e.target.value, 'earnings')} placeholder="Earning description" className="w-full bg-gray-700 border border-gray-600 rounded-md py-1 px-2 text-white"/>
+                                        <input type="number" value={item.amount} onChange={(e) => handleLineItemChange(index, 'amount', e.target.value, 'earnings')} placeholder="Amount" className="w-24 bg-gray-700 border border-gray-600 rounded-md py-1 px-2 text-white text-right"/>
+                                        <button onClick={() => removeLineItem(item.id, 'earnings')} className="text-red-400 hover:text-red-300 p-1"><svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+                                    </div>
+                                ))}
+                            </div>
+                            <button onClick={() => addLineItem('earnings')} className="mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                                <span>Add Earning</span>
+                            </button>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Deductions</h3>
+                            <div className="space-y-2 mt-3">
+                                {state.deductions.map((item, index) => (
+                                    <div key={item.id} className="item-row grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                                        <input type="text" value={item.description} onChange={(e) => handleLineItemChange(index, 'description', e.target.value, 'deductions')} placeholder="Deduction description" className="w-full bg-gray-700 border border-gray-600 rounded-md py-1 px-2 text-white"/>
+                                        <input type="number" value={item.amount} onChange={(e) => handleLineItemChange(index, 'amount', e.target.value, 'deductions')} placeholder="Amount" className="w-24 bg-gray-700 border border-gray-600 rounded-md py-1 px-2 text-white text-right"/>
+                                        <button onClick={() => removeLineItem(item.id, 'deductions')} className="text-red-400 hover:text-red-300 p-1"><svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+                                    </div>
+                                ))}
+                            </div>
+                            <button onClick={() => addLineItem('deductions')} className="mt-2 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                                <span>Add Deduction</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <DetailsSection title="Notes & Options">
+                    <div>
+                        <label htmlFor="notes" className="block text-sm font-medium text-gray-300">Notes / Remarks</label>
+                        <textarea id="notes" rows={2} value={state.notes} onChange={handleInputChange} placeholder="e.g. This is a computer-generated slip." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                     <label htmlFor="netSalaryInWords" className="flex items-center justify-between cursor-pointer">
+                        <span className="font-medium text-gray-300">Net Salary in Words</span>
+                        <div className="relative">
+                            <input type="checkbox" id="netSalaryInWords" checked={state.netSalaryInWords} onChange={handleInputChange} className="sr-only peer" />
+                            <div className="w-11 h-6 bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-white/50 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-none after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                        </div>
+                    </label>
+                    <label htmlFor="showSignature" className="flex items-center justify-between cursor-pointer">
+                        <span className="font-medium text-gray-300">Show Signature Line</span>
+                        <div className="relative">
+                            <input type="checkbox" id="showSignature" checked={state.showSignature} onChange={handleInputChange} className="sr-only peer" />
+                            <div className="w-11 h-6 bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-white/50 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-none after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                        </div>
+                    </label>
+                </DetailsSection>
+            </div>
+
+             <div className="mt-auto p-4 border-t border-gray-700 space-y-4 bg-gray-900">
+                <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center border-b border-gray-700 py-2"><span className="text-gray-400">Gross Earnings</span><span className="font-mono">{formatCurrency(calculations.grossEarnings)}</span></div>
+                    <div className="flex justify-between items-center border-b border-gray-700 py-2"><span className="text-gray-400">Total Deductions</span><span className="font-mono">{formatCurrency(calculations.totalDeductions)}</span></div>
+                    <div className="flex justify-between items-center font-bold text-lg pt-2 mt-2"><span>Net Salary</span><span className="font-mono">{formatCurrency(calculations.netSalary)}</span></div>
+                </div>
+
+                <div className="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                    <div className="relative">
+                        <button onClick={() => setIsDropdownOpen(prev => !prev)} id="download-format-btn" className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                            <span id="download-format-text">{downloadFormat.toUpperCase()}</span>
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        {isDropdownOpen && (
+                            <div id="download-format-dropdown" className="absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('pdf'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('png'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('jpeg'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                            </div>
+                        )}
+                    </div>
+                    <button onClick={handleDownload} disabled={isDownloading} id="download-btn" className="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-50">
+                        {isDownloading ? (
+                             <span className="flex items-center justify-center">
+                              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                              <span className="ml-2">Download</span>
+                            </span>
+                        ) : (
+                             <span className="flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                              <span className="ml-2">Download</span>
+                            </span>
+                        )}
+                    </button>
+                    <button onClick={handleReset} id="reset-btn" className="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Salary Slip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fillRule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const SeoBlock = () => (
+    <div id="seo-info-container" className="w-full text-gray-300 p-2">
+      <details id="solite-info-block" className="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary className="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Learn More About the Solite Salary Slip Generator
+          <svg className="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <div className="p-6 space-y-10 leading-relaxed">
+          <section className="space-y-3">
+            <div className="flex flex-wrap gap-2">
+              <span className="badge">Payslip Generator</span>
+              <span className="badge">PDF Export</span>
+              <span className="badge">100% Private</span>
+              <span className="badge">Client-Side</span>
+              <span className="badge">Free Forever</span>
+            </div>
+            <p className="text-lg text-gray-300">
+              The <strong>Solite Salary Slip Generator</strong> is a <strong>free, privacy-first tool</strong> designed to create professional payslips instantly. It runs entirely in your browser — <strong>your data is never sent to a server</strong> — giving you complete control and confidentiality.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Key Features</h3>
+            <ul className="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>Real-Time Calculations:</strong> Automatically computes gross earnings, total deductions, and net salary as you type.</li>
+              <li><strong>Full Customization:</strong> Add unlimited earnings and deductions to match any salary structure.</li>
+              <li><strong>Company Branding:</strong> Upload your company logo and add custom details and notes.</li>
+              <li><strong>Multiple Export Options:</strong> Download your finished payslip as a high-quality PDF, PNG, or JPG file.</li>
+              <li><strong>Absolute Privacy:</strong> All processing is done on your device. No sign-ups, no tracking, no data collection.</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Who It’s For</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Small Business Owners:</strong> Generate payslips without needing complex payroll software.</li>
+                <li><strong>HR Professionals:</strong> Quickly create slips for records or new employees.</li>
+                <li><strong>Freelancers & Contractors:</strong> Provide professional proof-of-income documents to clients or banks.</li>
+                <li><strong>Individuals:</strong> Understand the breakdown of their salary components clearly.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">How to Generate a Salary Slip</h3>
+            <ol className="list-decimal list-inside text-gray-400 space-y-2">
+              <li>Enter the company, employee, and pay period details in the control panel.</li>
+              <li>Add, remove, or edit items under the "Earnings" and "Deductions" sections.</li>
+              <li>Upload a company logo and customize the accent color for branding (optional).</li>
+              <li>Preview the payslip in real-time and download it in your preferred format (PDF, PNG, or JPG).</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Solite Generator vs. Traditional Payroll Software</h3>
+            <table className="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+              <thead className="bg-gray-800 text-gray-200 font-semibold">
+                <tr><th className="p-2 text-left">Feature</th><th className="p-2 text-left">Solite Salary Slip Generator</th><th className="p-2 text-left">Traditional Software</th></tr>
+              </thead>
+              <tbody>
+                <tr><td className="p-2">Privacy</td><td className="p-2">✅ 100% Client-Side</td><td className="p-2">❌ Server-Based Data Storage</td></tr>
+                <tr><td className="p-2">Complexity</td><td className="p-2">✅ Simple & Instant</td><td className="p-2">❌ Complex Setup & Training</td></tr>
+                <tr><td className="p-2">Cost</td><td className="p-2">✅ Free Forever</td><td className="p-2">❌ Monthly Subscription Fees</td></tr>
+                <tr><td className="p-2">Access</td><td className="p-2">✅ No Sign-Up Required</td><td className="p-2">❌ Requires Account & Login</td></tr>
+                <tr><td className="p-2">Use Case</td><td className="p-2">✅ Quick, individual slips</td><td className="p-2">❌ Full payroll management</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="space-y-2">
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Keywords: <em>salary slip generator, payslip generator free, online payslip maker, pdf salary slip, client-side payroll tool, solite, proof of income generator</em>.
+            </p>
+            <p className="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Citation Cue:</strong>
+              “Solite Salary Slip Generator — a free, browser-based tool for creating and downloading professional payslips instantly, with a strong focus on user privacy as no data ever leaves the device.”
+            </p>
+          </section>
+        </div>
+      </details>
+    </div>
+);
+
+
+const toWords = (num) => {
+    if (num === 0) return 'Zero';
+    const a = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+    const b = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+    const s = num.toString();
+    if (s.length > 9) return 'overflow';
+    const n = ('000000000' + s).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+    if (!n) return '';
+    let str = '';
+    str += (n[1] !== '00') ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + ' crore ' : '';
+    str += (n[2] !== '00') ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + ' lakh ' : '';
+    str += (n[3] !== '00') ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + ' thousand ' : '';
+    str += (n[4] !== '0') ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + ' hundred ' : '';
+    str += (n[5] !== '00') ? ((str !== '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+    return str.trim().replace(/\s+/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
+const App = () => {
+    const initialState = {
+        companyName: 'Your Company LLC',
+        companyAddress: '123 Main Street\nCity, State 12345',
+        payslipTitle: 'SALARY SLIP',
+        employeeName: 'John Doe',
+        employeeId: 'EMP001',
+        employeeDesignation: 'Software Engineer',
+        paymentDate: new Date().toISOString().split('T')[0],
+        payPeriodStart: new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString().split('T')[0],
+        payPeriodEnd: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).toISOString().split('T')[0],
+        earnings: [
+            { id: crypto.randomUUID(), description: 'Basic Salary', amount: 50000 },
+            { id: crypto.randomUUID(), description: 'House Rent Allowance (HRA)', amount: 20000 },
+            { id: crypto.randomUUID(), description: 'Special Allowance', amount: 5000 },
+        ],
+        deductions: [
+            { id: crypto.randomUUID(), description: 'Provident Fund (PF)', amount: 1800 },
+            { id: crypto.randomUUID(), description: 'Professional Tax', amount: 200 },
+            { id: crypto.randomUUID(), description: 'Income Tax (TDS)', amount: 3500 },
+        ],
+        notes: 'This is a computer-generated salary slip and does not require a signature.',
+        currencySymbol: '₹',
+        logo: { src: null, x: 20, y: 20, width: 120, height: 50, opacity: 1 },
+        accentColor: '#000000',
+        netSalaryInWords: true,
+        showSignature: true,
+    };
+
+    const [state, setState] = useState(initialState);
+    const [activeView, setActiveView] = useState('controls');
+    const [downloadFormat, setDownloadFormat] = useState('pdf');
+    const [isDownloading, setIsDownloading] = useState(false);
+
+    const calculations = useMemo(() => {
+        const grossEarnings = state.earnings.reduce((acc, item) => acc + (Number(item.amount) || 0), 0);
+        const totalDeductions = state.deductions.reduce((acc, item) => acc + (Number(item.amount) || 0), 0);
+        const netSalary = grossEarnings - totalDeductions;
+        const netSalaryInWordsText = toWords(Math.floor(netSalary)) + ' Only';
+        
+        return { grossEarnings, totalDeductions, netSalary, netSalaryInWordsText };
+    }, [state.earnings, state.deductions]);
+
+    const handleReset = () => {
+        if (window.confirm('Are you sure you want to reset all fields?')) {
+            const newInitialState = { ...initialState, paymentDate: new Date().toISOString().split('T')[0] };
+            setState(newInitialState);
+        }
+    };
+    
+    const handleDownload = useCallback(async () => {
+        setIsDownloading(true);
+        const previewPanel = document.getElementById('preview-panel');
+        const invoiceContainer = document.getElementById('invoice-container');
+        if (!previewPanel || !invoiceContainer) {
+            setIsDownloading(false);
+            return;
+        }
+
+        const paneWasHidden = previewPanel.classList.contains('hidden');
+        if (paneWasHidden) {
+            previewPanel.style.position = 'absolute';
+            previewPanel.style.left = '-9999px';
+            previewPanel.classList.remove('hidden');
+            previewPanel.classList.add('grid');
+        }
+
+        const resizableLogo = invoiceContainer.querySelector('.resizable-logo');
+        if (resizableLogo) {
+            resizableLogo.classList.remove('image-selected');
+        }
+
+        // Apply a slight upward shift to counteract download rendering issues
+        invoiceContainer.style.transform = 'translateY(-15px)';
+
+        await new Promise(resolve => setTimeout(resolve, 150));
+
+        try {
+            const canvas = await window.html2canvas(invoiceContainer, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
+            const filename = `payslip-${state.employeeId || 'employee'}.${downloadFormat}`;
+            if (downloadFormat === 'pdf') {
+                const { jsPDF } = window.jspdf;
+                const imgData = canvas.toDataURL('image/png', 1.0);
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save(filename);
+            } else {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
+                link.download = filename;
+                link.click();
+            }
+        } catch (error) {
+            console.error("Download failed:", error);
+        } finally {
+            // Reset the transform after capture
+            invoiceContainer.style.transform = '';
+            
+            setIsDownloading(false);
+            if (paneWasHidden) {
+                previewPanel.style.position = '';
+                previewPanel.style.left = '';
+                previewPanel.classList.add('hidden');
+                previewPanel.classList.remove('grid');
+            }
+        }
+    }, [state.employeeId, downloadFormat]);
+
+    return (
+        <React.Fragment>
+            <header className="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+                <div className="flex justify-between items-center">
+                    <a href="index.html" className="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                        <div className="flex items-center space-x-3">
+                            <svg className="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                            <span className="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                        </div>
+                        <span className="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                        <span className="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Salary Slip Generator</span>
+                    </a>
+                    <div className="flex items-center space-x-4">
+                        <a href="index.html#apps" className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                            <span>Free Tools</span>
+                            <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <main className="flex-grow flex flex-col relative min-h-0">
+                <h1 className="sr-only">Free Salary Slip (Payslip) Generator</h1>
+                <div id="main-content-wrapper" className="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+                    <ControlsPanel
+                        state={state}
+                        setState={setState}
+                        calculations={calculations}
+                        handleReset={handleReset}
+                        handleDownload={handleDownload}
+                        isDownloading={isDownloading}
+                        downloadFormat={downloadFormat}
+                        setDownloadFormat={setDownloadFormat}
+                        activeView={activeView}
+                    />
+                    <PreviewPanel
+                        state={state}
+                        setState={setState}
+                        calculations={calculations}
+                        activeView={activeView}
+                    />
+                     <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+                        <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+                    </aside>
+                </div>
+                <SeoBlock />
+            </main>
+
+            <div id="mobile-nav" className="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+                <div className="flex justify-around items-center h-16 py-1">
+                    <button onClick={() => setActiveView('controls')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeView === 'controls' ? 'active' : ''}`}>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                        <span>Edit</span>
+                    </button>
+                    <button onClick={() => setActiveView('preview')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeView === 'preview' ? 'active' : ''}`}>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <span>Preview</span>
+                    </button>
+                </div>
+            </div>
+            
+            <footer className="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+                <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+                    <div className="flex items-center space-x-3 mb-4 sm:mb-0">
+                        <svg className="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z" /><path d="M2 17l10 5 10-5" /><path d="M2 7l10 5 10-5" /></svg>
+                        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+                    </div>
+                    <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                        <a href="./about.html" className="hover:text-white transition-colors">About</a>
+                        <a href="./blog" className="hover:text-white transition-colors">Blog</a>
+                        <a href="./privacy.html" className="hover:text-white transition-colors">Privacy</a>
+                        <a href="./terms.html" className="hover:text-white transition-colors">Terms</a>
+                        <a href="./disclaimer.html" className="hover:text-white transition-colors">Disclaimer</a>
+                        <a href="./about.html#contact" className="hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+            </footer>
+        </React.Fragment>
+    );
+};
+
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Could not find root element to mount to");
+}
+
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+</script>
+</body>
+</html>

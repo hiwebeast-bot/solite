@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>Free NDA (Non-Disclosure Agreement) Generator | Create & Download | Solite</title>
+  <meta name="description" content="Generate, customize, and download a professional Non-Disclosure Agreement (NDA) for free. Protect confidential information with a client-side, 100% private tool. Export as PDF." />
+  <meta name="keywords" content="nda generator, non-disclosure agreement generator, free nda template, confidential agreement, online nda maker, pdf nda, solite, privacy-first tool" />
+  <link rel="canonical" href="https://solite.in/nda-generator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="NDA Agreement Generator - Solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free NDA (Non-Disclosure Agreement) Generator | Solite" />
+  <meta property="og:description" content="Easily create and download professional NDAs. Define parties, terms, and confidential information, and export as PDF. Private, offline-ready, and completely free." />
+  <meta property="og:url" content="https://solite.in/nda-generator.html" />
+  <meta property="og:image" content="https://solite.in/assets/nda-generator-og.png" />
+  <meta property="og:image:alt" content="Solite NDA Agreement Generator Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free NDA Generator | Solite" />
+  <meta name="twitter:description" content="Build and download professional Non-Disclosure Agreements in minutes. 100% private and browser-based tool by Solite." />
+  <meta name="twitter:image" content="https://solite.in/assets/nda-generator-og.png" />
+  
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    };
+  </script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- 🧬 SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "NDA Agreement Generator | Solite",
+    "url": "https://solite.in/nda-generator.html",
+    "applicationCategory": "BusinessApplication",
+    "description": "A free, client-side tool to create professional Non-Disclosure Agreements (NDAs) with customizable terms and PDF export.",
+    "featureList": [
+      "Create unlimited NDAs",
+      "Define Disclosing and Receiving Parties",
+      "Customize Confidential Information definition",
+      "Set agreement term and governing law",
+      "Add company logo for branding",
+      "Download as PDF, PNG, or JPG",
+      "100% private and browser-based"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- 💅 STYLE LAYER -->
+  <style>
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    [contenteditable="true"]:focus { outline:none; }
+    .image-selected { outline: dashed 2px #4b5563; border-radius:0.25rem; }
+    ::-webkit-scrollbar { width:5px; height:5px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+    .item-row input[type="number"] { -moz-appearance: textfield; }
+    .item-row input[type="number"]::-webkit-outer-spin-button,
+    .item-row input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    
+    #solite-info-block[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <!-- React UMD scripts -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- Babel for in-browser JSX transpilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    <div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback, useMemo, useRef } = React;
+
+const PreviewPanel = ({ state, setState, activeView }) => {
+    const previewPanelRef = useRef(null);
+    const invoiceWrapperRef = useRef(null);
+    const selectedElementRef = useRef(null);
+
+    const scalePreview = useCallback(() => {
+        const previewPanel = previewPanelRef.current;
+        const invoiceWrapper = invoiceWrapperRef.current;
+        if (!previewPanel || !invoiceWrapper) return;
+
+        const INVOICE_WIDTH = 816;
+        if (window.innerWidth < 1024) {
+            invoiceWrapper.style.transform = '';
+            return;
+        }
+
+        const panelWidth = previewPanel.clientWidth;
+        const padding = 96; // lg:p-12 -> 3rem * 2 = 96px
+        const scale = Math.min(1, (panelWidth - padding) / INVOICE_WIDTH);
+        invoiceWrapper.style.transform = `scale(${scale})`;
+    }, []);
+
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver(scalePreview);
+        if (previewPanelRef.current) {
+            resizeObserver.observe(previewPanelRef.current);
+        }
+        window.addEventListener('resize', scalePreview);
+        scalePreview();
+
+        return () => {
+            if (previewPanelRef.current) {
+                resizeObserver.unobserve(previewPanelRef.current);
+            }
+            window.removeEventListener('resize', scalePreview);
+        };
+    }, [scalePreview]);
+    
+    useEffect(() => {
+        const interact = window.interact;
+        if (!interact) return;
+
+        const interaction = interact('.resizable-logo')
+            .resizable({
+                edges: { left: true, right: true, bottom: true, top: true },
+                listeners: {
+                    move(event) {
+                        setState(s => ({
+                            ...s,
+                            logo: {
+                                ...s.logo,
+                                width: event.rect.width,
+                                height: event.rect.height,
+                            }
+                        }));
+                    }
+                },
+                inertia: true
+            });
+        
+        return () => interaction.unset();
+    }, [setState]);
+
+    const deselectAll = () => {
+        if (selectedElementRef.current) {
+            selectedElementRef.current.classList.remove('image-selected');
+            selectedElementRef.current = null;
+        }
+    };
+
+    const selectElement = (element) => {
+        deselectAll();
+        selectedElementRef.current = element;
+        selectedElementRef.current.classList.add('image-selected');
+    };
+
+    const handlePreviewClick = (e) => {
+        const target = e.target.closest('[data-type="image"]');
+        if (target) {
+            if (target !== selectedElementRef.current) selectElement(target);
+        } else {
+            deselectAll();
+        }
+    };
+    
+    return (
+        <div ref={previewPanelRef} id="preview-panel" onClick={handlePreviewClick} className={`flex-1 bg-gray-900 rounded-xl border border-gray-800 relative lg:grid place-items-center p-4 lg:p-12 overflow-auto lg:h-[90vh] ${activeView === 'preview' ? 'grid' : 'hidden'}`}>
+            <div ref={invoiceWrapperRef} id="invoice-wrapper" className="origin-top transition-transform duration-200">
+                <div id="invoice-container" className="aspect-[1/1.414] w-[816px] shadow-2xl relative overflow-hidden bg-white text-black font-sans p-10 text-sm">
+                    <header style={{ borderBottom: `2px solid ${state.accentColor}` }} className="pb-4 mb-6 flex justify-between items-start gap-8">
+                        <div className="flex-1">
+                            <h1 className="text-2xl font-bold">{state.companyName || '[Company Name]'}</h1>
+                            <p className="whitespace-pre-line text-gray-600">{state.companyAddress || '[Company Address]'}</p>
+                        </div>
+                        {state.logo.src && (
+                            <div className="flex-shrink-0">
+                                <div data-type="image" className="resizable-logo" style={{ width: `${state.logo.width}px`, height: `${state.logo.height}px`, opacity: state.logo.opacity }}>
+                                    <div className="w-full h-full" style={{ backgroundImage: `url('${state.logo.src}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}></div>
+                                </div>
+                            </div>
+                        )}
+                    </header>
+                    
+                    <main className="text-justify leading-relaxed">
+                        <h2 className="text-2xl font-bold text-center mb-6" style={{ color: state.accentColor }}>{state.agreementTitle}</h2>
+                        
+                        <p className="mb-4">
+                            This Non-Disclosure Agreement (the "Agreement") is entered into as of {new Date(state.effectiveDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} ("Effective Date"), by and between:
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <p className="font-bold">Disclosing Party:</p>
+                                <p>{state.disclosingPartyName || '[Disclosing Party Name]'}</p>
+                                <p className="whitespace-pre-line text-gray-600">{state.disclosingPartyAddress || '[Disclosing Party Address]'}</p>
+                            </div>
+                            <div>
+                                <p className="font-bold">Receiving Party:</p>
+                                <p>{state.receivingPartyName || '[Receiving Party Name]'}</p>
+                                <p className="whitespace-pre-line text-gray-600">{state.receivingPartyAddress || '[Receiving Party Address]'}</p>
+                            </div>
+                        </div>
+
+                        <p className="mb-4">
+                            Hereinafter, the Disclosing Party and the Receiving Party may be referred to individually as a "Party" and collectively as the "Parties."
+                        </p>
+                        
+                        <ol className="list-decimal list-inside space-y-4 text-xs">
+                            <li>
+                                <strong>Definition of Confidential Information.</strong> For purposes of this Agreement, "Confidential Information" shall include all information or material that has or could have commercial value or other utility in the business in which Disclosing Party is engaged. Specifically, it includes, but is not limited to: <span className="italic">{state.confidentialInformationDefinition || '[Definition of confidential information to be provided by user.]'}</span>
+                            </li>
+                            <li>
+                                <strong>Obligations of Receiving Party.</strong> Receiving Party shall hold and maintain the Confidential Information in strictest confidence for the sole and exclusive benefit of the Disclosing Party. Receiving Party shall carefully restrict access to Confidential Information to employees, contractors and third parties as is reasonably required and shall require those persons to sign nondisclosure restrictions at least as protective as those in this Agreement.
+                            </li>
+                            <li>
+                                <strong>Exclusions from Confidential Information.</strong> Receiving Party's obligations under this Agreement do not extend to information that is: (a) publicly known at the time of disclosure or subsequently becomes publicly known through no fault of Receiving Party; (b) discovered or created by Receiving Party before disclosure by Disclosing Party; or (c) learned by Receiving Party through legitimate means other than from the Disclosing Party or Disclosing Party's representatives.
+                            </li>
+                             <li>
+                                <strong>Term.</strong> The nondisclosure provisions of this Agreement shall survive the termination of this Agreement and Receiving Party's duty to hold Confidential Information in confidence shall remain in effect for a period of {state.termInYears || 'X'} year(s) from the Effective Date.
+                            </li>
+                            <li>
+                                <strong>Governing Law.</strong> This Agreement and any action related thereto will be governed, controlled, interpreted, and defined by and under the laws of the {state.governingLawState || '[Governing State/Country]'}, without giving effect to any conflicts of laws principles that require the application of the law of a different jurisdiction.
+                            </li>
+                        </ol>
+                        
+                        <p className="mt-6">IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.</p>
+                    </main>
+
+                    {state.showSignature && (
+                        <footer className="absolute bottom-10 w-[calc(100%-5rem)]">
+                            <div className="grid grid-cols-2 gap-16 mt-8">
+                                <div className="text-left">
+                                    <p className="font-bold mb-2">{state.disclosingPartyName || '[Disclosing Party Name]'}</p>
+                                    <div className="w-full h-12"></div>
+                                    <p className="border-t-2 border-gray-400 pt-1 text-xs">By: {state.disclosingPartySignatoryName || '[Signatory Name]'}<br/>Title: {state.disclosingPartySignatoryTitle || '[Signatory Title]'}</p>
+                                </div>
+                                <div className="text-left">
+                                    <p className="font-bold mb-2">{state.receivingPartyName || '[Receiving Party Name]'}</p>
+                                    <div className="w-full h-12"></div>
+                                    <p className="border-t-2 border-gray-400 pt-1 text-xs">By: {state.receivingPartySignatoryName || '[Signatory Name]'}<br/>Title: {state.receivingPartySignatoryTitle || '[Signatory Title]'}</p>
+                                </div>
+                            </div>
+                        </footer>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const ControlsPanel = ({
+    state,
+    setState,
+    handleReset,
+    handleDownload,
+    isDownloading,
+    downloadFormat,
+    setDownloadFormat,
+    activeView
+}) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleInputChange = (e) => {
+        const { id, value, type } = e.target;
+        const checked = e.target.checked;
+        
+        setState(prevState => {
+            const key = id;
+            if (type === 'checkbox') {
+                return { ...prevState, [key]: checked };
+            }
+            if (typeof prevState[key] === 'number') {
+                return { ...prevState, [key]: parseFloat(value) || 0 };
+            }
+            return { ...prevState, [key]: value };
+        });
+    };
+    
+    const handleLogoUpload = (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const src = event.target?.result;
+                setState(prevState => ({ ...prevState, logo: { ...prevState.logo, src } }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
+    const removeLogo = () => {
+        setState(prevState => ({ ...prevState, logo: { ...prevState.logo, src: null } }));
+        const input = document.getElementById('logo-upload-input');
+        if(input) input.value = '';
+    };
+
+    const DetailsSection = ({ title, children }) => (
+        <div className="border-b border-gray-800 last:border-b-0 p-4">
+            <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
+            <div className="space-y-4">
+                {children}
+            </div>
+        </div>
+    );
+
+    return (
+        <div id="controls-panel" className={`w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 flex flex-col lg:h-[90vh] ${activeView === 'controls' ? 'flex' : 'hidden'} lg:flex`}>
+            <div className="flex-grow overflow-y-auto pr-1">
+                
+                <DetailsSection title="Branding & Header">
+                    <div className="grid grid-cols-2 gap-4 items-end">
+                         <div>
+                           {!state.logo.src && (
+                             <label htmlFor="logo-upload-input" className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+                                <span>Add Logo</span>
+                            </label>
+                           )}
+                           <input type="file" id="logo-upload-input" className="hidden" accept="image/*" onChange={handleLogoUpload}/>
+                            {state.logo.src && (
+                                <button id="remove-logo-btn" onClick={removeLogo} className="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                                    <span>Remove Logo</span>
+                                </button>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="accentColor" className="block text-sm font-medium text-gray-300 mb-1">Accent Color</label>
+                            <input type="color" id="accentColor" value={state.accentColor} onChange={handleInputChange} className="w-full h-12 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-600"/>
+                        </div>
+                    </div>
+                     <div className={`space-y-2 ${!state.logo.src ? 'hidden' : ''} mt-2`}>
+                         <label htmlFor="logoOpacity" className="block text-sm font-medium text-gray-300">Logo Opacity</label>
+                         <input type="range" id="logoOpacity" min="0" max="1" step="0.05" value={state.logo.opacity} onChange={(e) => setState(s => ({...s, logo: {...s.logo, opacity: parseFloat(e.target.value)}}))} className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"/>
+                    </div>
+                     <div>
+                        <label className="block text-sm font-medium text-gray-300">Header Company Details</label>
+                        <input type="text" id="companyName" value={state.companyName} onChange={handleInputChange} placeholder="e.g., Solite, Inc." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <textarea id="companyAddress" rows={2} value={state.companyAddress} onChange={handleInputChange} placeholder="123 Main St&#10;Anytown, USA 12345" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Agreement Details">
+                    <div>
+                        <label htmlFor="agreementTitle" className="block text-sm font-medium text-gray-300">Agreement Title</label>
+                        <input type="text" id="agreementTitle" value={state.agreementTitle} onChange={handleInputChange} placeholder="e.g. MUTUAL NON-DISCLOSURE AGREEMENT" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    </div>
+                    <div>
+                        <label htmlFor="effectiveDate" className="block text-sm font-medium text-gray-300">Effective Date</label>
+                        <input type="date" id="effectiveDate" value={state.effectiveDate} onChange={handleInputChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Party Details">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300">Disclosing Party Name</label>
+                        <input type="text" id="disclosingPartyName" value={state.disclosingPartyName} onChange={handleInputChange} placeholder="e.g. Innovate Corp." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <textarea id="disclosingPartyAddress" rows={2} value={state.disclosingPartyAddress} onChange={handleInputChange} placeholder="Disclosing Party Full Address" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                     <div>
+                        <label className="block text-sm font-medium text-gray-300 mt-4">Receiving Party Name</label>
+                        <input type="text" id="receivingPartyName" value={state.receivingPartyName} onChange={handleInputChange} placeholder="e.g. Confidential Solutions Ltd." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <textarea id="receivingPartyAddress" rows={2} value={state.receivingPartyAddress} onChange={handleInputChange} placeholder="Receiving Party Full Address" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Agreement Terms">
+                     <div>
+                        <label htmlFor="confidentialInformationDefinition" className="block text-sm font-medium text-gray-300">Definition of Confidential Information</label>
+                        <textarea id="confidentialInformationDefinition" rows={4} value={state.confidentialInformationDefinition} onChange={handleInputChange} placeholder="e.g., Business plans, customer lists, financial data, product designs, marketing strategies..." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"></textarea>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label htmlFor="termInYears" className="block text-sm font-medium text-gray-300">Term (in years)</label>
+                            <input type="number" id="termInYears" value={state.termInYears} onChange={handleInputChange} placeholder="e.g. 5" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        </div>
+                        <div>
+                            <label htmlFor="governingLawState" className="block text-sm font-medium text-gray-300">Governing Law</label>
+                            <input type="text" id="governingLawState" value={state.governingLawState} onChange={handleInputChange} placeholder="e.g. State of Delaware" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        </div>
+                    </div>
+                </DetailsSection>
+                
+                <DetailsSection title="Signatory Details">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300">Disclosing Party Signatory</label>
+                        <input type="text" id="disclosingPartySignatoryName" value={state.disclosingPartySignatoryName} onChange={handleInputChange} placeholder="Full Name" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <input type="text" id="disclosingPartySignatoryTitle" value={state.disclosingPartySignatoryTitle} onChange={handleInputChange} placeholder="Title (e.g., CEO)" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mt-4">Receiving Party Signatory</label>
+                        <input type="text" id="receivingPartySignatoryName" value={state.receivingPartySignatoryName} onChange={handleInputChange} placeholder="Full Name" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                        <input type="text" id="receivingPartySignatoryTitle" value={state.receivingPartySignatoryTitle} onChange={handleInputChange} placeholder="Title (e.g., CTO)" className="mt-2 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white"/>
+                    </div>
+                </DetailsSection>
+
+                <DetailsSection title="Options">
+                    <label htmlFor="showSignature" className="flex items-center justify-between cursor-pointer">
+                        <span className="font-medium text-gray-300">Show Signature Blocks</span>
+                        <div className="relative">
+                            <input type="checkbox" id="showSignature" checked={state.showSignature} onChange={handleInputChange} className="sr-only peer" />
+                            <div className="w-11 h-6 bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-white/50 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-none after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                        </div>
+                    </label>
+                </DetailsSection>
+            </div>
+
+             <div className="mt-auto p-4 border-t border-gray-700 space-y-4 bg-gray-900">
+                <div className="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                    <div className="relative">
+                        <button onClick={() => setIsDropdownOpen(prev => !prev)} id="download-format-btn" className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                            <span id="download-format-text">{downloadFormat.toUpperCase()}</span>
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        {isDropdownOpen && (
+                            <div id="download-format-dropdown" className="absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('pdf'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('png'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); setDownloadFormat('jpeg'); setIsDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                            </div>
+                        )}
+                    </div>
+                    <button onClick={handleDownload} disabled={isDownloading} id="download-btn" className="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-50">
+                        {isDownloading ? (
+                             <span className="flex items-center justify-center">
+                              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                              <span className="ml-2">Download</span>
+                            </span>
+                        ) : (
+                             <span className="flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                              <span className="ml-2">Download</span>
+                            </span>
+                        )}
+                    </button>
+                    <button onClick={handleReset} id="reset-btn" className="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Agreement">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fillRule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const SeoBlock = () => (
+    <div id="seo-info-container" className="w-full text-gray-300 p-4">
+      <details id="solite-info-block" className="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary className="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+          Learn More About the Solite NDA Generator
+          <svg className="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <div className="p-6 space-y-10 leading-relaxed">
+          <section className="space-y-3">
+            <div className="flex flex-wrap gap-2">
+              <span className="badge">NDA Generator</span>
+              <span className="badge">PDF Export</span>
+              <span className="badge">100% Private</span>
+              <span className="badge">Client-Side</span>
+              <span className="badge">Free Forever</span>
+            </div>
+            <p className="text-lg text-gray-300">
+              The <strong>Solite NDA Generator</strong> is a <strong>free, privacy-first tool</strong> designed to create professional Non-Disclosure Agreements instantly. It runs entirely in your browser — <strong>your data is never sent to a server</strong> — giving you complete control and confidentiality.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Key Features</h3>
+            <ul className="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>Instant NDA Creation:</strong> Generate a complete NDA by filling out a simple form.</li>
+              <li><strong>Full Customization:</strong> Define parties, effective dates, agreement terms, governing law, and more.</li>
+              <li><strong>Company Branding:</strong> Upload your company logo and choose an accent color for a professional touch.</li>
+              <li><strong>Multiple Export Options:</strong> Download your finished NDA as a high-quality PDF, PNG, or JPG file.</li>
+              <li><strong>Absolute Privacy:</strong> All processing is done on your device. No sign-ups, no tracking, no data collection.</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Who It’s For</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Startups & Entrepreneurs:</strong> Protect your business ideas when talking to investors or partners.</li>
+                <li><strong>Freelancers & Contractors:</strong> Ensure client information remains confidential.</li>
+                <li><strong>Businesses of All Sizes:</strong> Securely share proprietary data with employees or other companies.</li>
+                <li><strong>Inventors & Creators:</strong> Safeguard your intellectual property during development.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">How to Generate an NDA</h3>
+            <ol className="list-decimal list-inside text-gray-400 space-y-2">
+              <li>Enter the details for the Disclosing Party and Receiving Party.</li>
+              <li>Set the agreement's Effective Date, Term, and Governing Law.</li>
+              <li>Customize the definition of what constitutes "Confidential Information."</li>
+              <li>Add signatory details for both parties.</li>
+              <li>Preview the NDA in real-time and download it in your preferred format (PDF, PNG, or JPG).</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3 className="text-white text-xl font-semibold mb-2">Why Use a Client-Side NDA Generator?</h3>
+            <table className="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+              <thead className="bg-gray-800 text-gray-200 font-semibold">
+                <tr><th className="p-2 text-left">Feature</th><th className="p-2 text-left">Solite NDA Generator</th><th className="p-2 text-left">Online Legal Services</th></tr>
+              </thead>
+              <tbody>
+                <tr><td className="p-2">Privacy</td><td className="p-2">✅ 100% Client-Side</td><td className="p-2">❌ Server-Based Data Storage</td></tr>
+                <tr><td className="p-2">Confidentiality</td><td className="p-2">✅ Your data never leaves your device</td><td className="p-2">❌ Requires trusting a third party</td></tr>
+                <tr><td className="p-2">Cost</td><td className="p-2">✅ Free Forever</td><td className="p-2">❌ Subscription or per-document fees</td></tr>
+                <tr><td className="p-2">Access</td><td className="p-2">✅ No Sign-Up Required</td><td className="p-2">❌ Requires Account & Login</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="space-y-2">
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Keywords: <em>nda generator, non-disclosure agreement generator, free nda template, create nda online, pdf nda, client-side legal tool, solite, confidential information agreement</em>.
+            </p>
+            <p className="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Citation Cue:</strong>
+              “Solite NDA Generator — a free, browser-based tool for creating and downloading professional Non-Disclosure Agreements instantly, with a strong focus on user privacy as no data ever leaves the device.”
+            </p>
+          </section>
+        </div>
+      </details>
+    </div>
+);
+
+const App = () => {
+    const getInitialState = () => ({
+        companyName: '',
+        companyAddress: '',
+        agreementTitle: 'MUTUAL NON-DISCLOSURE AGREEMENT',
+        effectiveDate: new Date().toISOString().split('T')[0],
+        disclosingPartyName: '',
+        disclosingPartyAddress: '',
+        receivingPartyName: '',
+        receivingPartyAddress: '',
+        confidentialInformationDefinition: 'All written and oral information disclosed by the Disclosing Party to the Receiving Party, including but not limited to business plans, customer lists, financial data, product designs, and marketing strategies.',
+        termInYears: 5,
+        governingLawState: '',
+        disclosingPartySignatoryName: '',
+        disclosingPartySignatoryTitle: '',
+        receivingPartySignatoryName: '',
+        receivingPartySignatoryTitle: '',
+        logo: { src: null, width: 150, height: 60, opacity: 1 },
+        accentColor: '#000000',
+        showSignature: true,
+    });
+
+    const [state, setState] = useState(getInitialState());
+    const [activeView, setActiveView] = useState('controls');
+    const [downloadFormat, setDownloadFormat] = useState('pdf');
+    const [isDownloading, setIsDownloading] = useState(false);
+
+    const handleReset = () => {
+        if (window.confirm('Are you sure you want to reset all fields? This will clear any entered data.')) {
+            setState(getInitialState());
+        }
+    };
+    
+    const handleDownload = useCallback(async () => {
+        setIsDownloading(true);
+        const previewPanel = document.getElementById('preview-panel');
+        const invoiceContainer = document.getElementById('invoice-container');
+        if (!previewPanel || !invoiceContainer) {
+            setIsDownloading(false);
+            return;
+        }
+
+        const paneWasHidden = previewPanel.classList.contains('hidden');
+        if (paneWasHidden) {
+            previewPanel.style.position = 'absolute';
+            previewPanel.style.left = '-9999px';
+            previewPanel.classList.remove('hidden');
+            previewPanel.classList.add('grid');
+        }
+
+        const resizableLogo = invoiceContainer.querySelector('.resizable-logo');
+        if (resizableLogo) {
+            resizableLogo.classList.remove('image-selected');
+        }
+
+        invoiceContainer.style.transform = 'translateY(-15px)';
+
+        await new Promise(resolve => setTimeout(resolve, 150));
+
+        try {
+            const canvas = await window.html2canvas(invoiceContainer, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
+            const filename = `NDA-Agreement-${state.disclosingPartyName.replace(/\s/g, '_') || 'Untitled'}.${downloadFormat}`;
+            if (downloadFormat === 'pdf') {
+                const { jsPDF } = window.jspdf;
+                const imgData = canvas.toDataURL('image/png', 1.0);
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save(filename);
+            } else {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
+                link.download = filename;
+                link.click();
+            }
+        } catch (error) {
+            console.error("Download failed:", error);
+        } finally {
+            invoiceContainer.style.transform = '';
+            
+            setIsDownloading(false);
+            if (paneWasHidden) {
+                previewPanel.style.position = '';
+                previewPanel.style.left = '';
+                previewPanel.classList.add('hidden');
+                previewPanel.classList.remove('grid');
+            }
+        }
+    }, [state, downloadFormat]);
+
+    return (
+        <React.Fragment>
+            <header className="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+                <div className="flex justify-between items-center">
+                    <a href="index.html#apps" className="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                        <div className="flex items-center space-x-3">
+                            <svg className="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                            <span className="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                        </div>
+                        <span className="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                        <span className="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">NDA Generator</span>
+                    </a>
+                    <div className="flex items-center space-x-4">
+                        <a href="index.html#apps" className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                            <span>Free Tools</span>
+                            <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <main className="flex-grow flex flex-col relative min-h-0">
+                <h1 className="sr-only">Free NDA (Non-Disclosure Agreement) Generator</h1>
+                <div id="main-content-wrapper" className="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+                    <ControlsPanel
+                        state={state}
+                        setState={setState}
+                        handleReset={handleReset}
+                        handleDownload={handleDownload}
+                        isDownloading={isDownloading}
+                        downloadFormat={downloadFormat}
+                        setDownloadFormat={setDownloadFormat}
+                        activeView={activeView}
+                    />
+                    <PreviewPanel
+                        state={state}
+                        setState={setState}
+                        activeView={activeView}
+                    />
+                     <aside className="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+                        <div className="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+                    </aside>
+                </div>
+                <SeoBlock />
+            </main>
+
+            <div id="mobile-nav" className="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+                <div className="flex justify-around items-center h-16 py-1">
+                    <button onClick={() => setActiveView('controls')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeView === 'controls' ? 'active' : ''}`}>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                        <span>Edit</span>
+                    </button>
+                    <button onClick={() => setActiveView('preview')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeView === 'preview' ? 'active' : ''}`}>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <span>Preview</span>
+                    </button>
+                </div>
+            </div>
+            
+            <footer className="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+                <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+                    <div className="flex items-center space-x-3 mb-4 sm:mb-0">
+                        <svg className="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z" /><path d="M2 17l10 5 10-5" /><path d="M2 7l10 5 10-5" /></svg>
+                        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+                    </div>
+                    <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-2 text-gray-400">
+                        <a href="./about.html" className="hover:text-white transition-colors">About</a>
+                        <a href="./blog.html" className="hover:text-white transition-colors">Blog</a>
+                        <a href="./privacy.html" className="hover:text-white transition-colors">Privacy</a>
+                        <a href="./terms.html" className="hover:text-white transition-colors">Terms</a>
+                        <a href="./disclaimer.html" className="hover:text-white transition-colors">Disclaimer</a>
+                        <a href="mailto:support@solite.in" className="hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+            </footer>
+        </React.Fragment>
+    );
+};
+
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Could not find root element to mount to");
+}
+
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+</script>
+</body>
+</html>

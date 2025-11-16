@@ -414,7 +414,7 @@
         return (
             <div className={`w-full lg:w-[35%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex-col ${mobileView === 'controls' ? 'flex' : 'hidden'} lg:flex`}>
                 <div className="space-y-6 overflow-y-auto pr-2 flex-grow">
-                    <DetailSection title="Proposal Style">
+                    <DetailSection title="Branding">
                         <div className="grid grid-cols-2 gap-4 items-end">
                             <div>
                                 {!state.logo.src ? (
@@ -623,7 +623,7 @@
         return (
             <div
                 ref={ref.containerRef}
-                className={`flex-1 bg-gray-900 rounded-xl border border-gray-800 p-2 lg:p-4 relative place-items-center overflow-auto lg:sticky lg:top-24 lg:self-start ${mobileView === 'preview' ? 'grid' : 'hidden'} lg:grid`}
+                className={`flex-1 bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:grid lg:place-items-top lg:p-12 overflow-auto lg:w-[65%] ${mobileView === 'preview' ? 'grid' : 'hidden'} lg:grid`}
                 onClick={() => setSelectedElement(null)}
             >
                 <div
@@ -856,7 +856,7 @@
         <div className="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
           <Header />
           <main className="flex-grow flex relative">
-            <div className="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
+            <div className="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] lg:h-[calc(100vh-96px)]">
               <ControlsPanel
                 state={state}
                 dispatch={dispatch}
@@ -875,7 +875,7 @@
                 previewScale={previewScale}
               />
             </div>
-            <aside className="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block lg:sticky lg:top-24 lg:self-start">
+            <aside className="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:flex lg:flex-col lg:sticky lg:top-[96px] lg:h-[calc(100vh-96px)]">
               <div className="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
             </aside>
           </main>

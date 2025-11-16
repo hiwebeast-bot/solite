@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.9.2 PREMIUM UX UPGRADE / Token Calculator — MULTI-MODEL & CONTEXT VISUALIZER -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>LLM Token Calculator & API Cost Estimator (Multi-Model) | Solite</title>
+  <meta name="description" content="Calculate the number of tokens in your text for multiple LLMs (GPT, Claude, Gemini). Estimate API costs and visualize context window usage instantly." />
+  <meta name="keywords" content="token calculator, token counter, gpt-4 tokenizer, cl100k_base, llm token estimator, api cost calculator, context window, multi-model, free ai tool, solite, privacy-first" />
+  <link rel="canonical" href="https://solite.in/token-calculator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Token Calculator - Solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER / AI DISCOVERY -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="LLM Token Calculator & API Cost Estimator (Multi-Model) | Solite" />
+  <meta property="og:description" content="Instantly calculate token count, estimate API costs, and check context limits for GPT, Claude, and Gemini models. A free, private, browser-based tool." />
+  <meta property="og:url" content="https://solite.in/token-calculator.html" />
+  <meta property="og:image" content="https://solite.in/assets/token-calculator-og.png" />
+  <meta property="og:image:alt" content="Solite Token Calculator Tool" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LLM Token Calculator (Multi-Model) | Solite" />
+  <meta name="twitter:description" content="Calculate token count and estimate API costs for GPT, Claude, and Gemini models. 100% private and browser-based tool by Solite." />
+  <meta name="twitter:image" content="https://solite.in/assets/token-calculator-og.png" />
+
+  <!-- 💰 GOOGLE ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'], mono: ['Roboto Mono', 'monospace'] } } }
+    };
+  </script>
+  
+  <!-- 🧠 TOKENIZER LIBRARY -->
+  <!-- This is the upgraded logic: a real tokenizer (cl100k_base) -->
+  <script src="https://cdn.jsdelivr.net/npm/gpt-tokenizer@2.1.2/dist/gpt-tokenizer.browser.min.js"></script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪄 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 🧬 GEN-5.9 SOLITE SCHEMA GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite provides free, privacy-first browser-based tools for business and development."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/token-calculator.html#app",
+        "name": "Token Calculator for LLMs (Multi-Model) | Solite",
+        "url": "https://solite.in/token-calculator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "A free, client-side tool to calculate token counts for multiple LLMs and estimate API costs. 100% private and browser-based.",
+        "featureList": [
+          "Calculate token count for text",
+          "Supports cl100k_base (GPT-4/3.5, Claude 3.5) tokenization",
+          "Estimate API costs for popular models (OpenAI, Anthropic, Google)",
+          "Visualize context window usage",
+          "Live word and character count",
+          "100% private and browser-based"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 💅 STYLE LAYER -->
+  <style>
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.9.2-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.9.2 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | MULTI_MODEL_UX" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Token Calculator</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Token Calculator for Large Language Models</h1>
+            
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Input Text</h2>
+                    <button id="clear-btn" title="Clear Text" class="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        <span>Clear</span>
+                    </button>
+                </div>
+                <textarea id="input-text" aria-label="Input text to tokenize" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800/50 resize-none text-lg" placeholder="Paste or type your text here to calculate tokens..."></textarea>
+            </div>
+
+            <div id="analysis-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col">
+                <h2 class="text-xl font-bold text-white mb-4 flex-shrink-0">Analysis</h2>
+                <div class="flex-grow overflow-y-auto pr-2 space-y-4">
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div id="token-count" class="text-3xl font-bold text-white">0</div>
+                            <div class="text-sm text-gray-400">Tokens</div>
+                        </div>
+                        <div>
+                            <div id="word-count" class="text-3xl font-bold text-white">0</div>
+                            <div class="text-sm text-gray-400">Words</div>
+                        </div>
+                        <div>
+                            <div id="char-count" class="text-3xl font-bold text-white">0</div>
+                            <div class="text-sm text-gray-400">Characters</div>
+                        </div>
+                    </div>
+
+                    <!-- [PREMIUM UX UPGRADE]: Unified Model Selector & Context Visualizer -->
+                    <div class="border-t border-gray-700 pt-4 space-y-3">
+                        <h3 class="font-medium text-base text-white">Model Selection & Context</h3>
+                        <div>
+                            <label for="model-select" class="text-sm text-gray-400 mb-1 block">Compare Models:</label>
+                            <select id="model-select" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-600 font-mono text-sm">
+                                <optgroup label="OpenAI (Accurate Tokenizer: cl100k_base)">
+                                    <option value="gpt-4o">GPT-4o ($5.00 / $15.00 | 128k)</option>
+                                    <option value="gpt-4-turbo">GPT-4 Turbo ($10.00 / $30.00 | 128k)</option>
+                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo ($0.50 / $1.50 | 16k)</option>
+                                </optgroup>
+                                <optgroup label="Anthropic (Accurate Tokenizer: cl100k_base)">
+                                    <option value="claude-3-5-sonnet">Claude 3.5 Sonnet ($3.00 / $15.00 | 200k)</option>
+                                    <option value="claude-3-opus">Claude 3 Opus ($15.00 / $75.00 | 200k)</option>
+                                </optgroup>
+                                <optgroup label="Google (Token Estimate)">
+                                    <option value="gemini-1.5-pro">Gemini 1.5 Pro ($7.00 / $21.00 | 1M)</option>
+                                    <option value="gemini-1.5-flash" selected>Gemini 1.5 Flash ($0.70 / $2.10 | 1M)</option>
+                                </optgroup>
+                            </select>
+                            <p id="tokenizer-disclaimer" class="text-xs mt-1 text-red-400 hidden">
+                                *Token count for Google models is an estimate, as they use a different tokenizer.
+                            </p>
+                        </div>
+                        
+                        <!-- Context Visualizer -->
+                        <div class="space-y-2 pt-2 border-t border-gray-700">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-sm text-gray-400">Context Window Usage</h4>
+                                <div id="context-limit-display" class="text-base font-mono text-white">0 / 1,000,000 Tokens</div>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                <div id="context-progress-bar" class="bg-blue-500 h-2.5 transition-all duration-300 ease-out" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estimated API Cost -->
+                    <div class="border-t border-gray-700 pt-4 space-y-3">
+                        <h3 class="font-medium text-base text-white">Estimated API Cost</h3>
+                        <div class="flex gap-4 text-center">
+                            <div class="flex-1 bg-gray-800 p-3 rounded-lg">
+                                <div id="input-cost" class="text-xl font-bold text-white">$0.000000</div>
+                                <div class="text-xs text-gray-400">Input Cost</div>
+                            </div>
+                            <div class="flex-1 bg-gray-800 p-3 rounded-lg">
+                                <div id="output-cost" class="text-xl font-bold text-white">$0.000000</div>
+                                <div class="text-xs text-gray-400">Output Cost</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 text-center">Costs are estimates (Input / Output per 1M tokens).</p>
+                    </div>
+
+                    <div class="border-t border-gray-700 pt-4">
+                        <h3 class="font-medium text-base mb-2">What are tokens?</h3>
+                        <p class="text-sm text-gray-400">Tokens are pieces of words used by AI models. This tool now uses the real <code class="text-xs bg-gray-800 p-1 rounded">cl100k_base</code> tokenizer (used by GPT and Claude) for highly accurate counts. 1 token is roughly 4 characters in English.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+        </aside>
+
+    </main>
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-16 py-1">
+            <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+                <span>Input</span>
+            </button>
+            <button id="mobile-analysis-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"></path></svg>
+                <span>Analysis</span>
+            </button>
+        </div>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.9 / TOKEN CALCULATOR EDITION) -->
+    <div class="w-full text-gray-300 p-2">
+
+    <style>
+    #solite-info-block-token[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-token > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-token[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-token" class="w-full bg-gray-900 rounded-2xl border border-gray-700 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Token Calculator for LLMs (GPT-4, Claude, Gemini)
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Token Calculator</span>
+            <span class="badge">Context Visualizer</span>
+            <span class="badge">API Cost Estimator</span>
+            <span class="badge">Privacy-First</span>
+            <span class="badge">Multi-Model Compare</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Token Calculator</strong> is a free, client-side tool to estimate tokens and API costs across major LLM providers: OpenAI (GPT), Anthropic (Claude), and Google (Gemini). It uses the highly accurate <code class="text-xs bg-gray-800 p-1 rounded">cl100k_base</code> tokenizer for GPT and Claude models. Instantly visualize your text against a model's context window, all <strong>100% inside your browser</strong> for complete privacy.
+        </p>
+    </section>
+
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Use This Multi-Model Tool?</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Cross-Provider Comparison:</strong> Easily switch between models to see how token counts and costs differ.</li>
+            <li><strong>Context Window Management (NEW):</strong> The visualizer instantly shows if your prompt fits within the selected model's maximum context limit.</li>
+            <li><strong>Accurate Cost Planning:</strong> Get precise input and output cost estimates for your production workloads.</li>
+            <li><strong>Absolute Privacy:</strong> Your text is never sent to a server; all calculations run instantly in your browser.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Paste your text into the input area.</li>
+            <li>Select your desired LLM from the "Compare Models" dropdown (OpenAI, Anthropic, Google).</li>
+            <li>The tool instantly calculates tokens using the corresponding accurate tokenizer (or a close estimate for Gemini).</li>
+            <li>The Context Window bar updates to show if your text is nearing or exceeding the model's limit.</li>
+        </ol>
+    </section>
+    
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./ai-prompt-randomizer.html" class="text-white hover:underline font-medium">AI Prompt Randomizer</a> — For generating creative ideas to use with LLMs.</li>
+            <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — For a deeper analysis of your text's readability and tone.</li>
+            <li><a href="./json-formatter.html" class="text-white hover:underline font-medium">JSON Formatter</a> — For cleaning up API responses.</li>
+        </ul>
+         <p class="text-gray-400 mt-3">
+             <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>token calculator, multi-model token counter, gpt-4 tokenizer, claude 3.5 tokenizer, llm token estimator, api cost calculator, context window checker, free ai tool, solite, privacy-first, cl100k_base tokenizer</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite Token Calculator — a multi-model, 100% client-side tool that calculates accurate token counts and visualizes context usage for GPT, Claude, and Gemini models, ensuring user text remains completely private.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.9 BLOCK / TOKEN CALCULATOR -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" class="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // [LOGIC UPGRADE]: Element references for new UX
+            const el = {
+                inputText: document.getElementById('input-text'),
+                tokenCount: document.getElementById('token-count'),
+                wordCount: document.getElementById('word-count'),
+                charCount: document.getElementById('char-count'),
+                clearBtn: document.getElementById('clear-btn'),
+                modelSelect: document.getElementById('model-select'),
+                inputCost: document.getElementById('input-cost'),
+                outputCost: document.getElementById('output-cost'),
+                tokenizerDisclaimer: document.getElementById('tokenizer-disclaimer'), // New
+                contextLimitDisplay: document.getElementById('context-limit-display'), // New
+                contextProgressBar: document.getElementById('context-progress-bar'), // New
+                inputPane: document.getElementById('input-pane'),
+                analysisPane: document.getElementById('analysis-pane'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileAnalysisBtn: document.getElementById('mobile-analysis-btn'),
+            };
+
+            // [LOGIC UPGRADE]: Model data including pricing (Input / Output per 1M tokens) and context limit
+            const MODEL_DATA = {
+                // OpenAI models (cl100k_base tokenizer)
+                'gpt-4o': { provider: 'OpenAI', name: 'GPT-4o', input: 5.00, output: 15.00, context: 128000, tokenizer: 'cl100k_base' },
+                'gpt-4-turbo': { provider: 'OpenAI', name: 'GPT-4 Turbo', input: 10.00, output: 30.00, context: 128000, tokenizer: 'cl100k_base' },
+                'gpt-3.5-turbo': { provider: 'OpenAI', name: 'GPT-3.5 Turbo', input: 0.50, output: 1.50, context: 16384, tokenizer: 'cl100k_base' },
+
+                // Anthropic models (cl100k_base tokenizer)
+                'claude-3-5-sonnet': { provider: 'Anthropic', name: 'Claude 3.5 Sonnet', input: 3.00, output: 15.00, context: 200000, tokenizer: 'cl100k_base' },
+                'claude-3-opus': { provider: 'Anthropic', name: 'Claude 3 Opus', input: 15.00, output: 75.00, context: 200000, tokenizer: 'cl100k_base' },
+
+                // Google models (Different tokenizer - use cl100k_base as estimate)
+                'gemini-1.5-pro': { provider: 'Google', name: 'Gemini 1.5 Pro', input: 7.00, output: 21.00, context: 1000000, tokenizer: 'estimate' },
+                'gemini-1.5-flash': { provider: 'Google', name: 'Gemini 1.5 Flash', input: 0.70, output: 2.10, context: 1000000, tokenizer: 'estimate' },
+            };
+
+            const debounce = (func, delay) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            // [NEW FUNCTION]: Update the Context Visualizer bar and text
+            function updateContextVisualizer(tokenCount, modelData) {
+                const limit = modelData.context;
+                const usage = tokenCount;
+                const percentage = (usage / limit) * 100;
+
+                // Update text: 1,234 / 128,000 Tokens
+                el.contextLimitDisplay.textContent = `${usage.toLocaleString()} / ${limit.toLocaleString()} Tokens`;
+
+                // Update progress bar width
+                el.contextProgressBar.style.width = `${Math.min(percentage, 100)}%`;
+
+                // Update progress bar color based on usage
+                el.contextProgressBar.classList.remove('bg-red-600', 'bg-yellow-500', 'bg-blue-500');
+                if (percentage > 100) {
+                    el.contextProgressBar.classList.add('bg-red-600'); // Over limit
+                } else if (percentage > 80) {
+                    el.contextProgressBar.classList.add('bg-yellow-500'); // Approaching limit
+                } else {
+                    el.contextProgressBar.classList.add('bg-blue-500'); // Normal usage
+                }
+
+                // Handle Disclaimer visibility for estimated tokenizers
+                if (modelData.tokenizer === 'estimate') {
+                    el.tokenizerDisclaimer.classList.remove('hidden');
+                } else {
+                    el.tokenizerDisclaimer.classList.add('hidden');
+                }
+            }
+            
+            // [LOGIC UPGRADE]: New function to calculate cost
+            function calculateCost(tokenCount) {
+                const modelKey = el.modelSelect.value;
+                const modelData = MODEL_DATA[modelKey];
+                
+                if (!modelData || !el.inputCost || !el.outputCost) return;
+
+                const tokensPerMillion = 1_000_000;
+
+                const inputCost = (tokenCount / tokensPerMillion) * modelData.input;
+                const outputCost = (tokenCount / tokensPerMillion) * modelData.output;
+
+                // Format to 6 decimal places for precision with small costs
+                el.inputCost.textContent = `$${inputCost.toLocaleString('en-US', { minimumFractionDigits: 6, maximumFractionDigits: 6 })}`;
+                el.outputCost.textContent = `$${outputCost.toLocaleString('en-US', { minimumFractionDigits: 6, maximumFractionDigits: 6 })}`;
+
+                // Call the new visualizer logic
+                updateContextVisualizer(tokenCount, modelData);
+            }
+            
+            // [LOGIC UPGRADE]: Main analysis function now uses the real tokenizer
+            function analyzeText() {
+                const text = el.inputText.value;
+                
+                // Basic stats (unchanged)
+                const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+                el.wordCount.textContent = words.length;
+                el.charCount.textContent = text.length;
+
+                // [LOGIC UPGRADE]: Robust token calculation
+                let tokenCount = 0;
+                try {
+                    if (typeof gptTokenizer !== 'undefined') {
+                        // All supported models (GPT, Claude) currently use the cl100k_base tokenizer.
+                        const tokens = gptTokenizer.encode(text);
+                        tokenCount = tokens.length;
+                    } else {
+                        // Fallback just in case library fails to load
+                        console.warn("gptTokenizer library not found. Falling back to simple estimate.");
+                        tokenCount = Math.ceil(words.length / 0.75);
+                    }
+                } catch (e) {
+                    console.error("Tokenization error:", e);
+                    el.tokenCount.textContent = "Error";
+                }
+                el.tokenCount.textContent = tokenCount.toLocaleString();
+                
+                // [UX UPGRADE]: Calculate cost and update context visualizer
+                calculateCost(tokenCount);
+            }
+
+            function showMobilePane(paneId) {
+                if (paneId === 'input') {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.analysisPane.classList.add('hidden'); el.analysisPane.classList.remove('flex');
+                    el.mobileInputBtn.classList.add('active'); el.mobileAnalysisBtn.classList.remove('active');
+                } else { // 'analysis'
+                    el.inputPane.classList.add('hidden'); el.inputPane.classList.remove('flex');
+                    el.analysisPane.classList.remove('hidden'); el.analysisPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileAnalysisBtn.classList.add('active');
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    // Check if the analysis pane button has the 'active' class to decide which pane to show
+                    const showAnalysis = el.mobileAnalysisBtn.classList.contains('active');
+                    showMobilePane(showAnalysis ? 'analysis' : 'input');
+                } else {
+                    // Desktop view: show both panes
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.analysisPane.classList.remove('hidden'); el.analysisPane.classList.add('flex');
+                }
+            }
+
+            // [LOGIC UPGRADE]: Event listeners updated
+            el.inputText.addEventListener('input', debounce(analyzeText, 200));
+            el.inputText.addEventListener('paste', () => setTimeout(analyzeText, 0));
+            el.modelSelect.addEventListener('change', analyzeText); // Re-calculate everything on model change
+            el.clearBtn.addEventListener('click', () => {
+                el.inputText.value = '';
+                analyzeText(); // Re-run analysis to reset counts to 0
+            });
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileAnalysisBtn.addEventListener('click', () => showMobilePane('analysis'));
+            window.addEventListener('resize', handleMobileLayout);
+
+            // Initial setup
+            handleMobileLayout();
+            analyzeText(); // Run on load to initialize all fields
+        });
+    </script>
+</body>
+</html>

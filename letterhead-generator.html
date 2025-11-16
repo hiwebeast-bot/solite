@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+ <!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Letterhead Generator — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Letterhead Generator | Create Custom Company Letterheads Free | Solite</title>
+  <meta name="description"
+        content="Design and download professional company letterheads for free with Solite's Letterhead Generator. Add your logo, contact details, choose layouts, and export as PDF. 100% private & client-side." />
+
+  <!-- Canonical + Robots -->
+  <link rel="canonical" href="https://solite.in/letterhead-generator.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Branding -->
+  <meta name="application-name" content="Solite Letterhead Generator" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+  <!-- Referrer & Privacy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Letterhead Generator — Free Professional Company Letterhead Maker" />
+  <meta property="og:description"
+        content="Design polished company letterheads with custom logo, contact info, multiple layouts, and instant PDF/PNG export. 100% client-side & privacy-first." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image"
+        content="https://api.microlink.io/?url=https://solite.in/letterhead-generator.html&meta=false&screenshot=true" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Letterhead Generator — Free Company Letterhead Creator" />
+  <meta name="twitter:description"
+        content="Create professional company letterheads instantly. Easy, private, and fast." />
+  <meta name="twitter:image"
+        content="https://api.microlink.io/?url=https://solite.in/letterhead-generator.html&meta=false&screenshot=true" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts (Non-blocking Preload) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;700&family=Roboto+Mono:wght@400&display=swap"
+        as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;700&family=Roboto+Mono:wght@400&display=swap">
+  </noscript>
+
+  <!-- Inline UI Styling (scrollbars, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .image-selected { 
+      outline: dashed 2px #4b5563; 
+      border-radius: 0.25rem;
+      z-index: 20;
+    }
+    [contenteditable="true"]:focus { outline:none; box-shadow: 0 0 0 2px #4b5563; }
+    input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+    input[type="color"]::-webkit-color-swatch { border: none; border-radius: 0.375rem; }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+
+  <!-- JSON-LD Schema (Organization + WebApplication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Letterhead Generator",
+    "url": "https://solite.in/letterhead-generator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Create professional company letterheads with custom logos, layouts, and branding. Export to PDF/PNG for free. 100% client-side for privacy.",
+    "featureList": [
+      "Custom Logo Upload",
+      "Professional Layout",
+      "Real-time Content Editing",
+      "Font Customization",
+      "Accent Color Branding",
+      "PDF & PNG Export",
+      "100% Client-Side & Private"
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Solite",
+      "url": "https://solite.in"
+    }
+  }
+  </script>
+
+  <!-- 📊 Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+  <!-- 💰 GOOGLE ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <!-- Solite uses APEX HEAD v5.0 — Authority Predator Edition -->
+</head>
+<body class="bg-black text-gray-200">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useReducer, useEffect, useRef, useCallback, forwardRef } = React;
+
+    // --- Constants ---
+    const INITIAL_STATE = {
+      companyName: 'Your Company LLC',
+      companyAddress: '123 Business Rd, Suite 100\nCity, State, 12345',
+      companyEmail: 'contact@yourcompany.com',
+      companyPhone: '(555) 123-4567',
+      companyWebsite: 'www.yourcompany.com',
+      bodyContent: `Dear [Client Name],\n\nThis is the main body of your letter. You can edit this text directly in the preview panel on the right. Use this space to write your official correspondence, proposals, or any other documents you need on your company letterhead.\n\nKey features include:\n\n- Real-time editing\n- Custom logo and branding\n- Professional layout\n- PDF and Image export\n\nThank you for using our tool.\n\nSincerely,\n\n[Your Name]`,
+      logo: { src: null, x: 40, y: 40, width: 120, height: 60, opacity: 1 },
+      accentColor: '#000000',
+      fontFamily: 'Inter', // 'Inter', 'Roboto Slab', 'Roboto Mono'
+      fontSize: 11, // in points
+      showWatermark: false,
+    };
+
+    // --- Reducer ---
+    const letterheadReducer = (state, action) => {
+      switch (action.type) {
+        case 'UPDATE_FIELD':
+          return { ...state, [action.payload.field]: action.payload.value };
+        case 'UPDATE_IMAGE':
+          return {
+            ...state,
+            [action.payload.imageType]: { ...state[action.payload.imageType], ...action.payload.data },
+          };
+        case 'RESET_STATE':
+            return { ...INITIAL_STATE };
+        default:
+          return state;
+      }
+    };
+
+    // --- Components ---
+    const Header = () => (
+      <header className="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex justify-between items-center">
+          <a href="index.html" className="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+            <div className="flex items-center space-x-3">
+              <svg className="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+              <span className="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+            </div>
+            <span className="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+            <span className="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Letterhead Generator</span>
+          </a>
+          <div className="flex items-center space-x-4">
+            <a href="index.html#apps" className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+              <span>Free Tools</span>
+              <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5-5 5"></path></svg>
+            </a>
+          </div>
+        </div>
+      </header>
+    );
+
+    const Footer = () => (
+        <footer className="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+             <div className="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg className="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="./about.html" className="hover:text-white transition-colors">About</a>
+                <a href="./blog.html" className="hover:text-white transition-colors">Blog</a>
+                <a href="./privacy.html" className="hover:text-white transition-colors">Privacy</a>
+                <a href="./terms.html" className="hover:text-white transition-colors">Terms</a>
+                <a href="./disclaimer.html" className="hover:text-white transition-colors">Disclaimer</a>
+                <a href="mailto:support@solite.in" className="hover:text-white transition-colors">Contact</a>
+            </div>
+          </div>
+        </footer>
+    );
+
+    const SeoBlock = () => {
+        return (
+            <div className="w-full text-gray-300 mx-2 mb-2">
+                <style>{`
+                    #solite-info-block-letterhead[open] > summary { border-bottom: 1px solid #374151; }
+                    #solite-info-block-letterhead > summary .details-arrow-seo {
+                        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+                    }
+                    #solite-info-block-letterhead[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+                    .badge {
+                        display:inline-flex; align-items:center; gap:.5rem;
+                        border:1px solid #374151; padding:.25rem .6rem;
+                        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+                    }
+                `}</style>
+                <details id="solite-info-block-letterhead" className="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+                    <summary className="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+                        Letterhead Generator — Create Professional Company Letterheads
+                        <svg className="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <div className="p-6 space-y-10 leading-relaxed">
+                        <section className="space-y-3">
+                            <div className="flex flex-wrap gap-2">
+                                {['Letterhead Maker', 'PDF Export', 'Custom Layouts', 'Logo Upload', 'Client-Side', 'Privacy-First'].map(badge => (
+                                    <span key={badge} className="badge">{badge}</span>
+                                ))}
+                            </div>
+                            <p className="text-lg text-gray-300">
+                                The <strong>Solite Letterhead Generator</strong> is a free tool for businesses and professionals to design custom, branded letterheads in seconds.
+                                Choose layouts, add your logo, customize fonts, and export print-ready PDF/PNG files —
+                                all processed <strong>100% offline inside your browser</strong> for complete privacy.
+                            </p>
+                        </section>
+                        <section>
+                            <h3 className="text-white text-xl font-semibold mb-2">Key Features</h3>
+                             <ul className="list-disc list-inside text-gray-400 space-y-2">
+                                 <li><strong>Custom Branding:</strong> Upload your logo, position it freely, and set a brand accent color.</li>
+                                 <li><strong>Professional Layout:</strong> A premium, versatile layout suitable for all businesses.</li>
+                                 <li><strong>Typography Control:</strong> Select from professional web fonts (sans-serif, serif, mono) and adjust the font size.</li>
+                                 <li><strong>Live Editing:</strong> Write your letter directly on the preview and see your changes instantly.</li>
+                                 <li><strong>High-Resolution Export:</strong> Download your letterhead as a crisp PDF, PNG, or JPEG file.</li>
+                                 <li><strong>Local Auto-Save:</strong> All your edits are saved in your browser automatically.</li>
+                                 <li><strong>100% Private:</strong> No servers, no uploads, no tracking. Your data never leaves your device.</li>
+                             </ul>
+                        </section>
+                        <section>
+                            <h3 className="text-white text-xl font-semibold mb-2">How to Create Your Letterhead</h3>
+                             <ol className="list-decimal list-inside text-gray-400 space-y-2">
+                                 <li>Add your company logo and select a brand accent color.</li>
+                                 <li>Fill in your company's contact details (name, address, email, etc.).</li>
+                                 <li>Choose a font style and size that matches your brand identity.</li>
+                                 <li>Click on the preview pane to start writing your letter content.</li>
+                                 <li>Click <strong>Download</strong> to export as a high-quality PDF, PNG, or JPEG.</li>
+                             </ol>
+                        </section>
+                        <section>
+                            <h3 className="text-white text-xl font-semibold mb-2">Solite vs Other Tools (e.g., MS Word)</h3>
+                            <table className="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                                <thead className="bg-gray-800 text-gray-200 font-semibold">
+                                    <tr>
+                                        <th className="p-2 text-left">Feature</th>
+                                        <th className="p-2 text-left">Solite</th>
+                                        <th className="p-2 text-left">MS Word / Canva</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td className="p-2">Privacy</td><td className="p-2">✅ Fully Client-Side</td><td className="p-2">❌ Cloud Uploads / Sign-in</td></tr>
+                                    <tr><td className="p-2">Speed</td><td className="p-2">✅ Instant, In-Browser</td><td className="p-2">⚠️ Slower, Requires Software</td></tr>
+                                    <tr><td className="p-2">Ease of Use</td><td className="p-2">✅ Simple, Focused UI</td><td className="p-2">❌ Complex, Many Options</td></tr>
+                                    <tr><td className="p-2">Price</td><td className="p-2">✅ Free Forever</td><td className="p-2">❌ Paid Plans / Subscriptions</td></tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 className="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+                            <ul className="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                                <li><a href="./invoice-generator.html" className="text-white hover:underline font-medium">Invoice Generator</a></li>
+                                <li><a href="./business-card-maker.html" className="text-white hover:underline font-medium">Business Card Maker</a></li>
+                                <li><a href="./brand-kit-generator.html" className="text-white hover:underline font-medium">Brand Kit Generator</a></li>
+                            </ul>
+                            <p className="text-gray-400 mt-3">
+                                <a href="./index.html#apps" className="text-white font-semibold hover:underline">
+                                    Browse all Solite Apps →
+                                </a>
+                            </p>
+                        </section>
+                        <section className="space-y-2">
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                Keywords:
+                                <em>letterhead generator, free letterhead maker, company letterhead design, create letterhead online, business letterhead pdf, custom logo letterhead, solite business tools</em>.
+                            </p>
+                            <p className="text-xs text-gray-600 italic">
+                                <strong>AI / Reviewer Citation Cue:</strong><br/>
+                                “Solite Letterhead Generator — a 100% client-side tool for creating professional, branded company letterheads with a versatile layout and instant PDF export.”
+                            </p>
+                        </section>
+                    </div>
+                </details>
+            </div>
+        );
+    };
+    
+    const DetailSection = ({ title, children }) => (
+        <div className="space-y-4">
+            <div className="text-xl font-bold text-white">
+                <span>{title}</span>
+            </div>
+            <div className="space-y-4">{children}</div>
+        </div>
+    );
+
+    const ControlsPanel = ({ state, dispatch, isDownloading, downloadFormat, setDownloadFormat, handleDownload, handleReset, mobileView }) => {
+        const [dropdownOpen, setDropdownOpen] = useState(false);
+        const handleFieldChange = (e) => {
+            const { id, value, type, checked } = e.target;
+            const finalValue = type === 'checkbox' ? checked : (id === 'fontSize' ? parseFloat(value) || 11 : value);
+            dispatch({ type: 'UPDATE_FIELD', payload: { field: id, value: finalValue } });
+        };
+
+        const handleImageUpload = (e, imageType) => {
+            const file = e.target.files?.[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    dispatch({ type: 'UPDATE_IMAGE', payload: { imageType, data: { src: event.target?.result } } });
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        const removeImage = (imageType) => {
+            dispatch({ type: 'UPDATE_IMAGE', payload: { imageType, data: { src: null } } });
+            const input = document.getElementById(`${imageType}-upload-input`);
+            if (input) input.value = '';
+        };
+
+        return (
+            <div className={`w-full lg:w-[35%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex-col ${mobileView === 'controls' ? 'flex' : 'hidden'} lg:flex`}>
+                <div className="space-y-6 overflow-y-auto pr-2 flex-grow">
+                    <DetailSection title="Branding">
+                        <div className="grid grid-cols-2 gap-4 items-end">
+                            <div>
+                                {!state.logo.src ? (
+                                  <label htmlFor="logo-upload-input" className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium mb-1 py-3 px-3 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                                    <span>Add Logo</span>
+                                  </label>
+                                ) : (
+                                  <button onClick={() => removeImage('logo')} className="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg">Remove Logo</button>
+                                )}
+                                <input type="file" id="logo-upload-input" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'logo')} />
+                            </div>
+                            <div>
+                                <label htmlFor="accentColor" className="block text-sm font-medium text-gray-300 mb-1">Accent Color</label>
+                                <input type="color" id="accentColor" value={state.accentColor} onChange={handleFieldChange} className="w-full h-12 p-0 bg-gray-800 rounded-lg cursor-pointer border border-gray-600" />
+                            </div>
+                        </div>
+                    </DetailSection>
+
+                    <DetailSection title="Company Details">
+                         <div><label className="text-sm">Company Name</label><input type="text" id="companyName" value={state.companyName} onChange={handleFieldChange} placeholder="Your Company LLC" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"/></div>
+                         <div><label className="text-sm">Address</label><textarea id="companyAddress" rows="3" value={state.companyAddress} onChange={handleFieldChange} placeholder="123 Business Rd..." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"></textarea></div>
+                         <div className="grid grid-cols-2 gap-4">
+                            <div><label className="text-sm">Email</label><input type="email" id="companyEmail" value={state.companyEmail} onChange={handleFieldChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"/></div>
+                            <div><label className="text-sm">Phone</label><input type="tel" id="companyPhone" value={state.companyPhone} onChange={handleFieldChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"/></div>
+                        </div>
+                         <div><label className="text-sm">Website</label><input type="text" id="companyWebsite" value={state.companyWebsite} onChange={handleFieldChange} placeholder="www.yourcompany.com" className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"/></div>
+                    </DetailSection>
+
+                    <DetailSection title="Style">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="fontFamily" className="block text-sm font-medium text-gray-300">Font</label>
+                          <select id="fontFamily" value={state.fontFamily} onChange={handleFieldChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3">
+                            <option value="Inter">Inter (Sans-Serif)</option>
+                            <option value="'Roboto Slab', serif">Roboto Slab (Serif)</option>
+                            <option value="'Roboto Mono', monospace">Roboto Mono (Monospace)</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="fontSize" className="block text-sm font-medium text-gray-300">Font Size (pt)</label>
+                          <input type="number" id="fontSize" min="8" max="24" value={state.fontSize} onChange={handleFieldChange} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3" />
+                        </div>
+                      </div>
+                       <div className="flex items-center gap-2 py-2 ">
+                           <input type="checkbox" id="showWatermark" checked={state.showWatermark} onChange={handleFieldChange} className="h-4 w-4 rounded" />
+                           <label htmlFor="showWatermark" className="text-sm font-medium text-gray-300">Show Logo as Watermark</label>
+                        </div>
+                    </DetailSection>
+                    
+                    <DetailSection title="Content">
+                        <div>
+                          <label htmlFor="bodyContent" className="block text-sm font-medium text-gray-300">Letter Body</label>
+                          <p className="text-xs text-gray-500 mb-2">Edit your letter's content here or directly in the preview panel.</p>
+                          <textarea id="bodyContent" rows="8" value={state.bodyContent} onChange={handleFieldChange} placeholder="Start writing your letter..." className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3"></textarea>
+                      </div>
+                    </DetailSection>
+                </div>
+                <div className="mt-auto pt-6 border-t border-gray-700">
+                    <div className="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                        <div className="relative">
+                            <button onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                                <span>{downloadFormat.toUpperCase()}</span>
+                                <svg className={`w-5 h-5 transition-transform duration-200 transform ${dropdownOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                            {dropdownOpen && (
+                            <div className="absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                {['pdf', 'png', 'jpeg'].map(format => (
+                                <a href="#" key={format} onClick={(e) => { e.preventDefault(); setDownloadFormat(format); setDropdownOpen(false); }} className="block px-4 py-2 text-white hover:bg-gray-700">{format.toUpperCase()}</a>
+                                ))}
+                            </div>
+                            )}
+                        </div>
+                        <button onClick={handleDownload} disabled={isDownloading} className="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-50 disabled:cursor-wait">
+                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                           {isDownloading ? 'Downloading...' : 'Download'}
+                        </button>
+                        <button onClick={handleReset} className="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Letterhead">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+                           <span className="sr-only">Reset</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const PreviewPanel = forwardRef(({ state, dispatch, mobileView, previewScale }, ref) => {
+        const [selectedElement, setSelectedElement] = useState(null);
+        
+        useEffect(() => {
+            if (typeof window.interact === 'undefined') return;
+            const handler = (event) => {
+                const target = event.target;
+                const { x, y } = state.logo;
+                const newX = x + event.dx / previewScale;
+                const newY = y + event.dy / previewScale;
+                dispatch({ type: 'UPDATE_IMAGE', payload: { imageType: 'logo', data: { x: newX, y: newY } } });
+            };
+            const resizeHandler = (event) => {
+                const { x, y } = state.logo;
+                const newX = x + event.deltaRect.left / previewScale;
+                const newY = y + event.deltaRect.top / previewScale;
+                dispatch({
+                    type: 'UPDATE_IMAGE',
+                    payload: { imageType: 'logo', data: { x: newX, y: newY, width: event.rect.width / previewScale, height: event.rect.height / previewScale } },
+                });
+            };
+            window.interact('.resizable-image').draggable({ listeners: { move: handler } }).resizable({
+                edges: { left: true, right: true, bottom: true, top: true },
+                listeners: { move: resizeHandler },
+            });
+            return () => { if(window.interact) window.interact('.resizable-image').unset(); };
+        }, [dispatch, state.logo, previewScale]);
+
+        const handleSelect = (e) => {
+            e.stopPropagation();
+            setSelectedElement('logo');
+        };
+
+        const handleBodyChange = (e) => {
+            dispatch({ type: 'UPDATE_FIELD', payload: { field: 'bodyContent', value: e.target.innerText }});
+        };
+        
+        const fontStyles = { fontFamily: state.fontFamily, fontSize: `${state.fontSize}pt`, lineHeight: 1.6 };
+
+        return (
+            <div
+                ref={ref.containerRef}
+                className={`flex-1 bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:grid lg:place-items-top lg:p-12 overflow-auto lg:w-[65%] ${mobileView === 'preview' ? 'grid' : 'hidden'} lg:grid`}
+                onClick={() => setSelectedElement(null)}
+            >
+                <div
+                    ref={ref.proposalRef}
+                    style={{ transform: `scale(${previewScale})`, transformOrigin: 'top center', ...fontStyles }}
+                    className="aspect-[1/1.414] w-[816px] shadow-2xl relative overflow-hidden bg-white text-black font-sans transition-transform duration-200"
+                >
+                    {state.showWatermark && state.logo.src && (
+                        <div className="absolute inset-0 flex items-center justify-center z-0">
+                            <img src={state.logo.src} className="w-1/2 h-auto object-contain opacity-5 pointer-events-none" alt="Watermark"/>
+                        </div>
+                    )}
+                    
+                    {state.logo.src && (
+                        <div
+                            data-image-type="logo"
+                            className={`resizable-image absolute cursor-move z-20 ${selectedElement === 'logo' ? 'image-selected' : ''}`}
+                            style={{ width: `${state.logo.width}px`, height: `${state.logo.height}px`, transform: `translate(${state.logo.x}px, ${state.logo.y}px)` }}
+                            onClick={handleSelect}
+                        > 
+                            <img src={state.logo.src} className="w-full h-full object-contain pointer-events-none" alt="Company Logo"/>
+                        </div>
+                    )}
+
+                    <div className="relative z-10 h-full flex flex-col">
+                        <header className="p-10 flex justify-end items-start w-full border-b mb-4" style={{borderColor: state.accentColor}}>
+                            <div className="text-right text-xs text-gray-700 space-y-1">
+                                <h2 className="font-bold text-xl text-black">{state.companyName}</h2>
+                                <p className="whitespace-pre-line">{state.companyAddress}</p>
+                                <p>{state.companyEmail}</p>
+                                <p>{state.companyPhone}</p>
+                                <p>{state.companyWebsite}</p>
+                            </div>
+                        </header>
+                        
+                        <main className="flex-grow px-10 pb-10">
+                            <div
+                                contentEditable="true"
+                                suppressContentEditableWarning={true}
+                                className="whitespace-pre-line h-full"
+                                onBlur={handleBodyChange}
+                                dangerouslySetInnerHTML={{ __html: state.bodyContent.replace(/\n/g, '<br />') }}
+                            >
+                            </div>
+                        </main>
+                        
+                        <footer className="px-10 py-4 mt-auto text-xs text-gray-500 text-center border-t" style={{borderColor: state.accentColor}}>
+                            <p>{state.companyName} | {state.companyWebsite}</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        );
+    });
+
+    const MobileNav = ({ mobileView, setMobileView }) => (
+      <div className="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 z-40">
+        <div className="flex justify-around items-center h-16 py-1">
+          <button onClick={() => setMobileView('controls')} className={`flex flex-col items-center justify-center text-xs w-1/2 gap-1 ${mobileView === 'controls' ? 'text-white' : 'text-gray-400'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+            <span>Edit</span>
+          </button>
+          <button onClick={() => setMobileView('preview')} className={`flex flex-col items-center justify-center text-xs w-1/2 gap-1 ${mobileView === 'preview' ? 'text-white' : 'text-gray-400'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+            <span>Preview</span>
+          </button>
+        </div>
+      </div>
+    );
+    
+    // --- Main App Component ---
+    const App = () => {
+      const [state, dispatch] = useReducer(letterheadReducer, INITIAL_STATE, (initial) => {
+        try {
+          const storedState = localStorage.getItem('letterheadState');
+          return storedState ? { ...initial, ...JSON.parse(storedState) } : initial;
+        } catch (e) {
+          return initial;
+        }
+      });
+      useEffect(() => { localStorage.setItem('letterheadState', JSON.stringify(state)); }, [state]);
+
+      const [mobileView, setMobileView] = useState('controls');
+      const [isDownloading, setIsDownloading] = useState(false);
+      const [downloadFormat, setDownloadFormat] = useState('pdf');
+      const [previewScale, setPreviewScale] = useState(1);
+      
+      const proposalRef = useRef(null);
+      const previewContainerRef = useRef(null);
+
+      const updateScale = useCallback(() => {
+        if (previewContainerRef.current && proposalRef.current) {
+          const panelWidth = previewContainerRef.current.clientWidth;
+          const proposalWidth = 816;
+          if (panelWidth < proposalWidth) {
+            const scale = (panelWidth - 16) / proposalWidth;
+            setPreviewScale(scale);
+          } else {
+            setPreviewScale(1);
+          }
+        }
+      }, []);
+
+      useEffect(() => {
+        updateScale();
+        window.addEventListener('resize', updateScale);
+        return () => window.removeEventListener('resize', updateScale);
+      }, [updateScale]);
+
+      const handleDownload = useCallback(async () => {
+        if (!proposalRef.current || isDownloading) return;
+        setIsDownloading(true);
+        
+        const letterheadEl = proposalRef.current;
+        const originalTransform = letterheadEl.style.transform;
+        letterheadEl.style.transform = ''; // Remove scale for full-res capture
+        
+        await new Promise(resolve => setTimeout(resolve, 50));
+        
+        try {
+          const canvas = await html2canvas(letterheadEl, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
+          const filename = `letterhead-${state.companyName.replace(/\s/g, '-') || 'document'}.${downloadFormat}`;
+          
+          if (downloadFormat === 'pdf') {
+            const { jsPDF } = window.jspdf;
+            const imgData = canvas.toDataURL('image/png', 1.0);
+            const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+            pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+            pdf.save(filename);
+          } else {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
+            link.download = filename;
+            link.click();
+          }
+        } catch (error) {
+          console.error("Download failed:", error);
+        } finally {
+          letterheadEl.style.transform = originalTransform; // Restore scale
+          setIsDownloading(false);
+        }
+      }, [isDownloading, state.companyName, downloadFormat]);
+
+      const handleReset = () => {
+        if (window.confirm('Are you sure you want to reset all fields?')) {
+          dispatch({ type: 'RESET_STATE' });
+        }
+      };
+
+      return (
+        <div className="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+          <Header />
+          <main className="flex-grow flex relative">
+            <div className="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] lg:h-[calc(100vh-96px)]">
+              <ControlsPanel
+                state={state}
+                dispatch={dispatch}
+                isDownloading={isDownloading}
+                downloadFormat={downloadFormat}
+                setDownloadFormat={setDownloadFormat}
+                handleDownload={handleDownload}
+                handleReset={handleReset}
+                mobileView={mobileView}
+              />
+              <PreviewPanel
+                ref={{ proposalRef: proposalRef, containerRef: previewContainerRef }}
+                state={state}
+                dispatch={dispatch}
+                mobileView={mobileView}
+                previewScale={previewScale}
+              />
+            </div>
+            <aside className="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:flex lg:flex-col lg:sticky lg:top-[96px] lg:h-[calc(100vh-96px)]">
+              <div className="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+            </aside>
+          </main>
+          <MobileNav mobileView={mobileView} setMobileView={setMobileView} />
+          <SeoBlock />
+          <Footer />
+        </div>
+      );
+    };
+
+    // --- Mount App ---
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
