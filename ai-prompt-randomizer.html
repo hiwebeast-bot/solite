@@ -64,9 +64,16 @@
   <!-- ⚙️ ANALYTICS + ADS (Non-Blocking) -->
   <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
   
-  <!-- 📊 Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
-  <!-- End Cloudflare Web Analytics -->
+  <!--  📊 Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71L3MYLBH0"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-71L3MYLBH0');
+  </script>
+  <!--  End Google tag (gtag.js) -->
 
   <!-- 🧬 SCHEMA / STRUCTURED DATA -->
   <script type="application/ld+json">

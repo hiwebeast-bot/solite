@@ -115,9 +115,16 @@
   <!-- 💰 ADS + ANALYTICS -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6623613371208692" crossorigin="anonymous"></script>
   
-  <!-- 📊 Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
-  <!-- End Cloudflare Web Analytics -->
+  <!--  📊 Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71L3MYLBH0"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-71L3MYLBH0');
+  </script>
+  <!--  End Google tag (gtag.js) -->
    
   <!-- 🎨 INLINE UI STYLE -->
   <style>
@@ -220,7 +227,7 @@
             
             <!-- Right Pane (Controls & Results) -->
             <div id="preview-pane" class="flex-1 p-4 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                <div id="controls-container" class=" lg:p-8 lg:px-40 border-b border-gray-800">
+                <div id="controls-container" class=" lg:p-8 lg:w-[50%] mx-auto border-b border-gray-800">
                     <!-- Add/Subtract Panel -->
                     <div id="add-subtract-panel" class="panel active space-y-4">
                         <div class="space-y-2">

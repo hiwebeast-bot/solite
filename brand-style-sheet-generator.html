@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 ROBUST HEAD / BRAND STYLE SHEET GENERATOR — AUTHORITY DESIGN SYSTEM EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Brand Style Sheet & Design System Generator | Solite</title>
+  <meta name="description" content="Generate a complete brand style sheet: colors, typography, spacing scale, voice, logo usage, components, and CSS variables. Export as PDF, PNG, or CSS — 100% private & in-browser." />
+  <meta name="keywords" content="brand style sheet generator, brand guidelines creator, free design system builder, css variables export, color palette generator, typography scale, spacing scale, logo usage, solite brand tool, design tokens" />
+  <link rel="canonical" href="https://solite.in/brand-style-sheet-generator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="author" content="Solite Team" />
+  <meta name="brand" content="Solite" />
+  <meta name="application-name" content="Brand Style Sheet Generator" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.1 Robust — Design System Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="brand guidelines, design system, css variables, style sheet export" />
+  <meta name="ai-content-type" content="Interactive Design System Tool" />
+  <meta name="ai-purpose" content="Brand style sheet creation & export" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Brand Style Sheet & Design System Generator | Solite" />
+  <meta property="og:description" content="Create and export professional brand guidelines privately in your browser." />
+  <meta property="og:url" content="https://solite.in/brand-style-sheet-generator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/brand-style-sheet-generator.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Screenshot preview of Solite Brand Style Sheet Generator interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Brand Style Sheet & Design System Generator | Solite" />
+  <meta name="twitter:description" content="Generate full brand guidelines: palette, fonts, spacing, voice & components." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/brand-style-sheet-generator.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 💰 ADSENSE + 📊 ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=Source+Serif+4:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=Source+Serif+4:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"></noscript>
+
+  <!-- 🎨 STYLING -->
+  <style>
+    @keyframes pulse-bg {0%{background-color:rgba(156,163,175,.15);}50%{background-color:rgba(156,163,175,.3);}100%{background-color:rgba(156,163,175,.15);}}
+    .mobile-nav-btn.active{color:#fff}.mobile-nav-btn{color:#9ca3af}[contenteditable]:focus{outline:none}.content-selected{outline:none!important;border-radius:.25rem;animation:pulse-bg 2s ease-in-out infinite}
+    #template-grid::-webkit-scrollbar{height:6px}#template-grid::-webkit-scrollbar-track{background:#1f2937}#template-grid::-webkit-scrollbar-thumb{background:#4b5563;border-radius:3px}#template-grid::-webkit-scrollbar-thumb:hover{background:#6b7280}
+    html{scrollbar-color:#4b5563 #1f2937;background-color:#0f172a;color-scheme:dark light}
+    .image-selected{outline:dashed 2px #4b5563;border-radius:.25rem}
+    .color-swatch{cursor:pointer;border:1px solid #374151;border-radius:.5rem;display:flex;flex-direction:column;align-items:center;justify-center:space-between;padding:.5rem;min-height:80px;font-size:.7rem;font-weight:500}
+    .color-swatch input{background:transparent;width:100%;text-align:center;font-size:.75rem}
+    .token-box{border:1px solid #374151;border-radius:.5rem;padding:.75rem;font-size:.8rem;display:flex;flex-direction:column;gap:.25rem}
+    .token-box input{background:#111827;border:1px solid #374151;border-radius:.35rem;padding:.35rem .5rem;font-size:.75rem}
+    .section-title{font-size:.65rem;letter-spacing:.15em;font-weight:600;color:#9ca3af;text-transform:uppercase}
+  </style>
+
+  <script>
+    tailwind.config = { darkMode:'class', theme:{ extend:{ fontFamily:{ sans:['Inter','sans-serif'], display:['Poppins','sans-serif'], serif:['Source Serif 4','serif'], mono:['Space Grotesk','sans-serif'] } } } }
+  </script>
+
+  <!-- 🧠 GEN-5.1 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"Organization","@id":"https://solite.in/#organization","name":"Solite","url":"https://solite.in","logo":"https://solite.in/assets/apple-touch-icon.png","slogan":"Free • Private • Browser-Based Tools","description":"Solite provides privacy-first browser apps for design & development."},
+      {"@type":"WebApplication","@id":"https://solite.in/brand-style-sheet-generator.html#webapp","name":"Brand Style Sheet Generator","url":"https://solite.in/brand-style-sheet-generator.html","applicationCategory":"DesignApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works client-side.","featureList":["Editable brand palette","Typography pairing","Spacing scale auto generation","Design tokens export","Logo & usage section","Tone of voice builder","PDF/PNG/CSS export"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"softwareVersion":"1.0","creator":{"@id":"https://solite.in/#organization"},"mainEntityOfPage":"https://solite.in/brand-style-sheet-generator.html"},
+      {"@type":"FAQPage","@id":"https://solite.in/brand-style-sheet-generator.html#faq","mainEntity":[
+        {"@type":"Question","name":"Does any brand data leave my browser?","acceptedAnswer":{"@type":"Answer","text":"No. All brand data, colors, fonts, and exports happen completely client-side."}},
+        {"@type":"Question","name":"Can I export CSS variables?","acceptedAnswer":{"@type":"Answer","text":"Yes, one click generates a .css file with design tokens for colors, fonts, spacing."}},
+        {"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"100% free, watermark-free, and offline-ready."}}
+      ]}
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.1-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.1 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | BRAND_GUIDE_GENERATOR" />
+</head>
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+  <!-- Header -->
+  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+          <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Brand Style Sheet Generator</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+          <span>Free Tools</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex relative">
+    <h1 class="sr-only">Free Brand Style Sheet & Design System Generator</h1>
+    <div id="main-content-wrapper" class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
+      <!-- Controls -->
+      <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
+        <h3 class="text-xl font-bold text-white mb-4">Select a Template</h3>
+        <div class="flex-grow flex flex-col min-h-0">
+          <div id="template-grid" class="flex-grow overflow-y-auto grid grid-cols-2 gap-3 pr-2"></div>
+        </div>
+        <hr class="border-gray-700 my-6">
+        <!-- Logo Upload -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="logo-upload-input" id="logo-upload-label" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+              <span>Logo</span>
+            </label>
+            <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
+            <button id="remove-logo-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg w-full">Remove Logo</button>
+          </div>
+          <div>
+            <button id="add-color-row-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg w-full">Add Color Slot</button>
+          </div>
+        </div>
+        <!-- Download / Export -->
+        <div class="grid grid-cols-[1fr,auto,auto,auto] gap-2 items-center">
+          <div class="relative">
+            <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full"><span id="download-format-text">PDF</span><svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+            </div>
+          </div>
+          <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap">Download</button>
+          <button id="export-css-btn" class="bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 font-medium py-3 px-4 rounded-lg whitespace-nowrap">CSS</button>
+          <button id="reset-btn" class="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg" title="Reset">↺</button>
+        </div>
+      </div>
+      <!-- Canvas -->
+      <div id="brand-canvas" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
+        <div id="brand-container" class="aspect-[1/1.414] w-[860px] lg:w-full shadow-2xl relative overflow-hidden bg-white text-gray-800 flex-shrink-0"></div>
+      </div>
+    </div>
+    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+      <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+    </aside>
+  </main>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+    <div class="flex justify-around items-center h-16 py-1">
+      <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+        <span>Controls</span>
+      </button>
+      <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        <span>Preview</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SEO BLOCK -->
+  <div class="w-full text-gray-300 p-2">
+    <style>
+      #solite-seo-block-brand[open] > summary{border-bottom:1px solid #374151}
+      #solite-seo-block-brand > summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s}
+      #solite-seo-block-brand[open] > summary .details-arrow-seo{transform:rotate(0deg)}
+      .seo-badge{display:inline-flex;align-items:center;justify-content:center;padding:.25rem .6rem;border:1px solid #374151;border-radius:.5rem;font-size:.75rem;color:#9CA3AF}
+      .seo-table{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.9rem}
+      .seo-table th,.seo-table td{border:1px solid #374151;padding:.5rem .75rem;text-align:left}
+      .seo-table th{background:#111827;color:#e5e7eb;font-weight:600}.seo-table td{color:#9ca3af}
+    </style>
+    <details id="solite-seo-block-brand" class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
+      <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">Free Brand Style Sheet & Design System Generator — Export CSS Tokens | Solite<svg class="w-5 h-5 details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+      <div class="p-6 space-y-8 leading-relaxed">
+        <section>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="seo-badge">Brand Guidelines</span><span class="seo-badge">Design System</span><span class="seo-badge">CSS Variables</span><span class="seo-badge">Color Palette</span><span class="seo-badge">Typography</span><span class="seo-badge">Spacing Scale</span>
+          </div>
+          <p class="text-lg text-gray-300">The <strong>Solite Brand Style Sheet Generator</strong> builds professional brand guidelines instantly: palette, typography, spacing, voice, logo usage, sample components, and exportable design tokens — all private and client-side.</p>
+        </section>
+        <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Why This Outperforms Traditional Brand Docs</h3>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>True Design Tokens:</strong> One-click CSS variables export.</li>
+            <li><strong>Live Editing:</strong> Update colors, fonts, tone, spacing instantly.</li>
+            <li><strong>Multi-Format Export:</strong> PDF / PNG visual sheet + .css tokens.</li>
+            <li><strong>Privacy-First:</strong> No uploads, fully in-browser processing.</li>
+            <li><strong>Fast Iteration:</strong> Switch preset templates for quick positioning.</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Included Sections</h3>
+          <table class="seo-table"><thead><tr><th>Section</th><th>Contents</th><th>Benefit</th></tr></thead><tbody>
+            <tr><td>Brand Header</td><td>Name, tagline, mission</td><td>Instant identity clarity</td></tr>
+            <tr><td>Palette</td><td>Primary, Secondary, Accent, Neutral, Background</td><td>Color consistency</td></tr>
+            <tr><td>Typography</td><td>Primary, Secondary, Display & Pairing guidance</td><td>Readable hierarchy</td></tr>
+            <tr><td>Spacing Scale</td><td>Auto-generated modular scale</td><td>Layout rhythm</td></tr>
+            <tr><td>Tone of Voice</td><td>Adjectives + Do / Avoid examples</td><td>Aligned messaging</td></tr>
+            <tr><td>Components</td><td>Buttons, Cards, Alerts preview</td><td>Visual consistency</td></tr>
+            <tr><td>Tokens Export</td><td>CSS variables file</td><td>Dev handoff speed</td></tr>
+          </tbody></table>
+        </section>
+        <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Keywords</h3>
+          <p class="text-sm text-gray-500">brand style sheet generator, design system builder, css variables exporter, color palette guidelines, typography scale, spacing tokens, brand voice, free brand guideline maker.</p>
+        </section>
+      </div>
+    </details>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+    <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+      <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+        <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+      </div>
+      <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+        <a href="./about.html" class="hover:text-white transition-colors">About</a>
+        <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+        <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+        <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const templates = [
+        { id:'minimal', name:'Minimal', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>', html: minimalTemplate() },
+        { id:'corporate', name:'Corporate', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v4H3zM3 10h18v11H3z"/></svg>', html: corporateTemplate() },
+        { id:'startup-bold', name:'Startup Bold', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5l7.5 7.5-7.5 7.5L4.5 12 12 4.5z"/></svg>', html: startupTemplate() },
+        { id:'editorial', name:'Elegant Editorial', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15z"/></svg>', html: editorialTemplate() },
+        { id:'dark-tech', name:'Dark Tech', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25M17.773 17.364l-1.591-1.591M12 18.75V21M6.227 17.364l1.591-1.591M3 12h2.25M6.227 6.227l1.591 1.591"/></svg>', html: darkTechTemplate() },
+        { id:'playful-saas', name:'Playful SaaS', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>', html: playfulTemplate() }
+      ];
+
+      function minimalTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#1f2937', accent:'#6366f1'});}
+      function corporateTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#0f172a', accent:'#2563eb'});}
+      function startupTemplate(){return baseBrandLayout({bg:'#0f172a', text:'#f8fafc', accent:'#06b6d4'});}
+      function editorialTemplate(){return baseBrandLayout({bg:'#fdfbf6', text:'#2d2d2d', accent:'#b45309'});}
+      function darkTechTemplate(){return baseBrandLayout({bg:'#111827', text:'#e2e8f0', accent:'#8b5cf6'});}
+      function playfulTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#212121', accent:'#ec4899'});}
+
+      function baseBrandLayout(colors){return `
+        <div class='w-full h-full flex flex-col p-10 font-sans relative'>
+          <div class='absolute top-8 right-8 w-28 h-28 resizable-logo' data-type='image' data-image-type='logo'></div>
+          <section class='mb-8'>
+            <h2 contenteditable='true' class='text-5xl font-display font-bold mb-2' style='color:${colors.text}'>Brand Name</h2>
+            <p contenteditable='true' class='text-lg text-gray-600' style='color:${colors.text}'>Insert a concise tagline describing the value.</p>
+            <p contenteditable='true' class='mt-2 text-sm max-w-xl'>Mission: State a clear, purposeful mission statement customers and team can rally around.</p>
+          </section>
+          <section class='mb-8'>
+            <p class='section-title mb-3'>Color Palette</p>
+            <div class='grid grid-cols-5 gap-3' id='palette-group'>
+              ${paletteSwatch('Primary', colors.accent, 'primary')}
+              ${paletteSwatch('Secondary', '#64748b', 'secondary')}
+              ${paletteSwatch('Accent', '#f59e0b', 'accent')}
+              ${paletteSwatch('Neutral', '#1f2937', 'neutral')}
+              ${paletteSwatch('Background', colors.bg, 'background')}
+            </div>
+          </section>
+          <section class='mb-8'>
+            <p class='section-title mb-3'>Typography</p>
+            <div class='grid grid-cols-3 gap-3 text-xs'>
+              ${typeToken('Primary Font', 'Inter', 'font-sans', 'font-primary')}
+              ${typeToken('Display Font', 'Poppins', 'font-display', 'font-display-token')}
+              ${typeToken('Serif / Editorial', 'Source Serif 4', 'font-serif', 'font-serif-token')}
+            </div>
+            <div class='mt-4 text-sm'>Scale: <span contenteditable='true' data-scale-root>1.125</span> ratio → Generates multiples for 12px base.</div>
+            <div id='generated-type-scale' class='mt-2 flex flex-wrap gap-2 text-xs'></div>
+          </section>
+          <section class='mb-8'>
+            <p class='section-title mb-3'>Spacing Scale</p>
+            <div class='flex flex-wrap gap-2 text-xs' id='spacing-scale-display'></div>
+            <div class='mt-2 text-sm'>Base: <span contenteditable='true' data-spacing-base>4</span>px | Ratio: <span contenteditable='true' data-spacing-ratio>1.5</span></div>
+          </section>
+          <section class='mb-8'>
+            <p class='section-title mb-3'>Tone of Voice</p>
+            <div class='grid grid-cols-2 gap-3 text-xs'>
+              <div class='token-box'><span class='font-semibold'>Adjectives</span><textarea rows='3' class='bg-black/10 rounded p-2 text-xs w-full' data-voice-adjectives placeholder='e.g. Bold, Friendly, Precise'></textarea></div>
+              <div class='token-box'><span class='font-semibold'>Avoid</span><textarea rows='3' class='bg-black/10 rounded p-2 text-xs w-full' data-voice-avoid placeholder='e.g. Jargon, Overclaiming, Dull'></textarea></div>
+            </div>
+          </section>
+          <section class='mb-8'>
+            <p class='section-title mb-3'>Component Samples</p>
+            <div class='flex flex-wrap gap-4 items-start text-xs'>
+              <button class='px-4 py-2 rounded-lg text-white font-medium' style='background:${colors.accent}'>Primary Button</button>
+              <div class='p-4 rounded-lg border text-sm' style='border-color:${colors.accent}'>Card Title<br><span class='text-gray-500'>Supporting text block example.</span></div>
+              <div class='px-3 py-2 rounded bg-red-100 text-red-700 border border-red-200'>Alert / Error sample</div>
+            </div>
+          </section>
+        </div>`;}
+
+      function paletteSwatch(label, value, role){return `<div class='color-swatch' data-color-role='${role}'><div class='w-full h-8 rounded mb-1' style='background:${value}'></div><input value='${value}' aria-label='${label} color hex'><span>${label}</span></div>`;}
+      function typeToken(label, sample, cls, role){return `<div class='token-box' data-type-role='${role}'><span class='font-semibold'>${label}</span><input value='${sample}' class='${cls}'></div>`;}
+
+      const brandContainer = document.getElementById('brand-container');
+      const brandCanvas = document.getElementById('brand-canvas');
+      const templateGrid = document.getElementById('template-grid');
+      const logoUploadInput = document.getElementById('logo-upload-input');
+      const logoUploadLabel = document.getElementById('logo-upload-label');
+      const removeLogoBtn = document.getElementById('remove-logo-btn');
+      const downloadBtn = document.getElementById('download-btn');
+      const exportCssBtn = document.getElementById('export-css-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const addColorRowBtn = document.getElementById('add-color-row-btn');
+
+      let downloadFormat='pdf';
+      let currentTemplateId=templates[0].id;
+      const LOCAL_KEY='soliteBrandSheetState';
+
+      function populateGallery(){templateGrid.innerHTML='';templates.forEach(t=>{const card=document.createElement('a');card.dataset.templateId=t.id;card.href='#';card.className='template-card bg-gray-800 rounded-lg p-3 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border-2 border-gray-700 hover:border-gray-500';card.innerHTML=`<div class='text-gray-300 mb-2'>${t.icon.replace('w-8 h-8','w-5 h-5')}</div><h3 class='font-semibold text-white text-sm mb-1'>${t.name}</h3>`;card.addEventListener('click',e=>{e.preventDefault();if(currentTemplateId!==t.id){loadTemplate(t.id);}if(window.innerWidth<1024){mobilePreviewBtn.click();}});templateGrid.appendChild(card);});}
+
+      function loadTemplate(id){const t=templates.find(x=>x.id===id);if(!t)return;currentTemplateId=id;document.querySelectorAll('.template-card.border-white').forEach(c=>c.classList.replace('border-white','border-gray-700'));document.querySelector(`.template-card[data-template-id='${id}']`)?.classList.replace('border-gray-700','border-white');brandContainer.innerHTML=t.html;setupInteract();restoreState();generateTypeScale();generateSpacingScale();}
+
+      function setupInteract(){interact('[data-type="image"]').resizable({edges:{left:true,right:true,bottom:true,top:true},listeners:{move(ev){let{x,y}=ev.target.dataset;x=(parseFloat(x)||0)+ev.deltaRect.left;y=(parseFloat(y)||0)+ev.deltaRect.top;Object.assign(ev.target.style,{width:`${ev.rect.width}px`,height:`${ev.rect.height}px`,transform:`translate(${x}px,${y}px)`});Object.assign(ev.target.dataset,{x,y});},end(){saveState();}},modifiers:[interact.modifiers.aspectRatio({ratio:'preserve'}),interact.modifiers.restrictSize({min:{width:40,height:40}})],inertia:true}).draggable({listeners:{move(ev){let{x,y}=ev.target.dataset;x=(parseFloat(x)||0)+ev.dx;y=(parseFloat(y)||0)+ev.dy;ev.target.style.transform=`translate(${x}px,${y}px)`;Object.assign(ev.target.dataset,{x,y});},end(){saveState();}},inertia:true});}
+
+      function saveState(){const data={template:currentTemplateId,logo:extractLogo(),palette:extractPalette(),fonts:extractFonts(),typeRatio:getText('[data-scale-root]'),spacingBase:getText('[data-spacing-base]'),spacingRatio:getText('[data-spacing-ratio]'),voiceAdj:document.querySelector('[data-voice-adjectives]')?.value||'',voiceAvoid:document.querySelector('[data-voice-avoid]')?.value||''};localStorage.setItem(LOCAL_KEY,JSON.stringify(data));}
+      function extractLogo(){const box=brandContainer.querySelector('.resizable-logo');if(!box)return null;const img=box.querySelector('img');return img?img.src:null;}
+      function extractPalette(){return Array.from(brandContainer.querySelectorAll('[data-color-role]')).map(el=>({role:el.dataset.colorRole,value:el.querySelector('input').value.trim()}));}
+      function extractFonts(){return Array.from(brandContainer.querySelectorAll('[data-type-role]')).map(el=>({role:el.dataset.typeRole,value:el.querySelector('input').value.trim()}));}
+      function getText(sel){return brandContainer.querySelector(sel)?.innerText.trim()||'';}
+
+      function restoreState(){const raw=localStorage.getItem(LOCAL_KEY);if(!raw)return;try{const s=JSON.parse(raw);if(s.template!==currentTemplateId)return;const logoBox=brandContainer.querySelector('.resizable-logo');if(logoBox&&s.logo){logoBox.innerHTML=`<img src='${s.logo}' style='width:100%;height:100%;object-fit:contain'>`;}
+        s.palette?.forEach(p=>{const el=brandContainer.querySelector(`[data-color-role='${p.role}'] input`);if(el){el.value=p.value;el.previousElementSibling.style.background=p.value;}}
+        );s.fonts?.forEach(f=>{const el=brandContainer.querySelector(`[data-type-role='${f.role}'] input`);if(el){el.value=f.value;}}
+        );const scaleRoot=brandContainer.querySelector('[data-scale-root]');if(scaleRoot)scaleRoot.innerText=s.typeRatio||'1.125';const sBase=brandContainer.querySelector('[data-spacing-base]');if(sBase)sBase.innerText=s.spacingBase||'4';const sRatio=brandContainer.querySelector('[data-spacing-ratio]');if(sRatio)sRatio.innerText=s.spacingRatio||'1.5';const va=brandContainer.querySelector('[data-voice-adjectives]');if(va)va.value=s.voiceAdj||'';const vv=brandContainer.querySelector('[data-voice-avoid]');if(vv)vv.value=s.voiceAvoid||'';generateTypeScale();generateSpacingScale();}catch(e){console.warn('Restore failed',e);}}
+
+      function generateTypeScale(){const ratio=parseFloat(getText('[data-scale-root]')||'1.125');const base=12;const levels=[-2,-1,0,1,2,3,4,5];const wrap=brandContainer.querySelector('#generated-type-scale');if(!wrap)return;wrap.innerHTML=levels.map(l=>{const size=(base*Math.pow(ratio,l)).toFixed(2);return `<span class='px-2 py-1 rounded bg-gray-100 text-gray-800' style='font-size:${size}px'>${size}px</span>`}).join('');saveState();}
+      function generateSpacingScale(){const base=parseFloat(getText('[data-spacing-base]')||'4');const ratio=parseFloat(getText('[data-spacing-ratio]')||'1.5');const steps=[0,1,2,3,4,5,6,7];const wrap=brandContainer.querySelector('#spacing-scale-display');if(!wrap)return;wrap.innerHTML=steps.map(i=>{const val=Math.round(base*Math.pow(ratio,i));return `<span class='px-2 py-1 rounded bg-gray-100 text-gray-800'>${val}px</span>`}).join('');saveState();}
+
+      function exportCss(){const palette=extractPalette();const fonts=extractFonts();const ratio=getText('[data-scale-root]')||'1.125';const spacingBase=getText('[data-spacing-base]')||'4';const spacingRatio=getText('[data-spacing-ratio]')||'1.5';let css=':root{\n';palette.forEach(p=>{css+=`  --color-${p.role}: ${p.value};\n`;});fonts.forEach(f=>{css+=`  --font-${f.role}: "${f.value}", sans-serif;\n`;});css+=`  --type-ratio: ${ratio};\n  --spacing-base: ${spacingBase}px;\n  --spacing-ratio: ${spacingRatio};\n}`;css+='\n/* Generated by Solite Brand Style Sheet Generator */';const blob=new Blob([css],{type:'text/css'});const a=document.createElement('a');a.download='brand-tokens.css';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+
+      logoUploadInput.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=r=>{const box=brandContainer.querySelector('.resizable-logo');if(box){box.innerHTML=`<img src='${r.target.result}' style='width:100%;height:100%;object-fit:contain'>`;saveState();}};reader.readAsDataURL(f);});
+      removeLogoBtn.addEventListener('click',()=>{const box=brandContainer.querySelector('.resizable-logo');if(box){box.innerHTML='';saveState();}});
+
+      brandContainer.addEventListener('input',e=>{if(e.target.closest('[data-color-role] input')){const val=e.target.value.trim();e.target.parentElement.querySelector('div').style.background=val;}generateTypeScale();generateSpacingScale();});
+      brandContainer.addEventListener('blur',e=>{if(e.target.matches('[data-scale-root],[data-spacing-base],[data-spacing-ratio]')){generateTypeScale();generateSpacingScale();}},true);
+
+      addColorRowBtn.addEventListener('click',()=>{const group=brandContainer.querySelector('#palette-group');if(!group)return;group.insertAdjacentHTML('beforeend',paletteSwatch('Extra', '#0ea5e9', 'extra-'+Date.now()));saveState();});
+
+      downloadBtn.addEventListener('click',async()=>{downloadBtn.disabled=true;await new Promise(r=>setTimeout(r,120));try{const canvas=await html2canvas(brandContainer,{scale:3,logging:false,useCORS:true,backgroundColor:null});const format=downloadFormat;const filename=`Solite-Brand-Sheet.${format}`;if(format==='pdf'){const{jsPDF}=window.jspdf;const imgData=canvas.toDataURL('image/jpeg',0.95);const pdf=new jsPDF({orientation:canvas.width>canvas.height?'landscape':'portrait',unit:'px',format:[canvas.width,canvas.height]});pdf.addImage(imgData,'JPEG',0,0,canvas.width,canvas.height);pdf.save(filename);}else{canvas.toBlob(blob=>{const link=document.createElement('a');link.download=filename;link.href=URL.createObjectURL(blob);link.click();URL.revokeObjectURL(link.href);},`image/${format}`,1.0);} }catch(err){console.error('Download failed',err);} downloadBtn.disabled=false;});
+
+      exportCssBtn.addEventListener('click',exportCss);
+      resetBtn.addEventListener('click',()=>{if(confirm('Reset brand sheet?')){localStorage.removeItem(LOCAL_KEY);loadTemplate(currentTemplateId);}});
+
+      function setupDownloadDropdown(){const btn=document.getElementById('download-format-btn');const dd=document.getElementById('download-format-dropdown');const txt=document.getElementById('download-format-text');btn.addEventListener('click',e=>{e.stopPropagation();dd.classList.toggle('hidden');});dd.addEventListener('click',e=>{if(e.target.tagName==='A'){e.preventDefault();downloadFormat=e.target.dataset.value;txt.textContent=e.target.textContent;dd.classList.add('hidden');}});document.addEventListener('click',e=>{if(!e.target.closest('#download-format-btn')&&!e.target.closest('#download-format-dropdown'))dd.classList.add('hidden');});}
+
+      const mobileControlsBtn=document.getElementById('mobile-controls-btn');const mobilePreviewBtn=document.getElementById('mobile-preview-btn');const controlsPane=document.getElementById('controls-panel');const previewPane=document.getElementById('brand-canvas');
+      mobileControlsBtn.addEventListener('click',()=>{controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.add('hidden');previewPane.classList.remove('flex');mobileControlsBtn.classList.add('active');mobilePreviewBtn.classList.remove('active');});
+      mobilePreviewBtn.addEventListener('click',()=>{controlsPane.classList.add('hidden');controlsPane.classList.remove('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');mobileControlsBtn.classList.remove('active');mobilePreviewBtn.classList.add('active');});
+
+      window.addEventListener('resize',()=>{if(window.innerWidth>=1024){controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');}});
+
+      function initialLayout(){if(window.innerWidth<1024){mobileControlsBtn.click();}else{controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');}}
+
+      populateGallery();loadTemplate(currentTemplateId);setupDownloadDropdown();initialLayout();
+    });
+  </script>
+</body>
+</html>
