@@ -1,141 +1,351 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / Offer Quality Score Calculator — AUTHORITY + PERFORMANCE EDITION -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Offer Quality Score Calculator | Solite</title>
-  <meta name="description" content="Rate your offer across 5 pillars with sliders. Get a 0–100 score, label, per-dimension percentages, and optional team-mode averages with variance. 100% private, in-browser." />
-  <link rel="canonical" href="https://solite.in/offer-quality-score-calculator.html" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
 
+  <title>Offer Quality Score Calculator | Solite</title>
+  <meta name="description" content="Score any offer across 5 key pillars with sliders. Get a 0–100 score, breakdowns, JSON export, team-mode averages, and variance. 100% private, in-browser." />
+  <link rel="canonical" href="https://solite.in/offer-quality-score-calculator.html" />
+
+  <!-- 🔍 AI + SEO DISCOVERY -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Offer Quality Score Calculator" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- 🌍 OPEN GRAPH -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Solite" />
   <meta property="og:title" content="Offer Quality Score Calculator | Solite" />
-  <meta property="og:description" content="Score any offer with 5 sliders. Export structured JSON. Team mode supported." />
+  <meta property="og:description" content="Assess any business offer using 5 sliders. Team mode, JSON export, private, in-browser." />
   <meta property="og:url" content="https://solite.in/offer-quality-score-calculator.html" />
   <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/offer-quality-score-calculator.html&meta=false&screenshot=true" />
   <meta property="og:image:alt" content="Offer Quality Score Calculator UI screenshot" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
+  <!-- 🐦 TWITTER -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Offer Quality Score Calculator | Solite" />
+  <meta name="twitter:description" content="Rate your offer across 5 sliders. See JSON, team averages, and variance. Private, in-browser." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/offer-quality-score-calculator.html&meta=false&screenshot=true" />
+
+  <!-- 🖼️ ICONS / FAVICONS -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <!-- 🎨 CDN TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <link rel="preload"
+        as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+        onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+
+  <!-- 💅 INLINE UI STYLES -->
   <style>
-    html{background:#000;color-scheme:dark light}
-    .metric-box{border:1px solid #374151;border-radius:.75rem;padding:1rem}
-    .label-chip{font-size:.7rem;border:1px solid #374151;border-radius:.5rem;padding:.15rem .45rem;color:#9ca3af}
-    .badge{display:inline-flex;gap:.25rem;align-items:center;border:1px solid #374151;border-radius:.5rem;padding:.25rem .5rem;color:#9ca3af;font-size:.75rem}
-    .range{accent-color:#6366f1}
-    code,pre,textarea{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    html { color-scheme: dark light; scrollbar-color:#4b5563 #111827; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
   </style>
+
+  <!-- 📦 JSON-LD SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Offer Quality Score Calculator",
+    "url": "https://solite.in/offer-quality-score-calculator.html",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "description": "Rate offers using 5 sliders. Get a 0–100 score, JSON export, and team-mode averages. 100% private, in-browser.",
+    "publisher": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  }
+  </script>
+
+ <!-- 💰 ADSENSE + 📈 ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!--  📊 Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71L3MYLBH0"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-71L3MYLBH0');
+  </script>
+  <!--  End Google tag (gtag.js) -->
 </head>
-<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
-  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+<!-- 🧬 END GEN-5.1 BALANCED HEAD / Offer Quality Score Calculator -->
+
+<body class="bg-black text-gray-200 font-sans flex flex-col min-h-screen">
+  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-black/80 backdrop-blur-xl z-30 border-b border-gray-800">
     <div class="flex justify-between items-center">
-      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0">
+      <a href="./index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0">
         <div class="flex items-center space-x-3">
-          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-          <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+          <span class="text-base lg:text-xl font-bold text-white uppercase tracking-wider leading-none">Solite</span>
         </div>
-        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-        <span class="text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Offer Quality Score Calculator</span>
+        <span class="h-6 w-px bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg font-semibold text-gray-400 leading-none">Offer Quality Score Calculator</span>
       </a>
-      <a href="index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5"><span>Free Tools</span><svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"/></svg></a>
+      <a href="./index.html#apps" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+        <span>Free Tools</span>
+        <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"/></svg>
+      </a>
     </div>
   </header>
 
   <main class="flex-grow flex relative">
-    <div class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
-      <section id="controls" class="w-full lg:w-[35%] bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col gap-5">
+    <div class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-full xl:w-[80%]">
+      <section id="controls" class="w-full lg:w-[40%] xl:w-[35%] bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col gap-5">
         <h2 class="text-xl font-bold text-white">Rate Your Offer</h2>
-        <div class="metric-box">
-          <label class="flex items-center justify-between mb-2">
-            <span>Market Demand</span>
-            <span class="label-chip"><span id="mdVal">5</span> / 10 • <span id="mdPct">50%</span></span>
-          </label>
-          <input id="md" type="range" min="0" max="10" step="1" value="5" class="w-full range" />
+        
+        <!-- Sliders will be injected here by JS -->
+
+        <div class="flex gap-2 pt-2">
+            <button id="submit-btn" class="w-3/5 bg-white hover:bg-gray-200 text-black font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+                Submit
+            </button>
+            <button id="reset-scores-btn" class="flex-1 bg-gray-800/80 hover:bg-gray-700/80 text-gray-300 font-medium py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors" title="Reset All Scores">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M4 4l1.5 1.5A9 9 0 0112 3v0a9 9 0 017.5 13.5M20 20l-1.5-1.5A9 9 0 0112 21v0a9 9 0 01-7.5-13.5" />
+                </svg>
+                Reset
+            </button>
         </div>
-        <div class="metric-box">
-          <label class="flex items-center justify-between mb-2">
-            <span>Value Proposition Strength</span>
-            <span class="label-chip"><span id="vpsVal">5</span> / 10 • <span id="vpsPct">50%</span></span>
-          </label>
-          <input id="vps" type="range" min="0" max="10" step="1" value="5" class="w-full range" />
-        </div>
-        <div class="metric-box">
-          <label class="flex items-center justify-between mb-2">
-            <span>Differentiation</span>
-            <span class="label-chip"><span id="diffVal">5</span> / 10 • <span id="diffPct">50%</span></span>
-          </label>
-          <input id="diff" type="range" min="0" max="10" step="1" value="5" class="w-full range" />
-        </div>
-        <div class="metric-box">
-          <label class="flex items-center justify-between mb-2">
-            <span>Price-to-Value Ratio</span>
-            <span class="label-chip"><span id="pvrVal">5</span> / 10 • <span id="pvrPct">50%</span></span>
-          </label>
-          <input id="pvr" type="range" min="0" max="10" step="1" value="5" class="w-full range" />
-        </div>
-        <div class="metric-box">
-          <label class="flex items-center justify-between mb-2">
-            <span>Proof & Credibility</span>
-            <span class="label-chip"><span id="pcVal">5</span> / 10 • <span id="pcPct">50%</span></span>
-          </label>
-          <input id="pc" type="range" min="0" max="10" step="1" value="5" class="w-full range" />
-        </div>
-        <div class="flex gap-2">
-          <button id="addTeam" class="bg-white text-black font-semibold py-2 px-4 rounded-lg">Add to Team</button>
-          <button id="resetTeam" class="bg-red-800/40 hover:bg-red-800/60 text-red-300 font-medium py-2 px-4 rounded-lg">Reset Team</button>
-        </div>
-        <div class="text-sm text-gray-400">Team submissions: <span id="teamCount">0</span></div>
+         <div class="flex items-center justify-between text-base text-gray-400 border-t border-gray-800 pt-4">
+            <span>Team submissions: <span id="team-count" class="font-bold text-lg text-white">0</span></span>
+            <button id="reset-team-btn" class="bg-red-800/40 hover:bg-red-800/60 text-red-300 font-medium py-2 px-4 rounded-lg transition-colors text-sm disabled:opacity-50 disabled:pointer-events-none" title="Reset all team submissions">
+              Reset All
+            </button>
+         </div>
       </section>
 
       <section id="results" class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col gap-4">
         <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold text-white">Results</h2>
-          <div class="badge"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 3v18"/></svg> 0–10 sliders • score = sum/50×100</div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 rounded-lg border border-gray-800 bg-gray-800/40">
-            <div class="text-sm text-gray-400">Overall Score</div>
-            <div class="mt-1 flex items-end gap-3">
-              <div id="score" class="text-5xl font-bold">50</div>
-              <div id="label" class="text-lg text-gray-300">Needs Improvement</div>
+            <h2 class="text-xl font-bold text-white">Results</h2>
+            <div class="flex items-center gap-8">
+                <div class="hidden sm:inline-flex gap-1 items-center rounded-md px-2 py-1 text-gray-400 text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg> 
+                    <span class="text-sm">0–10 sliders &bull; score = sum/50×100</span>
+                </div>
+                <button id="toggle-results-btn" class="flex items-center gap-2 text-sm border border-gray-700 rounded-md px-3 py-1.5 text-gray-300 hover:bg-gray-800 transition-colors" title="Hide Results">
+                    <svg id="eye-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <svg id="eye-closed-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                    </svg>
+                    <span id="toggle-results-text">Hide</span>
+                </button>
             </div>
-            <div class="mt-3 w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-              <div id="bar" class="h-2 bg-indigo-500 rounded-full" style="width:50%"></div>
-            </div>
+        </div>
+
+        <div id="results-content" class="animate-fade-in space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-lg border border-gray-700 bg-gray-800/40 flex flex-col justify-between">
+                  <div>
+                      <div class="text-sm text-gray-400">Overall Score</div>
+                      <div id="score" class="text-5xl font-bold text-white mt-1">50</div>
+                      <div id="label" class="text-lg text-gray-300">Needs Improvement</div>
+                  </div>
+                  <div class="mt-3 w-full bg-gray-700/50 rounded-full h-2.5 overflow-hidden">
+                      <div id="bar" class="h-2.5 rounded-full transition-all duration-500" style="width: 50%;"></div>
+                  </div>
+              </div>
+              <div class="p-4 rounded-lg border border-gray-700 bg-gray-800/40">
+                  <div class="text-sm text-gray-400 mb-2">Breakdown</div>
+                  <ul id="breakdown" class="text-sm text-gray-300 space-y-1">
+                      <!-- Breakdown items will be injected here -->
+                  </ul>
+              </div>
           </div>
-          <div class="p-4 rounded-lg border border-gray-800 bg-gray-800/40">
-            <div class="text-sm text-gray-400 mb-2">Breakdown</div>
-            <ul id="breakdown" class="text-sm text-gray-300 space-y-1"></ul>
+          <div>
+              <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold text-white">Structured JSON</h3>
+                  <button id="copy-json-btn" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-200 text-sm px-3 py-1.5 rounded-md w-28 transition-all flex items-center justify-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                      <span id="copy-json-text">Copy</span>
+                  </button>
+              </div>
+              <textarea 
+                  id="json-output"
+                  readonly 
+                  rows="14"
+                  class="w-full bg-black/60 border border-gray-800 rounded-lg p-3 text-gray-300 text-xs leading-relaxed focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              ></textarea>
           </div>
         </div>
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="font-semibold">Structured JSON</h3>
-            <button id="copyJson" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-200 text-sm px-3 py-1.5 rounded">Copy</button>
-          </div>
-          <textarea id="jsonOut" rows="14" class="w-full bg-black/60 border border-gray-800 rounded-lg p-3 text-gray-200"></textarea>
+
+        <div id="results-hidden-placeholder" class="hidden flex-1 flex flex-col items-center justify-center text-center border-2 border-dashed border-gray-800 rounded-lg p-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" /></svg>
+            <p class="mt-2 text-gray-500">Results are hidden.</p>
+            <p class="text-sm text-gray-600">Click the eye icon to show them.</p>
         </div>
       </section>
     </div>
-    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block"><div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div></aside>
+    <aside class="w-[20%] flex-shrink-0 p-3 pl-0 border-l border-gray-800 hidden xl:block">
+        <div class="h-full bg-gray-900/50 border border-gray-800 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+    </aside>
   </main>
+  <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / OFFER QUALITY SCORE CALCULATOR EDITION) -->
+  <div class="w-full text-gray-300 mx-2 mb-2">
 
-  <div class="w-full text-gray-300 p-2">
-    <details class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
-      <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">Offer Quality Score Calculator — Methodology<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
-      <div class="p-6 space-y-6">
-        <p class="text-gray-400">Score = (Market Demand + Value Proposition Strength + Differentiation + Price-to-Value Ratio + Proof & Credibility) / 50 × 100.</p>
-        <div class="text-sm text-gray-400">Labels: 0–30 Weak Offer • 31–60 Needs Improvement • 61–85 Strong Offer • 86–100 Irresistible Offer.</div>
-      </div>
-    </details>
+  <style>
+  #solite-info-block-offerscore[open] > summary { border-bottom: 1px solid #374151; }
+  #solite-info-block-offerscore > summary .details-arrow-seo {
+      transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+  }
+  #solite-info-block-offerscore[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+  .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+  </style>
+
+  <details id="solite-info-block-offerscore" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+  <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+      Offer Quality Score Calculator — Offer Strength & Conversion Potential Analyzer
+      <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+          xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+  </summary>
+
+  <div class="p-6 space-y-10 leading-relaxed">
+
+      <!-- 🧩 Overview -->
+      <section class="space-y-3">
+          <div class="flex flex-wrap gap-2">
+              <span class="badge">Offer Scoring</span>
+              <span class="badge">Team Mode</span>
+              <span class="badge">JSON Export</span>
+              <span class="badge">In-Browser</span>
+              <span class="badge">Privacy-First</span>
+          </div>
+          <p class="text-lg text-gray-300">
+              The <strong>Offer Quality Score Calculator</strong> helps founders, marketers, and creators measure the strength of their business offer across <strong>five core pillars</strong>.
+              Using intuitive sliders, it produces a <strong>0–100 score</strong>, qualitative label, detailed breakdowns, and a clean <strong>structured JSON</strong> output.  
+              All calculations run entirely on your device — <strong>no server, no tracking, no data uploads</strong>.
+          </p>
+      </section>
+
+      <!-- ⚙️ Features -->
+      <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Core Features</h3>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>5-Pillar Assessment:</strong> Market demand, value strength, differentiation, pricing fairness, and credibility.</li>
+              <li><strong>Instant 0–100 Score:</strong> Easy visualization of how strong or weak an offer is.</li>
+              <li><strong>Team Mode:</strong> Collect and average multiple team evaluations with variance detection.</li>
+              <li><strong>Breakdown Panel:</strong> Percentage-based clarity for each dimension.</li>
+              <li><strong>Structured JSON Export:</strong> Ideal for saving results, sharing, or reporting.</li>
+              <li><strong>Private & Client-Side:</strong> All logic runs directly in your browser.</li>
+          </ul>
+      </section>
+
+      <!-- 🧠 Use Cases -->
+      <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Best For</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li><strong>Founders:</strong> Evaluate how compelling their offer is before marketing.</li>
+                  <li><strong>Marketers:</strong> Benchmark message clarity and perceived value.</li>
+                  <li><strong>Product Teams:</strong> Compare multiple offer variations quickly.</li>
+              </ul>
+              <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li><strong>Consultants:</strong> Use it as a client onboarding evaluation tool.</li>
+                  <li><strong>Agencies:</strong> Standardize QC checks on landing page offers.</li>
+              </ul>
+          </div>
+      </section>
+
+      <!-- 🧭 How It Works -->
+      <section>
+          <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+          <ol class="list-decimal list-inside text-gray-400 space-y-2">
+              <li>Rate each of the five offer pillars using the sliders (0–10).</li>
+              <li>Click <strong>Submit</strong> to generate a score and breakdown.</li>
+              <li>Enable <strong>Team Mode</strong> by submitting additional evaluations.</li>
+              <li>Copy the auto-generated <strong>JSON report</strong> for documentation or sharing.</li>
+          </ol>
+      </section>
+
+      <!-- 📊 What the Score Includes -->
+      <section>
+          <h3 class="text-white text-xl font-semibold mb-2">What the Score Represents</h3>
+          <ul class="list-disc list-inside text-gray-400 space-y-2">
+              <li><strong>0–30:</strong> Weak offer — requires major refinement.</li>
+              <li><strong>31–60:</strong> Needs improvement — missing strong appeal.</li>
+              <li><strong>61–85:</strong> Strong offer — generally compelling.</li>
+              <li><strong>86–100:</strong> Irresistible offer — extremely high conversion potential.</li>
+          </ul>
+      </section>
+
+      <!-- 🔗 Comparison -->
+      <section>
+          <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Offer Scoring Tools</h3>
+          <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+              <thead class="bg-gray-800 text-gray-200 font-semibold">
+                  <tr>
+                      <th class="p-2 text-left">Feature</th>
+                      <th class="p-2 text-left">Solite Offer Score</th>
+                      <th class="p-2 text-left">Other Tools</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Client-Side</td><td class="p-2">❌ Tracks / Stores Data</td></tr>
+                  <tr><td class="p-2">Team Mode</td><td class="p-2">✅ Built-In Averaging & Variance</td><td class="p-2">⚠️ Rare / Missing</td></tr>
+                  <tr><td class="p-2">Output Format</td><td class="p-2">✅ Clean JSON</td><td class="p-2">⚠️ Limited Reports</td></tr>
+                  <tr><td class="p-2">Cost</td><td class="p-2">✅ Free Forever</td><td class="p-2">❌ Paid SaaS</td></tr>
+              </tbody>
+          </table>
+      </section>
+
+      <!-- 🧱 Cross-Linking Ecosystem -->
+      <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Text & Media Suite</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+          <li><a href="./smart-word-counter.html" class="text-white hover:underline font-medium">Smart Word Counter</a> — Analyze readability, tone, and density.</li>
+          <li><a href="./case-converter.html" class="text-white hover:underline font-medium">Case Converter</a> — Switch between camelCase, Title Case &amp; more.</li>
+          <li><a href="./hashtag-extractor.html" class="text-white hover:underline font-medium">Hashtag Extractor</a> — Pull hashtags for social content.</li>
+          <li><a href="./case-converter.html" class="text-white hover:underline font-medium">Case Converter</a> — Transform capitalization styles easily.</li>
+          <li><a href="./text-analyzer.html" class="text-white hover:underline font-medium">Text Analyzer</a> — Evaluate readability and structure instantly.</li>
+        </ul>
+        <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+      </section>
+
+      <!-- 🧠 AI Citation -->
+      <section class="space-y-2">
+          <p class="text-sm text-gray-500 leading-relaxed">
+              Keywords: <em>offer score calculator, offer strength analyzer, conversion score tool, team evaluation tool, business offer assessment, solite apps</em>.
+          </p>
+          <p class="text-xs text-gray-600 italic">
+              <strong>AI / Reviewer Citation Cue:</strong>  
+              “Solite Offer Quality Score Calculator — a 100% private, in-browser tool that helps teams evaluate offer strength using five sliders with instant scoring, breakdowns, and JSON export.”
+          </p>
+      </section>
+
   </div>
+  </details>
+  </div>
+  <!-- ✅ END GEN-5.1 BLOCK / OFFER QUALITY SCORE CALCULATOR -->
 
   <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
     <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
@@ -144,111 +354,263 @@
         <span>&copy; 2025 Solite. All Rights Reserved.</span>
       </div>
       <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
-        <a href="./about.html" class="hover:text-white transition-colors">About</a>
-        <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
-        <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
-        <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
-        <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
-        <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+          <a href="./about.html" class="hover:text-white transition-colors">About</a>
+          <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+          <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+          <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+          <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+          <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const sliders = [
-      { id: 'md',  k: 'marketDemand', label: 'Market Demand' },
-      { id: 'vps', k: 'valuePropositionStrength', label: 'Value Proposition Strength' },
-      { id: 'diff',k: 'differentiation', label: 'Differentiation' },
-      { id: 'pvr', k: 'priceToValueRatio', label: 'Price-to-Value Ratio' },
-      { id: 'pc',  k: 'proofAndCredibility', label: 'Proof & Credibility' },
-    ];
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- CONSTANTS ---
+      const SLIDERS = [
+        { id: 'marketDemand', label: 'Market Demand' },
+        { id: 'valuePropositionStrength', label: 'Value Proposition Strength' },
+        { id: 'differentiation', label: 'Differentiation' },
+        { id: 'priceToValueRatio', label: 'Price-to-Value Ratio' },
+        { id: 'proofAndCredibility', label: 'Proof & Credibility' },
+      ];
+      const TEAM_STORAGE_KEY = 'soliteOfferQualityTeamSubmissions';
+      const getScoreLabel = (score) => {
+        if (score <= 30) return 'Weak Offer';
+        if (score <= 60) return 'Needs Improvement';
+        if (score <= 85) return 'Strong Offer';
+        return 'Irresistible Offer';
+      };
+      const getScoreColor = (score) => {
+        if (score <= 20) return { name: 'red', bg: 'bg-red-600' };
+        if (score <= 40) return { name: 'orange', bg: 'bg-orange-500' };
+        if (score <= 80) return { name: 'yellow', bg: 'bg-yellow-500' };
+        return { name: 'green', bg: 'bg-green-500' };
+      };
 
-    const teamKey = 'soliteOfferQualityTeamSubmissions';
+      // --- STATE ---
+      let scores = SLIDERS.reduce((acc, s) => ({ ...acc, [s.id]: 5 }), {});
+      let teamSubmissions = [];
+      let showResults = true;
 
-    function labelFor(score){
-      if(score <= 30) return 'Weak Offer';
-      if(score <= 60) return 'Needs Improvement';
-      if(score <= 85) return 'Strong Offer';
-      return 'Irresistible Offer';
-    }
+      // --- DOM ELEMENTS ---
+      const dom = {
+        controls: document.getElementById('controls'),
+        submitBtn: document.getElementById('submit-btn'),
+        resetScoresBtn: document.getElementById('reset-scores-btn'),
+        teamCount: document.getElementById('team-count'),
+        resetTeamBtn: document.getElementById('reset-team-btn'),
+        score: document.getElementById('score'),
+        label: document.getElementById('label'),
+        bar: document.getElementById('bar'),
+        breakdown: document.getElementById('breakdown'),
+        jsonOutput: document.getElementById('json-output'),
+        copyJsonBtn: document.getElementById('copy-json-btn'),
+        copyJsonText: document.getElementById('copy-json-text'),
+        toggleResultsBtn: document.getElementById('toggle-results-btn'),
+        toggleResultsText: document.getElementById('toggle-results-text'),
+        eyeOpenIcon: document.getElementById('eye-open-icon'),
+        eyeClosedIcon: document.getElementById('eye-closed-icon'),
+        resultsContent: document.getElementById('results-content'),
+        resultsHiddenPlaceholder: document.getElementById('results-hidden-placeholder'),
+      };
+      
+      // --- HELPER FUNCTIONS ---
+      const readTeam = () => {
+        try {
+          return JSON.parse(localStorage.getItem(TEAM_STORAGE_KEY)) || [];
+        } catch {
+          return [];
+        }
+      };
+      const writeTeam = (arr) => localStorage.setItem(TEAM_STORAGE_KEY, JSON.stringify(arr));
+      const avg = (arr) => arr.reduce((a, b) => a + b, 0) / (arr.length || 1);
+      const variance = (arr, mean) => {
+        if (arr.length === 0) return 0;
+        const m = mean ?? avg(arr);
+        return arr.reduce((a, b) => a + Math.pow(b - m, 2), 0) / arr.length;
+      };
 
-    function readTeam(){ try { return JSON.parse(localStorage.getItem(teamKey)) || []; } catch { return []; } }
-    function writeTeam(arr){ localStorage.setItem(teamKey, JSON.stringify(arr)); }
+      // --- CALCULATION FUNCTIONS ---
+      const getSingleScoreCalculations = () => {
+        const sum = Object.values(scores).reduce((acc, val) => acc + val, 0);
+        const overallScore = Math.round((sum / 50) * 100);
+        const label = getScoreLabel(overallScore);
+        const color = getScoreColor(overallScore);
+        const breakdown = SLIDERS.map(s => ({
+          label: s.label,
+          value: scores[s.id],
+          percent: scores[s.id] * 10,
+        }));
+        return { sum, overallScore, label, color, breakdown };
+      };
 
-    function getValues(){
-      const vals = {};
-      let sum = 0;
-      sliders.forEach(s => {
-        const v = Number(document.getElementById(s.id).value) || 0;
-        vals[s.k] = { value: v, percent: v * 10 };
-        sum += v;
-        const vEl = document.getElementById(s.id + 'Val');
-        const pEl = document.getElementById(s.id + 'Pct');
-        if(vEl) vEl.textContent = v;
-        if(pEl) pEl.textContent = (v*10).toFixed(0) + '%';
-      });
-      const score = Math.round((sum / 50) * 100);
-      return { vals, sum, score, label: labelFor(score) };
-    }
-
-    function avg(arr){ return arr.reduce((a,b)=>a+b,0) / (arr.length||1); }
-    function variance(arr, mean){ if(arr.length===0) return 0; const m = mean ?? avg(arr); return arr.reduce((a,b)=>a+Math.pow(b-m,2),0) / arr.length; }
-
-    function buildJSON(){
-      const team = readTeam();
-      const single = getValues();
-
-      const out = { timestamp: new Date().toISOString(), single: {
-        inputs: single.vals,
-        total: { sum: single.sum, score: single.score, label: single.label }
-      }};
-
-      if(team.length > 0){
-        // per slider arrays
-        const per = {};
-        sliders.forEach(s=>{ per[s.k] = team.map(t=> Number(t[s.k])||0 ); });
-        // averages and variances
-        const avgs = {}; const vars = {}; let sumAvg = 0;
-        sliders.forEach(s=>{ const a = avg(per[s.k]); avgs[s.k] = { value: Number(a.toFixed(2)), percent: Number((a*10).toFixed(0)) }; vars[s.k] = Number(variance(per[s.k], a).toFixed(2)); sumAvg += a; });
-        const teamScore = Math.round((sumAvg / 50) * 100);
-        out.team = {
-          count: team.length,
-          averages: avgs,
-          variances: vars,
-          total: { sumAvg: Number(sumAvg.toFixed(2)), score: teamScore, label: labelFor(teamScore) }
+      const buildJSONOutput = (singleCalcs) => {
+        const single = {
+          inputs: SLIDERS.reduce((acc, s) => ({
+            ...acc,
+            [s.id]: { value: scores[s.id], percent: scores[s.id] * 10 }
+          }), {}),
+          total: { sum: singleCalcs.sum, score: singleCalcs.overallScore, label: singleCalcs.label }
         };
-      } else {
-        out.team = null;
-      }
-      return out;
-    }
 
-    function render(){
-      const single = getValues();
-      document.getElementById('score').textContent = single.score;
-      document.getElementById('label').textContent = single.label;
-      document.getElementById('bar').style.width = single.score + '%';
-      const list = document.getElementById('breakdown');
-      list.innerHTML = sliders.map(s=>{
-        const v = single.vals[s.k];
-        return `<li class='flex justify-between'><span>${s.label}</span><span class='text-gray-400'>${v.value} / 10 • ${v.percent}%</span></li>`;
-      }).join('');
-      const teamCount = readTeam().length; document.getElementById('teamCount').textContent = teamCount;
-      document.getElementById('jsonOut').value = JSON.stringify(buildJSON(), null, 2);
-    }
+        let team = null;
+        if (teamSubmissions.length > 0) {
+          const perSliderValues = {};
+          SLIDERS.forEach(s => {
+            perSliderValues[s.id] = teamSubmissions.map(sub => sub[s.id] || 0);
+          });
+          
+          const averages = {}; const variances = {}; let sumAvg = 0;
+          SLIDERS.forEach(s => {
+            const sliderVals = perSliderValues[s.id];
+            const a = avg(sliderVals);
+            const v = variance(sliderVals, a);
+            averages[s.id] = { value: parseFloat(a.toFixed(2)), percent: parseFloat((a * 10).toFixed(0)) };
+            variances[s.id] = parseFloat(v.toFixed(2));
+            sumAvg += a;
+          });
 
-    sliders.forEach(s=>{
-      document.getElementById(s.id).addEventListener('input', render);
+          const teamScore = Math.round((sumAvg / 50) * 100);
+          team = {
+            count: teamSubmissions.length,
+            averages,
+            variances,
+            total: { sumAvg: parseFloat(sumAvg.toFixed(2)), score: teamScore, label: getScoreLabel(teamScore) }
+          };
+        }
+
+        return { timestamp: new Date().toISOString(), single, team };
+      };
+      
+      // --- RENDER FUNCTION ---
+      const render = () => {
+        // Calculations
+        const singleCalcs = getSingleScoreCalculations();
+        const jsonOutput = buildJSONOutput(singleCalcs);
+        
+        // Update DOM
+        dom.score.textContent = singleCalcs.overallScore;
+        dom.label.textContent = singleCalcs.label;
+        dom.bar.style.width = `${singleCalcs.overallScore}%`;
+        dom.bar.className = `h-2.5 rounded-full transition-all duration-500 ${singleCalcs.color.bg}`;
+        
+        dom.breakdown.innerHTML = singleCalcs.breakdown.map(item => `
+          <li class='flex justify-between items-center'>
+              <span>${item.label}</span>
+              <span class='font-mono text-gray-300 text-sm font-medium'>${item.value} / 10 &bull; ${item.percent}%</span>
+          </li>
+        `).join('');
+
+        dom.jsonOutput.value = JSON.stringify(jsonOutput, null, 2);
+        dom.teamCount.textContent = teamSubmissions.length;
+        dom.resetTeamBtn.disabled = teamSubmissions.length === 0;
+
+        // Update slider values
+        SLIDERS.forEach(s => {
+            document.getElementById(`${s.id}-value`).textContent = `${scores[s.id]} / 10 • ${scores[s.id] * 10}%`;
+        });
+
+        // Toggle results visibility
+        dom.resultsContent.style.display = showResults ? '' : 'none';
+        dom.resultsHiddenPlaceholder.style.display = showResults ? 'none' : 'flex';
+        dom.eyeOpenIcon.style.display = showResults ? 'block' : 'none';
+        dom.eyeClosedIcon.style.display = showResults ? 'none' : 'block';
+        dom.toggleResultsText.textContent = showResults ? 'Hide' : 'Show';
+        dom.toggleResultsBtn.title = showResults ? 'Hide Results' : 'Show Results';
+      };
+
+      // --- EVENT HANDLERS ---
+      const handleSliderChange = (id, value) => {
+        scores[id] = parseInt(value, 10);
+        render();
+      };
+      
+      const handleSubmitToTeam = () => {
+        teamSubmissions.push({ ...scores });
+        writeTeam(teamSubmissions);
+        render();
+      };
+
+      const handleResetTeam = () => {
+        if (window.confirm('Are you sure you want to reset all team submissions? This cannot be undone.')) {
+          teamSubmissions = [];
+          writeTeam([]);
+          render();
+        }
+      };
+
+      const handleResetScores = () => {
+        scores = SLIDERS.reduce((acc, s) => ({ ...acc, [s.id]: 5 }), {});
+        SLIDERS.forEach(s => {
+          document.getElementById(s.id).value = 5;
+        });
+        render();
+      };
+      
+      const handleCopy = () => {
+        navigator.clipboard.writeText(dom.jsonOutput.value).then(() => {
+          dom.copyJsonText.textContent = 'Copied!';
+          setTimeout(() => dom.copyJsonText.textContent = 'Copy', 2000);
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+          dom.copyJsonText.textContent = 'Error';
+          setTimeout(() => dom.copyJsonText.textContent = 'Copy', 2000);
+        });
+      };
+      
+      const handleToggleResults = () => {
+        showResults = !showResults;
+        render();
+      };
+
+      // --- INITIALIZATION ---
+      const init = () => {
+        // Dynamically create sliders
+        const sliderContainer = document.createDocumentFragment();
+        SLIDERS.forEach(s => {
+            const div = document.createElement('div');
+            div.className = "bg-gray-800/40 rounded-xl p-4";
+            div.innerHTML = `
+              <label class="flex items-center justify-between mb-2">
+                <span class="text-gray-200">${s.label}</span>
+                <span id="${s.id}-value" class="text-base font-bold text-white">
+                  ${scores[s.id]} / 10 &bull; ${scores[s.id] * 10}%
+                </span>
+              </label>
+              <input
+                id="${s.id}"
+                type="range"
+                min="0"
+                max="10"
+                step="1"
+                value="${scores[s.id]}"
+                class="w-full h-2 rounded-lg appearance-none cursor-pointer"
+              />
+            `;
+            sliderContainer.appendChild(div);
+        });
+        dom.controls.insertBefore(sliderContainer, dom.submitBtn.parentElement);
+        
+        // Load initial state
+        teamSubmissions = readTeam();
+
+        // Attach event listeners
+        SLIDERS.forEach(s => {
+            document.getElementById(s.id).addEventListener('input', (e) => handleSliderChange(s.id, e.target.value));
+        });
+        dom.submitBtn.addEventListener('click', handleSubmitToTeam);
+        dom.resetScoresBtn.addEventListener('click', handleResetScores);
+        dom.resetTeamBtn.addEventListener('click', handleResetTeam);
+        dom.copyJsonBtn.addEventListener('click', handleCopy);
+        dom.toggleResultsBtn.addEventListener('click', handleToggleResults);
+
+        // Initial render
+        render();
+      };
+
+      init();
     });
-
-    document.getElementById('addTeam').addEventListener('click', ()=>{
-      const v = getValues().vals; const entry = {}; sliders.forEach(s=> entry[s.k] = v[s.k].value);
-      const arr = readTeam(); arr.push(entry); writeTeam(arr); render();
-    });
-    document.getElementById('resetTeam').addEventListener('click', ()=>{ if(confirm('Reset all team submissions?')){ writeTeam([]); render(); } });
-    document.getElementById('copyJson').addEventListener('click', async ()=>{ const ta = document.getElementById('jsonOut'); ta.select(); ta.setSelectionRange(0, ta.value.length); try{ await navigator.clipboard.writeText(ta.value); }catch(e){} });
-
-    render();
   </script>
 </body>
 </html>

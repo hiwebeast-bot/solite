@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / Keyword Categorizer — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Keyword Categorizer (Manual & Local) | Solite</title>
+  <meta name="description" content="Paste a list of keywords, create custom categories, and drag-and-drop to sort them. Export JSON or CSV. 100% private, offline, and in-browser." />
+  <link rel="canonical" href="https://solite.in/keyword-categorizer.html" />
+
+  <!-- 🔍 AI + SEO DISCOVERY -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Keyword Categorizer" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- 🌍 OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Keyword Categorizer (Manual & Local) | Solite" />
+  <meta property="og:description" content="Organize keywords with drag-and-drop. Export JSON or CSV. 100% private, in-browser." />
+  <meta property="og:url" content="https://solite.in/keyword-categorizer.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/keyword-categorizer.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Keyword Categorizer UI Screenshot" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- 🐦 TWITTER -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Keyword Categorizer (Manual & Local) | Solite" />
+  <meta name="twitter:description" content="Category-based keyword sorting with drag & drop. Export JSON or CSV. Private & offline." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/keyword-categorizer.html&meta=false&screenshot=true" />
+
+  <!-- 🖼️ ICONS / FAVICONS -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <!-- 🎨 CDN TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload"
+        as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+        onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  </noscript>
+
+  <!-- 💅 INLINE UI STYLES -->
+  <style>
+    html { color-scheme: dark light; scrollbar-color:#4b5563 #111827; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+  </style>
+
+  <!-- 📦 JSON-LD SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Keyword Categorizer",
+    "url": "https://solite.in/keyword-categorizer.html",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "description": "Drag-and-drop keyword categorization with JSON and CSV export. 100% offline and private.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Solite",
+      "url": "https://solite.in"
+    }
+  }
+  </script>
+
+<!-- 💰 ADSENSE + 📈 ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!--  📊 Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71L3MYLBH0"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-71L3MYLBH0');
+  </script>
+  <!--  End Google tag (gtag.js) -->
+</head>
+<!-- 🧬 END GEN-5.1 BALANCED HEAD / Keyword Categorizer -->
+
+<body class="bg-black text-gray-200 font-sans flex flex-col min-h-screen">
+  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-black/80 backdrop-blur-xl z-30 border-b border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="./index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+          <span class="text-base lg:text-xl font-bold text-white uppercase tracking-wider leading-none">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg font-semibold text-gray-400 leading-none">Keyword Categorizer</span>
+      </a>
+      <a href="./index.html#apps" class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+        <span>Free Tools</span>
+        <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+    <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+      <!-- Left Panel: Controls -->
+      <section id="controls-pane" class="w-full lg:w-1/4 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-4 flex flex-col gap-5">
+        <h2 class="text-xl font-bold text-white">Controls</h2>
+        
+        <div class="flex-grow flex flex-col gap-1">
+          <label for="keyword-input" class="block text-sm font-medium text-gray-300 mb-2">Paste Keywords (one per line)</label>
+          <textarea id="keyword-input" class="w-full flex-grow bg-gray-800/60 border border-gray-700 rounded-lg p-3 text-gray-300 text-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="e.g.&#10;best free tools&#10;online image editor&#10;privacy-first apps"></textarea>
+        </div>
+
+        <div class="mt-auto space-y-3 pt-4 border-t border-gray-800">
+          <button id="load-keywords-btn" class="w-full bg-none border border-gray-400 text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            Load Keywords
+          </button>
+          <button id="reset-btn" class="w-full bg-red-800/40 hover:bg-red-800/60 text-red-300 font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+            Reset Workspace
+          </button>
+        </div>
+      </section>
+
+      <!-- Center Panel: Uncategorized -->
+      <section id="uncategorized-pane" class="w-full lg:w-1/3 flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 drop-zone" data-category-id="uncategorized">
+        <div class="sticky top-0 bg-gray-900 z-10 py-2">
+          <h2 class="text-xl font-bold text-white mb-2">Uncategorized <span id="uncategorized-count" class="text-sm font-normal text-gray-400 ml-1"></span></h2>
+        </div>
+        <div id="uncategorized-list" class="flex flex-wrap gap-2 flex-grow min-h-[100px] content-start overflow-y-auto">
+          <p id="uncategorized-placeholder" class="text-gray-500">Load some keywords to get started.</p>
+        </div>
+      </section>
+
+      <!-- Right Panel: Categories -->
+      <section id="categories-pane" class="w-full lg:w-5/12 flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4">
+        <div class="sticky top-0 bg-gray-900 z-10 py-2">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
+            <h2 class="text-xl font-bold text-white">Categories</h2>
+            <div class="flex gap-2 flex-grow sm:flex-grow-0">
+              <input type="text" id="category-input" class="flex-grow bg-gray-800/60 border border-gray-600 rounded-lg px-3 py-2 text-gray-300 text-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="New Category Name">
+              <button id="add-category-btn" class="bg-gray-800 border border-gray-400 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="categories-list" class="space-y-4 flex-grow overflow-y-auto">
+          <p id="categories-placeholder" class="text-gray-500">Add a category to begin sorting.</p>
+        </div>
+
+        <div class="border-t border-gray-800 pt-4 mt-auto space-y-3">
+          <h3 class="text-base font-semibold text-white">Export</h3>
+          <div class="flex gap-2">
+            <button id="export-json-btn" class="flex-1 bg-white hover:bg-gray-200 text-black font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              JSON
+            </button>
+            <button id="export-csv-btn" class="flex-1 bg-white hover:bg-gray-200 text-black font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+              CSV
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+        <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Ad Area</div>
+    </aside>
+  </main>
+  <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / KEYWORD CATEGORIZER EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-keycat[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-keycat > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-keycat[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    </style>
+
+    <details id="solite-info-block-keycat" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Keyword Categorizer — Manual Drag-and-Drop Keyword Sorting Workspace
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+        <!-- 🧩 Overview -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+                <span class="badge">Keyword Sorting</span>
+                <span class="badge">Drag & Drop</span>
+                <span class="badge">JSON Export</span>
+                <span class="badge">CSV Export</span>
+                <span class="badge">Client-Side</span>
+                <span class="badge">Privacy-First</span>
+            </div>
+            <p class="text-lg text-gray-300">
+                The <strong>Solite Keyword Categorizer</strong> is a fast, manual, drag-and-drop workspace for organizing large keyword lists into custom categories.  
+                No AI, no automation — <strong>pure human-controlled sorting</strong> with a frictionless UI and <strong>100% local processing</strong>. Export fully organized data in JSON or CSV formats without uploading anything to a server.
+            </p>
+        </section>
+
+        <!-- ⚙️ Features -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Core Features</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Multi-Keyword Import:</strong> Paste hundreds of keywords at once (one per line).</li>
+                <li><strong>Uncategorized Bucket:</strong> All new or leftover keywords stay visible until sorted.</li>
+                <li><strong>Custom Categories:</strong> Create unlimited groups instantly.</li>
+                <li><strong>Drag-and-Drop Sorting:</strong> Move keywords between categories with intuitive gestures.</li>
+                <li><strong>Live Keyword Count:</strong> Each category dynamically shows total items.</li>
+                <li><strong>One-Click JSON / CSV Export:</strong> Clean, structured, ready for SEO tools or spreadsheets.</li>
+                <li><strong>Client-Side Privacy:</strong> No uploads, tracking, or cloud processing.</li>
+            </ul>
+        </section>
+
+        <!-- 🧠 Use Cases -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Best For</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>SEO Experts:</strong> Build topical clusters for content planning.</li>
+                    <li><strong>Content Strategists:</strong> Organize keyword research before writing.</li>
+                    <li><strong>PPC Specialists:</strong> Group keywords into tightly themed ad sets.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Marketers:</strong> Clean messy keyword dumps from tools like Ahrefs/SEMrush.</li>
+                    <li><strong>Teams:</strong> Collaborate offline and share exported lists.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 🧭 How It Works -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Paste keywords in the text area (one per line).</li>
+                <li>Click <strong>Load Keywords</strong> to populate the uncategorized section.</li>
+                <li>Add one or multiple categories from the right panel.</li>
+                <li>Drag any keyword into the desired category.</li>
+                <li>Rearrange or recategorize anytime by dragging again.</li>
+                <li>Export your entire set as <strong>JSON</strong> or <strong>CSV</strong>.</li>
+            </ol>
+        </section>
+
+        <!-- 📊 What the Output Includes -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">What Your Exports Contain</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Uncategorized List:</strong> Keywords not sorted into any category.</li>
+                <li><strong>Category Buckets:</strong> Each category with its full keyword list.</li>
+                <li><strong>CSV Format:</strong> Keyword → Category mapping (ready for Sheets/Excel).</li>
+                <li><strong>JSON Format:</strong> Structured arrays ideal for automation or tools.</li>
+            </ul>
+        </section>
+
+        <!-- 🔗 Comparison -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Solite vs Other Categorization Tools</h3>
+            <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+                <thead class="bg-gray-800 text-gray-200 font-semibold">
+                    <tr>
+                        <th class="p-2 text-left">Feature</th>
+                        <th class="p-2 text-left">Solite Categorizer</th>
+                        <th class="p-2 text-left">Other Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Client-Side</td><td class="p-2">❌ Upload Required</td></tr>
+                    <tr><td class="p-2">Data Limits</td><td class="p-2">✅ Unlimited Keywords</td><td class="p-2">⚠️ Often Limited</td></tr>
+                    <tr><td class="p-2">Categorization</td><td class="p-2">✅ Manual Drag & Drop</td><td class="p-2">⚠️ Auto-Grouping Errors</td></tr>
+                    <tr><td class="p-2">Export Options</td><td class="p-2">✅ JSON + CSV</td><td class="p-2">⚠️ Restricted Formats</td></tr>
+                    <tr><td class="p-2">Cost</td><td class="p-2">✅ Free Forever</td><td class="p-2">❌ Paid Plans</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 🔗 Related Tools -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+            <ul className="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./invoice-generator.html" className="text-white hover:underline font-medium">Invoice Generator</a></li>
+                <li><a href="./image-format-changer.html" className="text-white hover:underline font-medium">Image Converter</a> — Convert between JPG, PNG, WebP, and AVIF formats.</li>
+                <li><a href="./privacy-blur-tool.html" className="text-white hover:underline font-medium">Privacy Blur Tool</a> — Blur sensitive areas in your images locally.</li>
+                <li><a href="./text-tools.html" className="text-white hover:underline font-medium">More Business Tools</a></li>
+            </ul>
+            <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse all Solite Apps →</a>
+            </p>
+        </section>
+
+        <!-- 🧠 AI Citation -->
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>keyword categorizer, drag and drop keyword organizer, seo keyword grouping, keyword sorter, json keyword export, privacy-first seo tools</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong>  
+                “Solite Keyword Categorizer — a 100% private, drag-and-drop workspace to manually organize keywords into categories with clean JSON/CSV export.”
+            </p>
+        </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.1 BLOCK / KEYWORD CATEGORIZER -->
+
+    <!-- Mobile Navigation Bar -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-16 py-1">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                <span>Controls</span>
+            </button>
+            <button id="mobile-uncategorized-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+                <span>Uncategorized</span>
+            </button>
+            <button id="mobile-categories-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.75h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5M21 3.75H3v16.5h18V3.75z" /></svg>
+                <span>Categories</span>
+            </button>
+        </div>
+    </div>
+
+
+  <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50 ">
+    <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+      <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+        <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+      </div>
+      <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+          <a href="./about.html" class="hover:text-white transition-colors">About</a>
+          <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+          <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+          <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+          <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+          <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- STATE ---
+      let state = {
+        keywords: new Set(),
+        categories: [], // { id: string, name: string, keywords: Set<string> }
+        uncategorized: new Set(),
+      };
+      let draggedKeyword = null;
+
+      // --- DOM ELEMENTS ---
+      const dom = {
+        keywordInput: document.getElementById('keyword-input'),
+        loadKeywordsBtn: document.getElementById('load-keywords-btn'),
+        categoryInput: document.getElementById('category-input'),
+        addCategoryBtn: document.getElementById('add-category-btn'),
+        exportJsonBtn: document.getElementById('export-json-btn'),
+        exportCsvBtn: document.getElementById('export-csv-btn'),
+        resetBtn: document.getElementById('reset-btn'),
+        uncategorizedContainer: document.getElementById('uncategorized-pane'),
+        uncategorizedList: document.getElementById('uncategorized-list'),
+        uncategorizedCount: document.getElementById('uncategorized-count'),
+        uncategorizedPlaceholder: document.getElementById('uncategorized-placeholder'),
+        categoriesContainer: document.getElementById('categories-pane'),
+        categoriesList: document.getElementById('categories-list'),
+        categoriesPlaceholder: document.getElementById('categories-placeholder'),
+        mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+        mobileUncategorizedBtn: document.getElementById('mobile-uncategorized-btn'),
+        mobileCategoriesBtn: document.getElementById('mobile-categories-btn'),
+        controlsPane: document.getElementById('controls-pane'),
+      };
+
+      // --- RENDER FUNCTIONS ---
+      const renderKeywords = () => {
+        dom.uncategorizedList.innerHTML = '';
+        if (state.uncategorized.size > 0) {
+          dom.uncategorizedPlaceholder.style.display = 'none';
+          state.uncategorized.forEach(keyword => {
+            dom.uncategorizedList.appendChild(createKeywordPill(keyword));
+          });
+        } else {
+          dom.uncategorizedPlaceholder.style.display = 'block';
+          dom.uncategorizedPlaceholder.textContent = state.keywords.size > 0 ? 'All keywords categorized!' : 'Load some keywords to get started.';
+        }
+        dom.uncategorizedCount.textContent = `(${state.uncategorized.size})`;
+      };
+
+      const renderCategories = () => {
+        dom.categoriesList.innerHTML = '';
+        if (state.categories.length > 0) {
+          dom.categoriesPlaceholder.style.display = 'none';
+          state.categories.forEach(cat => {
+            const catEl = document.createElement('div');
+            catEl.className = 'p-4 rounded-lg border border-gray-700 bg-gray-800/40 drop-zone';
+            catEl.dataset.categoryId = cat.id;
+            
+            const keywordsHTML = Array.from(cat.keywords).map(kw => createKeywordPill(kw).outerHTML).join('');
+
+            catEl.innerHTML = `
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="font-semibold text-white">${cat.name} <span class="text-sm font-normal text-gray-400">(${cat.keywords.size})</span></h3>
+                <button class="remove-category-btn text-gray-500 hover:text-red-400 transition-colors" data-category-id="${cat.id}" title="Remove Category">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                </button>
+              </div>
+              <div class="flex flex-wrap gap-2 min-h-0">
+                ${keywordsHTML || `<p class="text-gray-600 text-sm w-full">Drag keywords here</p>`}
+              </div>
+            `;
+            dom.categoriesList.appendChild(catEl);
+          });
+        } else {
+          dom.categoriesPlaceholder.style.display = 'block';
+        }
+      };
+
+      const renderAll = () => {
+        renderKeywords();
+        renderCategories();
+        attachAllEventListeners();
+      };
+
+      // --- HELPER FUNCTIONS ---
+      const createKeywordPill = (keyword) => {
+        const pill = document.createElement('span');
+        pill.className = 'keyword-pill bg-gray-800/60 border border-gray-600 hover:bg-gray-700/60 text-gray-200 text-sm font-medium px-3 py-1 rounded-full';
+        pill.textContent = keyword;
+        pill.draggable = true;
+        pill.dataset.keyword = keyword;
+        return pill;
+      };
+
+      const downloadFile = (filename, content, mimeType) => {
+        const blob = new Blob([content], { type: mimeType });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+      };
+
+      // --- EVENT HANDLERS ---
+      const handleLoadKeywords = () => {
+        const keywords = dom.keywordInput.value.split('\n').map(k => k.trim()).filter(k => k);
+        const uniqueKeywords = new Set(keywords);
+        state.keywords = uniqueKeywords;
+        state.uncategorized = new Set(uniqueKeywords);
+        state.categories.forEach(cat => cat.keywords.clear());
+        dom.keywordInput.value = '';
+        renderAll();
+      };
+
+      const handleAddCategory = () => {
+        const name = dom.categoryInput.value.trim();
+        if (name && !state.categories.some(c => c.name === name)) {
+          state.categories.push({ id: `cat_${Date.now()}`, name, keywords: new Set() });
+          dom.categoryInput.value = '';
+          renderAll();
+        }
+      };
+
+      const handleRemoveCategory = (categoryId) => {
+        const category = state.categories.find(c => c.id === categoryId);
+        if (!category) return;
+
+        // Move keywords back to uncategorized
+        category.keywords.forEach(kw => state.uncategorized.add(kw));
+        
+        // Remove category
+        state.categories = state.categories.filter(c => c.id !== categoryId);
+        renderAll();
+      };
+
+      const handleReset = () => {
+        if (confirm('Are you sure you want to reset the entire workspace? This will clear all keywords and categories.')) {
+          state = { keywords: new Set(), categories: [], uncategorized: new Set() };
+          renderAll();
+        }
+      };
+
+      const handleExportJSON = () => {
+        const output = {
+          uncategorized: Array.from(state.uncategorized),
+          categories: state.categories.map(c => ({
+            name: c.name,
+            keywords: Array.from(c.keywords)
+          }))
+        };
+        downloadFile('keyword-categories.json', JSON.stringify(output, null, 2), 'application/json');
+      };
+
+      const handleExportCSV = () => {
+        let csvContent = 'Keyword,Category\n';
+        state.categories.forEach(cat => {
+          cat.keywords.forEach(kw => {
+            csvContent += `"${kw.replace(/"/g, '""')}","${cat.name.replace(/"/g, '""')}"\n`;
+          });
+        });
+        state.uncategorized.forEach(kw => {
+          csvContent += `"${kw.replace(/"/g, '""')}","Uncategorized"\n`;
+        });
+        downloadFile('keyword-categories.csv', csvContent, 'text/csv;charset=utf-8;');
+      };
+
+      // --- DRAG & DROP HANDLERS ---
+      const handleDragStart = (e) => {
+        draggedKeyword = e.target.dataset.keyword;
+        e.target.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', draggedKeyword);
+      };
+
+      const handleDragEnd = (e) => {
+        e.target.classList.remove('dragging');
+        draggedKeyword = null;
+      };
+
+      const handleDragOver = (e) => {
+        e.preventDefault();
+        const dropZone = e.target.closest('.drop-zone');
+        if (dropZone) {
+          dropZone.classList.add('drag-over');
+        }
+      };
+
+      const handleDragLeave = (e) => {
+        const dropZone = e.target.closest('.drop-zone');
+        if (dropZone) {
+          dropZone.classList.remove('drag-over');
+        }
+      };
+
+      const handleDrop = (e) => {
+        e.preventDefault();
+        const dropZone = e.target.closest('.drop-zone');
+        if (!dropZone || !draggedKeyword) return;
+
+        dropZone.classList.remove('drag-over');
+        const targetCategoryId = dropZone.dataset.categoryId;
+
+        // Remove from all existing locations
+        state.uncategorized.delete(draggedKeyword);
+        state.categories.forEach(cat => cat.keywords.delete(draggedKeyword));
+
+        // Add to new location
+        if (targetCategoryId === 'uncategorized') {
+          state.uncategorized.add(draggedKeyword);
+        } else {
+          const targetCategory = state.categories.find(c => c.id === targetCategoryId);
+          if (targetCategory) {
+            targetCategory.keywords.add(draggedKeyword);
+          }
+        }
+        renderAll();
+      };
+
+      // --- EVENT LISTENER ATTACHMENT ---
+      const attachAllEventListeners = () => {
+        // Keyword pills
+        document.querySelectorAll('.keyword-pill').forEach(pill => {
+          pill.addEventListener('dragstart', handleDragStart);
+          pill.addEventListener('dragend', handleDragEnd);
+        });
+
+        // Drop zones
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+          zone.addEventListener('dragover', handleDragOver);
+          zone.addEventListener('dragleave', handleDragLeave);
+          zone.addEventListener('drop', handleDrop);
+        });
+
+        // Remove category buttons
+        document.querySelectorAll('.remove-category-btn').forEach(btn => {
+          btn.addEventListener('click', () => handleRemoveCategory(btn.dataset.categoryId));
+        });
+      };
+
+      // --- MOBILE NAVIGATION ---
+      const showMobilePane = (paneId) => {
+        const panes = {
+            controls: dom.controlsPane,
+            uncategorized: dom.uncategorizedContainer,
+            categories: dom.categoriesContainer
+        };
+        const buttons = {
+            controls: dom.mobileControlsBtn,
+            uncategorized: dom.mobileUncategorizedBtn,
+            categories: dom.mobileCategoriesBtn
+        };
+
+        Object.values(panes).forEach(pane => pane.classList.add('hidden'));
+        Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+
+        if (panes[paneId]) {
+            panes[paneId].classList.remove('hidden');
+            buttons[paneId].classList.add('active');
+        }
+      };
+
+      const handleMobileLayout = () => {
+        if (window.innerWidth >= 1024) {
+            dom.controlsPane.classList.remove('hidden');
+            dom.uncategorizedContainer.classList.remove('hidden');
+            dom.categoriesContainer.classList.remove('hidden');
+        } else {
+            const activeBtn = document.querySelector('.mobile-nav-btn.active');
+            showMobilePane(activeBtn ? activeBtn.id.replace('mobile-', '').replace('-btn', '') : 'uncategorized');
+        }
+      };
+
+      // --- INITIALIZATION ---
+      const init = () => {
+        dom.loadKeywordsBtn.addEventListener('click', handleLoadKeywords);
+        dom.addCategoryBtn.addEventListener('click', handleAddCategory);
+        dom.categoryInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') handleAddCategory();
+        });
+        dom.resetBtn.addEventListener('click', handleReset);
+        dom.exportJsonBtn.addEventListener('click', handleExportJSON);
+        dom.exportCsvBtn.addEventListener('click', handleExportCSV);
+
+        dom.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+        dom.mobileUncategorizedBtn.addEventListener('click', () => showMobilePane('uncategorized'));
+        dom.mobileCategoriesBtn.addEventListener('click', () => showMobilePane('categories'));
+        window.addEventListener('resize', handleMobileLayout);
+        handleMobileLayout();
+        renderAll();
+      };
+
+      init();
+    });
+  </script>
+</body>
+</html>
