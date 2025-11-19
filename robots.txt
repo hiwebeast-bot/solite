@@ -1,6 +1,8 @@
 # 🧬 SOLITE ROBOTS.TXT — GEN-5.0 PRIVACY-FIRST / AUTHORITY EDITION
 User-agent: *
 Allow: /
+Allow: /cpc-budget-splitter.html
+Allow: /hashtag-separator.html
 Disallow: /assets/
 Disallow: /_vercel/
 Crawl-delay: 10

@@ -56,6 +56,7 @@
   <url><loc>https://solite.in/email-signature-generator.html</loc></url>
   <url><loc>https://solite.in/keyword-categorizer.html</loc></url>
   <url><loc>https://solite.in/hashtag-extractor.html</loc></url>
+  <url><loc>https://solite.in/hashtag-separator.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/whitespace-normalizer.html</loc></url>
   <url><loc>https://solite.in/smart-word-counter.html</loc></url>
   <url><loc>https://solite.in/link-cleaner.html</loc></url>
@@ -120,6 +121,10 @@
   <url><loc>https://solite.in/linkedin-post-generator.html</loc></url>
   <url><loc>https://solite.in/online-signature-maker.html</loc></url>
   <url><loc>https://solite.in/whatsapp-chat-generator.html</loc></url>
+  
+  <!-- 📈 MARKETING -->
+  <url><loc>https://solite.in/social-posting-timer.html</loc><priority>0.85</priority></url>
+  <url><loc>https://solite.in/cpc-budget-splitter.html</loc><priority>0.85</priority></url>
 
   <!-- 📰 BLOG -->
   <url><loc>https://solite.in/blog.html</loc></url>
