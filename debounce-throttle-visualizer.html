@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.3 BALANCED HEAD / DEBOUNCE & THROTTLE VISUALIZER — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Debounce & Throttle Visualizer | Free JavaScript Event Tool | Solite</title>
+  <meta name="description" content="Visualize how Debounce and Throttle work in JavaScript by adjusting event frequency, delay and rate. See real-time performance difference. 100% private & browser-based." />
+  <link rel="canonical" href="https://solite.in/debounce-throttle-visualizer.html" />
+  <meta name="keywords" content="debounce visualizer, throttle visualizer, javascript debounce, javascript throttle, js performance, rate limiting, browser tool, solite" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- 🎨 BRANDING & UX -->
+  <meta name="application-name" content="Debounce & Throttle Visualizer" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="author" content="Solite Team" />
+  <meta name="publisher" content="Solite" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-content-type" content="JavaScript Event Optimization Visualizer" />
+  <meta name="ai-purpose" content="Understanding and simulating debounce and throttle effects on event calls" />
+  <meta name="ai-model-context" content="debounce throttle event optimization visualization performance js tools" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Tool" />
+
+  <!-- 🌍 SOCIAL META (AUTO OG SCREENSHOT) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Debounce & Throttle Visualizer | Solite" />
+  <meta property="og:description" content="Interactive visual tool to understand Debounce vs Throttle in JavaScript." />
+  <meta property="og:url" content="https://solite.in/debounce-throttle-visualizer.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/debounce-throttle-visualizer.html&meta=false&screenshot=true" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Debounce & Throttle Visualizer | Solite" />
+  <meta name="twitter:description" content="See live event frequency control in action. 100% private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/debounce-throttle-visualizer.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARY -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 SCROLLBAR + UI STYLES (PRESERVED) -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #000; }
+    .track { position: relative; width: 100%; height: 40px; background-color: #1f2937; border-radius: .5rem; overflow: hidden; border: 1px solid #374151; }
+    .event-dot { position: absolute; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; animation: slide-in 5s linear forwards; }
+    @keyframes slide-in { from { right:-20px; } to { right:100%; } }
+  </style>
+
+  <!-- 🧠 JSON-LD ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://solite.in/#organization",
+        "name":"Solite",
+        "url":"https://solite.in",
+        "logo":"https://solite.in/assets/apple-touch-icon.png",
+        "description":"Solite builds 100% client-side tools for developers, creators, and professionals."
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://solite.in/debounce-throttle-visualizer.html#app",
+        "name":"Debounce & Throttle Visualizer",
+        "url":"https://solite.in/debounce-throttle-visualizer.html",
+        "applicationCategory":"DeveloperApplication",
+        "operatingSystem":"All",
+        "featureList":[
+          "Real-time debounce visualization",
+          "Throttle event output simulation",
+          "Configurable frequency and delays",
+          "Performance-focused JavaScript learning tool",
+          "100% client-side privacy"
+        ],
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "provider":{"@id":"https://solite.in/#organization"}
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.3 | SOLITE_AUTHORITY_PREDATOR | GEN_5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Debounce/Throttle Visualizer</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Debounce and Throttle Visualizer</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="event-frequency-slider" class="font-medium">Event Frequency (<span id="event-frequency-label">500</span>ms)</label>
+                        <input type="range" id="event-frequency-slider" min="50" max="2000" value="500" step="50" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="debounce-delay-input" class="font-medium">Debounce Delay (ms)</label>
+                        <input type="number" id="debounce-delay-input" value="1000" min="0" step="100" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="throttle-interval-input" class="font-medium">Throttle Interval (ms)</label>
+                        <input type="number" id="throttle-interval-input" value="1000" min="0" step="100" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-gray-800">
+                        <button id="reset-btn" class="w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M4 20h5v-5M20 4h-5v5" /></svg>
+                            Reset Visualization
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-6 space-y-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Raw Events</h3>
+                    <div id="raw-track" class="track"></div>
+                    <p class="text-xs text-gray-400 mt-2">Represents every single event fired by the slider.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Debounced Output</h3>
+                    <div id="debounce-track" class="track"></div>
+                    <p class="text-xs text-gray-400 mt-2">Fires only after a period of inactivity. Good for search inputs.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Throttled Output</h3>
+                    <div id="throttle-track" class="track"></div>
+                    <p class="text-xs text-gray-400 mt-2">Fires at a maximum rate. Good for scroll or resize events.</p>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
+        </aside>
+    </main>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / DEBOUNCE & THROTTLE VISUALIZER) -->
+    <div class="w-full text-gray-300 p-2">
+    <style>
+    #solite-seo-debounce[open] > summary { border-bottom:1px solid #374151; }
+    #solite-seo-debounce > summary .details-arrow-seo { transform:rotate(-90deg); transition:transform .25s ease-in-out; }
+    #solite-seo-debounce[open] > summary .details-arrow-seo { transform:rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.45rem; border:1px solid #374151; padding:.25rem .65rem; border-radius:.55rem; font-size:.77rem; color:#9CA3AF; }
+    .seo-table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    .seo-table td, .seo-table th { border:1px solid #374151; padding:.65rem; }
+    .seo-table th { background:#111827; color:#e5e7eb; font-weight:600; }
+    </style>
+
+    <details id="solite-seo-debounce" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+    Debounce & Throttle Visualizer — Interactive JS Event Rate Tool
+    <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🔹 Badges -->
+    <section class="space-y-3">
+    <div class="flex flex-wrap gap-2">
+    <span class="badge">JavaScript</span>
+    <span class="badge">UI Performance</span>
+    <span class="badge">Event Optimization</span>
+    <span class="badge">Client-Side</span>
+    <span class="badge">Visualizer</span>
+    </div>
+
+    <!-- 🔹 Overview -->
+    <p class="text-lg text-gray-300">
+    The <strong>Debounce & Throttle Visualizer</strong> by Solite helps developers <strong>see how event optimization works</strong> in real-time. Adjust event frequency and delay, then watch how raw events, debounced calls, and throttled calls behave differently. Ideal for learning how to control scroll, input, resize, keypress, and API-triggered events. No installs, no tracking, <strong>100% private and browser-based</strong>.
+    </p>
+    </section>
+
+    <!-- 🔹 Features -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Why Use This Tool?</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><strong>Live Visual Tracking:</strong> View event dots in real time for raw, debounced, and throttled output.</li>
+    <li><strong>Adjustable Frequencies:</strong> Control slider speed and delay values for experimentation.</li>
+    <li><strong>Performance Thinking:</strong> Understand how to limit expensive function calls.</li>
+    <li><strong>Great for Beginners & Experts:</strong> Clarifies concepts that are often misunderstood in JS tutorials.</li>
+    <li><strong>100% Private:</strong> Runs locally in your browser with no logs or analytics.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Use Cases -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Who Benefits from This Visualizer?</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><strong>Frontend Developers</strong> optimizing event-heavy UIs.</li>
+    <li><strong>Students</strong> learning real-time event handling in JavaScript.</li>
+    <li><strong>Performance Engineers</strong> reducing browser computation overhead.</li>
+    <li><strong>React / Vue / Svelte Devs</strong> tuning handler execution frequency.</li>
+    <li><strong>Educators</strong> teaching async UI patterns visually.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Workflow -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+    <ol class="list-decimal list-inside text-gray-400 space-y-2">
+    <li>Move the frequency slider to generate raw event bursts.</li>
+    <li>Set debounce delay for triggered execution after idle time.</li>
+    <li>Set throttle interval to cap how often a function is allowed to run.</li>
+    <li>Watch the dots in each track move and update in real-time.</li>
+    <li>Reset and try new combinations for different performance insights.</li>
+    </ol>
+    </section>
+
+    <!-- 🔹 Comparison Table -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Debounce vs Throttle</h3>
+    <table class="seo-table">
+    <thead>
+    <tr><th>Technique</th><th>Behavior</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>Debounce</strong></td>
+    <td>Waits until user stops firing events</td>
+    <td>Search, Auto-Save, Form Suggestions</td>
+    </tr>
+    <tr>
+    <td><strong>Throttle</strong></td>
+    <td>Runs at fixed intervals even if events keep firing</td>
+    <td>Scroll, Resize, Scroll Animations, Mouse Tracking</td>
+    </tr>
+    </tbody>
+    </table>
+    </section>
+
+    <!-- 🔹 FAQs -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+    <ul class="text-gray-400 space-y-3">
+    <li><strong>Which one is better?</strong><br>It depends. Use Debounce for “type & wait”, Throttle for fast repeating actions.</li>
+    <li><strong>Does this affect backend load?</strong><br>Yes, it dramatically reduces API calls triggered by user actions.</li>
+    <li><strong>Do frameworks already include it?</strong><br>Some offer utilities, but mastering the native concept helps control performance.</li>
+    <li><strong>Can it break UX?</strong><br>A wrong delay or interval can feel “laggy” — this tool helps tune values.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Cross Links -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Related Solite Developer Tools</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><a href="./javascript-minifier.html" class="text-white hover:underline font-medium">JavaScript Minifier</a> — Reduce bundle size instantly.</li>
+    <li><a href="./http-header-generator.html" class="text-white hover:underline font-medium">HTTP Header Generator</a> — Strengthen web security.</li>
+    <li><a href="./color-contrast-checker.html" class="text-white hover:underline font-medium">Color Contrast Checker</a> — Improve accessible UI.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 AI Keywords + Citation -->
+    <section class="text-sm text-gray-500 border-t border-gray-800 pt-4">
+    <p><strong>AI Target Keywords:</strong> debounce visualizer, throttle visualizer, javascript event optimization tool, performance throttling, debounce delay tool, event frequency simulator.</p>
+    <p class="mt-2"><strong>AI Citation:</strong> “Solite — Client-Side Developer Experience Tools for Faster, Safer, Optimized Web Apps.”</p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / DEBOUNCE & THROTTLE VISUALIZER -->
+
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                eventFrequencySlider: document.getElementById('event-frequency-slider'),
+                eventFrequencyLabel: document.getElementById('event-frequency-label'),
+                debounceDelayInput: document.getElementById('debounce-delay-input'),
+                throttleIntervalInput: document.getElementById('throttle-interval-input'),
+                resetBtn: document.getElementById('reset-btn'),
+                rawTrack: document.getElementById('raw-track'),
+                debounceTrack: document.getElementById('debounce-track'),
+                throttleTrack: document.getElementById('throttle-track'),
+            };
+
+            let eventIntervalId = null;
+            let debounceTimeoutId = null;
+            let throttleTimeoutId = null;
+            let canThrottleFire = true;
+
+            function addDot(trackElement, colorClass) {
+                const dot = document.createElement('div');
+                dot.className = `event-dot ${colorClass}`;
+                trackElement.appendChild(dot);
+                // Remove dot after animation to prevent DOM clutter
+                setTimeout(() => dot.remove(), 5000);
+            }
+
+            function handleRawEvent() {
+                addDot(el.rawTrack, 'bg-gray-500');
+                
+                // Debounce logic
+                clearTimeout(debounceTimeoutId);
+                const debounceDelay = parseInt(el.debounceDelayInput.value) || 0;
+                debounceTimeoutId = setTimeout(() => {
+                    addDot(el.debounceTrack, 'bg-blue-400');
+                }, debounceDelay);
+
+                // Throttle logic
+                if (canThrottleFire) {
+                    addDot(el.throttleTrack, 'bg-green-400');
+                    canThrottleFire = false;
+                    const throttleInterval = parseInt(el.throttleIntervalInput.value) || 0;
+                    throttleTimeoutId = setTimeout(() => {
+                        canThrottleFire = true;
+                    }, throttleInterval);
+                }
+            }
+
+            function startSimulation() {
+                stopSimulation(); // Ensure no multiple intervals are running
+                const frequency = parseInt(el.eventFrequencySlider.value);
+                if (frequency > 0) {
+                    eventIntervalId = setInterval(handleRawEvent, frequency);
+                }
+            }
+
+            function stopSimulation() {
+                clearInterval(eventIntervalId);
+                clearTimeout(debounceTimeoutId);
+                clearTimeout(throttleTimeoutId);
+                eventIntervalId = null;
+                debounceTimeoutId = null;
+                throttleTimeoutId = null;
+                canThrottleFire = true;
+            }
+
+            function resetVisualization() {
+                stopSimulation();
+                el.rawTrack.innerHTML = '';
+                el.debounceTrack.innerHTML = '';
+                el.throttleTrack.innerHTML = '';
+                startSimulation();
+            }
+
+            // Event Listeners
+            el.eventFrequencySlider.addEventListener('input', (e) => {
+                el.eventFrequencyLabel.textContent = e.target.value;
+                resetVisualization();
+            });
+
+            el.debounceDelayInput.addEventListener('input', resetVisualization);
+            el.throttleIntervalInput.addEventListener('input', resetVisualization);
+            el.resetBtn.addEventListener('click', resetVisualization);
+
+            // Initial start
+            startSimulation();
+        });
+    </script>
+
+</body>
+</html>

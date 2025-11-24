@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.2 BALANCED HEAD / Social Image Crop Tool — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 ENHANCED PRIMARY SEO -->
+  <title>Social Media Image Crop Tool | Free Aspect Ratio Helper & Resizer | Solite</title>
+  <meta name="description" content="Crop and resize images for Instagram, TikTok, YouTube, LinkedIn, Facebook, Pinterest & Twitter instantly. Auto-fit aspect ratio presets with HD export. 100% private & browser-based." />
+  <meta name="keywords" content="image crop tool, social media cropper, instagram ratio, youtube thumbnail size, tiktok cover crop, pinterest pin size, facebook post dimensions, linkedin image crop, solite tools" />
+  <meta name="generator" content="Solite GEN-5.2 Balanced Head — AI Authority Edition" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Social Media Ratio Crop Tool" />
+  <link rel="canonical" href="https://solite.in/social-image-crop-tool.html" />
+
+  <!-- 🔍 AI DISCOVERY LAYER — GEN-5.2 ENTITY GRAPH -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-content-type" content="Interactive Design Tool" />
+  <meta name="ai-purpose" content="Image Crop Optimization + Social Platform Presets" />
+  <meta name="ai-topics" content="aspect ratio detection, preset thumbnails, platform dimensions, content creator utilities" />
+  <meta name="ai-model-context" content="image cropping, ratio calculation, social post optimization, creator workflow tools" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+  <meta name="ai-visibility" content="public/tool" />
+  <meta name="ai-skill-level" content="Beginner-Friendly / Professional Output" />
+
+  <!-- 🌍 SOCIAL PREVIEW + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Social Media Image Ratio Crop Tool | Solite" />
+  <meta property="og:description" content="Crop to perfect Instagram, YouTube, TikTok, FB, Pinterest & LinkedIn sizes. Free & Private." />
+  <meta property="og:url" content="https://solite.in/social-image-crop-tool.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/social-image-crop-tool.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Social Media Crop Tool UI Preview — Solite" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Social Media Image Ratio Crop Tool | Solite" />
+  <meta name="twitter:description" content="Crop images to exact sizes for all platforms instantly. HD Export. 100% Private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/social-image-crop-tool.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES (kept exact) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <!-- 🔡 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS (kept exact) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🧩 MICRO-OPTIMIZATIONS -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="cache-control" content="max-age=31536000" />
+
+  <!-- 🎨 EXISTING UI STYLES (kept fully intact) -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #000; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .cropper-view-box, .cropper-face { border-radius: 0; outline: 2px solid white; }
+    .cropper-line { background-color: transparent; }
+    .cropper-point { background-color: white; width: 8px; height: 8px; }
+    .cropper-modal { background-color: #000; opacity: 0.8; }
+    .platform-btn { background-color: transparent; color: #d1d5db; font-weight: 500; border: 1px solid #374151; transition: all 0.2s; }
+    .platform-btn:hover { border-color: #4b5563; }
+    .platform-btn.active { background-color: transparent; color: #ffffff; border-color: #9ca3af; }
+    .ratio-text { color: #9ca3af; font-weight: 500; }
+    .platform-btn[data-ratio="0.6667"] { background-color: #1f2937; }
+    .platform-btn[data-ratio="0.6667"].active { background-color: #374151; }
+    .upload-icon { stroke-width: 0.8px; }
+  </style>
+
+  <!-- 🧬 STRUCTURED DATA — upgraded to GEN-5.2 LINKED GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds privacy-first browser-based tools for creators, marketers, and developers."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/social-image-crop-tool.html#webapp",
+        "name": "Social Media Ratio Crop Tool",
+        "url": "https://solite.in/social-image-crop-tool.html",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "featureList": [
+          "Aspect ratio presets for every major social platform",
+          "HD image export with quality control",
+          "Client-side cropping & download",
+          "Mobile friendly workflow",
+          "Rotation + free crop tools"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@id": "https://solite.in/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <meta name="solite-ai-signature" content="GEN-5.2-BALANCED | AI-DISCOVERY-LINKED | PRIVACY-FIRST | CLIENT-SIDE" />
+</head>
+
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Social Image Crop Tool</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-20 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Free Social Media Image Ratio Helper</h1>
+            
+            <!-- CONTROL PANEL -->
+            <div id="control-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto shadow-xl">
+                
+                <!-- Platform Presets (NEW TOP POSITION) -->
+                <div class="mb-6 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2 mb-4">
+                        Platform Presets
+                    </h2>
+
+                    <!-- Current Preset Info Box (MOVED HERE) -->
+                    <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700 mb-4 flex-shrink-0">
+                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Selected Dimensions</p>
+                        <p id="preset-desc" class="text-base font-mono text-white font-medium">Instagram Post (1080x1080)</p>
+                    </div>
+
+                    <!-- Platform Categories -->
+                    <div class="flex flex-col gap-3">
+                        <button class="platform-btn active w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="1" data-desc="Instagram Post (1080x1080)">
+                            <span>Instagram Post</span>
+                            <span class="ratio-text text-xs">(1:1)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="0.8" data-desc="Instagram Portrait (1080x1350)">
+                            <span>Instagram Portrait</span>
+                            <span class="ratio-text text-xs">(4:5)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="1.91" data-desc="Facebook Post (1200x630)">
+                            <span>Facebook Post</span>
+                            <span class="ratio-text text-xs">(1.91:1)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="1.7778" data-desc="Twitter / X Card (1200x675)">
+                            <span>Twitter / X</span>
+                            <span class="ratio-text text-xs">(16:9)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="0.5625" data-desc="Story / Reel / TikTok (1080x1920)">
+                            <span>Stories / TikTok</span>
+                            <span class="ratio-text text-xs">(9:16)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="1.7778" data-desc="YouTube Thumbnail (1280x720)">
+                            <span>YouTube Thumb</span>
+                            <span class="ratio-text text-xs">(16:9)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="0.6667" data-desc="Pinterest Pin (1000x1500)">
+                            <span>Pinterest Pin</span>
+                            <span class="ratio-text text-xs">(2:3)</span>
+                        </button>
+
+                        <button class="platform-btn w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm" data-ratio="NaN" data-desc="No restriction (Free Crop)">
+                            <span>Free Crop</span>
+                            <span class="ratio-text text-xs">(-)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Old location of Preset Info Box removed -->
+
+                <!-- Actions -->
+                <div class="mt-auto space-y-3 flex-shrink-0">
+                    <button id="download-btn" disabled class="w-full bg-white hover:bg-gray-200 disabled:bg-gray-800 disabled:text-gray-600 disabled:cursor-not-allowed text-black font-bold py-3 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download Crop
+                    </button>
+                </div>
+            </div>
+
+            <!-- PREVIEW PANEL -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-2 lg:p-6 shadow-xl hidden lg:flex relative overflow-hidden">
+                <div class="flex justify-between items-center mb-4 px-2 flex-shrink-0">
+                    <h2 id="preview-heading" class="text-xl font-bold text-white">Editor Canvas</h2>
+                    <div class="flex gap-2">
+                        <button id="rotate-left-btn" class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white border border-gray-700" title="Rotate Left"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></button>
+                        <button id="rotate-right-btn" class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white border border-gray-700" title="Rotate Right"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10h-10a8 8 0 00-8 8v2M21 10l-6 6m6-6l-6-6"></path></svg></button>
+                        <button id="remove-img-btn" class="p-2 bg-gray-800 hover:bg-red-900/30 rounded-lg text-gray-400 hover:text-red-400 transition-colors border border-gray-700 hover:border-red-900" title="Remove Image">
+                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex-grow bg-black relative rounded-lg overflow-hidden flex items-center justify-center border border-gray-800">
+                    <!-- Empty State / Upload Trigger (Now Bigger & Clean) -->
+                    <label id="empty-state" class="absolute inset-0 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-900/30 transition-colors z-10 group">
+                        <!-- Upload Icon Thinner & Bigger (w-24/h-24) -->
+                        <svg class="w-24 h-24 text-gray-500 group-hover:text-gray-300 transition-colors upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 0.8;"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class="text-lg font-medium text-gray-400 mt-4 group-hover:text-white">Click to Upload Image</p>
+                        <p class="text-sm text-gray-600 mt-2">JPG, PNG, WebP</p>
+                        <input type="file" id="image-upload" class="hidden" accept="image/*">
+                    </label>
+
+                    <!-- Image Container -->
+                    <div id="img-container" class="hidden w-full h-full z-20 bg-black">
+                        <img id="image" src="" alt="Editor Image" class="max-w-full max-h-full block">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 border border-gray-700/50">
+                Sponsor Slot
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-control-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                <span>Settings</span>
+            </button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>Editor</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / SOCIAL IMAGE CROP TOOL EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-social[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-social > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-social[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-social" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Social Image Crop Tool — Perfect Ratios for Every Platform
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Image Cropper</span>
+            <span class="badge">Aspect Ratio</span>
+            <span class="badge">HD Export</span>
+            <span class="badge">Client-Side</span>
+            <span class="badge">Privacy-First</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Social Image Crop Tool</strong> lets you crop, resize, and export high-quality images
+            for Instagram, TikTok, YouTube, LinkedIn, Facebook, Pinterest, and Twitter — all from your browser.
+            Choose a preset, upload your image, crop perfectly, and download it in HD with complete <strong>100% client-side privacy</strong>.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Creators Love This Tool</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Preset Ratios for Every Platform:</strong> Instagram, YouTube, TikTok, Pinterest, Facebook & LinkedIn.</li>
+            <li><strong>HD-Quality Export:</strong> Generate crisp, high-resolution crops ideal for social posts.</li>
+            <li><strong>Smart Controls:</strong> Rotate, lock aspect ratios, and free-crop when needed.</li>
+            <li><strong>Instant Preview:</strong> Visualize how the image fits before posting.</li>
+            <li><strong>Dark UI for Creators:</strong> Distraction-free editing for designers and marketers.</li>
+            <li><strong>Zero Data Upload:</strong> All editing happens locally inside your device.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Crop Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Social Media Managers:</strong> Prepare perfectly sized visuals for campaigns.</li>
+                <li><strong>Content Creators:</strong> Crop thumbnails, covers, stories, and posts on the go.</li>
+                <li><strong>Designers:</strong> Save time by using ready presets for clients.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>E-Commerce Sellers:</strong> Create product images optimized for social ads.</li>
+                <li><strong>Photographers:</strong> Export image segments for reels, stories, and previews.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Crop Perfect Social Images</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select a platform preset (Instagram, YouTube, TikTok, etc.).</li>
+            <li>Upload your image using the drag & click panel.</li>
+            <li>Resize, move, and adjust the crop box to fit perfectly.</li>
+            <li>Use rotate controls if the orientation needs correction.</li>
+            <li>Click <strong>Download Crop</strong> to save your image in HD.</li>
+            <li>Use <strong>Free Crop</strong> mode for custom dimensions!</li>
+        </ol>
+    </section>
+
+    <!-- 🧩 Output -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">What You Get After Cropping</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>HD-Quality Download:</strong> Sharper than most phone editors.</li>
+            <li><strong>Perfectly Matched Ratios:</strong> No re-cropping on upload.</li>
+            <li><strong>Clean Social Preview:</strong> See how it appears in feed layouts.</li>
+            <li><strong>Loss-less Cropping:</strong> Suitable for professional visuals.</li>
+            <li><strong>No Watermarks:</strong> Everything remains brand-free.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Crop Tools</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite Crop Tool</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">Platform Presets</td>
+                <td class="p-2">✅ All major social ratios</td>
+                <td class="p-2">⚠️ Limited or missing</td>
+            </tr>
+            <tr>
+                <td class="p-2">Quality Export</td>
+                <td class="p-2">✅ HD JPEG/PNG</td>
+                <td class="p-2">❌ Compression & blur</td>
+            </tr>
+            <tr>
+                <td class="p-2">Privacy</td>
+                <td class="p-2">✅ 100% Client-Side</td>
+                <td class="p-2">❌ Image uploads to servers</td>
+            </tr>
+            <tr>
+                <td class="p-2">Price</td>
+                <td class="p-2">✅ Free Forever</td>
+                <td class="p-2">❌ Paid subscriptions or watermark</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Edit your photos before cropping.</li>
+            <li><a href="./headline-score-checker.html" class="text-white hover:underline font-medium">Headline Checker</a> — Score headlines by strength & emotion.</li>
+            <li><a href="./marketing-angle-randomizer.html" class="text-white hover:underline font-medium">Marketing Angle Randomizer</a> — Generate ad & campaign hooks.</li>
+            <li><a href="./social-posting-timer.html" class="text-white hover:underline font-medium">Social Posting Timer</a> — Find best times to post.</li>
+            <li><a href="./keyword-categorizer.html" class="text-white hover:underline font-medium">Keyword Categorizer</a> — Group keywords by intent.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>social media crop tool, instagram size cropper, youtube thumbnail crop, pinterest pin size, tiktok cover crop, facebook image ratio, solite tools, hd image cropper</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong>
+            “Solite Social Image Crop Tool — a 100% client-side HD crop editor with presets for Instagram, YouTube, TikTok, Pinterest, Facebook & LinkedIn.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.2 BLOCK / SOCIAL IMAGE CROP TOOL -->
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-[-100px] left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg transition-all duration-300 z-50">Image Downloaded!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const el = {
+                imageUpload: document.getElementById('image-upload'),
+                image: document.getElementById('image'),
+                imgContainer: document.getElementById('img-container'),
+                emptyState: document.getElementById('empty-state'),
+                downloadBtn: document.getElementById('download-btn'),
+                platformBtns: document.querySelectorAll('.platform-btn'),
+                presetDesc: document.getElementById('preset-desc'),
+                rotateLeftBtn: document.getElementById('rotate-left-btn'),
+                rotateRightBtn: document.getElementById('rotate-right-btn'),
+                removeImgBtn: document.getElementById('remove-img-btn'),
+                
+                // Layout
+                controlPane: document.getElementById('control-pane'),
+                previewPane: document.getElementById('preview-pane'),
+                mobileControlBtn: document.getElementById('mobile-control-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                toast: document.getElementById('toast')
+            };
+
+            let cropper = null;
+            let currentRatio = 1; // Default Square
+
+            // Initialize Cropper
+            function initCropper() {
+                if (cropper) {
+                    cropper.destroy();
+                }
+                
+                cropper = new Cropper(el.image, {
+                    aspectRatio: currentRatio,
+                    viewMode: 2, // Restrict crop box to image bounds
+                    background: false,
+                    autoCropArea: 0.9,
+                    responsive: true,
+                    restore: false,
+                    guides: true,
+                    center: true,
+                    highlight: false,
+                    cropBoxMovable: true,
+                    cropBoxResizable: true,
+                    toggleDragModeOnDblclick: false,
+                });
+            }
+
+            // Handle Image Upload
+            el.imageUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        el.image.src = event.target.result;
+                        el.emptyState.classList.add('hidden'); // Hide upload trigger
+                        el.imgContainer.classList.remove('hidden');
+                        el.downloadBtn.disabled = false;
+                        
+                        initCropper();
+                        
+                        // On mobile, switch to preview automatically (if not already there)
+                        if (window.innerWidth < 1024) {
+                            showMobilePane('preview');
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle Platform/Ratio Selection
+            el.platformBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // UI Update
+                    el.platformBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Logic Update
+                    const ratio = parseFloat(btn.dataset.ratio);
+                    const desc = btn.dataset.desc;
+                    currentRatio = ratio;
+                    el.presetDesc.innerText = desc;
+
+                    if (cropper) {
+                        cropper.setAspectRatio(ratio);
+                    }
+                });
+            });
+
+            // Toolbar Actions
+            el.rotateLeftBtn.addEventListener('click', () => cropper && cropper.rotate(-90));
+            el.rotateRightBtn.addEventListener('click', () => cropper && cropper.rotate(90));
+            
+            // Remove Image Action
+            el.removeImgBtn.addEventListener('click', () => {
+                if (cropper) {
+                    cropper.destroy();
+                    cropper = null;
+                }
+                el.image.src = "";
+                el.imageUpload.value = ""; // Clear input
+                el.imgContainer.classList.add('hidden');
+                el.emptyState.classList.remove('hidden'); // Show upload trigger
+                el.downloadBtn.disabled = true;
+            });
+
+            // Download
+            el.downloadBtn.addEventListener('click', () => {
+                if (!cropper) return;
+                
+                el.downloadBtn.disabled = true;
+                el.downloadBtn.innerText = "Processing...";
+
+                // Get cropped canvas
+                const canvas = cropper.getCroppedCanvas({
+                    fillColor: '#fff', // Fill transparency if needed (e.g. rotation)
+                    imageSmoothingEnabled: true,
+                    imageSmoothingQuality: 'high',
+                });
+
+                if (canvas) {
+                    const link = document.createElement('a');
+                    link.download = `solite-crop-${Date.now()}.jpg`;
+                    link.href = canvas.toDataURL('image/jpeg', 0.9);
+                    link.click();
+                    
+                    showToast();
+                }
+
+                el.downloadBtn.disabled = false;
+                el.downloadBtn.innerHTML = `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Download Crop`;
+            });
+
+            function showToast() {
+                el.toast.style.bottom = "20px";
+                setTimeout(() => {
+                    el.toast.style.bottom = "-100px";
+                }, 3000);
+            }
+
+            // --- Mobile Navigation ---
+            function showMobilePane(pane) {
+                if (pane === 'control') {
+                    el.controlPane.classList.remove('hidden', 'flex'); el.controlPane.classList.add('flex');
+                    el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex');
+                    el.mobileControlBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
+                } else {
+                    el.controlPane.classList.add('hidden'); el.controlPane.classList.remove('flex');
+                    el.previewPane.classList.remove('hidden', 'flex'); el.previewPane.classList.add('flex');
+                    el.mobileControlBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
+                    
+                    // Force cropper re-render if needed when switching tabs
+                    if (cropper) {
+                         setTimeout(() => cropper.resize(), 100); 
+                    }
+                }
+            }
+
+            function handleLayout() {
+                if (window.innerWidth >= 1024) {
+                    el.controlPane.classList.remove('hidden'); el.controlPane.classList.add('flex');
+                    el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                } else {
+                    // Default to settings on mobile if no image yet
+                    if (!cropper && !el.mobileControlBtn.classList.contains('active')) {
+                        showMobilePane('control');
+                    }
+                }
+            }
+
+            el.mobileControlBtn.addEventListener('click', () => showMobilePane('control'));
+            el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+            window.addEventListener('resize', handleLayout);
+
+            // Init
+            handleLayout();
+            // Set default desc
+            el.presetDesc.innerText = el.platformBtns[0].dataset.desc;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / CSS FILTER PLAYGROUND — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free CSS Filter Playground & Generator | Visual Photo Effects | Solite</title>
+  <meta name="description" content="Visually edit CSS filters like blur, brightness, contrast, and hue-rotate. Apply presets, preview effects, and export CSS or download the filtered image. Free & private." />
+  <meta name="keywords" content="css filter generator, image filter tool, css blur generator, hue-rotate tool, photo effects css, web design tools, solite, privacy first, frontend developer tools" />
+  <meta name="author" content="Solite Team" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/css-filter-playground.html" />
+  <meta name="application-name" content="CSS Filter Playground" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="css image manipulation, visual filter editing, front-end design, photo editing tools" />
+  <meta name="ai-content-type" content="Interactive Developer Tool" />
+  <meta name="ai-purpose" content="CSS Filter Generation, Visual Editing, Code Export" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free CSS Filter Playground & Generator | Solite" />
+  <meta property="og:description" content="Apply CSS filters like blur, grayscale, and saturation to images instantly. 100% browser-based & private." />
+  <meta property="og:url" content="https://solite.in/css-filter-playground.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/css-filter-playground.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Screenshot of Solite CSS Filter Playground interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free CSS Filter Playground | Solite" />
+  <meta name="twitter:description" content="Visually build CSS filter chains for your images. Export code instantly." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/css-filter-playground.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 💰 ADSENSE + 📈 ANALYTICS -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🧩 MICRO-OPTIMIZATIONS -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <meta name="referrer" content="strict-origin" />
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="mobileoptimized" content="width" />
+
+  <!-- 🎨 UI / STYLES -->
+  <style>
+    #toast { transform: translateY(-150%); transition: transform .3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(2rem); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; }
+    .checkerboard { background-image: linear-gradient(45deg, #1f2937 25%, transparent 25%), linear-gradient(-45deg, #1f2937 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #1f2937 75%), linear-gradient(-45deg, transparent 75%, #1f2937 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #0f172a; color-scheme: dark light; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    /* Custom reset for number inputs to look cleaner */
+    input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } } }
+    }
+  </script>
+
+  <!-- 🧠 GEN-5.0 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "slogan": "Free • Private • Browser-Based Tools",
+        "description": "Solite builds privacy-first, browser-based tools for designers and developers — 100% client-side with no tracking.",
+        "sameAs": ["https://twitter.com/solite_in"]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/css-filter-playground.html#webapp",
+        "name": "CSS Filter Playground",
+        "url": "https://solite.in/css-filter-playground.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "featureList": [
+          "Live CSS filter editing",
+          "Support for Blur, Brightness, Contrast, Grayscale, etc.",
+          "Image upload support",
+          "Instant CSS code export",
+          "Filter Presets (Vintage, Noir, etc.)",
+          "High-res image download",
+          "100% Private & Offline-ready"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "softwareVersion": "5.1",
+        "creator": { "@id": "https://solite.in/#organization" },
+        "dateModified": "2025-11-10T10:00:00Z",
+        "mainEntityOfPage": "https://solite.in/css-filter-playground.html"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/css-filter-playground.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. All image processing happens locally in your browser. Your photos never leave your device." } },
+          { "@type": "Question", "name": "Can I save the edited photo?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, use the 'Download Image' button to save your filtered image as a high-quality PNG." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | ENTITY_GRAPH_ACTIVE | AUTO_DISCOVERY_READY" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 7l10 5 10-5"></path>
+          </svg>
+          <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Filter Playground</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+          <span>Free Tools</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+    <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+      <h1 class="sr-only">Free CSS Filter Playground</h1>
+
+      <!-- Controls Panel -->
+      <aside id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+        <div class="flex justify-between items-center flex-shrink-0 mb-4">
+          <h2 id="controls-heading" class="text-xl font-bold text-white">Filter Controls</h2>
+          <button id="reset-btn" class="text-xs bg-red-900/30 hover:bg-red-900/50 text-red-400 py-1.5 px-3 rounded-lg border border-red-900/50 transition-colors">
+            Reset All
+          </button>
+        </div>
+
+        <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-6 pb-6">
+          
+          <!-- Image Upload -->
+          <div class="space-y-2">
+            <label class="text-sm font-medium text-gray-400">Source Image</label>
+            <label id="upload-label" class="flex items-center justify-center w-full h-12 px-4 transition bg-gray-800 border-2 border-gray-700 border-dashed rounded-lg appearance-none cursor-pointer hover:border-gray-600 focus:outline-none">
+                <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span class="text-sm font-medium text-gray-400">Upload Image</span>
+                </span>
+                <input type="file" id="image-upload" class="hidden" accept="image/*">
+            </label>
+            <button id="remove-image-btn" class="hidden w-full h-12 bg-red-900/20 hover:bg-red-900/40 border border-red-900/50 text-red-400 font-medium rounded-lg flex items-center justify-center gap-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                <span>Remove Image</span>
+            </button>
+          </div>
+
+          <!-- Presets -->
+          <div class="space-y-2 border-t border-gray-800 pt-4">
+            <label class="text-sm font-medium text-gray-400">Presets</label>
+            <div class="relative">
+                <select id="preset-select" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-2.5 px-4 rounded-lg focus:outline-none focus:border-gray-600 appearance-none">
+                    <option value="none" selected>-- Custom --</option>
+                    <option value="vintage">Vintage</option>
+                    <option value="noir">Noir (B&W)</option>
+                    <option value="warm">Warm Sunset</option>
+                    <option value="cool">Cool Tones</option>
+                    <option value="dramatic">Dramatic</option>
+                    <option value="cyber">Cyberpunk</option>
+                    <option value="fade">Faded</option>
+                </select>
+                <svg class="w-5 h-5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </div>
+
+          <!-- Sliders -->
+          <div class="space-y-5 border-t border-gray-800 pt-4" id="sliders-container">
+            <!-- Blur -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="blur" class="text-sm text-gray-300">Blur</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-blur">0</span>px</span>
+              </div>
+              <input type="range" id="blur" min="0" max="20" value="0" step="0.5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Brightness -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="brightness" class="text-sm text-gray-300">Brightness</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-brightness">100</span>%</span>
+              </div>
+              <input type="range" id="brightness" min="0" max="300" value="100" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Contrast -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="contrast" class="text-sm text-gray-300">Contrast</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-contrast">100</span>%</span>
+              </div>
+              <input type="range" id="contrast" min="0" max="300" value="100" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Grayscale -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="grayscale" class="text-sm text-gray-300">Grayscale</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-grayscale">0</span>%</span>
+              </div>
+              <input type="range" id="grayscale" min="0" max="100" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Hue Rotate -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="hue-rotate" class="text-sm text-gray-300">Hue Rotate</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-hue-rotate">0</span>deg</span>
+              </div>
+              <input type="range" id="hue-rotate" min="0" max="360" value="0" step="1" class="w-full h-2 bg-gradient-to-r from-red-500 via-green-500 to-blue-500 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Invert -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="invert" class="text-sm text-gray-300">Invert</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-invert">0</span>%</span>
+              </div>
+              <input type="range" id="invert" min="0" max="100" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Opacity -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="opacity" class="text-sm text-gray-300">Opacity</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-opacity">100</span>%</span>
+              </div>
+              <input type="range" id="opacity" min="0" max="100" value="100" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Saturate -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="saturate" class="text-sm text-gray-300">Saturate</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-saturate">100</span>%</span>
+              </div>
+              <input type="range" id="saturate" min="0" max="300" value="100" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Sepia -->
+            <div class="filter-control">
+              <div class="flex justify-between mb-1">
+                <label for="sepia" class="text-sm text-gray-300">Sepia</label>
+                <span class="text-xs text-gray-500 font-mono"><span id="val-sepia">0</span>%</span>
+              </div>
+              <input type="range" id="sepia" min="0" max="100" value="0" step="1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+          </div>
+        </div>
+      </aside>
+
+      <!-- Preview Pane -->
+      <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+        <!-- Image Container -->
+        <div class="flex-grow flex items-center justify-center p-8 bg-[#0f172a] checkerboard overflow-auto relative min-h-[300px] group">
+          <img id="preview-image" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Preview" class="max-w-full max-h-full shadow-2xl rounded-lg transition-all duration-100 ease-linear object-contain relative z-10" crossorigin="anonymous" />
+          
+          <!-- Comparison Overlay -->
+          <div id="compare-btn" class="absolute bottom-12 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium cursor-pointer select-none hover:bg-black/80 transition-colors z-20 flex items-center gap-2 border border-white/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              Hold to Compare
+          </div>
+        </div>
+
+        <!-- Code Output -->
+        <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-200">Generated CSS</h3>
+            <div class="flex gap-2">
+                 <button id="download-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                  <span>Download Image</span>
+                </button>
+                <button id="copy-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2 text-sm transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  <span>Copy Code</span>
+                </button>
+            </div>
+          </div>
+          <textarea id="css-output" readonly class="w-full h-20 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm text-green-400 resize-none focus:outline-none focus:border-gray-600"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Sidebar (Placeholder) -->
+    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+      <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
+        Sponsor Slot
+      </div>
+    </aside>
+  </main>
+
+  <!-- Mobile Navigation Bar -->
+  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+    <div class="flex justify-around items-center h-14">
+      <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        <span>Preview</span>
+      </button>
+      <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path>
+        </svg>
+        <span>Controls</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / CSS FILTER PLAYGROUND EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-cssfilter[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-cssfilter > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-cssfilter[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-cssfilter" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        CSS Filter Playground — Visual Photo Effects for Web Designers
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">CSS Filters</span>
+            <span class="badge">Live Preview</span>
+            <span class="badge">Export Code</span>
+            <span class="badge">Image Effects</span>
+            <span class="badge">Privacy-First</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite CSS Filter Playground</strong> is a visual editor for building CSS filter effects with real-time image previews. Adjust blur, brightness, contrast, hue-rotation, grayscale, and more — or apply <strong>professional presets</strong> like Vintage and Cyberpunk. Export clean CSS code or <strong>download the filtered image locally</strong> with zero uploads.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Designers Love This Tool</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Live Visual Editing:</strong> See filter changes instantly on your chosen image.</li>
+            <li><strong>One-Click Presets:</strong> Dramatic, Noir, Cyberpunk, Warm, Faded, and more.</li>
+            <li><strong>Download Final Result:</strong> Save the filtered photo directly as PNG.</li>
+            <li><strong>Code Friendly:</strong> Copy the exact CSS filter chain with a single click.</li>
+            <li><strong>Original Comparison:</strong> Hold to compare against the original image.</li>
+            <li><strong>100% Private:</strong> Your photo never leaves your device — no uploads.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Who Uses It -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses CSS Filter Playground?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Front-End Developers:</strong> Export clean and optimized CSS filter chains.</li>
+                <li><strong>Web Designers:</strong> Preview real-time effects for UI/UX mockups.</li>
+                <li><strong>Social Creators:</strong> Apply stylized looks to thumbnails and promos.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Product Teams:</strong> Test photo styling for brand consistency.</li>
+                <li><strong>Educators & Students:</strong> Learn CSS filters interactively through visuals.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Create a CSS Filter Effect</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Upload an image or use the default preview photo.</li>
+            <li>Adjust sliders such as brightness, contrast, blur, hue-rotate, etc.</li>
+            <li>Pick professional looks using the <strong>Preset Effects dropdown</strong>.</li>
+            <li>Hold <strong>Compare</strong> to check before/after differences.</li>
+            <li>Click <strong>Copy Code</strong> to export the CSS filter.</li>
+            <li>Click <strong>Download Image</strong> to save your filtered PNG locally.</li>
+        </ol>
+    </section>
+
+    <!-- 🧩 Output -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">What You Can Export</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Filtered PNG Image:</strong> High-quality downloadable photo.</li>
+            <li><strong>CSS Filter Code:</strong> Copy-ready style for websites and apps.</li>
+            <li><strong>Custom Presets:</strong> Slider values you can reuse anywhere.</li>
+            <li><strong>Brand-Focused Colors:</strong> Matching warm/cool photo tones.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Online Filter Tools</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite Filter Playground</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">CSS Code Export</td>
+                <td class="p-2">✅ Copy Filter Chain</td>
+                <td class="p-2">⚠️ Often not supported</td>
+            </tr>
+            <tr>
+                <td class="p-2">Image Download</td>
+                <td class="p-2">✅ Filtered PNG Download</td>
+                <td class="p-2">⚠️ Premium or watermarked</td>
+            </tr>
+            <tr>
+                <td class="p-2">Privacy</td>
+                <td class="p-2">✅ 100% Client-Side</td>
+                <td class="p-2">❌ Uploads images to server</td>
+            </tr>
+            <tr>
+                <td class="p-2">Presets</td>
+                <td class="p-2">🎨 Built-In Professional Looks</td>
+                <td class="p-2">🟡 Basic or generic filters</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Crop, resize, watermark & filter.</li>
+            <li><a href="./css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build gradient code visually.</li>
+            <li><a href="./css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Create layered text & box shadows.</li>
+            <li><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Tools →</a></li>
+        </ul>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>css filter generator, blur brightness contrast css, visual css editor, photo effects css, css saturation, hue rotate filter, solite tools, image filter code generator</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite CSS Filter Playground — a visual CSS filter editor with presets, code export, and downloadable image effects, all processed client-side for full privacy.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.2 BLOCK / CSS FILTER PLAYGROUND -->
+
+
+  <!-- Footer -->
+  <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50">Code Copied!</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = {
+        sliders: document.querySelectorAll('input[type="range"]'),
+        previewImage: document.getElementById('preview-image'),
+        cssOutput: document.getElementById('css-output'),
+        copyBtn: document.getElementById('copy-btn'),
+        downloadBtn: document.getElementById('download-btn'),
+        resetBtn: document.getElementById('reset-btn'),
+        imageUpload: document.getElementById('image-upload'),
+        uploadLabel: document.getElementById('upload-label'),
+        removeImageBtn: document.getElementById('remove-image-btn'),
+        presetSelect: document.getElementById('preset-select'),
+        compareBtn: document.getElementById('compare-btn'),
+        toast: document.getElementById('toast'),
+        mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+        mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+        previewPane: document.getElementById('preview-pane'),
+        controlsPane: document.getElementById('controls-pane'),
+      };
+
+      const defaults = {
+        blur: { value: 0, unit: 'px' },
+        brightness: { value: 100, unit: '%' },
+        contrast: { value: 100, unit: '%' },
+        grayscale: { value: 0, unit: '%' },
+        'hue-rotate': { value: 0, unit: 'deg' },
+        invert: { value: 0, unit: '%' },
+        opacity: { value: 100, unit: '%' },
+        saturate: { value: 100, unit: '%' },
+        sepia: { value: 0, unit: '%' },
+      };
+
+      const presets = {
+          'none': {},
+          'vintage': { sepia: 60, contrast: 120, brightness: 90, saturate: 85 },
+          'noir': { grayscale: 100, contrast: 120, brightness: 90 },
+          'warm': { sepia: 30, saturate: 140, 'hue-rotate': -10 },
+          'cool': { saturate: 110, 'hue-rotate': 180, brightness: 105 },
+          'dramatic': { contrast: 150, saturate: 120, brightness: 80 },
+          'cyber': { saturate: 200, contrast: 120, 'hue-rotate': 20 },
+          'fade': { opacity: 80, contrast: 90, brightness: 110 }
+      };
+
+      const defaultImageSrc = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop";
+      let currentFilterString = 'none';
+
+      function updateFilters() {
+        let filterString = '';
+        
+        el.sliders.forEach(slider => {
+          const id = slider.id;
+          const val = slider.value;
+          const unit = defaults[id].unit;
+          
+          // Update display value text
+          document.getElementById(`val-${id}`).textContent = val;
+
+          // Only add to filter string if value differs from default
+          let isDefault = false;
+          if (['brightness', 'contrast', 'saturate', 'opacity'].includes(id)) {
+            if (val == 100) isDefault = true;
+          } else {
+            if (val == 0) isDefault = true;
+          }
+
+          if (!isDefault) {
+            filterString += `${id}(${val}${unit}) `;
+          }
+        });
+
+        currentFilterString = filterString.trim() || 'none';
+        el.previewImage.style.filter = currentFilterString;
+        el.cssOutput.value = `filter: ${currentFilterString};`;
+        
+        // Reset comparison state if filters change
+        el.previewImage.style.transition = 'none';
+        requestAnimationFrame(() => {
+            el.previewImage.style.transition = 'all 0.1s ease-linear';
+        });
+      }
+
+      function applyPreset(name) {
+        if (!presets[name]) return;
+        
+        // Reset all first
+        el.sliders.forEach(slider => {
+            slider.value = defaults[slider.id].value;
+        });
+
+        // Apply preset values
+        const preset = presets[name];
+        for (const key in preset) {
+            const slider = document.getElementById(key);
+            if (slider) slider.value = preset[key];
+        }
+        updateFilters();
+      }
+
+      function resetFilters() {
+        el.sliders.forEach(slider => {
+          slider.value = defaults[slider.id].value;
+        });
+        el.presetSelect.value = 'none';
+        updateFilters();
+      }
+
+      function showToast(msg) {
+        el.toast.textContent = msg;
+        el.toast.classList.add('show');
+        setTimeout(() => el.toast.classList.remove('show'), 2000);
+      }
+
+      function downloadFilteredImage() {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          const img = el.previewImage;
+          
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          
+          // Apply the filter to the context
+          ctx.filter = currentFilterString;
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          
+          const link = document.createElement('a');
+          link.download = 'filtered-image.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+      }
+
+      // Event Listeners
+      el.sliders.forEach(slider => {
+        slider.addEventListener('input', () => {
+            el.presetSelect.value = 'none'; // Reset preset selector if manually adjusting
+            updateFilters();
+        });
+      });
+
+      el.presetSelect.addEventListener('change', (e) => applyPreset(e.target.value));
+      el.resetBtn.addEventListener('click', resetFilters);
+
+      el.copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.cssOutput.value).then(() => showToast('CSS Copied!'));
+      });
+
+      el.downloadBtn.addEventListener('click', downloadFilteredImage);
+
+      el.imageUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            el.previewImage.src = e.target.result;
+            el.uploadLabel.classList.add('hidden');
+            el.removeImageBtn.classList.remove('hidden');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      el.removeImageBtn.addEventListener('click', () => {
+        el.previewImage.src = defaultImageSrc;
+        el.imageUpload.value = '';
+        el.uploadLabel.classList.remove('hidden');
+        el.removeImageBtn.classList.add('hidden');
+      });
+
+      // Comparison Logic
+      el.compareBtn.addEventListener('mousedown', () => { el.previewImage.style.filter = 'none'; });
+      el.compareBtn.addEventListener('mouseup', () => { el.previewImage.style.filter = currentFilterString; });
+      el.compareBtn.addEventListener('mouseleave', () => { el.previewImage.style.filter = currentFilterString; });
+      
+      // Touch support for compare
+      el.compareBtn.addEventListener('touchstart', (e) => { e.preventDefault(); el.previewImage.style.filter = 'none'; });
+      el.compareBtn.addEventListener('touchend', (e) => { e.preventDefault(); el.previewImage.style.filter = currentFilterString; });
+
+      // Mobile Navigation
+      function showMobilePane(paneId) {
+        if (paneId === 'preview') {
+          el.previewPane.classList.remove('hidden');
+          el.previewPane.classList.add('flex');
+          el.controlsPane.classList.add('hidden');
+          el.controlsPane.classList.remove('flex');
+          el.mobilePreviewBtn.classList.add('active');
+          el.mobileControlsBtn.classList.remove('active');
+        } else {
+          el.previewPane.classList.add('hidden');
+          el.previewPane.classList.remove('flex');
+          el.controlsPane.classList.remove('hidden');
+          el.controlsPane.classList.add('flex');
+          el.mobilePreviewBtn.classList.remove('active');
+          el.mobileControlsBtn.classList.add('active');
+        }
+      }
+
+      function handleMobileLayout() {
+        if (window.innerWidth < 1024) {
+          if (!el.mobilePreviewBtn.classList.contains('active') && !el.mobileControlsBtn.classList.contains('active')) {
+             showMobilePane('preview'); 
+          } else if (el.mobileControlsBtn.classList.contains('active')) {
+             showMobilePane('controls');
+          } else {
+             showMobilePane('preview');
+          }
+        } else {
+          el.previewPane.classList.remove('hidden');
+          el.previewPane.classList.add('flex');
+          el.controlsPane.classList.remove('hidden');
+          el.controlsPane.classList.add('flex');
+          el.mobilePreviewBtn.classList.remove('active');
+          el.mobileControlsBtn.classList.remove('active');
+        }
+      }
+
+      el.mobilePreviewBtn.addEventListener('click', () => showMobilePane('preview'));
+      el.mobileControlsBtn.addEventListener('click', () => showMobilePane('controls'));
+      window.addEventListener('resize', handleMobileLayout);
+
+      // Initial Load
+      updateFilters();
+      handleMobileLayout();
+    });
+  </script>
+</body>
+</html>

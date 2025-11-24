@@ -26,6 +26,8 @@
   <url><loc>https://solite.in/image-color-picker.html</loc></url>
   <url><loc>https://solite.in/image-background-remover.html</loc></url>
   <url><loc>https://solite.in/exif-stripter.html</loc></url> <!-- corrected file name: exif-stripper.html -->
+  <url><loc>https://solite.in/social-image-crop-tool.html</loc></url>
+  <url><loc>https://solite.in/color-contrast-checker.html</loc></url>
   <url><loc>https://solite.in/watermark-annotator.html</loc></url>
   <url><loc>https://solite.in/screenshot-captioner.html</loc></url>
   <url><loc>https://solite.in/color-palette-generator.html</loc></url>
@@ -58,6 +60,7 @@
   <url><loc>https://solite.in/hashtag-extractor.html</loc></url>
   <url><loc>https://solite.in/hashtag-separator.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/whitespace-normalizer.html</loc></url>
+  <url><loc>https://solite.in/text-to-speech.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/smart-word-counter.html</loc></url>
   <url><loc>https://solite.in/link-cleaner.html</loc></url>
   <url><loc>https://solite.in/transcript-timestamp-remover.html</loc></url>
@@ -84,6 +87,8 @@
 
   <!-- 💻 DEV / WEB -->
   <url><loc>https://solite.in/code-editor.html</loc></url>
+  <url><loc>https://solite.in/css-grid-playground.html</loc></url>
+  <url><loc>https://solite.in/jwt-debugger.html</loc></url>
   <url><loc>https://solite.in/snippet-manager.html</loc></url>
   <url><loc>https://solite.in/tailwind-form-builder.html</loc></url>
   <url><loc>https://solite.in/open-graph-generator.html</loc></url>
@@ -125,6 +130,8 @@
   <!-- 📈 MARKETING -->
   <url><loc>https://solite.in/social-posting-timer.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/cpc-budget-splitter.html</loc><priority>0.85</priority></url>
+  <url><loc>https://solite.in/landing-page-clarity-checklist.html</loc><priority>0.85</priority></url>
+  <url><loc>https://solite.in/cta-strength-tester.html</loc><priority>0.85</priority></url>
 
   <!-- 📰 BLOG -->
   <url><loc>https://solite.in/blog.html</loc></url>

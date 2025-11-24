@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.2 BALANCED HEAD / CSS CURSOR PREVIEWER — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>CSS Cursor Previewer & Generator — Visual CSS Cursor Tester | Solite</title>
+  <meta name="description" content="Preview and test live CSS cursor styles visually. Copy cursor code instantly from an interactive UI. Includes pointer, grab, resize, zoom, text, crosshair, and more. 100% browser-based & private." />
+  <meta name="keywords" content="css cursor previewer, cursor properties, css code generator, pointer cursor, css grab, resize cursor, zoom cursor, developer tools, solite" />
+  <link rel="canonical" href="https://solite.in/css-cursor-previewer.html" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="author" content="Solite Team" />
+  <meta name="brand" content="Solite" />
+  <meta name="application-name" content="CSS Cursor Previewer" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.2 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="css cursor visualization, cursor code generator, frontend tools, ui dev utilities" />
+  <meta name="ai-content-type" content="Interactive Developer Tool" />
+  <meta name="ai-purpose" content="Live cursor preview & CSS code generation" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side App" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="CSS Cursor Previewer & Generator — Visual CSS Cursor Tester" />
+  <meta property="og:description" content="A live visual tool for testing and copying CSS cursor styles instantly. Fully private & browser-based." />
+  <meta property="og:url" content="https://solite.in/css-cursor-previewer.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/css-cursor-previewer.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CSS Cursor Previewer — Test & Copy CSS Cursor Code" />
+  <meta name="twitter:description" content="Instantly preview all CSS cursors and copy the code. Fully private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/css-cursor-previewer.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- 🧬 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds privacy-first browser-based tools for creators and developers."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/css-cursor-previewer.html#app",
+        "name": "CSS Cursor Previewer",
+        "url": "https://solite.in/css-cursor-previewer.html",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": [
+          "Visual preview of all CSS cursors",
+          "Instant CSS code copying",
+          "Interactive hover testing area",
+          "Categorized cursor types (Resize, Zoom, Selection, etc.)",
+          "100% Client-side privacy"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🪞 FAVICONS (Preserved) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- ⚙️ CORE LIBRARIES (Preserved) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔠 NON-BLOCKING FONT PRELOAD (Preserved) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.2 | SOLITE_AUTHORITY_PREDATOR | GEN_5_SCHEMA | PRIVACY_FIRST" />
+
+   <style>
+    #toast { transform:translateY(150%); transition:transform .3s ease-in-out, opacity .3s ease-in-out; opacity:0; z-index:9999; }
+    #toast.show { transform:translateY(-2rem); opacity:1; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; background-color:#0f172a; color-scheme:dark light; }
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    
+    /* Cursor Grid Item Styles */
+    .cursor-item:hover { border-color: #ffffff; background-color: #1e293b; }
+    .cursor-item.active { border-color: #ffffff; background-color: #1e293b; color: white; }
+    
+    /* Preview Area Pattern */
+    .preview-pattern {
+        background-color: #111827;
+        background-image: radial-gradient(#374151 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+  </style>
+</head>
+
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Cursor Previewer</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">CSS Cursor Previewer</h1>
+            
+            <!-- LEFT: Controls / Cursor List -->
+            <div id="input-pane" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-4 flex flex-col overflow-y-auto shadow-xl h-full lg:h-auto">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                        Select Cursor
+                    </h2>
+                    <div class="relative">
+                        <input type="text" id="cursor-search" placeholder="Search..." class="bg-gray-800 border border-gray-700 text-gray-300 text-sm rounded-lg  focus:border-white block w-full pl-3 p-1.5 outline-none">
+                    </div>
+                </div>
+                
+                <div class="flex-grow overflow-y-auto pr-1" id="cursor-list-container">
+                    <!-- Cursor Sections will be injected here -->
+                    <div class="text-center text-gray-500 py-10 hidden" id="no-results">No cursors found</div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Preview & Code -->
+            <div id="output-pane" class="flex-1 w-full min-w-0 bg-gray-900 rounded-xl border border-gray-800 p-0 flex flex-col hidden lg:flex shadow-xl overflow-hidden">
+                 
+                <!-- Header -->
+                <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-800/50">
+                    <h2 class="text-lg font-bold text-white">Live Preview</h2>
+                    <span id="active-cursor-name" class="bg-blue-900/50 text-blue-300 text-xs font-mono px-2 py-1 rounded border border-blue-800">cursor: default;</span>
+                </div>
+
+                <!-- Interactive Area -->
+                <div id="preview-area" class="flex-grow preview-pattern relative flex items-center justify-center group transition-colors duration-300 hover:bg-gray-900/80 cursor-default">
+                    <div class="text-center pointer-events-none select-none p-6">
+                        <div class="w-24 h-24 bg-gray-800 rounded-full border-2 border-dashed border-gray-600 flex items-center justify-center mx-auto mb-4 group-hover:border-white transition-colors">
+                             <svg class="w-10 h-10 text-gray-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Hover Here</h3>
+                        <p class="text-gray-400 max-w-xs mx-auto">Move your mouse over this area to see the <span class="text-blue-400 font-mono cursor-name-span">default</span> cursor in action.</p>
+                    </div>
+                    
+                    <!-- Floating Label that follows mouse -->
+                    <div id="cursor-follower" class="absolute pointer-events-none hidden bg-white text-black text-xs font-bold px-2 py-1 rounded shadow-lg z-50 whitespace-nowrap">
+                        default
+                    </div>
+                </div>
+
+                <!-- Code Output -->
+                <div class="p-4 bg-gray-800 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row gap-4 items-center">
+                        <div class="flex-grow w-full relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500 text-sm font-mono">CSS</span>
+                            </div>
+                            <input type="text" id="css-output" readonly class="bg-gray-900 border border-gray-600 text-gray-300 text-sm rounded-lg  focus:border-white block w-full pl-10 p-2.5 font-mono" value="cursor: default;">
+                        </div>
+                        <button id="copy-btn" class="w-full sm:w-auto bg-white hover:bg-gray-200 text-black font-medium text-sm py-2.5 px-5 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 whitespace-nowrap">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
+                            <span>Copy CSS</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Sidebar -->
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden xl:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 border border-gray-700/50">
+                Sponsor Slot
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-input-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                <span>List</span>
+            </button>
+            <button id="mobile-output-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                <span>Preview</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / CSS CURSOR PREVIEWER EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-seo-block-cursor[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-cursor > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-cursor[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-seo-block-cursor" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        CSS Cursor Previewer — Visual Guide & Code Generator
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">CSS Reference</span>
+            <span class="badge">Visual Preview</span>
+            <span class="badge">Cursor Code</span>
+            <span class="badge">UI/UX Design</span>
+            <span class="badge">Client-Side</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite CSS Cursor Previewer</strong> provides a visual, interactive way to explore and test all standard CSS cursor styles.
+            Hover to preview, then <strong>copy the exact CSS code in one click</strong> — perfect for frontend developers, UI designers, and CSS learners.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Love This Tool</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>See what every cursor looks like — <strong>no guessing, no trial CSS</strong>.</li>
+            <li>Instantly copy clean code like <code>cursor: grab;</code> or <code>cursor: text;</code>.</li>
+            <li>Categorized by purpose: <strong>Resize, Zoom, Status, Selection, Link</strong>, etc.</li>
+            <li>Hover testing area shows real behavior.</li>
+            <li><strong>100% privacy-first</strong> — runs locally in your browser.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Cursor Previewer?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Frontend Developers:</strong> Test pointer behavior without coding manually.</li>
+                <li><strong>UI/UX Designers:</strong> Align cursor UX with visual design.</li>
+                <li><strong>CSS Learners:</strong> Explore and learn cursor options visually.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>JS App Builders:</strong> Validate cursor states for drag, zoom, move, etc.</li>
+                <li><strong>Design Systems Teams:</strong> Create cursor guidelines consistently.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Use the Previewer</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select a cursor from the categorized list.</li>
+            <li>Hover over the preview area to see it live.</li>
+            <li>Click <strong>Copy CSS</strong> to instantly save the code snippet.</li>
+            <li>Paste directly into your stylesheet or Tailwind config.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison Chart -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical CSS Cursor Docs</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+                <tr>
+                    <th class="p-2 text-left">Feature</th>
+                    <th class="p-2 text-left">Solite Cursor Previewer</th>
+                    <th class="p-2 text-left">Other Docs/Lists</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-2">Live Visual Preview</td>
+                    <td class="p-2">✅ Hover to test instantly</td>
+                    <td class="p-2">❌ Static Text Only</td>
+                </tr>
+                <tr>
+                    <td class="p-2">One-Click Copy Code</td>
+                    <td class="p-2">✅ Clean `cursor: value;`</td>
+                    <td class="p-2">⚠️ Requires manual writing</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Categorized for UX</td>
+                    <td class="p-2">✅ Resize, Zoom, Status, Text, etc.</td>
+                    <td class="p-2">⚠️ Alphabetical Only</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Privacy</td>
+                    <td class="p-2">✅ 100% Client-Side</td>
+                    <td class="p-2">❌ Server-Rendered</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./icon-to-png-converter.html" class="text-white hover:underline font-medium">SVG to PNG Converter</a> — Create custom cursor icons.</li>
+            <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Build matching UI color themes.</li>
+            <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Test cursor CSS instantly.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Frequently Asked Questions</h3>
+        <ul class="text-gray-400 space-y-2">
+            <li><strong>Q:</strong> Can I use these cursors in Tailwind CSS?<br>
+                <strong class="text-white">A:</strong> Yes, copy the code and add to <code>theme.extend.cursor</code> or inline with <code>[cursor:pointer]</code>.</li>
+            <li><strong>Q:</strong> Do all browsers support these cursor values?<br>
+                <strong class="text-white">A:</strong> Standard cursors are widely supported. Animated/custom cursors require PNG/SVG + <code>url()</code>.</li>
+            <li><strong>Q:</strong> Can I upload my own custom cursor?<br>
+                <strong class="text-white">A:</strong> This previewer is for native CSS cursors. Use the Solite <em>SVG to PNG Converter</em> for custom cursor assets.</li>
+            <li><strong>Q:</strong> Is it safe for commercial UI projects?<br>
+                <strong class="text-white">A:</strong> Yes — it uses standard CSS properties with no licensing restrictions.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>css cursor previewer, css cursor generator, pointer cursor, grab cursor, resize cursor, zoom cursor, interactive css tool, solite developer tools</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite CSS Cursor Previewer — a live, visual CSS tool to test and copy cursor styles instantly, with full browser privacy.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.2 BLOCK / CSS CURSOR PREVIEWER -->
+
+
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-full shadow-lg transition-all duration-300 z-50">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Data
+            const cursorCategories = {
+                'General': ['default', 'none', 'context-menu', 'help', 'pointer', 'progress', 'wait'],
+                'Links & Status': ['alias', 'copy', 'move', 'no-drop', 'not-allowed'],
+                'Selection': ['cell', 'crosshair', 'text', 'vertical-text'],
+                'Resize': ['all-scroll', 'col-resize', 'row-resize', 'n-resize', 'e-resize', 's-resize', 'w-resize', 'ne-resize', 'nw-resize', 'se-resize', 'sw-resize', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize'],
+                'Zoom & Grab': ['zoom-in', 'zoom-out', 'grab', 'grabbing']
+            };
+
+            // DOM
+            const el = {
+                container: document.getElementById('cursor-list-container'),
+                search: document.getElementById('cursor-search'),
+                previewArea: document.getElementById('preview-area'),
+                cssOutput: document.getElementById('css-output'),
+                activeName: document.getElementById('active-cursor-name'),
+                copyBtn: document.getElementById('copy-btn'),
+                follower: document.getElementById('cursor-follower'),
+                toast: document.getElementById('toast'),
+                noResults: document.getElementById('no-results'),
+                // Mobile
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileOutputBtn: document.getElementById('mobile-output-btn'),
+                inputPane: document.getElementById('input-pane'),
+                outputPane: document.getElementById('output-pane'),
+                previewTextSpan: document.querySelector('.cursor-name-span')
+            };
+
+            let activeCursor = 'default';
+
+            // Render List
+            function renderList(filter = '') {
+                el.container.innerHTML = '';
+                let hasResults = false;
+
+                for (const [category, cursors] of Object.entries(cursorCategories)) {
+                    const filteredCursors = cursors.filter(c => c.includes(filter.toLowerCase()));
+                    
+                    if (filteredCursors.length > 0) {
+                        hasResults = true;
+                        const section = document.createElement('div');
+                        section.className = 'mb-6';
+                        
+                        const title = document.createElement('h3');
+                        title.className = 'text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 px-2 sticky top-0 bg-gray-900 py-1 z-10';
+                        title.textContent = category;
+                        section.appendChild(title);
+
+                        const grid = document.createElement('div');
+                        grid.className = 'grid grid-cols-2 gap-2';
+
+                        filteredCursors.forEach(cursor => {
+                            const btn = document.createElement('button');
+                            // Pre-apply cursor to button itself for mini-preview
+                            btn.style.cursor = cursor;
+                            btn.className = `cursor-item p-3 rounded-lg border border-gray-700 bg-gray-800 text-sm font-medium text-gray-300 transition-all flex flex-col items-center justify-center h-20 ${cursor === activeCursor ? 'active ' : ''}`;
+                            btn.innerHTML = `<span class="pointer-events-none mb-1 opacity-50 text-xs">Example</span><span class="pointer-events-none font-bold">${cursor}</span>`;
+                            
+                            btn.addEventListener('click', () => setCursor(cursor));
+                            grid.appendChild(btn);
+                        });
+
+                        section.appendChild(grid);
+                        el.container.appendChild(section);
+                    }
+                }
+                el.noResults.classList.toggle('hidden', hasResults);
+            }
+
+            // Set Active Cursor
+            function setCursor(cursor) {
+                activeCursor = cursor;
+                
+                // Update UI buttons
+                document.querySelectorAll('.cursor-item').forEach(btn => {
+                    btn.classList.remove('active', 'ring-1', 'ring-white');
+                    if(btn.innerText.includes(cursor)) btn.classList.add('active', 'ring-1', 'ring-white');
+                });
+
+                // Update Preview
+                el.previewArea.style.cursor = cursor;
+                el.cssOutput.value = `cursor: ${cursor};`;
+                el.activeName.textContent = `cursor: ${cursor};`;
+                el.follower.textContent = cursor;
+                if(el.previewTextSpan) el.previewTextSpan.textContent = cursor;
+
+                // Mobile Logic: Switch to preview pane on selection
+                if (window.innerWidth < 1024) {
+                    showMobilePane('output');
+                }
+            }
+
+            // Search
+            el.search.addEventListener('input', (e) => renderList(e.target.value));
+
+            // Copy
+            el.copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.cssOutput.value).then(() => {
+                    el.toast.classList.add('show');
+                    setTimeout(() => el.toast.classList.remove('show'), 2000);
+                });
+            });
+
+            // Mouse Follower Logic
+            el.previewArea.addEventListener('mousemove', (e) => {
+                const rect = el.previewArea.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                el.follower.style.left = `${x + 15}px`;
+                el.follower.style.top = `${y + 15}px`;
+                el.follower.classList.remove('hidden');
+            });
+
+            el.previewArea.addEventListener('mouseleave', () => {
+                el.follower.classList.add('hidden');
+            });
+
+            // Mobile Navigation
+            function showMobilePane(pane) {
+                if (pane === 'input') {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.add('hidden'); el.outputPane.classList.remove('flex');
+                    el.mobileInputBtn.classList.add('active'); el.mobileOutputBtn.classList.remove('active');
+                } else {
+                    el.inputPane.classList.add('hidden'); el.inputPane.classList.remove('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                    el.mobileInputBtn.classList.remove('active'); el.mobileOutputBtn.classList.add('active');
+                }
+            }
+            
+            function handleLayout() {
+                if (window.innerWidth >= 1024) {
+                    el.inputPane.classList.remove('hidden'); el.inputPane.classList.add('flex');
+                    el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex');
+                } else {
+                    if (!el.mobileInputBtn.classList.contains('active') && !el.mobileOutputBtn.classList.contains('active')) {
+                        showMobilePane('input');
+                    }
+                }
+            }
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileOutputBtn.addEventListener('click', () => showMobilePane('output'));
+            window.addEventListener('resize', handleLayout);
+
+            // Init
+            renderList();
+            handleLayout();
+            
+            // Pre-select default to set initial state
+            setCursor('default');
+        });
+    </script>
+</body>
+</html>

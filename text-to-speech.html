@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.3 BALANCED HEAD / TEXT-TO-SPEECH CONVERTER — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Text-to-Speech (TTS) Converter | Natural Sounding AI Voices | Solite</title>
+  <meta name="description" content="Convert text to speech online for free. Uses your browser's built-in TTS engine for natural sounding voices. 100% private, works offline, no limits." />
+  <link rel="canonical" href="https://solite.in/text-to-speech.html" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="keywords" content="text to speech, tts, text to audio, speech synthesis, tts converter, free tts, online tts, natural voices, solite" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="application-name" content="Text-to-Speech Converter" />
+  <meta name="generator" content="Solite GEN-5.3 Balanced — Authority + Performance Edition" />
+
+  <!-- 👤 BRAND TRUST -->
+  <meta name="author" content="Solite Team" />
+  <meta name="publisher" content="Solite" />
+  <meta name="brand" content="Solite" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-content-type" content="Text-to-Speech Generator" />
+  <meta name="ai-purpose" content="Converting written text into spoken audio using local system voices for privacy and accessibility" />
+  <meta name="ai-model-context" content="web accessibility, speech synthesis, developer tools, content creation, privacy-first utilities" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- 🌍 SOCIAL + OG AUTOSCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Text-to-Speech (TTS) Converter | Solite" />
+  <meta property="og:description" content="Convert text to natural-sounding speech directly in your browser. 100% private, no uploads, no limits. Select voices, adjust pitch and speed." />
+  <meta property="og:url" content="https://solite.in/text-to-speech.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/text-to-speech.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Text-to-Speech (TTS) Converter | Solite" />
+  <meta name="twitter:description" content="Convert text to natural-sounding speech directly in your browser. 100% private, no uploads, no limits." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/text-to-speech.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- lamejs for MP3 encoding -->
+  <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+
+
+  <!-- 🔤 NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI STYLES -->
+  <style>
+    #toast { transform:translateY(150%); transition:transform .3s ease-in-out, opacity .3s ease-in-out; opacity:0; z-index:9999; }
+    #toast.show { transform:translateY(-2rem); opacity:1; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    html { scrollbar-color:#4b5563 #111827; background-color:#0f172a; color-scheme:dark light; }
+    .range-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #fff; cursor: pointer; border-radius: 50%; }
+    .range-slider::-moz-range-thumb { width: 20px; height: 20px; background: #fff; cursor: pointer; border-radius: 50%; }
+  </style>
+
+  <!-- 🧠 GEN-5.3 UNIFIED ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds privacy-first browser-based tools for developers, creators, and professionals."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/text-to-speech.html#app",
+        "name": "Text-to-Speech Converter",
+        "url": "https://solite.in/text-to-speech.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "featureList": [
+          "Convert text to speech",
+          "Select from local system voices",
+          "Adjust speech rate and pitch",
+          "Control volume",
+          "Play, pause, resume, and stop controls",
+          "100% client-side and private"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.3 | SOLITE_AUTHORITY_PREDATOR | GEN_5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Text-to-Speech Converter</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(80vh - 73px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Text-to-Speech Converter</h1>
+
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-4 flex flex-col">
+                <h2 class="text-xl font-bold text-white mb-6 flex-shrink-0">Speech Controls</h2>
+                <div class="flex-grow min-h-0 flex flex-col justify-between">
+                    <div class="space-y-6 overflow-y-auto pr-2">
+                        <div>
+                            <label for="voice-select" class="text-sm font-medium">Voice</label>
+                            <select id="voice-select" class="w-full mt-1 p-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-1 focus:ring-gray-500 focus:outline-none">
+                                <option>Loading voices...</option>
+                            </select>
+                        </div>
+                        <div class="space-y-4">
+                            <label for="rate-slider" class="text-sm font-medium">Rate: <span id="rate-value">1</span></label>
+                            <input type="range" id="rate-slider" min="0.5" max="2" value="1" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer range-slider mt-2">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="pitch-slider" class="text-sm font-medium">Pitch: <span id="pitch-value">1</span></label>
+                            <input type="range" id="pitch-slider" min="0" max="2" value="1" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer range-slider mt-2">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 pt-6 border-t border-gray-800 space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <button id="play-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-5 rounded-lg flex items-center justify-center gap-2 text-base w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            Play
+                        </button>
+                            <button id="pause-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 rounded-lg flex items-center justify-center gap-2 text-base hidden w-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>
+                            Pause
+                        </button>
+                            <button id="stop-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-5 rounded-lg flex items-center justify-center gap-2 text-base hidden w-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1zm4 0a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>
+                            Stop
+                        </button>
+                        </div>
+                        <button id="download-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            Record & Download MP3
+                        </button>
+                        <p id="download-status" class="text-xs text-center text-gray-500 mt-2"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Input Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 min-h-0">
+                <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-white">Enter Text</h2>
+                    <button id="clear-text-btn" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                        Clear
+                    </button>
+                </div>
+                <textarea id="text-input" class="w-full flex-grow p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 focus:ring-gray-500 focus:outline-none font-sans text-base resize-none" placeholder="Type or paste your text here..."></textarea>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 border border-gray-700/50  ">
+                Sponsor Slot
+            </div>
+        </aside>
+    </main>
+
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2.5 px-6 rounded-full shadow-lg"></div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / TEXT-TO-SPEECH CONVERTER) -->
+    <div class="w-full text-gray-300 p-2">
+    <style>
+    #solite-seo-tts[open] > summary { border-bottom:1px solid #374151; }
+    #solite-seo-tts > summary .details-arrow-seo { transform:rotate(-90deg); transition:transform .25s ease-in-out; }
+    #solite-seo-tts[open] > summary .details-arrow-seo { transform:rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.45rem; border:1px solid #374151; padding:.25rem .65rem; border-radius:.55rem; font-size:.77rem; color:#9CA3AF; }
+    .seo-table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    .seo-table td, .seo-table th { border:1px solid #374151; padding:.65rem; }
+    .seo-table th { background:#111827; color:#e5e7eb; font-weight:600; }
+    </style>
+
+    <details id="solite-seo-tts" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+    Text-to-Speech Converter — Natural AI Voices
+    <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🔹 Badges -->
+    <section class="space-y-3">
+    <div class="flex flex-wrap gap-2">
+    <span class="badge">Text to Speech</span>
+    <span class="badge">Accessibility Tool</span>
+    <span class="badge">Client-Side</span>
+    <span class="badge">Speech Synthesis</span>
+    <span class="badge">Privacy First</span>
+    <span class="badge">MP3 Download</span>
+    </div>
+
+    <!-- 🔹 Full Overview -->
+    <p class="text-gray-300 text-lg">The <strong>Solite Text-to-Speech (TTS) Converter</strong> is a free online tool that transforms written text into natural-sounding speech. It uses your browser's built-in speech synthesis engine, which means your text is never sent to a server. This ensures <strong>100% privacy and security</strong>. Listen to articles, proofread documents, or create voiceovers without any software installation. It works completely offline and now supports MP3 downloads.</p>
+    </section>
+
+    <!-- 🔹 Feature List -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Key Features</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><strong>Instant Conversion</strong> — Convert text to audio in real-time.</li>
+    <li><strong>Natural Voices</strong> — Access a wide range of high-quality voices from your OS (Windows, macOS, Android, etc.).</li>
+    <li><strong>Voice Customization</strong> — Adjust the speech rate and pitch to your preference.</li>
+    <li><strong>Download as MP3</strong> — Save the generated speech as an MP3 file for offline use.</li>
+    <li><strong>Full Playback Control</strong> — Play, pause, resume, and stop the audio at any time.</li>
+    <li><strong>No Limits</strong> — Convert as much text as you want, with no character limits or fees.</li>
+    <li><strong>100% Private & Offline</strong> — All processing happens in your browser. No data leaves your device.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Use Cases -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Who Should Use This?</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><strong>Content Creators</strong> making voiceovers for videos or podcasts.</li>
+    <li><strong>Students & Researchers</strong> listening to articles and study notes.</li>
+    <li><strong>Writers & Editors</strong> proofreading their work by listening to it.</li>
+    <li><strong>Users with Visual Impairments</strong> for web accessibility and reading text aloud.</li>
+    <li><strong>Language Learners</strong> practicing pronunciation and listening skills.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Workflow -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+    <ol class="list-decimal list-inside text-gray-400 space-y-2">
+    <li>Type or paste your text into the text area.</li>
+    <li>Select a voice from the dropdown menu. The voices are provided by your operating system.</li>
+    <li>Adjust the rate and pitch sliders to customize the voice.</li>
+    <li>Click the "Play" button to start the audio.</li>
+    <li>Click "Download MP3" to save the generated speech.</li>
+    </ol>
+    </section>
+
+    <!-- 🔹 FAQs -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+    <ul class="text-gray-400 space-y-3">
+    <li><strong>Is this tool really free?</strong><br>Yes, it's 100% free with no hidden costs or limits. It uses the free speech synthesis feature of your browser.</li>
+    <li><strong>Can I download the audio as an MP3 file?</strong><br>Yes! You can now download the generated speech as an MP3 file directly from the tool.</li>
+    <li><strong>Why are the voices different on other computers?</strong><br>The available voices depend on the operating system (like Windows or macOS) and the browser (like Chrome or Safari) you are using.</li>
+    <li><strong>Does it work on mobile?</strong><br>Yes, it works on modern mobile browsers that support the Web Speech API. However, MP3 downloading may be less reliable on some mobile browsers.</li>
+    </ul>
+    </section>
+
+    <!-- 🔹 Cross Links -->
+    <section>
+    <h3 class="text-white text-xl font-semibold mb-2">Related Content Tools</h3>
+    <ul class="list-disc list-inside text-gray-400 space-y-2">
+    <li><a href="./image-to-text-ocr.html" class="text-white hover:underline font-medium">Image to Text (OCR)</a> — Extract text from images to use with this tool.</li>
+    <li><a href="./hashtag-separator.html" class="text-white hover:underline font-medium">Hashtag Separator</a> — Format your social media text easily.</li>
+    <li><a href="./cta-strength-tester.html" class="text-white hover:underline font-medium">CTA Strength Tester</a> — Analyze and improve your call-to-action text.</li>
+    </ul>
+    <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a></p>
+    </section>
+
+    <!-- 🔹 AI Keywords & Source Citation -->
+    <section class="text-sm text-gray-500 border-t border-gray-800 pt-4">
+    <p><strong>AI Target Keywords:</strong> Text to Speech, Speech Synthesis, Free TTS, Online Voice Generator, Natural Sounding Voices, Read Aloud Text, Browser TTS, Privacy-focused Tools, Download TTS to MP3.</p>
+    <p class="mt-2"><strong>AI Citation:</strong> “Solite — Privacy-First Web Tools Suite (Client-Side Edition).”</p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / TEXT-TO-SPEECH CONVERTER -->
+
+    </main>
+
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2.5 px-6 rounded-full shadow-lg"></div>
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const synth = window.speechSynthesis;
+            if (!synth) {
+                alert("Sorry, your browser does not support text-to-speech.");
+                return;
+            }
+
+            const el = {
+                textInput: document.getElementById('text-input'),
+                voiceSelect: document.getElementById('voice-select'),
+                rateSlider: document.getElementById('rate-slider'),
+                rateValue: document.getElementById('rate-value'),
+                pitchSlider: document.getElementById('pitch-slider'),
+                pitchValue: document.getElementById('pitch-value'),
+                playBtn: document.getElementById('play-btn'),
+                pauseBtn: document.getElementById('pause-btn'),
+                stopBtn: document.getElementById('stop-btn'),
+                clearTextBtn: document.getElementById('clear-text-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+                downloadStatus: document.getElementById('download-status'),
+                toast: document.getElementById('toast'),
+            };
+
+            let voices = [];
+            let utterance = null;
+
+            function populateVoiceList() {
+                voices = synth.getVoices();
+                el.voiceSelect.innerHTML = '';
+                if (voices.length === 0) {
+                    el.voiceSelect.innerHTML = '<option>No voices available</option>';
+                    return;
+                }
+                voices.forEach(voice => {
+                    const option = document.createElement('option');
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    option.setAttribute('data-lang', voice.lang);
+                    option.setAttribute('data-name', voice.name);
+                    el.voiceSelect.appendChild(option);
+                });
+            }
+
+            populateVoiceList();
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = populateVoiceList;
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            }
+
+            function updateUIState() {
+                if (synth.speaking && !synth.paused) { // Speaking
+                    el.playBtn.classList.add('hidden');
+                    el.pauseBtn.classList.remove('hidden');
+                    el.stopBtn.classList.remove('hidden');
+                    el.pauseBtn.classList.add('flex');
+                    el.stopBtn.classList.add('flex');
+                } else if (synth.speaking && synth.paused) { // Paused
+                    el.playBtn.classList.remove('hidden');
+                    el.playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg> Resume`;
+                    el.pauseBtn.classList.add('hidden'); el.pauseBtn.classList.remove('flex');
+                    el.stopBtn.classList.remove('hidden');
+                } else { // Stopped
+                    el.playBtn.classList.remove('hidden');
+                    el.playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg> Play`;
+                    el.pauseBtn.classList.add('hidden');
+                    el.stopBtn.classList.add('hidden');
+                }
+                el.playBtn.classList.toggle('flex', !el.playBtn.classList.contains('hidden'));
+                el.stopBtn.classList.toggle('flex', !el.stopBtn.classList.contains('hidden'));
+            }
+
+            function speak() {
+                if (synth.speaking) {
+                    console.error('SpeechSynthesis is already speaking.');
+                    return;
+                }
+                if (el.textInput.value !== '') {
+                    utterance = new SpeechSynthesisUtterance(el.textInput.value);
+                    utterance.onend = () => {
+                        updateUIState();
+                    };
+                    utterance.onerror = (event) => {
+                        console.error('SpeechSynthesisUtterance.onerror', event);
+                        showToast('An error occurred during speech.');
+                        updateUIState();
+                    };
+
+                    const selectedVoiceName = el.voiceSelect.selectedOptions[0].getAttribute('data-name');
+                    utterance.voice = voices.find(voice => voice.name === selectedVoiceName);
+                    utterance.pitch = el.pitchSlider.value;
+                    utterance.rate = el.rateSlider.value;
+                    
+                    synth.speak(utterance);
+                    updateUIState();
+                }
+            }
+
+            el.playBtn.addEventListener('click', () => {
+                if (synth.paused) {
+                    synth.resume();
+                } else {
+                    speak();
+                }
+                updateUIState();
+            });
+
+            el.pauseBtn.addEventListener('click', () => {
+                synth.pause();
+                updateUIState();
+            });
+
+            el.stopBtn.addEventListener('click', () => {
+                synth.cancel();
+                updateUIState();
+            });
+
+            el.clearTextBtn.addEventListener('click', () => {
+                el.textInput.value = '';
+                showToast('Text cleared!');
+            });
+
+            el.rateSlider.addEventListener('input', () => el.rateValue.textContent = el.rateSlider.value);
+            el.pitchSlider.addEventListener('input', () => el.pitchValue.textContent = el.pitchSlider.value);
+            
+            // MP3 Download Logic
+            el.downloadBtn.addEventListener('click', async () => {
+                if (!el.textInput.value) {
+                    showToast('Please enter some text to convert.');
+                    return;
+                }
+                if (typeof lamejs === 'undefined') {
+                    showToast('MP3 library not loaded. Please refresh.');
+                    return;
+                }
+
+                el.downloadBtn.disabled = true;
+                el.downloadStatus.textContent = 'Preparing for download...';
+
+                try {
+                    // We must capture the audio output, as Web Speech API doesn't expose a direct audio stream.
+                    // This requires user permission to capture tab audio.
+                    const stream = await navigator.mediaDevices.getDisplayMedia({
+                        video: true,
+                        audio: true,
+                        selfBrowserSurface: "include", // Prioritize current tab
+                        preferCurrentTab: true,
+                    });
+
+                    // We only need the audio track.
+                    const audioTrack = stream.getAudioTracks()[0];
+                    const videoTrack = stream.getVideoTracks()[0];
+                    const audioStream = new MediaStream([audioTrack]);
+
+                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 44100 });
+                    const mediaRecorder = new MediaRecorder(audioStream);
+                    const audioChunks = [];
+
+                    utterance = new SpeechSynthesisUtterance(el.textInput.value);
+                    const selectedVoiceName = el.voiceSelect.selectedOptions[0].getAttribute('data-name');
+                    utterance.voice = voices.find(voice => voice.name === selectedVoiceName);
+                    utterance.pitch = el.pitchSlider.value;
+                    utterance.rate = el.rateSlider.value;
+
+                    utterance.onstart = () => {
+                        el.downloadStatus.textContent = 'Recording speech...';
+                        mediaRecorder.start();
+                    };
+
+                    utterance.onend = () => {
+                        el.downloadStatus.textContent = 'Recording finished.';
+                        mediaRecorder.stop();
+                        // Stop the screen capture track
+                        videoTrack.stop();
+                        audioTrack.stop();
+                    };
+
+                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+
+                    mediaRecorder.onstop = async () => {
+                        el.downloadStatus.textContent = 'Encoding to MP3... Please wait.';
+                        try {
+                            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                            const arrayBuffer = await audioBlob.arrayBuffer();
+                            const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+
+                            const mp3encoder = new lamejs.Mp3Encoder(1, audioBuffer.sampleRate, 128);
+                            const samples = audioBuffer.getChannelData(0);
+                            const mp3Data = [];
+                            const sampleBlockSize = 1152;
+
+                            for (let i = 0; i < samples.length; i += sampleBlockSize) {
+                                const sampleChunk = samples.subarray(i, i + sampleBlockSize);
+                                const mp3buf = mp3encoder.encodeBuffer(sampleChunk);
+                                if (mp3buf.length > 0) {
+                                    mp3Data.push(mp3buf);
+                                }
+                            }
+                            const mp3buf = mp3encoder.flush();
+                            if (mp3buf.length > 0) {
+                                mp3Data.push(mp3buf);
+                            }
+
+                            const mp3Blob = new Blob(mp3Data, { type: 'audio/mpeg' });
+                            const url = URL.createObjectURL(mp3Blob);
+
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'solite-speech.mp3';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            URL.revokeObjectURL(url);
+
+                            showToast('MP3 Downloaded!');
+                        } catch (encodeError) {
+                            console.error("MP3 encoding failed:", encodeError);
+                            showToast('MP3 encoding failed.');
+                        } finally {
+                            el.downloadStatus.textContent = '';
+                            el.downloadBtn.disabled = false;
+                        }
+                    };
+
+                    synth.speak(utterance);
+
+                } catch (error) {
+                    console.error("MP3 download failed:", error);
+                    if (error.name === 'NotAllowedError') {
+                        showToast('Permission to capture audio was denied.');
+                    } else {
+                        showToast('MP3 download failed.');
+                    }
+                    el.downloadBtn.disabled = false;
+                    el.downloadStatus.textContent = '';
+                }
+            });
+
+            // Periodically check the speaking state to update UI, as `onend` can be unreliable.
+            setInterval(updateUIState, 500);
+        });
+    </script>
+</body>
+</html>

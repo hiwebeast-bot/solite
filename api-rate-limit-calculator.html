@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- 🧬 SOLITE GEN-5.3 BALANCED HEAD / API RATE LIMIT CALCULATOR — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>API Rate Limit Calculator | Requests Per Minute Interval Tool | Solite</title>
+  <meta name="description" content="Calculate the minimum safe interval between API calls based on a requests-per-minute limit. A free, private, browser-based tool for developers to avoid rate limiting." />
+  <meta name="keywords" content="api rate limit calculator, request interval calculator, throttle requests, api throttling, developer tool, requests per minute, solite" />
+  <link rel="canonical" href="https://solite.in/api-rate-limit-calculator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- 🎨 BRAND & UX -->
+  <meta name="application-name" content="API Rate Limit Calculator" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="author" content="Solite Team" />
+  <meta name="publisher" content="Solite" />
+
+  <!-- 🌍 SOCIAL META (AUTO OG SCREENSHOT) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="API Rate Limit Calculator | Solite" />
+  <meta property="og:description" content="Calculate safe intervals for API calls to avoid rate limiting. Free, private, and browser-based." />
+  <meta property="og:url" content="https://solite.in/api-rate-limit-calculator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/api-rate-limit-calculator.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="API Rate Limit Calculator | Solite" />
+  <meta name="twitter:description" content="Free tool to calculate safe request intervals from requests-per-minute limits." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/api-rate-limit-calculator.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI SCROLLBAR (PRESERVED) -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color:#4b5563 #111827; background-color:#000; }    
+    .timeline-packet {
+        position: absolute;
+        width: 8px; height: 8px;
+        background-color: #60a5fa; /* blue-400 */
+        border-radius: 50%;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+  </style>
+
+  <!-- 🧠 JSON-LD ENTITY GRAPH -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://solite.in/#organization",
+        "name":"Solite",
+        "url":"https://solite.in",
+        "logo":"https://solite.in/assets/apple-touch-icon.png",
+        "description":"Solite builds 100% client-side tools for developers, designers, and professionals."
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://solite.in/api-rate-limit-calculator.html#app",
+        "name":"API Rate Limit Calculator",
+        "url":"https://solite.in/api-rate-limit-calculator.html",
+        "applicationCategory":"DeveloperApplication",
+        "operatingSystem":"All",
+        "featureList":[
+          "Calculate request intervals from requests/minute",
+          "Visual timeline of request frequency",
+          "Client-side privacy",
+          "Free and unlimited use"
+        ],
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "provider":{"@id":"https://solite.in/#organization"}
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.3 | SOLITE_AUTHORITY_PREDATOR | GEN_5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-black/80 backdrop-blur-xl z-30 border-b border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-2xl font-semibold text-gray-900 dark:text-white sentence group-hover:text-gray-300 transition-colors">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">API Rate Limit Calculator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto p-4 lg:p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+            
+            <!-- Left Column: Controls -->
+            <div class="flex flex-col gap-6">
+                <div class="bg-gray-900 rounded-xl border border-gray-800 p-6">
+                    <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">API Rate Limit Calculator</h1>
+                    <p class="text-gray-400 mb-6">Enter your API's request limit to find the minimum safe interval between calls.</p>
+                    
+                    <label for="requests-input" class="font-medium text-gray-300 mb-2 block">Request Limit</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="requests-input" value="60" min="1" class="text-lg p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <select id="unit-select" class="text-lg p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <option value="minute">per minute</option>
+                            <option value="second">per second</option>
+                            <option value="hour">per hour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl border border-gray-800 p-6 flex-grow flex flex-col">
+                    <h3 class="text-lg font-bold text-white mb-4 flex-shrink-0">Common API Limits</h3>
+                    <div id="common-limits-container" class="flex-grow overflow-y-auto space-y-2 pr-2">
+                        <!-- Common limits will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Results -->
+            <div class="flex flex-col gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">Interval (ms)</h3>
+                        <p id="interval-ms" class="text-4xl font-bold text-white mt-2">1000</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">Interval (s)</h3>
+                        <p id="interval-s" class="text-4xl font-bold text-white mt-2">1.00</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">Requests/sec</h3>
+                        <p id="req-per-sec" class="text-4xl font-bold text-white mt-2">1.00</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl border border-gray-800 p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-white">Visual Timeline</h3>
+                        <button id="play-pause-btn" class="text-gray-400 hover:text-white transition-colors">
+                            <svg id="play-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg id="pause-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div id="timeline-container" class="w-full h-12 bg-gray-800 rounded-lg border border-gray-700 p-2 flex items-center overflow-hidden">
+                        <div id="timeline" class="relative w-full h-full">
+                            <!-- Animated packets will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl border border-gray-800 p-6 flex-grow flex flex-col">
+                    <h3 class="text-lg font-semibold text-white mb-4">Code Snippets</h3>
+                    <div class="flex-grow space-y-4">
+                        <div>
+                            <label class="font-mono text-sm text-yellow-400">JavaScript (async/await)</label>
+                            <pre class="bg-gray-800 p-3 rounded-lg mt-1 text-xs overflow-x-auto"><code id="js-code"></code></pre>
+                        </div>
+                        <div>
+                            <label class="font-mono text-sm text-blue-400">Python</label>
+                            <pre class="bg-gray-800 p-3 rounded-lg mt-1 text-xs overflow-x-auto"><code id="python-code"></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const requestsInput = document.getElementById('requests-input');
+            const intervalMsOutput = document.getElementById('interval-ms');
+            const intervalSOutput = document.getElementById('interval-s');
+            const reqPerSecOutput = document.getElementById('req-per-sec');
+            const timeline = document.getElementById('timeline');
+            const commonLimitsContainer = document.getElementById('common-limits-container');
+            const unitSelect = document.getElementById('unit-select');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const jsCode = document.getElementById('js-code');
+            const pythonCode = document.getElementById('python-code');
+
+            let timelineAnimation;
+            let isPlaying = false;
+
+            function calculateAndDisplay() {
+                const requestsPerMinute = parseInt(requestsInput.value) || 1;
+                const unit = unitSelect.value;
+                if (requestsPerMinute <= 0) return;
+
+                let multiplier = 60; // Default to minute
+                if (unit === 'second') multiplier = 1;
+                if (unit === 'hour') multiplier = 3600;
+
+                const intervalMs = (multiplier * 1000) / requestsPerMinute;
+                const intervalS = multiplier / requestsPerMinute;
+                const reqPerSec = 1000 / intervalMs;
+
+                intervalMsOutput.textContent = `${intervalMs.toFixed(0)}`;
+                intervalSOutput.textContent = `${intervalS.toFixed(2)}`;
+                reqPerSecOutput.textContent = `${reqPerSec.toFixed(2)}`;
+
+                updateCodeSnippets(intervalMs);
+                if (isPlaying) {
+                    startTimelineAnimation(intervalMs);
+                }
+            }
+
+            function startTimelineAnimation(interval) {
+                if (timelineAnimation) clearInterval(timelineAnimation);
+                timeline.innerHTML = '';
+                isPlaying = true;
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+
+                timelineAnimation = setInterval(() => {
+                    const packet = document.createElement('div');
+                    packet.className = 'timeline-packet';
+                    packet.style.left = '-8px';
+                    timeline.appendChild(packet);
+
+                    let start = null;
+                    function animate(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const duration = 2000; // 2 seconds to cross the timeline
+                        const position = (progress / duration) * 100;
+                        
+                        if (position < 100) {
+                            packet.style.left = `${position}%`;
+                            requestAnimationFrame(animate);
+                        } else {
+                            packet.remove();
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }, interval);
+            }
+
+            function stopTimelineAnimation() {
+                clearInterval(timelineAnimation);
+                timelineAnimation = null;
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+
+            function updateCodeSnippets(intervalMs) {
+                jsCode.textContent = `// Helper function to delay execution
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function processItems(items) {
+  for (const item of items) {
+    // Your API call here
+    await makeApiCall(item);
+
+    // Wait for the safe interval
+    await delay(${intervalMs.toFixed(0)});
+  }
+}`;
+                pythonCode.textContent = `import time
+
+items = [...]
+for item in items:
+    # Your API call here
+    make_api_call(item)
+
+    # Wait for the safe interval
+    time.sleep(${ (intervalMs / 1000).toFixed(3) })`;
+            }
+
+            function renderCommonLimits() {
+                const limits = [
+                    { name: 'OpenAI API (Free)', rpm: 60, unit: 'minute' },
+                    { name: 'GitHub API (Authenticated)', rpm: 5000, unit: 'hour' },
+                    { name: 'Stripe API (Live)', rpm: 6000, unit: 'minute' },
+                    { name: 'Discord API', rpm: 10000, unit: 'minute' },
+                    { name: 'Reddit API', rpm: 60, unit: 'minute' },
+                    { name: 'Shopify API (Basic)', rpm: 120, unit: 'minute' },
+                    { name: 'Slack API (Tier 3)', rpm: 50, unit: 'minute' },
+                    { name: 'Twitter/X API (Free)', rpm: 50, unit: 'minute' },
+                ];
+
+                commonLimitsContainer.innerHTML = limits.map(limit => `
+                    <div class="p-3 rounded-lg border border-gray-800 bg-gray-800/50 cursor-pointer hover:border-gray-700 transition-colors limit-item flex justify-between items-center" data-rpm="${limit.rpm}" data-unit="${limit.unit || 'minute'}">
+                        <span class="text-sm font-medium text-white">${limit.name}</span>
+                        <span class="text-xs font-mono text-gray-400 bg-gray-900 px-2 py-1 rounded">${limit.rpm} / ${limit.unit.slice(0,3)}</span>
+                    </div>
+                `).join('');
+            }
+
+            requestsInput.addEventListener('input', calculateAndDisplay);
+            unitSelect.addEventListener('change', calculateAndDisplay);
+
+            playPauseBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    stopTimelineAnimation();
+                } else {
+                    const intervalMs = ( (unitSelect.value === 'second' ? 1 : (unitSelect.value === 'hour' ? 3600 : 60)) * 1000) / (parseInt(requestsInput.value) || 1);
+                    startTimelineAnimation(intervalMs);
+                }
+            });
+
+            commonLimitsContainer.addEventListener('click', (e) => {
+                const limitItem = e.target.closest('.limit-item');
+                if (limitItem) {
+                    requestsInput.value = limitItem.dataset.rpm;
+                    unitSelect.value = limitItem.dataset.unit || 'minute';
+                    calculateAndDisplay();
+                }
+            });
+
+
+            // Initial calculation
+            renderCommonLimits();
+            calculateAndDisplay();
+        });
+    </script>
+
+</body>
+</html>

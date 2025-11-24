@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / CSS Grid Playground — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO & AI Discovery -->
+  <title>CSS Grid Playground | Visual Grid Editor | Solite</title>
+  <meta name="description" content="Visually learn and experiment with CSS Grid. Adjust columns, rows, gap, and alignment properties to see live changes and copy the generated CSS. 100% private and browser-based." />
+  <meta name="keywords" content="css grid playground, grid generator, visual grid editor, learn css grid, css grid properties, solite, developer tool" />
+  <link rel="canonical" href="https://solite.in/css-grid-playground.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="CSS Grid Playground | Solite" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- 🌍 Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="CSS Grid Playground | Visual Grid Editor | Solite" />
+  <meta property="og:description" content="Visually learn and experiment with CSS Grid. Adjust columns, rows, gap, and alignment properties to see live changes and copy the generated CSS." />
+  <meta property="og:url" content="https://solite.in/css-grid-playground.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/css-grid-playground.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CSS Grid Playground | Solite" />
+  <meta name="twitter:description" content="A free, private, browser-based tool to visually experiment with CSS Grid properties and generate code." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/css-grid-playground.html&meta=false&screenshot=true" />
+
+  <!-- 💰 Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ Core Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
+
+  <!-- 🪄 Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 🧬 GEN-5.0 Solite Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/css-grid-playground.html#app",
+        "name": "CSS Grid Playground",
+        "url": "https://solite.in/css-grid-playground.html",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A visual tool to learn and generate CSS Grid code. Adjust columns, rows, alignment, and gap with a live preview.",
+        "featureList": ["Live Grid preview", "CSS code generation", "Controls for grid-template-columns, grid-template-rows, gap, and alignment", "100% client-side and private"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 💅 UI Styles -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    .custom-select { appearance: none; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    .preview-box { transition: all 0.3s ease-in-out; }
+    .grid-item { transition: all 0.3s ease-in-out; }
+  </style>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">CSS Grid Playground</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">CSS Grid Playground</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Grid Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    
+                    <div class="space-y-2">
+                        <label for="grid-template-columns" class="font-medium">Columns</label>
+                        <input type="text" id="grid-template-columns" value="1fr 1fr 1fr" class="w-full bg-gray-800 border border-gray-700 p-2 rounded-lg font-mono text-sm">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="grid-template-rows" class="font-medium">Rows</label>
+                        <input type="text" id="grid-template-rows" value="1fr 1fr" class="w-full bg-gray-800 border border-gray-700 p-2 rounded-lg font-mono text-sm">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="grid-gap" class="font-medium">Gap (<span id="gap-value">16</span>px)</label>
+                        <input type="range" id="grid-gap" min="0" max="64" value="16" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="justify-content" class="font-medium">Justify Content</label>
+                        <div class="relative"><select id="justify-content" class="custom-select w-full bg-gray-800 border border-gray-700 p-2 rounded-lg"><option value="stretch">stretch</option><option value="start">start</option><option value="end">end</option><option value="center">center</option><option value="space-between">space-between</option><option value="space-around">space-around</option><option value="space-evenly">space-evenly</option></select><svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="align-content" class="font-medium">Align Content</label>
+                        <div class="relative"><select id="align-content" class="custom-select w-full bg-gray-800 border border-gray-700 p-2 rounded-lg"><option value="stretch">stretch</option><option value="start">start</option><option value="end">end</option><option value="center">center</option><option value="space-between">space-between</option><option value="space-around">space-around</option><option value="space-evenly">space-evenly</option></select><svg class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Preview & Code Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex items-center justify-center p-8 bg-black/20 min-h-[300px]">
+                    <div id="preview-container" class="preview-box w-full h-64 bg-gray-800/50 border-2 border-dashed border-gray-700 rounded-lg p-4 grid">
+                        <div class="grid-item bg-blue-500 rounded-md p-4 text-white font-bold flex items-center justify-center">1</div>
+                        <div class="grid-item bg-green-500 rounded-md p-4 text-white font-bold flex items-center justify-center">2</div>
+                        <div class="grid-item bg-purple-500 rounded-md p-4 text-white font-bold flex items-center justify-center">3</div>
+                        <div class="grid-item bg-red-500 rounded-md p-4 text-white font-bold flex items-center justify-center">4</div>
+                        <div class="grid-item bg-yellow-500 rounded-md p-4 text-white font-bold flex items-center justify-center">5</div>
+                        <div class="grid-item bg-pink-500 rounded-md p-4 text-white font-bold flex items-center justify-center">6</div>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Generated CSS</h3>
+                        <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span>Copy CSS</span>
+                        </button>
+                    </div>
+                    <textarea id="css-code-output" readonly class="w-full h-40 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
+        </aside>
+    </main>
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                previewContainer: document.getElementById('preview-container'),
+                cssCodeOutput: document.getElementById('css-code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                toast: document.getElementById('toast'),
+                gridTemplateColumns: document.getElementById('grid-template-columns'),
+                gridTemplateRows: document.getElementById('grid-template-rows'),
+                gridGap: document.getElementById('grid-gap'),
+                gapValue: document.getElementById('gap-value'),
+                justifyContent: document.getElementById('justify-content'),
+                alignContent: document.getElementById('align-content'),
+            };
+
+            function updateGrid() {
+                const columns = el.gridTemplateColumns.value;
+                const rows = el.gridTemplateRows.value;
+                const gap = el.gridGap.value;
+                const justify = el.justifyContent.value;
+                const align = el.alignContent.value;
+
+                el.previewContainer.style.gridTemplateColumns = columns;
+                el.previewContainer.style.gridTemplateRows = rows;
+                el.previewContainer.style.gap = `${gap}px`;
+                el.previewContainer.style.justifyContent = justify;
+                el.previewContainer.style.alignContent = align;
+                el.gapValue.textContent = gap;
+
+                const cssCode = `
+.grid-container {
+  display: grid;
+  grid-template-columns: ${columns};
+  grid-template-rows: ${rows};
+  gap: ${gap}px;
+  justify-content: ${justify};
+  align-content: ${align};
+}`;
+                el.cssCodeOutput.value = cssCode.trim();
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => {
+                    el.toast.classList.remove('show');
+                }, 2000);
+            }
+
+            // Event Listeners
+            [el.gridTemplateColumns, el.gridTemplateRows, el.gridGap, el.justifyContent, el.alignContent].forEach(control => {
+                control.addEventListener('input', updateGrid);
+            });
+
+            el.copyCodeBtn.addEventListener('click', () => {
+                if (el.cssCodeOutput.value) {
+                    navigator.clipboard.writeText(el.cssCodeOutput.value)
+                        .then(() => showToast('CSS copied!'))
+                        .catch(err => console.error('Failed to copy: ', err));
+                }
+            });
+
+            // Initial Render
+            updateGrid();
+        });
+    </script>
+</body>
+</html>

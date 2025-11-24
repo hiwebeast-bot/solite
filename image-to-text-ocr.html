@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / IMAGE-TO-TEXT OCR — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Image-to-Text OCR Tool (Private, Browser-Based) | Solite</title>
+  <meta name="description" content="Extract text from images (JPG, PNG, WebP) instantly with 100% private, client-side OCR. Supports 20+ languages. No uploads, no tracking. Free Image-to-Text tool by Solite." />
+  <link rel="canonical" href="https://solite.in/image-to-text-ocr.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="ocr tool, image to text, extract text from image, free ocr, offline ocr, browser ocr, tesseract js, multilingual ocr, privacy ocr, solite" />
+
+  <!-- 👤 BRAND + APPLICATION -->
+  <meta name="application-name" content="Image-to-Text OCR Tool" />
+  <meta name="author" content="Solite Team" />
+  <meta name="publisher" content="Solite" />
+
+  <!-- 🔒 PRIVACY + THEME -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER (Microlink Auto-Screenshot) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Image-to-Text OCR Tool | Solite" />
+  <meta property="og:description" content="Extract text from images in your browser with secure, private OCR. No uploads. Supports multiple languages." />
+  <meta property="og:url" content="https://solite.in/image-to-text-ocr.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/image-to-text-ocr.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image-to-Text OCR Tool | Solite" />
+  <meta name="twitter:description" content="Extract text from images with secure, multilingual OCR. 100% private and browser-based." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/image-to-text-ocr.html&meta=false&screenshot=true" />
+
+  <!-- 💰 ADSENSE (Privacy-First) -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+
+  <!-- 🔤 NON-BLOCKING FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 INLINE UI STYLES -->
+  <style>
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    .checkerboard { background-image:linear-gradient(45deg,#1f2937 25%,transparent 25%),linear-gradient(-45deg,#1f2937 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#1f2937 75%),linear-gradient(-45deg,transparent 75%,#1f2937 75%); background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0; }
+  </style>
+
+  <!-- 📌 JSON-LD ENTITY GRAPH (ORG + WEBAPP + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://solite.in/#organization",
+        "name": "Solite",
+        "url": "https://solite.in",
+        "logo": "https://solite.in/assets/apple-touch-icon.png",
+        "description": "Solite builds 100% private, client-side browser tools for developers, creators, and professionals."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://solite.in/image-to-text-ocr.html#app",
+        "name": "Image-to-Text OCR Tool",
+        "url": "https://solite.in/image-to-text-ocr.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "featureList": [
+          "Client-side OCR (no uploads)",
+          "Multilingual OCR (20+ languages)",
+          "Drag-and-drop image support",
+          "Copy & download extracted text",
+          "Works offline after load",
+          "Privacy-first browser utility"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://solite.in/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://solite.in/image-to-text-ocr.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my image uploaded to any server?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All OCR processing happens locally in your browser using Tesseract.js. Nothing is uploaded or stored." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool support multiple languages?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. It supports 20+ languages including English, Hindi, Arabic, Japanese, Chinese, French, German and more." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download the extracted text?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy or download the extracted text as a .txt file." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN_5_BALANCED | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Image-to-Text (OCR)</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Image to Text OCR Tool</h1>
+            
+            <!-- Controls & Output Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Controls & Output</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="image-upload-btn" class="font-medium">1. Upload Image</label>
+                        <input type="file" id="image-upload" class="hidden" accept="image/*">
+                        <button id="image-upload-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            Select Image
+                        </button>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="language-select" class="font-medium">2. Select Language</label>
+                        <select id="language-select" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+                            <option value="eng" selected>English</option>
+                            <option value="ara">Arabic</option>
+                            <option value="chi_sim">Chinese (Simplified)</option>
+                            <option value="nld">Dutch</option>
+                            <option value="fra">French</option>
+                            <option value="deu">German</option>
+                            <option value="heb">Hebrew</option>
+                            <option value="hin">Hindi</option>
+                            <option value="ind">Indonesian</option>
+                            <option value="ita">Italian</option>
+                            <option value="jpn">Japanese</option>
+                            <option value="kor">Korean</option>
+                            <option value="pol">Polish</option>
+                            <option value="por">Portuguese</option>
+                            <option value="rus">Russian</option>
+                            <option value="spa">Spanish</option>
+                            <option value="swe">Swedish</option>
+                            <option value="tha">Thai</option>
+                            <option value="tur">Turkish</option>
+                            <option value="vie">Vietnamese</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <button id="extract-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            3. Extract Text
+                        </button>
+                    </div>
+                    <div id="progress-container" class="hidden space-y-2 pt-4 border-t border-gray-800">
+                        <p id="progress-status" class="text-sm text-gray-400 text-center">Initializing...</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div id="progress-bar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-4 border-t border-gray-800">
+                        <label for="output-text" class="font-medium">4. Extracted Text</label>
+                        <textarea id="output-text" rows="8" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 font-mono text-sm" readonly placeholder="Text will appear here..."></textarea>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button id="copy-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2 text-sm disabled:opacity-50" disabled>Copy</button>
+                            <button id="download-btn" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2 text-sm disabled:opacity-50" disabled>Download .txt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Panel -->
+            <div class="flex-1 flex flex-col bg-gray-900 rounded-xl border-2 border-dashed border-gray-700 p-4 items-center justify-center checkerboard" id="image-drop-zone">
+                <div id="image-preview-container" class="w-full h-full flex items-center justify-center">
+                    <img id="image-preview" src="" alt="Image preview" class="hidden max-w-full max-h-full object-contain">
+                    <div id="upload-prompt" class="text-center text-gray-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <p class="mt-2 text-lg font-medium">Drop image here or select one</p>
+                        <p class="mt-1 text-sm">Your image is processed locally and never uploaded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
+        </aside>
+    </main>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / IMAGE-TO-TEXT OCR EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Image-to-Text (OCR) — Multi-Language Offline Extractor
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">OCR Extraction</span>
+            <span class="badge">Multi-Language</span>
+            <span class="badge">Copy & Download</span>
+            <span class="badge">Drag-Drop Upload</span>
+            <span class="badge">Client-Side</span>
+            <span class="badge">Privacy-First</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Image-to-Text OCR Tool</strong> extracts readable text instantly from photos, documents, screenshots, scanned pages, handwritten notes, and more — supporting <strong>20+ languages</strong> using offline browser OCR via Tesseract.js. Everything is processed <strong>100% locally</strong> on your device. No tracking, no uploads, no privacy risk.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose Solite OCR</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Full Browser-Based OCR:</strong> No server, no upload, zero privacy leaks.</li>
+            <li><strong>Supports 20+ Languages:</strong> Including English, Hindi, Arabic, Japanese, Korean, Chinese, and more.</li>
+            <li><strong>Drag & Drop Upload:</strong> Import images instantly.</li>
+            <li><strong>Progress Feedback:</strong> Real-time OCR status & percentage bar.</li>
+            <li><strong>Export Options:</strong> Copy output or download as .txt file.</li>
+            <li><strong>Works With Any Image:</strong> JPG, PNG, WebP, screenshots, documents & photos.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This OCR Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Students:</strong> Extract notes from textbooks & PDFs.</li>
+                <li><strong>Researchers:</strong> Capture text from scanned papers.</li>
+                <li><strong>Developers:</strong> Parse screenshots or debug logs.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Journalists:</strong> Extract quotes from photos quickly.</li>
+                <li><strong>Office Teams:</strong> Convert printed documents into editable text.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Extract Text from Images</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Upload or drag-drop your image.</li>
+            <li>Select a language for recognition.</li>
+            <li>Click <strong>Extract Text</strong> to start OCR.</li>
+            <li>Wait for the progress bar to complete.</li>
+            <li>Copy or download the extracted text.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Online OCR Services</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite OCR</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">Privacy</td>
+                <td class="p-2">✅ 100% Offline & Local</td>
+                <td class="p-2">❌ Uploads to Server</td>
+            </tr>
+            <tr>
+                <td class="p-2">Language Support</td>
+                <td class="p-2">🌐 20+ Languages</td>
+                <td class="p-2">⚠️ Limited / Paid</td>
+            </tr>
+            <tr>
+                <td class="p-2">Download Text</td>
+                <td class="p-2">✅ Free TXT Export</td>
+                <td class="p-2">⚠️ Requires Sign-Up</td>
+            </tr>
+            <tr>
+                <td class="p-2">Cost</td>
+                <td class="p-2">💸 Free Forever</td>
+                <td class="p-2">💰 Premium Plans</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>Q:</strong> Does this OCR tool upload my image to the internet?<br>
+                <span class="text-gray-500">A: No. Everything runs inside your browser using Tesseract.js.</span>
+            </li>
+            <li><strong>Q:</strong> Can it read handwritten text?<br>
+                <span class="text-gray-500">A: Yes, but accuracy depends on handwriting clarity.</span>
+            </li>
+            <li><strong>Q:</strong> Does it support right-to-left languages like Arabic or Hebrew?<br>
+                <span class="text-gray-500">A: Yes, these languages are supported.</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./text-to-speech.html" class="text-white hover:underline font-medium">Text-to-Speech</a> — Convert extracted text into audio.</li>
+            <li><a href="./pdf-text-extractor.html" class="text-white hover:underline font-medium">PDF Text Extractor</a> — Extract text directly from PDFs.</li>
+            <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Compress images before extraction.</li>
+            <li><a href="./image-editor.html" class="text-white hover:underline font-medium">Image Editor</a> — Crop or clean text regions before OCR.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>image to text converter, free ocr tool, offline ocr, browser based ocr, tesseract js ocr, multi language ocr, solite ocr extractor, no upload privacy ocr</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite Image-to-Text OCR — a 100% private, browser-only OCR tool with multi-language support, drag-drop upload, progress bar, and downloadable text output.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / IMAGE-TO-TEXT OCR -->
+
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                imageUploadBtn: document.getElementById('image-upload-btn'),
+                imageUpload: document.getElementById('image-upload'),
+                imageDropZone: document.getElementById('image-drop-zone'),
+                imagePreview: document.getElementById('image-preview'),
+                uploadPrompt: document.getElementById('upload-prompt'),
+                languageSelect: document.getElementById('language-select'),
+                extractBtn: document.getElementById('extract-btn'),
+                progressContainer: document.getElementById('progress-container'),
+                progressStatus: document.getElementById('progress-status'),
+                progressBar: document.getElementById('progress-bar'),
+                outputText: document.getElementById('output-text'),
+                copyBtn: document.getElementById('copy-btn'),
+                downloadBtn: document.getElementById('download-btn'),
+            };
+
+            let uploadedFile = null;
+
+            function handleFileSelect(file) {
+                if (!file || !file.type.startsWith('image/')) {
+                    alert('Please select a valid image file.');
+                    return;
+                }
+                uploadedFile = file;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    el.imagePreview.src = e.target.result;
+                    el.imagePreview.classList.remove('hidden');
+                    el.uploadPrompt.classList.add('hidden');
+                    el.extractBtn.disabled = false;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            el.imageUploadBtn.addEventListener('click', () => el.imageUpload.click());
+            el.imageUpload.addEventListener('change', (e) => handleFileSelect(e.target.files[0]));
+            
+            // Drag and Drop
+            el.imageDropZone.addEventListener('dragover', (e) => { e.preventDefault(); e.currentTarget.classList.add('border-blue-500'); });
+            el.imageDropZone.addEventListener('dragleave', (e) => e.currentTarget.classList.remove('border-blue-500'));
+            el.imageDropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                e.currentTarget.classList.remove('border-blue-500');
+                if (e.dataTransfer.files.length) {
+                    handleFileSelect(e.dataTransfer.files[0]);
+                }
+            });
+
+            el.extractBtn.addEventListener('click', async () => {
+                if (!uploadedFile) return;
+
+                el.extractBtn.disabled = true;
+                el.progressContainer.classList.remove('hidden');
+                el.outputText.value = '';
+                el.copyBtn.disabled = true;
+                el.downloadBtn.disabled = true;
+
+                const lang = el.languageSelect.value;
+                const worker = await Tesseract.createWorker(lang, 1, {
+                    logger: m => {
+                        el.progressStatus.textContent = `${m.status}...`;
+                        if (m.status === 'recognizing text') {
+                            el.progressBar.style.width = `${m.progress * 100}%`;
+                        }
+                    }
+                });
+
+                const { data: { text } } = await worker.recognize(uploadedFile);
+                el.outputText.value = text;
+                await worker.terminate();
+
+                el.progressContainer.classList.add('hidden');
+                el.extractBtn.disabled = false;
+                el.copyBtn.disabled = false;
+                el.downloadBtn.disabled = false;
+            });
+
+            el.copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(el.outputText.value).then(() => {
+                    alert('Text copied to clipboard!');
+                });
+            });
+
+            el.downloadBtn.addEventListener('click', () => {
+                const blob = new Blob([el.outputText.value], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'extracted-text.txt';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        });
+    </script>
+
+</body>
+</html>

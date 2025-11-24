@@ -174,13 +174,9 @@
                 <!-- Line 1: Logo Icon and Solite Text (Always Horizontal) -->
                 <div class="flex items-center space-x-3">
                      <!-- Logo Icon: Smaller on mobile h-6 w-6 -->
-                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                        <path d="M2 17l10 5 10-5"/>
-                        <path d="M2 7l10 5 10-5"/>
-                    </svg>
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                     <!-- Solite Text: Smaller on mobile text-base -->
-                    <span class="text-base lg:text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wider leading-none">Solite</span>
+                    <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
                 </div>
                 
                 <!-- Separator: Only visible on large screens (lg:), placed AFTER the logo line -->
@@ -191,7 +187,7 @@
             </a>
 
             <div class="flex items-center space-x-4">
-                <a href="./index.html#apps" class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                <a href="./index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
                     <span>Free Tools</span>
                     <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                 </a>
@@ -202,7 +198,7 @@
     <!-- Main Content -->
     <main class="flex-grow flex relative"> <!-- Added relative for mobile nav positioning -->
         <h1 class="sr-only">Code Editor: Free Online HTML, CSS, and JavaScript IDE</h1>
-        <div class="flex-grow w-full p-3 pb-16 lg:pb-3 flex flex-col lg:flex-row gap-3 lg:w-[80%]">
+        <div class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-3 lg:w-[90%]">
             <!-- Editor Pane -->
             <!-- Changed to lg:w-[30%] -->
             <div id="editor-pane" class="w-full lg:w-[30%] flex-grow lg:flex-grow-0 flex flex-col bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
@@ -260,15 +256,15 @@
         <!-- Ad Sidebar -->
         <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
             <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">
-                Ad Area
+                Sponsor Slot
             </div>
         </aside>
 
         
     </main>
-<!-- Mobile/Tablet Navigation Bar (appears up to lg breakpoint) -->
-        <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
-            <div class="flex justify-around items-center h-14">
+   <!-- Mobile/Tablet Navigation Bar (appears up to lg breakpoint) -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
                 <button id="mobile-code-btn" class="mobile-nav-btn active flex flex-col items-center justify-center text-xs font-medium w-1/2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
                     <span>Code</span>
@@ -277,10 +273,9 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
                     <span>Preview</span>
                 </button>
-            </div>
+          </div>
         </div>
-        <div class="w-full text-gray-300 p-2">
-     </div>
+    </div>
      <!-- 🧠 SOLITE GEN-4.1 SEO + AI AUTHORITY BLOCK / CODE EDITOR -->
     <div class="w-full text-gray-300 p-2">
       <style>
@@ -412,20 +407,21 @@
     </div>
     <!-- ✅ END GEN-4.1 SEO + AI AUTHORITY BLOCK -->
 
-    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm">
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5L12 2z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 7l10 5 10-5"/>
-                </svg>
-                <span>&copy; 2025 Solite. All Rights Reserved.</span>
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="./privacy.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-                <a href="./terms.html" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-                <a href="mailto:support@solite.com" class="hover:text-white transition-colors">Contact</a>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>

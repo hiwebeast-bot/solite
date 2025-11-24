@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.2 BALANCED HEAD / NETWORK SPEED TESTER — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Network Speed Tester | Simulate 3G/4G Latency | Solite</title>
+  <meta name="description" content="Simulate website loading speeds on 3G, 4G, LTE, and 5G networks. Visual latency and bandwidth simulator for developers to test loading states. Free, private, and browser-based." />
+  <meta name="keywords" content="network speed tester, throttle connection simulator, 3g simulator, 4g latency test, website speed simulation, developer tools, solite, loading time calculator" />
+  <meta name="author" content="Solite Team" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/network-speed-simulator.html" />
+  <meta name="application-name" content="Network Speed Tester" />
+  <meta name="publisher" content="Solite" />
+
+  <!-- 🤖 AI DISCOVERY LAYER (GEN-5.2 EXTENDED) -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-content-type" content="Interactive Developer Tool" />
+  <meta name="ai-usecase" content="Network Simulation & UX Latency Testing" />
+  <meta name="ai-key-benefits" content="Latency measurement, bandwidth throttling, visual UX testing, asset size impact" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+  <meta name="ai-category" content="Web Performance Utilities" />
+
+  <!-- 🌍 OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Network Speed Tester | Simulate 3G/4G/5G | Solite" />
+  <meta property="og:description" content="Visualize download behavior across 2G, 3G, 4G, LTE, 5G and Wi-Fi speeds. Free & private." />
+  <meta property="og:url" content="https://solite.in/network-speed-simulator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/network-speed-simulator.html&meta=false&screenshot=true" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Network Speed Tester | Solite" />
+  <meta name="twitter:description" content="Simulate network latency and bandwidth visually. Free & private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/network-speed-simulator.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 💰 ADSENSE -->
+  <meta name="google-adsense-account" content="ca-pub-6623613371208692" />
+
+  <!-- ⚙️ CORE LIBRARIES (UNCHANGED) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔤 NON-BLOCKING FONT LOAD (KEPT) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS (UNCHANGED) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI / STYLES (ORIGINAL KEPT) -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #0f172a; color-scheme: dark light; }
+    .custom-select { -webkit-appearance: none; appearance: none; }
+    .packet { animation: flow 1s linear infinite; }
+    @keyframes flow { 0% { stroke-dashoffset: 24; } 100% { stroke-dashoffset: 0; } }
+    .progress-bar-striped { background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); background-size: 1rem 1rem; }
+    .animate-stripe { animation: progress-bar-stripes 1s linear infinite; }
+    @keyframes progress-bar-stripes { from { background-position: 1rem 0; } to { background-position: 0 0; } }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; margin-top: -6px; }
+    input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: #fff; cursor: pointer; border-radius: 9999px; }
+  </style>
+
+  <!-- 🧬 GEN-5.2 UNIFIED ENTITY + AI SCHEMA UPGRADE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Network Speed Tester",
+    "url": "https://solite.in/network-speed-simulator.html",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Visual bandwidth and latency simulator to test loading experience for 2G, 3G, 4G LTE, 5G and WiFi connections with jitter and stall simulation.",
+    "operatingSystem": "All",
+    "keywords": ["network speed test", "latency simulator", "throttle bandwidth tool", "UX performance testing", "simulate 3G", "test LTE loading"],
+    "featureList": [
+      "Latency Simulation (RTT)",
+      "Bandwidth Throttling",
+      "Network Stability & Jitter Slider",
+      "Download Timeline Visualization",
+      "Preset & Custom Network Profiles"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Solite", "url": "https://solite.in" }
+  }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.2 AI AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.2 | SOLITE_PREDATOR_EDITION | SCHEMA_LINKED | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 7l10 5 10-5"></path>
+          </svg>
+          <span class="text-base lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Network Speed Tester</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+          <span>Free Tools</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex relative min-h-0" style="height: calc(80vh - 72px);">
+    <!-- Widen Layout: Changed lg:w-[80%] to lg:w-[95%] and added xl:max-w-[1800px] -->
+    <div class="flex-grow w-full lg:w-[95%] xl:max-w-[1800px] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+      <h1 class="sr-only">Network Speed Tester (3G/4G/5G)</h1>
+
+      <!-- Controls Panel -->
+      <aside id="controls-pane" class="w-full lg:w-[450px] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col transition-all duration-300" aria-labelledby="controls-heading">
+        <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0 mb-6">Connection Settings</h2>
+        
+        <div class="flex-grow overflow-y-auto pr-2 space-y-6">
+          
+          <!-- Network Profile -->
+          <div class="space-y-2">
+            <label for="network-profile" class="block text-sm font-medium text-gray-400">Network Profile</label>
+            <div class="relative">
+              <select id="network-profile" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:border-blue-500 transition-colors">
+                <option value="slow-2g">Slow 2G (Edge)</option>
+                <option value="slow-3g">Slow 3G</option>
+                <option value="fast-3g">Fast 3G</option>
+                <option value="4g" selected>4G (Regular)</option>
+                <option value="lte">4G LTE</option>
+                <option value="5g">5G (Sub-6GHz)</option>
+                <option value="wifi">Fiber / WiFi</option>
+                <option value="custom">🔧 Custom Profile</option>
+              </select>
+              <svg class="w-5 h-5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            
+            <!-- Default Details -->
+            <div id="profile-details" class="text-xs text-gray-500 flex gap-3 font-mono mt-1">
+              <span>Latency: <span id="detail-rtt">170ms</span></span>
+              <span>•</span>
+              <span>Speed: <span id="detail-bw">12 Mbps</span></span>
+            </div>
+
+            <!-- Custom Inputs (Hidden by default) -->
+            <div id="custom-profile-settings" class="hidden mt-3 pt-3 border-t border-gray-800 grid grid-cols-2 gap-3">
+                 <div>
+                    <label class="block text-[10px] font-medium text-gray-500 uppercase mb-1">Latency (ms)</label>
+                    <input type="number" id="custom-rtt" class="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1.5 text-sm text-white focus:border-blue-500 focus:outline-none" value="100" min="0">
+                 </div>
+                 <div>
+                    <label class="block text-[10px] font-medium text-gray-500 uppercase mb-1">Bandwidth (Kbps)</label>
+                    <input type="number" id="custom-bw" class="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1.5 text-sm text-white focus:border-blue-500 focus:outline-none" value="5000" min="1">
+                 </div>
+            </div>
+          </div>
+
+          <!-- Resource Size -->
+          <div class="space-y-2">
+            <label for="file-size" class="block text-sm font-medium text-gray-400">Resource Size</label>
+            <div class="flex rounded-lg bg-gray-800 border border-gray-700">
+              <input type="number" id="file-size" value="1.5" step="0.1" min="0.1" class="w-full bg-transparent text-white px-4 py-3 rounded-l-lg focus:outline-none border-r border-gray-700" placeholder="1.5">
+              <div class="relative w-24 flex-shrink-0">
+                <select id="size-unit" class="custom-select w-full h-full bg-transparent text-white font-medium pl-3 pr-8 rounded-r-lg focus:outline-none">
+                  <option value="kb">KB</option>
+                  <option value="mb" selected>MB</option>
+                  <option value="gb">GB</option>
+                </select>
+                <svg class="w-4 h-4 text-gray-500 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            
+            <!-- Quick Presets -->
+            <div class="flex flex-wrap gap-2 mt-2">
+                <button class="preset-btn px-2 py-1 rounded bg-gray-800 border border-gray-700 hover:bg-gray-700 text-[10px] text-gray-400 transition-colors" data-size="200" data-unit="kb">JS Bundle</button>
+                <button class="preset-btn px-2 py-1 rounded bg-gray-800 border border-gray-700 hover:bg-gray-700 text-[10px] text-gray-400 transition-colors" data-size="800" data-unit="kb">Hero Img</button>
+                <button class="preset-btn px-2 py-1 rounded bg-gray-800 border border-gray-700 hover:bg-gray-700 text-[10px] text-gray-400 transition-colors" data-size="2.5" data-unit="mb">Webpage</button>
+                <button class="preset-btn px-2 py-1 rounded bg-gray-800 border border-gray-700 hover:bg-gray-700 text-[10px] text-gray-400 transition-colors" data-size="15" data-unit="mb">4K Video</button>
+            </div>
+          </div>
+
+          <!-- Network Stability Slider -->
+          <div class="space-y-2 pt-4 border-t border-gray-800">
+              <div class="flex justify-between items-center">
+                <label for="stability-slider" class="block text-sm font-medium text-gray-400">Network Stability</label>
+                <span id="stability-label" class="text-xs font-bold text-green-400">Perfect</span>
+              </div>
+              <input type="range" id="stability-slider" min="0" max="2" step="1" value="2" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+              <p class="text-[10px] text-gray-500" id="stability-desc">Consistent speed, no packet loss.</p>
+          </div>
+
+        </div>
+        
+        <!-- Bottom Action Button -->
+        <div class="mt-auto pt-6 border-t border-gray-800 flex-shrink-0">
+            <button id="start-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                <span>Start Simulation</span>
+            </button>
+        </div>
+      </aside>
+
+      <!-- Simulation Pane -->
+      <div id="sim-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden relative">
+        
+        <!-- Header Status -->
+        <div class="flex justify-between items-center p-4 border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm z-10">
+          <div class="flex items-center gap-3">
+            <div id="status-indicator" class="w-3 h-3 rounded-full bg-gray-600"></div>
+            <span id="status-text" class="text-sm font-mono text-gray-400">Idle</span>
+          </div>
+          <div class="text-2xl font-mono font-bold text-white" id="timer-display">0.00s</div>
+        </div>
+
+        <!-- Visual Area -->
+        <div class="flex-grow relative flex flex-col items-center justify-center p-8 bg-black/20 overflow-hidden">
+          
+          <!-- Real-time Speed Graph (New Premium Feature) -->
+          <div class="absolute top-4 right-4 w-32 h-16 flex items-end gap-0.5 opacity-50 pointer-events-none" id="speed-graph">
+             <!-- Bars injected via JS -->
+          </div>
+
+          <!-- Network Graph Visual -->
+          <!-- Added lg:h-48 and icon resizing for large displays -->
+          <div class="w-full max-w-2xl relative h-32 lg:h-48 mb-12 opacity-50 grayscale transition-all duration-500" id="network-visual">
+             <!-- Server Icon -->
+             <div class="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+               <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gray-700 rounded-lg flex items-center justify-center border border-gray-600 shadow-lg shadow-black/50 transition-all duration-300">
+                 <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+               </div>
+               <span class="text-xs lg:text-base text-gray-500 font-medium transition-all duration-300">Server</span>
+             </div>
+
+             <!-- Client Icon -->
+             <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+               <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gray-700 rounded-lg flex items-center justify-center border border-gray-600 shadow-lg shadow-black/50 transition-all duration-300">
+                 <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+               </div>
+               <span class="text-xs lg:text-base text-gray-500 font-medium transition-all duration-300">User</span>
+             </div>
+
+             <!-- Connection Line -->
+             <!-- Adjusted line spacing for larger icons -->
+             <div class="absolute left-14 lg:left-24 right-14 lg:right-24 top-1/2 h-[2px] bg-gray-800 overflow-hidden transition-all duration-300">
+               <div id="packet-stream" class="w-full h-full flex items-center justify-around hidden">
+                 <div class="w-2 h-2 bg-blue-500 rounded-full animate-[ping_1s_linear_infinite]"></div>
+                 <div class="w-2 h-2 bg-blue-500 rounded-full animate-[ping_1.2s_linear_infinite]"></div>
+                 <div class="w-2 h-2 bg-blue-500 rounded-full animate-[ping_0.8s_linear_infinite]"></div>
+               </div>
+             </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full max-w-xl space-y-2">
+             <div class="flex justify-between text-xs text-gray-400 font-medium">
+               <span>Progress</span>
+               <span id="progress-percent">0%</span>
+             </div>
+             <div class="h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-700 shadow-inner">
+               <div id="progress-bar" class="h-full w-0 bg-blue-600 progress-bar-striped animate-stripe transition-all duration-100 ease-linear"></div>
+             </div>
+             <div class="flex justify-between text-xs text-gray-500 mt-1 font-mono">
+               <span id="transferred-amount">0 KB</span>
+               <span id="total-amount">0 MB</span>
+             </div>
+          </div>
+
+        </div>
+
+        <!-- Console Log -->
+        <div class="h-32 bg-black/40 border-t border-gray-800 p-3 overflow-y-auto font-mono text-xs space-y-1" id="console-log">
+           <div class="text-gray-500">> Ready to simulate...</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ad Sidebar -->
+    <aside class="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
+      <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
+    </aside>
+  </main>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+    <div class="flex justify-around items-center h-14">
+      <button id="mobile-sim-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+        <span>Simulation</span>
+      </button>
+      <button id="mobile-settings-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <span>Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / NETWORK SPEED TESTER EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-networkspeed[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-networkspeed > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-networkspeed[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-networkspeed" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Network Speed Tester — Simulate 2G/3G/4G/5G Latency & Loading Times
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Latency Simulation</span>
+            <span class="badge">Network Throttling</span>
+            <span class="badge">UX Testing</span>
+            <span class="badge">3G/4G/5G</span>
+            <span class="badge">100% Private</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Network Speed Tester</strong> visually simulates how websites and files load on different connection speeds — from Slow 2G to 4G LTE & Fiber. 
+            Measure <strong>real download timelines</strong>, preview jitter effects, and learn how latency affects user experience. All data is processed <strong>directly in your browser</strong>, with no uploads.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Use This Network Simulator?</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>No DevTools Required:</strong> Test load time visually without opening Chrome tools.</li>
+            <li><strong>Real Download Time:</strong> Simulates latency + bandwidth + packet drops.</li>
+            <li><strong>Preset Profiles:</strong> Slow 2G, Fast 3G, LTE, Fiber & more.</li>
+            <li><strong>Custom Mode:</strong> Manually set bandwidth and RTT.</li>
+            <li><strong>Network Stability Slider:</strong> Experience jitter, stalls, and broken transfers.</li>
+            <li><strong>100% Offline & Private:</strong> Nothing is uploaded; everything runs locally.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Who Uses It -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Speed Tester?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Front-End Developers:</strong> Plan performance budgets by asset size.</li>
+                <li><strong>Product Designers:</strong> Preview loading states on slow networks.</li>
+                <li><strong>QA Engineers:</strong> Test UX under unstable mobile connections.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Teachers & Learners:</strong> Understand network latency visually.</li>
+                <li><strong>Marketers:</strong> Test landing page performance globally.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Simulate a Network Speed</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select a network profile (2G/3G/LTE/Fiber).</li>
+            <li>Choose a file size (or use presets like JS Bundle, Hero Image, Webpage).</li>
+            <li>Adjust <strong>Network Stability</strong> to simulate perfect, spotty, or poor connections.</li>
+            <li>Click <strong>Start Simulation</strong> and watch download progress.</li>
+            <li>Inspect latency, stalls, progress, and actual loading duration.</li>
+        </ol>
+    </section>
+
+    <!-- 🧩 Output -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">What You Can Observe</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Total Loading Time:</strong> Includes latency, stalls, and download throughput.</li>
+            <li><strong>RTT (Latency) Effect:</strong> See how ping impacts UX even on fast networks.</li>
+            <li><strong>Stability Impact:</strong> Understand packet loss and jitter on data transfer.</li>
+            <li><strong>Asset Cost Awareness:</strong> Compare image vs bundle vs page download cost.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Network Tools</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite Tester</th>
+                <th class="p-2 text-left">DevTools / Apps</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">Visual Timeline</td>
+                <td class="p-2">🎨 Yes</td>
+                <td class="p-2">⚠️ Hidden behind graphs</td>
+            </tr>
+            <tr>
+                <td class="p-2">Stability/Jitter Simulation</td>
+                <td class="p-2">📡 Adjustable Slider</td>
+                <td class="p-2">❌ Hard-coded</td>
+            </tr>
+            <tr>
+                <td class="p-2">User-Friendly</td>
+                <td class="p-2">👍 One-Click Test</td>
+                <td class="p-2">🔧 Technical Setup</td>
+            </tr>
+            <tr>
+                <td class="p-2">Price</td>
+                <td class="p-2">💚 Free Forever</td>
+                <td class="p-2">💸 Often Paid/Enterprise</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./loading-spinner-generator.html" class="text-white hover:underline font-medium">Loading Spinner Generator</a> — Make custom loading indicators.</li>
+            <li><a href="./performance-score-checker.html" class="text-white hover:underline font-medium">Performance Score Checker</a> — Test real web speed metrics.</li>
+            <li><a href="./image-compressor.html" class="text-white hover:underline font-medium">Image Compressor</a> — Reduce asset size for faster loads.</li>
+            <li><a href="./index.html#apps" class="text-white font-semibold hover:underline">See all Solite Apps →</a></li>
+        </ul>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>network speed test, throttling simulator, web latency tester, simulate 3G, LTE download time, UX performance testing, bandwidth throttle tool</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite Network Speed Tester — a visual bandwidth and latency simulator that shows real loading times with jitter, stalls, and UX impact, all client-side.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.2 BLOCK / NETWORK SPEED TESTER -->
+
+  <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const el = {
+            profileSelect: document.getElementById('network-profile'),
+            customProfileSettings: document.getElementById('custom-profile-settings'),
+            customRtt: document.getElementById('custom-rtt'),
+            customBw: document.getElementById('custom-bw'),
+            fileSizeInput: document.getElementById('file-size'),
+            sizeUnitSelect: document.getElementById('size-unit'),
+            startBtn: document.getElementById('start-btn'),
+            statusIndicator: document.getElementById('status-indicator'),
+            statusText: document.getElementById('status-text'),
+            timerDisplay: document.getElementById('timer-display'),
+            progressBar: document.getElementById('progress-bar'),
+            progressPercent: document.getElementById('progress-percent'),
+            transferredAmount: document.getElementById('transferred-amount'),
+            totalAmount: document.getElementById('total-amount'),
+            consoleLog: document.getElementById('console-log'),
+            networkVisual: document.getElementById('network-visual'),
+            packetStream: document.getElementById('packet-stream'),
+            detailRtt: document.getElementById('detail-rtt'),
+            detailBw: document.getElementById('detail-bw'),
+            mobileSimBtn: document.getElementById('mobile-sim-btn'),
+            mobileSettingsBtn: document.getElementById('mobile-settings-btn'),
+            controlsPane: document.getElementById('controls-pane'),
+            simPane: document.getElementById('sim-pane'),
+            presetBtns: document.querySelectorAll('.preset-btn'),
+            stabilitySlider: document.getElementById('stability-slider'),
+            stabilityLabel: document.getElementById('stability-label'),
+            stabilityDesc: document.getElementById('stability-desc'),
+            speedGraph: document.getElementById('speed-graph')
+        };
+
+        // Network Profiles (RTT in ms, Bandwidth in kbps)
+        const profiles = {
+            'slow-2g': { name: 'Slow 2G', rtt: 800, bw: 50 }, 
+            'slow-3g': { name: 'Slow 3G', rtt: 400, bw: 400 },
+            'fast-3g': { name: 'Fast 3G', rtt: 150, bw: 1600 },
+            '4g': { name: '4G', rtt: 170, bw: 12000 },
+            'lte': { name: '4G LTE', rtt: 70, bw: 35000 },
+            '5g': { name: '5G', rtt: 30, bw: 100000 }, // Added 5G
+            'wifi': { name: 'Fiber / WiFi', rtt: 10, bw: 150000 },
+            'custom': { name: 'Custom', rtt: 100, bw: 5000 } // Default custom
+        };
+
+        let simulationInterval;
+        let startTime;
+        let isSimulating = false;
+
+        const stabilityLevels = [
+            { label: 'Poor', desc: 'Frequent stalls & packet loss', color: 'text-red-400', variance: 0.5, pauseProb: 0.2 },
+            { label: 'Spotty', desc: 'Variable speeds, some jitter', color: 'text-yellow-400', variance: 0.8, pauseProb: 0.05 },
+            { label: 'Perfect', desc: 'Consistent speed, no packet loss', color: 'text-green-400', variance: 1.0, pauseProb: 0 }
+        ];
+
+        function updateProfileDetails() {
+            const selectedKey = el.profileSelect.value;
+            const isCustom = selectedKey === 'custom';
+
+            el.customProfileSettings.classList.toggle('hidden', !isCustom);
+            el.detailRtt.parentElement.parentElement.classList.toggle('hidden', isCustom);
+
+            if (!isCustom) {
+                const profile = profiles[selectedKey];
+                el.detailRtt.textContent = `${profile.rtt}ms`;
+                const bwDisplay = profile.bw >= 1000 ? `${profile.bw / 1000} Mbps` : `${profile.bw} Kbps`;
+                el.detailBw.textContent = bwDisplay;
+            }
+        }
+
+        function updateStabilityDisplay() {
+            const level = stabilityLevels[parseInt(el.stabilitySlider.value)];
+            el.stabilityLabel.textContent = level.label;
+            el.stabilityLabel.className = `text-xs font-bold ${level.color}`;
+            el.stabilityDesc.textContent = level.desc;
+        }
+
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            const time = new Date().toLocaleTimeString().split(' ')[0];
+            div.innerHTML = `<span class="text-gray-600 mr-2">[${time}]</span><span class="${type === 'success' ? 'text-green-400' : type === 'error' ? 'text-red-400' : type === 'warn' ? 'text-yellow-400' : 'text-gray-300'}">${message}</span>`;
+            el.consoleLog.appendChild(div);
+            el.consoleLog.scrollTop = el.consoleLog.scrollHeight;
+        }
+
+        function updateSpeedGraph(loadPercent) {
+            const bar = document.createElement('div');
+            // Height relative to load (simulation of throughput)
+            const height = Math.max(20, Math.random() * 100); 
+            bar.className = `w-1 bg-blue-500 rounded-t opacity-80 chart-bar`;
+            bar.style.height = `${height}%`;
+            
+            el.speedGraph.appendChild(bar);
+            if (el.speedGraph.children.length > 20) {
+                el.speedGraph.removeChild(el.speedGraph.firstChild);
+            }
+        }
+
+        function getFileSizeInBits() {
+            const size = parseFloat(el.fileSizeInput.value);
+            const unit = el.sizeUnitSelect.value;
+            let bits = 0;
+            if (unit === 'kb') bits = size * 8 * 1024;
+            if (unit === 'mb') bits = size * 8 * 1024 * 1024;
+            if (unit === 'gb') bits = size * 8 * 1024 * 1024 * 1024;
+            return bits;
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function startSimulation() {
+            if (isSimulating) return;
+            isSimulating = true;
+            el.startBtn.disabled = true;
+            el.startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            el.consoleLog.innerHTML = '';
+            el.speedGraph.innerHTML = ''; // Reset graph
+            
+            if (window.innerWidth < 1024) {
+                showMobilePane('sim');
+            }
+
+            // Determine Profile
+            let profile;
+            if (el.profileSelect.value === 'custom') {
+                profile = {
+                    name: 'Custom Profile',
+                    rtt: parseInt(el.customRtt.value) || 100,
+                    bw: parseInt(el.customBw.value) || 5000
+                };
+            } else {
+                profile = profiles[el.profileSelect.value];
+            }
+
+            const totalBits = getFileSizeInBits();
+            const totalBytes = totalBits / 8;
+            
+            // Visual Reset
+            el.statusIndicator.className = 'w-3 h-3 rounded-full bg-yellow-500 animate-pulse';
+            el.statusText.textContent = 'Connecting...';
+            el.statusText.className = 'text-sm font-mono text-yellow-500';
+            el.networkVisual.classList.remove('opacity-50', 'grayscale');
+            el.packetStream.classList.add('hidden');
+            el.progressBar.style.width = '0%';
+            el.progressPercent.textContent = '0%';
+            el.totalAmount.textContent = formatBytes(totalBytes);
+            el.transferredAmount.textContent = '0 B';
+            el.timerDisplay.textContent = '0.00s';
+
+            log(`Starting: ${el.fileSizeInput.value}${el.sizeUnitSelect.value.toUpperCase()} on ${profile.name}`);
+            log(`Latency (RTT): ${profile.rtt}ms | BW: ${profile.bw} Kbps`);
+
+            // Phase 1: Latency
+            let latencyProgress = 0;
+            const latencyDuration = profile.rtt * 2; 
+            
+            const latencyInterval = setInterval(() => {
+                latencyProgress += 50; 
+                const elapsed = (latencyProgress / 1000).toFixed(2);
+                el.timerDisplay.textContent = `${elapsed}s`;
+                
+                if (latencyProgress >= latencyDuration) {
+                    clearInterval(latencyInterval);
+                    beginDownload(profile, totalBits);
+                }
+            }, 50);
+        }
+
+        function beginDownload(profile, totalBits) {
+            log('Connection established. Downloading...', 'success');
+            el.statusIndicator.className = 'w-3 h-3 rounded-full bg-blue-500 animate-pulse';
+            el.statusText.textContent = 'Downloading...';
+            el.statusText.className = 'text-sm font-mono text-blue-500';
+            el.packetStream.classList.remove('hidden'); 
+
+            const bandwidthBps = profile.bw * 1000; 
+            const startTimeDownload = Date.now();
+            let bitsTransferred = 0;
+
+            // Get stability settings
+            const stability = stabilityLevels[parseInt(el.stabilitySlider.value)];
+
+            simulationInterval = setInterval(() => {
+                // Simulate random stall based on stability
+                if (Math.random() < stability.pauseProb) {
+                     el.statusText.textContent = 'Stalled...';
+                     el.statusText.className = 'text-sm font-mono text-red-400';
+                     el.statusIndicator.className = 'w-3 h-3 rounded-full bg-red-500 animate-pulse';
+                     log('Network stall/packet loss detected...', 'warn');
+                     return; // Skip this tick
+                } else {
+                     // Restore status if recovering
+                     if (el.statusText.textContent === 'Stalled...') {
+                        el.statusText.textContent = 'Downloading...';
+                        el.statusText.className = 'text-sm font-mono text-blue-500';
+                        el.statusIndicator.className = 'w-3 h-3 rounded-full bg-blue-500 animate-pulse';
+                        log('Connection recovered.', 'info');
+                     }
+                }
+
+                const now = Date.now();
+                const timeDelta = (now - startTimeDownload) / 1000;
+                
+                // Jitter calculation based on stability variance
+                // Perfect = 1.0 (minimal jitter), Poor = 0.5 (huge drops)
+                const varianceFactor = stability.variance; 
+                const randomFlux = (Math.random() * 0.4) - 0.2; // +/- 20% natural flux
+                const jitter = varianceFactor + randomFlux; 
+                
+                const currentBps = bandwidthBps * Math.max(0.1, jitter); // Ensure not negative
+                
+                const bitsInTick = (currentBps * 0.05); 
+                bitsTransferred += bitsInTick;
+                
+                // Update Real-time graph
+                updateSpeedGraph();
+
+                if (bitsTransferred >= totalBits) {
+                    bitsTransferred = totalBits;
+                    finishSimulation(startTimeDownload, totalBits, profile);
+                }
+
+                updateProgress(bitsTransferred, totalBits, timeDelta + (profile.rtt * 2 / 1000));
+
+            }, 50);
+        }
+
+        function updateProgress(currentBits, totalBits, totalTime) {
+            const percent = Math.min(100, (currentBits / totalBits) * 100);
+            const currentBytes = currentBits / 8;
+            
+            el.progressBar.style.width = `${percent}%`;
+            el.progressPercent.textContent = `${percent.toFixed(1)}%`;
+            el.transferredAmount.textContent = formatBytes(currentBytes);
+            el.timerDisplay.textContent = `${totalTime.toFixed(2)}s`;
+            
+            if (percent > 25 && percent < 26) log('25% transferred...');
+            if (percent > 50 && percent < 51) log('50% transferred...');
+        }
+
+        function finishSimulation(startTimeDownload, totalBits, profile) {
+            clearInterval(simulationInterval);
+            isSimulating = false;
+            
+            const endTime = Date.now();
+            const totalDuration = ((endTime - startTimeDownload) + (profile.rtt * 2)) / 1000;
+
+            el.statusIndicator.className = 'w-3 h-3 rounded-full bg-green-500';
+            el.statusText.textContent = 'Completed';
+            el.statusText.className = 'text-sm font-mono text-green-500';
+            el.packetStream.classList.add('hidden');
+            el.progressBar.classList.remove('animate-stripe');
+            el.networkVisual.classList.add('opacity-50', 'grayscale');
+            el.startBtn.disabled = false;
+            el.startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            
+            el.timerDisplay.textContent = `${totalDuration.toFixed(2)}s`;
+            log(`Complete! Time: ${totalDuration.toFixed(2)}s`, 'success');
+        }
+
+        // Presets
+        el.presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                el.fileSizeInput.value = btn.dataset.size;
+                el.sizeUnitSelect.value = btn.dataset.unit;
+            });
+        });
+
+        // Mobile Navigation
+        function showMobilePane(paneId) {
+            if (paneId === 'sim') {
+                el.simPane.classList.remove('hidden');
+                el.simPane.classList.add('flex');
+                el.controlsPane.classList.add('hidden');
+                el.controlsPane.classList.remove('flex');
+                el.mobileSimBtn.classList.add('active');
+                el.mobileSettingsBtn.classList.remove('active');
+            } else {
+                el.simPane.classList.add('hidden');
+                el.simPane.classList.remove('flex');
+                el.controlsPane.classList.remove('hidden');
+                el.controlsPane.classList.add('flex');
+                el.mobileSimBtn.classList.remove('active');
+                el.mobileSettingsBtn.classList.add('active');
+            }
+        }
+
+        function handleMobileLayout() {
+            if (window.innerWidth < 1024) {
+                if (!el.mobileSimBtn.classList.contains('active') && !el.mobileSettingsBtn.classList.contains('active')) {
+                     showMobilePane('settings');
+                } else if (el.mobileSettingsBtn.classList.contains('active')) {
+                     showMobilePane('settings');
+                } else {
+                     showMobilePane('sim');
+                }
+            } else {
+                el.simPane.classList.remove('hidden');
+                el.simPane.classList.add('flex');
+                el.controlsPane.classList.remove('hidden');
+                el.controlsPane.classList.add('flex');
+                el.mobileSimBtn.classList.remove('active');
+                el.mobileSettingsBtn.classList.remove('active');
+            }
+        }
+
+        // Listeners
+        el.profileSelect.addEventListener('change', updateProfileDetails);
+        el.startBtn.addEventListener('click', startSimulation);
+        el.stabilitySlider.addEventListener('input', updateStabilityDisplay);
+        el.mobileSimBtn.addEventListener('click', () => showMobilePane('sim'));
+        el.mobileSettingsBtn.addEventListener('click', () => showMobilePane('settings'));
+        window.addEventListener('resize', handleMobileLayout);
+
+        // Initial
+        updateProfileDetails();
+        updateStabilityDisplay();
+        handleMobileLayout();
+    });
+  </script>
+</body>
+</html>
