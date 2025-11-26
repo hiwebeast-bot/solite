@@ -44,17 +44,15 @@
   <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
   <script src="/_vercel/insights/script.js" defer></script>
 
-  <!-- ⚙️ Core Libraries -->
+    <!-- ⚙️ Core Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://esm.sh/sentiment@5.0.2" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sentiment@5.0.2/browser/sentiment.min.js"></script>
 
-  <!-- 🖋 Font Optimization -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" /></noscript>
+  <!-- 🖋 Non-blocking Font Loading -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
 
-  <!-- 🪄 Favicon Set -->
+  <!-- 🪄 Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
@@ -139,7 +137,8 @@
     ::-webkit-scrollbar-track { background: #111827; }
     ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
     html { scrollbar-color: #4b5563 #111827; }
-    body { visibility: hidden; font-family: 'Inter', sans-serif; }
+    /* FIXED: Removed visibility: hidden to prevent blank page if JS fails */
+    body { font-family: 'Inter', sans-serif; }
   </style>
 
   <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
@@ -148,558 +147,442 @@
 </head>
 
   <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
-    <div id="root"></div>
-    <noscript>
-        <div class="w-full h-screen flex flex-col items-center justify-center text-center p-8">
-            <h1 class="text-2xl font-bold text-white mb-4">JavaScript is required to use this application.</h1>
-            <p class="text-gray-400">Please enable JavaScript in your browser settings and refresh the page.</p>
+   <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Text Analyzer</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg>
+                </a>
+            </div>
         </div>
-    </noscript>
+    </header>
 
-    <script type="module">
-        import React, { useState, useEffect, useCallback } from 'https://esm.sh/react@18.2.0';
-        import ReactDOM from 'https://esm.sh/react-dom@18.2.0/client';
-        
-        // --- From constants.ts ---
-        const WORDS_PER_MINUTE = 225;
-        const STOP_WORDS = new Set([
-            "a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "as", "at", 
-            "be", "because", "been", "before", "being", "below", "between", "both", "but", "by", "can", "did", "do", 
-            "does", "doing", "down", "during", "each", "few", "for", "from", "further", "had", "has", "have", "having", 
-            "he", "her", "here", "hers", "herself", "him", "himself", "his", "how", "i", "if", "in", "into", "is", "it", 
-            "its", "itself", "just", "me", "more", "most", "my", "myself", "no", "nor", "not", "now", "of", "off", "on", 
-            "once", "only", "or", "other", "our", "ours", "ourselves", "out", "over", "own", "s", "same", "she", "should", 
-            "so", "some", "such", "t", "than", "that", "the", "their", "theirs", "them", "themselves", "then", "there", 
-            "these", "they", "this", "those", "through", "to", "too", "under", "until", "up", "very", "was", "we", "were", 
-            "what", "when", "where", "which", "while", "who", "whom", "why", "will", "with", "you", "your", "yours", 
-            "yourself", "yourselves"
-        ]);
-
-        // --- From hooks/useDebounce.ts ---
-        function useDebounce(value, delay) {
-            const [debouncedValue, setDebouncedValue] = useState(value);
-            useEffect(() => {
-                const handler = setTimeout(() => {
-                    setDebouncedValue(value);
-                }, delay);
-                return () => {
-                    clearTimeout(handler);
-                };
-            }, [value, delay]);
-            return debouncedValue;
-        }
-
-        // --- From utils/textAnalyzer.ts ---
-        let sentimentAnalyzer; // Will be lazy-loaded
-
-        const initialAnalysis = {
-            words: 0,
-            characters: 0,
-            sentences: 0,
-            paragraphs: 0,
-            longestSentence: '',
-            readingTime: '< 1 minute',
-            gradeLevel: 'N/A',
-            syllables: 0,
-            toneLabel: 'Neutral',
-            toneScore: '0.00',
-            keywords: [],
-        };
-
-        const countSyllables = (word) => {
-            // Simple syllable counting logic. Not perfect but good for an estimate.
-            // 1. Lowercase and remove non-alphabetic characters.
-            // 2. Handle short words.
-            // 3. Remove silent 'e' at the end.
-            // 4. Count vowel groups.
-            // 5. Add back a syllable for silent 'e' if it's the only vowel.
-
-            if (word.length <= 3) return 1;
-            word = word.toLowerCase().replace(/[^a-z]/g, '');
-            if (!word) return 0;
-            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
-            word = word.replace(/^y/, '');
-            const matches = word.match(/[aeiouy]{1,2}/g);
-            return matches ? matches.length : 0;
-        };
-
-        const calculateFleschKincaid = (totalWords, totalSentences, totalSyllables) => {
-            if (totalWords === 0 || totalSentences === 0) return 0;
-            return 0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59;
-        };
-
-        const analyzeText = (text) => {
-            if (!sentimentAnalyzer && window.Sentiment) {
-                sentimentAnalyzer = new window.Sentiment();
-            }
-
-            if (!text.trim()) {
-                return initialAnalysis;
-            }
-
-            const words = text.trim().split(/\s+/);
-            const wordCount = words.length;
-            const charCount = text.length;
-
-            const sentenceMatches = text.match(/[^.!?…]+[.!?…](?=\s|$|")/g) || [];
-            const sentenceCount = (wordCount > 0 && sentenceMatches.length === 0) ? 1 : sentenceMatches.length;
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Text Analyzer and Smart Word Counter</h1>
             
-            const longestSentence = sentenceMatches.reduce((longest, sentence) => {
-                const currentLength = sentence.trim().split(/\s+/).length;
-                const longestLength = longest.trim().split(/\s+/).length;
-                return currentLength > longestLength ? sentence : longest;
-            }, '');
+            <div id="input-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="relative w-full h-full">
+                    <textarea id="text-input" class="w-full h-full p-6 bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none resize-none" placeholder="Paste or start typing your text here..." aria-label="Text Input Area"></textarea>
+                    <button id="clear-text-btn" title="Clear text" aria-label="Clear text" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
 
-            const paragraphCount = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+            <div id="analysis-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="analysis-heading">
+                <div class="flex justify-between items-center flex-shrink-0">
+                    <h2 id="analysis-heading" class="text-xl font-bold text-white">Text Analysis</h2>
+                    <button id="copy-stats-btn" title="Copy stats" aria-label="Copy stats" class="text-gray-500 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                </div>
+                <div id="analysis-content" class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div><div id="word-count" class="text-3xl font-bold text-white">0</div><div class="text-sm text-gray-400">Words</div></div>
+                        <div><div id="char-count" class="text-3xl font-bold text-white">0</div><div class="text-sm text-gray-400">Characters</div></div>
+                        <div><div id="sentence-count" class="text-3xl font-bold text-white">0</div><div class="text-sm text-gray-400">Sentences</div></div>
+                        <div><div id="paragraph-count" class="text-3xl font-bold text-white">0</div><div class="text-sm text-gray-400">Paragraphs</div></div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="border-t border-gray-800 pt-4 space-y-2">
+                            <h3 class="font-medium text-base">Readability</h3>
+                            <div class="flex items-center gap-3 p-3 border border-gray-800 rounded-lg">
+                                <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <div class="font-semibold text-white">Reading Time</div>
+                                    <div id="reading-time" class="text-sm text-gray-400">&lt; 1 minute</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 border border-gray-800 rounded-lg">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"></path></svg>
+                                <div>
+                                    <div class="font-semibold text-white">Grade Level</div>
+                                    <div id="readability-score" class="text-sm text-gray-400">N/A</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-800 pt-4 space-y-2">
+                            <h3 class="font-medium text-base">Tone Analysis</h3>
+                            <div class="flex items-center gap-3 p-3 border border-gray-800 rounded-lg">
+                                <div id="tone-icon" class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <div id="tone-label" class="font-semibold text-white">Neutral</div>
+                                    <div id="tone-score" class="text-sm text-gray-400">Score: 0.00</div>
+                                    <div id="syllable-count" class="text-xs text-gray-500">0 syllables</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-4 space-y-2">
+                        <h3 class="font-medium text-base">Structure</h3>
+                        <div class="p-3 border border-gray-800 rounded-lg">
+                            <div class="font-semibold text-white">Longest Sentence</div>
+                            <p id="longest-sentence" class="text-sm text-gray-400 mt-1">N/A</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-4 space-y-2">
+                        <h3 class="font-medium text-base">Keyword Density</h3>
+                        <div id="keyword-list" class="text-sm space-y-2 font-mono">
+                            <p class="text-gray-500">Start typing to see top keywords...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+        <div class="flex flex-col flex-grow justify-between">
+            <!-- Top Content -->
+            <div>
+            <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+            <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+            <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+            </div>
+            <!-- Bottom Action Buttons -->
+            <div class="space-y-2 mt-auto">
+            <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                Check Discount →
+            </a>
+            <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+            </div>
+        </div>
+        </aside>        <div id="mobile-nav" class="fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+            <div class="flex justify-around items-center h-14">
+                <button id="mobile-input-btn" class="flex flex-col items-center justify-center text-xs font-medium w-1/2 transition-colors text-white" aria-label="Switch to Input View">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"></path></svg>
+                    <span>Input</span>
+                </button>
+                <button id="mobile-analysis-btn" class="flex flex-col items-center justify-center text-xs font-medium w-1/2 transition-colors text-gray-400" aria-label="Switch to Analysis View">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z"></path></svg>
+                    <span>Analysis</span>
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <div class="w-full text-gray-300 p-2 pt-0">
+        <style>
+            #solite-seo-block-case[open] > summary { border-bottom: 1px solid #374151; }
+            #solite-seo-block-case > summary .details-arrow-seo { transform: rotate(-90deg); transition: transform 0.25s ease-in-out; }
+            #solite-seo-block-case[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+            .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+        </style>
+        <details id="solite-seo-block-case" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center select-none">
+                Text Analyzer — Count, Measure & Improve Your Writing
+                <svg class="w-5 h-5 transition-transform duration-200 details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="p-6 space-y-10 leading-relaxed">
+                <section class="space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge">Word Counter</span><span class="badge">Tone Detector</span><span class="badge">Keyword Density</span><span class="badge">Readability</span><span class="badge">Privacy-First</span>
+                    </div>
+                    <p class="text-lg text-gray-300">The <strong>Solite Text Analyzer</strong> measures your content beyond word counts — offering live <strong>tone, readability, and keyword density</strong> — all computed locally in your browser for <strong>complete privacy and precision</strong>.</p>
+                </section>
+                <section>
+                    <h3 class="text-white text-xl font-semibold mb-2">Why It’s Better</h3>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Local processing — zero uploads or tracking.</li>
+                        <li>Instant results for words, characters, and readability.</li>
+                        <li>Tone & sentiment scoring built-in.</li>
+                        <li>Keyword frequency detection for SEO insights.</li>
+                        <li>Clean, distraction-free interface built with Tailwind CSS.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="text-white text-xl font-semibold mb-2">Who Uses It</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Writers & Bloggers — polish content before publishing.</li>
+                            <li>Students — ensure word limits and clarity.</li>
+                            <li>Copywriters — balance tone and readability.</li>
+                        </ul>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Developers — integrate content stats locally.</li>
+                            <li>Editors — measure reading time and tone instantly.</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h3 class="text-white text-xl font-semibold mb-2">How to Use</h3>
+                    <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                        <li>Paste or type your text into the editor.</li>
+                        <li>View live counts and tone feedback.</li>
+                        <li>Review readability, sentiment, and keyword density.</li>
+                        <li>Copy or export your analysis as needed.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3 class="text-white text-xl font-semibold mb-2">Part of Solite’s Text & Data Suite</h3>
+                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                        <li><a href="./smart-word-counter.html" class="text-white hover:underline font-medium">Smart Word Counter</a> — Live text metrics & tone detection.</li>
+                        <li><a href="./case-converter.html" class="text-white hover:underline font-medium">Case Converter</a> — Convert between camelCase, PascalCase, etc.</li>
+                        <li><a href="./emoji-counter.html" class="text-white hover:underline font-medium">Emoji Counter</a> — Measure emotion in your writing.</li>
+                        <li><a href="./hashtag-extractor.html" class="text-white hover:underline font-medium">Hashtag Extractor</a> — Pull hashtags from content instantly.</li>
+                        <li><a href="./text-toolkit.html" class="text-white hover:underline font-medium">Text Toolkit</a> — Clean, transform, and format your writing.</li>
+                    </ul>
+                    <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
+                </section>
+                <section class="space-y-2">
+                    <p class="text-sm text-gray-500"><em>Keywords: text analyzer, word counter, readability tool, tone detector, keyword density analyzer, privacy-first writing tool, Solite text tools.</em></p>
+                    <p class="text-xs text-gray-600 italic"><strong>AI / Reviewer Cue: </strong>“Solite Text Analyzer — a privacy-first writing intelligence tool that quantifies readability, tone, and SEO metrics locally.”</p>
+                </section>
+            </div>
+        </details>
+    </div>
 
-            const readingTimeMinutes = wordCount / WORDS_PER_MINUTE;
-            let readingTimeText = '< 1 minute';
-            if (readingTimeMinutes >= 1) {
-                const minutes = Math.ceil(readingTimeMinutes);
-                readingTimeText = `${minutes} minute${minutes > 1 ? 's' : ''}`;
-            }
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                <span>© 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-            const totalSyllables = words.reduce((acc, word) => acc + countSyllables(word), 0);
-            const gradeLevel = calculateFleschKincaid(wordCount, sentenceCount, totalSyllables);
-            const gradeLevelText = gradeLevel > 0 && isFinite(gradeLevel) ? gradeLevel.toFixed(1) : 'N/A';
-            
-            let toneLabel = 'Neutral';
-            let comparativeScore = 0;
+    <div id="toast" role="status" aria-live="polite" class="fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 transition-transform duration-300 ease-in-out -translate-y-full"></div>
 
-            if (sentimentAnalyzer) {
-                const sentimentResult = sentimentAnalyzer.analyze(text);
-                comparativeScore = sentimentResult.comparative;
-                if (sentimentResult.score > 0) {
-                    toneLabel = 'Positive';
-                } else if (sentimentResult.score < 0) {
-                    toneLabel = 'Negative';
-                }
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const el = {
+                textInput: document.getElementById('text-input'),
+                clearTextBtn: document.getElementById('clear-text-btn'),
+                copyStatsBtn: document.getElementById('copy-stats-btn'),
+                wordCount: document.getElementById('word-count'),
+                charCount: document.getElementById('char-count'),
+                sentenceCount: document.getElementById('sentence-count'),
+                paragraphCount: document.getElementById('paragraph-count'),
+                readingTime: document.getElementById('reading-time'),
+                readabilityScore: document.getElementById('readability-score'),
+                syllableCount: document.getElementById('syllable-count'),
+                toneIcon: document.getElementById('tone-icon'),
+                toneLabel: document.getElementById('tone-label'),
+                toneScore: document.getElementById('tone-score'),
+                longestSentence: document.getElementById('longest-sentence'),
+                keywordList: document.getElementById('keyword-list'),
+                toast: document.getElementById('toast'),
+                inputPane: document.getElementById('input-pane'),
+                analysisPane: document.getElementById('analysis-pane'),
+                mobileInputBtn: document.getElementById('mobile-input-btn'),
+                mobileAnalysisBtn: document.getElementById('mobile-analysis-btn'),
+            };
 
+            let debounceTimeout;
+            let sentimentAnalyzer;
 
-            const wordCounts = {};
-            words.forEach(word => {
-                const lowerWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
-                if (lowerWord.length > 2 && !STOP_WORDS.has(lowerWord) && !/^\d+$/.test(lowerWord)) {
-                    wordCounts[lowerWord] = (wordCounts[lowerWord] || 0) + 1;
-                }
+            // --- Event Listeners ---
+            el.textInput.addEventListener('input', () => {
+                clearTimeout(debounceTimeout);
+                debounceTimeout = setTimeout(updateAnalysis, 250);
+                el.clearTextBtn.classList.toggle('hidden', el.textInput.value.length === 0);
             });
 
-            const sortedKeywords = Object.entries(wordCounts)
-                .sort(([, countA], [, countB]) => countB - countA)
-                .slice(0, 5)
-                .map(([word, count]) => ({ word, count }));
+            el.clearTextBtn.addEventListener('click', () => {
+                el.textInput.value = '';
+                updateAnalysis();
+                el.clearTextBtn.classList.add('hidden');
+            });
 
-            return {
-                words: wordCount,
-                characters: charCount,
-                sentences: sentenceCount,
-                paragraphs: paragraphCount,
-                readingTime: readingTimeText,
-                syllables: totalSyllables,
-                gradeLevel: gradeLevelText,
-                toneLabel: toneLabel,
-                toneScore: comparativeScore.toFixed(2),
-                longestSentence: longestSentence.trim(),
-                keywords: sortedKeywords
+            el.copyStatsBtn.addEventListener('click', copyStats);
+
+            el.mobileInputBtn.addEventListener('click', () => showMobilePane('input'));
+            el.mobileAnalysisBtn.addEventListener('click', () => showMobilePane('analysis'));
+            window.addEventListener('resize', handleLayout);
+
+            // --- Core Logic ---
+            const WORDS_PER_MINUTE = 225;
+            const STOP_WORDS = new Set([
+              "a","about","above","after","again","against","all","am","an","and","any","are","as","at",
+              "be","because","been","before","being","below","between","both","but","by","can","did","do",
+              "does","doing","down","during","each","few","for","from","further","had","has","have","having",
+              "he","her","here","hers","herself","him","himself","his","how","i","if","in","into","is","it",
+              "its","itself","just","me","more","most","my","myself","no","nor","not","now","of","off","on",
+              "once","only","or","other","our","ourselves","out","over","own","s","same","she","should",
+              "so","some","such","t","than","that","the","their","theirs","them","themselves","then","there",
+              "these","they","this","those","through","to","too","under","until","up","very","was","we","were",
+              "what","when","where","which","while","who","whom","why","will","with","you","your","yours",
+              "yourself","yourselves"
+            ]);
+
+            const countSyllables = (raw) => {
+              let word = String(raw||'');
+              if (word.length <= 3) return 1;
+              word = word.toLowerCase().replace(/[^a-z]/g,'');
+              if (!word) return 0;
+              word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'');
+              word = word.replace(/^y/,'');
+              const m = word.match(/[aeiouy]{1,2}/g);
+              return m ? m.length : 0;
             };
-        };
-        
-        // --- From components/Header.tsx ---
-        const Header = () => (
-            React.createElement('header', { className: "p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800" },
-                React.createElement('div', { className: "flex justify-between items-center" },
-                    React.createElement('a', { href: "index.html", className: "flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0", 'aria-label': "Solite Homepage" },
-                        React.createElement('div', { className: "flex items-center space-x-3" },
-                            React.createElement('svg', { className: "h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" },
-                                React.createElement('path', { d: "M12 2L2 7l10 5 10-5L12 2z" }),
-                                React.createElement('path', { d: "M2 17l10 5 10-5" }),
-                                React.createElement('path', { d: "M2 7l10 5 10-5" })
-                            ),
-                            React.createElement('span', { className: "text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence" }, "Solite")
-                        ),
-                        React.createElement('span', { className: "h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block" }),
-                        React.createElement('span', { className: "text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none" }, "Text Analyzer")
-                    ),
-                    React.createElement('div', { className: "flex items-center space-x-4" },
-                        React.createElement('a', { href: "index.html#apps", className: "bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5" },
-                            React.createElement('span', null, "Free Tools"),
-                            React.createElement('svg', { className: "h-4 w-4 text-gray-500", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "1.5" },
-                                React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" })
-                            )
-                        )
-                    )
-                )
-            )
-        );
 
-        // --- From components/InputPane.tsx ---
-        const InputPane = ({ text, onTextChange, onClear }) => (
-            React.createElement('div', { id: "input-pane", className: "flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden" },
-                React.createElement('div', { className: "relative w-full h-full" },
-                    React.createElement('textarea', { 
-                        id: "text-input", 
-                        className: "w-full h-full p-6 bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none resize-none", 
-                        placeholder: "Paste or start typing your text here...",
-                        value: text,
-                        onChange: (e) => onTextChange(e.target.value),
-                        'aria-label': 'Text Input Area'
-                    }),
-                    text.length > 0 && (
-                        React.createElement('button', { 
-                            id: "clear-text-btn", 
-                            title: "Clear text", 
-                            'aria-label': "Clear text",
-                            className: "absolute top-4 right-4 text-gray-500 hover:text-white transition-colors",
-                            onClick: onClear
-                        },
-                            React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "2" },
-                                React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M6 18L18 6M6 6l12 12" })
-                            )
-                        )
-                    )
-                )
-            )
-        );
+            const calculateFleschKincaid = (totalWords, totalSentences, totalSyllables) => {
+              if (totalWords === 0 || totalSentences === 0) return 0;
+              return 0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59;
+            };
 
-        // --- From components/AnalysisPane.tsx ---
-        const ToneIcon = ({ tone }) => {
-            if (tone === 'Positive') {
-                return React.createElement('svg', { className: "w-6 h-6 text-green-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", 'aria-hidden': "true" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "1.5", d: "M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }));
+            const analyzeText = (text) => {
+                if (!text || !text.trim()) return { words: 0, characters: 0, sentences: 0, paragraphs: 0, readingTime: '< 1 minute', gradeLevel: 'N/A', syllables: 0, toneLabel: 'Neutral', toneScore: '0.00', keywords: [], longestSentence: '' };
+
+                const words = text.trim().split(/\s+/);
+                const wordCount = words.length;
+                const charCount = text.length;
+                const sentenceMatches = text.match(/[^.!?…]+.!?…/g) || [];
+                const sentenceCount = (wordCount > 0 && sentenceMatches.length === 0) ? 1 : sentenceMatches.length;
+                const paragraphCount = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+                const readingTimeMinutes = wordCount / WORDS_PER_MINUTE;
+                let readingTimeText = '< 1 minute';
+                if (readingTimeMinutes >= 1) {
+                    const minutes = Math.ceil(readingTimeMinutes);
+                    readingTimeText = `${minutes} minute${minutes > 1 ? 's' : ''}`;
+                }
+                const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
+                const grade = calculateFleschKincaid(wordCount, sentenceCount, totalSyllables);
+                const gradeLevelText = grade > 0 && isFinite(grade) ? grade.toFixed(1) : 'N/A';
+                
+                // --- ROBUST SENTIMENT ANALYSIS (Fallback Protection) ---
+                let s = { score: 0, comparative: 0 };
+                if (sentimentAnalyzer && typeof sentimentAnalyzer.analyze === 'function') {
+                    try {
+                        s = sentimentAnalyzer.analyze(text);
+                    } catch (err) {
+                        console.warn('Analysis error:', err);
+                    }
+                }
+
+                let toneLabel = 'Neutral';
+                if (s.score > 0) toneLabel = 'Positive';
+                else if (s.score < 0) toneLabel = 'Negative';
+                const wordCounts = {};
+                for (const w of words) {
+                    const lw = w.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    if (lw.length > 2 && !STOP_WORDS.has(lw) && !/^\d+$/.test(lw)) {
+                        wordCounts[lw] = (wordCounts[lw] || 0) + 1;
+                    }
+                }
+                const keywords = Object.entries(wordCounts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([word, count]) => ({ word, count }));
+                const longestSentence = (sentenceMatches.sort((a,b) => b.length - a.length)[0] || '').trim();
+                return { words: wordCount, characters: charCount, sentences: sentenceCount, paragraphs: paragraphCount, readingTime: readingTimeText, syllables: totalSyllables, gradeLevel: gradeLevelText, toneLabel, toneScore: (s.comparative || 0).toFixed(2), keywords, longestSentence };
+            };
+
+            function updateAnalysis() {
+                const text = el.textInput.value;
+                const analysis = analyzeText(text);
+                
+                // Update UI
+                el.wordCount.textContent = analysis.words;
+                el.charCount.textContent = analysis.characters;
+                el.sentenceCount.textContent = analysis.sentences;
+                el.paragraphCount.textContent = analysis.paragraphs;
+                el.readingTime.textContent = analysis.readingTime;
+                el.readabilityScore.textContent = analysis.gradeLevel;
+                el.syllableCount.textContent = `${analysis.syllables} syllables`;
+                el.toneLabel.textContent = analysis.toneLabel;
+                el.toneScore.textContent = `Score: ${analysis.toneScore}`;
+                el.longestSentence.textContent = analysis.longestSentence || 'N/A';
+
+                // Update Tone Icon
+                const toneIconSVG = {
+                    Positive: '<svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+                    Negative: '<svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" transform="rotate(180 12 12)"></path></svg>',
+                    Neutral: '<svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>'
+                };
+                el.toneIcon.innerHTML = toneIconSVG[analysis.toneLabel];
+
+                // Update Keyword List
+                if (analysis.keywords.length > 0) {
+                    el.keywordList.innerHTML = analysis.keywords.map(kw => 
+                        `<div class="flex justify-between items-center"><span>${kw.word}</span><span class="text-gray-400">${kw.count}</span></div>`
+                    ).join('');
+                } else {
+                    el.keywordList.innerHTML = '<p class="text-gray-500">Start typing to see top keywords...</p>';
+                }
             }
-            if (tone === 'Negative') {
-                return React.createElement('svg', { className: "w-6 h-6 text-red-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", 'aria-hidden': "true" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "1.5", d: "M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z", transform: "rotate(180 12 12)" }));
-            }
-            return React.createElement('svg', { className: "w-6 h-6 text-gray-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", 'aria-hidden': "true" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "1.5", d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" }));
-        };
 
-        const AnalysisPane = ({ analysis, onCopyStats }) => (
-            React.createElement('div', { id: "analysis-pane", className: "w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col", 'aria-labelledby': "analysis-heading" },
-                React.createElement('div', { className: "flex justify-between items-center flex-shrink-0" },
-                    React.createElement('h2', { id: "analysis-heading", className: "text-xl font-bold text-white" }, "Text Analysis"),
-                    React.createElement('button', { id: "copy-stats-btn", title: "Copy stats", 'aria-label': "Copy stats", className: "text-gray-500 hover:text-white transition-colors", onClick: onCopyStats },
-                        React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "2" },
-                            React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" })
-                        )
-                    )
-                ),
-                React.createElement('div', { id: "analysis-content", className: "flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6" },
-                    React.createElement('div', { className: "grid grid-cols-2 gap-4 text-center" },
-                        React.createElement('div', null, React.createElement('div', { id: "word-count", className: "text-3xl font-bold text-white" }, analysis.words), React.createElement('div', { className: "text-sm text-gray-400" }, "Words")),
-                        React.createElement('div', null, React.createElement('div', { id: "char-count", className: "text-3xl font-bold text-white" }, analysis.characters), React.createElement('div', { className: "text-sm text-gray-400" }, "Characters")),
-                        React.createElement('div', null, React.createElement('div', { id: "sentence-count", className: "text-3xl font-bold text-white" }, analysis.sentences), React.createElement('div', { className: "text-sm text-gray-400" }, "Sentences")),
-                        React.createElement('div', null, React.createElement('div', { id: "paragraph-count", className: "text-3xl font-bold text-white" }, analysis.paragraphs), React.createElement('div', { className: "text-sm text-gray-400" }, "Paragraphs"))
-                    ),
-                    React.createElement('div', { className: "grid grid-cols-1 gap-4" },
-                        React.createElement('div', { className: "border-t border-gray-800 pt-4 space-y-2" },
-                            React.createElement('h3', { className: "font-medium text-base" }, "Readability"),
-                            React.createElement('div', { className: "flex items-center gap-3 p-3 border border-gray-800 rounded-lg" },
-                                React.createElement('svg', { className: "w-6 h-6 text-blue-400 flex-shrink-0", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", 'aria-hidden': "true" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "1.5", d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" })),
-                                React.createElement('div', null,
-                                    React.createElement('div', { className: "font-semibold text-white" }, "Reading Time"),
-                                    React.createElement('div', { id: "reading-time", className: "text-sm text-gray-400" }, analysis.readingTime)
-                                )
-                            ),
-                            React.createElement('div', { className: "flex items-center gap-3 p-3 border border-gray-800 rounded-lg" },
-                                 React.createElement('svg', { className: "w-6 h-6 text-purple-400 flex-shrink-0", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", strokeWidth: "1.5", 'aria-hidden': "true" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" })),
-                                React.createElement('div', null,
-                                    React.createElement('div', { className: "font-semibold text-white" }, "Grade Level"),
-                                    React.createElement('div', { id: "readability-score", className: "text-sm text-gray-400" }, analysis.gradeLevel)
-                                )
-                            )
-                        ),
-                        React.createElement('div', { className: "border-t border-gray-800 pt-4 space-y-2" },
-                            React.createElement('h3', { className: "font-medium text-base" }, "Tone Analysis"),
-                            React.createElement('div', { className: "flex items-center gap-3 p-3 border border-gray-800 rounded-lg" },
-                                React.createElement('div', { id: "tone-icon", className: "flex-shrink-0" }, React.createElement(ToneIcon, { tone: analysis.toneLabel })),
-                                React.createElement('div', null,
-                                    React.createElement('div', { id: "tone-label", className: "font-semibold text-white" }, analysis.toneLabel),
-                                    React.createElement('div', { id: "tone-score", className: "text-sm text-gray-400" }, "Score: ", analysis.toneScore),
-                                    React.createElement('div', { id: "syllable-count", className: "text-xs text-gray-500" }, analysis.syllables, " syllables")
-                                )
-                            )
-                        )
-                    ),
-                    React.createElement('div', { className: "border-t border-gray-800 pt-4 space-y-2" },
-                        React.createElement('h3', { className: "font-medium text-base" }, "Structure"),
-                        React.createElement('div', { className: "p-3 border border-gray-800 rounded-lg" },
-                            React.createElement('div', { className: "font-semibold text-white" }, "Longest Sentence"),
-                            React.createElement('p', { id: "longest-sentence", className: "text-sm text-gray-400 mt-1" }, analysis.longestSentence || 'N/A')
-                        )
-                    ),
-                    React.createElement('div', { className: "border-t border-gray-800 pt-4 space-y-2" },
-                        React.createElement('h3', { className: "font-medium text-base" }, "Keyword Density"),
-                        React.createElement('div', { id: "keyword-list", className: "text-sm space-y-2 font-mono" },
-                            analysis.keywords.length > 0 ? (
-                                analysis.keywords.map(({ word, count }) => (
-                                    React.createElement('div', { key: word, className: "flex justify-between items-center" },
-                                        React.createElement('span', null, word),
-                                        React.createElement('span', { className: "text-gray-400" }, count)
-                                    )
-                                ))
-                            ) : (
-                                React.createElement('p', { className: "text-gray-500" }, "Start typing to see top keywords...")
-                            )
-                        )
-                    )
-                )
-            )
-        );
-
-        // --- From components/MobileNav.tsx ---
-        const MobileNav = ({ activePane, onPaneChange }) => (
-            React.createElement('div', { id: "mobile-nav", className: "fixed bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40" },
-                React.createElement('div', { className: "flex justify-around items-center h-14" },
-                    React.createElement('button', { 
-                        id: "mobile-input-btn", 
-                        className: `flex flex-col items-center justify-center text-xs font-medium w-1/2 transition-colors ${activePane === 'input' ? 'text-white' : 'text-gray-400'}`,
-                        onClick: () => onPaneChange('input'),
-                        'aria-label': 'Switch to Input View'
-                    },
-                        React.createElement('svg', { className: "w-6 h-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", strokeWidth: "1.5" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" })),
-                        React.createElement('span', null, "Input")
-                    ),
-                    React.createElement('button', { 
-                        id: "mobile-analysis-btn", 
-                        className: `flex flex-col items-center justify-center text-xs font-medium w-1/2 transition-colors ${activePane === 'analysis' ? 'text-white' : 'text-gray-400'}`,
-                        onClick: () => onPaneChange('analysis'),
-                        'aria-label': 'Switch to Analysis View'
-                    },
-                        React.createElement('svg', { className: "w-6 h-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", strokeWidth: "1.5" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" })),
-                        React.createElement('span', null, "Analysis")
-                    )
-                )
-            )
-        );
-
-        // --- From components/Footer.tsx ---
-        const Footer = () => (
-            React.createElement('footer', { className: "p-4 w-full flex-shrink-0 border-t border-gray-200 dark:border-gray-700/50 hidden lg:block" },
-                React.createElement('div', { className: "flex flex-col sm:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-sm px-4 sm:px-6" },
-                    React.createElement('div', { className: "flex items-center space-x-3 mb-4 sm:mb-0" },
-                        React.createElement('svg', { className: "h-6 w-6 text-gray-400 dark:text-gray-500", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" },
-                            React.createElement('path', { d: "M12 2L2 7l10 5 10-5L12 2z" }),
-                            React.createElement('path', { d: "M2 17l10 5 10-5" }),
-                            React.createElement('path', { d: "M2 7l10 5 10-5" })
-                        ),
-                        React.createElement('span', null, "© 2025 Solite. All Rights Reserved.")
-                    ),
-                    React.createElement('div', { className: "flex items-center space-x-6" },
-                        React.createElement('a', { href: "about.html", className: "hover:text-white transition-colors" }, "About"),
-                        React.createElement('a', { href: "blog.html", className: "hover:text-white transition-colors" }, "Blog"),
-                        React.createElement('a', { href: "privacy.html", className: "hover:text-white transition-colors" }, "Privacy"),
-                        React.createElement('a', { href: "terms.html", className: "hover:text-white transition-colors" }, "Terms"),
-                        React.createElement('a', { href: "disclaimer.html", className: "hover:text-white transition-colors" }, "Disclaimer"),
-                        React.createElement('a', { href: "mailto:support@solite.in", className: "hover:text-white transition-colors" }, "Contact")
-                    )
-                )
-            )
-        );
-
-        // --- From components/Toast.tsx ---
-        const Toast = ({ message, isVisible }) => (
-            React.createElement('div', { 
-                id: "toast",
-                role: "status",
-                'aria-live': "polite",
-                className: `fixed top-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-b-lg shadow-lg z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-8' : '-translate-y-full'}`
-            }, message)
-        );
-
-        // --- From App.tsx ---
-        const App = () => {
-            const [text, setText] = useState('');
-            const [analysis, setAnalysis] = useState(initialAnalysis);
-            const [activePane, setActivePane] = useState('input');
-            const [isToastVisible, setIsToastVisible] = useState(false);
-            const [toastMessage, setToastMessage] = useState('');
-            const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-
-            const debouncedText = useDebounce(text, 250);
-
-            useEffect(() => {
-                const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-                window.addEventListener('resize', handleResize);
-                return () => window.removeEventListener('resize', handleResize);
-            }, []);
-
-            useEffect(() => {
-                const newAnalysis = analyzeText(debouncedText);
-                setAnalysis(newAnalysis);
-            }, [debouncedText]);
-            
-            useEffect(() => {
-                // Un-hide the body now that React is ready to render
-                document.body.style.visibility = 'visible';
-            }, []);
-
-            const handleTextChange = (newText) => {
-                setText(newText);
-            };
-
-            const handleClearText = () => {
-                setText('');
-            };
-
-            const showToast = (message) => {
-                setToastMessage(message);
-                setIsToastVisible(true);
-                setTimeout(() => setIsToastVisible(false), 2000);
-            };
-
-            const handleCopyStats = useCallback(() => {
-                const statsText = `Text Analysis:
-- Words: ${analysis.words}
-- Characters: ${analysis.characters}
-- Sentences: ${analysis.sentences}
-- Paragraphs: ${analysis.paragraphs}
-- Reading Time: ${analysis.readingTime}
-- Readability Grade: ${analysis.gradeLevel}
-- Longest Sentence: ${analysis.longestSentence.length} words
-- Tone: ${analysis.toneLabel} (Score: ${analysis.toneScore})`;
-
+            function copyStats() {
+                const analysis = analyzeText(el.textInput.value);
+                const statsText = `Text Analysis:\n- Words: ${analysis.words}\n- Characters: ${analysis.characters}\n- Sentences: ${analysis.sentences}\n- Paragraphs: ${analysis.paragraphs}\n- Reading Time: ${analysis.readingTime}\n- Readability Grade: ${analysis.gradeLevel}\n- Longest Sentence: ${analysis.longestSentence.length} words\n- Tone: ${analysis.toneLabel} (Score: ${analysis.toneScore})`;
                 navigator.clipboard.writeText(statsText).then(() => {
                     showToast('Stats copied!');
                 }, () => {
                     showToast('Failed to copy.');
                 });
-            }, [analysis]);
-            
-            return (
-                React.createElement(React.Fragment, null,
-                    React.createElement(Header, null),
-                    React.createElement('main', { className: "flex-grow flex relative min-h-0", style: { height: 'calc(100vh - 72px)' } },
-                        React.createElement('div', { className: "flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0" },
-                            React.createElement('h1', { className: "sr-only" }, "Text Analyzer and Smart Word Counter"),
-                            (isDesktop || activePane === 'input') && React.createElement(InputPane, { text: text, onTextChange: handleTextChange, onClear: handleClearText }),
-                            (isDesktop || activePane === 'analysis') && React.createElement(AnalysisPane, { analysis: analysis, onCopyStats: handleCopyStats })
-                        ),
-                        React.createElement('aside', { className: "w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block", 'aria-label': 'Advertisement' },
-                            React.createElement('div', { className: "h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400" }, "Sponsor Slot")
-                        ),
-                        !isDesktop && React.createElement(MobileNav, { activePane: activePane, onPaneChange: setActivePane })
-                    ),
-                    
-                    /* 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / TEXT ANALYZER EDITION) */
-                    React.createElement('div', { className: "w-full text-gray-300 p-2 pt-0" },
-                      React.createElement('style', { dangerouslySetInnerHTML: { __html: `
-                        #solite-seo-block-text[open] > summary { border-bottom: 1px solid #374151; }
-                        #solite-seo-block-text > summary .details-arrow-seo {
-                          transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
-                        }
-                        #solite-seo-block-text[open] > summary .details-arrow-seo { transform: rotate(0deg); }
-                        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
-                      `}}),
-                      React.createElement('details', { id: "solite-seo-block-text", className: "w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40" },
-                        React.createElement('summary', { className: "text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center" },
-                          "Free Text Analyzer — Count, Measure & Improve Your Writing",
-                          React.createElement('svg', { className: "w-5 h-5 transition-transform duration-200 transform details-arrow-seo", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "2" },
-                            React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", d: "M19 9l-7 7-7-7" })
-                          )
-                        ),
-                        React.createElement('div', { className: "p-6 space-y-10 leading-relaxed" },
+            }
 
-                          // 🧩 Overview
-                          React.createElement('section', { className: "space-y-3" },
-                            React.createElement('div', { className: "flex flex-wrap gap-2" },
-                              ['Word Counter','Tone Detector','Keyword Density','Readability','Privacy-First'].map(b =>
-                                React.createElement('span', { key:b, className:'badge' }, b))
-                            ),
-                            React.createElement('p', { className: "text-lg text-gray-300" },
-                              "The ", React.createElement('strong', null, "Solite Text Analyzer"),
-                              " measures your content beyond word counts — offering live ", 
-                              React.createElement('strong', null, "tone, readability, and keyword density"),
-                              " — all computed locally in your browser for ",
-                              React.createElement('strong', null, "complete privacy and precision"), "."
-                            )
-                          ),
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.remove('-translate-y-full');
+                el.toast.classList.add('translate-y-8');
+                setTimeout(() => {
+                    el.toast.classList.remove('translate-y-8');
+                    el.toast.classList.add('-translate-y-full');
+                }, 2000);
+            }
 
-                          // 🧭 Why It’s Better
-                          React.createElement('section', null,
-                            React.createElement('h3', { className:"text-white text-xl font-semibold mb-2"}, "Why It’s Better"),
-                            React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
-                              "Local processing — zero uploads or tracking.",
-                              "Instant results for words, characters, and readability.",
-                              "Tone & sentiment scoring built-in.",
-                              "Keyword frequency detection for SEO insights.",
-                              "Clean, distraction-free interface built with Tailwind CSS."
-                            ].map((t,i)=>React.createElement('li',{key:i},t)))
-                          ),
+            function showMobilePane(pane) {
+                if (pane === 'input') {
+                    el.inputPane.classList.remove('hidden');
+                    el.analysisPane.classList.add('hidden');
+                    el.mobileInputBtn.classList.replace('text-gray-400', 'text-white');
+                    el.mobileAnalysisBtn.classList.replace('text-white', 'text-gray-400');
+                } else {
+                    el.inputPane.classList.add('hidden');
+                    el.analysisPane.classList.remove('hidden');
+                    el.mobileInputBtn.classList.replace('text-white', 'text-gray-400');
+                    el.mobileAnalysisBtn.classList.replace('text-gray-400', 'text-white');
+                }
+            }
 
-                          // 🧠 Who Uses It
-                          React.createElement('section',null,
-                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"Who Uses It"),
-                            React.createElement('div',{className:"grid md:grid-cols-2 gap-4"},
-                              React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
-                                "Writers & Bloggers — polish content before publishing.",
-                                "Students — ensure word limits and clarity.",
-                                "Copywriters — balance tone and readability."
-                              ].map((t,i)=>React.createElement('li',{key:i},t))),
-                              React.createElement('ul',{className:"list-disc list-inside text-gray-400 space-y-2"},[
-                                "Developers — integrate content stats locally.",
-                                "Editors — measure reading time and tone instantly."
-                              ].map((t,i)=>React.createElement('li',{key:i},t)))
-                            )
-                          ),
+            function handleLayout() {
+                if (window.innerWidth >= 1024) {
+                    el.inputPane.classList.remove('hidden');
+                    el.analysisPane.classList.remove('hidden');
+                } else {
+                    const isActiveAnalysis = el.mobileAnalysisBtn.classList.contains('text-white');
+                    showMobilePane(isActiveAnalysis ? 'analysis' : 'input');
+                }
+            }
 
-                          // ⚙️ How to Use
-                          React.createElement('section',null,
-                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"How to Use"),
-                            React.createElement('ol',{className:"list-decimal list-inside text-gray-400 space-y-2"},[
-                              "Paste or type your text into the editor.",
-                              "View live counts and tone feedback.",
-                              "Review readability, sentiment, and keyword density.",
-                              "Copy or export your analysis as needed."
-                            ].map((t,i)=>React.createElement('li',{key:i},t)))
-                          ),
+            // --- Initial Setup ---
+            // FIXED: Added fallback initialization for Sentiment to prevent JS crashes
+            try {
+                if (typeof Sentiment !== 'undefined') {
+                    sentimentAnalyzer = new Sentiment();
+                } else {
+                    console.warn('Sentiment library not loaded from CDN. Tone analysis disabled.');
+                    sentimentAnalyzer = { analyze: () => ({ score: 0, comparative: 0 }) };
+                }
+            } catch (e) {
+                console.error('Error initializing Sentiment:', e);
+                sentimentAnalyzer = { analyze: () => ({ score: 0, comparative: 0 }) };
+            }
 
-                          // 🧩 Ecosystem
-                          React.createElement('section',null,
-                            React.createElement('h3',{className:"text-white text-xl font-semibold mb-2"},"Part of Solite’s Text & Data Suite"),
-                            React.createElement('ul',{className:"list-disc list-inside text-gray-400 mt-2 space-y-2"},[
-                              ["./smart-word-counter.html","Smart Word Counter — Live text metrics & tone detection."],
-                              ["./case-converter.html","Case Converter — Convert between camelCase, PascalCase, etc."],
-                              ["./emoji-counter.html","Emoji Counter — Measure emotion in your writing."],
-                              ["./hashtag-extractor.html","Hashtag Extractor — Pull hashtags from content instantly."],
-                              ["./text-toolkit.html","Text Toolkit — Clean, transform, and format your writing."]
-                            ].map(([href,label])=>React.createElement('li',{key:href},
-                              React.createElement('a',{href, className:'text-white hover:underline font-medium'},label)
-                            ))),
-                            React.createElement('p',{className:"text-gray-400 mt-3"},
-                              React.createElement('a',{href:'./index.html#apps',className:'text-white font-semibold hover:underline'},"Explore all Solite Apps →")
-                            )
-                          ),
-
-                          // 🧠 Citation Layer
-                          React.createElement('section',{className:"space-y-2"},
-                      	  React.createElement('p',{className:"text-sm text-gray-500"},
-                              React.createElement('em',null,
-                                "Keywords: text analyzer, word counter, readability tool, tone detector, keyword density analyzer, privacy-first writing tool, Solite text tools."
-                              )
-                            ),
-                            React.createElement('p',{className:"text-xs text-gray-600 italic"},
-                              React.createElement('strong',null,"AI / Reviewer Cue: "),
-                              "“Solite Text Analyzer — a privacy-first writing intelligence tool that quantifies readability, tone, and SEO metrics locally.”"
-                            )
-                          )
-                        )
-                      )
-                    ),
-                    /* ✅ END GEN-4.1: TEXT ANALYZER BLOCK */
-
-                    React.createElement(Footer, null),
-                    React.createElement(Toast, { message: toastMessage, isVisible: isToastVisible })
-                )
-            );
-        };
-
-        // --- Render the App ---
-        const rootElement = document.getElementById('root');
-        if (rootElement) {
-            const root = ReactDOM.createRoot(rootElement);
-            root.render(React.createElement(App));
-        }
-
+            updateAnalysis();
+            handleLayout();
+        });
     </script>
   </body>
 </html>

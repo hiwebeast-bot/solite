@@ -138,6 +138,11 @@
     #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
     #toast.show{transform:translateY(-2rem)}
     ::-webkit-scrollbar{width:8px;height:8px}
+    /* Toast styles */
+    #toast { transform: translateY(150%); transition: transform 0.3s ease-in-out; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); }
+    /* Scrollbar styles */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track{background:#111827}
     ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
     html{scrollbar-color:#4b5563 #111827;scrollbar-width:thin}
@@ -263,32 +268,37 @@
                 <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg font-semibold">HTML Code</h3>
-                        <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy Code</span></button>
+                        <div class="flex items-center gap-2">
+                            <button id="copy-code-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><span>Copy Code</span></button>
+                            <button id="download-package-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-5 rounded-lg flex items-center gap-2 text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                <span>Download</span>
+                            </button>
+                        </div>
                     </div>
                     <textarea id="html-code-output" readonly class="w-full h-24 p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-xs resize-none"></textarea>
-                    <button id="download-package-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><span>Download Favicon Package</span></button>
                 </div>
             </div>
         </div>
         <!-- Ad Sidebar -->
         <!-- Partner Slot -->
-        <aside class="w-60 flex-shrink-0 border-l p-4 border-gray-800 hidden lg:block relative">
-            <div class="sticky h-full flex-shrink-0 ">
-               <div class="flex items-center space-x-3 mb-8">
-                    <svg class="g:h-10 lg:w-10 text-gray-400 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                    <span class="text-2xl font-semibold text-gray-400  sentence">Solite</span>
-                </div>
-                <h3 class="flex text-gray-500 font-semibold text-4xl mb-8">Private by Design</h3>
-                <p class="text-2xl text-gray-600">Free tools run entirely in your browser, Built to respect your work.<br class="hidden xl:block"> 
-                    <span class="text-gray-600 font-medium">No accounts. No tracking. No cloud storage.</span>
-                </p>
-                <div class="absolute bottom-0">
-                <a href="./partner.html" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-medium text-md text-center py-3 px-8 rounded-lg mb-2 ">Contribute</a>
-                <a href="./partner.html" class="inline-flex items-center justify-center w-full border border-gray-800 bg-gray-800/50 text-gray-400 hover:bg-gray-900 font-medium text-md text-center py-3 px-8 rounded-lg ">Let’s Partner</a>
-                </div>
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+        <div class="flex flex-col flex-grow justify-between">
+            <!-- Top Content -->
+            <div>
+            <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+            <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+            <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
             </div>
+            <!-- Bottom Action Buttons -->
+            <div class="space-y-2 mt-auto">
+            <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                Check Discount →
+            </a>
+            <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+            </div>
+        </div>
         </aside>
-
         
     </main>
 <!-- Mobile Navigation Bar -->
@@ -435,7 +445,7 @@
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
             </div>
-            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                        <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
                 <a href="about.html" class="hover:text-white transition-colors">About</a>
                 <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
                 <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
@@ -443,7 +453,7 @@
                 <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
                 <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
-            </div>
+            </div> 
         </div>
     </footer>
 
@@ -462,9 +472,25 @@
             let state = { inputType: 'image', sourceImage: null, text: 'S', emoji: '✨', bgColor: '#ffffff', borderRadius: 20, fontColor: '#000000', fontSize: 70, fontWeight: 'bold', fontFamily: 'Poppins' };
             function generateFavicon(size) {
                 const canvas = document.createElement('canvas'); canvas.width = size; canvas.height = size;
-                const ctx = canvas.getContext('2d'); ctx.fillStyle = state.bgColor;
-                const radius = size * (state.borderRadius / 100);
-                ctx.beginPath(); ctx.moveTo(radius, 0); ctx.lineTo(size - radius, 0); ctx.quadraticCurveTo(size, 0, size, radius); ctx.lineTo(size, size - radius); ctx.quadraticCurveTo(size, size, size - radius, size); ctx.lineTo(radius, size); ctx.quadraticCurveTo(0, size, 0, size - radius); ctx.lineTo(0, radius); ctx.quadraticCurveTo(0, 0, radius, 0); ctx.closePath(); ctx.fill();
+                const ctx = canvas.getContext('2d'); 
+                ctx.fillStyle = state.bgColor;
+                
+                // FIX: Use arcTo for perfect rounded corners, especially for circles (50% radius).
+                // The previous quadraticCurveTo implementation was not creating a perfect circle at 50% radius.
+                let radius = size * (state.borderRadius / 100);
+                if (radius > size / 2) {
+                    radius = size / 2; // Cap radius at half the size to prevent distortion
+                }
+                
+                ctx.beginPath();
+                ctx.moveTo(radius, 0);
+                ctx.arcTo(size, 0, size, size, radius);
+                ctx.arcTo(size, size, 0, size, radius);
+                ctx.arcTo(0, size, 0, 0, radius);
+                ctx.arcTo(0, 0, size, 0, radius);
+                ctx.closePath();
+                ctx.fill();
+
                 if (state.inputType === 'image' && state.sourceImage) { const margin = size * 0.15; ctx.drawImage(state.sourceImage, margin, margin, size - margin * 2, size - margin * 2); }
                 else if (state.inputType === 'text' || state.inputType === 'emoji') { const content = state.inputType === 'text' ? state.text : state.emoji; ctx.fillStyle = state.fontColor; ctx.font = `${state.fontWeight} ${size * (state.fontSize / 100)}px ${state.fontFamily}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const verticalOffset = size * 0.08; ctx.fillText(content, size / 2, size / 2 + verticalOffset); }
                 return canvas;
@@ -502,7 +528,11 @@
             el.copyCodeBtn.addEventListener('click', () => { navigator.clipboard.writeText(el.htmlCodeOutput.value).then(() => { el.toast.textContent = 'Code copied!'; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000); }); });
             el.downloadPackageBtn.addEventListener('click', async () => {
                 const zip = new JSZip(); const pngSizes = [16, 32, 180, 192, 512]; const icoSizes = [16, 32, 48];
-                const filenames = { 16: 'favicon-16x16.png', 32: 'favicon-32x32.png', 180: 'apple-touch-icon.png', 192: 'android-chrome-192x192.png', 512: 'android-chrome-512x512.png' };
+                const filenames = { 16: 'favicon-16x16.png', 32: 'favicon-32x32.png', 180: 'apple-touch-icon.png', 192: 'android-chrome-192x192.png', 512: 'android-chrome-512x512.png' }; 
+                
+                const showToast = (message) => {
+                    el.toast.textContent = message; el.toast.classList.add('show'); setTimeout(() => el.toast.classList.remove('show'), 2000);
+                };
                 for (const size of pngSizes) { const canvas = generateFavicon(size); const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png')); zip.file(filenames[size], blob); }
                 const icoBlobs = await Promise.all(icoSizes.map(size => new Promise(resolve => generateFavicon(size).toBlob(resolve, 'image/png'))));
                 zip.file('favicon.ico', await createIco(icoBlobs));
@@ -510,8 +540,9 @@
                 zip.file("site.webmanifest", JSON.stringify(manifest, null, 2));
                 const browserConfigXml = `<?xml version="1.0" encoding="utf-8"?><browserconfig><msapplication><tile><square150x150logo src="/mstile-150x150.png"/><TileColor>${state.fontColor}</TileColor></tile></msapplication></browserconfig>`;
                 zip.file("browserconfig.xml", browserConfigXml);
-                zip.file("mstile-150x150.png", await new Promise(resolve => generateFavicon(150).toBlob(resolve)));
-                zip.generateAsync({ type: "blob" }).then(content => { const link = document.createElement('a'); link.href = URL.createObjectURL(content); link.download = "favicon_package.zip"; link.click(); URL.revokeObjectURL(link.href); });
+                zip.file("mstile-150x150.png", await new Promise(resolve => generateFavicon(150).toBlob(resolve))); 
+                showToast('Generating ZIP...');
+                zip.generateAsync({ type: "blob" }).then(content => { const link = document.createElement('a'); link.href = URL.createObjectURL(content); link.download = "favicon_package.zip"; link.click(); URL.revokeObjectURL(link.href); showToast('Download started!'); });
             });
             function showMobilePane(paneId) {
                 if (paneId === 'preview') { el.outputPane.classList.remove('hidden'); el.outputPane.classList.add('flex'); el.controlsPane.classList.add('hidden'); el.mobilePreviewBtn.classList.add('active'); el.mobileControlsBtn.classList.remove('active'); } 

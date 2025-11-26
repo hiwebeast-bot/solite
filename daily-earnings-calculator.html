@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / Daily Earnings Calculator — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>Free Daily Earnings Calculator | Track Freelance Income | Solite</title>
+  <meta name="description" content="Calculate your daily earnings based on tasks and an hourly rate. A free, private tool for freelancers to track income and stay motivated. 100% client-side, no uploads." />
+  <meta name="keywords" content="daily earnings calculator, freelance earnings, hourly rate calculator, work log, daily income, solite, privacy-first" />
+  <link rel="canonical" href="https://solite.in/daily-earnings-calculator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Daily Earnings Calculator - Solite" />
+
+  <!-- ⚫ Theme + Privacy -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- 🌍 OPEN GRAPH + TWITTER -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Daily Earnings Calculator | Solite" />
+  <meta property="og:description" content="Calculate your daily earnings based on tasks and an hourly rate. A free, private tool for freelancers." />
+  <meta property="og:url" content="https://solite.in/daily-earnings-calculator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/daily-earnings-calculator.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Daily Earnings Calculator | Solite" />
+  <meta name="twitter:description" content="Track your daily freelance income with this private, browser-based calculator." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/daily-earnings-calculator.html&meta=false&screenshot=true" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
+
+  <!-- 🎨 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 💅 UI STYLES -->
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; }
+    body { background: #000; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+    .task-row input[type="number"] { -moz-appearance: textfield; }
+    .task-row input[type="number"]::-webkit-inner-spin-button,
+    .task-row input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  </style>
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+             <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+               <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Daily Earnings Calculator</span>
+            </a>
+             <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">Daily Earnings Calculator</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-1/2 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="controls-heading" class="text-xl font-bold text-white">Today's Work</h2>
+                    <button id="reset-btn" class="text-sm bg-red-900/30 hover:bg-red-900/50 text-red-400 py-1.5 px-3 rounded-lg border border-red-900/50 transition-colors">Reset</button>
+                </div>
+                
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="flex-grow">
+                        <label for="hourly-rate" class="font-medium text-sm text-gray-400">Hourly Rate</label>
+                        <input type="number" id="hourly-rate" value="50" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 mt-1 font-mono text-lg">
+                    </div>
+                    <div class="flex-grow">
+                        <label for="currency-symbol" class="font-medium text-sm text-gray-400">Currency</label>
+                        <input type="text" id="currency-symbol" value="$" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 mt-1 font-mono text-lg text-center">
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-4 flex-grow flex flex-col min-h-0">
+                    <h3 class="font-semibold text-white mb-3">Tasks</h3>
+                    <div id="tasks-container" class="space-y-3 flex-grow overflow-y-auto pr-2">
+                        <!-- Task rows will be injected here -->
+                    </div>
+                    <button id="add-task-btn" class="mt-4 w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        <span>Add Task</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Panel -->
+            <div id="output-pane" class="flex-1 flex flex-col items-center justify-center bg-gray-900 rounded-xl border border-gray-800 p-6 text-center">
+                <h2 class="text-lg font-medium text-gray-400">Total Earnings Today</h2>
+                <p id="total-earnings" class="text-6xl lg:text-7xl font-extrabold text-white my-4 font-mono">
+                    $0.00
+                </p>
+                <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 w-full max-w-sm">
+                    <div class="flex justify-between text-lg">
+                        <span class="text-gray-400">Total Time:</span>
+                        <span id="total-time" class="font-semibold text-white">0h 0m</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+        <div class="flex flex-col flex-grow justify-between">
+            <!-- Top Content -->
+            <div>
+            <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+            <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+            <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+            </div>
+            <!-- Bottom Action Buttons -->
+            <div class="space-y-2 mt-auto">
+            <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                Check Discount →
+            </a>
+            <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+            </div>
+        </div>
+        </aside>    </main>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div> 
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                hourlyRate: document.getElementById('hourly-rate'),
+                currencySymbol: document.getElementById('currency-symbol'),
+                tasksContainer: document.getElementById('tasks-container'),
+                addTaskBtn: document.getElementById('add-task-btn'),
+                resetBtn: document.getElementById('reset-btn'),
+                totalEarnings: document.getElementById('total-earnings'),
+                totalTime: document.getElementById('total-time'),
+            };
+
+            const STORAGE_KEY = 'dailyEarningsCalculatorState';
+
+            function calculateTotal() {
+                const rate = parseFloat(el.hourlyRate.value) || 0;
+                let totalMinutes = 0;
+
+                document.querySelectorAll('.task-row').forEach(row => {
+                    const hours = parseFloat(row.querySelector('.task-hours').value) || 0;
+                    const minutes = parseFloat(row.querySelector('.task-minutes').value) || 0;
+                    totalMinutes += (hours * 60) + minutes;
+                });
+
+                const totalHours = totalMinutes / 60;
+                const earnings = totalHours * rate;
+
+                const displayHours = Math.floor(totalMinutes / 60);
+                const displayMinutes = totalMinutes % 60;
+
+                el.totalEarnings.textContent = `${el.currencySymbol.value}${earnings.toFixed(2)}`;
+                el.totalTime.textContent = `${displayHours}h ${displayMinutes}m`;
+                
+                saveState();
+            }
+
+            function createTaskRow(task = { desc: '', hours: '', minutes: '' }) {
+                const row = document.createElement('div');
+                row.className = 'task-row flex items-center gap-2';
+                row.innerHTML = `
+                    <input type="text" class="task-description flex-grow p-2 rounded-lg bg-gray-800 border border-gray-700 text-sm" placeholder="Task description" value="${task.desc}">
+                    <input type="number" class="task-hours w-16 p-2 rounded-lg bg-gray-800 border border-gray-700 text-center" placeholder="hr" value="${task.hours}">
+                    <input type="number" class="task-minutes w-16 p-2 rounded-lg bg-gray-800 border border-gray-700 text-center" placeholder="min" value="${task.minutes}">
+                    <button class="remove-task-btn p-2 text-red-400 hover:text-red-300 rounded-lg hover:bg-red-900/50">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                    </button>
+                `;
+                row.querySelectorAll('input').forEach(input => input.addEventListener('input', calculateTotal));
+                row.querySelector('.remove-task-btn').addEventListener('click', () => {
+                    row.remove();
+                    calculateTotal();
+                });
+                return row;
+            }
+
+            function saveState() {
+                const tasks = [];
+                document.querySelectorAll('.task-row').forEach(row => {
+                    tasks.push({
+                        desc: row.querySelector('.task-description').value,
+                        hours: row.querySelector('.task-hours').value,
+                        minutes: row.querySelector('.task-minutes').value,
+                    });
+                });
+                const state = {
+                    hourlyRate: el.hourlyRate.value,
+                    currency: el.currencySymbol.value,
+                    tasks: tasks,
+                };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            }
+
+            function loadState() {
+                const savedState = localStorage.getItem(STORAGE_KEY);
+                if (savedState) {
+                    const state = JSON.parse(savedState);
+                    el.hourlyRate.value = state.hourlyRate || '50';
+                    el.currencySymbol.value = state.currency || '$';
+                    el.tasksContainer.innerHTML = '';
+                    if (state.tasks && state.tasks.length > 0) {
+                        state.tasks.forEach(task => el.tasksContainer.appendChild(createTaskRow(task)));
+                    } else {
+                        el.tasksContainer.appendChild(createTaskRow());
+                    }
+                } else {
+                    el.tasksContainer.appendChild(createTaskRow());
+                }
+                calculateTotal();
+            }
+
+            el.addTaskBtn.addEventListener('click', () => {
+                el.tasksContainer.appendChild(createTaskRow());
+            });
+
+            el.resetBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset all tasks and settings?')) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    el.hourlyRate.value = '50';
+                    el.currencySymbol.value = '$';
+                    el.tasksContainer.innerHTML = '';
+                    el.tasksContainer.appendChild(createTaskRow());
+                    calculateTotal();
+                }
+            });
+
+            [el.hourlyRate, el.currencySymbol].forEach(input => input.addEventListener('input', calculateTotal));
+
+            loadState();
+        });
+    </script>
+</body>
+</html>
