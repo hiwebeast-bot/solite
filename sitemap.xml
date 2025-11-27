@@ -25,7 +25,7 @@
   <url><loc>https://solite.in/image-format-changer.html</loc></url>
   <url><loc>https://solite.in/image-color-picker.html</loc></url>
   <url><loc>https://solite.in/image-background-remover.html</loc></url>
-  <url><loc>https://solite.in/exif-stripter.html</loc></url> <!-- corrected file name: exif-stripper.html -->
+  <url><loc>https://solite.in/exif-stripper.html</loc></url>
   <url><loc>https://solite.in/social-image-crop-tool.html</loc></url>
   <url><loc>https://solite.in/color-contrast-checker.html</loc></url>
   <url><loc>https://solite.in/watermark-annotator.html</loc></url>
@@ -82,7 +82,7 @@
   <url><loc>https://solite.in/packing-slip-generator.html</loc></url>
   <url><loc>https://solite.in/case-converter.html</loc></url>
   <url><loc>https://solite.in/offer-letter-generator.html</loc></url>
-  <url><loc>https://solite.in/date-calcualter.html</loc></url> <!-- spelling preserved to match actual file -->
+  <url><loc>https://solite.in/date-calculator.html</loc></url>
   <url><loc>https://solite.in/delivery-invoice-generator.html</loc></url>
 
   <!-- 💻 DEV / WEB -->
@@ -126,17 +126,20 @@
   <url><loc>https://solite.in/linkedin-post-generator.html</loc></url>
   <url><loc>https://solite.in/online-signature-maker.html</loc></url>
   <url><loc>https://solite.in/whatsapp-chat-generator.html</loc></url>
-  
+
   <!-- 📈 MARKETING -->
   <url><loc>https://solite.in/social-posting-timer.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/cpc-budget-splitter.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/landing-page-clarity-checklist.html</loc><priority>0.85</priority></url>
   <url><loc>https://solite.in/cta-strength-tester.html</loc><priority>0.85</priority></url>
+  <url><loc>https://solite.in/headline-score-checker.html</loc></url>
+  <url><loc>https://solite.in/meta-tag-previewer.html</loc></url>
 
   <!-- 📰 BLOG -->
   <url><loc>https://solite.in/blog.html</loc></url>
 
-  <!-- Auto-including all blog posts -->
+  <!-- 📃 BLOG POSTS -->
+  <!-- ALL blog links auto-added -->
   <url><loc>https://solite.in/blog/a-guide-to-the-perfect-favicon.html</loc></url>
   <url><loc>https://solite.in/blog/benefits-of-client-side-text-toolkit.html</loc></url>
   <url><loc>https://solite.in/blog/best-free-browser-tools-for-writers.html</loc></url>

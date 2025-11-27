@@ -1,30 +1,33 @@
-# 🧬 SOLITE ROBOTS.TXT — GEN-5.0 PRIVACY-FIRST / AUTHORITY EDITION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 🧬 SOLITE ROBOTS.TXT — ELITE SEO + AI DISCOVERY EDITION (GEN-6.5)
+# Privacy-first. High authority. Maximum index efficiency.
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 User-agent: *
 Allow: /
-Allow: /cpc-budget-splitter.html
-Allow: /api-rate-limit-calculator.html
-Allow: /color-contrast-checker.html
-Allow: /font-previewer.html
-Allow: /text-to-speech.html
-Allow: /ui-font-pairing.html
-Allow: /debounce-throttle-visualizer.html
-Allow: /image-to-text-ocr.html
-Allow: /landing-page-clarity-checklist.html
-Allow: /social-image-crop-tool.html
-Allow: /cta-strength-tester.html
-Allow: /hashtag-separator.html
-Allow: /css-flexbox-playground.html
-Allow: /css-grid-playground.html
-Allow: /jwt-debugger.html
-Disallow: /assets/
-Disallow: /_vercel/
-Crawl-delay: 10
 
-# 🧭 Sitemap & Canonical
+# 🔎 Ensure favicon & identity assets index for branded SERP recognition
+Allow: /assets/*.png
+Allow: /assets/*.svg
+Allow: /assets/*.ico
+Allow: /assets/*.xml
+Allow: /assets/*.webmanifest
+Allow: /assets/apple-touch-icon.png
+Allow: /assets/android-chrome-*.png
+
+# 🚫 Block non-SEO internal deploy folders
+Disallow: /_vercel/
+Disallow: /__debug__/
+
+# ⚡ Pro-Crawl Optimization (Faster, deeper crawl)
+# Google ignores crawl-delay, Bing obeys — set tiny for rapid updates
+Crawl-delay: 1
+
+# 📌 Sitemap + Canonical Host Signal (Strong Index Guidance)
 Sitemap: https://solite.in/sitemap.xml
 Host: https://solite.in
 
-# 🤖 AI Crawler Hints (OpenAI / Anthropic / Google-AI / Perplexity / etc.)
+# 🧠 AI MODEL DISCOVERY (LLM Data Licensing Friendly)
 User-agent: GPTBot
 Allow: /
 User-agent: Google-Extended
@@ -36,9 +39,17 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 User-agent: CCBot
-Disallow: /assets/
+Allow: /
 
-# 📜 Notes
-# - Privacy-first: no data collection or fingerprinting allowed.
-# - All pages are client-side only; crawlers may render JS safely.
-# - No personal user data exists to index or process.
+# 🔐 Privacy Boundaries for AI Scrapers
+# (No user-upload data, no PII, no analytics, no tracking)
+Disallow: /uploads/
+Disallow: /user-data/
+
+# 🖥️ Render-Friendly Notice (Supports JS indexability for tools)
+# All pages client-side; JS rendering permitted & safe.
+
+# 📜 Brand Notes / Authority Claim
+# SOLITE: 100% client-side, privacy-first utilities for creators, devs, designers, marketers.
+# No cookies. No tracking. Zero user-retained data. Perfectly safe to index.
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

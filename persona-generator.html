@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-<!-- 🧬 SOLITE GEN-5.1 BALANCED HEAD / Persona Generator — AUTHORITY + PERFORMANCE EDITION -->
+<!-- 🧬 SOLITE GEN-5.7 BALANCED HEAD / Persona Generator — CLEAN & THIN UI -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- 🧠 SEO + AI DISCOVERY -->
-  <title>Free User Persona Generator | Create Customer Personas | Solite</title>
-  <meta name="description" content="Create detailed, professional user personas for free. Use our templates to define demographics, goals, frustrations, and motivations. 100% private and browser-based." />
-  <meta name="keywords" content="persona generator, user persona creator, customer persona template, free persona tool, marketing persona, solite, privacy-first tool" />
+  <title>Free User Persona Generator | Create UX Personas | Solite</title>
+  <meta name="description" content="Create professional user personas for UX research and marketing. Customize demographics, goals, frustrations, and personality traits. Export as PDF/Image — 100% private." />
+  <meta name="keywords" content="persona generator, user persona maker, ux persona template, customer avatar creator, marketing persona tool, solite, privacy-first tool" />
   <link rel="canonical" href="https://solite.in/persona-generator.html" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Solite" />
   <meta name="publisher" content="Solite" />
-  <meta name="application-name" content="User Persona Generator - Solite" />
+  <meta name="application-name" content="Persona Generator - Solite" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -23,40 +23,38 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Solite" />
   <meta property="og:title" content="Free User Persona Generator | Solite" />
-  <meta property="og:description" content="Easily create and export professional customer personas. Define goals, pain points, and motivations with our private, offline-ready tool." />
+  <meta property="og:description" content="Build and download professional user personas in minutes. Includes random generator, photo upload, and personality sliders. 100% private." />
   <meta property="og:url" content="https://solite.in/persona-generator.html" />
-  <meta property="og:image" content="https://solite.in/assets/persona-generator-og.png" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/persona-generator.html&meta=false&screenshot=true" />
   <meta property="og:image:alt" content="Solite User Persona Generator Tool" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free User Persona Generator | Solite" />
-  <meta name="twitter:description" content="Build detailed user personas in minutes. Free, private, and browser-based persona creation tool by Solite." />
-  <meta name="twitter:image" content="https://solite.in/assets/persona-generator-og.png" />
-  <meta name="twitter:image:alt" content="A free tool from Solite to generate user and customer personas." />
+  <meta name="twitter:description" content="Create UX personas instantly. 100% private and browser-based tool by Solite." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/persona-generator.html&meta=false&screenshot=true" />
 
   <!-- 📊 VERCEL ANALYTICS -->
   <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
   <script src="/_vercel/insights/script.js" defer></script>
-
+  
   <!-- ⚙️ CORE LIBRARIES -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'], serif:['Lora','serif'], mono: ['Roboto Mono', 'monospace'] } } }
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
     };
   </script>
 
   <!-- 🔤 NON-BLOCKING FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;600&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;600&family=Roboto+Mono&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
   <!-- 🪄 FAVICONS -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
@@ -74,40 +72,26 @@
         "name": "Solite",
         "url": "https://solite.in",
         "logo": "https://solite.in/assets/apple-touch-icon.png",
-        "description": "Solite offers free, privacy-first browser tools for developers, designers, and marketers."
+        "description": "Solite provides free, privacy-first browser-based tools for business and development."
       },
       {
         "@type": "WebApplication",
         "@id": "https://solite.in/persona-generator.html#app",
         "name": "User Persona Generator | Solite",
         "url": "https://solite.in/persona-generator.html",
-        "applicationCategory": "BusinessApplication",
-        "description": "A free, client-side tool to create detailed customer and user personas with customizable templates and PDF export.",
+        "applicationCategory": "DesignApplication",
+        "description": "A free, client-side tool to create professional user personas with custom demographics, traits, and goals.",
         "featureList": [
-          "Create detailed user personas",
-          "Customizable templates",
-          "Define goals, pain points, motivations",
-          "Private and browser-based",
-          "Export as PDF, PNG, JPG"
+          "Create unlimited personas",
+          "Randomize data for quick inspiration",
+          "Customizable personality sliders",
+          "Add goals, frustrations, and bio",
+          "Upload custom avatar",
+          "Download as PDF, PNG, or JPG",
+          "100% private and browser-based"
         ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "provider": { "@id": "https://solite.in/#organization" }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://solite.in/persona-generator.html#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Why are user personas important?",
-            "acceptedAnswer": { "@type": "Answer", "text": "User personas are fictional characters that represent your target audience. They help teams understand user needs, experiences, behaviors, and goals, leading to better product design and marketing strategies." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my persona data private?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Solite Persona Generator is 100% client-side. All data you enter stays in your browser and is never sent to a server." }
-          }
-        ]
       }
     ]
   }
@@ -117,22 +101,28 @@
   <style>
     .mobile-nav-btn.active { color:#fff; }
     .mobile-nav-btn { color:#9ca3af; }
-    #template-grid::-webkit-scrollbar { height:6px; }
-    #template-grid::-webkit-scrollbar-track { background:#1f2937; }
-    #template-grid::-webkit-scrollbar-thumb { background:#4b5563; border-radius:3px; }
-    [contenteditable="true"] { outline:none; }
-    .image-selected { outline: dashed 2px #4b5563; border-radius:0.25rem; }
-    ::-webkit-scrollbar { width:8px; height:8px; }
+    [contenteditable="true"]:focus { outline:none; }
+    ::-webkit-scrollbar { width:5px; height:5px; }
     ::-webkit-scrollbar-track { background:#111827; }
     ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
     html { scrollbar-color:#4b5563 #111827; }
-    .slider-container { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.5rem; }
-    .slider-container label { text-transform: capitalize; }
-    .slider-container output { font-weight: 500; }
+    
+    /* Range Slider Styling - THIN VERSION */
+    input[type=range] { -webkit-appearance: none; background: transparent; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -5px; box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: #4b5563; border-radius: 1px; }
+    
+    /* Persona Card Print Styles */
+    .persona-card { font-family: 'Inter', sans-serif; } 
+
+    /* Fix for bullet point alignment in html2canvas */
+    .for-download .bullet-point {
+        transform: translateY(-2px);
+    }
   </style>
 
-  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.1-AI-AUTHORITY -->
-  <meta name="solite-ai-signature" content="APEX_HEAD_V5.1 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.7 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
 </head>
 
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
@@ -145,7 +135,7 @@
                     <span class="text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
                 </div>
                 <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">User Persona Generator</span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Persona Generator</span>
             </a>
             <div class="flex items-center space-x-4">
                 <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
@@ -159,48 +149,124 @@
         <h1 class="sr-only">Free User Persona Generator</h1>
         <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
             
-            <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
-                <h3 class="text-xl font-bold text-white mb-4">Templates</h3>
-                <div id="template-grid" class="flex overflow-x-auto gap-3 pb-2"></div>
-                
-                <hr class="border-gray-700 my-6">
-                
-                <div class="space-y-4 mb-4">
-                    <label for="photo-upload-input" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
-                        <span>Add Profile Photo</span>
-                    </label>
-                    <input type="file" id="photo-upload-input" class="hidden" accept="image/*">
-                    <button id="remove-photo-btn" class="hidden w-full bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.033-2.134H8.71c-1.123 0-2.033.954-2.033 2.134v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
-                        <span>Remove Photo</span>
-                    </button>
-                </div>
-                
-                <div id="image-controls-container" class="space-y-4 hidden mb-4">
-                    <h4 class="text-lg font-semibold text-white">Selected Image</h4>
+            <div id="controls-panel" class="w-full lg:w-[35%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col lg:h-[90vh]">
+                <div class="flex-grow overflow-y-auto pr-2 space-y-6">
+                    
+                    <!-- Avatar & Color -->
                     <div>
-                        <label for="image-opacity-slider" class="block text-sm font-medium text-gray-300">Opacity</label>
-                        <input type="range" id="image-opacity-slider" min="0" max="1" step="0.05" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-white">Identity</h2>
+                            <button id="randomize-btn" class="bg-white hover:bg-gray-100 text-gray-900 text-xs font-semibold py-2 px-4 rounded-lg flex items-center gap-1 transition-colors shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                                Randomize
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-[auto,1fr] gap-4 items-center">
+                            <div class="relative group w-20 h-20 flex-shrink-0">
+                                <div id="avatar-preview-control" class="w-20 h-20 rounded-full bg-gray-800 border-2 border-gray-600 bg-cover bg-center flex items-center justify-center text-gray-500 overflow-hidden relative">
+                                    <!-- Placeholder icon if no image -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                                </div>
+                                <label for="logo-upload-input" class="absolute inset-0 bg-black/50 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity text-xs text-white text-center font-medium">Upload</label>
+                                <input type="file" id="logo-upload-input" class="hidden" accept="image/*">
+                            </div>
+                            <div>
+                                <label for="accent-color-input" class="block text-sm font-medium text-gray-300 mb-1">Theme Color</label>
+                                <input type="color" id="accent-color-input" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-600">
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    
+                    <hr class="border-gray-700">
 
-                <div id="edit-fields-container" class="space-y-4 flex-grow overflow-y-auto pr-2 min-h-0">
-                    <!-- Dynamic fields will be injected here -->
-                </div>
+                    <!-- Demographics -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Demographics</h2>
+                         <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Full Name</label>
+                                <input type="text" id="persona-name" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Job Title</label>
+                                    <input type="text" id="persona-role" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Age</label>
+                                    <input type="number" id="persona-age" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Location</label>
+                                    <input type="text" id="persona-location" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Status</label>
+                                    <input type="text" id="persona-status" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                            </div>
+                         </div>
+                    </div>
 
-                <hr class="border-gray-700 my-6">
+                    <hr class="border-gray-700">
+
+                    <!-- Bio & Quote -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Bio & Quote</h2>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">The Quote</label>
+                                <textarea id="persona-quote" rows="2" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm italic"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Short Bio</label>
+                                <textarea id="persona-bio" rows="4" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <!-- Personality Sliders -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Personality</h2>
+                        <div id="traits-container" class="space-y-4">
+                            <!-- Traits injected by JS -->
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <!-- Goals & Frustrations -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Goals & Frustrations</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Goals (One per line)</label>
+                                <textarea id="persona-goals" rows="3" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Frustrations (One per line)</label>
+                                <textarea id="persona-frustrations" rows="3" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 
-                <div class="mt-auto">
-                    <div class="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                <!-- Bottom Actions -->
+                <div class="mt-6 pt-6 border-t border-gray-700 space-y-4">
+                     <div class="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
                         <div class="relative">
                             <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
-                                <span id="download-format-text">PDF</span>
+                                <span id="download-format-text">PNG</span>
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
-                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
                                 <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
                                 <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
                             </div>
                         </div>
@@ -215,12 +281,13 @@
                         </button>
                     </div>
                 </div>
-
             </div>
 
-            <div id="preview-panel" class="flex-1 flex flex-col bg-gray-700 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
-                <div id="persona-container" class="aspect-[1/1.414] w-full max-w-[816px] shadow-2xl relative overflow-hidden bg-white flex-shrink-0">
-                    <!-- Persona template loads here -->
+            <div id="preview-panel" class="flex-1 bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:grid lg:place-items-center p-4 lg:p-12 overflow-auto lg:w-[65%] lg:h-[90vh]">
+                <div id="persona-wrapper" class="origin-top transition-transform duration-200">
+                    <div id="persona-container" class="aspect-[1.414/1] w-[794px] shadow-2xl relative overflow-hidden bg-white text-gray-800 font-sans p-0 rounded-2xl flex flex-col md:flex-row">
+                        <!-- Persona template loads here -->
+                    </div>
                 </div>
             </div>
 
@@ -243,8 +310,8 @@
             </div>
         </div>
         </aside>
-        
     </main>
+    
     <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
         <div class="flex justify-around items-center h-16 py-1">
             <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
@@ -257,81 +324,154 @@
             </button>
         </div>
     </div>
-    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.1 / PERSONA GENERATOR) -->
-    <div class="w-full text-gray-300 p-2 pt-0">
-        <style>
-            #solite-seo-block-persona[open]>summary{border-bottom:1px solid #374151;}
-            #solite-seo-block-persona>summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s ease-in-out;}
-            #solite-seo-block-persona[open]>summary .details-arrow-seo{transform:rotate(0deg);}
-            .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #374151;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;color:#9CA3AF;}
-        </style>
 
-        <details id="solite-seo-block-persona" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-            <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-                Free User Persona Generator — Create Customer Personas Instantly
-                <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </summary>
+    <!-- 🧠 SOLITE SEO BLOCK -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+    <style>
+    #solite-info-block-persona[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-persona > summary .details-arrow-seo { transform: rotate(-90deg); transition: transform 0.25s ease-in-out; }
+    #solite-info-block-persona[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    </style>
+    <details id="solite-info-block-persona" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        User Persona Generator — Create Professional UX Profiles
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+    <div class="p-6 space-y-10 leading-relaxed">
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Persona Generator</span>
+            <span class="badge">UX Design</span>
+            <span class="badge">Marketing Avatar</span>
+            <span class="badge">Client-Side</span>
+            <span class="badge">Privacy-First</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite User Persona Generator</strong> lets you create professional user personas in seconds.
+            Add demographics, goals, and frustrations, upload a custom photo, and download a clean PDF — all processed <strong>100% inside
+            your browser</strong>. No data uploads, no accounts, no tracking — just fast, private, UX-ready personas.
+        </p>
+    </section>
 
-            <div class="p-6 space-y-10 leading-relaxed">
-                <section class="space-y-3">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="badge">Persona Generator</span>
-                        <span class="badge">Customer Persona</span>
-                        <span class="badge">Marketing Tool</span>
-                        <span class="badge">Privacy-First</span>
-                        <span class="badge">Free Templates</span>
-                    </div>
-                    <p class="text-lg text-gray-300">
-                        The <strong>Solite User Persona Generator</strong> is a free, privacy-first tool that helps marketers, designers, and product managers create detailed and professional customer personas. Define demographics, goals, frustrations, and motivations with our live-editing templates, and export your work instantly — no data is ever uploaded or stored.
-                    </p>
-                </section>
-                <section>
-                    <h3 class="text-white text-xl font-semibold mb-2">Why Create User Personas?</h3>
-                    <p class="text-gray-400">User personas are essential for building empathy and maintaining a user-centered design approach. They provide a clear picture of your target audience, ensuring that product development and marketing efforts are aligned with real user needs and pain points.</p>
-                </section>
-                <section>
-                    <h3 class="text-white text-xl font-semibold mb-2">How to Use This Tool</h3>
-                    <ol class="list-decimal list-inside text-gray-400 space-y-2">
-                        <li>Select a professional template to start.</li>
-                        <li>Fill in the details in the control panel: demographics, bio, goals, frustrations, etc.</li>
-                        <li>Upload a profile photo to give your persona a face (optional).</li>
-                        <li>Watch the persona card update in real-time as you type.</li>
-                        <li>Download your finished persona card as a high-quality PDF, PNG, or JPG.</li>
-                    </ol>
-                </section>
-                <section>
-                    <h3 class="text-white text-xl font-semibold mb-2">Solite vs. Other Persona Tools</h3>
-                    <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
-                        <thead class="bg-gray-800 text-gray-200 font-semibold">
-                            <tr>
-                                <th class="p-2 text-left">Feature</th>
-                                <th class="p-2 text-left">Solite Persona Generator</th>
-                                <th class="p-2 text-left">Cloud-Based Tools</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="p-2">Privacy</td><td class="p-2">✅ 100% Client-Side</td><td class="p-2">❌ Server-based, data stored</td></tr>
-                            <tr><td class="p-2">Cost</td><td class="p-2">✅ Completely Free</td><td class="p-2">⚠️ Often Freemium/Paid</td></tr>
-                            <tr><td class="p-2">Sign-up</td><td class="p-2">✅ Not Required</td><td class="p-2">⚠️ Required</td></tr>
-                            <tr><td class="p-2">Offline Use</td><td class="p-2">✅ Yes</td><td class="p-2">❌ No</td></tr>
-                        </tbody>
-                    </table>
-                </section>
-                <!-- 🧩 Cross-Linking Ecosystem -->
-                <section>
-                    <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Developer Suite</h3>
-                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
-                    <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Code Editor</a> — Live HTML/CSS/JS playground with instant preview.</li>
-                    <li><a href="./regex-playground.html" class="text-white hover:underline font-medium">Regex Playground</a> — Test regular expressions with live highlighting.</li>
-                    <li><a href="./hash-generator.html" class="text-white hover:underline font-medium">Hash Generator</a> — Generate MD5, SHA-1 and SHA-256 hashes instantly.</li>
-                    <li><a href="./meta-tag-previewer.html" class="text-white hover:underline font-medium">Meta Tag Previewer</a> — Visualize how your site appears on social media.</li>
-                    </ul>
-                    <p class="text-gray-400 mt-3"><a href="./index.html#apps" class="text-white font-semibold hover:underline">Explore all Solite Apps →</a></p>
-                </section>
-            </div>
-        </details>
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Love This Tool</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Professional Persona Engine:</strong> Auto-formats demographics, goals, frustrations, and personality traits.</li>
+            <li><strong>Random Data Generator:</strong> Instantly populate a persona with realistic placeholder data.</li>
+            <li><strong>Visual Personality Sliders:</strong> Define traits like Introvert/Extrovert with an intuitive interface.</li>
+            <li><strong>Branding Ready:</strong> Upload a custom avatar and set a theme color for the persona card.</li>
+            <li><strong>Flexible Export:</strong> Save as PDF, PNG, or JPG with print-ready resolution.</li>
+            <li><strong>Complete Privacy:</strong> Everything runs in your browser — no data is uploaded or stored.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Persona Generator?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>UX Designers:</strong> Build data-driven personas to guide product decisions.</li>
+                <li><strong>Marketers:</strong> Define target customer avatars for campaigns.</li>
+                <li><strong>Product Managers:</strong> Align teams on user needs and pain points.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Founders:</strong> Clarify the ideal customer profile for an MVP.</li>
+                <li><strong>Students:</strong> Create professional personas for UX/UI portfolios.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Create a Professional Persona</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Click <strong>Randomize</strong> for inspiration or fill in the details manually.</li>
+            <li>Add demographics, a short bio, and a representative quote.</li>
+            <li>Define personality traits using the visual sliders.</li>
+            <li>List the user's primary goals and frustrations.</li>
+            <li>Upload a custom photo and set a theme color.</li>
+            <li>Choose export format: <strong>PDF</strong>, <strong>PNG</strong>, or <strong>JPG</strong>.</li>
+            <li>Click <strong>Download</strong> to save your ready-to-share persona.</li>
+        </ol>
+    </section>
+
+    <!-- 🧩 Report / Output -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">What Your Final Persona Includes</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Clear Header:</strong> Name, role, and custom avatar.</li>
+            <li><strong>Key Demographics:</strong> Age, location, and status.</li>
+            <li><strong>Personality Profile:</strong> Visual sliders representing key traits.</li>
+            <li><strong>Core Motivations:</strong> A clear list of goals and frustrations.</li>
+            <li><strong>Narrative Context:</strong> A short bio and an impactful quote.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Solite vs Typical Persona Tools</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Solite Persona Generator</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="p-2">Privacy</td>
+                <td class="p-2">✅ 100% Client-Side</td>
+                <td class="p-2">❌ Data uploaded to servers</td>
+            </tr>
+                <tr>
+                <td class="p-2">Random Data</td>
+                <td class="p-2">✅ One-Click Generation</td>
+                <td class="p-2">⚠️ Often requires manual input</td>
+            </tr>
+            <tr>
+                <td class="p-2">Personality Sliders</td>
+                <td class="p-2">✅ Visual & Intuitive</td>
+                <td class="p-2">❌ Text fields only</td>
+            </tr>
+            <tr>
+                <td class="p-2">Price</td>
+                <td class="p-2">✅ Free Forever</td>
+                <td class="p-2">❌ Premium plans or paywall</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./invoice-generator.html" class="text-white hover:underline font-medium">Invoice Generator</a> — Create professional invoices for your freelance work.</li>
+            <li><a href="./receipt-generator.html" class="text-white hover:underline font-medium">Receipt Generator</a> — Generate quick receipts for payments.</li>
+            <li><a href="./business-card-maker.html" class="text-white hover:underline font-medium">Business Card Maker</a> — Design cards for your new persona.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>persona generator, user persona tool, ux persona maker, marketing avatar creator, free online persona tool, solite apps, customer profile builder</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite User Persona Generator — a 100% client-side tool to create and download professional user personas with full
+            privacy, a random data generator, personality sliders, and multi-format export.”
+        </p>
+    </section>
+    </div>
+    </details>
     </div>
 
     <!-- Footer -->
@@ -341,7 +481,7 @@
                 <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
                 <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
             </div>
-                        <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
                 <a href="about.html" class="hover:text-white transition-colors">About</a>
                 <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
                 <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
@@ -355,657 +495,351 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const PERSONA_TEMPLATES = [
-                {
-                    id: 'modern', name: 'Modern',
-                    html: `
-                        <div class="w-full h-full bg-white text-gray-800 font-sans p-8 flex flex-col">
-                            <div class="flex items-center mb-6">
-                                <div data-id="profile-photo" data-type="image" class="w-24 h-24 rounded-full bg-gray-200 mr-6 flex-shrink-0 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <div>
-                                    <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold">ALEX DOE</h1>
-                                    <p contenteditable="true" data-id="archetype" class="text-lg text-gray-600">The Innovator</p>
-                                </div>
-                            </div>
-                            <p contenteditable="true" data-id="quote" class="text-center italic text-gray-500 border-y-2 border-gray-100 py-4 my-4">"There has to be a better way to do this."</p>
-                            <div class="grid grid-cols-2 gap-x-8 text-sm flex-grow">
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">About</h2>
-                                    <div contenteditable="true" data-id="about-section" class="space-y-1">
-                                        <p><strong>Age:</strong> <span data-id="age">28</span></p>
-                                        <p><strong>Occupation:</strong> <span data-id="occupation">Product Manager</span></p>
-                                        <p><strong>Status:</strong> <span data-id="status">Single</span></p>
-                                        <p><strong>Location:</strong> <span data-id="location">San Francisco, CA</span></p>
-                                    </div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Personality</h2>
-                                    <div data-id="personality-sliders" class="space-y-2">
-                                        <!-- Sliders here -->
-                                    </div>
-                                </div>
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Goals</h2>
-                                    <ul contenteditable="true" data-id="goals" class="list-disc pl-5 space-y-1">
-                                        <li>Launch a successful side-project.</li>
-                                        <li>Streamline team workflow with new tools.</li>
-                                        <li>Learn a new programming language.</li>
-                                    </ul>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Frustrations</h2>
-                                    <ul contenteditable="true" data-id="frustrations" class="list-disc pl-5 space-y-1">
-                                        <li>Inefficient meeting culture.</li>
-                                        <li>Clunky, outdated software.</li>
-                                        <li>Difficulty tracking project progress.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 pt-4 border-t-2 border-gray-100">
-                                <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Brands & Channels</h2>
-                                <p contenteditable="true" data-id="brands-channels" class="text-xs text-gray-600">Slack, Figma, Notion, Asana, TechCrunch, Twitter</p>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'creative', name: 'Creative',
-                    html: `
-                        <div class="w-full h-full bg-gray-900 text-white font-serif p-8 flex flex-col" style="font-family: 'Lora', serif;">
-                            <div class="text-center">
-                                <div data-id="profile-photo" data-type="image" class="w-32 h-32 rounded-full bg-gray-700 mx-auto mb-4 border-4 border-gray-600 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <h1 contenteditable="true" data-id="full-name" class="text-4xl font-bold">MARIA GARCIA</h1>
-                                <p contenteditable="true" data-id="archetype" class="text-xl text-gray-400">The Storyteller</p>
-                            </div>
-                            <div class="mt-8 flex-grow space-y-6">
-                                <div>
-                                    <h2 class="font-bold text-lg mb-2">Bio</h2>
-                                    <p contenteditable="true" data-id="bio" class="text-sm text-gray-300">Maria is a freelance writer and content creator who thrives on crafting compelling narratives for brands. She values authenticity and creativity in her work.</p>
-                                </div>
-                                <div class="grid grid-cols-2 gap-6 text-sm">
-                                    <div>
-                                        <h3 class="font-semibold text-gray-400">Goals</h3>
-                                        <ul contenteditable="true" data-id="goals" class="list-disc pl-4 mt-1"><li>Publish a novel</li><li>Grow her freelance business</li></ul>
-                                    </div>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-400">Frustrations</h3>
-                                        <ul contenteditable="true" data-id="frustrations" class="list-disc pl-4 mt-1"><li>Unreliable clients</li><li>Creative burnout</li></ul>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h2 class="font-bold text-lg mb-2">Motivations</h2>
-                                    <div contenteditable="true" data-id="motivations" class="flex gap-4 text-center text-xs">
-                                        <div class="bg-gray-800 p-2 rounded flex-1"><strong>Flexibility</strong></div>
-                                        <div class="bg-gray-800 p-2 rounded flex-1"><strong>Impact</strong></div>
-                                        <div class="bg-gray-800 p-2 rounded flex-1"><strong>Autonomy</strong></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'classic', name: 'Classic',
-                    html: `
-                        <div class="w-full h-full bg-white text-gray-800 font-sans p-8 flex flex-col border-4 border-gray-800">
-                             <div class="text-center border-b-2 border-gray-800 pb-4">
-                                <h1 contenteditable="true" data-id="full-name" class="text-4xl font-bold tracking-wide">DAVID MILLER</h1>
-                                <p contenteditable="true" data-id="archetype" class="text-md uppercase tracking-widest text-gray-600">The Pragmatist</p>
-                            </div>
-                            <div class="flex mt-6 flex-grow">
-                                <aside class="w-1/3 pr-6 border-r-2 border-gray-200">
-                                    <div data-id="profile-photo" data-type="image" class="w-full aspect-square bg-gray-200 mb-4 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                    <h2 class="font-bold mb-2">Details</h2>
-                                    <div contenteditable="true" data-id="details" class="text-sm space-y-1">
-                                        <p><strong>Age:</strong> 42</p>
-                                        <p><strong>Occupation:</strong> Financial Analyst</p>
-                                        <p><strong>Education:</strong> MBA</p>
-                                    </div>
-                                </aside>
-                                <main class="w-2/3 pl-6">
-                                    <h2 class="font-bold text-lg mb-2">Summary</h2>
-                                    <p contenteditable="true" data-id="summary" class="text-sm italic">David is a data-driven professional who values efficiency, reliability, and clear communication. He seeks tools that save time and reduce complexity.</p>
-                                    <h2 class="font-bold text-lg mt-4 mb-2">Goals</h2>
-                                    <ul contenteditable="true" data-id="goals" class="list-disc pl-5 text-sm"><li>Achieve a 15% portfolio growth</li><li>Optimize reporting workflows</li></ul>
-                                    <h2 class="font-bold text-lg mt-4 mb-2">Pain Points</h2>
-                                    <ul contenteditable="true" data-id="pain-points" class="list-disc pl-5 text-sm"><li>Manual data entry</li><li>Poorly designed software interfaces</li></ul>
-                                </main>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'founder', name: 'Founder',
-                    html: `
-                        <div class="w-full h-full bg-[#111827] text-gray-300 font-sans p-8 flex flex-col">
-                            <div class="flex items-start justify-between mb-6">
-                                <div>
-                                    <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold text-white">SAM KIRK</h1>
-                                    <p contenteditable="true" data-id="archetype" class="text-lg text-blue-400">The Visionary Founder</p>
-                                </div>
-                                <div data-id="profile-photo" data-type="image" class="w-20 h-20 rounded-full bg-gray-700 flex-shrink-0 border-2 border-gray-600 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-x-8 text-sm flex-grow">
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Key Metrics</h2>
-                                    <div contenteditable="true" data-id="key-metrics" class="space-y-1 text-lg">
-                                        <p><strong>ARR:</strong> <span data-id="arr">$1.2M</span></p>
-                                        <p><strong>LTV:</strong> <span data-id="ltv">$4,500</span></p>
-                                    </div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Tech Stack</h2>
-                                    <p contenteditable="true" data-id="tech-stack" class="text-xs font-mono bg-gray-800 p-2 rounded">React, Node.js, PostgreSQL, AWS, Vercel</p>
-                                </div>
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Business Goals</h2>
-                                    <ul contenteditable="true" data-id="business-goals" class="list-disc pl-5 space-y-1">
-                                        <li>Secure Series A funding.</li>
-                                        <li>Expand engineering team.</li>
-                                        <li>Achieve 10,000 active users.</li>
-                                    </ul>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Challenges</h2>
-                                    <ul contenteditable="true" data-id="challenges" class="list-disc pl-5 space-y-1">
-                                        <li>Scaling infrastructure reliably.</li>
-                                        <li>Hiring top-tier talent.</li>
-                                        <li>Market penetration against incumbents.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 pt-4 border-t-2 border-gray-700">
-                                <p contenteditable="true" data-id="quote" class="italic text-gray-400">"We're not just building a product, we're building the future of this industry."</p>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'shopper', name: 'Shopper',
-                    html: `
-                        <div class="w-full h-full bg-white text-gray-800 font-sans p-8 flex flex-col">
-                            <div class="text-center mb-6">
-                                 <div data-id="profile-photo" data-type="image" class="w-28 h-28 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold">CHLOE DAVIS</h1>
-                                <p contenteditable="true" data-id="archetype" class="text-lg text-pink-600">The Savvy Shopper</p>
-                            </div>
-                            <div class="grid grid-cols-2 gap-6 text-sm flex-grow">
-                                <div class="space-y-4">
-                                    <div>
-                                        <h2 class="font-bold uppercase tracking-wider text-gray-500 mb-2">Shopping Goals</h2>
-                                        <ul contenteditable="true" data-id="shopping-goals" class="list-disc pl-5 space-y-1">
-                                            <li>Find high-quality, sustainable products.</li>
-                                            <li>Get the best value for money.</li>
-                                            <li>Enjoy a seamless checkout experience.</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h2 class="font-bold uppercase tracking-wider text-gray-500 mb-2">Pain Points</h2>
-                                        <ul contenteditable="true" data-id="pain-points" class="list-disc pl-5 space-y-1">
-                                            <li>Confusing website navigation.</li>
-                                            <li>Hidden shipping costs.</li>
-                                            <li>Poor customer service.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="space-y-4">
-                                    <div>
-                                        <h2 class="font-bold uppercase tracking-wider text-gray-500 mb-2">Motivations</h2>
-                                        <ul contenteditable="true" data-id="motivations" class="list-disc pl-5 space-y-1">
-                                            <li>Positive reviews and testimonials.</li>
-                                            <li>Exclusive deals and discounts.</li>
-                                            <li>A brand that aligns with her values.</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h2 class="font-bold uppercase tracking-wider text-gray-500 mb-2">Favorite Brands</h2>
-                                        <p contenteditable="true" data-id="favorite-brands" class="text-gray-600">Patagonia, Allbirds, Glossier, Everlane</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'b2b-buyer', name: 'B2B Buyer',
-                    html: `
-                        <div class="w-full h-full bg-gray-50 text-gray-800 font-sans p-8 flex">
-                            <div class="w-2/3 pr-8">
-                                <h1 contenteditable="true" data-id="full-name" class="text-4xl font-bold text-gray-900">MARK JENNINGS</h1>
-                                <p contenteditable="true" data-id="job-title" class="text-xl text-blue-800 font-semibold">Director of Operations</p>
-                                <div class="mt-6">
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Key Responsibilities</h2>
-                                    <ul contenteditable="true" data-id="key-responsibilities" class="list-disc pl-5 space-y-1 text-sm">
-                                        <li>Overseeing supply chain and logistics.</li>
-                                        <li>Evaluating and implementing new software solutions.</li>
-                                        <li>Managing a team of 15+ operations specialists.</li>
-                                        <li>Reporting on departmental KPIs to executive leadership.</li>
-                                    </ul>
-                                </div>
-                                <div class="mt-6">
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Decision-Making Factors</h2>
-                                    <ul contenteditable="true" data-id="decision-factors" class="list-disc pl-5 space-y-1 text-sm">
-                                        <li>Return on Investment (ROI).</li>
-                                        <li>Integration with existing systems (Salesforce, SAP).</li>
-                                        <li>Security and compliance certifications.</li>
-                                        <li>Quality of customer support and training.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="w-1/3 pl-8 border-l-2 border-gray-200">
-                                <div data-id="profile-photo" data-type="image" class="w-24 h-24 rounded-full bg-gray-200 mb-4 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Demographics</h2>
-                                <div contenteditable="true" data-id="demographics" class="text-sm space-y-1">
-                                    <p><strong>Age:</strong> 48</p>
-                                    <p><strong>Education:</strong> M.S. in Industrial Engineering</p>
-                                    <p><strong>Company Size:</strong> 1,000+ Employees</p>
-                                </div>
-                                <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Information Sources</h2>
-                                <p contenteditable="true" data-id="information-sources" class="text-sm">Gartner reports, industry whitepapers, LinkedIn, vendor case studies.</p>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'tech-professional', name: 'Tech Pro',
-                    html: `
-                        <div class="w-full h-full bg-gray-900 text-gray-300 font-sans p-8 flex flex-col">
-                            <div class="flex items-center mb-6">
-                                <div data-id="profile-photo" data-type="image" class="w-24 h-24 rounded-full bg-gray-700 mr-6 flex-shrink-0 border-2 border-blue-500 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <div>
-                                    <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold text-white">KENJI TANAKA</h1>
-                                    <p contenteditable="true" data-id="job-title" class="text-lg text-gray-400">Senior Backend Engineer</p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-x-8 text-sm flex-grow">
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Productivity Goals</h2>
-                                    <ul contenteditable="true" data-id="productivity-goals" class="list-disc pl-5 space-y-1">
-                                        <li>Reduce build times by 20%.</li>
-                                        <li>Automate repetitive deployment tasks.</li>
-                                        <li>Minimize time spent in unnecessary meetings.</li>
-                                    </ul>
-                                     <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mt-4 mb-2">Frustrations</h2>
-                                    <ul contenteditable="true" data-id="frustrations" class="list-disc pl-5 space-y-1">
-                                        <li>Legacy codebases with poor documentation.</li>
-                                        <li>Slow and unreliable CI/CD pipelines.</li>
-                                        <li>Vague project requirements.</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Tech Stack</h2>
-                                    <p contenteditable="true" data-id="tech-stack" class="font-mono text-xs bg-gray-800 p-3 rounded">Go, Python, Docker, Kubernetes, gRPC, Prometheus, PostgreSQL</p>
-                                </div>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'busy-parent', name: 'Parent',
-                    html: `
-                        <div class="w-full h-full bg-[#fdfbf6] text-gray-700 font-sans p-8 flex flex-col">
-                            <div class="flex items-center mb-6">
-                                 <div data-id="profile-photo" data-type="image" class="w-24 h-24 rounded-full bg-gray-200 mr-6 flex-shrink-0 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <div>
-                                    <h1 contenteditable="true" data-id="full-name" class="text-3xl font-bold text-gray-800">SARAH CHEN</h1>
-                                    <p contenteditable="true" data-id="archetype" class="text-lg text-teal-600">The Multitasker</p>
-                                </div>
-                            </div>
-                            <p contenteditable="true" data-id="quote" class="text-center italic text-gray-500 border-y border-gray-200 py-3 my-3">"If it's not on the calendar, it doesn't exist."</p>
-                            <div class="flex-grow space-y-4 text-sm">
-                                <div>
-                                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Daily Routine</h2>
-                                    <p contenteditable="true" data-id="daily-routine">Manages school drop-offs, a part-time remote job, after-school activities, and household chores. Time is her most valuable asset.</p>
-                                </div>
-                                <div class="grid grid-cols-2 gap-x-6">
-                                    <div>
-                                        <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Pain Points</h2>
-                                        <ul contenteditable="true" data-id="pain-points" class="list-disc pl-5 space-y-1">
-                                            <li>Forgetting appointments.</li>
-                                            <li>Finding quick, healthy meal ideas.</li>
-                                            <li>Coordinating schedules with her partner.</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Goals</h2>
-                                        <ul contenteditable="true" data-id="goals" class="list-disc pl-5 space-y-1">
-                                            <li>Find 30 minutes for herself each day.</li>
-                                            <li>Stay organized and on top of schedules.</li>
-                                            <li>Spend quality time with family.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                },
-                {
-                    id: 'student', name: 'Student',
-                    html: `
-                        <div class="w-full h-full bg-white text-gray-800 font-sans p-8 flex">
-                            <main class="w-2/3 pr-6">
-                                <h1 contenteditable="true" data-id="full-name" class="text-4xl font-extrabold">LIAM CARTER</h1>
-                                <p contenteditable="true" data-id="archetype" class="text-xl text-gray-500 font-medium">The Budget-Conscious Learner</p>
-                                <div class="mt-6">
-                                    <h2 class="font-bold uppercase tracking-wider text-xs mb-2">Bio</h2>
-                                    <p contenteditable="true" data-id="bio" class="text-sm">Liam is a university student majoring in Economics. He's balancing a full course load with a part-time job, and is always looking for ways to save money and learn efficiently.</p>
-                                </div>
-                                <div class="mt-4">
-                                    <h2 class="font-bold uppercase tracking-wider text-xs mb-2">Financial Goals</h2>
-                                    <ul contenteditable="true" data-id="financial-goals" class="list-disc pl-5 text-sm">
-                                        <li>Graduate with minimal student debt.</li>
-                                        <li>Find affordable textbooks and resources.</li>
-                                        <li>Save for a post-graduation trip.</li>
-                                    </ul>
-                                </div>
-                                 <div class="mt-4">
-                                    <h2 class="font-bold uppercase tracking-wider text-xs mb-2">Motivations</h2>
-                                    <ul contenteditable="true" data-id="motivations" class="list-disc pl-5 text-sm">
-                                        <li>Getting good grades to secure internships.</li>
-                                        <li>Peer recommendations and reviews.</li>
-                                        <li>Free trials and student discounts.</li>
-                                    </ul>
-                                </div>
-                            </main>
-                            <aside class="w-1/3 pl-6 border-l border-gray-200 flex flex-col items-center text-center">
-                                <div data-id="profile-photo" data-type="image" class="w-24 h-24 rounded-full bg-gray-200 mb-4 overflow-hidden"><img src="" class="w-full h-full object-cover hidden"></div>
-                                <div contenteditable="true" data-id="details" class="text-sm">
-                                    <p><strong>Age:</strong> 20</p>
-                                    <p><strong>Major:</strong> Economics</p>
-                                    <p><strong>University:</strong> State University</p>
-                                </div>
-                                <h2 class="font-bold uppercase tracking-wider text-xs mt-4 mb-2">Channels</h2>
-                                <p contenteditable="true" data-id="channels" class="text-sm">TikTok, YouTube, Reddit, University Forums</p>
-                            </aside>
-                        </div>`
-                }
+            const mockData = [
+                { name: 'Sarah Jenkins', role: 'Digital Marketer', age: 28, location: 'Austin, TX', status: 'Single', quote: '"Data drives decisions, but creativity wins hearts."', bio: 'Sarah is a driven marketing professional working at a tech startup. She loves analyzing trends but often feels overwhelmed by the sheer amount of tools she needs to manage daily. She values efficiency above all else.', goals: 'Increase ROI by 20%\nAutomate repetitive reporting\nLearn Python for data analysis', frustrations: 'Too many disconnected tools\nUnreliable analytics data\nLack of time for creative work', traits: [70, 40, 80, 60] },
+                { name: 'David Chen', role: 'Senior Developer', age: 35, location: 'San Francisco, CA', status: 'Married', quote: '"Clean code is the best documentation."', bio: 'David has been coding for over 10 years. He leads a team of 5 and is passionate about open source. He hates meetings and prefers asynchronous communication. He wants tools that just work without configuration.', goals: 'Ship the new API version\nReduce technical debt\nMentor junior devs', frustrations: 'Constant context switching\nVague project requirements\nLegacy code maintenance', traits: [20, 90, 30, 85] },
+                { name: 'Elena Rodriguez', role: 'Small Business Owner', age: 42, location: 'Madrid, Spain', status: 'Married, 2 Kids', quote: '"My customers are my family."', bio: 'Elena runs a boutique coffee shop. She is not very tech-savvy but knows she needs a digital presence. She relies on her phone for everything and gets frustrated by complex desktop software.', goals: 'Expand to a second location\nLaunch an online store\nBuild a loyal community', frustrations: 'Technology is too complex\nHigh marketing costs\nManaging staff schedules', traits: [90, 30, 60, 40] }
             ];
-            
-            const el = {
-                templateGrid: document.getElementById('template-grid'),
-                personaContainer: document.getElementById('persona-container'),
-                editFieldsContainer: document.getElementById('edit-fields-container'),
-                downloadBtn: document.getElementById('download-btn'),
-                downloadBtnContent: document.getElementById('download-btn-content'),
-                photoUploadInput: document.getElementById('photo-upload-input'),
-                removePhotoBtn: document.getElementById('remove-photo-btn'),
-                controlsPanel: document.getElementById('controls-panel'),
-                previewPanel: document.getElementById('preview-panel'),
-                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
-                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
-                resetBtn: document.getElementById('reset-btn'),
-                imageControlsContainer: document.getElementById('image-controls-container'),
-                imageOpacitySlider: document.getElementById('image-opacity-slider'),
+
+            const initialState = {
+                name: 'Alex Doe',
+                role: 'Product Designer',
+                age: 32,
+                location: 'New York, NY',
+                status: 'Single',
+                quote: '"Design is not just what it looks like and feels like. Design is how it works."',
+                bio: 'Alex is a detail-oriented designer with a passion for user-centric products. He spends his weekends hiking and photography. He is constantly looking for inspiration in everyday objects.',
+                goals: 'Create intuitive user experiences\nMaster the latest design tools\nLead a design team',
+                frustrations: 'Miscommunication with developers\nShort deadlines\nLack of user feedback',
+                accentColor: '#4f46e5',
+                avatar: null, // Start with NO image
+                traits: [60, 75, 40, 80]
             };
 
-            let downloadFormat = 'pdf';
-            let currentTemplateId = PERSONA_TEMPLATES[0].id;
-            let selectedElement = null;
+            const traitLabels = [
+                { left: 'Introvert', right: 'Extrovert' },
+                { left: 'Analytical', right: 'Creative' },
+                { left: 'Loyal', right: 'Fickle' },
+                { left: 'Passive', right: 'Active' }
+            ];
 
-            function populateTemplateGallery() {
-                el.templateGrid.innerHTML = '';
-                PERSONA_TEMPLATES.forEach(template => {
-                    const card = document.createElement('button');
-                    card.dataset.templateId = template.id;
-                    card.className = 'template-card flex-shrink-0 bg-gray-800 rounded-lg p-2 text-center cursor-pointer transition-all duration-300 border-2 border-gray-700 hover:border-gray-500 w-24';
-                    card.innerHTML = `<h3 class="font-semibold text-white text-sm">${template.name}</h3>`;
-                    card.addEventListener('click', () => loadTemplate(template.id));
-                    el.templateGrid.appendChild(card);
-                });
-            }
+            let state = { ...initialState };
+            let downloadFormat = 'png';
 
-            function loadTemplate(templateId) {
-                const template = PERSONA_TEMPLATES.find(t => t.id === templateId);
-                if (!template) return;
-                currentTemplateId = templateId;
+            const el = {
+                controlsPanel: document.getElementById('controls-panel'),
+                previewPanel: document.getElementById('preview-panel'),
+                personaContainer: document.getElementById('persona-container'),
+                traitsContainer: document.getElementById('traits-container'),
+                downloadBtn: document.getElementById('download-btn'),
+                downloadBtnContent: document.getElementById('download-btn-content'),
+                resetBtn: document.getElementById('reset-btn'),
+                randomizeBtn: document.getElementById('randomize-btn'),
+                logoUploadInput: document.getElementById('logo-upload-input'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                accentColorInput: document.getElementById('accent-color-input'),
+                avatarPreviewControl: document.getElementById('avatar-preview-control'),
+            };
 
-                document.querySelectorAll('.template-card.border-white').forEach(c => c.classList.replace('border-white', 'border-gray-700'));
-                document.querySelector(`.template-card[data-template-id="${templateId}"]`)?.classList.replace('border-gray-700', 'border-white');
-
-                el.personaContainer.innerHTML = template.html;
-                el.editFieldsContainer.innerHTML = '';
-                removePhoto();
-
-                const allEditableElements = el.personaContainer.querySelectorAll('[contenteditable="true"], [data-id*="slider"]');
-                const processedIds = new Set();
+            function renderControls() {
+                document.getElementById('persona-name').value = state.name;
+                document.getElementById('persona-role').value = state.role;
+                document.getElementById('persona-age').value = state.age;
+                document.getElementById('persona-location').value = state.location;
+                document.getElementById('persona-status').value = state.status;
+                document.getElementById('persona-quote').value = state.quote;
+                document.getElementById('persona-bio').value = state.bio;
+                document.getElementById('persona-goals').value = state.goals;
+                document.getElementById('persona-frustrations').value = state.frustrations;
+                el.accentColorInput.value = state.accentColor;
                 
-                allEditableElements.forEach(elem => {
-                    const id = elem.dataset.id;
-                    if (processedIds.has(id) || !id) return;
-                    processedIds.add(id);
+                // Avatar preview in controls
+                if (state.avatar) {
+                    el.avatarPreviewControl.style.backgroundImage = `url('${state.avatar}')`;
+                    el.avatarPreviewControl.innerHTML = ''; // Clear placeholder icon
+                } else {
+                    el.avatarPreviewControl.style.backgroundImage = 'none';
+                    el.avatarPreviewControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>';
+                }
 
-                    if (id.includes('slider')) {
-                        // Handle personality sliders
-                        const sliderContainer = document.createElement('div');
-                        sliderContainer.className = "space-y-4";
-                        const sliders = [
-                            { id: 'introvert-extrovert', left: 'Introvert', right: 'Extrovert' },
-                            { id: 'analytical-creative', left: 'Analytical', right: 'Creative' },
-                            { id: 'passive-active', left: 'Passive', right: 'Active' },
-                        ];
-                        
-                        sliders.forEach(s => {
-                             const wrapper = document.createElement('div');
-                            wrapper.className = "text-sm";
-                            const labelDiv = document.createElement('div');
-                            labelDiv.className = "flex justify-between text-gray-400 text-xs mb-1";
-                            labelDiv.innerHTML = `<span>${s.left}</span><span>${s.right}</span>`;
-                            const sliderInput = document.createElement('input');
-                            sliderInput.type = 'range';
-                            sliderInput.id = `field-${s.id}`;
-                            sliderInput.min = 0;
-                            sliderInput.max = 100;
-                            sliderInput.value = 50;
-                            sliderInput.className = 'w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer p-0';
-                            wrapper.appendChild(labelDiv);
-                            wrapper.appendChild(sliderInput);
-                            sliderContainer.appendChild(wrapper);
-                        });
-
-                        el.editFieldsContainer.appendChild(sliderContainer);
-                        return; // continue to next element
-                    }
-
-                    const placeholder = elem.innerHTML.trim();
-                    const labelText = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-
-                    const label = document.createElement('label');
-                    label.className = 'block text-sm font-medium text-gray-300';
-                    label.htmlFor = `field-${id}`;
-                    label.textContent = labelText;
-
-                    const isTextarea = placeholder.length > 80 || id.includes('summary') || id.includes('bio') || id.includes('goals') || id.includes('frustrations') || id.includes('responsibilities') || id.includes('factors');
-                    const input = document.createElement(isTextarea ? 'textarea' : 'input');
-                    input.id = `field-${id}`;
-                    if (!isTextarea) input.type = 'text';
-                    if (isTextarea) input.rows = 4;
-                    
-                    let inputValue = placeholder.replace(/<br\s*\/?>/gi, '\\n').replace(/<[^>]+>/g, (match, offset, string) => {
-                        return (match.toLowerCase() === '<li>' ? '\\n• ' : (string[offset-1] === '>' ? '' : ' '));
-                    }).replace(/(\\n•\s)+/g, '\n• ').trim();
-                    
-                    input.value = inputValue;
-                    
-                    input.className = 'mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400';
-
-                    input.addEventListener('input', (e) => {
-                        const targetElement = el.personaContainer.querySelector(`[data-id="${id}"]`);
-                        if (targetElement) {
-                            if (targetElement.tagName === 'UL') {
-                                targetElement.innerHTML = e.target.value.split('\n').map(line => `<li>${line.replace('• ','')}</li>`).join('');
-                            } else {
-                                targetElement.innerHTML = e.target.value.replace(/\n/g, '<br>');
-                            }
-                        }
-                    });
-
-                    el.editFieldsContainer.appendChild(label);
-                    el.editFieldsContainer.appendChild(input);
-                });
-                
-                // Re-populate personality sliders in the preview if they exist in the template
-                const previewSliderContainer = el.personaContainer.querySelector('[data-id="personality-sliders"]');
-                if (previewSliderContainer) {
-                    const sliders = [
-                        { id: 'introvert-extrovert', left: 'Introvert', right: 'Extrovert', value: 50 },
-                        { id: 'analytical-creative', left: 'Analytical', right: 'Creative', value: 50 },
-                        { id: 'passive-active', left: 'Passive', right: 'Active', value: 50 },
-                    ];
-                    previewSliderContainer.innerHTML = sliders.map(s => `
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs text-gray-500">
-                                <span>${s.left}</span>
-                                <span>${s.right}</span>
-                            </div>
-                            <input type="range" id="preview-${s.id}" min="0" max="100" value="${s.value}" class="w-full h-1 bg-gray-300 rounded-lg appearance-none cursor-default" disabled>
+                // Render Traits
+                el.traitsContainer.innerHTML = '';
+                state.traits.forEach((val, idx) => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                            <span>${traitLabels[idx].left}</span>
+                            <span>${traitLabels[idx].right}</span>
                         </div>
-                    `).join('');
-                }
-
-                setupInteract();
-            }
-            
-            async function downloadAction() {
-                deselectAll();
-                el.downloadBtn.disabled = true;
-                el.downloadBtnContent.innerHTML = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-2">Download</span>`;
-
-                await new Promise(resolve => setTimeout(resolve, 150));
-                
-                const paneWasHidden = el.previewPanel.classList.contains('hidden');
-                if (paneWasHidden) {
-                    el.previewPanel.style.position = 'absolute';
-                    el.previewPanel.style.left = '-9999px';
-                    el.previewPanel.classList.remove('hidden');
-                    el.previewPanel.classList.add('flex');
-                }
-                
-                try {
-                    const canvas = await html2canvas(el.personaContainer, { scale: 3, logging: false, useCORS: true, backgroundColor: null });
-                    const filename = `persona.${downloadFormat}`;
-                    
-                    if (downloadFormat === 'pdf') {
-                        const { jsPDF } = window.jspdf;
-                        const imgData = canvas.toDataURL('image/png', 1.0);
-                        const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
-                        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-                        pdf.save(filename);
-                    } else {
-                        const link = document.createElement('a');
-                        link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
-                        link.download = filename;
-                        link.click();
-                    }
-                } catch (error) {
-                    console.error("Download failed:", error);
-                } finally {
-                    el.downloadBtn.disabled = false;
-                    el.downloadBtnContent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg><span class="ml-2">Download</span>`;
-                    if (paneWasHidden) {
-                        el.previewPanel.style.position = '';
-                        el.previewPanel.style.left = '';
-                        el.previewPanel.classList.add('hidden');
-                        el.previewPanel.classList.remove('flex');
-                    }
-                }
+                        <input type="range" min="0" max="100" value="${val}" data-index="${idx}" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer trait-slider">
+                    `;
+                    el.traitsContainer.appendChild(div);
+                });
             }
 
-            function handlePhotoUpload(event) {
-                const file = event.target.files[0];
+            function renderPreview() {
+                const goalsHtml = state.goals.split('\n').filter(g => g.trim()).map(g => `
+                    <div class="flex items-start gap-2 mb-1">
+                        <span class="bullet-point" style="color: #22c55e; font-size: 1.2em; line-height: 1;">•</span>
+                        <span class="text-xs text-gray-600 leading-snug">${g}</span>
+                    </div>
+                `).join('');
+                
+                const frustHtml = state.frustrations.split('\n').filter(f => f.trim()).map(f => `
+                    <div class="flex items-start gap-2 mb-1">
+                        <span class="bullet-point" style="color: #ef4444; font-size: 1.2em; line-height: 1;">•</span>
+                        <span class="text-xs text-gray-600 leading-snug">${f}</span>
+                    </div>
+                `).join('');
+                
+                const traitsHtml = state.traits.map((val, idx) => `
+                    <div class="mb-3">
+                        <div class="flex justify-between text-[10px] text-gray-500 mb-1 font-semibold uppercase tracking-wider whitespace-nowrap">
+                            <span>${traitLabels[idx].left}</span>
+                            <span>${traitLabels[idx].right}</span>
+                        </div>
+                        <div class="h-[2px] bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full rounded-full" style="width: ${val}%; background-color: ${state.accentColor};"></div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Image Section Logic
+                const avatarHtml = state.avatar ? `
+                    <div class="w-32 h-32 rounded-full border-4 border-white/30 bg-white/10 mb-5 overflow-hidden shadow-lg relative flex-shrink-0">
+                        <img src="${state.avatar}" id="preview-avatar-img" class="w-full h-full object-cover" alt="Persona Avatar" crossorigin="anonymous">
+                    </div>
+                ` : '';
+
+                el.personaContainer.innerHTML = `
+                    <!-- LEFT SIDEBAR -->
+                    <div class="w-full md:w-1/3 p-6 flex flex-col items-center text-center relative z-10 text-white" style="background-color: ${state.accentColor};">
+                        ${avatarHtml}
+                        
+                        <h2 class="text-xl font-bold mb-1 leading-tight ${!state.avatar ? 'mt-4' : ''}">${state.name}</h2>
+                        <p class="text-white/80 font-medium mb-5 uppercase tracking-wide text-[10px]">${state.role}</p>
+
+                        <div class="w-full space-y-3 text-xs text-white/90 text-left">
+                            <div class="flex justify-between border-b border-white/20 pb-1">
+                                <span class="font-semibold opacity-75">Age</span>
+                                <span>${state.age}</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/20 pb-1">
+                                <span class="font-semibold opacity-75">Location</span>
+                                <span>${state.location}</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/20 pb-1">
+                                <span class="font-semibold opacity-75">Status</span>
+                                <span>${state.status}</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-6 w-full">
+                            <div class="bg-black/20 p-3 rounded-xl italic text-xs leading-relaxed">
+                                ${state.quote}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="w-full md:w-2/3 p-6 bg-white flex flex-col">
+                        <div class="mb-5">
+                            <h3 class="text-gray-800 font-bold uppercase tracking-widest text-[10px] mb-2 border-b pb-1" style="border-color: ${state.accentColor}30;">Bio</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed whitespace-pre-line">${state.bio}</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-6 mb-5">
+                            <div>
+                                <h3 class="text-green-700 font-bold uppercase tracking-widest text-[10px] mb-2">Goals</h3>
+                                <div class="space-y-1">
+                                    ${goalsHtml || '<div class="italic text-gray-400 text-xs">No goals listed</div>'}
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-red-700 font-bold uppercase tracking-widest text-[10px] mb-2">Frustrations</h3>
+                                <div class="space-y-1">
+                                    ${frustHtml || '<div class="italic text-gray-400 text-xs">No frustrations listed</div>'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto">
+                            <h3 class="text-gray-800 font-bold uppercase tracking-widest text-[10px] mb-2 border-b pb-1" style="border-color: ${state.accentColor}30;">Personality</h3>
+                            ${traitsHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            function handleInput(e) {
+                const { id, value } = e.target;
+                const map = {
+                    'persona-name': 'name', 'persona-role': 'role', 'persona-age': 'age',
+                    'persona-location': 'location', 'persona-status': 'status',
+                    'persona-quote': 'quote', 'persona-bio': 'bio',
+                    'persona-goals': 'goals', 'persona-frustrations': 'frustrations',
+                    'accent-color-input': 'accentColor'
+                };
+                if(map[id]) state[map[id]] = value;
+                
+                // Handle Traits
+                if(e.target.classList.contains('trait-slider')) {
+                    const idx = e.target.dataset.index;
+                    state.traits[idx] = value;
+                }
+
+                renderPreview();
+                if(id === 'accent-color-input') renderPreview(); 
+            }
+
+            function randomize() {
+                const random = mockData[Math.floor(Math.random() * mockData.length)];
+                state = { ...state, ...random };
+                // Keep avatar as current or default to null, do not force cartoon
+                // If the user hasn't uploaded one, it stays null
+                // If they have, we keep it. 
+                // Or to match "randomize data" we can keep the uploaded image if exists.
+                // The request implies keeping it clean unless user adds image.
+                // So we won't touch state.avatar here unless we want to clear it?
+                // Better to leave existing image if any, or null if none.
+                renderControls();
+                renderPreview();
+            }
+
+            el.logoUploadInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = (e) => {
-                        const photoContainer = el.personaContainer.querySelector('[data-id="profile-photo"]');
-                        const img = photoContainer.querySelector('img');
-                        if (img) {
-                            img.src = e.target.result;
-                            img.classList.remove('hidden');
-                            document.querySelector('label[for="photo-upload-input"]').classList.add('hidden');
-                            el.removePhotoBtn.classList.remove('hidden');
-                        }
+                    reader.onload = (event) => {
+                        state.avatar = event.target.result;
+                        renderControls();
+                        renderPreview();
                     };
                     reader.readAsDataURL(file);
                 }
-            }
-            
-            function removePhoto() {
-                const photoContainer = el.personaContainer.querySelector('[data-id="profile-photo"]');
-                if (photoContainer) {
-                     const img = photoContainer.querySelector('img');
-                     if(img) {
-                        img.src = "";
-                        img.classList.add('hidden');
-                     }
-                }
-                document.querySelector('label[for="photo-upload-input"]').classList.remove('hidden');
-                el.removePhotoBtn.classList.add('hidden');
-                el.photoUploadInput.value = '';
-            }
+            });
 
-            function deselectAll() {
-                if (selectedElement) {
-                    selectedElement.classList.remove('image-selected');
-                    selectedElement = null;
-                }
-                el.imageControlsContainer.classList.add('hidden');
-            }
-
-            function selectElement(element) {
-                deselectAll();
-                selectedElement = element;
-                if (element.dataset.type === 'image') {
-                    selectedElement.classList.add('image-selected');
-                    updateImageControls();
-                    el.imageControlsContainer.classList.remove('hidden');
-                }
-            }
-
-            function setupInteract() {
-                interact('[data-type="image"]')
-                    .resizable({
-                        edges: { left: true, right: true, bottom: true, top: true },
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.deltaRect.left;
-                                y = (parseFloat(y) || 0) + event.deltaRect.top;
-                                Object.assign(event.target.style, {
-                                    width: `${event.rect.width}px`,
-                                    height: `${event.rect.height}px`,
-                                    transform: `translate(${x}px, ${y}px)`
-                                });
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        modifiers: [interact.modifiers.aspectRatio({ ratio: 'preserve' }), interact.modifiers.restrictSize({ min: { width: 40, height: 40 } })],
-                        inertia: true
-                    })
-                    .draggable({
-                        listeners: {
-                            move(event) {
-                                let { x, y } = event.target.dataset;
-                                x = (parseFloat(x) || 0) + event.dx;
-                                y = (parseFloat(y) || 0) + event.dy;
-                                event.target.style.transform = `translate(${x}px, ${y}px)`;
-                                Object.assign(event.target.dataset, { x, y });
-                            }
-                        },
-                        inertia: true,
+            // --- IMAGE HELPERS ---
+            async function getBase64ImageFromUrl(imageUrl) {
+                try {
+                    const res = await fetch(imageUrl);
+                    const blob = await res.blob();
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.addEventListener("load", function () {
+                            resolve(reader.result);
+                        }, false);
+                        reader.onerror = () => {
+                            return reject(this);
+                        };
+                        reader.readAsDataURL(blob);
                     });
-            }
-            
-            function updateImageControls() {
-                if (!selectedElement || selectedElement.dataset.type !== 'image') return;
-                el.imageOpacitySlider.value = selectedElement.style.opacity || 1;
-            }
-            
-            function setupMobileNav() {
-                el.mobileControlsBtn.addEventListener('click', () => {
-                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
-                    el.previewPanel.classList.add('hidden'); el.previewPanel.classList.remove('flex');
-                    el.mobileControlsBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
-                });
-                el.mobilePreviewBtn.addEventListener('click', () => {
-                    el.controlsPanel.classList.add('hidden'); el.controlsPanel.classList.remove('flex');
-                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('flex');
-                    el.mobileControlsBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
-                });
-            }
-
-            function handleLayout() {
-                if (window.innerWidth < 1024) {
-                    if (el.mobilePreviewBtn.classList.contains('active')) el.mobilePreviewBtn.click();
-                    else el.mobileControlsBtn.click();
-                } else {
-                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
-                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('flex');
+                } catch (e) {
+                    console.error("Image conversion failed", e);
+                    return imageUrl; 
                 }
             }
-            
+
+            async function prepareImageForCapture() {
+                if (!state.avatar || state.avatar.startsWith('data:')) return;
+                try {
+                    const base64 = await getBase64ImageFromUrl(state.avatar);
+                    const imgEl = document.getElementById('preview-avatar-img');
+                    if(imgEl) imgEl.src = base64;
+                } catch (e) {
+                    console.warn('Could not convert avatar to base64', e);
+                }
+            }
+
+            async function download() {
+                el.downloadBtn.disabled = true;
+                el.downloadBtnContent.innerHTML = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-2">Download</span>`;
+                
+                const paneWasHidden = el.previewPanel.classList.contains('hidden');
+                if (paneWasHidden) {
+                    el.previewPanel.classList.remove('hidden');
+                    el.previewPanel.classList.add('grid');
+                    el.previewPanel.style.position = 'absolute';
+                    el.previewPanel.style.left = '-9999px';
+                }
+                const wrapper = document.getElementById('persona-wrapper');
+                const originalTransform = wrapper.style.transform;
+                
+                // Add a class to apply download-specific CSS adjustments
+                el.personaContainer.classList.add('for-download');
+
+                await prepareImageForCapture();
+
+                wrapper.style.transform = 'scale(1)';
+                await new Promise(r => setTimeout(r, 250));
+                
+                try {
+                    const canvas = await html2canvas(el.personaContainer, {
+                        scale: 2, 
+                        useCORS: true, 
+                        backgroundColor: '#ffffff', // Explicitly set background to prevent transparency issues
+                        logging: false
+                    });
+
+                    // Create a final canvas to apply rounded corners consistently for all formats
+                    const finalCanvas = document.createElement('canvas');
+                    finalCanvas.width = canvas.width;
+                    finalCanvas.height = canvas.height;
+                    const finalCtx = finalCanvas.getContext('2d');
+                    
+                    // Apply rounded rectangle clip path
+                    finalCtx.beginPath();
+                    // Use 32 for 2rem radius at scale 2 (16px * 2)
+                    finalCtx.roundRect(0, 0, canvas.width, canvas.height, [32]); 
+                    finalCtx.clip();
+                    finalCtx.drawImage(canvas, 0, 0); // Draw the original canvas onto the clipped one
+
+                    const filename = `persona-${state.name.replace(/\s+/g,'-').toLowerCase()}.${downloadFormat}`;
+                    
+                    if (downloadFormat === 'pdf') {
+                        // --- POST-CAPTURE FIXES for PDF ---
+                        // Manually round corners of the canvas context for PDF output
+                        const pdfCanvas = document.createElement('canvas');
+                        pdfCanvas.width = canvas.width;
+                        pdfCanvas.height = canvas.height;
+                        const pdfCtx = pdfCanvas.getContext('2d');
+                        pdfCtx.drawImage(finalCanvas, 0, 0); // Use the finalCanvas with rounded corners
+
+                        const { jsPDF } = window.jspdf;
+                        const imgData = pdfCanvas.toDataURL('image/png'); // Get image data from the rounded canvas
+                        const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+                        const pageWidth = pdf.internal.pageSize.getWidth();
+                        const pageHeight = pdf.internal.pageSize.getHeight();
+                        const ratio = canvas.width / canvas.height;
+                        const imgWidth = pageWidth;
+                        const imgHeight = pageWidth / ratio;
+                        
+                        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                        pdf.save(filename);
+                    } else {
+                        const link = document.createElement('a'); // For PNG/JPG, use the finalCanvas directly
+                        link.href = finalCanvas.toDataURL(`image/${downloadFormat}`, 1.0);
+                        link.download = filename;
+                        link.click();
+                    }
+                } catch (e) { console.error(e); }
+                finally {
+                    // --- CLEANUP ---
+                    el.personaContainer.classList.remove('for-download');
+
+                    wrapper.style.transform = originalTransform;
+                    el.downloadBtn.disabled = false;
+                    el.downloadBtnContent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg><span class="ml-2">Download</span>`;
+                    if (paneWasHidden) {
+                        el.previewPanel.classList.add('hidden');
+                        el.previewPanel.classList.remove('grid');
+                        el.previewPanel.style.position = '';
+                        el.previewPanel.style.left = '';
+                    }
+                }
+            }
+
             function setupDownloadDropdown() {
                 const btn = document.getElementById('download-format-btn');
                 const dropdown = document.getElementById('download-format-dropdown');
@@ -1024,25 +858,52 @@
                 });
             }
 
-            // --- Init ---
-            el.downloadBtn.addEventListener('click', downloadAction);
-            el.photoUploadInput.addEventListener('change', handlePhotoUpload);
-            el.removePhotoBtn.addEventListener('click', removePhoto);
-            el.resetBtn.addEventListener('click', () => loadTemplate(currentTemplateId));
-            el.previewPanel.addEventListener('click', (e) => {
-                const target = e.target.closest('[data-type="image"]');
-                if (target) { if (target !== selectedElement) selectElement(target); } else { deselectAll(); }
-            });
-            el.imageOpacitySlider.addEventListener('input', () => {
-                if (selectedElement && selectedElement.dataset.type === 'image') selectedElement.style.opacity = el.imageOpacitySlider.value;
-            });
-            window.addEventListener('resize', handleLayout);
+            function scalePreview() {
+                const wrapper = document.getElementById('persona-wrapper');
+                if(!wrapper || !el.previewPanel) return;
+                const CARD_WIDTH = 794; 
+                if (window.innerWidth < 1024) { wrapper.style.transform = ''; return; }
+                const panelWidth = el.previewPanel.clientWidth;
+                const padding = 96; 
+                const scale = Math.min(1, (panelWidth - padding) / CARD_WIDTH);
+                wrapper.style.transform = `scale(${scale})`;
+            }
+
+            function handleMobileNav(view) {
+                if(view === 'edit') {
+                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.add('hidden'); el.previewPanel.classList.remove('grid');
+                    el.mobileControlsBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
+                } else {
+                    el.controlsPanel.classList.add('hidden'); el.controlsPanel.classList.remove('flex');
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                    el.mobileControlsBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
+                }
+                scalePreview();
+            }
+
+            el.controlsPanel.addEventListener('input', handleInput);
+            el.randomizeBtn.addEventListener('click', randomize);
+            el.resetBtn.addEventListener('click', () => { if(confirm('Reset all fields?')) { state = {...initialState}; renderControls(); renderPreview(); } });
+            el.downloadBtn.addEventListener('click', download);
+            el.mobileControlsBtn.addEventListener('click', () => handleMobileNav('edit'));
+            el.mobilePreviewBtn.addEventListener('click', () => handleMobileNav('preview'));
             
-            populateTemplateGallery();
-            loadTemplate(PERSONA_TEMPLATES[0].id);
-            setupMobileNav();
-            handleLayout();
+            window.addEventListener('resize', () => {
+                if(window.innerWidth >= 1024) {
+                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                } else {
+                    if(el.previewPanel.classList.contains('grid')) handleMobileNav('preview');
+                    else handleMobileNav('edit');
+                }
+                scalePreview();
+            });
+
             setupDownloadDropdown();
+            renderControls();
+            renderPreview();
+            scalePreview();
         });
     </script>
 </body>

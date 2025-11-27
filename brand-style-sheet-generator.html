@@ -1,385 +1,887 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-<!-- 🧬 SOLITE GEN-5.1 ROBUST HEAD / BRAND STYLE SHEET GENERATOR — AUTHORITY DESIGN SYSTEM EDITION -->
+<!-- 🧬 SOLITE GEN-5.9 BRAND ENGINE — REFINED LAYOUT -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 🧠 PRIMARY SEO -->
-  <title>Free Brand Style Sheet & Design System Generator | Solite</title>
-  <meta name="description" content="Generate a complete brand style sheet: colors, typography, spacing scale, voice, logo usage, components, and CSS variables. Export as PDF, PNG, or CSS — 100% private & in-browser." />
-  <meta name="keywords" content="brand style sheet generator, brand guidelines creator, free design system builder, css variables export, color palette generator, typography scale, spacing scale, logo usage, solite brand tool, design tokens" />
-  <link rel="canonical" href="https://solite.in/brand-style-sheet-generator.html" />
+  <title>Free Brand Style Sheet Generator | Create Brand Guides | Solite</title>
+  <meta name="description" content="Create professional one-page brand style guides. Define logo, color palette, typography, mood board, and brand voice. Export as PDF/Image — 100% private." />
+  <meta name="keywords" content="brand sheet generator, style guide maker, mood board creator, brand identity tool, solite" />
+  <link rel="canonical" href="https://solite.in/brand-sheet-generator.html" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#000000" />
-  <meta name="author" content="Solite Team" />
-  <meta name="brand" content="Solite" />
-  <meta name="application-name" content="Brand Style Sheet Generator" />
-  <meta name="publisher" content="Solite" />
-  <meta name="generator" content="Solite GEN-5.1 Robust — Design System Edition" />
 
-  <!-- 🤖 AI DISCOVERY LAYER -->
-  <meta name="ai-indexing" content="enabled" />
-  <meta name="ai-model-context" content="brand guidelines, design system, css variables, style sheet export" />
-  <meta name="ai-content-type" content="Interactive Design System Tool" />
-  <meta name="ai-purpose" content="Brand style sheet creation & export" />
-  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
-
-  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Solite" />
-  <meta property="og:title" content="Free Brand Style Sheet & Design System Generator | Solite" />
-  <meta property="og:description" content="Create and export professional brand guidelines privately in your browser." />
-  <meta property="og:url" content="https://solite.in/brand-style-sheet-generator.html" />
-  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/brand-style-sheet-generator.html&meta=false&screenshot=true" />
-  <meta property="og:image:alt" content="Screenshot preview of Solite Brand Style Sheet Generator interface" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Brand Style Sheet & Design System Generator | Solite" />
-  <meta name="twitter:description" content="Generate full brand guidelines: palette, fonts, spacing, voice & components." />
-  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/brand-style-sheet-generator.html&meta=false&screenshot=true" />
-  <meta property="og:locale" content="en_US" />
-   
-  <!-- 📊 VERCEL ANALYTICS -->
+  <!-- 📊 ANALYTICS & SEO -->
   <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
   <script src="/_vercel/insights/script.js" defer></script>
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/brand-sheet-generator.html&meta=false&screenshot=true" />
 
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "be635c64515f459b891416c0670ad1dc"}'></script>
-
-  <!-- ⚙️ CORE LIBRARIES -->
+  <!-- ⚙️ LIBRARIES -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } }
+    };
+  </script>
 
-  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <!-- 🔤 FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=Source+Serif+4:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=Source+Serif+4:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- 🎨 STYLING -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+
   <style>
-    @keyframes pulse-bg {0%{background-color:rgba(156,163,175,.15);}50%{background-color:rgba(156,163,175,.3);}100%{background-color:rgba(156,163,175,.15);}}
-    .mobile-nav-btn.active{color:#fff}.mobile-nav-btn{color:#9ca3af}[contenteditable]:focus{outline:none}.content-selected{outline:none!important;border-radius:.25rem;animation:pulse-bg 2s ease-in-out infinite}
-    #template-grid::-webkit-scrollbar{height:6px}#template-grid::-webkit-scrollbar-track{background:#1f2937}#template-grid::-webkit-scrollbar-thumb{background:#4b5563;border-radius:3px}#template-grid::-webkit-scrollbar-thumb:hover{background:#6b7280}
-    html{scrollbar-color:#4b5563 #1f2937;background-color:#0f172a;color-scheme:dark light}
-    .image-selected{outline:dashed 2px #4b5563;border-radius:.25rem}
-    .color-swatch{cursor:pointer;border:1px solid #374151;border-radius:.5rem;display:flex;flex-direction:column;align-items:center;justify-center:space-between;padding:.5rem;min-height:80px;font-size:.7rem;font-weight:500}
-    .color-swatch input{background:transparent;width:100%;text-align:center;font-size:.75rem}
-    .token-box{border:1px solid #374151;border-radius:.5rem;padding:.75rem;font-size:.8rem;display:flex;flex-direction:column;gap:.25rem}
-    .token-box input{background:#111827;border:1px solid #374151;border-radius:.35rem;padding:.35rem .5rem;font-size:.75rem}
-    .section-title{font-size:.65rem;letter-spacing:.15em;font-weight:600;color:#9ca3af;text-transform:uppercase}
+    .mobile-nav-btn.active { color:#fff; }
+    .mobile-nav-btn { color:#9ca3af; }
+    [contenteditable="true"]:focus { outline:none; }
+    ::-webkit-scrollbar { width:5px; height:5px; }
+    ::-webkit-scrollbar-track { background:#111827; }
+    ::-webkit-scrollbar-thumb { background-color:#4b5563; border-radius:4px; }
+    
+    /* Range Slider */
+    input[type=range] { -webkit-appearance: none; background: transparent; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -5px; box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: #4b5563; border-radius: 1px; }
+    
+    /* Font Classes */
+    .font-inter { font-family: 'Inter', sans-serif; }
+    .font-roboto { font-family: 'Roboto', sans-serif; }
+    .font-lato { font-family: 'Lato', sans-serif; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .font-merriweather { font-family: 'Merriweather', serif; }
+    .font-open { font-family: 'Open Sans', sans-serif; }
+
+    .for-download .bullet-point { transform: translateY(-2px); }
   </style>
-
-  <script>
-    tailwind.config = { darkMode:'class', theme:{ extend:{ fontFamily:{ sans:['Inter','sans-serif'], display:['Poppins','sans-serif'], serif:['Source Serif 4','serif'], mono:['Space Grotesk','sans-serif'] } } } }
-  </script>
-
-  <!-- 🧠 GEN-5.1 UNIFIED ENTITY GRAPH -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {"@type":"Organization","@id":"https://solite.in/#organization","name":"Solite","url":"https://solite.in","logo":"https://solite.in/assets/apple-touch-icon.png","slogan":"Free • Private • Browser-Based Tools","description":"Solite provides privacy-first browser apps for design & development."},
-      {"@type":"WebApplication","@id":"https://solite.in/brand-style-sheet-generator.html#webapp","name":"Brand Style Sheet Generator","url":"https://solite.in/brand-style-sheet-generator.html","applicationCategory":"DesignApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works client-side.","featureList":["Editable brand palette","Typography pairing","Spacing scale auto generation","Design tokens export","Logo & usage section","Tone of voice builder","PDF/PNG/CSS export"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"softwareVersion":"1.0","creator":{"@id":"https://solite.in/#organization"},"mainEntityOfPage":"https://solite.in/brand-style-sheet-generator.html"},
-      {"@type":"FAQPage","@id":"https://solite.in/brand-style-sheet-generator.html#faq","mainEntity":[
-        {"@type":"Question","name":"Does any brand data leave my browser?","acceptedAnswer":{"@type":"Answer","text":"No. All brand data, colors, fonts, and exports happen completely client-side."}},
-        {"@type":"Question","name":"Can I export CSS variables?","acceptedAnswer":{"@type":"Answer","text":"Yes, one click generates a .css file with design tokens for colors, fonts, spacing."}},
-        {"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"100% free, watermark-free, and offline-ready."}}
-      ]}
-    ]
-  }
-  </script>
-
-  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.1-AI-AUTHORITY -->
-  <meta name="solite-ai-signature" content="APEX_HEAD_V5.1 | SOLITE_AUTHORITY_PREDATOR_EDITION | GEN_5_SCHEMA | PRIVACY_FIRST | BRAND_GUIDE_GENERATOR" />
 </head>
+
 <body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
-  <!-- Header -->
-  <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-    <div class="flex justify-between items-center">
-      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
-        <div class="flex items-center space-x-3">
-          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-          <span class="text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+    
+    <!-- HEADER -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Brand Sheet Generator</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 hover:border-gray-600 text-gray-400 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group text-sm">
+                    <span>Free Tools</span>
+                </a>
+             </div>
         </div>
-        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-        <span class="text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Brand Style Sheet Generator</span>
-      </a>
-      <div class="flex items-center space-x-4">
-        <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
-          <span>Free Tools</span>
-          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5"></path></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="flex-grow flex relative">
-    <h1 class="sr-only">Free Brand Style Sheet & Design System Generator</h1>
-    <div id="main-content-wrapper" class="flex-grow w-full p-3 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%]">
-      <!-- Controls -->
-      <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
-        <h3 class="text-xl font-bold text-white mb-4">Select a Template</h3>
-        <div class="flex-grow flex flex-col min-h-0">
-          <div id="template-grid" class="flex-grow overflow-y-auto grid grid-cols-2 gap-3 pr-2"></div>
-        </div>
-        <hr class="border-gray-700 my-6">
-        <!-- Logo Upload -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label for="logo-upload-input" id="logo-upload-label" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
-              <span>Logo</span>
-            </label>
-            <input type="file" id="logo-upload-input" class="hidden" accept="image/png, image/jpeg, image/svg+xml">
-            <button id="remove-logo-btn" class="hidden bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-3 px-4 rounded-lg w-full">Remove Logo</button>
-          </div>
-          <div>
-            <button id="add-color-row-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg w-full">Add Color Slot</button>
-          </div>
-        </div>
-        <!-- Download / Export -->
-        <div class="grid grid-cols-[1fr,auto,auto,auto] gap-2 items-center">
-          <div class="relative">
-            <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full"><span id="download-format-text">PDF</span><svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-            <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
-              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
-              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
-              <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+    <main class="flex-grow flex relative min-h-0">
+        <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
+            
+            <!-- LEFT CONTROLS -->
+            <div id="controls-panel" class="w-full lg:w-[35%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col lg:h-[90vh]">
+                <div class="flex-grow overflow-y-auto pr-2 space-y-6">
+                    
+                    <!-- IDENTITY -->
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-white">Identity</h2>
+                            <button id="randomize-btn" class="bg-white hover:bg-gray-100 text-gray-900 text-xs font-semibold py-2 px-4 rounded-lg flex items-center gap-1 transition-colors shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                                Randomize
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="relative group w-20 h-20 flex-shrink-0">
+                                <div id="avatar-preview-control" class="w-20 h-20 rounded-xl bg-gray-800 border-2 border-gray-600 bg-contain bg-no-repeat bg-center flex items-center justify-center text-gray-500 overflow-hidden relative">
+                                    <span class="text-xs uppercase font-bold opacity-50">Logo</span>
+                                </div>
+                                <label for="logo-upload-input" class="absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity text-xs text-white text-center font-medium">Upload</label>
+                                <input type="file" id="logo-upload-input" class="hidden" accept="image/*">
+                            </div>
+                             <div class="w-full space-y-2">
+                                <input type="text" id="brand-name" placeholder="Brand Name" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                <input type="text" id="brand-tagline" placeholder="Tagline or Slogan" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-gray-700">
+
+                    <!-- MOOD BOARD -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Mood Board</h2>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="relative group aspect-video">
+                                <div id="mood1-preview-control" class="w-full h-full rounded-md bg-gray-800 border border-gray-600 bg-cover bg-center flex items-center justify-center text-gray-500 overflow-hidden relative">
+                                    <span class="text-xs">Img 1</span>
+                                </div>
+                                <label for="mood1-upload-input" class="absolute inset-0 bg-black/50 flex items-center justify-center rounded-md opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity text-xs text-white">Upload</label>
+                                <input type="file" id="mood1-upload-input" class="hidden" accept="image/*">
+                            </div>
+                            <div class="relative group aspect-video">
+                                <div id="mood2-preview-control" class="w-full h-full rounded-md bg-gray-800 border border-gray-600 bg-cover bg-center flex items-center justify-center text-gray-500 overflow-hidden relative">
+                                    <span class="text-xs">Img 2</span>
+                                </div>
+                                <label for="mood2-upload-input" class="absolute inset-0 bg-black/50 flex items-center justify-center rounded-md opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity text-xs text-white">Upload</label>
+                                <input type="file" id="mood2-upload-input" class="hidden" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-gray-700">
+
+                    <!-- PALETTE -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Palette</h2>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Primary</label>
+                                <div class="flex gap-2">
+                                    <input type="color" id="color-primary" class="w-8 h-8 p-0 bg-transparent rounded cursor-pointer border-none">
+                                    <input type="text" id="hex-primary" class="w-full bg-gray-800 border border-gray-600 rounded-md px-2 text-white text-xs font-mono uppercase">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Secondary</label>
+                                <div class="flex gap-2">
+                                    <input type="color" id="color-secondary" class="w-8 h-8 p-0 bg-transparent rounded cursor-pointer border-none">
+                                    <input type="text" id="hex-secondary" class="w-full bg-gray-800 border border-gray-600 rounded-md px-2 text-white text-xs font-mono uppercase">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Accent</label>
+                                <div class="flex gap-2">
+                                    <input type="color" id="color-accent" class="w-8 h-8 p-0 bg-transparent rounded cursor-pointer border-none">
+                                    <input type="text" id="hex-accent" class="w-full bg-gray-800 border border-gray-600 rounded-md px-2 text-white text-xs font-mono uppercase">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Neutral</label>
+                                <div class="flex gap-2">
+                                    <input type="color" id="color-dark" class="w-8 h-8 p-0 bg-transparent rounded cursor-pointer border-none">
+                                    <input type="text" id="hex-dark" class="w-full bg-gray-800 border border-gray-600 rounded-md px-2 text-white text-xs font-mono uppercase">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <!-- TYPOGRAPHY -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Typography</h2>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Headings (Font)</label>
+                                <select id="font-heading" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                    <option value="font-montserrat">Montserrat (Sans)</option>
+                                    <option value="font-inter">Inter (Sans)</option>
+                                    <option value="font-playfair">Playfair Display (Serif)</option>
+                                    <option value="font-merriweather">Merriweather (Serif)</option>
+                                    <option value="font-roboto">Roboto (Sans)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Body (Font)</label>
+                                <select id="font-body" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                    <option value="font-lato">Lato (Sans)</option>
+                                    <option value="font-open">Open Sans (Sans)</option>
+                                    <option value="font-inter">Inter (Sans)</option>
+                                    <option value="font-merriweather">Merriweather (Serif)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <!-- VOICE -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Brand Voice</h2>
+                        <div id="traits-container" class="space-y-4"></div>
+                    </div>
+
+                    <hr class="border-gray-700">
+
+                    <!-- INFO -->
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-3">Details</h2>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Mission Statement</label>
+                                <textarea id="brand-mission" rows="3" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Keywords</label>
+                                <input type="text" id="brand-keywords" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Website</label>
+                                    <input type="text" id="brand-website" placeholder="solite.in" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-1">Handle</label>
+                                    <input type="text" id="brand-social" placeholder="@solite" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- ACTIONS -->
+                <div class="mt-6 pt-6 border-t border-gray-700 space-y-4">
+                     <div class="grid grid-cols-[1fr,auto,auto] gap-2 items-center">
+                        <div class="relative">
+                            <button id="download-format-btn" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-between w-full h-full">
+                                <span id="download-format-text">PDF</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="download-format-dropdown" class="hidden absolute bottom-full left-0 mb-2 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="pdf">PDF</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="png">PNG</a>
+                                <a href="#" class="block px-4 py-2 text-white hover:bg-gray-700" data-value="jpeg">JPG</a>
+                            </div>
+                        </div>
+                         <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap">
+                            <span id="download-btn-content" class="flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                              <span class="ml-2">Download</span>
+                            </span>
+                        </button>
+                        <button id="reset-btn" class="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0 .384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <button id="download-btn" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap">Download</button>
-          <button id="export-css-btn" class="bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 font-medium py-3 px-4 rounded-lg whitespace-nowrap">CSS</button>
-          <button id="reset-btn" class="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg" title="Reset">↺</button>
+
+            <!-- PREVIEW PANE -->
+            <div id="preview-panel" class="flex-1 bg-gray-900 rounded-xl border border-gray-800 relative hidden lg:grid lg:place-items-center p-4 lg:p-12 overflow-auto lg:w-[65%] lg:h-[90vh]">
+                <div id="brand-wrapper" class="origin-top transition-transform duration-200">
+                    <div id="brand-container" class="aspect-[1/1.414] w-[794px] shadow-2xl relative overflow-hidden bg-white text-gray-800 font-sans p-12 rounded-sm flex flex-col justify-between">
+                        <!-- Template Rendered Here -->
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <!-- Canvas -->
-      <div id="brand-canvas" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-4 relative hidden lg:flex lg:items-center lg:justify-center overflow-auto lg:w-[70%]">
-        <div id="brand-container" class="aspect-[1/1.414] w-[860px] lg:w-full shadow-2xl relative overflow-hidden bg-white text-gray-800 flex-shrink-0"></div>
-      </div>
+        
+        <!-- SIDEBAR -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Launch your new Brand</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">Check Discount →</a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+    <!-- MOBILE NAV -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-16 py-1">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                <span>Edit</span>
+            </button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span>Preview</span>
+            </button>
+        </div>
     </div>
-    <aside class="w-[15%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-            <div class="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
-    </aside>
-  </main>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
-    <div class="flex justify-around items-center h-16 py-1">
-      <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
-        <span>Controls</span>
-      </button>
-      <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-        <span>Preview</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- SEO BLOCK -->
-  <div class="w-full text-gray-300 p-2 pt-0">
+    <!-- SEO BLOCK -->
+    <div class="w-full text-gray-300 p-2 pt-0">
     <style>
-      #solite-seo-block-brand[open] > summary{border-bottom:1px solid #374151}
-      #solite-seo-block-brand > summary .details-arrow-seo{transform:rotate(-90deg);transition:transform .25s}
-      #solite-seo-block-brand[open] > summary .details-arrow-seo{transform:rotate(0deg)}
-      .seo-badge{display:inline-flex;align-items:center;justify-content:center;padding:.25rem .6rem;border:1px solid #374151;border-radius:.5rem;font-size:.75rem;color:#9CA3AF}
-      .seo-table{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.9rem}
-      .seo-table th,.seo-table td{border:1px solid #374151;padding:.5rem .75rem;text-align:left}
-      .seo-table th{background:#111827;color:#e5e7eb;font-weight:600}.seo-table td{color:#9ca3af}
+    #solite-info-block-brand[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-brand > summary .details-arrow-seo { transform: rotate(-90deg); transition: transform 0.25s ease-in-out; }
+    #solite-info-block-brand[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    .seo-table { width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.9rem; }
+    .seo-table th,.seo-table td { border:1px solid #374151;padding:.5rem .75rem;text-align:left; }
+    .seo-table th { background-color:#111827;color:#e5e7eb;font-weight:600; }
+    .seo-table td { color:#9ca3af; }
     </style>
-    <details id="solite-seo-block-brand" class="w-full bg-gray-900 rounded-xl border border-gray-800 shadow-xl">
-      <summary class="text-xl font-bold text-white p-4 cursor-pointer flex justify-between items-center">Free Brand Style Sheet & Design System Generator — Export CSS Tokens | Solite<svg class="w-5 h-5 details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
-      <div class="p-6 space-y-8 leading-relaxed">
-        <section>
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="seo-badge">Brand Guidelines</span><span class="seo-badge">Design System</span><span class="seo-badge">CSS Variables</span><span class="seo-badge">Color Palette</span><span class="seo-badge">Typography</span><span class="seo-badge">Spacing Scale</span>
-          </div>
-          <p class="text-lg text-gray-300">The <strong>Solite Brand Style Sheet Generator</strong> builds professional brand guidelines instantly: palette, typography, spacing, voice, logo usage, sample components, and exportable design tokens — all private and client-side.</p>
+    <details id="solite-info-block-brand" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Free Brand Style Sheet Generator — Create Professional Brand Guides
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </summary>
+    <div class="p-6 space-y-10 leading-relaxed">
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+                <span class="badge">Brand Guidelines</span>
+                <span class="badge">Style Guide Maker</span>
+                <span class="badge">Mood Board Creator</span>
+                <span class="badge">PDF Export</span>
+                <span class="badge">Privacy-First</span>
+            </div>
+            <p class="text-lg text-gray-300">
+                The <strong>Solite Brand Style Sheet Generator</strong> is a free, browser-based tool for creating professional one-page brand guides. Define your logo, color palette, typography, brand voice, and mood board, then export a polished PDF — all processed <strong>100% offline for complete privacy</strong>.
+            </p>
         </section>
         <section>
-          <h3 class="text-white text-xl font-semibold mb-2">Why This Outperforms Traditional Brand Docs</h3>
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
-            <li><strong>True Design Tokens:</strong> One-click CSS variables export.</li>
-            <li><strong>Live Editing:</strong> Update colors, fonts, tone, spacing instantly.</li>
-            <li><strong>Multi-Format Export:</strong> PDF / PNG visual sheet + .css tokens.</li>
-            <li><strong>Privacy-First:</strong> No uploads, fully in-browser processing.</li>
-            <li><strong>Fast Iteration:</strong> Switch preset templates for quick positioning.</li>
-          </ul>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Designers & Agencies Love This Tool</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>All-in-One Guide:</strong> Combine logo usage, color palette, typography, mood board, and brand voice in a single document.</li>
+                <li><strong>Visual & Intuitive:</strong> Use color pickers, font selectors, and image uploads to build your guide visually.</li>
+                <li><strong>Brand Voice Sliders:</strong> Define your brand's personality with clear, adjustable traits (e.g., Classic vs. Modern).</li>
+                <li><strong>Professional PDF Export:</strong> Download a high-resolution, print-ready PDF perfect for client handoffs or internal teams.</li>
+                <li><strong>100% Private & Offline:</strong> Your brand assets and strategy are never uploaded. Everything runs securely on your device.</li>
+            </ul>
         </section>
         <section>
-          <h3 class="text-white text-xl font-semibold mb-2">Included Sections</h3>
-          <table class="seo-table"><thead><tr><th>Section</th><th>Contents</th><th>Benefit</th></tr></thead><tbody>
-            <tr><td>Brand Header</td><td>Name, tagline, mission</td><td>Instant identity clarity</td></tr>
-            <tr><td>Palette</td><td>Primary, Secondary, Accent, Neutral, Background</td><td>Color consistency</td></tr>
-            <tr><td>Typography</td><td>Primary, Secondary, Display & Pairing guidance</td><td>Readable hierarchy</td></tr>
-            <tr><td>Spacing Scale</td><td>Auto-generated modular scale</td><td>Layout rhythm</td></tr>
-            <tr><td>Tone of Voice</td><td>Adjectives + Do / Avoid examples</td><td>Aligned messaging</td></tr>
-            <tr><td>Components</td><td>Buttons, Cards, Alerts preview</td><td>Visual consistency</td></tr>
-            <tr><td>Tokens Export</td><td>CSS variables file</td><td>Dev handoff speed</td></tr>
-          </tbody></table>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Brand Sheet Generator?</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>Brand Designers:</strong> Quickly create style guides for client projects.</li>
+                    <li><strong>Startups & Founders:</strong> Define a consistent brand identity from day one.</li>
+                    <li><strong>Marketing Teams:</strong> Ensure brand consistency across all campaigns and materials.</li>
+                </ul>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                    <li><strong>UI/UX Designers:</strong> Establish a source of truth for colors and fonts in a design system.</li>
+                    <li><strong>Freelancers:</strong> Provide added value to clients with a professional brand summary.</li>
+                </ul>
+            </div>
         </section>
         <section>
-          <h3 class="text-white text-xl font-semibold mb-2">Keywords</h3>
-          <p class="text-sm text-gray-500">brand style sheet generator, design system builder, css variables exporter, color palette guidelines, typography scale, spacing tokens, brand voice, free brand guideline maker.</p>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Create Your Brand Style Guide</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Enter your brand name, tagline, and upload your logo.</li>
+                <li>Select your primary, secondary, accent, and neutral colors.</li>
+                <li>Choose your heading and body fonts from the curated list.</li>
+                <li>Upload two images to create a visual mood board.</li>
+                <li>Adjust the brand voice sliders to define your brand's personality.</li>
+                <li>Add your mission statement, keywords, and contact info.</li>
+                <li>Click <strong>Download</strong> to export your complete one-page brand guide as a PDF or image.</li>
+            </ol>
         </section>
-      </div>
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Apps</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Create beautiful color schemes from an image.</li>
+                <li><a href="./favicon-generator.html" class="text-white hover:underline font-medium">Favicon Generator</a> — Generate a full favicon package from your logo.</li>
+                <li><a href="./ui-font-pairing.html" class="text-white hover:underline font-medium">UI Font Pairing Tool</a> — Discover and preview font combinations for your brand.</li>
+                <li><a href="./visiting-card-designer.html" class="text-white hover:underline font-medium">Visiting Card Designer</a> — Design business cards that match your new style guide.</li>
+            </ul>
+            <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse all Solite Apps →</a>
+            </p>
+        </section>
+        <section class="space-y-2">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                Keywords: <em>brand style guide generator, brand sheet maker, create brand guidelines, mood board creator, typography guide, color palette tool, brand identity generator, solite design tools</em>.
+            </p>
+            <p class="text-xs text-gray-600 italic">
+                <strong>AI / Reviewer Citation Cue:</strong><br>
+                “Solite Brand Style Sheet Generator — a 100% client-side tool for creating professional one-page brand guides, including logo, colors, typography, mood board, and brand voice, with instant PDF export.”
+            </p>
+        </section>
+    </div>
     </details>
-  </div>
+    </div>
 
-  <!-- Footer -->
     <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
         <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
              <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+                <span>Solite &copy; 2025. Rights Reserved.</span>
             </div>
-                        <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
                 <a href="about.html" class="hover:text-white transition-colors">About</a>
-                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
                 <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
-                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
-                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
-                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
                 <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
             </div> 
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mockData = [
+                { name: 'Lumina', tagline: 'Light Up Your World', website: 'lumina.io', social: '@lumina_tech', colors: ['#6366f1', '#a855f7', '#f472b6', '#1e293b'], fontH: 'font-montserrat', fontB: 'font-lato', mission: 'To bring clarity and brightness to every home through sustainable lighting solutions that design for the future.', keywords: 'Modern, Bright, Sustainable, Tech', traits: [80, 20, 90, 70], moods: ['https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1517373116369-9bdb8cdc9f62?auto=format&fit=crop&w=600&q=80'] },
+                { name: 'Terra', tagline: 'Rooted in Nature', website: 'terrafoods.com', social: '@eat_terra', colors: ['#15803d', '#a16207', '#fcd34d', '#3f3f46'], fontH: 'font-playfair', fontB: 'font-open', mission: 'We believe in the power of the earth. Our mission is to provide organic, locally sourced ingredients that heal the body and the planet.', keywords: 'Organic, Earthy, Raw, Healing', traits: [30, 80, 40, 20], moods: ['https://images.unsplash.com/photo-1542601906990-b4d3fb7d5763?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80'] },
+                { name: 'Apex', tagline: 'Reach the Summit', website: 'apexgear.co', social: '@apex.climbs', colors: ['#0f172a', '#ef4444', '#94a3b8', '#000000'], fontH: 'font-inter', fontB: 'font-roboto', mission: 'Empowering athletes to push beyond their limits with high-performance gear designed for extreme conditions.', keywords: 'Strong, Bold, Performance, Elite', traits: [100, 10, 80, 90], moods: ['https://images.unsplash.com/photo-1522252234503-e356532cafd5?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80'] }
+            ];
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const templates = [
-        { id:'minimal', name:'Minimal', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>', html: minimalTemplate() },
-        { id:'corporate', name:'Corporate', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v4H3zM3 10h18v11H3z"/></svg>', html: corporateTemplate() },
-        { id:'startup-bold', name:'Startup Bold', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5l7.5 7.5-7.5 7.5L4.5 12 12 4.5z"/></svg>', html: startupTemplate() },
-        { id:'editorial', name:'Elegant Editorial', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15z"/></svg>', html: editorialTemplate() },
-        { id:'dark-tech', name:'Dark Tech', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25M17.773 17.364l-1.591-1.591M12 18.75V21M6.227 17.364l1.591-1.591M3 12h2.25M6.227 6.227l1.591 1.591"/></svg>', html: darkTechTemplate() },
-        { id:'playful-saas', name:'Playful SaaS', icon:'<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>', html: playfulTemplate() }
-      ];
+            const initialState = {
+                name: 'BrandName',
+                tagline: 'Your Catchy Tagline Here',
+                primary: '#2563eb',
+                secondary: '#475569',
+                accent: '#f59e0b',
+                dark: '#0f172a',
+                fontHead: 'font-montserrat',
+                fontBody: 'font-lato',
+                mission: 'Our mission is to provide exceptional value through innovation and dedication to quality. We strive to create products that improve the lives of our customers.',
+                keywords: 'Reliable, Innovative, Clean',
+                website: 'www.brand.com',
+                social: '@brandhandle',
+                logo: null,
+                mood1: null,
+                mood2: null,
+                traits: [50, 50, 50, 50]
+            };
 
-      function minimalTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#1f2937', accent:'#6366f1'});}
-      function corporateTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#0f172a', accent:'#2563eb'});}
-      function startupTemplate(){return baseBrandLayout({bg:'#0f172a', text:'#f8fafc', accent:'#06b6d4'});}
-      function editorialTemplate(){return baseBrandLayout({bg:'#fdfbf6', text:'#2d2d2d', accent:'#b45309'});}
-      function darkTechTemplate(){return baseBrandLayout({bg:'#111827', text:'#e2e8f0', accent:'#8b5cf6'});}
-      function playfulTemplate(){return baseBrandLayout({bg:'#ffffff', text:'#212121', accent:'#ec4899'});}
+            const traitLabels = [
+                { left: 'Classic', right: 'Modern' },
+                { left: 'Playful', right: 'Serious' },
+                { left: 'Affordable', right: 'Luxury' },
+                { left: 'Subtle', right: 'Bold' }
+            ];
 
-      function baseBrandLayout(colors){return `
-        <div class='w-full h-full flex flex-col p-10 font-sans relative'>
-          <div class='absolute top-8 right-8 w-28 h-28 resizable-logo' data-type='image' data-image-type='logo'></div>
-          <section class='mb-8'>
-            <h2 contenteditable='true' class='text-5xl font-display font-bold mb-2' style='color:${colors.text}'>Brand Name</h2>
-            <p contenteditable='true' class='text-lg text-gray-600' style='color:${colors.text}'>Insert a concise tagline describing the value.</p>
-            <p contenteditable='true' class='mt-2 text-sm max-w-xl'>Mission: State a clear, purposeful mission statement customers and team can rally around.</p>
-          </section>
-          <section class='mb-8'>
-            <p class='section-title mb-3'>Color Palette</p>
-            <div class='grid grid-cols-5 gap-3' id='palette-group'>
-              ${paletteSwatch('Primary', colors.accent, 'primary')}
-              ${paletteSwatch('Secondary', '#64748b', 'secondary')}
-              ${paletteSwatch('Accent', '#f59e0b', 'accent')}
-              ${paletteSwatch('Neutral', '#1f2937', 'neutral')}
-              ${paletteSwatch('Background', colors.bg, 'background')}
-            </div>
-          </section>
-          <section class='mb-8'>
-            <p class='section-title mb-3'>Typography</p>
-            <div class='grid grid-cols-3 gap-3 text-xs'>
-              ${typeToken('Primary Font', 'Inter', 'font-sans', 'font-primary')}
-              ${typeToken('Display Font', 'Poppins', 'font-display', 'font-display-token')}
-              ${typeToken('Serif / Editorial', 'Source Serif 4', 'font-serif', 'font-serif-token')}
-            </div>
-            <div class='mt-4 text-sm'>Scale: <span contenteditable='true' data-scale-root>1.125</span> ratio → Generates multiples for 12px base.</div>
-            <div id='generated-type-scale' class='mt-2 flex flex-wrap gap-2 text-xs'></div>
-          </section>
-          <section class='mb-8'>
-            <p class='section-title mb-3'>Spacing Scale</p>
-            <div class='flex flex-wrap gap-2 text-xs' id='spacing-scale-display'></div>
-            <div class='mt-2 text-sm'>Base: <span contenteditable='true' data-spacing-base>4</span>px | Ratio: <span contenteditable='true' data-spacing-ratio>1.5</span></div>
-          </section>
-          <section class='mb-8'>
-            <p class='section-title mb-3'>Tone of Voice</p>
-            <div class='grid grid-cols-2 gap-3 text-xs'>
-              <div class='token-box'><span class='font-semibold'>Adjectives</span><textarea rows='3' class='bg-black/10 rounded p-2 text-xs w-full' data-voice-adjectives placeholder='e.g. Bold, Friendly, Precise'></textarea></div>
-              <div class='token-box'><span class='font-semibold'>Avoid</span><textarea rows='3' class='bg-black/10 rounded p-2 text-xs w-full' data-voice-avoid placeholder='e.g. Jargon, Overclaiming, Dull'></textarea></div>
-            </div>
-          </section>
-          <section class='mb-8'>
-            <p class='section-title mb-3'>Component Samples</p>
-            <div class='flex flex-wrap gap-4 items-start text-xs'>
-              <button class='px-4 py-2 rounded-lg text-white font-medium' style='background:${colors.accent}'>Primary Button</button>
-              <div class='p-4 rounded-lg border text-sm' style='border-color:${colors.accent}'>Card Title<br><span class='text-gray-500'>Supporting text block example.</span></div>
-              <div class='px-3 py-2 rounded bg-red-100 text-red-700 border border-red-200'>Alert / Error sample</div>
-            </div>
-          </section>
-        </div>`;}
+            const fontNames = {
+                'font-montserrat': 'Montserrat', 'font-inter': 'Inter', 'font-playfair': 'Playfair Display',
+                'font-merriweather': 'Merriweather', 'font-roboto': 'Roboto', 'font-lato': 'Lato', 'font-open': 'Open Sans'
+            };
 
-      function paletteSwatch(label, value, role){return `<div class='color-swatch' data-color-role='${role}'><div class='w-full h-8 rounded mb-1' style='background:${value}'></div><input value='${value}' aria-label='${label} color hex'><span>${label}</span></div>`;}
-      function typeToken(label, sample, cls, role){return `<div class='token-box' data-type-role='${role}'><span class='font-semibold'>${label}</span><input value='${sample}' class='${cls}'></div>`;}
+            let state = { ...initialState };
+            let downloadFormat = 'pdf';
 
-      const brandContainer = document.getElementById('brand-container');
-      const brandCanvas = document.getElementById('brand-canvas');
-      const templateGrid = document.getElementById('template-grid');
-      const logoUploadInput = document.getElementById('logo-upload-input');
-      const logoUploadLabel = document.getElementById('logo-upload-label');
-      const removeLogoBtn = document.getElementById('remove-logo-btn');
-      const downloadBtn = document.getElementById('download-btn');
-      const exportCssBtn = document.getElementById('export-css-btn');
-      const resetBtn = document.getElementById('reset-btn');
-      const addColorRowBtn = document.getElementById('add-color-row-btn');
+            const el = {
+                controlsPanel: document.getElementById('controls-panel'),
+                previewPanel: document.getElementById('preview-panel'),
+                brandContainer: document.getElementById('brand-container'),
+                traitsContainer: document.getElementById('traits-container'),
+                downloadBtn: document.getElementById('download-btn'),
+                downloadBtnContent: document.getElementById('download-btn-content'),
+                resetBtn: document.getElementById('reset-btn'),
+                randomizeBtn: document.getElementById('randomize-btn'),
+                logoUploadInput: document.getElementById('logo-upload-input'),
+                mood1UploadInput: document.getElementById('mood1-upload-input'),
+                mood2UploadInput: document.getElementById('mood2-upload-input'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                
+                // Previews in Controls
+                avatarPreviewControl: document.getElementById('avatar-preview-control'),
+                mood1PreviewControl: document.getElementById('mood1-preview-control'),
+                mood2PreviewControl: document.getElementById('mood2-preview-control'),
+                
+                // Color inputs
+                colorPrimary: document.getElementById('color-primary'), hexPrimary: document.getElementById('hex-primary'),
+                colorSecondary: document.getElementById('color-secondary'), hexSecondary: document.getElementById('hex-secondary'),
+                colorAccent: document.getElementById('color-accent'), hexAccent: document.getElementById('hex-accent'),
+                colorDark: document.getElementById('color-dark'), hexDark: document.getElementById('hex-dark'),
+            };
 
-      let downloadFormat='pdf';
-      let currentTemplateId=templates[0].id;
-      const LOCAL_KEY='soliteBrandSheetState';
+            function renderControls() {
+                document.getElementById('brand-name').value = state.name;
+                document.getElementById('brand-tagline').value = state.tagline;
+                document.getElementById('brand-mission').value = state.mission;
+                document.getElementById('brand-keywords').value = state.keywords;
+                document.getElementById('brand-website').value = state.website;
+                document.getElementById('brand-social').value = state.social;
+                document.getElementById('font-heading').value = state.fontHead;
+                document.getElementById('font-body').value = state.fontBody;
 
-      function populateGallery(){templateGrid.innerHTML='';templates.forEach(t=>{const card=document.createElement('a');card.dataset.templateId=t.id;card.href='#';card.className='template-card bg-gray-800 rounded-lg p-3 flex flex-col items-center text-center cursor-pointer transition-all duration-300 border-2 border-gray-700 hover:border-gray-500';card.innerHTML=`<div class='text-gray-300 mb-2'>${t.icon.replace('w-8 h-8','w-5 h-5')}</div><h3 class='font-semibold text-white text-sm mb-1'>${t.name}</h3>`;card.addEventListener('click',e=>{e.preventDefault();if(currentTemplateId!==t.id){loadTemplate(t.id);}if(window.innerWidth<1024){mobilePreviewBtn.click();}});templateGrid.appendChild(card);});}
+                // Colors
+                el.colorPrimary.value = state.primary; el.hexPrimary.value = state.primary;
+                el.colorSecondary.value = state.secondary; el.hexSecondary.value = state.secondary;
+                el.colorAccent.value = state.accent; el.hexAccent.value = state.accent;
+                el.colorDark.value = state.dark; el.hexDark.value = state.dark;
+                
+                // Logo preview
+                if (state.logo) {
+                    el.avatarPreviewControl.style.backgroundImage = `url('${state.logo}')`;
+                    el.avatarPreviewControl.innerHTML = ''; 
+                } else {
+                    el.avatarPreviewControl.style.backgroundImage = 'none';
+                    el.avatarPreviewControl.innerHTML = '<span class="text-xs uppercase font-bold opacity-50">Logo</span>';
+                }
 
-      function loadTemplate(id){const t=templates.find(x=>x.id===id);if(!t)return;currentTemplateId=id;document.querySelectorAll('.template-card.border-white').forEach(c=>c.classList.replace('border-white','border-gray-700'));document.querySelector(`.template-card[data-template-id='${id}']`)?.classList.replace('border-gray-700','border-white');brandContainer.innerHTML=t.html;setupInteract();restoreState();generateTypeScale();generateSpacingScale();}
+                // Mood Previews
+                if (state.mood1) { el.mood1PreviewControl.style.backgroundImage = `url('${state.mood1}')`; el.mood1PreviewControl.innerHTML = ''; }
+                else { el.mood1PreviewControl.style.backgroundImage = 'none'; el.mood1PreviewControl.innerHTML = '<span class="text-xs">Img 1</span>'; }
 
-      function setupInteract(){interact('[data-type="image"]').resizable({edges:{left:true,right:true,bottom:true,top:true},listeners:{move(ev){let{x,y}=ev.target.dataset;x=(parseFloat(x)||0)+ev.deltaRect.left;y=(parseFloat(y)||0)+ev.deltaRect.top;Object.assign(ev.target.style,{width:`${ev.rect.width}px`,height:`${ev.rect.height}px`,transform:`translate(${x}px,${y}px)`});Object.assign(ev.target.dataset,{x,y});},end(){saveState();}},modifiers:[interact.modifiers.aspectRatio({ratio:'preserve'}),interact.modifiers.restrictSize({min:{width:40,height:40}})],inertia:true}).draggable({listeners:{move(ev){let{x,y}=ev.target.dataset;x=(parseFloat(x)||0)+ev.dx;y=(parseFloat(y)||0)+ev.dy;ev.target.style.transform=`translate(${x}px,${y}px)`;Object.assign(ev.target.dataset,{x,y});},end(){saveState();}},inertia:true});}
+                if (state.mood2) { el.mood2PreviewControl.style.backgroundImage = `url('${state.mood2}')`; el.mood2PreviewControl.innerHTML = ''; }
+                else { el.mood2PreviewControl.style.backgroundImage = 'none'; el.mood2PreviewControl.innerHTML = '<span class="text-xs">Img 2</span>'; }
 
-      function saveState(){const data={template:currentTemplateId,logo:extractLogo(),palette:extractPalette(),fonts:extractFonts(),typeRatio:getText('[data-scale-root]'),spacingBase:getText('[data-spacing-base]'),spacingRatio:getText('[data-spacing-ratio]'),voiceAdj:document.querySelector('[data-voice-adjectives]')?.value||'',voiceAvoid:document.querySelector('[data-voice-avoid]')?.value||''};localStorage.setItem(LOCAL_KEY,JSON.stringify(data));}
-      function extractLogo(){const box=brandContainer.querySelector('.resizable-logo');if(!box)return null;const img=box.querySelector('img');return img?img.src:null;}
-      function extractPalette(){return Array.from(brandContainer.querySelectorAll('[data-color-role]')).map(el=>({role:el.dataset.colorRole,value:el.querySelector('input').value.trim()}));}
-      function extractFonts(){return Array.from(brandContainer.querySelectorAll('[data-type-role]')).map(el=>({role:el.dataset.typeRole,value:el.querySelector('input').value.trim()}));}
-      function getText(sel){return brandContainer.querySelector(sel)?.innerText.trim()||'';}
+                // Render Traits
+                el.traitsContainer.innerHTML = '';
+                state.traits.forEach((val, idx) => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                            <span>${traitLabels[idx].left}</span>
+                            <span>${traitLabels[idx].right}</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="${val}" data-index="${idx}" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer trait-slider">
+                    `;
+                    el.traitsContainer.appendChild(div);
+                });
+            }
 
-      function restoreState(){const raw=localStorage.getItem(LOCAL_KEY);if(!raw)return;try{const s=JSON.parse(raw);if(s.template!==currentTemplateId)return;const logoBox=brandContainer.querySelector('.resizable-logo');if(logoBox&&s.logo){logoBox.innerHTML=`<img src='${s.logo}' style='width:100%;height:100%;object-fit:contain'>`;}
-        s.palette?.forEach(p=>{const el=brandContainer.querySelector(`[data-color-role='${p.role}'] input`);if(el){el.value=p.value;el.previousElementSibling.style.background=p.value;}}
-        );s.fonts?.forEach(f=>{const el=brandContainer.querySelector(`[data-type-role='${f.role}'] input`);if(el){el.value=f.value;}}
-        );const scaleRoot=brandContainer.querySelector('[data-scale-root]');if(scaleRoot)scaleRoot.innerText=s.typeRatio||'1.125';const sBase=brandContainer.querySelector('[data-spacing-base]');if(sBase)sBase.innerText=s.spacingBase||'4';const sRatio=brandContainer.querySelector('[data-spacing-ratio]');if(sRatio)sRatio.innerText=s.spacingRatio||'1.5';const va=brandContainer.querySelector('[data-voice-adjectives]');if(va)va.value=s.voiceAdj||'';const vv=brandContainer.querySelector('[data-voice-avoid]');if(vv)vv.value=s.voiceAvoid||'';generateTypeScale();generateSpacingScale();}catch(e){console.warn('Restore failed',e);}}
+            function renderPreview() {
+                const traitsHtml = state.traits.map((val, idx) => `
+                    <div class="mb-3">
+                        <div class="flex justify-between text-xs text-gray-400 mb-4 uppercase tracking-wider whitespace-nowrap">
+                            <span>${traitLabels[idx].left}</span>
+                            <span>${traitLabels[idx].right}</span>
+                        </div>
+                        <div class="h-[3px] bg-gray-100 rounded-full overflow-hidden relative">
+                            <div class="absolute top-0 bottom-0 w-4 h-2 rounded-full bg-gray-800 -mt-[2px] shadow-sm" style="left: calc(${val}% - 4px); background-color: ${state.primary}"></div>
+                        </div>
+                    </div>
+                `).join('');
 
-      function generateTypeScale(){const ratio=parseFloat(getText('[data-scale-root]')||'1.125');const base=12;const levels=[-2,-1,0,1,2,3,4,5];const wrap=brandContainer.querySelector('#generated-type-scale');if(!wrap)return;wrap.innerHTML=levels.map(l=>{const size=(base*Math.pow(ratio,l)).toFixed(2);return `<span class='px-2 py-1 rounded bg-gray-100 text-gray-800' style='font-size:${size}px'>${size}px</span>`}).join('');saveState();}
-      function generateSpacingScale(){const base=parseFloat(getText('[data-spacing-base]')||'4');const ratio=parseFloat(getText('[data-spacing-ratio]')||'1.5');const steps=[0,1,2,3,4,5,6,7];const wrap=brandContainer.querySelector('#spacing-scale-display');if(!wrap)return;wrap.innerHTML=steps.map(i=>{const val=Math.round(base*Math.pow(ratio,i));return `<span class='px-2 py-1 rounded bg-gray-100 text-gray-800'>${val}px</span>`}).join('');saveState();}
+                const logoHtml = state.logo ? `
+                    <img src="${state.logo}" id="preview-logo-img" class="h-20 w-auto object-contain mb-4" alt="Logo" crossorigin="anonymous">
+                ` : `<h1 class="text-4xl font-bold mb-2 ${state.fontHead}" style="color:${state.primary}">${state.name}</h1>`;
 
-      function exportCss(){const palette=extractPalette();const fonts=extractFonts();const ratio=getText('[data-scale-root]')||'1.125';const spacingBase=getText('[data-spacing-base]')||'4';const spacingRatio=getText('[data-spacing-ratio]')||'1.5';let css=':root{\n';palette.forEach(p=>{css+=`  --color-${p.role}: ${p.value};\n`;});fonts.forEach(f=>{css+=`  --font-${f.role}: "${f.value}", sans-serif;\n`;});css+=`  --type-ratio: ${ratio};\n  --spacing-base: ${spacingBase}px;\n  --spacing-ratio: ${spacingRatio};\n}`;css+='\n/* Generated by Solite Brand Style Sheet Generator */';const blob=new Blob([css],{type:'text/css'});const a=document.createElement('a');a.download='brand-tokens.css';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+                const paletteItem = (hex, label) => `
+                    <div class="flex flex-col gap-2">
+                        <div class="w-full h-14 rounded-lg shadow-sm" style="background-color: ${hex};"></div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider text-gray-400">${label}</p>
+                            <p class="text-xs font-mono text-gray-600">${hex}</p>
+                        </div>
+                    </div>
+                `;
 
-      logoUploadInput.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=r=>{const box=brandContainer.querySelector('.resizable-logo');if(box){box.innerHTML=`<img src='${r.target.result}' style='width:100%;height:100%;object-fit:contain'>`;saveState();}};reader.readAsDataURL(f);});
-      removeLogoBtn.addEventListener('click',()=>{const box=brandContainer.querySelector('.resizable-logo');if(box){box.innerHTML='';saveState();}});
+                // Mood Board Grid
+                const moodHtml = (state.mood1 || state.mood2) ? `
+                    <div class="mt-8">
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                            Mood Board
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3 aspect-[3/1]">
+                            ${state.mood1 ? `<div class="bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center h-48"><img src="${state.mood1}" id="preview-mood1-img" class="w-full h-full object-contain" crossorigin="anonymous"></div>` : '<div class="bg-gray-50 rounded-lg h-48"></div>'}
+                            ${state.mood2 ? `<div class="bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center h-48"><img src="${state.mood2}" id="preview-mood2-img" class="w-full h-full object-contain" crossorigin="anonymous"></div>` : '<div class="bg-gray-50 rounded-lg h-48"></div>'}
+                        </div>
+                    </div>
+                ` : '';
 
-      brandContainer.addEventListener('input',e=>{if(e.target.closest('[data-color-role] input')){const val=e.target.value.trim();e.target.parentElement.querySelector('div').style.background=val;}generateTypeScale();generateSpacingScale();});
-      brandContainer.addEventListener('blur',e=>{if(e.target.matches('[data-scale-root],[data-spacing-base],[data-spacing-ratio]')){generateTypeScale();generateSpacingScale();}},true);
+                el.brandContainer.innerHTML = `
+                   <!-- HEADER -->
+                   <div class="border-b-2 border-gray-100 pb-6 mb-8 flex justify-between items-end">
+                        <div>
+                            ${state.logo ? logoHtml : ''} 
+                            ${state.logo ? `<h2 class="text-2xl font-bold ${state.fontHead} text-gray-900 leading-none mb-1">${state.name}</h2>` : ''}
+                            <p class="text-sm text-gray-500 font-medium ${state.fontBody}">${state.tagline}</p>
+                        </div>
+                        <div class="text-right">
+                             <span class=" text-gray-400 px-3 py-1 rounded text-sm font-bold uppercase tracking-widest">Brand Guidelines</span>
+                        </div>
+                   </div>
 
-      addColorRowBtn.addEventListener('click',()=>{const group=brandContainer.querySelector('#palette-group');if(!group)return;group.insertAdjacentHTML('beforeend',paletteSwatch('Extra', '#0ea5e9', 'extra-'+Date.now()));saveState();});
+                   <!-- MAIN GRID -->
+                   <div class="grid grid-cols-12 gap-8 flex-grow">
+                        <!-- LEFT COL (Colors & Type & Mood) -->
+                        <div class="col-span-7 flex flex-col gap-8">
+                            
+                            <!-- Colors -->
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                                    Palette
+                                </h3>
+                                <div class="grid grid-cols-4 gap-3">
+                                    ${paletteItem(state.primary, 'Primary')}
+                                    ${paletteItem(state.secondary, 'Secondary')}
+                                    ${paletteItem(state.accent, 'Accent')}
+                                    ${paletteItem(state.dark, 'Neutral')}
+                                </div>
+                            </div>
 
-      downloadBtn.addEventListener('click',async()=>{downloadBtn.disabled=true;await new Promise(r=>setTimeout(r,120));try{const canvas=await html2canvas(brandContainer,{scale:3,logging:false,useCORS:true,backgroundColor:null});const format=downloadFormat;const filename=`Solite-Brand-Sheet.${format}`;if(format==='pdf'){const{jsPDF}=window.jspdf;const imgData=canvas.toDataURL('image/jpeg',0.95);const pdf=new jsPDF({orientation:canvas.width>canvas.height?'landscape':'portrait',unit:'px',format:[canvas.width,canvas.height]});pdf.addImage(imgData,'JPEG',0,0,canvas.width,canvas.height);pdf.save(filename);}else{canvas.toBlob(blob=>{const link=document.createElement('a');link.download=filename;link.href=URL.createObjectURL(blob);link.click();URL.revokeObjectURL(link.href);},`image/${format}`,1.0);} }catch(err){console.error('Download failed',err);} downloadBtn.disabled=false;});
+                            <!-- Typography -->
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                                    Typography
+                                </h3>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="border-l-2 pl-3" style="border-color:${state.primary}">
+                                        <p class="text-xs font-bold text-gray-400 uppercase mb-1">Headline (Bold)</p>
+                                        <p class="text-2xl font-bold ${state.fontHead} text-gray-900 mb-2 leading-none">Aa Bb Cc</p>
+                                        <p class="text-xs text-gray-500">${fontNames[state.fontHead]}</p>
+                                    </div>
+                                    <div class="border-l-2 border-gray-200 pl-3">
+                                        <p class="text-xs font-bold text-gray-400 uppercase mb-1">Body (Regular)</p>
+                                        <p class="text-sm ${state.fontBody} text-gray-900 mb-2 leading-snug">The quick brown fox jumps over the lazy dog.</p>
+                                        <p class="text-xs text-gray-500">${fontNames[state.fontBody]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            ${moodHtml}
+                        </div>
 
-      exportCssBtn.addEventListener('click',exportCss);
-      resetBtn.addEventListener('click',()=>{if(confirm('Reset brand sheet?')){localStorage.removeItem(LOCAL_KEY);loadTemplate(currentTemplateId);}});
+                        <!-- RIGHT COL (Voice & Keywords) -->
+                        <div class="col-span-5 bg-gray-50/80 rounded-xl p-6 flex flex-col h-full border border-gray-100">
+                            
+                            <div class="mb-6">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Voice</h3>
+                                <div class="space-y-2">
+                                    ${traitsHtml}
+                                </div>
+                            </div>
 
-      function setupDownloadDropdown(){const btn=document.getElementById('download-format-btn');const dd=document.getElementById('download-format-dropdown');const txt=document.getElementById('download-format-text');btn.addEventListener('click',e=>{e.stopPropagation();dd.classList.toggle('hidden');});dd.addEventListener('click',e=>{if(e.target.tagName==='A'){e.preventDefault();downloadFormat=e.target.dataset.value;txt.textContent=e.target.textContent;dd.classList.add('hidden');}});document.addEventListener('click',e=>{if(!e.target.closest('#download-format-btn')&&!e.target.closest('#download-format-dropdown'))dd.classList.add('hidden');});}
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Keywords</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    ${state.keywords.split(',').map(k => `<span class="text-sm border-b border-gray-300/60 pb-1 text-gray-600 ${state.fontBody} mr-1 mb-1">${k.trim()}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                   </div>
 
-      const mobileControlsBtn=document.getElementById('mobile-controls-btn');const mobilePreviewBtn=document.getElementById('mobile-preview-btn');const controlsPane=document.getElementById('controls-panel');const previewPane=document.getElementById('brand-canvas');
-      mobileControlsBtn.addEventListener('click',()=>{controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.add('hidden');previewPane.classList.remove('flex');mobileControlsBtn.classList.add('active');mobilePreviewBtn.classList.remove('active');});
-      mobilePreviewBtn.addEventListener('click',()=>{controlsPane.classList.add('hidden');controlsPane.classList.remove('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');mobileControlsBtn.classList.remove('active');mobilePreviewBtn.classList.add('active');});
+                   <!-- FOOTER (Mission + Contact) -->
+                   <div class="mt-auto pt-8 ">
+                        <div class="grid grid-cols-12 gap-12">
+                            <div class="col-span-8">
+                                <p class="${state.fontBody} text-sm leading-relaxed text-gray-700 italic border-l-2 pl-3" style="border-color: ${state.accent}">
+                                    "${state.mission}"
+                                </p>
+                            </div>
+                            <div class="col-span-4 text-right">
+                                <p class="text-xs font-bold uppercase text-gray-400 mb-1">Connect</p>
+                                <p class="text-xs text-gray-600 font-medium">${state.website}</p>
+                                <p class="text-xs text-gray-500">${state.social}</p>
+                            </div>
+                        </div>
+                   </div>
+                   
+                   <div class="mt-4 flex justify-between items-center text-[9px] text-gray-300 uppercase tracking-widest">
+                        <span>Generated by Solite.in</span>
+                        <span>${new Date().getFullYear()} Brand Identity</span>
+                   </div>
+                `;
+            }
 
-      window.addEventListener('resize',()=>{if(window.innerWidth>=1024){controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');}});
+            function handleInput(e) {
+                const { id, value } = e.target;
+                const map = {
+                    'brand-name': 'name', 'brand-tagline': 'tagline',
+                    'brand-mission': 'mission', 'brand-keywords': 'keywords',
+                    'brand-website': 'website', 'brand-social': 'social',
+                    'font-heading': 'fontHead', 'font-body': 'fontBody',
+                    'color-primary': 'primary', 'hex-primary': 'primary',
+                    'color-secondary': 'secondary', 'hex-secondary': 'secondary',
+                    'color-accent': 'accent', 'hex-accent': 'accent',
+                    'color-dark': 'dark', 'hex-dark': 'dark'
+                };
 
-      function initialLayout(){if(window.innerWidth<1024){mobileControlsBtn.click();}else{controlsPane.classList.remove('hidden');controlsPane.classList.add('flex');previewPane.classList.remove('hidden');previewPane.classList.add('flex');}}
+                if(map[id]) state[map[id]] = value;
+                
+                if(id.startsWith('color-')) {
+                    const hexId = id.replace('color-', 'hex-');
+                    document.getElementById(hexId).value = value;
+                }
+                if(id.startsWith('hex-') && /^#[0-9A-F]{6}$/i.test(value)) {
+                    const colorId = id.replace('hex-', 'color-');
+                    document.getElementById(colorId).value = value;
+                }
 
-      populateGallery();loadTemplate(currentTemplateId);setupDownloadDropdown();initialLayout();
-    });
-  </script>
+                if(e.target.classList.contains('trait-slider')) {
+                    const idx = e.target.dataset.index;
+                    state.traits[idx] = value;
+                }
+
+                renderPreview();
+            }
+
+            function randomize() {
+                const random = mockData[Math.floor(Math.random() * mockData.length)];
+                state.name = random.name;
+                state.tagline = random.tagline;
+                state.primary = random.colors[0];
+                state.secondary = random.colors[1];
+                state.accent = random.colors[2];
+                state.dark = random.colors[3];
+                state.fontHead = random.fontH;
+                state.fontBody = random.fontB;
+                state.mission = random.mission;
+                state.keywords = random.keywords;
+                state.website = random.website;
+                state.social = random.social;
+                state.traits = [...random.traits];
+                
+                // Set mood board placeholders
+                state.mood1 = random.moods[0];
+                state.mood2 = random.moods[1];
+
+                renderControls();
+                renderPreview();
+            }
+
+            // Image Upload Logic
+            function setupImageUpload(inputId, stateKey) {
+                document.getElementById(inputId).addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            state[stateKey] = event.target.result;
+                            renderControls();
+                            renderPreview();
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            setupImageUpload('logo-upload-input', 'logo');
+            setupImageUpload('mood1-upload-input', 'mood1');
+            setupImageUpload('mood2-upload-input', 'mood2');
+
+            // --- DOWNLOAD HELPER ---
+            async function getBase64ImageFromUrl(imageUrl) {
+                try {
+                    const res = await fetch(imageUrl);
+                    const blob = await res.blob();
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.addEventListener("load", function () { resolve(reader.result); }, false);
+                        reader.onerror = () => { return reject(this); };
+                        reader.readAsDataURL(blob);
+                    });
+                } catch (e) { return imageUrl; }
+            }
+
+            async function prepareImages() {
+                const ids = ['preview-logo-img', 'preview-mood1-img', 'preview-mood2-img'];
+                for (const id of ids) {
+                    const img = document.getElementById(id);
+                    if (img && img.src && !img.src.startsWith('data:')) {
+                        try {
+                            const base64 = await getBase64ImageFromUrl(img.src);
+                            img.src = base64;
+                        } catch(e) {}
+                    }
+                }
+            }
+
+            async function download() {
+                el.downloadBtn.disabled = true;
+                el.downloadBtnContent.innerHTML = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-2">Download</span>`;
+                
+                const paneWasHidden = el.previewPanel.classList.contains('hidden');
+                if (paneWasHidden) {
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                    el.previewPanel.style.position = 'absolute'; el.previewPanel.style.left = '-9999px';
+                }
+                const wrapper = document.getElementById('brand-wrapper');
+                const originalTransform = wrapper.style.transform;
+                el.brandContainer.classList.add('for-download');
+
+                await prepareImages();
+
+                wrapper.style.transform = 'scale(1)';
+                await new Promise(r => setTimeout(r, 250));
+                
+                try {
+                    const canvas = await html2canvas(el.brandContainer, {
+                        scale: 2, useCORS: true, backgroundColor: '#ffffff', logging: false
+                    });
+
+                    const filename = `brand-sheet-${state.name.replace(/\s+/g,'-').toLowerCase()}.${downloadFormat}`;
+                    
+                    if (downloadFormat === 'pdf') {
+                        const { jsPDF } = window.jspdf;
+                        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                        const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                        const pageWidth = pdf.internal.pageSize.getWidth();
+                        const ratio = canvas.width / canvas.height;
+                        const imgHeight = pageWidth / ratio;
+                        
+                        pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, imgHeight);
+                        pdf.save(filename);
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
+                        link.download = filename;
+                        link.click();
+                    }
+                } catch (e) { console.error(e); }
+                finally {
+                    el.brandContainer.classList.remove('for-download');
+                    wrapper.style.transform = originalTransform;
+                    el.downloadBtn.disabled = false;
+                    el.downloadBtnContent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg><span class="ml-2">Download</span>`;
+                    if (paneWasHidden) {
+                        el.previewPanel.classList.add('hidden'); el.previewPanel.classList.remove('grid');
+                        el.previewPanel.style.position = ''; el.previewPanel.style.left = '';
+                    }
+                }
+            }
+
+            function setupDownloadDropdown() {
+                const btn = document.getElementById('download-format-btn');
+                const dropdown = document.getElementById('download-format-dropdown');
+                const textEl = document.getElementById('download-format-text');
+                btn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('hidden'); });
+                dropdown.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        downloadFormat = e.target.dataset.value;
+                        textEl.textContent = e.target.textContent;
+                        dropdown.classList.add('hidden');
+                    }
+                });
+                document.addEventListener('click', (e) => { if (!e.target.closest('#download-format-btn')) dropdown.classList.add('hidden'); });
+            }
+
+            function scalePreview() {
+                const wrapper = document.getElementById('brand-wrapper');
+                if(!wrapper || !el.previewPanel) return;
+                const CARD_WIDTH = 794; 
+                if (window.innerWidth < 1024) { wrapper.style.transform = ''; return; }
+                const panelWidth = el.previewPanel.clientWidth;
+                const padding = 96; 
+                const scale = Math.min(1, (panelWidth - padding) / CARD_WIDTH);
+                wrapper.style.transform = `scale(${scale})`;
+            }
+
+            function handleMobileNav(view) {
+                if(view === 'edit') {
+                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.add('hidden'); el.previewPanel.classList.remove('grid');
+                    el.mobileControlsBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
+                } else {
+                    el.controlsPanel.classList.add('hidden'); el.controlsPanel.classList.remove('flex');
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                    el.mobileControlsBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
+                }
+                scalePreview();
+            }
+
+            el.controlsPanel.addEventListener('input', handleInput);
+            el.randomizeBtn.addEventListener('click', randomize);
+            el.resetBtn.addEventListener('click', () => { if(confirm('Reset brand details?')) { state = {...initialState}; renderControls(); renderPreview(); } });
+            el.downloadBtn.addEventListener('click', download);
+            el.mobileControlsBtn.addEventListener('click', () => handleMobileNav('edit'));
+            el.mobilePreviewBtn.addEventListener('click', () => handleMobileNav('preview'));
+            
+            window.addEventListener('resize', () => {
+                if(window.innerWidth >= 1024) {
+                    el.controlsPanel.classList.remove('hidden'); el.controlsPanel.classList.add('flex');
+                    el.previewPanel.classList.remove('hidden'); el.previewPanel.classList.add('grid');
+                } else {
+                    if(el.previewPanel.classList.contains('grid')) handleMobileNav('preview');
+                    else handleMobileNav('edit');
+                }
+                scalePreview();
+            });
+
+            setupDownloadDropdown();
+            renderControls();
+            renderPreview();
+            scalePreview();
+        });
+    </script>
 </body>
 </html>
