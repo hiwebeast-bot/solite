@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Code Snippet Beautifier — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Code Snippet Beautifier (Carbon Style) | Solite</title>
+  <meta name="description" content="Create beautiful code screenshots for social media. Customizable syntax highlighting, window frames, and backgrounds. Free & privacy-first." />
+  <meta name="keywords" content="code snippet generator, carbon clone, code screenshot, syntax highlighting, developer tools, code beautifier" />
+  <meta name="author" content="Solite Team" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/code-snippet-beautifier.html" />
+  <meta name="application-name" content="Code Snippet Beautifier" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="code screenshot generator, carbon alternative, syntax highlighting image, developer tools" />
+  <meta name="ai-content-type" content="Interactive Developer Tool" />
+  <meta name="ai-purpose" content="Code Visualization, Sharing, and Beautification" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Code Snippet Beautifier (Carbon Style) | Solite" />
+  <meta property="og:description" content="Create and share beautiful images of your code snippets. Customize themes, fonts, and backgrounds. 100% private and free." />
+  <meta property="og:url" content="https://solite.in/code-snippet-beautifier.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/code-snippet-beautifier.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Screenshot of Solite Code Snippet Beautifier" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Code Snippet Beautifier | Solite" />
+  <meta name="twitter:description" content="Turn your code into beautiful, shareable images. 100% private and browser-based." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/code-snippet-beautifier.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🎨 PRISM JS (Syntax Highlighting) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" id="prism-theme-link" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <!-- ⚡ HTML2CANVAS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+
+  <!-- ⚡ NON-BLOCKING FONT & HIGHLIGHT.JS THEME LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=Fira+Code&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=Fira+Code&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI / STYLES -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out, opacity .3s ease-in-out; opacity: 0; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); opacity: 1; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #0f172a; color-scheme: dark light; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    .preview-bg-pattern { background-image: radial-gradient(#374151 1px, transparent 1px); background-size: 20px 20px; }
+
+    /* Code Editor Overrides */
+    pre[class*="language-"] { margin: 0 !important; border-radius: 0 !important; background: transparent !important; text-shadow: none !important; box-shadow: none !important; }
+    code[class*="language-"] { text-shadow: none !important; font-family: 'Fira Code', 'Consolas', monospace !important; font-size: 14px; line-height: 1.5; }
+    
+    /* Input Range */
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#4f46e5;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    html.dark input[type=range]::-webkit-slider-thumb{background:#fff}
+
+    /* Mobile Nav */
+    .mobile-nav-btn { color: #9ca3af; }
+    .mobile-nav-btn.active {
+        color: #fff;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+    }
+
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], 'jetbrains-mono': ['JetBrains Mono', 'monospace'], 'fira-code': ['Fira Code', 'monospace'] } } }
+    }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE / GEN-5.0-AI-AUTHORITY -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST | AI_DISCOVERY_OPTIMIZED" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Code Snippet Beautifier</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">Code Snippet Beautifier and Image Generator</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto shadow-xl h-full lg:h-auto">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white flex-shrink-0 mb-4">Editor Controls</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+                    
+                    <!-- Code Input -->
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm">Your Code</label>
+                        <textarea id="code-input" class="w-full h-32 p-3 text-xs font-mono bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none resize-none" spellcheck="false">
+function helloWorld() {
+  console.log("Hello, Solite!");
+  return true;
+}</textarea>
+                    </div>
+
+                    <!-- Language & Theme -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <label for="language-select" class="font-medium text-xs">Language</label>
+                            <select id="language-select" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg"></select>
+                        </div>
+                        <div class="space-y-1">
+                            <label for="font-select" class="font-medium text-xs">Font</label>
+                            <select id="font-select" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg">
+                                <option value="'Fira Code', monospace">Fira Code</option>
+                                <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+                                <option value="'Inter', sans-serif">Inter</option>
+                            </select>
+                        </div>
+                         <div class="space-y-1">
+                            <label for="window-title" class="font-medium text-xs">Window Name</label>
+                            <input type="text" id="window-title" placeholder="app.js" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg">
+                        </div>
+                    </div>
+
+                    <!-- Background Options -->
+                    <div class="space-y-2 pt-2 border-t border-gray-200 dark:border-gray-800">
+                        <label class="font-medium text-sm">Background</label>
+                        <div class="grid grid-cols-5 gap-2">
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-pink-500 to-rose-500" data-bg="linear-gradient(135deg, #ec4899, #f43f5e)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-blue-400 to-indigo-600" data-bg="linear-gradient(135deg, #60a5fa, #4f46e5)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-emerald-400 to-cyan-600" data-bg="linear-gradient(135deg, #34d399, #0891b2)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-orange-400 to-rose-600" data-bg="linear-gradient(135deg, #fb923c, #e11d48)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gray-800 border border-gray-600" data-bg="#1f2937"></button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <input type="color" id="custom-bg-picker" class="h-8 w-12 bg-transparent cursor-pointer rounded">
+                            <span class="text-xs text-gray-500">Custom Color</span>
+                            <div class="flex-grow"></div>
+                            <label class="flex items-center gap-2 text-xs cursor-pointer">
+                                <input type="checkbox" id="transparent-bg" class="rounded text-indigo-600"> Transparent
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Padding & Shadow -->
+                    <div class="space-y-4 pt-2 border-t border-gray-200 dark:border-gray-800">
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <span>Padding</span>
+                                <span id="padding-val">64px</span>
+                            </div>
+                            <input type="range" id="padding-slider" min="0" max="128" value="64" class="w-full h-1 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DOWNLOAD ACTION -->
+                <div class="flex-shrink-0 pt-4 mt-auto border-t border-gray-200 dark:border-gray-800">
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>Export as PNG</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview & Code Panel -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-auto shadow-xl p-4 custom-scrollbar">
+                <div id="capture-zone" class="transition-all duration-200 flex items-center justify-center m-auto" style="background: linear-gradient(135deg, #ec4899, #f43f5e); padding: 64px; min-width: 400px;">
+                        
+                        <!-- THE WINDOW FRAME -->
+                        <div id="code-window" class="bg-[#1e1e1e] rounded-xl overflow-hidden shadow-2xl w-full max-w-3xl min-w-[300px]">
+                            
+                            <!-- Window Header -->
+                            <div class="h-10 bg-[#252526] flex items-center px-4 relative">
+                                <div class="flex space-x-2 absolute left-4">
+                                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                </div>
+                                <div id="preview-title" class="w-full text-center text-xs text-gray-400 font-mono opacity-0">app.js</div>
+                            </div>
+                            
+                            <!-- Code Content -->
+                            <div class="p-6 overflow-x-auto">
+                                <pre><code id="code-display" class="language-javascript"></code></pre>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                        Check Discount →
+                    </a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-4.1 / CODE SNIPPET BEAUTIFIER EDITION) -->
+    <div class="w-full text-gray-300 p-2 pt-0">
+
+    <style>
+        #solite-seo-block-code-snippet[open] > summary { border-bottom: 1px solid #374151; }
+        #solite-seo-block-code-snippet > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+        }
+        #solite-seo-block-code-snippet[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+        .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    </style>
+
+    <details id="solite-seo-block-code-snippet" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+        <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Free Code Snippet Beautifier — Create Shareable Code Images
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+
+        <div class="p-6 space-y-10 leading-relaxed">
+
+        <!-- 🧩 Overview -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap gap-2">
+            <span class="badge">Code Screenshot</span>
+            <span class="badge">Syntax Highlighting</span>
+            <span class="badge">Carbon Alternative</span>
+            <span class="badge">Custom Backgrounds</span>
+            <span class="badge">100% Private</span>
+            </div>
+            <p class="text-lg text-gray-300">
+            The <strong>Solite Code Snippet Beautifier</strong> lets you create beautiful, shareable images of your code. 
+            Customize syntax highlighting, backgrounds, and window styles to produce professional-looking screenshots for social media, blogs, or presentations. It's a free, privacy-first alternative to tools like Carbon.
+            </p>
+        </section>
+
+        <!-- 🧭 Why It’s Better -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Why Use This Instead?</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>100% Client-Side:</strong> Your code is never uploaded. All rendering happens in your browser for complete privacy.</li>
+            <li><strong>Highly Customizable:</strong> Control language, fonts, background gradients, padding, and window styles.</li>
+            <li><strong>High-Resolution Export:</strong> Download your code snippet as a crisp, high-quality PNG image.</li>
+            <li><strong>Instant & Free:</strong> No sign-ups, no watermarks, and no limits. Just paste your code and export.</li>
+            </ul>
+        </section>
+
+        <!-- 🧠 Who Uses It -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Developers:</strong> Sharing code snippets on Twitter, LinkedIn, or personal blogs.</li>
+                <li><strong>Educators & Tutors:</strong> Creating clean code examples for tutorials and courses.</li>
+                <li><strong>Technical Writers:</strong> Embedding beautiful code blocks in documentation.</li>
+                <li><strong>Students:</strong> Presenting code for assignments in a professional format.</li>
+            </ul>
+        </section>
+
+        <!-- ⚙️ How to Use -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">How to Create a Code Screenshot</h3>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Paste your code into the editor.</li>
+            <li>Select the programming language for correct syntax highlighting.</li>
+            <li>Customize the background with presets, custom colors, or transparency.</li>
+            <li>Adjust the padding and add an optional window title.</li>
+            <li>Click <strong>Export as PNG</strong> to download your image.</li>
+            </ol>
+        </section>
+
+        <!-- ❓ FAQs -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Frequently Asked Questions</h3>
+            <ul class="text-gray-400 space-y-3">
+                <li><strong>Q:</strong> Is my code secure? Is it uploaded anywhere?<br>
+                    <strong class="text-white">A:</strong> Yes, it's 100% secure. Your code is processed entirely in your browser and is never uploaded to any server.</li>
+                <li><strong>Q:</strong> Can I use the generated images for commercial projects?<br>
+                    <strong class="text-white">A:</strong> Absolutely. The images you create are yours to use for any personal or commercial purpose without attribution.</li>
+                <li><strong>Q:</strong> What programming languages are supported?<br>
+                    <strong class="text-white">A:</strong> The tool uses Prism.js with an autoloader, which supports hundreds of languages. The dropdown shows common ones, but it can automatically detect and highlight many others.</li>
+                <li><strong>Q:</strong> Can I customize the code editor's theme?<br>
+                    <strong class="text-white">A:</strong> Currently, the tool uses the "Prism Tomorrow" theme. Support for more themes is a potential future feature.</li>
+            </ul>
+        </section>
+
+        <!-- 🔗 Related Solite Tools -->
+        <section>
+            <h3 class="text-white text-xl font-semibold mb-2">Related Solite Tools</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a href="./code-editor.html" class="text-white hover:underline font-medium">Online Code Editor</a> — Test and run HTML, CSS, and JS in a live environment.</li>
+                <li><a href="./css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadow Generator</a> — Create layered, beautiful box and text shadows.</li>
+                <li><a href="./color-palette-generator.html" class="text-white hover:underline font-medium">Color Palette Generator</a> — Find harmonious color schemes for your projects.</li>
+                <li><a href="./uiux-design-auditor.html" class="text-white hover:underline font-medium">UI/UX Design Auditor</a> — Get an instant analysis of your website's design and usability.</li>
+            </ul>
+            <p class="text-gray-400 mt-3">
+                <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+            </p>
+        </section>
+        </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-4.1: CODE SNIPPET BEAUTIFIER BLOCK -->
+
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                <span>Editor</span>
+            </button>
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+                <span>Controls</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div> 
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-transform duration-300 z-50 flex items-center gap-2 font-medium">
+        <span>✅ Image Exported!</span>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const els = {
+            codeInput: document.getElementById('code-input'),
+            codeDisplay: document.getElementById('code-display'),
+            languageSelect: document.getElementById('language-select'),
+            fontSelect: document.getElementById('font-select'),
+            windowTitleInput: document.getElementById('window-title'),
+            previewTitle: document.getElementById('preview-title'),
+            captureZone: document.getElementById('capture-zone'),
+            paddingSlider: document.getElementById('padding-slider'),
+            paddingVal: document.getElementById('padding-val'),
+            bgPresets: document.querySelectorAll('.bg-preset'),
+            customBgPicker: document.getElementById('custom-bg-picker'),
+            transparentCheck: document.getElementById('transparent-bg'),
+            downloadBtn: document.getElementById('download-btn'),
+            toast: document.getElementById('toast'),
+            mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+            mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+            controlsPane: document.getElementById('controls-pane'),
+            previewPane: document.getElementById('preview-pane'),
+        };
+
+        let state = {
+            code: els.codeInput.value,
+            lang: 'javascript',
+            font: "'Fira Code', monospace",
+            title: '',
+            background: 'linear-gradient(135deg, #ec4899, #f43f5e)',
+            padding: 64,
+            isTransparent: false,
+            activeMobileTab: 'preview',
+        };
+
+        function updatePreview() {
+            const escapedCode = state.code
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+            
+            els.codeDisplay.innerHTML = escapedCode;
+            els.codeDisplay.style.fontFamily = state.font;
+            els.codeDisplay.className = `language-${state.lang}`;
+            Prism.highlightElement(els.codeDisplay);
+
+            if (state.title.trim() === '') {
+                els.previewTitle.classList.add('opacity-0');
+            } else {
+                els.previewTitle.textContent = state.title;
+                els.previewTitle.classList.remove('opacity-0');
+            }
+
+            els.captureZone.style.padding = `${state.padding}px`;
+            
+            if (state.isTransparent) {
+                els.captureZone.style.background = 'transparent';
+            } else {
+                els.captureZone.style.background = state.background;
+            }
+        }
+
+        function populateSelects() {
+            const languages = { javascript: 'JavaScript', html: 'HTML', css: 'CSS', python: 'Python', java: 'Java', tsx: 'React TSX', sql: 'SQL', bash: 'Bash' };
+            els.languageSelect.innerHTML = Object.entries(languages).map(([val, name]) => `<option value="${val}">${name}</option>`).join('');
+        }
+
+        function setupListeners() {
+            els.codeInput.addEventListener('input', (e) => { state.code = e.target.value; updatePreview(); });
+            els.languageSelect.addEventListener('change', (e) => { state.lang = e.target.value; updatePreview(); });
+            els.fontSelect.addEventListener('change', (e) => { state.font = e.target.value; updatePreview(); });
+            els.windowTitleInput.addEventListener('input', (e) => { state.title = e.target.value; updatePreview(); });
+            els.paddingSlider.addEventListener('input', (e) => {
+                state.padding = e.target.value;
+                els.paddingVal.textContent = `${state.padding}px`;
+                updatePreview();
+            });
+            els.bgPresets.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    state.background = btn.dataset.bg;
+                    state.isTransparent = false;
+                    els.transparentCheck.checked = false;
+                    updatePreview();
+                });
+            });
+            els.customBgPicker.addEventListener('input', (e) => {
+                state.background = e.target.value;
+                state.isTransparent = false;
+                els.transparentCheck.checked = false;
+                updatePreview();
+            });
+            els.transparentCheck.addEventListener('change', (e) => {
+                state.isTransparent = e.target.checked;
+                updatePreview();
+            });
+            els.downloadBtn.addEventListener('click', downloadImage);
+
+            els.mobilePreviewBtn.addEventListener('click', () => { state.activeMobileTab = 'preview'; handleMobileLayout(); });
+            els.mobileControlsBtn.addEventListener('click', () => { state.activeMobileTab = 'controls'; handleMobileLayout(); });
+            window.addEventListener('resize', handleMobileLayout);
+        }
+
+        async function downloadImage() {
+            const btn = els.downloadBtn;
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-black" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generating...`;
+
+            try {
+                const originalTransform = els.captureZone.style.transform;
+                els.captureZone.style.transform = 'none';
+
+                const canvas = await html2canvas(els.captureZone, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: state.isTransparent ? null : (state.background.startsWith('linear-gradient') ? null : state.background)
+                });
+
+                const link = document.createElement('a');
+                link.download = `solite-code-${Date.now()}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                els.captureZone.style.transform = originalTransform;
+                showToast();
+
+            } catch (err) {
+                console.error("Export failed", err);
+                alert("Failed to generate image. Please try again.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        function handleMobileLayout() {
+            if (window.innerWidth < 1024) {
+                els.previewPane.classList.toggle('hidden', state.activeMobileTab !== 'preview');
+                els.previewPane.classList.toggle('flex', state.activeMobileTab === 'preview');
+                els.controlsPane.classList.toggle('hidden', state.activeMobileTab !== 'controls');
+                els.controlsPane.classList.toggle('flex', state.activeMobileTab === 'controls');
+            } else {
+                els.previewPane.classList.remove('hidden'); els.previewPane.classList.add('flex');
+                els.controlsPane.classList.remove('hidden'); els.controlsPane.classList.add('flex');
+            }
+            els.mobilePreviewBtn.classList.toggle('active', state.activeMobileTab === 'preview');
+            els.mobileControlsBtn.classList.toggle('active', state.activeMobileTab === 'controls');
+        }
+
+        function showToast() {
+            els.toast.classList.remove('-translate-y-20');
+            setTimeout(() => els.toast.classList.add('-translate-y-20'), 3000);
+        }
+
+        function init() {
+            populateSelects();
+            setupListeners();
+            updatePreview();
+            handleMobileLayout();
+        }
+
+        init();
+        });
+    </script>
+</body>
+</html>

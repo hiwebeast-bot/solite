@@ -159,15 +159,15 @@
              </div>
     </header>
 
-    <main class="flex-grow flex relative min-h-0">
+    <main class="flex-grow flex relative min-h-0" style="height: calc(90vh - 72px);">
         <h1 class="sr-only">Free Student ID Card Generator</h1>
         <div id="main-content-wrapper" class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
             
             <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
                 <h3 class="text-xl font-bold text-white mb-4">Templates</h3>
-                <div id="template-grid" class="flex overflow-x-auto gap-3 pb-2"></div>
+                <div id="template-grid" class="flex gap-3 pb-2"></div>
                 
-                <hr class="border-gray-700 my-6">
+                <hr class="border-gray-700 my-4">
 
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <label for="photo-upload-input" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full transition-opacity">
@@ -453,7 +453,7 @@
                         </div>`
                 },
                 {
-                    id: 'clean-vertical', name: 'Clean Vertical', bg_front: '#ffffff', bg_back: '#ffffff',
+                    id: 'clean-vertical', name: 'Clean', bg_front: '#ffffff', bg_back: '#ffffff',
                     front_html: `
                         <div class="w-full h-full text-gray-800 p-6 flex flex-col font-sans">
                             <div class="flex items-center justify-between mb-6">
@@ -477,7 +477,7 @@
                         </div>`
                 },
                 {
-                    id: 'minimal-light', name: 'Minimal Light', bg_front: '#f9fafb', bg_back: '#f9fafb',
+                    id: 'minimal-light', name: 'Minimal', bg_front: '#f9fafb', bg_back: '#f9fafb',
                     front_html: `
                         <div class="w-full h-full text-gray-800 p-6 flex flex-col justify-between font-sans relative">
                             <div class="absolute top-0 left-0 w-full h-1 bg-purple-500"></div>

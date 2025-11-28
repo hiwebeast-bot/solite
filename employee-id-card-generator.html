@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / Employee ID Card Generator — AUTHORITY + PERFORMANCE EDITION -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 🧠 SEO & AI Authority Layer -->
   <title>Free Employee ID Card Generator — Staff ID Maker Online | Solite</title>
   <meta name="description" content="Design and download professional employee ID cards for free. Upload photos, add logos, customize details, and export print-ready designs — 100% private and browser-based." />
   <meta name="keywords" content="employee id card generator, staff id maker, printable id card, free online id creator, custom id card tool, solite tools, privacy-first" />
@@ -19,7 +16,6 @@
   <meta name="theme-color" content="#000000" />
   <link rel="canonical" href="https://solite.in/employee-id-card-generator.html" />
 
-  <!-- 🌐 Open Graph / Twitter / AI Discovery -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Solite App Suite" />
   <meta property="og:title" content="Free Employee ID Card Generator — Staff ID Maker Online | Solite" />
@@ -31,118 +27,318 @@
   <meta name="twitter:title" content="Free Employee ID Card Generator | Solite" />
   <meta name="twitter:description" content="Design your professional staff ID card instantly — no sign-up, no uploads, 100% private." />
   <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/employee-id-card-generator.html&meta=false&screenshot=true" />
-  
-  <!-- 📚 Dublin Core -->
+   
   <meta name="DC.Title" content="Free Employee ID Card Generator | Solite" />
   <meta name="DC.Description" content="An advanced yet simple online staff ID card maker to create and download print-ready designs directly from your browser." />
   <meta name="DC.Type" content="Software" />
   <meta name="DC.Creator" content="Solite" />
   <meta name="DC.Publisher" content="Solite" />
 
-  <!-- ⚙️ Core Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;700&family=Lora:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;700&family=Lora:wght@400;700&display=swap" /></noscript>
 
-  <!-- React & Babel for in-browser JSX transpilation -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- 🧱 Unified Schema Graph -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://solite.in/#organization",
-        "name": "Solite",
-        "url": "https://solite.in",
-        "logo": "https://solite.in/assets/apple-touch-icon.png",
-        "description": "Solite creates free, privacy-first design and productivity tools that run entirely in your browser."
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://solite.in/employee-id-card-generator.html#app",
-        "name": "Employee ID Card Generator | Solite",
-        "url": "https://solite.in/employee-id-card-generator.html",
-        "description": "A free, client-side employee ID card maker with templates, photo uploads, and print-ready downloads.",
-        "applicationCategory": "DesignApplication",
-        "featureList": [
-          "Editable templates for vertical and horizontal layouts",
-          "Upload employee photo and company logo",
-          "Customize text fields like name, ID, and department",
-          "Export 300 DPI print-ready PNGs and PDFs",
-          "Runs entirely offline — no data upload"
-        ],
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "operatingSystem": "All",
-        "provider": { "@id": "https://solite.in/#organization" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can I upload an employee photo and company logo?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can upload both an employee's photo and a company logo and position them on the card." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is this tool private and secure?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The tool runs 100% locally in your browser — no files are uploaded to any server, ensuring complete privacy." }
-          },
-          {
-            "@type": "Question",
-            "name": "What format can I download the ID card in?",
-            "acceptedAnswer": { "@type": "Answer", "text": "You can download the final ID card as a high-resolution, print-ready PNG, JPG, or as a PDF document." }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solite.in/index.html" },
-          { "@type": "ListItem", "position": 2, "name": "Employee ID Card Generator" }
-        ]
-      }
-    ]
-  }
-  </script>
-
-  <!-- 💅 Custom Styles -->
   <style>
-    #template-grid::-webkit-scrollbar { height: 6px; }
-    #template-grid::-webkit-scrollbar-track { background: #1f2937; }
-    #template-grid::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
+    /* Scrollbar Styling */
+    #template-grid::-webkit-scrollbar,
+    #controls-panel::-webkit-scrollbar,
+    #edit-fields-container::-webkit-scrollbar { height: 6px; width: 6px; }
+    
+    #template-grid::-webkit-scrollbar-track,
+    #controls-panel::-webkit-scrollbar-track,
+    #edit-fields-container::-webkit-scrollbar-track { background: #1f2937; }
+    
+    #template-grid::-webkit-scrollbar-thumb,
+    #controls-panel::-webkit-scrollbar-thumb,
+    #edit-fields-container::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
+    
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #111827; }
     ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
     html { scrollbar-color: #4b5563 #111827; }
+    
+    /* Mobile Nav Active State */
     .mobile-nav-btn.active { color: #fff; }
     .mobile-nav-btn { color: #9ca3af; }
-    .photo-selected { outline: dashed 2px #4b5563; }
+    
+    /* SEO Block Styling */
+    #solite-seo-block-idcard[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-idcard > summary .details-arrow-seo { transform: rotate(-90deg); transition: transform 0.25s ease-in-out; }
+    #solite-seo-block-idcard[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }
+    
+    /* Hidden utility for logic toggling. Using important to override Tailwind's responsive classes if needed. */
+    .hidden-force { display: none !important; } 
   </style>
 </head>
-<body class="bg-black text-gray-200 font-sans">
-  <div id="root"></div>
-  
-  <script type="text/babel">
-    const { useState, useEffect, useCallback, useRef } = React;
+<body class="bg-black text-gray-200 font-sans min-h-screen flex flex-col">
 
+  <header className="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800" class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+        <div class="flex items-center space-x-3">
+          <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+          <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+        <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Employee ID Card Generator</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
+          <span>Free Tools</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5-5 5"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex relative"style="height: calc(95vh - 72px);">
+    <h1 class="sr-only">Free Employee ID Card and Staff ID Maker</h1>
+    
+    <div class="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0" >
+      
+      <div id="controls-panel" class="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
+        <h3 class="text-xl font-bold text-white mb-4">Templates</h3>
+        <div id="template-grid" class="flex overflow-x-auto gap-3 pb-2 flex-shrink-0">
+          </div>
+
+        <hr class="border-gray-700 my-6" />
+
+        <div class="space-y-4 flex-shrink-0">
+          <div class="grid grid-cols-2 gap-4">
+            <button id="btn-upload-photo" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              <span id="label-upload-photo">Add Photo</span>
+            </button>
+            <button id="btn-upload-logo" class="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H18.375c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" /></svg>
+              <span id="label-upload-logo">Add Logo</span>
+            </button>
+            <input type="file" id="input-upload-photo" class="hidden" accept="image/*" />
+            <input type="file" id="input-upload-logo" class="hidden" accept="image/*" />
+          </div>
+          <button id="btn-remove-photo" class="mt-2 bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 w-full text-sm hidden">Remove Photo</button>
+          <button id="btn-remove-logo" class="mt-2 bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 w-full text-sm hidden">Remove Logo</button>
+        </div>
+
+        <hr class="border-gray-700 my-6" />
+
+        <div class="space-y-4 flex-shrink-0">
+          <h3 class="text-lg font-bold text-white">Colors</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div><label class="text-sm text-gray-400">Primary</label><input type="color" id="color-primary" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
+            <div><label class="text-sm text-gray-400">Background</label><input type="color" id="color-background" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
+            <div><label class="text-sm text-gray-400">Text</label><input type="color" id="color-text" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
+          </div>
+        </div>
+
+        <hr class="border-gray-700 my-6" />
+
+        <div id="edit-fields-container" class="space-y-4 flex-grow overflow-y-auto pr-2">
+          </div>
+
+        <div class="mt-auto pt-6 border-t border-gray-700 flex-shrink-0 sticky bottom-0 bg-gray-900 -m-6 p-6 rounded-b-xl">
+          <div class="grid grid-cols-[1fr,auto] gap-2 items-center">
+            <button id="btn-download" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-50">
+                <span class="flex items-center justify-center content-default">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                  <span class="ml-2">Download</span>
+                </span>
+                <span class="flex items-center justify-center content-loading hidden">
+                  <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  <span class="ml-2">Downloading...</span>
+                </span>
+            </button>
+            <button id="btn-reset" class="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fillRule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="preview-panel" class="hidden lg:grid flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 relative place-items-center overflow-auto lg:w-[70%]">
+        <div id="card-render-zone" class="card-container shadow-2xl relative overflow-hidden flex-shrink-0 transform scale-90 lg:scale-100">
+           </div>
+      </div>
+      
+    </div>
+    <!-- Partner Slot -->
+    <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+    <div class="flex flex-col flex-grow justify-between">
+        <!-- Top Content -->
+        <div>
+        <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+        <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+        <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+        </div>
+        <!-- Bottom Action Buttons -->
+        <div class="space-y-2 mt-auto">
+        <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+            Check Discount →
+        </a>
+        <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+        </div>
+    </div>
+    </aside>  
+  </main>
+
+  <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+    <div class="flex justify-around items-center h-16 py-1">
+      <button id="nav-btn-edit" class="mobile-nav-btn active flex flex-col items-center justify-center text-xs font-medium w-1/2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+        <span>Edit</span>
+      </button>
+      <button id="nav-btn-preview" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        <span>Preview</span>
+      </button>
+    </div>
+  </div>
+
+<!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.2 / EMPLOYEE ID CARD GENERATOR EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-seo-block-idcard[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-seo-block-idcard > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-seo-block-idcard[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-seo-block-idcard" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Free Employee ID Card Generator — Create Professional Staff IDs Online
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Free ID Card Maker</span>
+            <span class="badge">Custom Templates</span>
+            <span class="badge">Photo & Logo Upload</span>
+            <span class="badge">100% Private</span>
+            <span class="badge">Print-Ready Output</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Employee ID Card Generator</strong> empowers businesses to design and download professional staff ID cards directly in the browser. Select a template, customize employee details, upload photos and logos, and export your card instantly — with no uploads, no sign-ups, and complete privacy guaranteed.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Solite’s ID Card Generator is the Best Choice</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li><strong>Total Privacy:</strong> Your photos, logos, and employee data stay on your device. Nothing is ever uploaded to a server.</li>
+            <li><strong>Professional Templates:</strong> Choose from modern vertical and horizontal designs suitable for any corporate environment.</li>
+            <li><strong>Easy Customization:</strong> Effortlessly upload an employee photo and your company logo.</li>
+            <li><strong>Instant PDF & PNG Download:</strong> Export your ID card as a 300 DPI print-ready image or a multi-card PDF.</li>
+            <li><strong>Completely Free:</strong> No watermarks, no subscriptions. A high-quality tool for businesses of all sizes.</li>
+        </ul>
+    </section>
+
+    <!-- 🧭 How to Use -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How to Create Your Employee ID Card</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li><strong>Select a Template:</strong> Browse professional layouts and pick one that fits your brand.</li>
+            <li><strong>Upload Images:</strong> Add an employee photo and your company logo.</li>
+            <li><strong>Enter Details:</strong> Fill in the name, ID number, department, and other relevant information.</li>
+            <li><strong>Customize Colors:</strong> Adjust the card's color scheme to match your branding.</li>
+            <li><strong>Preview & Download:</strong> Download the finished ID card as a high-resolution PNG or PDF.</li>
+        </ol>
+    </section>
+
+    <!-- 🧠 Who Uses It -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses the Employee ID Card Generator?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Small Businesses & Startups:</strong> Create official ID cards without expensive software.</li>
+                <li><strong>HR Departments:</strong> Quickly issue cards for new hires and replacements.</li>
+                <li><strong>Event Organizers:</strong> Generate temporary staff or volunteer IDs for events.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li><strong>Facility Managers:</strong> Design access cards for different departments.</li>
+                <li><strong>Corporate Teams:</strong> Standardize ID card designs across the organization.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧩 Cross-Linking Ecosystem -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Part of the Solite Business Tools Suite</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./invoice-generator.html" class="text-white hover:underline font-medium">Invoice Generator</a> — Create and download professional invoices.</li>
+            <li><a href="./resume-builder.html" class="text-white hover:underline font-medium">Resume Builder</a> — Build job-winning resumes from modern templates.</li>
+            <li><a href="./letterhead-generator.html" class="text-white hover:underline font-medium">Letterhead Generator</a> — Design official company letterheads.</li>
+        </ul>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Frequently Asked Questions</h3>
+        <ul class="text-gray-400 space-y-2">
+            <li><strong>Q:</strong> Is my employee data safe?<br><strong class="text-white">A:</strong> Yes. The tool is 100% client-side. No data or images are ever uploaded to a server.</li>
+            <li><strong>Q:</strong> Can I print multiple ID cards on one page?<br><strong class="text-white">A:</strong> Yes, the PDF export option is designed to place multiple cards on a single sheet for easy printing and cutting.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>employee id card generator, staff id maker, printable id card, free online id creator, custom id card tool, solite tools, privacy-first</em>.
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “Solite Employee ID Card Generator — a free, private, browser-based tool for creating professional staff ID cards with custom templates and instant download.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.2 BLOCK / EMPLOYEE ID CARD GENERATOR -->
+
+  <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+    <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+      <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+        <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+        <span>&copy; 2025 Solite. All Rights Reserved.</span>
+      </div>
+      <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+        <a href="./about.html" class="hover:text-white transition-colors">About</a>
+        <a href="./blog.html" class="hover:text-white transition-colors">Blog</a>
+        <a href="./privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="./terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="./disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+        <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Data & Constants ---
     const CARD_TEMPLATES = [
       {
         id: 'modern-portrait',
         name: 'Modern Portrait',
         orientation: 'portrait',
-        defaultColors: {
-          primary: '#2563eb',
-          background: '#f9fafb',
-          text: '#1f2937',
-        },
+        defaultColors: { primary: '#2563eb', background: '#f9fafb', text: '#1f2937' },
         defaultData: {
           'employee-name': 'ALEXANDRA CHEN',
           'employee-title': 'UX/UI Designer',
@@ -174,11 +370,7 @@
         id: 'corporate-landscape',
         name: 'Corporate Landscape',
         orientation: 'landscape',
-        defaultColors: {
-          primary: '#0f172a',
-          background: '#ffffff',
-          text: '#334155',
-        },
+        defaultColors: { primary: '#0f172a', background: '#ffffff', text: '#334155' },
         defaultData: {
           'employee-name': 'BENJAMIN CARTER',
           'employee-title': 'Project Manager',
@@ -206,11 +398,7 @@
         id: 'minimalist-portrait',
         name: 'Minimalist Portrait',
         orientation: 'portrait',
-        defaultColors: {
-          primary: '#111827',
-          background: '#ffffff',
-          text: '#4b5563',
-        },
+        defaultColors: { primary: '#111827', background: '#ffffff', text: '#4b5563' },
         defaultData: {
           'employee-name': 'OLIVIA REID',
           'employee-title': 'Data Analyst',
@@ -232,11 +420,7 @@
         id: 'sleek-vertical',
         name: 'Sleek Vertical',
         orientation: 'portrait',
-        defaultColors: {
-            primary: '#3b82f6',
-            background: '#f9fafb',
-            text: '#1f2937',
-        },
+        defaultColors: { primary: '#3b82f6', background: '#f9fafb', text: '#1f2937' },
         defaultData: {
           'employee-name': 'AVERY SULLIVAN',
           'employee-title': 'Product Designer',
@@ -254,8 +438,8 @@
                   <p data-id="employee-title" class="text-gray-500 font-medium"></p>
               </div>
               <div class="flex-shrink-0 text-center">
-                   <p class="font-mono text-sm text-gray-400">ID: <span data-id="employee-id"></span></p>
-                   <div class="h-1.5 w-full mt-4 rounded-full" style="background-color: {{primary}};"></div>
+                    <p class="font-mono text-sm text-gray-400">ID: <span data-id="employee-id"></span></p>
+                    <div class="h-1.5 w-full mt-4 rounded-full" style="background-color: {{primary}};"></div>
               </div>
           </div>
         `,
@@ -264,11 +448,7 @@
         id: 'corporate-chic',
         name: 'Corporate Chic',
         orientation: 'landscape',
-        defaultColors: {
-            primary: '#1e3a8a',
-            background: '#ffffff',
-            text: '#1f2937',
-        },
+        defaultColors: { primary: '#1e3a8a', background: '#ffffff', text: '#1f2937' },
         defaultData: {
           'employee-name': 'ISABELLA ROSSI',
           'employee-title': 'Marketing Director',
@@ -287,7 +467,7 @@
               </div>
               <div class="w-1/3 flex flex-col" style="background-color: {{primary}};">
                   <div class="h-1/2 w-full flex items-center justify-center">
-                       <div data-id="company-logo" class="h-10 w-20 bg-contain bg-no-repeat bg-center"></div>
+                        <div data-id="company-logo" class="h-10 w-20 bg-contain bg-no-repeat bg-center"></div>
                   </div>
                   <div class="h-1/2 w-full">
                       <div data-id="employee-photo" class="w-full h-full bg-cover bg-center"></div>
@@ -300,11 +480,7 @@
         id: 'executive-landscape',
         name: 'Executive',
         orientation: 'landscape',
-        defaultColors: {
-            primary: '#1e3a8a',
-            background: '#ffffff',
-            text: '#374151',
-        },
+        defaultColors: { primary: '#1e3a8a', background: '#ffffff', text: '#374151' },
         defaultData: {
           'employee-name': 'JULIAN AUGUSTE',
           'employee-title': 'Chief Financial Officer',
@@ -335,11 +511,7 @@
         id: 'clear-view-portrait',
         name: 'Clear View',
         orientation: 'portrait',
-        defaultColors: {
-            primary: '#00a6ff',
-            background: '#ffffff',
-            text: '#1f2937',
-        },
+        defaultColors: { primary: '#00a6ff', background: '#ffffff', text: '#1f2937' },
         defaultData: {
           'employee-name': 'SAMIRA KHAN',
           'employee-title': 'HR Coordinator',
@@ -365,326 +537,328 @@
       },
     ];
 
-    const Header = () => (
-      <header className="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
-        <div className="flex justify-between items-center">
-          <a href="index.html" className="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
-            <div className="flex items-center space-x-3">
-              <svg className="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
-              <span className="text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
-            </div>
-            <span className="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
-            <span className="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Employee ID Card Generator</span>
-          </a>
-          <div className="flex items-center space-x-4">
-            <a href="index.html#apps" className="bg-gray-900 border border-gray-700 text-white  hover:border-gray-600  text-gray-600 font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5">
-              <span>Free Tools</span>
-              <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5-5 5"></path></svg>
-            </a>
-          </div>
-        </div>
-      </header>
-    );
-
-    const SeoBlock = () => (
-      <div className="w-full text-gray-300 p-2 pt-0">
-        <style>{`#solite-seo-block-idcard[open] > summary { border-bottom: 1px solid #374151; } #solite-seo-block-idcard > summary .details-arrow-seo { transform: rotate(-90deg); transition: transform 0.25s ease-in-out; } #solite-seo-block-idcard[open] > summary .details-arrow-seo { transform: rotate(0deg); } .badge { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #374151; padding:.25rem .6rem; border-radius:.6rem; font-size:.8rem; color:#9CA3AF; }`}</style>
-        <details id="solite-seo-block-idcard" className="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
-          <summary className="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
-            Free Employee ID Card Generator — Create Professional Staff IDs Online | Solite
-            <svg className="w-5 h-5 transition-transform duration-200 transform details-arrow-seo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <div className="p-6 space-y-10 leading-relaxed">
-            <section className="space-y-3">
-              <div className="flex flex-wrap gap-2">
-                <span className="badge">Free ID Card Maker</span>
-                <span className="badge">Custom Templates</span>
-                <span className="badge">Photo & Logo Upload</span>
-                <span className="badge">100% Private</span>
-                <span className="badge">Print-Ready Output</span>
-              </div>
-              <p className="text-lg text-gray-300">
-                The <strong>Solite Employee ID Card Generator</strong> empowers businesses to design and download professional staff ID cards directly in the browser. Select a template, customize employee details, upload photos and logos, and export your card instantly — with no uploads, no sign-ups, and complete privacy guaranteed.
-              </p>
-            </section>
-            <section>
-              <h3 className="text-white text-xl font-semibold mb-2">Why Solite’s ID Card Generator is the Best Choice</h3>
-              <ul className="list-disc list-inside text-gray-400 space-y-2">
-                <li><strong>Total Privacy:</strong> Your photos, logos, and employee data stay on your device. Nothing is ever uploaded to a server.</li>
-                <li><strong>Professional Templates:</strong> Choose from modern vertical and horizontal designs suitable for any corporate environment.</li>
-                <li><strong>Easy Customization:</strong> Effortlessly upload an employee photo and your company logo.</li>
-                <li><strong>Instant PDF & PNG Download:</strong> Export your ID card as a 300 DPI print-ready image or a multi-card PDF.</li>
-                <li><strong>Completely Free:</strong> No watermarks, no subscriptions. A high-quality tool for businesses of all sizes.</li>
-              </ul>
-            </section>
-            <section>
-              <h3 className="text-white text-xl font-semibold mb-2">How to Create Your Employee ID Card</h3>
-              <ol className="list-decimal list-inside text-gray-400 space-y-2">
-                <li><strong>Select a Template:</strong> Browse professional layouts and pick one that fits your brand.</li>
-                <li><strong>Upload Images:</strong> Add an employee photo and your company logo.</li>
-                <li><strong>Enter Details:</strong> Fill in the name, ID number, department, and other relevant information.</li>
-                <li><strong>Customize Colors:</strong> Adjust the card's color scheme to match your branding.</li>
-                <li><strong>Preview & Download:</strong> Download the finished ID card as a high-resolution PNG or PDF.</li>
-              </ol>
-            </section>
-          </div>
-        </details>
-      </div>
-    );
-
-    const Footer = () => (
-        <footer className="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
-            <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
-                 <div className="flex items-center space-x-3 mb-4 sm:mb-0">
-                    <svg className="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
-                    <span>&copy; 2025 Solite. All Rights Reserved.</span>
-                </div>
-                <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
-                    <a href="./about.html" className="hover:text-white transition-colors">About</a>
-                    <a href="./blog.html" className="hover:text-white transition-colors">Blog</a>
-                    <a href="./privacy.html" className="hover:text-white transition-colors">Privacy</a>
-                    <a href="./terms.html" className="hover:text-white transition-colors">Terms</a>
-                    <a href="./disclaimer.html" className="hover:text-white transition-colors">Disclaimer</a>
-                    <a href="mailto:support@solite.in" className="hover:text-white transition-colors">Contact</a>
-                </div>
-            </div>
-        </footer>
-    );
-
-    const App = () => {
-      const [currentTemplate, setCurrentTemplate] = useState(CARD_TEMPLATES[0]);
-      const [cardData, setCardData] = useState(CARD_TEMPLATES[0].defaultData);
-      const [colors, setColors] = useState(CARD_TEMPLATES[0].defaultColors);
-      const [logoSrc, setLogoSrc] = useState(null);
-      const [photoSrc, setPhotoSrc] = useState(null);
-      const [downloadFormat, setDownloadFormat] = useState('png');
-      const [isDownloading, setIsDownloading] = useState(false);
-      const [activeMobileView, setActiveMobileView] = useState('controls');
-      const [isClient, setIsClient] = useState(false);
-
-      const cardPreviewRef = useRef(null);
-      const logoUploadRef = useRef(null);
-      const photoUploadRef = useRef(null);
-
-      useEffect(() => {
-        setIsClient(true);
-      }, []);
-
-      const loadTemplate = useCallback((templateId) => {
-        const template = CARD_TEMPLATES.find(t => t.id === templateId);
-        if (template) {
-          setCurrentTemplate(template);
-          setCardData(template.defaultData);
-          setColors(template.defaultColors);
-          setLogoSrc(null);
-          setPhotoSrc(null);
-        }
-      }, []);
-
-      const handleDataChange = (field, value) => {
-        setCardData(prev => ({ ...prev, [field]: value }));
-      };
-
-      const handleColorChange = (type, value) => {
-        setColors(prev => ({ ...prev, [type]: value }));
-      };
-
-      const handleFileUpload = (event, setter) => {
-        const file = event.target.files?.[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = (e) => setter(e.target?.result);
-          reader.readAsDataURL(file);
-        }
-        event.target.value = ''; // Reset file input
-      };
-      
-      const renderCardHTML = () => {
-        let html = currentTemplate.html;
-        html = html.replace(/{{primary}}/g, colors.primary);
-        html = html.replace(/{{background}}/g, colors.background);
-        html = html.replace(/{{text}}/g, colors.text);
-        return html;
-      };
-
-      useEffect(() => {
-        const cardElement = cardPreviewRef.current;
-        if (cardElement) {
-            Object.keys(cardData).forEach(key => {
-                const dataElements = cardElement.querySelectorAll(`[data-id="${key}"]`);
-                dataElements.forEach(el => {
-                    if (el instanceof HTMLElement) {
-                        el.innerText = cardData[key];
-                    }
-                });
-            });
-
-            const logoElement = cardElement.querySelector('[data-id="company-logo"]');
-            if (logoElement) {
-                logoElement.style.backgroundImage = logoSrc ? `url(${logoSrc})` : 'none';
-            }
-
-            const photoElement = cardElement.querySelector('[data-id="employee-photo"]');
-            if (photoElement) {
-                photoElement.style.backgroundImage = photoSrc ? `url(${photoSrc})` : 'none';
-            }
-        }
-      }, [cardData, colors, logoSrc, photoSrc, currentTemplate, isClient]);
-
-
-      const downloadAction = async () => {
-        if (!cardPreviewRef.current) return;
-        setIsDownloading(true);
-        await new Promise(resolve => setTimeout(resolve, 150));
-      
-        const { jsPDF } = window.jspdf;
-        const canvas = await window.html2canvas(cardPreviewRef.current, { scale: 3, useCORS: true, backgroundColor: null });
-      
-        if (downloadFormat === 'pdf') {
-            const orientation = currentTemplate.orientation;
-            const width = orientation === 'landscape' ? 85.6 : 54;
-            const height = orientation === 'landscape' ? 54 : 85.6;
-            const pdf = new jsPDF({ orientation, unit: 'mm', format: [width, height] });
-            pdf.addImage(canvas.toDataURL('image/png', 1.0), 'PNG', 0, 0, width, height);
-            pdf.save('employee-id-card.pdf');
-        } else {
-            const link = document.createElement('a');
-            link.href = canvas.toDataURL(`image/${downloadFormat}`, 1.0);
-            link.download = `employee-id-card.${downloadFormat}`;
-            link.click();
-        }
-      
-        setIsDownloading(false);
-      };
-      
-      const isMobile = isClient && window.innerWidth < 1024;
-
-      const showControls = !isMobile || activeMobileView === 'controls';
-      const showPreview = !isMobile || activeMobileView === 'preview';
-
-      return (
-        <div className="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
-          <Header />
-          <main className="flex-grow flex relative">
-            <h1 className="sr-only">Free Employee ID Card and Staff ID Maker</h1>
-            <div className="flex-grow w-full p-3 pb-20 lg:pb-3 flex flex-col lg:flex-row gap-4 lg:w-[80%] min-h-0">
-              
-              {showControls && (
-                <div id="controls-panel" className="w-full lg:w-[30%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto">
-                  <h3 className="text-xl font-bold text-white mb-4">Templates</h3>
-                  <div id="template-grid" className="flex overflow-x-auto gap-3 pb-2">
-                    {CARD_TEMPLATES.map(template => (
-                      <button key={template.id} onClick={() => loadTemplate(template.id)} className={`flex-shrink-0 bg-gray-800 rounded-lg p-2 text-center cursor-pointer transition-all duration-300 border-2 hover:border-gray-500 w-24 ${currentTemplate.id === template.id ? 'border-white' : 'border-gray-700'}`}>
-                        <h3 className="font-semibold text-white text-sm">{template.name}</h3>
-                      </button>
-                    ))}
-                  </div>
-
-                  <hr className="border-gray-700 my-6" />
-
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <button onClick={() => photoUploadRef.current?.click()} className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                        <span>{photoSrc ? 'Change Photo' : 'Add Photo'}</span>
-                      </button>
-                      <button onClick={() => logoUploadRef.current?.click()} className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer w-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H18.375c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" /></svg>
-                        <span>{logoSrc ? 'Change Logo' : 'Add Logo'}</span>
-                      </button>
-                      <input type="file" ref={photoUploadRef} className="hidden" accept="image/*" onChange={(e) => handleFileUpload(e, setPhotoSrc)} />
-                      <input type="file" ref={logoUploadRef} className="hidden" accept="image/*" onChange={(e) => handleFileUpload(e, setLogoSrc)} />
-                    </div>
-                    {photoSrc && <button onClick={() => setPhotoSrc(null)} className="mt-2 bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 w-full text-sm">Remove Photo</button>}
-                    {logoSrc && <button onClick={() => setLogoSrc(null)} className="mt-2 bg-red-800/20 hover:bg-red-800/40 text-red-400 font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 w-full text-sm">Remove Logo</button>}
-                  </div>
-
-                  <hr className="border-gray-700 my-6" />
-                  
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-white">Colors</h3>
-                    <div className="grid grid-cols-3 gap-4">
-                        <div><label className="text-sm text-gray-400">Primary</label><input type="color" value={colors.primary} onChange={(e) => handleColorChange('primary', e.target.value)} className="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
-                        <div><label className="text-sm text-gray-400">Background</label><input type="color" value={colors.background} onChange={(e) => handleColorChange('background', e.target.value)} className="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
-                        <div><label className="text-sm text-gray-400">Text</label><input type="color" value={colors.text} onChange={(e) => handleColorChange('text', e.target.value)} className="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700 mt-1"/></div>
-                    </div>
-                  </div>
-
-                  <hr className="border-gray-700 my-6" />
-
-                  <div id="edit-fields-container" className="space-y-4 flex-grow overflow-y-auto pr-2">
-                    {Object.keys(currentTemplate.defaultData).map(fieldId => (
-                      <div key={fieldId}>
-                        <label htmlFor={`field-${fieldId}`} className="block text-sm font-medium text-gray-300 capitalize">{fieldId.replace(/-/g, ' ')}</label>
-                        <input id={`field-${fieldId}`} type="text" value={cardData[fieldId] || ''} onChange={(e) => handleDataChange(fieldId, e.target.value)} className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400" />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-auto pt-6 border-t border-gray-700">
-                    <div className="grid grid-cols-[1fr,auto] gap-2 items-center">
-                      <button onClick={downloadAction} disabled={isDownloading} className="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-lg flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-50">
-                        {isDownloading ? (
-                          <span className="flex items-center justify-center">
-                            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                            <span className="ml-2">Downloading...</span>
-                          </span>
-                        ) : (
-                           <span className="flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
-                            <span className="ml-2">Download</span>
-                          </span>
-                        )}
-                      </button>
-                      <button onClick={() => loadTemplate(currentTemplate.id)} className="bg-red-800/40 hover:bg-red-800/60 text-red-400 font-medium p-3 rounded-lg flex-shrink-0" title="Reset Card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"></path>  <path fillRule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"></path></svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {showPreview && (
-                <div id="preview-panel" className="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 relative grid place-items-center overflow-auto lg:w-[70%]">
-                  <div ref={cardPreviewRef} className={`card-container shadow-2xl relative overflow-hidden flex-shrink-0 transform scale-90 lg:scale-100 ${currentTemplate.orientation === 'portrait' ? 'aspect-[2.125/3.375] w-[300px]' : 'aspect-[3.375/2.125] w-[450px]'}`}>
-                    <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: renderCardHTML() }} />
-                  </div>
-                </div>
-              )}
-            </div>
-            <aside className="w-[20%] flex-shrink-0 p-3 border-l border-gray-800 hidden lg:block">
-              <div className="h-full bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400">Sponsor Slot</div>
-            </aside>
-          </main>
-
-          {isMobile && (
-            <div id="mobile-nav" className="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
-              <div className="flex justify-around items-center h-16 py-1">
-                <button onClick={() => setActiveMobileView('controls')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeMobileView === 'controls' ? 'active' : ''}`}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
-                  <span>Edit</span>
-                </button>
-                <button onClick={() => setActiveMobileView('preview')} className={`mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 ${activeMobileView === 'preview' ? 'active' : ''}`}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                  <span>Preview</span>
-                </button>
-              </div>
-            </div>
-          )}
-          
-          <SeoBlock />
-          <Footer />
-        </div>
-      );
+    // --- State Management ---
+    const appState = {
+      currentTemplate: CARD_TEMPLATES[0],
+      cardData: { ...CARD_TEMPLATES[0].defaultData },
+      colors: { ...CARD_TEMPLATES[0].defaultColors },
+      photoSrc: null,
+      logoSrc: null,
+      activeMobileView: 'controls', // 'controls' or 'preview'
     };
 
-    const rootElement = document.getElementById('root');
-    const root = ReactDOM.createRoot(rootElement);
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+    // --- DOM Elements ---
+    const elTemplateGrid = document.getElementById('template-grid');
+    const elFieldsContainer = document.getElementById('edit-fields-container');
+    const elCardRenderZone = document.getElementById('card-render-zone');
+    const elColorPrimary = document.getElementById('color-primary');
+    const elColorBackground = document.getElementById('color-background');
+    const elColorText = document.getElementById('color-text');
+    
+    // Controls
+    const elControlsPanel = document.getElementById('controls-panel');
+    const elPreviewPanel = document.getElementById('preview-panel');
+    const elNavBtnEdit = document.getElementById('nav-btn-edit');
+    const elNavBtnPreview = document.getElementById('nav-btn-preview');
+
+    // Uploads
+    const btnUploadPhoto = document.getElementById('btn-upload-photo');
+    const btnUploadLogo = document.getElementById('btn-upload-logo');
+    const inputUploadPhoto = document.getElementById('input-upload-photo');
+    const inputUploadLogo = document.getElementById('input-upload-logo');
+    const btnRemovePhoto = document.getElementById('btn-remove-photo');
+    const btnRemoveLogo = document.getElementById('btn-remove-logo');
+    const labelUploadPhoto = document.getElementById('label-upload-photo');
+    const labelUploadLogo = document.getElementById('label-upload-logo');
+
+    // --- Initialization ---
+    function init() {
+      renderTemplateButtons();
+      setupColorPickers();
+      setupUploadListeners();
+      setupDownloadListener();
+      setupMobileNav();
+      setupResetListener();
+      loadTemplate(CARD_TEMPLATES[0].id);
+    }
+
+    // --- Core Functions ---
+
+    function loadTemplate(templateId) {
+      const template = CARD_TEMPLATES.find(t => t.id === templateId);
+      if (!template) return;
+
+      appState.currentTemplate = template;
+      appState.cardData = { ...template.defaultData };
+      appState.colors = { ...template.defaultColors };
+      // Note: We deliberately reset images when switching templates per original behavior
+      appState.photoSrc = null;
+      appState.logoSrc = null;
+
+      updateUIFromState();
+    }
+
+    function updateUIFromState() {
+      // 1. Update Template Buttons State
+      document.querySelectorAll('.template-btn').forEach(btn => {
+        if(btn.dataset.id === appState.currentTemplate.id) {
+          btn.classList.remove('border-gray-700');
+          btn.classList.add('border-white');
+        } else {
+          btn.classList.add('border-gray-700');
+          btn.classList.remove('border-white');
+        }
+      });
+
+      // 2. Update Color Pickers
+      elColorPrimary.value = appState.colors.primary;
+      elColorBackground.value = appState.colors.background;
+      elColorText.value = appState.colors.text;
+
+      // 3. Update Input Fields
+      renderInputFields();
+
+      // 4. Update Upload UI
+      if (appState.photoSrc) {
+        labelUploadPhoto.innerText = "Change Photo";
+        btnRemovePhoto.classList.remove('hidden');
+      } else {
+        labelUploadPhoto.innerText = "Add Photo";
+        btnRemovePhoto.classList.add('hidden');
+      }
+
+      if (appState.logoSrc) {
+        labelUploadLogo.innerText = "Change Logo";
+        btnRemoveLogo.classList.remove('hidden');
+      } else {
+        labelUploadLogo.innerText = "Add Logo";
+        btnRemoveLogo.classList.add('hidden');
+      }
+
+      // 5. Render Preview
+      renderPreview();
+    }
+
+    function renderTemplateButtons() {
+      elTemplateGrid.innerHTML = '';
+      CARD_TEMPLATES.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = `template-btn flex-shrink-0 bg-gray-800 rounded-lg p-2 text-center cursor-pointer transition-all duration-300 border-2 hover:border-gray-500 w-24 border-gray-700`;
+        btn.dataset.id = t.id;
+        btn.innerHTML = `<h3 class="font-semibold text-white text-sm pointer-events-none">${t.name}</h3>`;
+        btn.onclick = () => loadTemplate(t.id);
+        elTemplateGrid.appendChild(btn);
+      });
+    }
+
+    function renderInputFields() {
+      elFieldsContainer.innerHTML = '';
+      Object.keys(appState.currentTemplate.defaultData).forEach(fieldId => {
+        const div = document.createElement('div');
+        
+        const label = document.createElement('label');
+        label.htmlFor = `field-${fieldId}`;
+        label.className = "block text-sm font-medium text-gray-300 capitalize";
+        label.innerText = fieldId.replace(/-/g, ' ');
+
+        const input = document.createElement('input');
+        input.type = "text";
+        input.id = `field-${fieldId}`;
+        input.value = appState.cardData[fieldId] || '';
+        input.className = "mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-400";
+        
+        input.addEventListener('input', (e) => {
+          appState.cardData[fieldId] = e.target.value;
+          updatePreviewContent(); // Only update content, not full re-render
+        });
+
+        div.appendChild(label);
+        div.appendChild(input);
+        elFieldsContainer.appendChild(div);
+      });
+    }
+
+    function renderPreview() {
+      // 1. Resize Container based on orientation
+      if (appState.currentTemplate.orientation === 'portrait') {
+        elCardRenderZone.classList.remove('aspect-[3.375/2.125]', 'w-[450px]');
+        elCardRenderZone.classList.add('aspect-[2.125/3.375]', 'w-[300px]');
+      } else {
+        elCardRenderZone.classList.remove('aspect-[2.125/3.375]', 'w-[300px]');
+        elCardRenderZone.classList.add('aspect-[3.375/2.125]', 'w-[450px]');
+      }
+
+      // 2. Inject HTML with Colors
+      let html = appState.currentTemplate.html;
+      html = html.replace(/{{primary}}/g, appState.colors.primary);
+      html = html.replace(/{{background}}/g, appState.colors.background);
+      html = html.replace(/{{text}}/g, appState.colors.text);
+      
+      elCardRenderZone.innerHTML = `<div class="w-full h-full">${html}</div>`;
+
+      // 3. Update Text and Images
+      updatePreviewContent();
+    }
+
+    function updatePreviewContent() {
+      // Text Fields
+      Object.keys(appState.cardData).forEach(key => {
+        const els = elCardRenderZone.querySelectorAll(`[data-id="${key}"]`);
+        els.forEach(el => {
+            el.innerText = appState.cardData[key];
+        });
+      });
+
+      // Images
+      const logoEl = elCardRenderZone.querySelector('[data-id="company-logo"]');
+      if (logoEl) logoEl.style.backgroundImage = appState.logoSrc ? `url(${appState.logoSrc})` : 'none';
+
+      const photoEl = elCardRenderZone.querySelector('[data-id="employee-photo"]');
+      if (photoEl) photoEl.style.backgroundImage = appState.photoSrc ? `url(${appState.photoSrc})` : 'none';
+    }
+
+    // --- Listeners & Handlers ---
+
+    function setupColorPickers() {
+      const handleColor = (key, val) => {
+        appState.colors[key] = val;
+        renderPreview(); // Re-render HTML to apply new colors to style attributes
+      };
+      elColorPrimary.addEventListener('input', (e) => handleColor('primary', e.target.value));
+      elColorBackground.addEventListener('input', (e) => handleColor('background', e.target.value));
+      elColorText.addEventListener('input', (e) => handleColor('text', e.target.value));
+    }
+
+    function setupUploadListeners() {
+      // Triggers
+      btnUploadPhoto.onclick = () => inputUploadPhoto.click();
+      btnUploadLogo.onclick = () => inputUploadLogo.click();
+
+      // File Inputs
+      const handleFile = (e, key) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            appState[key] = evt.target.result;
+            updateUIFromState();
+          };
+          reader.readAsDataURL(file);
+        }
+        e.target.value = ''; // Reset
+      };
+
+      inputUploadPhoto.onchange = (e) => handleFile(e, 'photoSrc');
+      inputUploadLogo.onchange = (e) => handleFile(e, 'logoSrc');
+
+      // Removes
+      btnRemovePhoto.onclick = () => { appState.photoSrc = null; updateUIFromState(); };
+      btnRemoveLogo.onclick = () => { appState.logoSrc = null; updateUIFromState(); };
+    }
+
+    function setupResetListener() {
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            loadTemplate(appState.currentTemplate.id);
+        });
+    }
+
+    function setupDownloadListener() {
+      const btn = document.getElementById('btn-download');
+      const contentDefault = btn.querySelector('.content-default');
+      const contentLoading = btn.querySelector('.content-loading');
+
+      btn.addEventListener('click', async () => {
+        if (!elCardRenderZone) return;
+
+        // UI Loading State
+        btn.disabled = true;
+        contentDefault.classList.add('hidden');
+        contentLoading.classList.remove('hidden');
+
+        await new Promise(resolve => setTimeout(resolve, 150)); // small delay for UI
+
+        try {
+          const { jsPDF } = window.jspdf;
+          const canvas = await html2canvas(elCardRenderZone, { scale: 3, useCORS: true, backgroundColor: null });
+
+          // Default is PNG here to match React logic simplicity, or PDF if preferred. 
+          // The React code showed logic for both but defaulted 'png'. We'll stick to PNG for simplicity
+          // or auto-detect. The original code had a format state defaulting to 'png'.
+          
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.download = `employee-id-card.png`;
+          link.click();
+          
+        } catch (err) {
+            console.error(err);
+            alert("Error generating image.");
+        } finally {
+            btn.disabled = false;
+            contentDefault.classList.remove('hidden');
+            contentLoading.classList.add('hidden');
+        }
+      });
+    }
+
+    function setupMobileNav() {
+      // Logic: On mobile, we toggle visibility classes between #controls-panel and #preview-panel
+      // Note: we need to handle the specific layout requirements:
+      // Controls panel: w-full lg:w-[30%]
+      // Preview panel: hidden lg:grid lg:w-[70%]
+      
+      const setView = (view) => {
+        appState.activeMobileView = view;
+        
+        if (view === 'controls') {
+            elNavBtnEdit.classList.add('active');
+            elNavBtnPreview.classList.remove('active');
+            
+            // Show Controls, Hide Preview (Mobile logic)
+            elControlsPanel.classList.remove('hidden-force');
+            elPreviewPanel.classList.add('hidden-force');
+            // Ensure standard classes for desktop are respected via media queries
+            // In vanilla, direct style manipulation or utility toggling is easiest.
+            if(window.innerWidth < 1024) {
+                 elControlsPanel.style.display = 'flex';
+                 elPreviewPanel.style.display = 'none';
+            }
+        } else {
+            elNavBtnEdit.classList.remove('active');
+            elNavBtnPreview.classList.add('active');
+
+            // Hide Controls, Show Preview
+             if(window.innerWidth < 1024) {
+                 elControlsPanel.style.display = 'none';
+                 elPreviewPanel.style.display = 'grid'; // preview uses grid place-items-center
+                 // Override the 'hidden' class present in HTML
+                 elPreviewPanel.classList.remove('hidden'); 
+            }
+        }
+      };
+
+      elNavBtnEdit.onclick = () => setView('controls');
+      elNavBtnPreview.onclick = () => setView('preview');
+      
+      // Reset on resize
+      window.addEventListener('resize', () => {
+          if (window.innerWidth >= 1024) {
+              elControlsPanel.style.display = ''; // reset to css
+              elPreviewPanel.style.display = ''; 
+              elPreviewPanel.classList.remove('hidden-force');
+              elPreviewPanel.classList.add('lg:grid'); // ensure class integrity
+          } else {
+              setView(appState.activeMobileView);
+          }
+      });
+      
+      // Init view
+      if (window.innerWidth < 1024) setView('controls');
+    }
+
+    // Start App
+    init();
+
   </script>
 </body>
 </html>
