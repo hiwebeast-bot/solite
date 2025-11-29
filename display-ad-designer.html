@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.6 BALANCED HEAD / Display Ad Designer — AUTHORITY + PERFORMANCE EDITION -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 🧠 PRIMARY SEO -->
+    <title>Free Display Ad Designer | Google & Banner Ads Maker | Solite</title>
+    <meta name="description"
+        content="Create professional display ads and banners for Google Ads, Facebook, and websites. Support for all standard IAB sizes (300x250, 728x90, etc.). 100% private & browser-based." />
+    <meta name="keywords"
+        content="display ad maker, banner ad creator, google ads designer, iab banner maker, free ad builder, html5 banner replacement, solite, privacy first tool" />
+    <meta name="author" content="Solite Team" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://solite.in/display-ad-designer.html" />
+    <meta name="application-name" content="Display Ad Designer" />
+    <meta name="publisher" content="Solite" />
+    <meta name="generator" content="Solite GEN-5.6 Balanced — Authority + Performance Edition" />
+
+    <!-- 🤖 AI DISCOVERY LAYER -->
+    <meta name="ai-indexing" content="enabled" />
+    <meta name="ai-model-context"
+        content="digital advertising design, banner creation, google display network, ad creative tools" />
+    <meta name="ai-content-type" content="Interactive Design Tool" />
+    <meta name="ai-purpose" content="Banner Ad Generation, Visual Marketing, CTR Optimization" />
+    <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+    <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solite" />
+    <meta property="og:title" content="Free Display Ad Designer | Solite" />
+    <meta property="og:description"
+        content="Design custom banner ads with standard IAB sizes. Add text, CTAs, and backgrounds. 100% private." />
+    <meta property="og:url" content="https://solite.in/display-ad-designer.html" />
+    <meta property="og:image"
+        content="https://api.microlink.io/?url=https://solite.in/display-ad-designer.html&meta=false&screenshot=true" />
+    <meta property="og:image:alt" content="Screenshot of Solite Display Ad Designer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Display Ad Designer | Solite" />
+    <meta name="twitter:description" content="Create Google Display Ads instantly. No uploads, 100% private." />
+    <meta name="twitter:image"
+        content="https://api.microlink.io/?url=https://solite.in/display-ad-designer.html&meta=false&screenshot=true" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- 📊 VERCEL ANALYTICS -->
+    <script>window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); }</script>
+    <script src="/_vercel/insights/script.js" defer></script>
+
+    <!-- ⚙️ CORE LIBRARIES -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+
+    <!-- ⚡ NON-BLOCKING FONT LOAD -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Poppins:wght@600;700;900&family=Roboto+Mono&family=Oswald:wght@500;700&family=Anton&family=Bebas+Neue&family=Montserrat:wght@600;800;900&family=Open+Sans:wght@600;800&display=swap"
+        as="style" onload="this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Poppins:wght@600;700;900&family=Roboto+Mono&family=Oswald:wght@500;700&family=Anton&family=Bebas+Neue&family=Montserrat:wght@600;800;900&family=Open+Sans:wght@600;800&display=swap">
+    </noscript>
+
+    <!-- 🪞 FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+    <!-- 🎨 UI / STYLES -->
+    <style>
+        #toast {
+            transform: translateY(150%);
+            transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        #toast.show {
+            transform: translateY(-2rem);
+            opacity: 1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+            border-radius: 4px;
+        }
+
+        html {
+            scrollbar-color: #4b5563 #111827;
+            background-color: #0f172a;
+            color-scheme: dark light;
+        }
+
+        .mobile-nav-btn.active {
+            color: #fff;
+        }
+
+        .mobile-nav-btn {
+            color: #9ca3af;
+        }
+
+        .custom-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 9999px;
+            margin-top: -6px
+        }
+
+        html.dark input[type=range]::-webkit-slider-thumb {
+            background: #fff
+        }
+
+        /* Interactive Elements */
+        .draggable-item {
+            cursor: move;
+            user-select: none;
+            position: absolute;
+            transform-origin: top left;
+            z-index: 30;
+        }
+
+        .draggable-item:hover {
+            outline: 1px dashed rgba(255, 255, 255, 0.5);
+        }
+
+        .draggable-item.selected {
+            outline: 2px dashed #4f46e5;
+            z-index: 50 !important;
+        }
+
+        /* Resize Handle */
+        .resize-handle {
+            width: 14px;
+            height: 14px;
+            background: white;
+            border: 2px solid #4f46e5;
+            position: absolute;
+            bottom: -7px;
+            right: -7px;
+            border-radius: 50%;
+            cursor: nwse-resize;
+            display: none;
+            z-index: 60;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .draggable-item.selected .resize-handle {
+            display: block;
+        }
+
+        /* BG Layer for Panning */
+        #bg-layer {
+            cursor: grab;
+            z-index: 0;
+        }
+
+        #bg-layer:active {
+            cursor: grabbing;
+        }
+
+        /* CSS Grid Centering Strategy */
+        #preview-pane {
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background-image: radial-gradient(#374151 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        #centering-box {
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transition: width 0.2s, height 0.2s;
+            /* Smooth resize */
+            margin: auto;
+        }
+
+        #capture-zone {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+            overflow: hidden;
+            will-change: transform;
+            background-color: #1f2937;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], poppins: ['Poppins', 'sans-serif'], oswald: ['Oswald', 'sans-serif'], anton: ['Anton', 'sans-serif'], 'roboto-mono': ['Roboto Mono', 'monospace'], 'bebas-neue': ['Bebas Neue', 'cursive'], 'montserrat': ['Montserrat', 'sans-serif'], 'open-sans': ['Open Sans', 'sans-serif'] } } }
+        }
+    </script>
+
+    <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+    <meta name="solite-ai-signature"
+        content="APEX_HEAD_V5.5 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header
+        class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0"
+                aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 7l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Display Ad
+                    Designer</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps"
+                    class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div
+            class="flex-grow w-full lg:w-[90%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">Display Ad Designer</h1>
+
+            <!-- Controls Panel -->
+            <div id="controls-pane"
+                class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto shadow-xl h-full lg:h-auto z-10">
+
+                <!-- Ad Size Selector -->
+                <div class="mb-4 pb-4 border-b border-gray-800">
+                    <label class="font-bold text-white text-sm mb-2 block">Ad Format (IAB Standard)</label>
+                    <div class="relative">
+                        <select id="ad-size-select"
+                            class="w-full bg-gray-800 border border-gray-600 text-white text-sm py-2.5 px-3 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none appearance-none cursor-pointer">
+                            <optgroup label="Popular Rectangles">
+                                <option value="300x250">Medium Rectangle (300 x 250)</option>
+                                <option value="336x280">Large Rectangle (336 x 280)</option>
+                            </optgroup>
+                            <optgroup label="Banners & Leaderboards">
+                                <option value="728x90">Leaderboard (728 x 90)</option>
+                                <option value="970x250">Billboard (970 x 250)</option>
+                                <option value="320x50">Mobile Leaderboard (320 x 50)</option>
+                            </optgroup>
+                            <optgroup label="Skyscrapers & Verticals">
+                                <option value="300x600">Half Page (300 x 600)</option>
+                                <option value="160x600">Wide Skyscraper (160 x 600)</option>
+                            </optgroup>
+                            <optgroup label="Social">
+                                <option value="1200x628">Facebook Feed (1200 x 628)</option>
+                                <option value="1080x1080">Instagram Post (1080 x 1080)</option>
+                            </optgroup>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+
+                    <!-- Text Inputs -->
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm text-gray-300">Headline</label>
+                        <textarea id="title-input"
+                            class="w-full h-16 p-3 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none resize-none"
+                            spellcheck="false">BIG SALE</textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm text-gray-300">Subheadline / Description</label>
+                        <input type="text" id="subtitle-input" value="Up to 50% Off Today"
+                            class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg">
+                    </div>
+
+                    <!-- CTA Button Controls -->
+                    <div class="space-y-3 pt-2 border-t border-gray-800">
+                        <label class="font-medium text-sm text-gray-300">Call to Action (Button)</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="cta-input" value="SHOP NOW"
+                                class="flex-grow bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg uppercase font-bold">
+                            <input type="color" id="cta-color-picker" value="#3b82f6"
+                                class="w-12 h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"
+                                title="Button Color">
+                        </div>
+                    </div>
+
+                    <!-- Font & Style -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-gray-800">
+                        <div class="space-y-1">
+                            <label for="font-select" class="font-medium text-xs text-gray-400">Font Family</label>
+                            <select id="font-select"
+                                class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm py-2 px-2 rounded-lg">
+                                <option value="'Open Sans', sans-serif">Open Sans</option>
+                                <option value="'Montserrat', sans-serif">Montserrat</option>
+                                <option value="'Anton', sans-serif">Anton</option>
+                                <option value="'Oswald', sans-serif">Oswald</option>
+                                <option value="'Poppins', sans-serif">Poppins</option>
+                                <option value="'Bebas Neue', cursive">Bebas Neue</option>
+                                <option value="'Inter', sans-serif">Inter</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label for="font-color-picker" class="font-medium text-xs text-gray-400">Text Color</label>
+                            <input type="color" id="font-color-picker" value="#FFFFFF"
+                                class="w-full h-9 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                        </div>
+                    </div>
+
+                    <!-- Background Options -->
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <label class="font-medium text-sm text-gray-300">Background</label>
+                        <div class="grid grid-cols-5 gap-2">
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-blue-600 to-indigo-700"
+                                data-bg="linear-gradient(135deg, #2563eb, #4338ca)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-red-500 to-orange-500"
+                                data-bg="linear-gradient(135deg, #ef4444, #f97316)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-emerald-500 to-teal-600"
+                                data-bg="linear-gradient(135deg, #10b981, #0d9488)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gray-900 border border-gray-600"
+                                data-bg="#111827"></button>
+                            <button class="bg-preset h-8 rounded-md bg-white border border-gray-400"
+                                data-bg="#ffffff"></button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <input type="color" id="custom-bg-picker"
+                                class="h-8 w-12 bg-transparent cursor-pointer rounded">
+                            <span class="text-xs text-gray-500">Custom</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mt-2">
+                            <input type="file" id="bg-image-upload" class="hidden" accept="image/*">
+                            <button type="button" id="bg-image-upload-btn"
+                                class="w-full text-xs bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                Upload Image
+                            </button>
+                            <button type="button" id="remove-bg-btn"
+                                class="hidden w-8 text-sm bg-red-900/50 hover:bg-red-900/80 text-red-400 font-medium py-2 rounded-lg flex items-center justify-center">✕</button>
+                        </div>
+
+                        <div class="space-y-1 mt-3">
+                            <div class="flex justify-between text-xs">
+                                <span>Dimmer</span>
+                                <span id="dimmer-val">0%</span>
+                            </div>
+                            <input type="range" id="dimmer-slider" min="0" max="90" value="0"
+                                class="w-full h-1 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none">
+                        </div>
+                    </div>
+
+                    <!-- Overlay Options -->
+                    <div class="space-y-4 pt-2 border-t border-gray-800">
+                        <div class="space-y-2">
+                            <label class="font-medium text-sm text-gray-300">Logo / Product Overlay</label>
+                            <div class="flex items-center gap-2">
+                                <input type="file" id="overlay-image-upload" class="hidden" accept="image/*">
+                                <button type="button" id="overlay-image-upload-btn"
+                                    class="w-full text-xs bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-2 whitespace-nowrap">
+                                    Add Logo/Image
+                                </button>
+                                <button type="button" id="remove-overlay-btn"
+                                    class="hidden w-8 text-sm bg-red-900/50 hover:bg-red-900/80 text-red-400 font-medium py-2 rounded-lg flex items-center justify-center">✕</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-gray-800">
+                        <p class="text-[10px] text-gray-500 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Tip: Drag elements to move. Drag handles to resize.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- DOWNLOAD ACTION -->
+                <div class="flex-shrink-0 pt-4 mt-auto border-t border-gray-800">
+                    <button id="download-btn"
+                        class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Download PNG</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div id="preview-pane"
+                class="flex-1 bg-gray-900 rounded-xl border border-gray-800 shadow-xl custom-scrollbar relative">
+                <!-- Size Info Badge -->
+                <div class="absolute top-4 right-4 text-center pointer-events-none z-50 opacity-70">
+                    <span id="canvas-size-badge"
+                        class="text-xs text-white bg-black/60 px-2 py-1 rounded font-mono border border-gray-700">300 x
+                        250</span>
+                </div>
+
+                <!-- Centering Wrapper -->
+                <div id="centering-box" style="width: 300px; height: 250px;">
+                    <!-- Capture Zone -->
+                    <div id="capture-zone"
+                        class="select-none bg-gray-800 overflow-hidden relative w-full h-full shadow-2xl">
+
+                        <!-- 1. Background Layer -->
+                        <div id="bg-layer" class="absolute inset-0 w-full h-full bg-cover bg-no-repeat z-0"
+                            style="background-position: center center;"></div>
+
+                        <!-- 2. Dimmer Layer -->
+                        <div id="dimmer-layer" class="absolute inset-0 bg-black z-10 pointer-events-none opacity-0">
+                        </div>
+
+                        <!-- 3. Overlay Image (Draggable) -->
+                        <div id="overlay-container" class="draggable-item" style="display:none;">
+                            <img id="overlay-image-display" class="pointer-events-none block"
+                                style="max-width: 150px;" />
+                            <div class="resize-handle" data-target="overlay"></div>
+                        </div>
+
+                        <!-- 4. Text Layers (Draggable) -->
+                        <div id="title-container" class="draggable-item">
+                            <h1 id="title-display"
+                                class="text-4xl font-extrabold uppercase drop-shadow-lg leading-tight text-left pointer-events-none whitespace-pre-wrap"
+                                style="width: max-content; max-width: 280px;">BIG SALE</h1>
+                            <div class="resize-handle" data-target="title"></div>
+                        </div>
+
+                        <div id="subtitle-container" class="draggable-item">
+                            <p id="subtitle-display"
+                                class="text-xl font-medium drop-shadow-md text-left pointer-events-none whitespace-pre-wrap"
+                                style="width: max-content; max-width: 250px;">Up to 50% Off Today</p>
+                            <div class="resize-handle" data-target="subtitle"></div>
+                        </div>
+
+                        <!-- 5. CTA Button (Draggable) -->
+                        <div id="cta-container" class="draggable-item">
+                            <div id="cta-display"
+                                class="bg-blue-500 text-white font-bold py-2 px-6 rounded shadow-lg pointer-events-none whitespace-nowrap text-center text-sm">
+                                SHOP NOW</div>
+                            <div class="resize-handle" data-target="cta"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo"
+                        class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites,
+                        portfolios and projects. <strong>Check current deals and discounts with our affiliate
+                            link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank"
+                        class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                        Check Discount →
+                    </a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to
+                        you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / PAGE EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Display Ad Designer — Create Google Ads & Banner Graphics Instantly
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Banner Maker</span>
+            <span class="badge">Google Display Ads</span>
+            <span class="badge">IAB Standard Sizes</span>
+            <span class="badge">Ad Creative Tool</span>
+            <span class="badge">Export PNG</span>
+            <span class="badge">100% Client-Side</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Display Ad Designer</strong> helps you create professional Google Display Ads,
+            banner graphics, and promotional creatives in seconds. Choose from standard IAB sizes like
+            <strong>300×250, 728×90, 300×600</strong>, customize text, buttons, overlays, and backgrounds,
+            then export a crisp, ready-to-use PNG — fully private and generated in your browser.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose Display Ad Designer</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Supports all standard IAB ad formats for Google Display Network & social platforms.</li>
+            <li>Fully drag-and-drop editor with move, resize, and layer control.</li>
+            <li>Add logos, product images, gradients, colors, and custom backgrounds.</li>
+            <li>No watermark, no login — exports clean PNGs instantly.</li>
+            <li>Runs 100% client-side, ensuring strict privacy and zero uploads.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Digital marketers creating quick display ads.</li>
+                <li>E-commerce founders running promotions.</li>
+                <li>Social media managers designing campaign graphics.</li>
+                <li>Freelancers producing ad creatives for clients.</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Agencies testing variations for CTR improvement.</li>
+                <li>Startups building brand assets fast.</li>
+                <li>Designers needing an instant banner layout tool.</li>
+                <li>Anyone making ads without complex software.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select an IAB ad size such as 300×250 or 728×90.</li>
+            <li>Enter headline, description, and CTA button text.</li>
+            <li>Customize fonts, colors, gradients, or upload your own image.</li>
+            <li>Drag elements to position them precisely on the canvas.</li>
+            <li>Click <strong>Download PNG</strong> to export a production-ready display ad.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Display Ad Designer vs Alternatives</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Display Ad Designer</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Privacy</td><td class="p-2">100% Client-Side</td><td class="p-2">Server-Uploaded</td></tr>
+                <tr><td class="p-2">IAB Sizes</td><td class="p-2">Full Support</td><td class="p-2">Limited</td></tr>
+                <tr><td class="p-2">Watermarks</td><td class="p-2">None</td><td class="p-2">Often Added</td></tr>
+                <tr><td class="p-2">Ease of Use</td><td class="p-2">Beginner-Friendly</td><td class="p-2">Complex UI</td></tr>
+                <tr><td class="p-2">Export</td><td class="p-2">Instant PNG</td><td class="p-2">Slower / Paid</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>Does this support all Google Display Ad sizes?</strong><br>Yes — all major IAB formats like 300×250, 728×90, 300×600, and more are included.</li>
+            <li><strong>Are my images or designs uploaded?</strong><br>No. Everything is processed locally in your browser for full privacy.</li>
+            <li><strong>Can I use custom fonts?</strong><br>Yes — the tool includes multiple font families optimized for ads.</li>
+            <li><strong>Does the export include watermarks?</strong><br>No watermarks are added — your final PNG is clean and production-ready.</li>
+            <li><strong>Can I upload product photos or logos?</strong><br>Yes — overlay images are fully supported and draggable.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+            <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+                <li><a class="text-white hover:underline font-medium" href="/image-format-changer">Image
+                        Converter</a> — Convert between JPG, PNG, WebP, and AVIF formats.</li>
+                <li><a class="text-white hover:underline font-medium" href="/image-enlarger-enhancer">Image
+                        Enlarger &amp; Enhancer</a> — Upscale and improve low-resolution images.</li>
+                <li><a class="text-white hover:underline font-medium" href="/image-editor">Image Editor</a> —
+                    Crop, resize, filter, and adjust images directly in your browser.</li>
+                <li><a class="text-white hover:underline font-medium" href="/exif-stripper">EXIF Remover</a> —
+                    Remove hidden image metadata for privacy.</li>
+                <li><a class="text-white hover:underline font-medium" href="/color-palette-generator">Color
+                        Palette Generator</a> — Extract and generate color palettes from images.</li>
+            </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>display ad creator, banner maker, google ads designer, iab ad generator, marketing creatives, solite tools</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “A lightweight, privacy-first banner ad generator supporting full IAB sizes with instant PNG export.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / PAGE EDITION -->
+
+
+    <div id="mobile-nav"
+        class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-preview-btn"
+                class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                </svg>
+                <span>Preview</span>
+            </button>
+            <button id="mobile-controls-btn"
+                class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75">
+                    </path>
+                </svg>
+                <span>Edit</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 7l10 5 10-5" />
+                </svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"
+        class="fixed top-5 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-transform duration-300 z-50 flex items-center gap-2 font-medium">
+        <span>✅ Ad Exported!</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const els = {
+                // Inputs
+                adSizeSelect: document.getElementById('ad-size-select'),
+                titleInput: document.getElementById('title-input'),
+                subtitleInput: document.getElementById('subtitle-input'),
+                ctaInput: document.getElementById('cta-input'),
+                ctaColorPicker: document.getElementById('cta-color-picker'),
+
+                // Displays
+                titleDisplay: document.getElementById('title-display'),
+                subtitleDisplay: document.getElementById('subtitle-display'),
+                ctaDisplay: document.getElementById('cta-display'),
+                canvasSizeBadge: document.getElementById('canvas-size-badge'),
+
+                // Core
+                fontSelect: document.getElementById('font-select'),
+                fontColorPicker: document.getElementById('font-color-picker'),
+                centeringBox: document.getElementById('centering-box'),
+                captureZone: document.getElementById('capture-zone'),
+                previewPane: document.getElementById('preview-pane'),
+
+                // Layers
+                bgLayer: document.getElementById('bg-layer'),
+                dimmerLayer: document.getElementById('dimmer-layer'),
+                overlayContainer: document.getElementById('overlay-container'),
+                titleContainer: document.getElementById('title-container'),
+                subtitleContainer: document.getElementById('subtitle-container'),
+                ctaContainer: document.getElementById('cta-container'),
+
+                // Background
+                bgPresets: document.querySelectorAll('.bg-preset'),
+                customBgPicker: document.getElementById('custom-bg-picker'),
+                bgImageUpload: document.getElementById('bg-image-upload'),
+                bgImageUploadBtn: document.getElementById('bg-image-upload-btn'),
+                removeBgBtn: document.getElementById('remove-bg-btn'),
+                dimmerSlider: document.getElementById('dimmer-slider'),
+
+                // Overlay
+                overlayImageUpload: document.getElementById('overlay-image-upload'),
+                overlayImageUploadBtn: document.getElementById('overlay-image-upload-btn'),
+                removeOverlayBtn: document.getElementById('remove-overlay-btn'),
+                overlayImageDisplay: document.getElementById('overlay-image-display'),
+
+                // Global
+                downloadBtn: document.getElementById('download-btn'),
+                toast: document.getElementById('toast'),
+                mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+                mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+                controlsPane: document.getElementById('controls-pane'),
+            };
+
+            // Standard IAB Layouts
+            const layouts = {
+                "300x250": {
+                    title: { x: 20, y: 20, scale: 1 },
+                    sub: { x: 20, y: 80, scale: 1 },
+                    cta: { x: 20, y: 180, scale: 1 },
+                    overlay: { x: 180, y: 20, scale: 0.8 }
+                },
+                "336x280": {
+                    title: { x: 20, y: 30, scale: 1 },
+                    sub: { x: 20, y: 100, scale: 1 },
+                    cta: { x: 20, y: 210, scale: 1 },
+                    overlay: { x: 220, y: 30, scale: 0.8 }
+                },
+                "728x90": {
+                    title: { x: 20, y: 15, scale: 0.8 },
+                    sub: { x: 250, y: 25, scale: 0.7 },
+                    cta: { x: 580, y: 25, scale: 0.8 },
+                    overlay: { x: 480, y: 10, scale: 0.5 }
+                },
+                "300x600": {
+                    title: { x: 20, y: 40, scale: 1.2 },
+                    sub: { x: 20, y: 150, scale: 1 },
+                    cta: { x: 20, y: 520, scale: 1.2 },
+                    overlay: { x: 50, y: 300, scale: 1.2 }
+                },
+                "160x600": {
+                    title: { x: 10, y: 20, scale: 0.8 },
+                    sub: { x: 10, y: 150, scale: 0.7 },
+                    cta: { x: 10, y: 530, scale: 0.9 },
+                    overlay: { x: 20, y: 300, scale: 0.8 }
+                },
+                "970x250": {
+                    title: { x: 40, y: 40, scale: 1.5 },
+                    sub: { x: 40, y: 120, scale: 1.2 },
+                    cta: { x: 40, y: 180, scale: 1.2 },
+                    overlay: { x: 700, y: 30, scale: 1.5 }
+                },
+                "320x50": {
+                    title: { x: 10, y: 10, scale: 0.5 },
+                    sub: { x: 100, y: 15, scale: 0.4 },
+                    cta: { x: 240, y: 10, scale: 0.5 },
+                    overlay: { x: 190, y: 5, scale: 0.3 }
+                },
+                "1200x628": {
+                    title: { x: 60, y: 60, scale: 2 },
+                    sub: { x: 60, y: 200, scale: 1.5 },
+                    cta: { x: 60, y: 500, scale: 1.5 },
+                    overlay: { x: 800, y: 60, scale: 2 }
+                },
+                "1080x1080": {
+                    title: { x: 80, y: 80, scale: 3 },
+                    sub: { x: 80, y: 350, scale: 2 },
+                    cta: { x: 80, y: 900, scale: 2.5 },
+                    overlay: { x: 600, y: 80, scale: 2.5 }
+                }
+            };
+
+            let state = {
+                adSize: { w: 300, h: 250 },
+                title: els.titleInput.value,
+                subtitle: els.subtitleInput.value,
+                ctaText: els.ctaInput.value,
+                ctaColor: els.ctaColorPicker.value,
+                font: "'Open Sans', sans-serif",
+                textColor: '#FFFFFF',
+                background: 'linear-gradient(135deg, #2563eb, #4338ca)',
+                backgroundImage: null,
+                bgPos: { x: 0, y: 0 },
+                dimmerOpacity: 0,
+
+                // Positions (x, y, scale) initialized for 300x250
+                titlePos: { ...layouts["300x250"].title },
+                subtitlePos: { ...layouts["300x250"].sub },
+                ctaPos: { ...layouts["300x250"].cta },
+                overlayPos: { ...layouts["300x250"].overlay },
+
+                overlayImage: null,
+                activeMobileTab: 'preview',
+                activeElementId: null,
+                canvasScale: 1
+            };
+
+            // --- RESIZE OBSERVER & FIT LOGIC ---
+            function initResizeObserver() {
+                if (!els.previewPane) return;
+                new ResizeObserver(() => fitToScreen()).observe(els.previewPane);
+            }
+
+            function fitToScreen() {
+                if (!els.previewPane || !els.captureZone || !els.centeringBox) return;
+
+                // Available space in preview pane (with padding)
+                const availW = els.previewPane.clientWidth - 40;
+                const availH = els.previewPane.clientHeight - 40;
+
+                const currentW = state.adSize.w;
+                const currentH = state.adSize.h;
+
+                // Determine scale factor to fit CONTAIN
+                let scaleW = availW / currentW;
+                let scaleH = availH / currentH;
+                let scale = Math.min(scaleW, scaleH);
+
+                if (scale > 1) scale = 1; // Don't upscale, looks pixelated usually
+                if (scale < 0.1) scale = 0.1;
+
+                state.canvasScale = scale;
+
+                // Set the WRAPPER size to matched scaled dimensions
+                els.centeringBox.style.width = `${currentW * scale}px`;
+                els.centeringBox.style.height = `${currentH * scale}px`;
+
+                // Set the INNER canvas to actual dimensions, then scale it down
+                els.captureZone.style.width = `${currentW}px`;
+                els.captureZone.style.height = `${currentH}px`;
+                els.captureZone.style.transform = `scale(${scale})`;
+            }
+
+            // --- UPDATE UI FROM STATE ---
+            function updatePreview() {
+                // Text Content
+                els.titleDisplay.textContent = state.title;
+                els.subtitleDisplay.textContent = state.subtitle;
+                els.ctaDisplay.textContent = state.ctaText;
+                els.canvasSizeBadge.textContent = `${state.adSize.w} x ${state.adSize.h}`;
+
+                // Styles
+                const fontStack = state.font === "'Anton', sans-serif" || state.font === "'Oswald', sans-serif" ? "'Inter', sans-serif" : state.font;
+                els.titleDisplay.style.fontFamily = state.font;
+                els.subtitleDisplay.style.fontFamily = fontStack;
+                els.ctaDisplay.style.fontFamily = fontStack;
+
+                els.titleDisplay.style.color = state.textColor;
+                els.subtitleDisplay.style.color = state.textColor;
+                els.ctaDisplay.style.backgroundColor = state.ctaColor;
+
+                // Background
+                if (state.backgroundImage) {
+                    els.bgLayer.style.backgroundImage = `url(${state.backgroundImage})`;
+                    els.bgLayer.style.backgroundPosition = `${state.bgPos.x}px ${state.bgPos.y}px`;
+                    els.removeBgBtn.classList.remove('hidden');
+                    els.bgImageUploadBtn.classList.add('hidden');
+                } else {
+                    els.bgLayer.style.backgroundImage = state.background;
+                    els.bgLayer.style.backgroundPosition = 'center center';
+                    els.removeBgBtn.classList.add('hidden');
+                    els.bgImageUploadBtn.classList.remove('hidden');
+                }
+
+                els.dimmerLayer.style.opacity = state.dimmerOpacity / 100;
+                document.getElementById('dimmer-val').textContent = `${state.dimmerOpacity}%`;
+
+                // Overlay
+                if (state.overlayImage) {
+                    els.overlayImageDisplay.src = state.overlayImage;
+                    els.overlayContainer.style.display = 'block';
+                    els.removeOverlayBtn.style.display = 'block';
+                    els.overlayImageUploadBtn.style.display = 'none';
+                } else {
+                    els.overlayContainer.style.display = 'none';
+                    els.removeOverlayBtn.style.display = 'none';
+                    els.overlayImageUploadBtn.style.display = 'block';
+                }
+
+                // Transforms
+                applyTransform(els.titleContainer, state.titlePos);
+                applyTransform(els.subtitleContainer, state.subtitlePos);
+                applyTransform(els.ctaContainer, state.ctaPos);
+                applyTransform(els.overlayContainer, state.overlayPos);
+
+                // Selection Styling
+                document.querySelectorAll('.draggable-item').forEach(el => el.classList.remove('selected'));
+                if (state.activeElementId && state.activeElementId !== 'bg') {
+                    const activeEl = document.getElementById(`${state.activeElementId}-container`);
+                    if (activeEl) activeEl.classList.add('selected');
+                }
+            }
+
+            function applyTransform(element, posData) {
+                element.style.transform = `translate(${posData.x}px, ${posData.y}px) scale(${posData.scale})`;
+            }
+
+            // --- MOUSE INTERACTIONS ---
+            let isDragging = false;
+            let isResizing = false;
+            let dragStart = { x: 0, y: 0 };
+            let initialPos = { x: 0, y: 0 };
+            let initialScale = 1;
+
+            function setupInteractions() {
+                const zone = els.captureZone;
+
+                zone.addEventListener('mousedown', (e) => {
+                    if (e.target.classList.contains('resize-handle')) {
+                        isResizing = true;
+                        state.activeElementId = e.target.dataset.target;
+                        dragStart = { x: e.clientX, y: e.clientY };
+                        initialScale = state[`${state.activeElementId}Pos`].scale;
+                        e.stopPropagation();
+                        return;
+                    }
+
+                    const item = e.target.closest('.draggable-item');
+                    if (item) {
+                        isDragging = true;
+                        state.activeElementId = item.id.replace('-container', '');
+                        dragStart = { x: e.clientX, y: e.clientY };
+                        initialPos = { ...state[`${state.activeElementId}Pos`] };
+                        updatePreview();
+                        e.stopPropagation();
+                        return;
+                    }
+
+                    if (state.backgroundImage) {
+                        isDragging = true;
+                        state.activeElementId = 'bg';
+                        dragStart = { x: e.clientX, y: e.clientY };
+                        initialPos = { ...state.bgPos };
+                        document.querySelectorAll('.draggable-item').forEach(el => el.classList.remove('selected'));
+                    } else {
+                        state.activeElementId = null;
+                        updatePreview();
+                    }
+                });
+
+                window.addEventListener('mousemove', (e) => {
+                    if (!isDragging && !isResizing) return;
+
+                    // Account for canvas scale when dragging
+                    const rawDx = e.clientX - dragStart.x;
+                    const rawDy = e.clientY - dragStart.y;
+                    const dx = rawDx / state.canvasScale;
+                    const dy = rawDy / state.canvasScale;
+
+                    if (isResizing && state.activeElementId) {
+                        const sensitivity = 0.005;
+                        const newScale = Math.max(0.1, initialScale + (dx * sensitivity));
+                        state[`${state.activeElementId}Pos`].scale = newScale;
+                    }
+                    else if (isDragging && state.activeElementId) {
+                        if (state.activeElementId === 'bg') {
+                            state.bgPos.x = initialPos.x + dx;
+                            state.bgPos.y = initialPos.y + dy;
+                        } else {
+                            state[`${state.activeElementId}Pos`].x = initialPos.x + dx;
+                            state[`${state.activeElementId}Pos`].y = initialPos.y + dy;
+                        }
+                    }
+                    updatePreview();
+                });
+
+                window.addEventListener('mouseup', () => { isDragging = false; isResizing = false; });
+            }
+
+            // --- LISTENERS ---
+            function setupListeners() {
+                // Size Selection with Auto-Layout
+                els.adSizeSelect.addEventListener('change', (e) => {
+                    const sizeKey = e.target.value;
+                    const [w, h] = sizeKey.split('x').map(Number);
+                    state.adSize = { w, h };
+
+                    // Apply smart defaults if defined, else fallback
+                    if (layouts[sizeKey]) {
+                        state.titlePos = { ...layouts[sizeKey].title };
+                        state.subtitlePos = { ...layouts[sizeKey].sub };
+                        state.ctaPos = { ...layouts[sizeKey].cta };
+                        state.overlayPos = { ...layouts[sizeKey].overlay };
+                    } else {
+                        // Generic fallback logic
+                        state.titlePos = { x: 20, y: 20, scale: 1 };
+                        state.subtitlePos = { x: 20, y: h / 2 - 20, scale: 1 };
+                        state.ctaPos = { x: 20, y: h - 60, scale: 1 };
+                        state.overlayPos = { x: w - 100, y: 20, scale: 1 };
+                    }
+
+                    fitToScreen();
+                    updatePreview();
+                });
+
+                els.titleInput.addEventListener('input', (e) => { state.title = e.target.value; updatePreview(); });
+                els.subtitleInput.addEventListener('input', (e) => { state.subtitle = e.target.value; updatePreview(); });
+                els.ctaInput.addEventListener('input', (e) => { state.ctaText = e.target.value; updatePreview(); });
+
+                els.fontSelect.addEventListener('change', (e) => { state.font = e.target.value; updatePreview(); });
+                els.fontColorPicker.addEventListener('input', (e) => { state.textColor = e.target.value; updatePreview(); });
+                els.ctaColorPicker.addEventListener('input', (e) => { state.ctaColor = e.target.value; updatePreview(); });
+
+                els.bgPresets.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        state.background = btn.dataset.bg;
+                        state.backgroundImage = null;
+                        state.bgPos = { x: 0, y: 0 };
+                        els.bgImageUpload.value = '';
+                        updatePreview();
+                    });
+                });
+
+                els.customBgPicker.addEventListener('input', (e) => {
+                    state.background = e.target.value;
+                    state.backgroundImage = null;
+                    updatePreview();
+                });
+
+                els.bgImageUploadBtn.addEventListener('click', () => els.bgImageUpload.click());
+                els.bgImageUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            state.backgroundImage = event.target.result;
+                            state.bgPos = { x: 0, y: 0 };
+                            updatePreview();
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                els.removeBgBtn.addEventListener('click', () => {
+                    state.backgroundImage = null;
+                    els.bgImageUpload.value = '';
+                    updatePreview();
+                });
+
+                els.dimmerSlider.addEventListener('input', (e) => { state.dimmerOpacity = e.target.value; updatePreview(); });
+
+                // Fix for Button Type (explicit type="button" added in HTML, safe here)
+                els.overlayImageUploadBtn.addEventListener('click', () => els.overlayImageUpload.click());
+
+                els.overlayImageUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            state.overlayImage = event.target.result;
+                            state.activeElementId = 'overlay';
+                            updatePreview();
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                els.removeOverlayBtn.addEventListener('click', () => {
+                    state.overlayImage = null;
+                    els.overlayImageUpload.value = '';
+                    updatePreview();
+                });
+
+                els.downloadBtn.addEventListener('click', downloadImage);
+
+                els.mobilePreviewBtn.addEventListener('click', () => { state.activeMobileTab = 'preview'; handleMobileLayout(); setTimeout(fitToScreen, 100); });
+                els.mobileControlsBtn.addEventListener('click', () => { state.activeMobileTab = 'controls'; handleMobileLayout(); });
+            }
+
+            async function downloadImage() {
+                const btn = els.downloadBtn;
+                const originalText = btn.innerHTML;
+                const wasActive = state.activeElementId;
+                state.activeElementId = null;
+                updatePreview();
+
+                const currentScale = state.canvasScale;
+                const currentW = els.centeringBox.style.width;
+                const currentH = els.centeringBox.style.height;
+
+                // RESET for capture (Full 1:1 size)
+                els.centeringBox.style.width = `${state.adSize.w}px`;
+                els.centeringBox.style.height = `${state.adSize.h}px`;
+                els.captureZone.style.transform = 'scale(1)';
+
+                // Removed manual offset that was causing text shifting
+
+
+                btn.disabled = true;
+                btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-black" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generating...`;
+
+                try {
+                    await new Promise(r => setTimeout(r, 100)); // Reflow
+
+                    const canvas = await html2canvas(els.captureZone, {
+                        scale: 2, // Increased scale for better quality
+                        useCORS: true,
+                        backgroundColor: null,
+                        logging: false,
+                        allowTaint: true, // Allow tainted images (local blobs)
+                        onclone: (clonedDoc) => {
+                            // Counter-shift text elements to fix html2canvas rendering offset
+                            const applyOffset = (id, pos, yOffset = 0) => clonedDoc.getElementById(id) && (clonedDoc.getElementById(id).style.transform = `translate(${pos.x}px, ${pos.y + yOffset}px) scale(${pos.scale})`);
+
+                            const isMobileBillboard = state.adSize.w === 320 && state.adSize.h === 50;
+                            const titleSubtitleOffset = isMobileBillboard ? 0 : -20;
+
+                            applyOffset('title-container', state.titlePos, titleSubtitleOffset);
+                            applyOffset('subtitle-container', state.subtitlePos, titleSubtitleOffset);
+
+                            // Apply base position for CTA container without vertical shift
+                            applyOffset('cta-container', state.ctaPos);
+
+                            // Now, specifically shift the text *inside* the button up, but not for mobile billboard
+                            const ctaDisplay = clonedDoc.getElementById('cta-display');
+                            if (ctaDisplay && !isMobileBillboard) {
+                                ctaDisplay.innerHTML = `<span style="position: relative; top: -6px;">${ctaDisplay.textContent}</span>`;
+                            }
+                        }
+                    });
+
+                    const link = document.createElement('a');
+                    link.download = `solite-ad-${state.adSize.w}x${state.adSize.h}-${Date.now()}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+
+                    showToast();
+                } catch (err) {
+                    console.error("Export failed", err);
+                    alert("Failed to generate image.");
+                } finally {
+                    // Restore scale
+                    els.centeringBox.style.width = currentW;
+                    els.centeringBox.style.height = currentH;
+                    els.captureZone.style.transform = `scale(${currentScale})`;
+
+                    // Removed manual offset restoration
+
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+
+                    state.activeElementId = wasActive;
+                    updatePreview();
+                }
+            }
+
+            function handleMobileLayout() {
+                if (window.innerWidth < 1024) {
+                    els.previewPane.classList.toggle('hidden', state.activeMobileTab !== 'preview');
+                    els.previewPane.classList.toggle('flex', state.activeMobileTab === 'preview');
+                    els.controlsPane.classList.toggle('hidden', state.activeMobileTab !== 'controls');
+                    els.controlsPane.classList.toggle('flex', state.activeMobileTab === 'controls');
+                } else {
+                    els.previewPane.classList.remove('hidden'); els.previewPane.classList.add('flex');
+                    els.controlsPane.classList.remove('hidden'); els.controlsPane.classList.add('flex');
+                }
+                els.mobilePreviewBtn.classList.toggle('active', state.activeMobileTab === 'preview');
+                els.mobileControlsBtn.classList.toggle('active', state.activeMobileTab === 'controls');
+            }
+
+            function showToast() {
+                els.toast.classList.add('show');
+                setTimeout(() => els.toast.classList.remove('show'), 3000);
+            }
+
+            function init() {
+                initResizeObserver();
+                setupInteractions();
+                setupListeners();
+                updatePreview();
+                handleMobileLayout();
+                setTimeout(fitToScreen, 100);
+            }
+
+            init();
+        });
+    </script>
+</body>
+
+</html>

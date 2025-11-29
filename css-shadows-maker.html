@@ -72,6 +72,7 @@
     #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999;}
     #toast.show{transform:translateY(-2rem);}
     input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;margin-top:-6px;}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;margin-top:-6px;}    
     input[type=range]::-moz-range-thumb{width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;}
     .custom-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
     ::-webkit-scrollbar{width:6px;height:6px;}
@@ -228,13 +229,13 @@
                     <div id="shadow-controls" class="space-y-4 border-t border-gray-800 pt-4 mt-4">
                         <h3 class="font-semibold text-gray-200">Layer Properties</h3>
                         <!-- MODIFIED: Added spans for dynamic value display -->
-                        <label class="block"><span class="text-sm">Horizontal Offset (<span class="offset-x-value">5</span>px)</span><input type="range" id="offset-x" min="-100" max="100" value="5" aria-label="Horizontal Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label class="block"><span class="text-sm">Vertical Offset (<span class="offset-y-value">5</span>px)</span><input type="range" id="offset-y" min="-100" max="100" value="5" aria-label="Vertical Offset" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label class="block"><span class="text-sm">Blur Radius (<span class="blur-radius-value">10</span>px)</span><input type="range" id="blur-radius" min="0" max="100" value="10" aria-label="Blur Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <label id="spread-radius-label" class="block"><span class="text-sm">Spread Radius (<span class="spread-radius-value">0</span>px)</span><input type="range" id="spread-radius" min="-50" max="50" value="0" aria-label="Spread Radius" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
-                        <div class="flex items-center gap-2">
+                        <label class="block"><span class="text-sm">Horizontal Offset (<span class="offset-x-value">5</span>px)</span><input type="range" id="offset-x" min="-100" max="100" value="5" aria-label="Horizontal Offset" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label class="block"><span class="text-sm">Vertical Offset (<span class="offset-y-value">5</span>px)</span><input type="range" id="offset-y" min="-100" max="100" value="5" aria-label="Vertical Offset" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label class="block"><span class="text-sm">Blur Radius (<span class="blur-radius-value">10</span>px)</span><input type="range" id="blur-radius" min="0" max="100" value="10" aria-label="Blur Radius" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <label id="spread-radius-label" class="block"><span class="text-sm">Spread Radius (<span class="spread-radius-value">0</span>px)</span><input type="range" id="spread-radius" min="-50" max="50" value="0" aria-label="Spread Radius" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                        <div class="flex items-start gap-3">
                             <label class="flex-1"><span class="text-sm">Color</span><input type="color" id="shadow-color" value="#000000" aria-label="Shadow Color" class="w-full p-1 h-10 bg-gray-800 rounded-lg cursor-pointer border border-gray-700"></label>
-                            <label class="w-20"><span class="text-sm">Opacity (<span class="opacity-value">0.5</span>)</span><input type="range" id="shadow-opacity" min="0" max="1" value="0.5" step="0.01" aria-label="Shadow Opacity" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
+                            <label class="w-50"><span class="text-sm ">Opacity (<span class="opacity-value">0.5</span>)</span><input type="range" id="shadow-opacity" min="0" max="1" value="0.5" step="0.01" aria-label="Shadow Opacity" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"></label>
                         </div>
                         <label id="inset-label" class="flex items-center space-x-2 pt-2"><input type="checkbox" id="inset-checkbox" class="h-4 w-4 rounded bg-gray-700 border-gray-600 text-blue-500 focus:ring-blue-500"><span>Inset</span></label>
                     </div>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / PDF Merger & Splitter — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free PDF Merger & Splitter | Combine & Extract Pages Online | Solite</title>
+  <meta name="description" content="Merge multiple PDFs into one or split specific pages from a document instantly. 100% private, client-side PDF Merger & Splitter for freelancers and professionals." />
+  <meta name="keywords" content="pdf merger, pdf splitter, combine pdfs, extract pdf pages, free pdf tool, client-side pdf, solite, privacy first" />
+  <meta name="author" content="Solite Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/pdf-merger-&-splitter.html" />
+  <meta name="application-name" content="PDF Merger & Splitter" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="pdf manipulation, document merging, page extraction, office utilities" />
+  <meta name="ai-content-type" content="Interactive Utility Tool" />
+  <meta name="ai-purpose" content="PDF Document Management" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free PDF Merger & Splitter | Solite" />
+  <meta property="og:description" content="Combine or split PDFs instantly in your browser. No uploads, 100% private." />
+  <meta property="og:url" content="https://solite.in/pdf-merger-&-splitter.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/pdf-merger-&-splitter.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Solite PDF Merger & Splitter Interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free PDF Merger & Splitter | Solite" />
+  <meta name="twitter:description" content="Securely merge and split PDFs offline. Free & Private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/pdf-merger-&-splitter.html&meta=false&screenshot=true" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- PDF-Lib for client-side PDF manipulation -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <!-- FileSaver.js for reliable downloads -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI / STYLES -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out, opacity .3s ease-in-out; opacity: 0; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); opacity: 1; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #000; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    
+    /* File Item Animation */
+    .file-item { transition: all 0.2s ease-in-out; }
+    .file-item:hover { transform: translateX(4px); background-color: #1f2937; }
+    
+    /* Tabs */
+    .tab-btn.active { background-color: #ffffff; color: rgb(5, 4, 4); border-color: #ffffff; }
+    .tab-btn { background-color: #1f2937; color: #9ca3af; border-color: #374151; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } } }
+    }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">PDF Merger & Splitter</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-20 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">PDF Merger & Splitter</h1>
+
+            <!-- LEFT PANEL: Controls -->
+            <div id="controls-pane" class="w-full lg:w-[40%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col shadow-xl">
+                
+                <!-- Mode Switcher -->
+                <div class="flex space-x-2 mb-6">
+                    <button id="tab-merge" class="tab-btn active flex-1 py-2 px-4 rounded-lg border font-medium text-sm transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        Merge PDFs
+                    </button>
+                    <button id="tab-split" class="tab-btn flex-1 py-2 px-4 rounded-lg border font-medium text-sm transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0 0L12 12m0 0L9.121 15.121M9.121 9.121a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path></svg>
+                        Split PDF
+                    </button>
+                </div>
+
+                <!-- MERGE CONTROLS -->
+                <div id="merge-controls" class="space-y-5 block">
+                    <div class="border-2 border-dashed border-gray-700 bg-gray-800/50 rounded-xl p-6 text-center hover:border-gray-500 transition-colors cursor-pointer" id="merge-dropzone">
+                        <input type="file" id="merge-input" class="hidden" accept="application/pdf" multiple>
+                        <svg class="w-10 h-10 text-gray-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <p class="text-sm text-gray-300 font-medium">Click to select multiple PDFs</p>
+                        <p class="text-xs text-gray-500 mt-1">or drag and drop here</p>
+                    </div>
+
+                    <div id="merge-list" class="space-y-2 max-h-60 overflow-y-auto custom-scrollbar pr-2">
+                        <!-- File items injected here -->
+                        <p class="text-xs text-gray-600 text-center py-4 italic">No files selected.</p>
+                    </div>
+
+                    <!-- UPDATED: White button -->
+                    <button id="merge-action-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download Merged PDF
+                    </button>
+                </div>
+
+                <!-- SPLIT CONTROLS -->
+                <div id="split-controls" class="space-y-5 hidden">
+                    <div class="border-2 border-dashed border-gray-700 bg-gray-800/50 rounded-xl p-6 text-center hover:border-gray-500 transition-colors cursor-pointer" id="split-dropzone">
+                        <input type="file" id="split-input" class="hidden" accept="application/pdf">
+                        <svg class="w-10 h-10 text-gray-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <p class="text-sm text-gray-300 font-medium">Click to select ONE PDF</p>
+                        <p class="text-xs text-gray-500 mt-1">or drag and drop here</p>
+                    </div>
+
+                    <div id="split-file-info" class="hidden bg-gray-800 p-3 rounded-lg border border-gray-700 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2 overflow-hidden min-w-0">
+                             <svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                             <span id="split-filename" class="text-sm text-gray-300 truncate max-w-[150px]">filename.pdf</span>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <span id="split-pagecount" class="text-xs text-gray-500 bg-gray-900 px-2 py-1 rounded">-- pages</span>
+                            <!-- ADDED: Individual Remove Button -->
+                            <button id="remove-split-file" class="text-gray-500 hover:text-red-400 p-1 rounded hover:bg-gray-700 transition-colors" title="Remove file">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Pages to Extract</label>
+                        <input type="text" id="split-range" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2.5 px-3 text-white focus:ring-2 focus:ring-white-500 focus:border-transparent outline-none font-mono text-sm" placeholder="e.g. 1, 3-5, 8">
+                        <p class="text-xs text-gray-500 mt-1">Use commas for single pages, dashes for ranges.</p>
+                    </div>
+
+                    <!-- UPDATED: White button -->
+                    <button id="split-action-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Extract & Download
+                    </button>
+                </div>
+
+                <div class="mt-auto pt-6">
+                    <div class="bg-blue-900/20 border border-blue-900/50 rounded-lg p-4">
+                        <h3 class="text-sm font-bold text-blue-200 mb-1 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            100% Private
+                        </h3>
+                        <p class="text-xs text-blue-300/80">All processing happens in your browser. Your files never leave your device.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: Preview / Output -->
+            <div id="preview-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-0 shadow-xl overflow-hidden relative">
+                <div class="absolute top-4 right-4 z-10">
+                     <span id="mode-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-900/50 text-blue-400 border border-blue-800">Merge Mode</span>
+                </div>
+                
+                <div class="flex-grow flex items-center justify-center p-8 bg-grid-pattern">
+                     <!-- Placeholder State -->
+                     <div id="preview-placeholder" class="text-center">
+                         <svg class="w-20 h-20 text-gray-800 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                         <p class="text-gray-500 text-sm">File preview will appear here</p>
+                     </div>
+                     
+                     <!-- Active Preview (For Split Mode mostly) -->
+                     <div id="active-preview" class="hidden w-full h-full flex flex-col items-center justify-center">
+                         <div class="bg-white w-[300px] h-[400px] shadow-2xl flex items-center justify-center relative">
+                             <p class="text-gray-400 font-bold text-2xl" id="preview-page-num">PDF</p>
+                             <div class="absolute bottom-4 text-xs text-gray-500" id="preview-meta">--</div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                        Check Discount →
+                    </a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                <span>Files</span>
+            </button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span>Preview</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-transform duration-300 z-50 flex items-center gap-2 font-medium">
+        <span>Processing...</span>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / PAGE EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        PDF Merger & Splitter – Free & Private
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Client-Side</span>
+            <span class="badge">Privacy-First</span>
+            <span class="badge">Zero Uploads</span>
+            <span class="badge">Free Tool</span>
+            <span class="badge">PDF Utility</span>
+            <span class="badge">Instant Processing</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            Solite’s PDF Merger & Splitter lets you combine multiple PDFs or extract specific pages instantly — all inside your browser. No uploads, no servers, no tracking. Perfect for freelancers, students, and professionals who want a fast, secure, offline-style PDF workflow.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose PDF Merger & Splitter</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Merge unlimited PDF files instantly inside your browser.</li>
+            <li>Split and extract any page or range (e.g., 1, 3–5, 10–12).</li>
+            <li>No uploads — documents never leave your device.</li>
+            <li>Powered by PDF-Lib for fast, reliable client-side processing.</li>
+            <li>Simple drag-and-drop interface for quick workflows.</li>
+            <li>100% free, no account, no watermark.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Freelancers sending combined invoices & proposals</li>
+                <li>Students merging assignments and notes</li>
+                <li>Lawyers organizing case bundles</li>
+                <li>Teachers splitting worksheets for classes</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Corporate teams handling document revisions</li>
+                <li>Designers exporting selected PDF artboards</li>
+                <li>HR teams compiling onboarding files</li>
+                <li>Anyone who needs secure offline-style PDF work</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select Merge or Split mode.</li>
+            <li>Drag and drop your PDF files.</li>
+            <li>For split mode, enter pages or ranges you want to extract.</li>
+            <li>Process instantly in your browser.</li>
+            <li>Click download to save the final PDF.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">PDF Merger & Splitter vs Alternatives</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">PDF Merger & Splitter</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Privacy</td><td class="p-2">100% Local Processing</td><td class="p-2">Uploads Required</td></tr>
+                <tr><td class="p-2">Speed</td><td class="p-2">Instant</td><td class="p-2">Depends on Server</td></tr>
+                <tr><td class="p-2">Cost</td><td class="p-2">Free</td><td class="p-2">Often Paid</td></tr>
+                <tr><td class="p-2">Watermarks</td><td class="p-2">None</td><td class="p-2">Often Added</td></tr>
+                <tr><td class="p-2">Max File Size</td><td class="p-2">Unlimited</td><td class="p-2">Restricted</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>Is my PDF uploaded to any server?</strong><br>No — everything happens in your browser using local processing.</li>
+            <li><strong>Is there a limit to how many PDFs I can merge?</strong><br>No, you can merge as many as your device can handle.</li>
+            <li><strong>Can I extract multiple non-continuous pages?</strong><br>Yes, use comma-separated values (e.g., 1, 4, 6).</li>
+            <li><strong>Does this tool work offline?</strong><br>Yes, after the first load, it works without internet.</li>
+            <li><strong>Does Solite store any data?</strong><br>Never. No uploads, no logs, no tracking.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./text-to-speech.html" class="text-white hover:underline font-medium">Text-to-Speech</a> — Convert extracted text into audio.</li>
+            <li><a href="./pdf-text-extractor.html" class="text-white hover:underline font-medium">PDF Text Extractor</a> — Extract text directly from PDFs.</li>
+            <li><a href="./css-gradient-generator.html" class="text-white hover:underline font-medium">CSS Gradient Generator</a> — Build gradient code visually.</li>
+            <li><a href="./css-shadows-maker.html" class="text-white hover:underline font-medium">CSS Shadows Maker</a> — Create layered text & box shadows.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>pdf merger, pdf splitter, merge pdf offline, extract pdf pages, client-side pdf editing, privacy-first pdf tool, solite pdf utilities</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “A fully client-side PDF utility that merges and splits documents instantly with zero uploads — ideal for privacy-focused users.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / PAGE EDITION -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-gray-900/50">
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm px-4 sm:px-6">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5L12 2z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 7l10 5 10-5"></path>
+                </svg>
+                <span>© 2025 Solite. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+      // Global Toast
+      function showToast(msg, type='success') {
+          const toast = document.getElementById('toast');
+          if (toast) {
+              toast.textContent = type === 'success' ? `${msg}` : `⚠️ ${msg}`;
+              toast.className = `fixed top-5 left-1/2 -translate-x-1/2 px-6 py-3 rounded-full shadow-lg transform transition-transform duration-300 z-50 flex items-center gap-2 font-medium ${type === 'error' ? 'bg-red-600 text-white' : 'bg-gray-900 text-white'}`;
+              toast.classList.add('show');
+              setTimeout(() => toast.classList.remove('show'), 3000);
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const el = {
+            tabMerge: document.getElementById('tab-merge'),
+            tabSplit: document.getElementById('tab-split'),
+            mergeControls: document.getElementById('merge-controls'),
+            splitControls: document.getElementById('split-controls'),
+            modeBadge: document.getElementById('mode-badge'),
+            
+            // Merge Elements
+            mergeDropzone: document.getElementById('merge-dropzone'),
+            mergeInput: document.getElementById('merge-input'),
+            mergeList: document.getElementById('merge-list'),
+            mergeActionBtn: document.getElementById('merge-action-btn'),
+            
+            // Split Elements
+            splitDropzone: document.getElementById('split-dropzone'),
+            splitInput: document.getElementById('split-input'),
+            splitFileInfo: document.getElementById('split-file-info'),
+            splitFilename: document.getElementById('split-filename'),
+            splitPagecount: document.getElementById('split-pagecount'),
+            splitRange: document.getElementById('split-range'),
+            splitActionBtn: document.getElementById('split-action-btn'),
+            removeSplitFileBtn: document.getElementById('remove-split-file'),
+            
+            // Preview
+            previewPlaceholder: document.getElementById('preview-placeholder'),
+            activePreview: document.getElementById('active-preview'),
+            previewPageNum: document.getElementById('preview-page-num'),
+            previewMeta: document.getElementById('preview-meta'),
+            
+            // Mobile
+            controlsPane: document.getElementById('controls-pane'),
+            previewPane: document.getElementById('preview-pane'),
+            mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+            mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+        };
+
+        let state = {
+            mode: 'merge', // 'merge' or 'split'
+            mergeFiles: [], // Array of Files
+            splitFile: null, // Single File
+            splitPdfDoc: null, // Loaded PDFLib doc
+        };
+
+        // --- Tab Switching ---
+        function switchTab(mode) {
+            state.mode = mode;
+            if (mode === 'merge') {
+                el.tabMerge.classList.add('active');
+                el.tabSplit.classList.remove('active');
+                el.mergeControls.classList.remove('hidden');
+                el.splitControls.classList.add('hidden');
+                el.modeBadge.textContent = 'Merge Mode';
+                el.modeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-900/50 text-blue-400 border border-blue-800';
+                renderMergeList();
+            } else {
+                el.tabSplit.classList.add('active');
+                el.tabMerge.classList.remove('active');
+                el.splitControls.classList.remove('hidden');
+                el.mergeControls.classList.add('hidden');
+                el.modeBadge.textContent = 'Split Mode';
+                el.modeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-900/50 text-purple-400 border border-purple-800';
+                renderSplitInfo();
+            }
+        }
+
+        // --- Merge Logic ---
+        function handleMergeFiles(files) {
+            const newFiles = Array.from(files).filter(f => f.type === 'application/pdf');
+            if (newFiles.length === 0) return showToast('Please upload valid PDF files', 'error');
+            
+            state.mergeFiles = [...state.mergeFiles, ...newFiles];
+            renderMergeList();
+            showToast(`${newFiles.length} file(s) added`);
+        }
+
+        function removeMergeFile(index) {
+            state.mergeFiles.splice(index, 1);
+            renderMergeList();
+        }
+
+        function renderMergeList() {
+            el.mergeList.innerHTML = '';
+            
+            if (state.mergeFiles.length === 0) {
+                el.mergeList.innerHTML = `<p class="text-xs text-gray-600 text-center py-4 italic">No files selected.</p>`;
+                el.mergeActionBtn.disabled = true;
+                el.previewPlaceholder.classList.remove('hidden');
+                el.activePreview.classList.add('hidden');
+                return;
+            }
+
+            state.mergeFiles.forEach((file, idx) => {
+                const div = document.createElement('div');
+                div.className = 'file-item bg-gray-800 p-3 rounded-lg border border-gray-700 flex justify-between items-center';
+                div.innerHTML = `
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <span class="text-xs font-mono text-gray-500 bg-gray-900 px-2 py-1 rounded">${idx + 1}</span>
+                        <span class="text-sm text-gray-200 truncate">${file.name}</span>
+                    </div>
+                    <button class="text-gray-500 hover:text-red-400 p-1" onclick="window.removeMergeFile(${idx})">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                `;
+                el.mergeList.appendChild(div);
+            });
+
+            el.mergeActionBtn.disabled = state.mergeFiles.length < 2;
+            
+            // Update Preview Text
+            el.previewPlaceholder.classList.add('hidden');
+            el.activePreview.classList.remove('hidden');
+            el.previewPageNum.textContent = `${state.mergeFiles.length} Files`;
+            el.previewMeta.textContent = 'Ready to Merge';
+        }
+
+        async function performMerge() {
+            if (state.mergeFiles.length < 2) return;
+            
+            el.mergeActionBtn.textContent = 'Merging...';
+            el.mergeActionBtn.disabled = true;
+
+            try {
+                const pdfDoc = await PDFLib.PDFDocument.create();
+                
+                for (const file of state.mergeFiles) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const srcDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                    const copiedPages = await pdfDoc.copyPages(srcDoc, srcDoc.getPageIndices());
+                    copiedPages.forEach((page) => pdfDoc.addPage(page));
+                }
+
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                saveAs(blob, 'merged-document.pdf');
+                
+                showToast('PDFs Merged Successfully!');
+            } catch (err) {
+                console.error(err);
+                showToast('Error merging PDFs', 'error');
+            } finally {
+                el.mergeActionBtn.textContent = 'Download Merged PDF';
+                el.mergeActionBtn.disabled = false;
+            }
+        }
+
+        // --- Split Logic ---
+        async function handleSplitFile(file) {
+            if (file.type !== 'application/pdf') return showToast('Invalid PDF file', 'error');
+            
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                state.splitPdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                state.splitFile = file;
+                
+                renderSplitInfo();
+                showToast('PDF Loaded');
+            } catch (err) {
+                console.error(err);
+                showToast('Could not parse PDF', 'error');
+            }
+        }
+
+        function removeSplitFile() {
+            state.splitFile = null;
+            state.splitPdfDoc = null;
+            el.splitInput.value = ''; // Clear input
+            renderSplitInfo();
+            showToast('PDF Removed');
+        }
+
+        function renderSplitInfo() {
+            if (!state.splitFile || !state.splitPdfDoc) {
+                el.splitFileInfo.classList.add('hidden');
+                el.splitActionBtn.disabled = true;
+                el.previewPlaceholder.classList.remove('hidden');
+                el.activePreview.classList.add('hidden');
+                return;
+            }
+
+            el.splitFileInfo.classList.remove('hidden');
+            el.splitFilename.textContent = state.splitFile.name;
+            const count = state.splitPdfDoc.getPageCount();
+            el.splitPagecount.textContent = `${count} pgs`;
+            el.splitActionBtn.disabled = false;
+            
+            el.previewPlaceholder.classList.add('hidden');
+            el.activePreview.classList.remove('hidden');
+            el.previewPageNum.textContent = count;
+            el.previewMeta.textContent = 'Total Pages';
+        }
+
+        async function performSplit() {
+            if (!state.splitPdfDoc) return;
+            
+            const rangeStr = el.splitRange.value.trim();
+            if (!rangeStr) return showToast('Please enter pages to extract', 'error');
+            
+            el.splitActionBtn.textContent = 'Extracting...';
+            el.splitActionBtn.disabled = true;
+
+            try {
+                const totalPages = state.splitPdfDoc.getPageCount();
+                const pageIndices = new Set();
+
+                // Parse Range (e.g., "1, 3-5")
+                const parts = rangeStr.split(',');
+                for (const part of parts) {
+                    if (part.includes('-')) {
+                        const [start, end] = part.split('-').map(n => parseInt(n.trim()));
+                        if (!isNaN(start) && !isNaN(end)) {
+                            for (let i = start; i <= end; i++) {
+                                if (i >= 1 && i <= totalPages) pageIndices.add(i - 1); // 0-indexed
+                            }
+                        }
+                    } else {
+                        const num = parseInt(part.trim());
+                        if (!isNaN(num) && num >= 1 && num <= totalPages) pageIndices.add(num - 1);
+                    }
+                }
+
+                if (pageIndices.size === 0) throw new Error('No valid pages selected');
+
+                // Create New Doc
+                const newDoc = await PDFLib.PDFDocument.create();
+                const copiedPages = await newDoc.copyPages(state.splitPdfDoc, Array.from(pageIndices).sort((a,b) => a-b));
+                copiedPages.forEach(page => newDoc.addPage(page));
+
+                const pdfBytes = await newDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                saveAs(blob, `split-${state.splitFile.name}`);
+                
+                showToast('Pages Extracted Successfully!');
+            } catch (err) {
+                console.error(err);
+                showToast(err.message || 'Error extracting pages', 'error');
+            } finally {
+                el.splitActionBtn.textContent = 'Extract & Download';
+                el.splitActionBtn.disabled = false;
+            }
+        }
+
+        // --- Listeners ---
+        el.tabMerge.addEventListener('click', () => switchTab('merge'));
+        el.tabSplit.addEventListener('click', () => switchTab('split'));
+
+        // Merge Dropzone
+        el.mergeDropzone.addEventListener('click', () => el.mergeInput.click());
+        el.mergeDropzone.addEventListener('dragover', (e) => { e.preventDefault(); el.mergeDropzone.classList.add('border-blue-500'); });
+        el.mergeDropzone.addEventListener('dragleave', () => el.mergeDropzone.classList.remove('border-blue-500'));
+        el.mergeDropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            el.mergeDropzone.classList.remove('border-blue-500');
+            handleMergeFiles(e.dataTransfer.files);
+        });
+        el.mergeInput.addEventListener('change', (e) => handleMergeFiles(e.target.files));
+        el.mergeActionBtn.addEventListener('click', performMerge);
+
+        // Split Dropzone
+        el.splitDropzone.addEventListener('click', () => el.splitInput.click());
+        el.splitDropzone.addEventListener('dragover', (e) => { e.preventDefault(); el.splitDropzone.classList.add('border-blue-500'); });
+        el.splitDropzone.addEventListener('dragleave', () => el.splitDropzone.classList.remove('border-blue-500'));
+        el.splitDropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            el.splitDropzone.classList.remove('border-blue-500');
+            handleSplitFile(e.dataTransfer.files[0]);
+        });
+        el.splitInput.addEventListener('change', (e) => handleSplitFile(e.target.files[0]));
+        el.splitActionBtn.addEventListener('click', performSplit);
+        el.removeSplitFileBtn.addEventListener('click', removeSplitFile);
+
+        // Globals
+        window.removeMergeFile = removeMergeFile;
+
+        // Mobile Nav
+        function setMobileView(view) {
+            if (view === 'files') {
+                el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                el.previewPane.classList.add('hidden'); el.previewPane.classList.remove('flex');
+                el.mobileControlsBtn.classList.add('active'); el.mobilePreviewBtn.classList.remove('active');
+            } else {
+                el.controlsPane.classList.add('hidden'); el.controlsPane.classList.remove('flex');
+                el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+                el.mobileControlsBtn.classList.remove('active'); el.mobilePreviewBtn.classList.add('active');
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth >= 1024) {
+                el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                el.previewPane.classList.remove('hidden'); el.previewPane.classList.add('flex');
+            } else {
+                 if (!el.mobileControlsBtn.classList.contains('active') && !el.mobilePreviewBtn.classList.contains('active')) {
+                    setMobileView('files');
+                }
+            }
+        }
+
+        el.mobileControlsBtn.addEventListener('click', () => setMobileView('files'));
+        el.mobilePreviewBtn.addEventListener('click', () => setMobileView('preview'));
+        window.addEventListener('resize', handleResize);
+
+        // Init
+        handleResize();
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-6.0 / Loading Animation Generator — PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 SEO + AI DISCOVERY -->
+  <title>Free CSS Loading Animation Generator | Solite</title>
+  <meta name="description" content="Create and customize pure CSS loading spinners instantly. Choose from different styles, adjust color, size, and speed, then copy the HTML & CSS. 100% private and browser-based." />
+  <meta name="keywords" content="css spinner generator, loading spinner css, css loader, pure css spinner, loading animation, solite, developer tool, privacy first" />
+  <link rel="canonical" href="https://solite.in/loading-animation-generator.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Solite" />
+  <meta name="publisher" content="Solite" />
+  <meta name="application-name" content="Loading Animation Generator | Solite" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- 🌍 OPEN GRAPH / TWITTER -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free CSS Loading Animation Generator | Solite" />
+  <meta property="og:description" content="Create custom CSS loading spinners with live preview. Adjust color, size, and speed, then copy the code instantly. 100% private." />
+  <meta property="og:url" content="https://solite.in/loading-animation-generator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/loading-animation-generator.html&meta=false&screenshot=true" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free CSS Loading Animation Generator | Solite" />
+  <meta name="twitter:description" content="Generate pure CSS loading spinners for your projects. Fast, private, and fully customizable." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/loading-animation-generator.html&meta=false&screenshot=true" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap"></noscript>
+
+  <!-- 🪄 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+
+  <!-- 💅 UI STYLES -->
+  <style>
+    #toast{transform:translateY(150%);transition:transform .3s ease-in-out;z-index:9999}
+    #toast.show{transform:translateY(-2rem)}
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#111827}
+    ::-webkit-scrollbar-thumb{background-color:#4b5563;border-radius:4px}
+    html{scrollbar-color:#4b5563 #111827}
+    .custom-select{appearance:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    .preview-bg{background-image:radial-gradient(#374151 1px,transparent 1px);background-size:20px 20px;}
+  </style>
+
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+    
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                     <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg  lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Loading Animation Generator</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+             </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0">
+            <h1 class="sr-only">CSS Loading Animation Generator</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col" aria-labelledby="controls-heading">
+                <h2 id="controls-heading" class="text-xl font-bold text-white flex-shrink-0">Spinner Controls</h2>
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 mt-6 space-y-6 pb-16 lg:pb-6">
+                    <div class="space-y-2">
+                        <label for="spinner-type" class="font-medium">Spinner Style</label>
+                        <div class="relative">
+                            <select id="spinner-type" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                <option value="circle" selected>Circle</option>
+                                <option value="ring">Ring</option>
+                                <option value="dual-ring">Dual Ring</option>
+                                <option value="dots">Dots</option>
+                                <option value="pulse">Pulse</option>
+                                <option value="grid">Grid</option>
+                                <option value="three-dot-bounce">Three-Dot Bounce</option>
+                                <option value="fading-dots">Fading Dots</option>
+                                <option value="bars">Bars</option>
+                            </select>
+                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="spinner-color" class="font-medium">Color</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="color" id="spinner-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700" title="Spinner Color">
+                            <input type="color" id="spinner-bg-color" value="#ffffff" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700" title="Spinner Background Color">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="spinner-size" class="font-medium">Size (<span id="spinner-size-label">48</span>px)</label>
+                        <input type="range" id="spinner-size" min="16" max="128" value="48" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2" id="border-width-container">
+                        <label for="spinner-border-width" class="font-medium">Border Width (<span id="spinner-border-width-label">6</span>px)</label>
+                        <input type="range" id="spinner-border-width" min="2" max="32" value="6" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="spinner-speed" class="font-medium">Speed (<span id="spinner-speed-label">1.0</span>s)</label>
+                        <input type="range" id="spinner-speed" min="0.2" max="5" value="1.0" step="0.1" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="spinner-timing" class="font-medium">Animation Timing</label>
+                        <div class="relative">
+                            <select id="spinner-timing" class="custom-select w-full bg-gray-800 border border-gray-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">
+                                <option value="linear">Linear</option>
+                                <option value="ease-in-out">Ease-In-Out</option>
+                                <option value="ease">Ease</option>
+                                <option value="cubic-bezier(0.5, 0, 0.5, 1)">Cubic Bezier</option>
+                            </select>
+                            <svg class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t border-gray-800 pt-4">
+                        <label for="bg-color-preview" class="font-medium">Preview Background</label>
+                        <input type="color" id="bg-color-preview" value="#111827" class="w-full h-10 p-1 bg-gray-800 rounded-lg cursor-pointer border border-gray-700">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Pane -->
+            <div id="output-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                <div class="flex-grow flex items-center justify-center p-8 preview-bg">
+                    <div id="spinner-preview"></div>
+                </div>
+                <div class="flex-shrink-0 bg-gray-800/50 border-t border-gray-800 p-4 space-y-3">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-lg font-semibold">Generated Code</h3>
+                        <button id="copy-code-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-2 px-3 rounded-lg flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                            <span>Copy Code</span>
+                        </button>
+                    </div>
+                    <textarea id="code-output" readonly rows="8" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 font-mono text-sm resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">Check Discount →</a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="toast" class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white text-black font-semibold py-2 px-5 rounded-t-lg shadow-lg">Copied!</div>
+    
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / PAGE EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        CSS Loading Animation Generator — Pure CSS Spinners
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">CSS Loader</span>
+            <span class="badge">Spinner Generator</span>
+            <span class="badge">Live Preview</span>
+            <span class="badge">Front-End Tool</span>
+            <span class="badge">No JavaScript Needed</span>
+            <span class="badge">100% Private</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            The <strong>Solite Loading Animation Generator</strong> lets developers instantly create pure CSS spinners with adjustable size, speed, color, border width, and animation timing. No downloads, no frameworks — just clean, production-ready HTML & CSS you can paste directly into any project.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose CSS Loading Animation Generator</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Generate <strong>pure CSS</strong> spinners — no images or external libraries.</li>
+            <li>Customize color, border width, speed, easing, and animation intensity.</li>
+            <li>Supports 10+ spinner styles including ring, dual-ring, dots, bars, grid, and pulse.</li>
+            <li>Live preview while adjusting settings.</li>
+            <li>Instant export of clean HTML & CSS code.</li>
+            <li>Fully browser-based — <strong>nothing uploaded or saved on servers</strong>.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Front-End Developers</li>
+                <li>React / Vue / Svelte Developers</li>
+                <li>UI/UX Designers</li>
+                <li>CSS Animators</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Webflow / WordPress Builders</li>
+                <li>Students learning CSS animations</li>
+                <li>Agencies building dashboards</li>
+                <li>Developers replacing GIF loaders</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Pick a spinner style from the dropdown.</li>
+            <li>Adjust color, size, and speed as needed.</li>
+            <li>Preview updates live in the canvas.</li>
+            <li>Copy the generated HTML & CSS code.</li>
+            <li>Paste directly into your site or app.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">CSS Loading Animation Generator vs Alternatives</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">CSS Loading Animation Generator</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-2">Pure CSS Output</td>
+                    <td class="p-2">✔ Yes</td>
+                    <td class="p-2">✘ Sometimes JS based</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Live Customization</td>
+                    <td class="p-2">✔ Full controls</td>
+                    <td class="p-2">✘ Limited</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Variety of Spinner Types</td>
+                    <td class="p-2">✔ 10+ styles</td>
+                    <td class="p-2">✘ 2–3 only</td>
+                </tr>
+                <tr>
+                    <td class="p-2">No Tracking / Uploads</td>
+                    <td class="p-2">✔ 100% Private</td>
+                    <td class="p-2">✘ Sends data to servers</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Clean HTML & CSS Export</td>
+                    <td class="p-2">✔ Included</td>
+                    <td class="p-2">✘ Often bloated</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>Does the tool require JavaScript to run the loader?</strong><br>No — all loaders are made using pure CSS animations.</li>
+            <li><strong>Can I use spinners in React / Vue?</strong><br>Yes. Copy the HTML into your component and the CSS into your global or module stylesheet.</li>
+            <li><strong>Is everything local?</strong><br>Yes. Nothing is sent to servers. The generator runs fully in your browser.</li>
+            <li><strong>Does it support custom easing curves?</strong><br>Yes — choose from preset timings or add cubic-bezier curves.</li>
+            <li><strong>Can I change the background color of dots/bars?</strong><br>Yes — dots, bars, and grid animations have their own background color control.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./text-to-speech.html" class="text-white hover:underline font-medium">Text-to-Speech</a> — Convert extracted text into audio.</li>
+            <li><a href="./pdf-text-extractor.html" class="text-white hover:underline font-medium">PDF Text Extractor</a> — Extract text directly from PDFs.</li>
+            <li><a href="./exif-stripper.html" class="text-white hover:underline font-medium">EXIF Remover</a> — Remove hidden image data for privacy.</li>
+            <li><a href="./image-background-remover.html" class="text-white hover:underline font-medium">Background Remover</a> — Instantly remove image backgrounds in-browser.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>css loader generator, css spinner tool, loading animation creator, pure css spinner, frontend tools, solite developer tools</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “A fully private CSS loading animation generator offering customizable spinners with clean, production-ready code.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / PAGE EDITION -->
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+                        <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div> 
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = {
+                spinnerType: document.getElementById('spinner-type'),
+                spinnerColor: document.getElementById('spinner-color'),
+                spinnerSize: document.getElementById('spinner-size'),
+                spinnerSizeLabel: document.getElementById('spinner-size-label'),
+                spinnerSpeed: document.getElementById('spinner-speed'),
+                borderWidthContainer: document.getElementById('border-width-container'),
+                spinnerTiming: document.getElementById('spinner-timing'),
+                spinnerBorderWidth: document.getElementById('spinner-border-width'),
+                spinnerSpeedLabel: document.getElementById('spinner-speed-label'),
+                spinnerPreview: document.getElementById('spinner-preview'),
+                codeOutput: document.getElementById('code-output'),
+                copyCodeBtn: document.getElementById('copy-code-btn'),
+                toast: document.getElementById('toast'),
+            };
+
+            const spinnerTemplates = {
+                circle: {
+                    html: `<div class="spinner-circle"></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-circle {
+  width: ${size}px;
+  height: ${size}px;
+  border: ${borderWidth}px solid ${bgColor};
+  border-top-color: ${color};
+  border-radius: 50%;
+  animation: spin ${speed}s ${timing} infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}`
+                },
+                ring: {
+                    html: `<div class="spinner-ring"><div></div><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-ring {
+  display: inline-block;
+  position: relative;
+  width: ${size}px;
+  height: ${size}px;
+}
+.spinner-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: ${size * 0.8}px;
+  height: ${size * 0.8}px;
+  margin: ${size * 0.1}px;
+  border: ${borderWidth}px solid ${color};
+  border-radius: 50%;
+  animation: spin ${speed * 1.2}s ${timing} infinite;
+  border-color: ${color} transparent transparent transparent;
+}
+.spinner-ring div:nth-child(1) { animation-delay: -0.45s; }
+.spinner-ring div:nth-child(2) { animation-delay: -0.3s; }
+.spinner-ring div:nth-child(3) { animation-delay: -0.15s; }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}`
+                },
+                'dual-ring': {
+                    html: `<div class="spinner-dual-ring"></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-dual-ring:after {
+  content: " "; display: block; width: ${size * 0.8}px; height: ${size * 0.8}px; margin: ${size * 0.1}px;
+  border-radius: 50%; border: ${borderWidth}px solid ${color};
+  border-color: ${color} transparent ${color} transparent;
+  animation: spin ${speed}s ${timing} infinite;
+}`
+                },
+                dots: {
+                    html: `<div class="spinner-dots"><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-dots {
+  display: flex;
+  gap: ${size / 4}px;
+}
+.spinner-dots div {
+  width: ${size / 3}px;
+  height: ${size / 3}px;
+  background-color: ${bgColor};
+  border-radius: 50%;
+  animation: bounce ${speed * 1.4}s ${timing} infinite both;
+}
+.spinner-dots div:nth-child(1) { animation-delay: -0.32s; }
+.spinner-dots div:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); background-color: ${color}; }
+}`
+                },
+                pulse: {
+                    html: `<div class="spinner-pulse"></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-pulse {
+  width: ${size}px;
+  height: ${size}px;
+  background-color: ${color};
+  border-radius: 50%;
+  animation: pulse ${speed * 2}s ${timing} infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}`
+                },
+                bars: {
+                    html: `<div class="spinner-bars"><div></div><div></div><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-bars {
+  display: flex;
+  justify-content: space-between;
+  width: ${size}px;
+  height: ${size * 0.8}px;
+}
+.spinner-bars div {
+  width: ${size / 8}px;
+  height: 100%;
+  background-color: ${bgColor};
+  animation: stretch ${speed * 1.2}s ${timing} infinite;
+}
+.spinner-bars div:nth-child(2) { animation-delay: -0.1s; }
+.spinner-bars div:nth-child(3) { animation-delay: -0.2s; }
+.spinner-bars div:nth-child(4) { animation-delay: -0.3s; }
+.spinner-bars div:nth-child(5) { animation-delay: -0.4s; }
+
+@keyframes stretch {
+  0%, 40%, 100% { transform: scaleY(0.4); background-color: ${bgColor}; }
+  20% { transform: scaleY(1.0); }
+}`
+                },
+                grid: {
+                    html: `<div class="spinner-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: ${size / 8}px;
+  width: ${size}px;
+  height: ${size}px;
+}
+.spinner-grid div {
+  width: 100%;
+  height: 100%;
+  background-color: ${color};
+  border-radius: 50%;
+  animation: grid-pulse ${speed * 1.3}s infinite ${timing};
+}
+.spinner-grid div:nth-child(1) { animation-delay: 0.0s; }
+.spinner-grid div:nth-child(2) { animation-delay: 0.1s; }
+.spinner-grid div:nth-child(3) { animation-delay: 0.2s; }
+.spinner-grid div:nth-child(4) { animation-delay: 0.1s; }
+.spinner-grid div:nth-child(5) { animation-delay: 0.2s; }
+spinner-grid div:nth-child(6) { animation-delay: 0.3s; }
+.spinner-grid div:nth-child(7) { animation-delay: 0.2s; }
+.spinner-grid div:nth-child(8) { animation-delay: 0.3s; }
+.spinner-grid div:nth-child(9) { animation-delay: 0.4s; }
+@keyframes grid-pulse {
+  0%, 70%, 100% { transform: scale(0); }
+  35% { transform: scale(1); }
+}`
+                },
+                'three-dot-bounce': {
+                    html: `<div class="spinner-three-dot-bounce"><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-three-dot-bounce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${size / 4}px;
+}
+.spinner-three-dot-bounce div {
+  width: ${size / 4}px;
+  height: ${size / 4}px;
+  background-color: ${color};
+  border-radius: 50%;
+  animation: three-dot-bounce ${speed * 1.4}s infinite ${timing};
+}
+.spinner-three-dot-bounce div:nth-child(1) { animation-delay: -0.32s; }
+.spinner-three-dot-bounce div:nth-child(2) { animation-delay: -0.16s; }
+@keyframes three-dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-${size / 4}px); }
+}`
+                },
+                'fading-dots': {
+                    html: `<div class="spinner-fading-dots"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`,
+                    css: (color, size, speed, borderWidth, bgColor, timing) => `
+.spinner-fading-dots {
+  position: relative;
+  width: ${size}px;
+  height: ${size}px;
+}
+.spinner-fading-dots div {
+  position: absolute;
+  width: ${size * 0.15}px;
+  height: ${size * 0.15}px;
+  background-color: ${color};
+  border-radius: 50%;
+  animation: fade-dots ${speed * 1.2}s ${timing} infinite;
+}
+.spinner-fading-dots div:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: -1.1s; }
+.spinner-fading-dots div:nth-child(2) { top: 14.6%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: -1.0s; }
+.spinner-fading-dots div:nth-child(3) { top: 50%; left: 100%; transform: translateY(-50%); animation-delay: -0.9s; }
+.spinner-fading-dots div:nth-child(4) { top: 85.4%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: -0.8s; }
+.spinner-fading-dots div:nth-child(5) { top: 100%; left: 50%; transform: translateX(-50%); animation-delay: -0.7s; }
+.spinner-fading-dots div:nth-child(6) { top: 85.4%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: -0.6s; }
+.spinner-fading-dots div:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: -0.5s; }
+.spinner-fading-dots div:nth-child(8) { top: 14.6%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: -0.4s; }
+@keyframes fade-dots {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}`
+                }
+            };
+
+            function generateSpinner() {
+                const type = el.spinnerType.value;
+                const color = el.spinnerColor.value;
+                const bgColor = document.getElementById('spinner-bg-color').value;
+                const size = parseInt(el.spinnerSize.value);
+                const borderWidth = parseInt(el.spinnerBorderWidth.value);
+                const speed = parseFloat(el.spinnerSpeed.value);
+                const timing = el.spinnerTiming.value;
+
+                const template = spinnerTemplates[type];
+                if (!template) return;
+
+                // Toggle border width control visibility
+                const hasBorder = ['circle', 'ring', 'dual-ring'].includes(type);
+                el.borderWidthContainer.style.display = hasBorder ? 'block' : 'none';
+                // Toggle background color input visibility
+                const bgColorInput = document.getElementById('spinner-bg-color');
+                bgColorInput.style.display = ['dots', 'bars'].includes(type) ? 'block' : 'none';
+
+                const html = template.html;
+                const css = template.css(color, size, speed, borderWidth, bgColor, timing).trim();
+
+                // Inject into preview
+                el.spinnerPreview.innerHTML = `<style>${css}</style>${html}`;
+
+                // Inject into code output
+                el.codeOutput.value = `<!-- HTML -->\n${html}\n\n<!-- CSS -->\n<style>\n${css}\n</style>`;
+            }
+
+            function showToast(message) {
+                el.toast.textContent = message;
+                el.toast.classList.add('show');
+                setTimeout(() => el.toast.classList.remove('show'), 2000);
+            }
+
+            // Event Listeners
+            el.spinnerType.addEventListener('change', generateSpinner);
+            el.spinnerColor.addEventListener('input', generateSpinner);
+            el.spinnerTiming.addEventListener('change', generateSpinner);
+            document.getElementById('spinner-bg-color').addEventListener('input', generateSpinner);
+            document.getElementById('bg-color-preview').addEventListener('input', (e) => {
+                document.querySelector('.preview-bg').style.backgroundColor = e.target.value;
+            });
+            
+            el.spinnerSize.addEventListener('input', (e) => {
+                el.spinnerSizeLabel.textContent = e.target.value;
+                generateSpinner();
+            });
+
+            el.spinnerBorderWidth.addEventListener('input', (e) => {
+                document.getElementById('spinner-border-width-label').textContent = e.target.value;
+                generateSpinner();
+            });
+            
+            el.spinnerSpeed.addEventListener('input', (e) => {
+                el.spinnerSpeedLabel.textContent = parseFloat(e.target.value).toFixed(1);
+                generateSpinner();
+            });
+
+            el.copyCodeBtn.addEventListener('click', () => {
+                if (el.codeOutput.value) {
+                    navigator.clipboard.writeText(el.codeOutput.value)
+                        .then(() => showToast('Code copied!'))
+                        .catch(err => console.error('Failed to copy code: ', err));
+                }
+            });
+
+            // Initial generation
+            generateSpinner();
+        });
+    </script>
+</body>
+</html>

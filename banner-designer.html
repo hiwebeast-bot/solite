@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / BANNER DESIGNER — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Banner Designer | Create Banners for Social Media | Solite</title>
+  <meta name="description" content="Design stunning banners for Twitter, LinkedIn, Facebook, and more. Customize text, fonts, colors, and backgrounds. 100% private, no uploads, no watermarks." />
+  <meta name="keywords" content="banner designer, banner maker, twitter header maker, linkedin banner generator, facebook cover creator, free design tool, solite" />
+  <meta name="author" content="Solite Team" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/banner-designer.html" />
+  <meta name="application-name" content="Banner Designer" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="social media banner creation, graphic design, content creator tools, privacy-first design app" />
+  <meta name="ai-content-type" content="Interactive Design Tool" />
+  <meta name="ai-purpose" content="Social Media Banner Generation, Visual Content Creation" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite" />
+  <meta property="og:title" content="Free Banner Designer | Solite" />
+  <meta property="og:description" content="Create custom banners for Twitter, LinkedIn, and Facebook with live preview. 100% private and browser-based." />
+  <meta property="og:url" content="https://solite.in/banner-designer.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/banner-designer.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Screenshot of Solite Banner Designer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Banner Designer | Solite" />
+  <meta name="twitter:description" content="Design custom social media banners with live preview. No uploads, 100% private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/banner-designer.html&meta=false&screenshot=true" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+
+  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@700;900&family=Roboto+Mono&family=Oswald:wght@700&family=Anton&family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@700;900&family=Roboto+Mono&family=Oswald:wght@700&family=Anton&family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI / STYLES -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out, opacity .3s ease-in-out; opacity: 0; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); opacity: 1; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #0f172a; color-scheme: dark light; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    .custom-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+    .preview-bg-pattern { background-image: radial-gradient(#374151 1px, transparent 1px); background-size: 20px 20px; }
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#4f46e5;cursor:pointer;border-radius:9999px;margin-top:-6px}
+    html.dark input[type=range]::-webkit-slider-thumb{background:#fff}
+
+    /* Interactive Elements */
+    .draggable-item { cursor: move; user-select: none; position: absolute; transform-origin: top left; z-index: 30; }
+    .draggable-item:hover { outline: 1px dashed rgba(255,255,255,0.5); }
+    .draggable-item.selected { outline: 2px dashed #4f46e5; z-index: 50 !important; }
+    
+    /* Resize Handle */
+    .resize-handle {
+        width: 14px; height: 14px; background: white; border: 2px solid #4f46e5;
+        position: absolute; bottom: -7px; right: -7px; border-radius: 50%;
+        cursor: nwse-resize; display: none; z-index: 60; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .draggable-item.selected .resize-handle { display: block; }
+    
+    /* BG Layer for Panning */
+    #bg-layer { cursor: grab; z-index: 0; }
+    #bg-layer:active { cursor: grabbing; }
+
+    /* CSS Grid Centering Strategy */
+    #preview-pane {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+    }
+
+    #centering-box {
+        position: relative; 
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+        margin: auto; 
+    }
+
+    #capture-zone { 
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: 0 0; 
+        overflow: hidden; 
+        will-change: transform; 
+    }
+
+    .size-btn.active {
+        background-color: #fff !important;
+        color: #000 !important;
+        border-color: #fff !important;
+        font-weight: bold;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], poppins: ['Poppins', 'sans-serif'], oswald: ['Oswald', 'sans-serif'], anton: ['Anton', 'sans-serif'], 'roboto-mono': ['Roboto Mono', 'monospace'], 'bebas-neue': ['Bebas Neue', 'cursive'], 'montserrat': ['Montserrat', 'sans-serif'] } } }
+    }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Banner Designer</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-16 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">Social Media Banner Designer</h1>
+            
+            <!-- Controls Panel -->
+            <div id="controls-pane" class="w-full lg:w-96 flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col overflow-y-auto shadow-xl h-full lg:h-auto z-10">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white flex-shrink-0 mb-4">Banner Controls</h2>
+                
+                <div class="flex-grow min-h-0 overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+                    
+                    <!-- Platform Size -->
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm">Platform Size</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button class="size-btn active py-2 px-2 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-xs hover:bg-gray-700 transition-colors" data-w="1500" data-h="500">Twitter (3:1)</button>
+                            <button class="size-btn py-2 px-2 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-xs hover:bg-gray-700 transition-colors" data-w="1584" data-h="396">LinkedIn (4:1)</button>
+                            <button class="size-btn py-2 px-2 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-xs hover:bg-gray-700 transition-colors" data-w="851" data-h="315">Facebook (~2.7:1)</button>
+                        </div>
+                    </div>
+
+                    <!-- Text Inputs -->
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm">Headline</label>
+                        <textarea id="text-headline" class="w-full h-16 p-3 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none resize-none" spellcheck="false">YOUR BANNER HEADLINE</textarea>
+                        <div class="flex gap-2">
+                            <input type="color" id="color-headline" value="#ffffff" class="h-8 w-12 rounded cursor-pointer bg-gray-800 border border-gray-700">
+                            <select id="font-headline" class="bg-gray-800 border border-gray-700 text-white text-xs rounded flex-grow px-2 h-8">
+                                <option value="'Anton', sans-serif">Anton</option>
+                                <option value="'Oswald', sans-serif">Oswald</option>
+                                <option value="'Poppins', sans-serif">Poppins</option>
+                                <option value="'Bebas Neue', cursive">Bebas Neue</option>
+                                <option value="'Montserrat', sans-serif">Montserrat</option>
+                                <option value="'Inter', sans-serif">Inter</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-medium text-sm">Body Text</label>
+                        <textarea id="text-body" class="w-full h-20 p-3 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none resize-none" spellcheck="false">Add a subtitle or call to action here.</textarea>
+                        <div class="flex gap-2">
+                            <input type="color" id="color-body" value="#cccccc" class="h-8 w-12 rounded cursor-pointer bg-gray-800 border border-gray-700">
+                            <select id="font-body" class="bg-gray-800 border border-gray-700 text-white text-xs rounded flex-grow px-2 h-8">
+                                <option value="'Inter', sans-serif">Inter</option>
+                                <option value="'Roboto Mono', monospace">Mono</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Background Options -->
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <label class="font-medium text-sm">Background</label>
+                        <div class="grid grid-cols-5 gap-2">
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-pink-500 to-rose-500" data-bg="linear-gradient(135deg, #ec4899, #f43f5e)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-blue-400 to-indigo-600" data-bg="linear-gradient(135deg, #60a5fa, #4f46e5)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-emerald-400 to-cyan-600" data-bg="linear-gradient(135deg, #34d399, #0891b2)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gradient-to-br from-orange-400 to-rose-600" data-bg="linear-gradient(135deg, #fb923c, #e11d48)"></button>
+                            <button class="bg-preset h-8 rounded-md bg-gray-800 border border-gray-600" data-bg="#1f2937"></button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <input type="color" id="custom-bg-picker" class="h-8 w-12 bg-transparent cursor-pointer rounded">
+                            <span class="text-xs text-gray-500">Custom</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <input type="file" id="bg-image-upload" class="hidden" accept="image/*">
+                            <button id="bg-image-upload-btn" class="w-full text-sm bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-3 rounded-lg">Upload BG Image</button>
+                            <button id="remove-bg-btn" class="hidden w-full text-sm bg-red-900/50 hover:bg-red-900/80 text-red-400 font-medium py-2 px-3 rounded-lg">Remove</button>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2 border-t border-gray-800">
+                        <p class="text-xs text-indigo-400 font-medium flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            Pro Tip: Drag items to move.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- DOWNLOAD ACTION -->
+                <div class="flex-shrink-0 pt-4 mt-auto border-t border-gray-800">
+                    <button id="download-btn" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>Export as PNG</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div id="preview-pane" class="flex-1 bg-gray-900 rounded-xl border border-gray-800 shadow-xl custom-scrollbar relative">
+                <!-- Helper Text -->
+                <div class="absolute top-4 right-4 text-center pointer-events-none z-50 opacity-50">
+                     <span class="text-xs text-gray-500 bg-gray-900/80 px-2 py-1 rounded" id="size-badge">1500 x 500</span>
+                </div>
+                
+                <!-- Centering Wrapper (Sized via JS) -->
+                <div id="centering-box" style="width: 1500px; height: 500px;">
+                    <!-- Capture Zone (Scaled Content) -->
+                    <div id="capture-zone" class="select-none bg-gray-800">
+                        
+                        <!-- 1. Background Layer (Pannable) -->
+                        <div id="bg-layer" class="absolute inset-0 w-full h-full bg-cover bg-no-repeat z-0" style="background-position: center center;"></div>
+                        
+                        <!-- 2. Dimmer Layer (Optional) -->
+                        <div id="dimmer-layer" class="absolute inset-0 bg-black z-10 pointer-events-none opacity-0"></div>
+
+                        <!-- 4. Text Layers (Draggable) -->
+                        <div id="headline-container" class="draggable-item" style="left: 60px; top: 100px;">
+                            <h1 id="headline-display" class="text-5xl font-bold leading-tight text-left pointer-events-none whitespace-pre-wrap" style="width: max-content; max-width: 800px;">YOUR BANNER HEADLINE</h1>
+                            <div class="resize-handle" data-target="headline"></div>
+                        </div>
+
+                        <div id="body-container" class="draggable-item" style="left: 60px; top: 20px;">
+                            <p id="body-display" class="text-2xl leading-normal text-left pointer-events-none whitespace-pre-wrap" style="width: max-content; max-width: 800px;">Add a subtitle or call to action here.</p>
+                            <div class="resize-handle" data-target="body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                        Check Discount →
+                    </a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                <span>Design</span>
+            </button>
+            <button id="mobile-preview-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <span>Preview</span>
+            </button>
+        </div>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / PAGE EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Banner Designer — Create Social Media Banners Instantly
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">100% Client-Side</span>
+            <span class="badge">No Uploads Needed</span>
+            <span class="badge">Instant Banner Export</span>
+            <span class="badge">Supports All Social Sizes</span>
+            <span class="badge">Zero Tracking</span>
+            <span class="badge">Free Forever</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            Solite’s Banner Designer is a fully client-side tool that helps creators design beautiful social media banners for Twitter, LinkedIn, and Facebook in minutes. Customize fonts, backgrounds, colors, and layout — all inside your browser with zero data sent to any server. Perfect for creators who want fast, private, watermark-free banner designs.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose Banner Designer</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Create Twitter, LinkedIn, and Facebook banner sizes instantly.</li>
+            <li>Drag-and-drop text placement with precise control.</li>
+            <li>Use gradients, solid colors, or upload your own background image.</li>
+            <li>Resize and style text with real-time preview.</li>
+            <li>Export high-resolution PNGs without watermarks.</li>
+            <li>Everything runs locally — nothing is stored or uploaded.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Content creators and influencers</li>
+                <li>Freelancers designing client banners</li>
+                <li>Personal branding coaches</li>
+                <li>Social media managers</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Startup founders preparing profile assets</li>
+                <li>YouTubers and streamers</li>
+                <li>Students building portfolios</li>
+                <li>Anyone wanting fast, clean banner graphics</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Select the platform size (Twitter, LinkedIn, or Facebook).</li>
+            <li>Add your headline and body text with custom fonts and colors.</li>
+            <li>Upload a background image or choose a preset gradient.</li>
+            <li>Drag text to position it perfectly and adjust size with handles.</li>
+            <li>Click “Export as PNG” to download your banner instantly.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Banner Designer vs Alternatives</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Banner Designer</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Privacy</td><td class="p-2">100% client-side</td><td class="p-2">Requires uploads/login</td></tr>
+                <tr><td class="p-2">Watermarks</td><td class="p-2">No watermarks</td><td class="p-2">Often added on free tiers</td></tr>
+                <tr><td class="p-2">Platform Presets</td><td class="p-2">Twitter, LinkedIn, Facebook</td><td class="p-2">Limited or locked</td></tr>
+                <tr><td class="p-2">Export Quality</td><td class="p-2">High-resolution PNG</td><td class="p-2">Sometimes compressed</td></tr>
+                <tr><td class="p-2">Cost</td><td class="p-2">Free</td><td class="p-2">Paid subscriptions</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>Does this tool require uploads?</strong><br> No — everything happens inside your browser for maximum privacy.</li>
+            <li><strong>Can I upload my own background?</strong><br> Yes, you can use any image as the background and reposition it freely.</li>
+            <li><strong>Is the exported banner high quality?</strong><br> Absolutely. The PNG export is full resolution with no compression or watermark.</li>
+            <li><strong>Which social platforms are supported?</strong><br> Twitter headers, LinkedIn banners, and Facebook cover images.</li>
+            <li><strong>Can I use it commercially?</strong><br> Yes — all generated banners are yours with no attribution required.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./text-to-speech.html" class="text-white hover:underline font-medium">Text-to-Speech</a> — Convert extracted text into audio.</li>
+            <li><a href="./pdf-text-extractor.html" class="text-white hover:underline font-medium">PDF Text Extractor</a> — Extract text directly from PDFs.</li>
+             <li><a href="./image-to-text-ocr.html" class="text-white hover:underline font-medium">Image to Text (OCR)</a> — Extract text from images to use with this tool.</li>
+            <li><a href="./hashtag-separator.html" class="text-white hover:underline font-medium">Hashtag Separator</a> — Format your social media text easily.</li>
+            <li><a href="./cta-strength-tester.html" class="text-white hover:underline font-medium">CTA Strength Tester</a> — Analyze and improve your call-to-action text.</li>
+            <li><a href="./gradient-text-generator.html" class="text-white hover:underline font-medium">Gradient Text Generator</a> – Create stunning gradient typography.</li>
+        </ul>    
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>banner designer, twitter header maker, linkedin banner creator, facebook cover generator, social media design tool, client-side graphics, no watermark banner maker</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “A fully client-side banner design tool that supports Twitter, LinkedIn, and Facebook sizes with private, watermark-free exports.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / PAGE EDITION -->
+
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div> 
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-transform duration-300 z-50 flex items-center gap-2 font-medium">
+        <span>✅ Image Exported!</span>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const els = {
+            sizeBtns: document.querySelectorAll('.size-btn'),
+            sizeBadge: document.getElementById('size-badge'),
+            
+            // Inputs
+            textHeadline: document.getElementById('text-headline'),
+            colorHeadline: document.getElementById('color-headline'),
+            fontHeadline: document.getElementById('font-headline'),
+            
+            textBody: document.getElementById('text-body'),
+            colorBody: document.getElementById('color-body'),
+            fontBody: document.getElementById('font-body'),
+            
+            // Layers
+            centeringBox: document.getElementById('centering-box'),
+            captureZone: document.getElementById('capture-zone'),
+            bgLayer: document.getElementById('bg-layer'),
+            
+            headlineContainer: document.getElementById('headline-container'),
+            headlineDisplay: document.getElementById('headline-display'),
+            bodyContainer: document.getElementById('body-container'),
+            bodyDisplay: document.getElementById('body-display'),
+            
+            // BG
+            bgPresets: document.querySelectorAll('.bg-preset'),
+            customBgPicker: document.getElementById('custom-bg-picker'),
+            bgImageUpload: document.getElementById('bg-image-upload'),
+            bgImageUploadBtn: document.getElementById('bg-image-upload-btn'),
+            removeBgBtn: document.getElementById('remove-bg-btn'),
+            
+            downloadBtn: document.getElementById('download-btn'),
+            toast: document.getElementById('toast'),
+            
+            // Mobile
+            controlsPane: document.getElementById('controls-pane'),
+            previewPane: document.getElementById('preview-pane'),
+            mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+            mobilePreviewBtn: document.getElementById('mobile-preview-btn'),
+        };
+
+        let state = {
+            width: 1500,
+            height: 500,
+            bg: 'linear-gradient(135deg, #1e293b, #0f172a)',
+            bgImage: null,
+            bgPos: { x: 0, y: 0 },
+            
+            headline: 'YOUR BANNER HEADLINE',
+            headlineColor: '#ffffff',
+            headlineFont: "'Anton', sans-serif",
+            headlinePos: { x: 60, y: 100, scale: 1 },
+            
+            body: 'Add a subtitle or call to action here.',
+            bodyColor: '#cccccc',
+            bodyFont: "'Inter', sans-serif",
+            bodyPos: { x: 60, y: 250, scale: 1 },
+            
+            activeElementId: null,
+            canvasScale: 1
+        };
+
+        // --- RESIZE OBSERVER ---
+        function initResizeObserver() {
+            if (!els.previewPane) return;
+            const resizeObserver = new ResizeObserver(() => {
+                fitToScreen();
+            });
+            resizeObserver.observe(els.previewPane);
+        }
+
+        // --- ROBUST SCALING LOGIC ---
+        function fitToScreen() {
+            if (!els.previewPane || !els.captureZone || !els.centeringBox) return;
+            
+            const availableW = els.previewPane.clientWidth - 40; 
+            const availableH = els.previewPane.clientHeight - 40;
+            
+            let scaleX = availableW / state.width;
+            let scaleY = availableH / state.height;
+            
+            let newScale = Math.min(scaleX, scaleY);
+            if (newScale > 1) newScale = 1; 
+            if (newScale < 0.1) newScale = 0.1;
+            
+            state.canvasScale = newScale;
+            
+            els.centeringBox.style.width = `${state.width * newScale}px`;
+            els.centeringBox.style.height = `${state.height * newScale}px`;
+            
+            els.captureZone.style.width = `${state.width}px`;
+            els.captureZone.style.height = `${state.height}px`;
+            els.captureZone.style.transform = `scale(${newScale})`;
+        }
+
+        function updatePreview() {
+            // Background
+            if (state.bgImage) {
+                els.bgLayer.style.backgroundImage = `url(${state.bgImage})`;
+                els.bgLayer.style.backgroundPosition = `${state.bgPos.x}px ${state.bgPos.y}px`;
+                els.removeBgBtn.classList.remove('hidden');
+                els.bgImageUploadBtn.classList.add('hidden');
+            } else {
+                els.bgLayer.style.backgroundImage = state.bg.includes('gradient') ? state.bg : 'none';
+                els.bgLayer.style.backgroundColor = state.bg.includes('gradient') ? 'transparent' : state.bg;
+                els.bgLayer.style.backgroundPosition = 'center center';
+                els.removeBgBtn.classList.add('hidden');
+                els.bgImageUploadBtn.classList.remove('hidden');
+            }
+
+            // Headline
+            els.headlineDisplay.textContent = state.headline;
+            els.headlineDisplay.style.color = state.headlineColor;
+            els.headlineDisplay.style.fontFamily = state.headlineFont;
+            applyTransform(els.headlineContainer, state.headlinePos);
+
+            // Body
+            els.bodyDisplay.textContent = state.body;
+            els.bodyDisplay.style.color = state.bodyColor;
+            els.bodyDisplay.style.fontFamily = state.bodyFont;
+            applyTransform(els.bodyContainer, state.bodyPos);
+            
+            // Active State
+            document.querySelectorAll('.draggable-item').forEach(el => el.classList.remove('selected'));
+            if (state.activeElementId && state.activeElementId !== 'bg') {
+                const activeEl = document.getElementById(`${state.activeElementId}-container`);
+                if (activeEl) activeEl.classList.add('selected');
+            }
+            
+            // Badge
+            els.sizeBadge.textContent = `${state.width} x ${state.height}`;
+        }
+
+        function applyTransform(element, posData) {
+            element.style.transform = `translate(${posData.x}px, ${posData.y}px) scale(${posData.scale})`;
+        }
+
+        // --- Interaction Logic (Drag & Resize) ---
+        let isDragging = false;
+        let isResizing = false;
+        let dragStart = { x: 0, y: 0 };
+        let initialPos = { x: 0, y: 0 };
+        let initialScale = 1;
+
+        function setupInteractions() {
+            const zone = els.captureZone;
+
+            zone.addEventListener('mousedown', (e) => {
+                if (e.target.classList.contains('resize-handle')) {
+                    isResizing = true;
+                    state.activeElementId = e.target.dataset.target;
+                    dragStart = { x: e.clientX, y: e.clientY };
+                    initialScale = state[`${state.activeElementId}Pos`].scale;
+                    e.stopPropagation();
+                    return;
+                }
+
+                const item = e.target.closest('.draggable-item');
+                if (item) {
+                    isDragging = true;
+                    state.activeElementId = item.id.replace('-container', '');
+                    dragStart = { x: e.clientX, y: e.clientY };
+                    initialPos = { ...state[`${state.activeElementId}Pos`] };
+                    updatePreview(); 
+                    e.stopPropagation();
+                    return;
+                }
+                
+                if (state.bgImage) {
+                    isDragging = true;
+                    state.activeElementId = 'bg';
+                    dragStart = { x: e.clientX, y: e.clientY };
+                    initialPos = { ...state.bgPos };
+                    document.querySelectorAll('.draggable-item').forEach(el => el.classList.remove('selected'));
+                } else {
+                    state.activeElementId = null;
+                    updatePreview();
+                }
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging && !isResizing) return;
+                
+                const rawDx = e.clientX - dragStart.x;
+                const rawDy = e.clientY - dragStart.y;
+                
+                const dx = rawDx / state.canvasScale;
+                const dy = rawDy / state.canvasScale;
+
+                if (isResizing && state.activeElementId) {
+                    const sensitivity = 0.005;
+                    const newScale = Math.max(0.1, initialScale + (dx * sensitivity));
+                    state[`${state.activeElementId}Pos`].scale = newScale;
+                } 
+                else if (isDragging && state.activeElementId) {
+                    if (state.activeElementId === 'bg') {
+                        state.bgPos.x = initialPos.x + dx;
+                        state.bgPos.y = initialPos.y + dy;
+                    } else {
+                        state[`${state.activeElementId}Pos`].x = initialPos.x + dx;
+                        state[`${state.activeElementId}Pos`].y = initialPos.y + dy;
+                    }
+                }
+                updatePreview();
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+                isResizing = false;
+            });
+        }
+
+        // --- Event Listeners ---
+        
+        // Size
+        els.sizeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                els.sizeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                state.width = parseInt(btn.dataset.w);
+                state.height = parseInt(btn.dataset.h);
+                fitToScreen();
+                updatePreview();
+            });
+        });
+
+        // Text
+        els.textHeadline.addEventListener('input', (e) => { state.headline = e.target.value; updatePreview(); });
+        els.colorHeadline.addEventListener('input', (e) => { state.headlineColor = e.target.value; updatePreview(); });
+        els.fontHeadline.addEventListener('change', (e) => { state.headlineFont = e.target.value; updatePreview(); });
+        
+        els.textBody.addEventListener('input', (e) => { state.body = e.target.value; updatePreview(); });
+        els.colorBody.addEventListener('input', (e) => { state.bodyColor = e.target.value; updatePreview(); });
+        els.fontBody.addEventListener('change', (e) => { state.bodyFont = e.target.value; updatePreview(); });
+
+        // BG
+        els.bgPresets.forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.bg = btn.dataset.bg;
+                state.bgImage = null;
+                updatePreview();
+            });
+        });
+        els.customBgPicker.addEventListener('input', (e) => {
+            state.bg = e.target.value;
+            state.bgImage = null;
+            updatePreview();
+        });
+        els.bgImageUploadBtn.addEventListener('click', () => els.bgImageUpload.click());
+        els.bgImageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    state.bgImage = ev.target.result;
+                    state.bgPos = { x: 0, y: 0 }; 
+                    updatePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        els.removeBgBtn.addEventListener('click', () => {
+            state.bgImage = null;
+            els.bgImageUpload.value = '';
+            updatePreview();
+        });
+
+        // Download
+        async function downloadImage() {
+            const btn = els.downloadBtn;
+            const originalText = btn.innerHTML;
+            const wasActive = state.activeElementId;
+            state.activeElementId = null;
+            updatePreview();
+
+            const currentScale = state.canvasScale;
+            
+            // Force full resolution for capture
+            els.centeringBox.style.width = `${state.width}px`;
+            els.centeringBox.style.height = `${state.height}px`;
+            els.captureZone.style.transform = 'scale(1)';
+
+            btn.disabled = true;
+            btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-black" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generating...`;
+
+            try {
+                await new Promise(r => setTimeout(r, 100)); 
+
+                const canvas = await html2canvas(els.captureZone, {
+                    scale: 1, 
+                    useCORS: true,
+                    backgroundColor: null,
+                    logging: false
+                });
+
+                const link = document.createElement('a');
+                link.download = `banner-design-${Date.now()}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+
+            } catch (err) {
+                console.error("Export failed", err);
+                alert("Failed to generate image.");
+            } finally {
+                // Restore scaling
+                els.centeringBox.style.width = `${state.width * currentScale}px`;
+                els.centeringBox.style.height = `${state.height * currentScale}px`;
+                els.captureZone.style.transform = `scale(${currentScale})`;
+                
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                
+                state.activeElementId = wasActive;
+                updatePreview();
+            }
+        }
+        els.downloadBtn.addEventListener('click', downloadImage);
+
+        // Mobile Nav
+        function setMobileView(view) {
+            if (view === 'controls') {
+                els.controlsPane.classList.remove('hidden'); els.controlsPane.classList.add('flex');
+                els.previewPane.classList.add('hidden'); els.previewPane.classList.remove('flex');
+                els.mobileControlsBtn.classList.add('active'); els.mobilePreviewBtn.classList.remove('active');
+            } else {
+                els.controlsPane.classList.add('hidden'); els.controlsPane.classList.remove('flex');
+                els.previewPane.classList.remove('hidden'); els.previewPane.classList.add('flex');
+                els.mobileControlsBtn.classList.remove('active'); els.mobilePreviewBtn.classList.add('active');
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth >= 1024) {
+                els.controlsPane.classList.remove('hidden'); els.controlsPane.classList.add('flex');
+                els.previewPane.classList.remove('hidden'); els.previewPane.classList.add('flex');
+            } else {
+                if (!els.mobileControlsBtn.classList.contains('active') && !els.mobilePreviewBtn.classList.contains('active')) {
+                    setMobileView('controls');
+                }
+            }
+        }
+
+        els.mobileControlsBtn.addEventListener('click', () => setMobileView('controls'));
+        els.mobilePreviewBtn.addEventListener('click', () => setMobileView('preview'));
+        window.addEventListener('resize', handleResize);
+
+        // Init
+        initResizeObserver();
+        setupInteractions();
+        updatePreview();
+        handleResize();
+        setTimeout(fitToScreen, 100); 
+      });
+    </script>
+</body>
+</html>

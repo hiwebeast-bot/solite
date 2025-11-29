@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<!-- 🧬 SOLITE GEN-5.0 BALANCED HEAD / PROJECT RATE CALCULATOR — AUTHORITY + PERFORMANCE EDITION -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🧠 PRIMARY SEO -->
+  <title>Free Project Rate Calculator | Project Pricing for Freelancers | Solite</title>
+  <meta name="description" content="Calculate the perfect project rate instantly. Input your estimated hours, hourly rate, and complexity buffers to get a fair project price. Stop undercharging with Solite's free calculator." />
+  <meta name="keywords" content="project rate calculator, project rate calculator, freelance rate calculator, project pricing tool, hourly to project rate, freelancer tools, pricing calculator, solite" />
+  <meta name="author" content="Solite Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://solite.in/project-rate-calculator.html" />
+  <meta name="application-name" content="Project Rate Calculator" />
+  <meta name="publisher" content="Solite" />
+  <meta name="generator" content="Solite GEN-5.0 Balanced — Authority + Performance Edition" />
+
+  <!-- 🤖 AI DISCOVERY LAYER -->
+  <meta name="ai-indexing" content="enabled" />
+  <meta name="ai-model-context" content="freelance pricing, rate calculation, project estimation, project economy tools" />
+  <meta name="ai-content-type" content="Interactive Utility Tool" />
+  <meta name="ai-purpose" content="Freelance Project Pricing Calculation" />
+  <meta name="ai-entity-tier" content="Authoritative / Client-Side Application" />
+
+  <!-- ⚡ SOCIAL + AUTO OG SCREENSHOT -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Solite App Suite" />
+  <meta property="og:title" content="Free Project Rate Calculator | Solite" />
+  <meta property="og:description" content="Stop undercharging. Calculate fair project rates instantly based on your time and value." />
+  <meta property="og:url" content="https://solite.in/project-rate-calculator.html" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://solite.in/project-rate-calculator.html&meta=false&screenshot=true" />
+  <meta property="og:image:alt" content="Solite Project Rate Calculator Interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Project Rate Calculator | Solite" />
+  <meta name="twitter:description" content="Calculate freelance project rates instantly. Free & Private." />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://solite.in/project-rate-calculator.html&meta=false&screenshot=true" />
+
+  <!-- 📊 VERCEL ANALYTICS -->
+  <script>window.va = window.va || function(){(window.va.q = window.va.q || []).push(arguments);}</script>
+  <script src="/_vercel/insights/script.js" defer></script>
+
+  <!-- ⚙️ CORE LIBRARIES -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ⚡ NON-BLOCKING FONT LOAD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- 🪞 FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+  <!-- 🎨 UI / STYLES -->
+  <style>
+    #toast { transform: translateY(150%); transition: transform .3s ease-in-out, opacity .3s ease-in-out; opacity: 0; z-index: 9999; }
+    #toast.show { transform: translateY(-2rem); opacity: 1; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #111827; }
+    ::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
+    html { scrollbar-color: #4b5563 #111827; background-color: #000; }
+    .mobile-nav-btn.active { color: #fff; }
+    .mobile-nav-btn { color: #9ca3af; }
+    
+    /* Custom Range Slider */
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; box-shadow: 0 0 0 2px #1f2937;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%; height: 4px; cursor: pointer; background: #374151; border-radius: 2px;
+    }
+    
+    /* Checkbox */
+    .toggle-checkbox:checked {
+        right: 0;
+        border-color: #68D391;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        background-color: #68D391;
+    }
+    
+    /* active button state override */
+    .buffer-btn.active { background-color: white !important; color: black !important; border-color: white !important; font-weight: bold; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Roboto Mono', 'monospace'] } } }
+    }
+  </script>
+
+  <!-- 🧬 SOLITE APEX HEAD SIGNATURE -->
+  <meta name="solite-ai-signature" content="APEX_HEAD_V5.0 | SOLITE_AUTHORITY_PREDATOR | GEN5_SCHEMA | PRIVACY_FIRST" />
+</head>
+
+<body class="bg-black text-gray-200 flex flex-col min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="p-3 sm:p-4 w-full flex-shrink-0 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xl z-30 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" aria-label="Solite Homepage">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 lg:h-8 lg:w-8 text-gray-900 dark:text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 7l10 5 10-5"></path></svg>
+                    <span class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white sentence">Solite</span>
+                </div>
+                <span class="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden lg:block"></span>
+                <span class="text-lg lg:text-lg font-semibold text-gray-600 dark:text-gray-400 leading-none">Project Rate Calculator</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html#apps" class="bg-gray-900 border border-gray-700 text-white hover:border-gray-600 text-gray-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-1.5 group">
+                    <span>Free Tools</span>
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex relative min-h-0" style="height: calc(100vh - 72px);">
+        <div class="flex-grow w-full lg:w-[80%] p-3 pb-20 lg:pb-3 overflow-y-auto flex flex-col lg:flex-row gap-4 min-h-0 mx-auto">
+            <h1 class="sr-only">Project Rate Calculator</h1>
+
+            <!-- LEFT PANEL: Inputs -->
+            <div id="controls-pane" class="w-full lg:w-[40%] flex-shrink-0 bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col shadow-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-white">
+                        Job Details
+                    </h2>
+                    <button id="reset-btn" class="text-xs text-red-400 hover:text-red-300 bg-red-900/20 hover:bg-red-900/40 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                        Reset
+                    </button>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Hourly Rate + Currency -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Hourly Rate</label>
+                        <div class="flex gap-2">
+                             <select id="currency-select" class="bg-gray-800 border border-gray-700 text-white rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none cursor-pointer text-center w-20 font-bold">
+                                <option value="$">$</option>
+                                <option value="€">€</option>
+                                <option value="£">£</option>
+                                <option value="₹">₹</option>
+                                <option value="¥">¥</option>
+                            </select>
+                            <div class="relative flex-grow">
+                                <input type="number" id="hourly-rate" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-3 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-lg placeholder-gray-600" placeholder="50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estimated Time -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Estimated Time (Hours)</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="hours-range" min="1" max="100" value="10" class="flex-grow">
+                            <input type="number" id="hours-input" value="10" class="w-20 bg-gray-800 border border-gray-700 rounded-lg py-2 px-2 text-white text-center focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Include research, revisions, and admin time.</p>
+                    </div>
+
+                    <!-- Buffer/Complexity -->
+                    <div class="pt-4 border-t border-gray-800">
+                         <div class="flex justify-between items-center mb-3">
+                             <label class="block text-sm font-medium text-gray-400">Project Complexity</label>
+                             <div class="flex items-center gap-1">
+                                <input type="number" id="complexity-input" value="0" class="w-12 bg-gray-800 border border-gray-700 rounded text-center text-xs text-white focus:ring-1 focus:ring-blue-500 outline-none py-1" min="0">
+                                <span class="text-xs text-gray-500 font-medium">%</span>
+                             </div>
+                         </div>
+                         <div class="grid grid-cols-3 gap-2">
+                             <button class="buffer-btn py-2 px-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-sm hover:bg-gray-700 transition-colors active" data-val="0">
+                                 Simple
+                             </button>
+                             <button class="buffer-btn py-2 px-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-sm hover:bg-gray-700 transition-colors" data-val="20">
+                                 Standard
+                             </button>
+                             <button class="buffer-btn py-2 px-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-400 text-sm hover:bg-gray-700 transition-colors" data-val="50">
+                                 Complex
+                             </button>
+                         </div>
+                         <p class="text-xs text-gray-500 mt-2">Adds a safety margin for unexpected delays.</p>
+                    </div>
+
+                    <!-- Additional Toggles -->
+                    <div class="pt-4 border-t border-gray-800 space-y-5">
+                        <!-- Custom Rush Fee -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <div>
+                                    <span class="block text-sm font-medium text-white">Rush Fee</span>
+                                    <span class="text-xs text-gray-500">Tight deadline premium</span>
+                                </div>
+                                <label for="rush-toggle" class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="rush-toggle" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
+                                </label>
+                            </div>
+                            <!-- Custom Rush Fee Input (Hidden by default) -->
+                            <div id="rush-input-container" class="hidden flex items-center gap-2 transition-all">
+                                <input type="number" id="rush-rate" value="25" min="0" max="200" class="w-16 bg-gray-800 border border-gray-700 rounded-lg py-1 px-2 text-white text-center text-sm focus:ring-2 focus:ring-red-500 outline-none">
+                                <span class="text-sm text-gray-400">% Markup</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Custom Tax Estimation -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <div>
+                                    <span class="block text-sm font-medium text-white">Tax / Overhead</span>
+                                    <span class="text-xs text-gray-500">Estimate take-home pay</span>
+                                </div>
+                                <label for="tax-toggle" class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="tax-toggle" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                                </label>
+                            </div>
+                            <!-- Custom Tax Input (Hidden by default) -->
+                            <div id="tax-input-container" class="hidden flex items-center gap-2 transition-all">
+                                <input type="number" id="tax-rate" value="30" min="0" max="100" class="w-16 bg-gray-800 border border-gray-700 rounded-lg py-1 px-2 text-white text-center text-sm focus:ring-2 focus:ring-green-500 outline-none">
+                                <span class="text-sm text-gray-400">% Tax Rate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: Results Dashboard -->
+            <div id="dashboard-pane" class="flex-1 flex flex-col bg-gray-900 rounded-xl border border-gray-800 p-8 shadow-xl hidden lg:flex justify-center items-center text-center">
+                
+                <div class="w-full max-w-lg">
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Recommended Project Rate</p>
+                    
+                    <div class="relative inline-block">
+                         <h2 class="text-7xl font-black text-white tracking-tight leading-none" id="total-price">$500</h2>
+                         <span id="rush-badge" class="hidden absolute -top-4 -right-12 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">RUSH</span>
+                    </div>
+                    
+                    <p class="text-gray-400 mt-4 text-sm font-medium" id="calculation-breakdown">10 hrs × $50/hr</p>
+                    
+                    <p class="text-xs text-gray-600 mt-1 font-mono" id="day-rate-display">≈ $400 / Day Rate</p>
+
+                    <!-- Take Home Pay (Conditional) - Matched width to buttons below -->
+                    <div id="take-home-container" class="hidden mt-6 p-4 bg-green-900/20 border border-green-900/50 rounded-lg w-full max-w-xs mx-auto">
+                         <div class="flex justify-between items-center">
+                             <span class="text-xs text-green-400 uppercase tracking-wide">Net Profit</span>
+                             <span class="text-xs text-green-500/70" id="tax-deduction-display">(-$150 tax)</span>
+                         </div>
+                         <p class="text-3xl font-bold text-green-300 mt-1" id="take-home-pay">$350</p>
+                    </div>
+
+                    <div class="mt-10 flex flex-col gap-3 justify-center w-full max-w-xs mx-auto">
+                        <button id="copy-quote-btn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-lg shadow-white/10">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                            Copy Short Quote
+                        </button>
+                        <button id="copy-breakdown-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white font-medium py-2.5 px-6 rounded-full flex items-center justify-center gap-2 transition-colors border border-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            Copy Full Breakdown
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Partner Slot -->
+        <aside class="w-56 xl:w-60 flex flex-col border-l p-4 border-gray-800 hidden lg:flex">
+            <div class="flex flex-col flex-grow justify-between">
+                <div>
+                    <img src="https://hpanel.hostinger.com/assets/images/logos/hostinger-white.svg" alt="Hostinger logo" class="h-6 mt-2 mb-4">
+                    <h3 class="text-gray-500 font-semibold text-2xl xl:text-3xl mb-4">Hosting we actually recommend</h3>
+                    <p class="text-lg xl:text-2xl text-gray-500 pb-6 xl:pb-8">Hostinger® is great for - client sites, portfolios and projects. <strong>Check current deals and discounts with our affiliate link.</strong></p>
+                </div>
+                <div class="space-y-2 mt-auto">
+                    <a href="https://hostinger.in?REFERRALCODE=solite" target="_blank" class="inline-flex items-center justify-center w-full border border-gray-700 bg-gray-300 text-gray-800 hover:bg-gray-400 font-semibold text-sm xl:text-md py-4 xl:py-4 rounded-lg">
+                        Check Discount →
+                    </a>
+                    <p class="mt-1 text-xs text-gray-500">Solite gets a small Affiliate commission at no extra cost to you.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="sticky bottom-0 left-0 w-full lg:hidden bg-gray-800 border-t border-gray-700 shadow-2xl z-40">
+        <div class="flex justify-around items-center h-14">
+            <button id="mobile-controls-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2 active">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                <span>Edit</span>
+            </button>
+            <button id="mobile-dashboard-btn" class="mobile-nav-btn flex flex-col items-center justify-center text-xs font-medium w-1/2">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <span>Result</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-transform duration-300 z-50 flex items-center gap-2 font-medium">
+        <span>✅ Copied to Clipboard!</span>
+    </div>
+    <!-- 🧠 SOLITE SEO + AI AUTHORITY BLOCK (GEN-5.3 / PAGE EDITION) -->
+    <div class="w-full text-gray-300 mx-2 mb-2">
+
+    <style>
+    #solite-info-block-ocr[open] > summary { border-bottom: 1px solid #374151; }
+    #solite-info-block-ocr > summary .details-arrow-seo {
+        transform: rotate(-90deg); transition: transform 0.25s ease-in-out;
+    }
+    #solite-info-block-ocr[open] > summary .details-arrow-seo { transform: rotate(0deg); }
+    .badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        border:1px solid #374151; padding:.25rem .6rem;
+        border-radius:.6rem; font-size:.8rem; color:#9CA3AF;
+    }
+    </style>
+
+    <details id="solite-info-block-ocr" class="w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/40">
+    <summary class="text-xl font-bold text-white p-5 cursor-pointer flex justify-between items-center">
+        Project Rate Calculator — Free Freelance Pricing Tool
+        <svg class="w-5 h-5 transition-transform duration-200 transform details-arrow-seo"
+            xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+
+    <div class="p-6 space-y-10 leading-relaxed">
+
+    <!-- 🧩 Overview -->
+    <section class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+            <span class="badge">Freelancer Tool</span>
+            <span class="badge">Project Pricing</span>
+            <span class="badge">Value-Based Estimate</span>
+            <span class="badge">Daily + Hourly Math</span>
+            <span class="badge">100% Private</span>
+            <span class="badge">Client-Ready Outputs</span>
+        </div>
+        <p class="text-lg text-gray-300">
+            Solite’s <strong>Project Rate Calculator</strong> helps freelancers instantly estimate fair project pricing using hours, buffers, complexity, rush fees, taxes, and take-home projections. Built for accuracy, confidence, and transparent client communication — completely private and browser-based.
+        </p>
+    </section>
+
+    <!-- ⚙️ Features -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Why Users Choose Project Rate Calculator</h3>
+        <ul class="list-disc list-inside text-gray-400 space-y-2">
+            <li>Accurately calculates fair project pricing based on hours, hourly rate, and complexity buffers.</li>
+            <li>Includes rush fee markup, tax estimation, and net take-home projections.</li>
+            <li>Client-ready short quote & full breakdown copy options.</li>
+            <li>Helps freelancers avoid undercharging and justify pricing transparently.</li>
+            <li>Works offline / client-side — no data sent or stored on servers.</li>
+            <li>Clean, fast UI designed for real-world freelance workflows.</li>
+        </ul>
+    </section>
+
+    <!-- 🧠 Use Cases -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Who Uses This Tool?</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Freelance Designers</li>
+                <li>Copywriters & Content Creators</li>
+                <li>Web Developers</li>
+                <li>Video Editors</li>
+                <li>Marketing Consultants</li>
+            </ul>
+            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                <li>Branding Specialists</li>
+                <li>Agencies quoting fixed-price projects</li>
+                <li>Solopreneurs & indie makers</li>
+                <li>Client Account Managers</li>
+                <li>Project Managers calculating budgets</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 🧭 How It Works -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">How It Works</h3>
+        <ol class="list-decimal list-inside text-gray-400 space-y-2">
+            <li>Enter your hourly rate and currency.</li>
+            <li>Select estimated hours for the project.</li>
+            <li>Add complexity buffer (simple, standard, complex).</li>
+            <li>Optionally include rush-fee or tax estimations.</li>
+            <li>Get an instant fair project rate with full breakdown.</li>
+            <li>Copy short quote or full calculation to share with clients.</li>
+        </ol>
+    </section>
+
+    <!-- 📊 Comparison -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Project Rate Calculator vs Alternatives</h3>
+        <table class="w-full border border-gray-800 rounded-lg text-gray-400 text-sm">
+            <thead class="bg-gray-800 text-gray-200 font-semibold">
+            <tr>
+                <th class="p-2 text-left">Feature</th>
+                <th class="p-2 text-left">Project Rate Calculator</th>
+                <th class="p-2 text-left">Other Tools</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><td class="p-2">Client-side Privacy</td><td class="p-2">✔ 100% Private</td><td class="p-2">Often server-logged</td></tr>
+                <tr><td class="p-2">Complexity & Rush Fees</td><td class="p-2">✔ Built-in controls</td><td class="p-2">Missing</td></tr>
+                <tr><td class="p-2">Tax / Net Profit Estimate</td><td class="p-2">✔ Included</td><td class="p-2">Rare feature</td></tr>
+                <tr><td class="p-2">Copyable Client Quotes</td><td class="p-2">✔ Short + Full Formats</td><td class="p-2">Manual formatting</td></tr>
+                <tr><td class="p-2">Day Rate Conversion</td><td class="p-2">✔ Auto-calculated</td><td class="p-2">Not included</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ❓ FAQs -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">FAQs</h3>
+        <ul class="text-gray-400 space-y-3">
+            <li><strong>How is the project rate calculated?</strong><br>The tool multiplies your hourly rate by estimated hours, then adds complexity, rush, and optional tax adjustments.</li>
+            <li><strong>Is my data stored anywhere?</strong><br>No. Everything runs locally in your browser with zero uploads or tracking.</li>
+            <li><strong>Can I use this calculator for client proposals?</strong><br>Yes — you can copy a polished short quote or full breakdown ready for proposals or chats.</li>
+            <li><strong>What does complexity percentage mean?</strong><br>It adds a buffer for revisions, ambiguity, or higher creative/technical difficulty.</li>
+            <li><strong>Does this replace hourly pricing?</strong><br>No, it converts hourly thinking into confident fixed-price project estimates.</li>
+            <li><strong>Will more freelance tools be added?</strong><br>Yes — Solite regularly adds new client-side billing, planning, and workflow utilities.</li>
+        </ul>
+    </section>
+
+    <!-- 🔗 Cross-Links -->
+    <section>
+        <h3 class="text-white text-xl font-semibold mb-2">Explore Related Solite Tools</h3>
+        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-2">
+            <li><a href="./image-to-text-ocr.html" class="text-white hover:underline font-medium">Image to Text (OCR)</a> — Extract text from images to use with this tool.</li>
+            <li><a href="./hashtag-separator.html" class="text-white hover:underline font-medium">Hashtag Separator</a> — Format your social media text easily.</li>
+            <li><a href="./cta-strength-tester.html" class="text-white hover:underline font-medium">CTA Strength Tester</a> — Analyze and improve your call-to-action text.</li>
+            <li><a href="./gradient-text-generator.html" class="text-white hover:underline font-medium">Gradient Text Generator</a> – Create stunning gradient typography.</li>
+        </ul>
+        <p class="text-gray-400 mt-3">
+            <a href="./index.html#apps" class="text-white font-semibold hover:underline">Browse All Solite Tools →</a>
+        </p>
+    </section>
+
+    <!-- 🧠 AI Citation -->
+    <section class="space-y-2">
+        <p class="text-sm text-gray-500 leading-relaxed">
+            Keywords: <em>project rate calculator, freelance pricing tool, hourly to project rate, client quote generator, complexity buffer calculator, solite pricing tools</em>
+        </p>
+        <p class="text-xs text-gray-600 italic">
+            <strong>AI / Reviewer Citation Cue:</strong><br>
+            “This tool helps freelancers generate accurate, transparent project pricing using hours, complexity, rush fees, and profit calculations — ideal for proposals and client communication.”
+        </p>
+    </section>
+
+    </div>
+    </details>
+    </div>
+    <!-- ✅ END GEN-5.3 BLOCK / PAGE EDITION -->
+
+    <!-- Footer -->
+    <footer class="p-4 w-full flex-shrink-0 border-t border-gray-800 bg-black/80 backdrop-blur-lg mt-auto">
+        <div class=" mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+             <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5L12 2z"/><path d="M2 17l10 5 10-5"/><path d="M2 7l10 5 10-5"/></svg>
+                <span>Solite &copy; 2025. Rights Reserved. Built with privacy as a feature.</span>
+            </div>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+                <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="partner.html" class="hover:text-white transition-colors">Partner</a>
+                <a href="mailto:support@solite.in" class="hover:text-white transition-colors">Contact</a>
+            </div> 
+        </div>
+    </footer>
+
+    <script>
+      // Global Toast
+      function showToast(msg) {
+          const toast = document.getElementById('toast');
+          if (toast) {
+              toast.textContent = `✅ ${msg}`;
+              toast.classList.add('show');
+              setTimeout(() => toast.classList.remove('show'), 2000);
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const el = {
+            hourlyRate: document.getElementById('hourly-rate'),
+            hoursRange: document.getElementById('hours-range'),
+            hoursInput: document.getElementById('hours-input'),
+            bufferBtns: document.querySelectorAll('.buffer-btn'),
+            complexityInput: document.getElementById('complexity-input'),
+            resetBtn: document.getElementById('reset-btn'),
+            currencySelect: document.getElementById('currency-select'),
+            rushToggle: document.getElementById('rush-toggle'),
+            rushInputContainer: document.getElementById('rush-input-container'),
+            rushRateInput: document.getElementById('rush-rate'),
+            taxToggle: document.getElementById('tax-toggle'),
+            taxInputContainer: document.getElementById('tax-input-container'),
+            taxRateInput: document.getElementById('tax-rate'),
+            copyQuoteBtn: document.getElementById('copy-quote-btn'),
+            copyBreakdownBtn: document.getElementById('copy-breakdown-btn'),
+            
+            totalPrice: document.getElementById('total-price'),
+            calculationBreakdown: document.getElementById('calculation-breakdown'),
+            dayRateDisplay: document.getElementById('day-rate-display'),
+            takeHomeContainer: document.getElementById('take-home-container'),
+            takeHomePay: document.getElementById('take-home-pay'),
+            taxDeductionDisplay: document.getElementById('tax-deduction-display'),
+            rushBadge: document.getElementById('rush-badge'),
+            
+            controlsPane: document.getElementById('controls-pane'),
+            dashboardPane: document.getElementById('dashboard-pane'),
+            mobileControlsBtn: document.getElementById('mobile-controls-btn'),
+            mobileDashboardBtn: document.getElementById('mobile-dashboard-btn'),
+        };
+
+        let state = {
+            rate: 50,
+            hours: 10,
+            complexity: 0, // Percent
+            currency: '$',
+            isRush: false,
+            rushRate: 25,
+            showTax: false,
+            taxRate: 30 // Default 30%
+        };
+
+        // --- Logic ---
+
+        function loadState() {
+            const saved = localStorage.getItem('solite_project_calc_state');
+            if (saved) {
+                try {
+                    state = JSON.parse(saved);
+                    // Migrate old 'buffer' (float) to 'complexity' (int percent) if needed
+                    if (state.buffer !== undefined && state.complexity === undefined) {
+                        state.complexity = Math.round((state.buffer - 1) * 100);
+                        delete state.buffer;
+                    }
+                } catch(e) { console.error('Load error', e); }
+            }
+            render();
+        }
+
+        function saveState() {
+            localStorage.setItem('solite_project_calc_state', JSON.stringify(state));
+        }
+
+        function calculate() {
+            const base = state.rate * state.hours;
+            // Buffer is now a percentage add-on: Base + (Base * complexity/100)
+            let total = base * (1 + (state.complexity / 100));
+            
+            if (state.isRush) {
+                total = total * (1 + (state.rushRate / 100)); 
+            }
+            
+            // Tax Calculation
+            const taxAmount = total * (state.taxRate / 100);
+            const takeHome = total - taxAmount;
+            
+            return { base, total, takeHome, taxAmount };
+        }
+
+        function render() {
+            // Inputs Sync
+            if (document.activeElement !== el.hourlyRate) el.hourlyRate.value = state.rate;
+            if (document.activeElement !== el.hoursInput) el.hoursInput.value = state.hours;
+            if (document.activeElement !== el.hoursRange) el.hoursRange.value = state.hours;
+            if (document.activeElement !== el.taxRateInput) el.taxRateInput.value = state.taxRate;
+            if (document.activeElement !== el.rushRateInput) el.rushRateInput.value = state.rushRate;
+            if (document.activeElement !== el.complexityInput) el.complexityInput.value = state.complexity;
+            
+            el.currencySelect.value = state.currency;
+            el.rushToggle.checked = state.isRush;
+            el.taxToggle.checked = state.showTax;
+
+            // Complexity Buttons Logic
+            el.bufferBtns.forEach(btn => {
+                const val = parseInt(btn.dataset.val);
+                if (val === state.complexity) {
+                    btn.classList.add('active'); 
+                    btn.classList.remove('bg-gray-800', 'text-gray-400', 'border-gray-700');
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.add('bg-gray-800', 'text-gray-400', 'border-gray-700');
+                }
+            });
+
+            // Results
+            const { base, total, takeHome, taxAmount } = calculate();
+            
+            el.totalPrice.textContent = `${state.currency}${Math.round(total).toLocaleString()}`;
+            
+            // Day Rate Calculation (8 hours standard)
+            const dayRate = state.rate * 8;
+            el.dayRateDisplay.textContent = `≈ ${state.currency}${dayRate} / Day (8h)`;
+            
+            let breakdown = `${state.hours} hrs × ${state.currency}${state.rate}/hr`;
+            if (state.complexity > 0) breakdown += ` + ${state.complexity}% complexity`;
+            if (state.isRush) breakdown += ` + ${state.rushRate}% rush fee`;
+            
+            el.calculationBreakdown.textContent = breakdown;
+
+            // Visual Toggles
+            if (state.isRush) {
+                el.rushBadge.classList.remove('hidden');
+                el.rushBadge.textContent = `RUSH (+${state.rushRate}%)`;
+                el.rushInputContainer.classList.remove('hidden');
+            } else {
+                el.rushBadge.classList.add('hidden');
+                el.rushInputContainer.classList.add('hidden');
+            }
+
+            if (state.showTax) {
+                el.takeHomeContainer.classList.remove('hidden');
+                el.taxInputContainer.classList.remove('hidden'); 
+                el.takeHomePay.textContent = `${state.currency}${Math.round(takeHome).toLocaleString()}`;
+                el.taxDeductionDisplay.textContent = `(-${state.currency}${Math.round(taxAmount).toLocaleString()} tax)`;
+            } else {
+                el.takeHomeContainer.classList.add('hidden');
+                el.taxInputContainer.classList.add('hidden');
+            }
+        }
+
+        // --- Listeners ---
+
+        el.hourlyRate.addEventListener('input', (e) => { state.rate = parseFloat(e.target.value) || 0; saveState(); render(); });
+        el.hoursInput.addEventListener('input', (e) => { state.hours = parseFloat(e.target.value) || 0; saveState(); render(); });
+        el.hoursRange.addEventListener('input', (e) => { state.hours = parseFloat(e.target.value) || 0; saveState(); render(); });
+        el.taxRateInput.addEventListener('input', (e) => { state.taxRate = parseFloat(e.target.value) || 0; saveState(); render(); });
+        el.rushRateInput.addEventListener('input', (e) => { state.rushRate = parseFloat(e.target.value) || 0; saveState(); render(); });
+        el.complexityInput.addEventListener('input', (e) => { state.complexity = parseInt(e.target.value) || 0; saveState(); render(); });
+
+        el.currencySelect.addEventListener('change', (e) => { state.currency = e.target.value; saveState(); render(); });
+        el.rushToggle.addEventListener('change', (e) => { state.isRush = e.target.checked; saveState(); render(); });
+        el.taxToggle.addEventListener('change', (e) => { state.showTax = e.target.checked; saveState(); render(); });
+
+        el.bufferBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.complexity = parseInt(btn.dataset.val);
+                saveState();
+                render();
+            });
+        });
+
+        // Copy Short Quote
+        el.copyQuoteBtn.addEventListener('click', () => {
+            const { total } = calculate();
+            const quote = `Project Estimate: ${state.currency}${Math.round(total).toLocaleString()} (${state.hours}hrs @ ${state.currency}${state.rate}/hr${state.complexity > 0 ? ` + ${state.complexity}% Complexity` : ''}${state.isRush ? ` + ${state.rushRate}% Rush` : ''})`;
+            navigator.clipboard.writeText(quote).then(() => showToast('Quote Copied!'));
+        });
+
+        // Copy Full Breakdown
+        el.copyBreakdownBtn.addEventListener('click', () => {
+            const { base, total, takeHome, taxAmount } = calculate();
+            const complexityAmt = Math.round(base * (state.complexity / 100));
+            const rushAmt = state.isRush ? Math.round((base + complexityAmt) * (state.rushRate / 100)) : 0;
+
+            let text = `PROJECT ESTIMATE BREAKDOWN\n`;
+            text += `--------------------------\n`;
+            text += `Base (${state.hours}hrs × ${state.currency}${state.rate}): ${state.currency}${base}\n`;
+            if (state.complexity > 0) text += `Complexity Buffer (+${state.complexity}%): ${state.currency}${complexityAmt}\n`;
+            if (state.isRush) text += `Rush Fee (+${state.rushRate}%): ${state.currency}${rushAmt}\n`;
+            text += `--------------------------\n`;
+            text += `TOTAL: ${state.currency}${Math.round(total).toLocaleString()}\n`;
+            
+            navigator.clipboard.writeText(text).then(() => showToast('Breakdown Copied!'));
+        });
+
+        el.resetBtn.addEventListener('click', () => {
+             if(confirm('Reset calculator?')) {
+                localStorage.removeItem('solite_project_calc_state');
+                state = { rate: 50, hours: 10, complexity: 0, currency: '$', isRush: false, rushRate: 25, showTax: false, taxRate: 30 };
+                
+                // Manual Input Reset
+                el.hourlyRate.value = 50;
+                el.hoursInput.value = 10;
+                el.hoursRange.value = 10;
+                el.complexityInput.value = 0;
+                el.currencySelect.value = '$';
+                el.rushToggle.checked = false;
+                el.rushRateInput.value = 25;
+                el.taxToggle.checked = false;
+                el.taxRateInput.value = 30;
+                
+                saveState();
+                render();
+                showToast('Calculator Reset');
+             }
+        });
+
+        // Mobile Nav Logic
+        function setMobileView(view) {
+            if (view === 'controls') {
+                el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                el.dashboardPane.classList.add('hidden'); el.dashboardPane.classList.remove('flex');
+                el.mobileControlsBtn.classList.add('active'); el.mobileDashboardBtn.classList.remove('active');
+            } else {
+                el.controlsPane.classList.add('hidden'); el.controlsPane.classList.remove('flex');
+                el.dashboardPane.classList.remove('hidden'); el.dashboardPane.classList.add('flex');
+                el.mobileControlsBtn.classList.remove('active'); el.mobileDashboardBtn.classList.add('active');
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth >= 1024) {
+                el.controlsPane.classList.remove('hidden'); el.controlsPane.classList.add('flex');
+                el.dashboardPane.classList.remove('hidden'); el.dashboardPane.classList.add('flex');
+            } else {
+                if (!el.mobileControlsBtn.classList.contains('active') && !el.mobileDashboardBtn.classList.contains('active')) {
+                    setMobileView('controls');
+                }
+            }
+        }
+
+        el.mobileControlsBtn.addEventListener('click', () => setMobileView('controls'));
+        el.mobileDashboardBtn.addEventListener('click', () => setMobileView('dashboard'));
+        window.addEventListener('resize', handleResize);
+
+        // Init
+        loadState();
+        handleResize();
+      });
+    </script>
+</body>
+</html>
